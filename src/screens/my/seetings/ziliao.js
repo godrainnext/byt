@@ -1,4 +1,4 @@
-{/*
+
 import React, { PureComponent } from 'react';
 import {
   Text,
@@ -395,4 +395,3 @@ export default connect(
   }),
   { getUserInfoAction, changeAvatar }
 )(Ziliao);
-*/}

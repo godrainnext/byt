@@ -189,26 +189,8 @@ class Index extends PureComponent {
           }}
           source={require('./2.png')}
         >
-          {tabs.map((v, i) => (
-            <TouchableOpacity
-              key={i}
-              onPress={() => goToPage(i)}
-              style={{
-                justifyContent: 'center',
-                borderBottomColor: '#003C66',
-                borderBottomWidth: activeTab === i ? pxToDp(3) : 0
-              }}
-            >
-              <Text
-                style={{
-                  color: activeTab === i ? 'black' : 'grey',
-                  fontSize: activeTab === i ? pxToDp(20) : pxToDp(15)
-                }}
-              >
-                {v}
-              </Text>
-            </TouchableOpacity>
-          ))}
+       
+    
         </View>
       </View>
     );
