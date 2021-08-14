@@ -141,6 +141,8 @@ function Nav() {
         <Stack.Screen name="Scriptlibrary" component={Screens.Scriptlibrary} />
         {/**名角个人页 */}
         <Stack.Screen name="Actress" component={Screens.Actress} />
+        <Stack.Screen name="address" component={Screens.address} />
+        <Stack.Screen name="newAddress" component={Screens.newAddress} />
       </Stack.Navigator>
     </NavigationContainer>
   );

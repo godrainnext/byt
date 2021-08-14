@@ -1,16 +1,9 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, memo } from 'react';
 import Carousel, { ParallaxImage } from 'react-native-snap-carousel';
-import {
-  View,
-  Text,
-  Dimensions,
-  StyleSheet,
-  TouchableOpacity,
-  Platform
-} from 'react-native';
+import { View, StyleSheet, Platform } from 'react-native';
 import { pxToDp } from '../../utils/styleKits';
 
-const MyCarousel = (props) => {
+const MyCarousel = memo((props) => {
   const [entries, setEntries] = useState([]);
   const carouselRef = useRef(null);
 
@@ -60,7 +53,7 @@ const MyCarousel = (props) => {
       />
     </View>
   );
-};
+});
 
 export default MyCarousel;
 
