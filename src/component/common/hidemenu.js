@@ -170,7 +170,7 @@ export class AlwaysOpen extends PureComponent {
           }}
         >
           {/* 时空地图 */}
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => this.context.navigate('Timemap')}>
             <View
               style={{
                 justifyContent: 'center',
@@ -193,7 +193,7 @@ export class AlwaysOpen extends PureComponent {
             </View>
           </TouchableOpacity>
           {/* 相关图片 */}
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => this.context.navigate('relatedImg')}>
             <View style={{ justifyContent: 'center', height: pxToDp(60) }}>
               <View style={{ alignItems: 'center' }}>
                 <SvgUri svgXmlData={img} width="30" height="30" />
@@ -239,7 +239,7 @@ export class AlwaysOpen extends PureComponent {
       <Modalize
         ref={this.modalizeRef}
         modalStyle={s.content__modal}
-        alwaysOpen={500}
+        alwaysOpen={580}
         handlePosition="inside"
       >
         {this.renderContent()}
@@ -251,35 +251,36 @@ export class AlwaysOpen extends PureComponent {
 const s = StyleSheet.create({
   content__modal: {
     shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.45,
-    shadowRadius: 16
+    shadowOpacity: pxToDp(0.45),
+    shadowRadius: pxToDp(16)
   },
 
   content__subheading: {
-    marginBottom: 2,
+    marginBottom: pxToDp(2),
 
-    fontSize: 16,
+    fontSize: pxToDp(16),
     fontWeight: '600',
     color: '#ccc'
   },
 
   content__heading: {
-    fontSize: 24,
+    fontSize: pxToDp(24),
     fontWeight: '600',
     color: '#333'
   },
 
   content__description: {
-    paddingTop: 10,
-    paddingBottom: 10,
+    paddingTop: pxToDp(10),
+    paddingBottom: pxToDp(10),
 
-    fontSize: 15,
+    fontSize: pxToDp(15),
     fontWeight: '200',
-    lineHeight: 22,
+    lineHeight: pxToDp(22),
     color: '#666'
   },
   bigbox: {
-    height: 560,
-    marginTop: pxToDp(20)
+    flex: 1,
+    marginTop: pxToDp(20),
+    marginBottom: pxToDp(100)
   }
 });
