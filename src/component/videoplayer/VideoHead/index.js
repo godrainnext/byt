@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, ImageBackground, TouchableOpacity, Text, StatusBar } from 'react-native';
-import VideoPlayScreen from '../VideoPlayScreen.js';
-import { pxToDp } from '../../../utils/stylesKits.js';
+import VideoPlayScreen from '../VideoPlayScreen';
+import { pxToDp } from '@utils/styleKits';
 import { Button } from 'react-native-elements';
 class index extends Component {
     constructor(props) {

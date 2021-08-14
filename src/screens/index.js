@@ -10,7 +10,7 @@ export { default as Optuijian } from './first/opera/optuijian'; //唱段推荐
 export { default as Opperson } from './first/opera/opperson'; //名角的唱段页面
 export { default as Opgroup } from './first/opera/opgroup'; //流派的唱段页面
 export { default as Actress } from './first/actress/index'; //名角个人页
-export { default as Album } from './first/album/idnex'//专辑页面
+export { default as Album } from './first/album/index'//专辑页面
 export { default as MusicPlayer } from './first/musicplayer/musicPlayer'//歌曲播放页面
 export { default as Card } from './first/card/index';//俯瞰百年卡片
 
@@ -84,3 +84,4 @@ export { default as Forum } from './talk/home/forum/index'; //论坛页面
 export { default as Screenpaly } from './talk/home/script/screenplay'; //论坛页面
 
 export { default as SeeZhiBo } from './talk/zhiboye/gindex';
+export { default as Video } from '../component/videoplayer/index'

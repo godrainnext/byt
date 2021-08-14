@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableWithoutFeedback, TouchableOpacity, Dimensions, Image, textarea, Button, TextInput, } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
-import { pxToDp } from '../../../utils/stylesKits';
+import { pxToDp } from '@utils/styleKits';
 import { MarqueeHorizontal, MarqueeVertical } from 'react-native-marquee-ab';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import Icon1 from 'react-native-vector-icons/MaterialIcons';
@@ -33,7 +33,7 @@ class index extends Component {
                         <View>
                             <View style={{ justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }}>
                                 <View style={{ width: '18%', borderRadius: pxToDp(50), backgroundColor: '#bbb', justifyContent: 'center', alignItems: 'center' }}>
-                                    <Image style={{ width: pxToDp(50), height: pxToDp(50), borderRadius: pxToDp(60) }} source={require('../../../images/head1.jpg')}></Image>
+                                    <Image style={{ width: pxToDp(50), height: pxToDp(50), borderRadius: pxToDp(60) }} source={require('../../../res/1.jpg')}></Image>
                                 </View>
                                 <View style={{ width: '82%', height: pxToDp(50), justifyContent: 'space-evenly', paddingLeft: pxToDp(8) }}>
                                     <Text style={{ fontSize: pxToDp(14) }}>可畏的男人</Text><Text>7-11</Text>
@@ -67,7 +67,7 @@ class index extends Component {
                         <View>
                             <View style={{ justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }}>
                                 <View style={{ width: '18%', borderRadius: pxToDp(50), backgroundColor: '#bbb', justifyContent: 'center', alignItems: 'center' }}>
-                                    <Image style={{ width: pxToDp(50), height: pxToDp(50), borderRadius: pxToDp(60) }} source={require('../../../images/head1.jpg')}></Image>
+                                    <Image style={{ width: pxToDp(50), height: pxToDp(50), borderRadius: pxToDp(60) }} source={require('../../../res/11.jpg')}></Image>
                                 </View>
                                 <View style={{ width: '82%', height: pxToDp(50), justifyContent: 'space-evenly', paddingLeft: pxToDp(8) }}>
                                     <Text style={{ fontSize: pxToDp(14) }}>可畏的男人</Text><Text>7-11</Text>
@@ -101,7 +101,7 @@ class index extends Component {
                         <View>
                             <View style={{ justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }}>
                                 <View style={{ width: '18%', borderRadius: pxToDp(50), backgroundColor: '#bbb', justifyContent: 'center', alignItems: 'center' }}>
-                                    <Image style={{ width: pxToDp(50), height: pxToDp(50), borderRadius: pxToDp(60) }} source={require('../../../images/head1.jpg')}></Image>
+                                    <Image style={{ width: pxToDp(50), height: pxToDp(50), borderRadius: pxToDp(60) }} source={require('../../../res/14.jpg')}></Image>
                                 </View>
                                 <View style={{ width: '82%', height: pxToDp(50), justifyContent: 'space-evenly', paddingLeft: pxToDp(8) }}>
                                     <Text style={{ fontSize: pxToDp(14) }}>可畏的男人</Text><Text>7-11</Text>
