@@ -13,6 +13,7 @@ import { NavigationContext } from '@react-navigation/native';
 import Top from '@components/common/top';
 import { pxToDp } from '@utils/styleKits';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import Entypo from 'react-native-vector-icons/Entypo';
 import { TextInput } from 'react-native-gesture-handler';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import StepIndicator from 'react-native-step-indicator';
@@ -30,27 +31,7 @@ class Index extends PureComponent {
       color: '#468cd3',
       currentPosition: 0,
       isclick: false,
-      jifen: ['+5', '+10', '+15', '+20', '+25', '+30', '+35'],
-      text: '',
-      appId: '29792ec3eded410facd609fb7ad76fef',
-      peerIds: [],
-      token: '00629792ec3eded410facd609fb7ad76fefIADCc8H70U749XGwDaAgInl0TjHWz2j6gN0U1okFKIK5sUgDg6MAAAAAEACcjToMHqkYYQEAAQAeqRhh',
-      channelName: 'ABC',
-      arr: [
-        {
-          bacUriL: 'https://anchorpost.msstatic.com/cdnimage/anchorpost/1033/27/a678d87465509b7483726f82dfba20_2168_1627155664.jpg?imageview/4/0/w/338/h/190/blur/1/format/webp',
-          nameL: '糖可爱',
-          titleL: '恭喜镇长超皇恭喜真爷超皇！ 大象np',
-          numL: '2.5万',
-          bacUriR: 'https://anchorpost.msstatic.com/cdnimage/anchorpost/1032/dc/d7e5883b0e124c0c0834e960090c95_5883_1606125262.jpg?imageview/4/0/w/338/h/190/blur/1/format/webp',
-          nameR: '郭德纲于谦相声24小时',
-          titleR: '【无唱段】郭德纲于谦相声德云晚安音频轮播',
-          numR: '7546',
-          appId: '29792ec3eded410facd609fb7ad76fef',
-          channelName: 'ABC',
-          token: '00629792ec3eded410facd609fb7ad76fefIADCc8H70U749XGwDaAgInl0TjHWz2j6gN0U1okFKIK5sUgDg6MAAAAAEACcjToMHqkYYQEAAQAeqRhh',
-          roomName: 'hdia'
-        }]
+      jifen: ['+5', '+10', '+15', '+20', '+25', '+30', '+35']
     };
   }
   static contextType = NavigationContext;
@@ -61,90 +42,9 @@ class Index extends PureComponent {
   setModalVisibles = (visible) => {
     this.setState({ modalVisibles: visible });
   };
-  // kaifang = () => {
-  //   // this.Scrollable1.open();
-  //   this.context.navigate('KaiFang')
-  // }
-  componentDidMount() {
-    // this.init();r
-  }
-
-  /**
-   * @name init
-   * @description Function to initialize the Rtc Engine, attach event listeners and actions
-   */
-  init = async () => {
-    console.log(123);
-    const { appId } = this.state;
-    // this._engine = await RtcEngine.create(appId);
-    // await this._engine.enableVideo();
-
-    this._engine = await RtcEngine.create(appId)
-    // 启用视频模块。
-    await this._engine.enableVideo()
-    // 开启本地视频预览。
-    await this._engine.startPreview()
-    // 将频道场景设为直播。
-    await this._engine.setChannelProfile(ChannelProfile.LiveBroadcasting)
-    // 设置用户角色为主播。
-    await this._engine.setClientRole(ClientRole.Broadcaster)
-    this._engine.addListener('Warning', (warn) => {
-      console.log('Warning', warn);
-    });
-
-    this._engine.addListener('Error', (err) => {
-      console.log('Error', err);
-    });
-
-    this._engine.addListener('UserJoined', (uid, elapsed) => {
-      console.log('UserJoined', uid, elapsed);
-      // Get current peer IDs
-      const { peerIds } = this.state;
-      // If new user
-      if (peerIds.indexOf(uid) === -1) {
-        this.setState({
-          // Add peer ID to state array
-          peerIds: [...peerIds, uid],
-        });
-      }
-    });
-
-    this._engine.addListener('UserOffline', (uid, reason) => {
-      console.log('UserOffline', uid, reason);
-      const { peerIds } = this.state;
-      this.setState({
-        // Remove peer ID from state array
-        peerIds: peerIds.filter((id) => id !== uid),
-      });
-    });
-
-    // If Local user joins RTC channel
-    this._engine.addListener('JoinChannelSuccess', (channel, uid, elapsed) => {
-      console.log('JoinChannelSuccess', channel, uid, elapsed);
-      // Set state variable to true
-      this.setState({
-        joinSucceed: true,
-      });
-    });
-    console.log(1234);
-  };
-
-  startCall = async () => {
-    // console.log(this.props.route.params.token)
-    // await this.init()
-    // Join Channel using null token and channel name
-    await this._engine?.joinChannel(
-      // this.props.route.params.token,
-      // this.props.route.params.channelName,
-      this.state.token,
-      this.state.channelName,
-      null,
-      0
-    );
-  };
-
   render() {
-    const { modalVisible, modalVisibles, text } = this.state;
+    const { modalVisible } = this.state;
+    const { modalVisibles } = this.state;
     const labels = [
       '第一天',
       '第二天',
@@ -177,23 +77,6 @@ class Index extends PureComponent {
       labelSize: 13,
       currentStepLabelColor: '#468cd3'
     };
-
-    const kaifang = () => {
-      this.Scrollable1.close();
-      this.context.navigate('KaiFang'),
-        console.log(123)
-    }
-    const chafang = () => {
-      this.Scrollable3.close();
-      this.context.navigate('SeeFang', {
-        roomName: this.state.arr[0].roomName,
-        channelName: this.state.text,
-        token: this.state.arr[0].token,
-        startCall: this.startCall,
-        peerIds: this.state.peerIds
-      })
-    }
-
     return (
       <View>
         <Top title="越吟" />
@@ -389,6 +272,12 @@ class Index extends PureComponent {
                 <Text>教程</Text>
               </View>
             </TouchableOpacity>
+            <TouchableOpacity onPress={() => this.context.navigate('Timeline')}>
+              <View style={{ alignItems: 'center' }}>
+                <Entypo name="colours" size={28} color="#468CD3" />
+                <Text>时间轴</Text>
+              </View>
+            </TouchableOpacity>
           </View>
           {/*单人练唱 */}
           <View style={{ marginLeft: pxToDp(10), marginRight: pxToDp(10) }}>
@@ -479,7 +368,7 @@ class Index extends PureComponent {
                 showsHorizontalScrollIndicator={false}
               >
                 <View style={styles.gridContainer}>
-                  <TouchableOpacity onPress={kaifang}>
+                  <TouchableOpacity>
                     <View style={styles.textbox}>
                       <Text style={styles.text}>创建公开房间</Text>
                     </View>
@@ -553,15 +442,13 @@ class Index extends PureComponent {
                   <TouchableOpacity>
                     <View>
                       <TextInput
-                        value={text}
-                        onChangeText={t => this.setState({ text: t })}
                         style={styles.textinputbox}
                         placeholder="输入房间号"
                         textAlign="center"
                       ></TextInput>
                     </View>
                   </TouchableOpacity>
-                  <TouchableOpacity onPress={chafang}>
+                  <TouchableOpacity>
                     <View style={styles.textbox}>
                       <Text style={styles.text}>加入房间</Text>
                     </View>

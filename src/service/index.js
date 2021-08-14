@@ -13,7 +13,6 @@ export default new JLRequest({
       if (token) {
         config.headers.Authorization = `Bearer ${token}`;
       }
-
       return config;
     },
     requestInterceptorCatch(err) {

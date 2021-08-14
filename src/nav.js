@@ -47,12 +47,20 @@ function Nav() {
         {/** 积分商城*/}
         <Stack.Screen name="Jifenshop" component={Screens.Jifenshop} />
         {/** 总订单页面*/}
+        <Stack.Screen name="pointshop" component={Screens.pointshop} />
+        {/* 积分商城 */}
         <Stack.Screen name="Order" component={Screens.Order} />
         {/** 订单信息页*/}
         <Stack.Screen name="Myorder" component={Screens.Myorder} />
         {/**地址 */}
+        <Stack.Screen name="address" component={Screens.address} />
+        {/**增加新地址 */}
+        <Stack.Screen name="newAddress" component={Screens.newAddress} />
+        {/**全部订单 */}
         <Stack.Screen name="leaseorder" component={Screens.leaseorder} />
         {/**全部订单 */}
+        <Stack.Screen name="paySuccess" component={Screens.paySuccess} />
+        {/* 支付成功页 */}
         <Stack.Screen name="Orderone" component={Screens.Orderone} />
         {/**退款订单页面 */}
         <Stack.Screen name="Refund" component={Screens.Refund} />
@@ -141,8 +149,8 @@ function Nav() {
         <Stack.Screen name="Scriptlibrary" component={Screens.Scriptlibrary} />
         {/**名角个人页 */}
         <Stack.Screen name="Actress" component={Screens.Actress} />
-        <Stack.Screen name="address" component={Screens.address} />
-        <Stack.Screen name="newAddress" component={Screens.newAddress} />
+        {/* 剧本详情 */}
+        <Stack.Screen name="Screenpaly" component={Screens.Screenpaly} />
       </Stack.Navigator>
     </NavigationContainer>
   );
