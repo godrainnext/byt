@@ -1,19 +1,20 @@
-import React, { PureComponent } from 'react'
-import { Text, View, SafeAreaView, ScrollView } from 'react-native'
+import React, { PureComponent } from 'react';
+import { Text, View, SafeAreaView, ScrollView } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import { sliderWidth, itemWidth } from './scorll/styles/SliderEntry.style';
 import SliderEntry from './scorll/components/SliderEntry';
 import styles, { colors } from './scorll/styles/index.style';
-import { getListByStatus } from '@service/home'
+import { getListByStatus } from '@service/home';
 import { pxToDp } from '@utils/styleKits';
 import { NavigationContext } from '@react-navigation/native';
 
 export default class Hy extends PureComponent {
-  state = { enter: [] }
+  state = { enter: [] };
   componentDidMount() {
-    getListByStatus(1).then(res => {
-      this.setState({ enter: res })
-    })
+    getListByStatus(1).then((res) => {
+      console.log(res);
+      this.setState({ enter: res });
+    });
   }
   static contextType = NavigationContext;
   _renderItem({ item, index }) {
@@ -53,6 +54,6 @@ export default class Hy extends PureComponent {
           </ScrollView>
         </View>
       </SafeAreaView>
-    )
+    );
   }
 }

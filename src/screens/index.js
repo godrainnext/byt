@@ -51,7 +51,8 @@ export { default as Zulin } from './shop/home/zulin'; //服装租赁页
 export { default as ticket } from './shop/home/ticket/index'; //票务系统
 export { default as ticketdetail } from './shop/home/ticket/ticketdetail'; //票务系统详情
 export { default as Lease } from './shop/home/goods/lease'; //新增收货地址
-
+export { default as pointshop } from './shop/home/jifen/index'; //积分商城详情
+export { default as paySuccess } from './my/pay/paySuccess'; //支付成功页
 export { default as Play } from './play/home'; //游玩首页
 export { default as Study } from './play/study/study'; //练唱
 export { default as Details } from './play/study/details'; //练唱详情
@@ -62,6 +63,7 @@ export { default as Act } from './play/act'; //双人剧本页
 export { default as Drama } from './play/act/drama'; //剧本
 export { default as Scriptlibrary } from './play/scriptlibrary'; //剧本库
 export { default as VR } from './play/vr'; //越剧小镇VR
+export { default as relatedImg } from './Timeline/relatedImg'; //相关图片
 export { default as Course } from './play/course'; //教程页面
 export { default as Basic } from './play/course/bankuai/basic'; //越剧基本功板块
 export { default as Master } from './play/course/bankuai/master'; //越剧大师教学板块
@@ -76,5 +78,8 @@ export { default as SeeFang } from './talk/home/talkRoom/gindex'; //开启合唱
 export { default as Create } from './talk/home/live/create'; //剧本创作页
 export { default as Inluntan } from './talk/home/forum/inluntan';
 export { default as Forum } from './talk/home/forum/index'; //论坛页面
+
+
+export { default as Screenpaly } from './talk/home/script/screenplay'; //论坛页面
 
 export { default as SeeZhiBo } from './talk/zhiboye/gindex';

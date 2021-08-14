@@ -8,6 +8,7 @@ import {
   StyleSheet
 } from 'react-native';
 import { pxToDp } from '../../../utils/styleKits';
+import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import Icon1 from 'react-native-vector-icons/MaterialIcons';
 import { NavigationContext } from '@react-navigation/native';
 

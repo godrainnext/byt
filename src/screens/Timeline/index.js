@@ -13,6 +13,7 @@ import Swiper from 'react-native-swiper';
 import { pxToDp } from '../../utils/styleKits';
 import Feather from 'react-native-vector-icons/Feather';
 import { AlwaysOpen } from '../../component/common/hidemenu';
+
 export default class index extends PureComponent {
   constructor(props) {
     super(props);
@@ -351,6 +352,32 @@ export default class index extends PureComponent {
               </View>
             </View>
           </View>
+          {/* <Swiper
+              removeClippedSubviews={false}
+              showsButtons={true} //显示控制按钮
+              showsPagination={true} //是否显示小圆点
+              autoplayTimeout={3} //每隔3秒切换
+            >
+              <View style={styles.slide}>
+                <ImageBackground
+                  style={styles.image}
+                  //   source={require("../../res/22.jpg")}
+                ></ImageBackground>
+              </View>
+              <View style={styles.slide}>
+                <ImageBackground
+                  style={styles.image}
+                  // source={require("../../res/8.jpg")}
+                />
+              </View>
+              <View style={styles.slide}>
+                <ImageBackground
+                  style={styles.image}
+                  //  source={require("../../res/performer/10.jpg")}
+                />
+              </View>
+            </Swiper> */}
+
           <AlwaysOpen ArrData={ArrIndex} />
         </View>
       </View>

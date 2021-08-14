@@ -47,12 +47,20 @@ function Nav() {
         {/** 积分商城*/}
         <Stack.Screen name="Jifenshop" component={Screens.Jifenshop} />
         {/** 总订单页面*/}
+        <Stack.Screen name="pointshop" component={Screens.pointshop} />
+        {/* 积分商城 */}
         <Stack.Screen name="Order" component={Screens.Order} />
         {/** 订单信息页*/}
         <Stack.Screen name="Myorder" component={Screens.Myorder} />
         {/**地址 */}
+        <Stack.Screen name="address" component={Screens.address} />
+        {/**增加新地址 */}
+        <Stack.Screen name="newAddress" component={Screens.newAddress} />
+        {/**全部订单 */}
         <Stack.Screen name="leaseorder" component={Screens.leaseorder} />
         {/**全部订单 */}
+        <Stack.Screen name="paySuccess" component={Screens.paySuccess} />
+        {/* 支付成功页 */}
         <Stack.Screen name="Orderone" component={Screens.Orderone} />
         {/**退款订单页面 */}
         <Stack.Screen name="Refund" component={Screens.Refund} />
@@ -109,6 +117,8 @@ function Nav() {
         {/*Vr */}
         <Stack.Screen name="VR" component={Screens.VR} />
         {/**教程页面 */}
+        <Stack.Screen name="relatedImg" component={Screens.relatedImg} />
+        {/* 相关图片 */}
         <Stack.Screen name="Course" component={Screens.Course} />
         <Stack.Screen name="Timemap" component={Screens.Timemap} />
         {/**越剧基本功页面 */}
@@ -147,6 +157,8 @@ function Nav() {
         <Stack.Screen name="MusicPlayer" component={Screens.MusicPlayer} />
         {/*流派页 */}
         <Stack.Screen name="School" component={Screens.School} />
+        {/* 剧本详情 */}
+        <Stack.Screen name="Screenpaly" component={Screens.Screenpaly} />
       </Stack.Navigator>
     </NavigationContainer>
   );
