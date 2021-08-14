@@ -16,13 +16,13 @@ import Icon1 from 'react-native-vector-icons/MaterialIcons';
 import Icon2 from 'react-native-vector-icons/MaterialIcons';
 import { Carousel } from '../../../component/common/teaset';
 import SnapCarousel from '../../../component/SnapCarousel/index';
-//import { Video } from 'expo-av';
+//import { Video } from 'react-native-video';
 
 class Index extends PureComponent {
   state = {
 
-}
-static contextType = NavigationContext;
+  }
+  static contextType = NavigationContext;
   render() {
     return (
       <View style={{ backgroundColor: '#ecf6fc', flex: 1 }}>
@@ -30,8 +30,8 @@ static contextType = NavigationContext;
           <Top icon1="arrow-back" title="教程" />
           <ScrollView style={{ marginBottom: pxToDp(50) }}>
             {/*视频 */}
-            <View style={{ flex: 1 }}>
-          {  /*  <Video
+            {/*<View style={{ flex: 1 }}>
+              <Video
                 source={require('../../../res/越剧介绍.mp4')}
                 rate={1.0}
                 volume={1.0}
@@ -43,9 +43,8 @@ static contextType = NavigationContext;
                   width: pxToDp(355),
                   height: pxToDp(200),
                   margin: pxToDp(10)
-                }}
-              />*/}
-            </View>
+              />
+            </View>*/}
             <View
               style={{
                 flexDirection: 'row',
