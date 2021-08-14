@@ -5,6 +5,7 @@ import RtcEngine, { RtcLocalView, RtcRemoteView, VideoRenderMode, ChannelProfile
 import { WebView } from 'react-native-webview';
 import { MarqueeHorizontal, MarqueeVertical } from 'react-native-marquee-ab';
 import { pxToDp } from '@utils/stylesKits';
+import Top from '../../../component/common/top';
 import LottieView from 'lottie-react-native';
 import { NavigationContext } from '@react-navigation/native';
 import axios from 'axios';
