@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/zhibo.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app">
+        <!-- 留言输入框 -->
+        <div class="liu-input" v-if="showLy">
+            <div class="input-pre" @click="inpFocue" v-if="isShowXie">
+                <!-- <img class="input-xie" src="./img/xie.png" alt=""> -->
+                <img class="input-xie" src="./img/1.png" alt="">
+                <span class="input-tip">说点什么... ... </span>
+            </div>
+            <input type="text" v-model="txt" ref="inp" maxlength="40" @focus="inputFocue" @blur="inputBlur"
+                class="input-txt">
+            <div v-if="txt" class="send-act" @click="add(txt, true)"></div>
+            <img src="./img/1.png" v-if="txt" class="input-send" alt="">
+            <!-- <img src="./img/send_img.png" v-if="txt" class="input-send" alt=""> -->
+        </div>
+
+        <!-- 留言板 -->
+        <div class="out" v-if="showLy">
+        </div>
+        <div class="out-con" v-if="showLy">
+            <div class="con-1">
+                <div class="title">
+                    <!-- <img src="./img/axly.png" class="title-left" alt=""> -->
+                    <img src="./img/1.png" class="title-left" alt="">
+                    <div @click="hideLy" class="title-right">收起
+                        <!-- <img class="right-jian" src="./img/jian_tou.png" alt=""> -->
+                        <img class="right-jian" src="./img/1.png" alt="">
+                    </div>
+                </div>
+                <div class="content-out">
+                    <div class="content" ref="box" :class="{anim:animate==true}">
+                        <div class="msg" v-for="(item, index) in arr" :key="index">
+                            <div class="userInfo">
+                                <!-- <div class="name" :style="{width:item.name.length*1.125 + 'rem'}">{{ item.name }}</div> -->
+                                <div class="li">
+                                    <span>{{ item.name }}：{{ item.content }}</span>
+                                </div>
+                            </div>
+                            <!-- <div class="li">
+                                <span>{{ item.content }}</span>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 打开留言板按钮 -->
+        <div class="jiao_biao" @click="showLyFun" v-if="!showLy">
+            <!-- <img src="./img/ly_xin.png" alt=""> -->
+            <p>评论</p>
+        </div>
+    </div>
+    <script src="./js/data.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        let data1 = data;
+        console.log(data1);
+        var app = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    txt: '',
+                    isShowXie: true,
+                    arr: [],
+                    scrollDistance: 0,
+                    items: [],
+                    list: [],
+                    showLy: false,
+                    i: 5,
+                    guaqi: false,
+                    animate: false
+                }
+            },
+            watch: {
+                // 监听展示的数组 根据数组变化 实现滚动
+                arr: {
+                    handler() {
+                        console.log(this.arr.length);
+                        let time;
+                        if (!this.showLy) {
+                            return;
+                        }
+                        if (this.isSend) {
+                            time = 100;
+                        } else {
+                            time = 1500;
+                        }
+                        setTimeout(() => {
+                            let node = document.querySelector(".content-out");
+                            let node1 = document.querySelector(".content");
+                            if (node) {
+                                this.scrollDistance = node1.clientHeight - node.clientHeight;
+                                if (this.scrollDistance > 0) {
+                                    this.animate = true;
+                                    node1.style.transform = 'translateY(-' + this.scrollDistance +
+                                        'px)';
+                                }
+                            }
+                        }, time);
+                    },
+                },
+            },
+            created() {
+                this.getNoteList();
+            },
+            mounted() {
+                // 网页挂起和唤醒时的操作 挂起时暂停 唤起开始
+                document.addEventListener("visibilitychange", () => {
+                    if (document.hidden) { //网页被挂起
+                        this.guaqi = true;
+                    } else {
+                        this.guaqi = false;
+                        let xxx = window.setInterval(() => {
+                            if (!this.showLy || this.guaqi) {
+                                window.clearInterval(xxx);
+                                if (this.arr.length > 10) {
+                                    this.arr = this.arr.slice(this.arr.length - 5);
+                                }
+                                return;
+                            }
+                            if (this.i > this.items.length - 1) {
+                                this.i = 0;
+                            }
+                            this.add(this.items[this.i]);
+                            this.i++;
+                        }, 1500);
+                    }
+                })
+            },
+            methods: {
+                // 留言模块
+                getSubName(name) {
+                    let newName;
+                    if (name) {
+                        if (name.length > 6) {
+                            newName = name.substring(0, 6) + '...';
+                        } else {
+                            newName = name;
+                        }
+                    } else {
+                        newName = '';
+                    }
+                    return newName;
+                },
+                // 获取留言列表
+                getNoteList() {
+                    var _this = this;
+                    let items = data1;
+                    // 此处先展示五笔 与i相对应 为的是：一进留言板 留言板不空荡
+                    for (let index = 0; index < 5; index++) {
+                        const ele = items[index];
+                        ele.name = _this.getSubName(ele.name);
+                        _this.arr = [
+                            ..._this.arr,
+                            ele,
+                        ];
+                    }
+                    _this.items = items;
+                    setTimeout(() => {
+                        _this.showLy = true;
+                    }, 1000)
+                    // 开始滚动
+                    let xxx = window.setInterval(() => {
+                        if (!_this.showLy || _this.guaqi) {
+                            window.clearInterval(xxx);
+                            if (_this.arr.length > 10) {
+                                _this.arr = _this.arr.slice(_this.arr.length - 5);
+                            }
+                            return;
+                        }
+                        if (_this.i > _this.items.length - 1) {
+                            _this.i = 0;
+                        }
+                        _this.add(_this.items[_this.i]);
+                        _this.i++;
+                    }, 1500);
+                },
+                // 点击输入框
+                inpFocue() {
+                    this.$refs.inp.focus();
+                },
+                // 聚焦时隐藏提示文字
+                inputFocue() {
+                    this.isShowXie = false;
+                },
+                // 失去焦点时展示提示文字
+                inputBlur() {
+                    if (!this.txt) {
+                        this.isShowXie = true;
+                    }
+                },
+                // 新增留言
+                add(element, flag) {
+                    if (!element) {
+                        return;
+                    }
+                    this.isSend = flag;
+                    if (flag) {
+                        if (element.length > 40) {
+                            this.showMegClickFa('内容过长哦～');
+                            return;
+                        }
+                        this.userName = '懿小诺'
+                        this.fdName = '滁州'
+                        console.log(this.userName);
+                        let temp = {
+                            "content": element,
+                            "fdName": this.fdName ? this.fdName : '',
+                            "id": "",
+                            "name": this.getSubName(this.userName)
+                        };
+                        console.log(temp);
+                        this.arr = [
+                            ...this.arr,
+                            temp
+                        ];
+                        this.items = [
+                            ...this.items, {
+                                "content": element,
+                                "fdName": this.fdName ? this.fdName : '',
+                                "id": "",
+                                "name": this.getSubName(this.userName)
+                            },
+                        ];
+                        // 。。。调服务提交
+                        var _this = this;
+                        console.log('内容', _this.txt);
+                        console.log('留言成功');
+                        _this.txt = '';
+                        _this.inputBlur();
+                    } else {
+                        this.arr = [
+                            ...this.arr,
+                            element
+                        ];
+                    }
+                },
+                // 收起留言板
+                hideLy() {
+                    this.txt = ''
+                    this.showLy = false;
+                },
+                // 展开留言板
+                showLyFun() {
+                    this.showLy = true;
+                    let xxx = window.setInterval(() => {
+                        if (!this.showLy || this.guaqi) {
+                            window.clearInterval(xxx);
+                            if (this.arr.length > 10) {
+                                this.arr = this.arr.slice(this.arr.length - 5);
+                            }
+                            return;
+                        }
+                        if (this.i > this.items.length - 1) {
+                            this.i = 0;
+                        }
+                        this.add(this.items[this.i]);
+                        this.i++;
+                    }, 1500);
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
