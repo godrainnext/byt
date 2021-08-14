@@ -22,6 +22,7 @@ class orders extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
+      defaultAddress: {},
       paidway: [
         {
           id: 1,
@@ -64,27 +65,76 @@ class orders extends PureComponent {
     this.setState({ addressId });
   };
   addOrder = () => {
+    var date = new Date();
+    var year = date.getFullYear();
+    var month = date.getMonth() + 1;
+    var day = date.getDate();
+    var Hours = date.getHours();
+    var Minutes = date.getMinutes();
+    var Seconds = date.getSeconds();
+    if (month < 10) {
+      month = '0' + month;
+    }
+    if (day < 10) {
+      day = '0' + day;
+    }
+    if (Hours < 10) {
+      Hours = '0' + Hours;
+    }
+    if (Minutes < 10) {
+      Minutes = '0' + Minutes;
+    }
+    if (Seconds < 10) {
+      Seconds = '0' + Seconds;
+    }
+    var create_time =
+      year +
+      '-' +
+      month +
+      '-' +
+      day +
+      ' ' +
+      Hours +
+      ':' +
+      Minutes +
+      ':' +
+      Seconds;
     if (this.state.addressId !== -1 && this.state.activeTab !== -1) {
-      const { count, shopId, id } = this.props.route.params;
+      const { count, shopId, id, color, title, price, img } =
+        this.props.route.params;
       const data = {
         shopId,
         shopCarId: id,
         count,
         howPay: this.state.activeTab,
-        addressId: this.state.addressId
+        addressId: this.state.addressId,
+        color,
+        title,
+        price,
+        img,
+        create_time
       };
-      addOrider(data).then((res) => this.context.navigate('Pay'));
-      ToastAndroid.show('请选择支付方式', ToastAndroid.SHORT);
+      console.log(this.state.defaultAddress);
+      addOrider(data).then((res) =>
+        this.context.navigate('paySuccess', {
+          ...data,
+          address: this.state.defaultAddress
+        })
+      );
     } else {
       ToastAndroid.show('请选择支付方式', ToastAndroid.SHORT);
     }
   };
   componentDidMount() {}
   static contextType = NavigationContext;
-
+  changeDefaultAddress = (payload) => {
+    this.setState({ defaultAddress: payload });
+  };
   render() {
     console.log(this.props.route.params);
+
     const { count, title, color, img, price } = this.props.route.params;
+
     return (
       <View style={{ backgroundColor: '#e2f4fe', flex: 1 }}>
         <Top icon1="arrow-back" title="确认订单" />
@@ -103,7 +153,10 @@ class orders extends PureComponent {
             <Text style={{ fontSize: pxToDp(16) }}>订单状态: 待确认</Text>
           </View>
           {/* 收获地址 */}
-          <Address changeAddressId={this.changeAddressId} />
+          <Address
+            changeAddressId={this.changeAddressId}
+            changeDefaultAddress={this.changeDefaultAddress}
+          />
           {/* 商品信息 */}
           <TouchableOpacity
             style={{
@@ -157,7 +210,7 @@ class orders extends PureComponent {
                     fontWeight: 'bold'
                   }}
                 >
-                  {price}
+                  ￥{price}
                 </Text>
               </View>
             </View>
@@ -201,7 +254,7 @@ class orders extends PureComponent {
                   fontWeight: 'bold'
                 }}
               >
-                ￥{price}
+                ￥{price * count}
               </Text>
             </View>
           </View>
