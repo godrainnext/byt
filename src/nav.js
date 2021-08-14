@@ -1,6 +1,6 @@
-import React, {useEffect} from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import React, { useEffect } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import Tabbar from './tabbar';
 import * as Screens from './screens';
 
@@ -137,6 +137,12 @@ function Nav() {
         <Stack.Screen name="Inluntan" component={Screens.Inluntan} />
         {/*直播间 */}
         <Stack.Screen name="SeeZhiBo" component={Screens.SeeZhiBo} />
+        {/* 开播 */}
+        <Stack.Screen name="KaiBo" component={Screens.KaiBo} />
+        {/* 开房 */}
+        <Stack.Screen name="KaiFang" component={Screens.KaiFang} />
+        {/* 进房间 */}
+        <Stack.Screen name="SeeFang" component={Screens.SeeFang} />
         {/**剧本页 */}
         <Stack.Screen name="Drama" component={Screens.Drama} />
         {/**剧本库页面 */}
