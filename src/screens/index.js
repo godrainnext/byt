@@ -1,4 +1,4 @@
-export { default as Home } from './first/home'; //首页
+export { default as Home } from './first/home/index'; //首页
 export { default as PageOne } from './first/home/pages/pageone'; //流派传奇页
 export { default as PageTwo } from './first/home/pages/pagetwo'; //俯瞰百年页
 export { default as PageThree } from './first/home/pages/pagethree'; //名角风采页
@@ -10,8 +10,10 @@ export { default as Optuijian } from './first/opera/optuijian'; //唱段推荐
 export { default as Opperson } from './first/opera/opperson'; //名角的唱段页面
 export { default as Opgroup } from './first/opera/opgroup'; //流派的唱段页面
 export { default as Actress } from './first/actress/index'; //名角个人页
+export { default as Album } from './first/album/idnex'//专辑页面
+export { default as MusicPlayer } from './first/musicplayer/musicPlayer'//歌曲播放页面
 
-export { default as My } from './my/home'; //个人中心首页
+export { default as My } from './my/home/index'; //个人中心首页
 export { default as Login } from './my/Login'; //登录页面
 export { default as leasedetails } from './my/order/leasedetails'; //租赁页
 export { default as Set } from './my/seetings/set'; //设置
