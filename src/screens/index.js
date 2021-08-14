@@ -68,6 +68,9 @@ export { default as Timeline } from './Timeline/index';
 
 export { default as Talk } from './talk/home/index'; //论坛首页
 export { default as Apply } from './talk/home/live/apply'; //申请直播页
+export { default as KaiBo } from './talk/home/live/kaibo'; //开启直播页
+export { default as KaiFang } from './talk/home/talkRoom/kaifang'; //开启合唱页
+export { default as SeeFang } from './talk/home/talkRoom/gindex'; //开启合唱页
 export { default as Create } from './talk/home/live/create'; //剧本创作页
 export { default as Inluntan } from './talk/home/forum/inluntan';
 export { default as Forum } from './talk/home/forum/index'; //论坛页面
