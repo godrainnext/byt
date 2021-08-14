@@ -67,7 +67,7 @@ function Nav() {
         {/**设置首页面 */}
         <Stack.Screen name="Setting" component={Screens.Setting} />
         {/**更改资料页面 */}
-        {/* <Stack.Screen name="Ziliao" component={Screens.Ziliao} />*/}
+        <Stack.Screen name="Ziliao" component={Screens.Ziliao} />
         {/**昵称页面 */}
         <Stack.Screen name="Nickname" component={Screens.Nickname} />
         {/** 个性签名页面*/}

@@ -36,7 +36,7 @@ export { default as Jifenshop } from './my/jifenshop/jifenshop'; //积分商城
 export { default as Orderone } from './my/order/pages/orderone'; //订单全部页
 export { default as Refund } from './my/order/pages/refund'; //退款订单页面
 export { default as Setting } from './my/seetings/setting'; //设置页面
-//export { default as Ziliao } from './my/seetings/ziliao'; //资料页面
+export { default as Ziliao } from './my/seetings/ziliao'; //资料页面
 export { default as Collection } from './my/collection'; //收藏
 export { default as Fan } from './my/fan'; //粉丝
 export { default as Follow } from './my/follow'; //关注
@@ -76,7 +76,6 @@ export { default as SeeFang } from './talk/home/talkRoom/gindex'; //开启合唱
 export { default as Create } from './talk/home/live/create'; //剧本创作页
 export { default as Inluntan } from './talk/home/forum/inluntan';
 export { default as Forum } from './talk/home/forum/index'; //论坛页面
-
 
 export { default as Screenpaly } from './talk/home/script/screenplay'; //论坛页面
 
