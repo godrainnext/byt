@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
 import CustormerBar from './components/CustormerBar';
 import Orderone from './pages/orderone';
@@ -12,7 +12,6 @@ export default ({ route, navigation }) => {
     }),
     shallowEqual
   );
-
   const needPay = orider.filter((item) => item.status === 0);
   const needReceipt = orider.filter((item) => item.status === 1);
   const needComment = orider.filter((item) => item.status === 2);
