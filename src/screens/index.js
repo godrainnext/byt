@@ -78,4 +78,3 @@ export { default as Inluntan } from './talk/home/forum/inluntan';
 export { default as Forum } from './talk/home/forum/index'; //论坛页面
 
 export { default as SeeZhiBo } from './talk/zhiboye/gindex';
-export { default as Video } from '../component/videoplayer/VideoPlayScreen.js'

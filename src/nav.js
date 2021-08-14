@@ -147,7 +147,6 @@ function Nav() {
         <Stack.Screen name="MusicPlayer" component={Screens.MusicPlayer} />
         {/*流派页 */}
         <Stack.Screen name="School" component={Screens.School} />
-        <Stack.Screen name="Video" component={Screens.Video} />
       </Stack.Navigator>
     </NavigationContainer>
   );
