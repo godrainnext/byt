@@ -23,10 +23,11 @@ class Index extends PureComponent {
   };
   componentDidMount() {
     getMomentListByStatus(0).then((res) => {
-      console.log(res);
       this.setState({ dongtai: [...res] });
+      console.log(res);
     });
   }
+  
   static contextType = NavigationContext;
   render() {
     return (

@@ -20,12 +20,6 @@ const pinglun =
   '<svg t="1627563771753" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4413" width="200" height="200"><path d="M841.15200031 70.44266698c57.28000031 0 104.12800031 44.67199969 108.864 101.376l0.384 9.53599969v477.12c0 57.91999969-43.776 105.66400031-99.84 110.52799969l-9.408 0.44800031h-90.11200031a31.99999969 31.99999969 0 0 1-5.76-63.48799969l5.76-0.51200062h90.11200031a45.888 45.888 0 0 0 44.79999938-40.57599938l0.44800031-6.40000031V181.35466667a46.39999969 46.39999969 0 0 0-39.168-46.52800031l-6.07999969-0.384H163.712a45.888 45.888 0 0 0-44.86399969 40.512l-0.44800031 6.40000031v477.12c0 23.93599969 17.21599969 43.45600031 39.168 46.52800031l6.144 0.44799938H530.55999969a31.99999969 31.99999969 0 0 1 19.2 6.336l3.84 3.39200062 190.14400031 197.05599938a31.99999969 31.99999969 0 0 1-41.59999969 48.192l-4.416-3.77599969-180.73600031-187.26400031h-353.28a109.95199969 109.95199969 0 0 1-108.864-101.31199969l-0.44800031-9.6V181.35466667c0-57.91999969 43.776-105.6 99.84-110.52799969l9.47200031-0.384h677.44000031z" fill="#515151" p-id="4414"></path><path d="M243.2 270.50666698m37.56799969 0l287.808 0q37.56799969 0 37.56800062 37.56799969l0 0.06400031q0 37.56799969-37.56800062 37.56799969l-287.808 0q-37.56799969 0-37.56799969-37.56799969l0-0.06400031q0-37.56799969 37.56799969-37.56799969Z" fill="#515151" p-id="4415"></path><path d="M243.2 466.09066667m37.56799969 0l440.57600062 0q37.56799969 0 37.56799969 37.56799969l0 0.06400031q0 37.56799969-37.56799969 37.56799969l-440.57600062 0q-37.56799969 0-37.56799969-37.56799969l0-0.06400031q0-37.56799969 37.56799969-37.56799969Z" fill="#515151" p-id="4416"></path></svg>';
 class Index extends PureComponent {
   state = {
-    dt: [
-      { name: 'wulawulaaaa', date: '2019-02-12' },
-      { name: 'wulawulaaaa', date: '2019-02-12' },
-      { name: 'wulawulaaaa', date: '2019-02-12' },
-      { name: 'wulawulaaaa', date: '2019-02-12' }
-    ],
     list: [
       { title: '收藏' },
       { title: '举报' },
@@ -37,184 +31,54 @@ class Index extends PureComponent {
       }
     ],
     isShow: false
-  };
+
+  }
 
   static contextType = NavigationContext;
 
   render() {
+
     return (
-      <ScrollView>
-        <View
-          style={{
-            width: '95%',
-            marginLeft: pxToDp(10),
-            marginTop: pxToDp(20),
-            marginBottom: pxToDp(20),
-            backgroundColor: '#fff'
-          }}
-        >
-          {this.props.dongtai.map((item, dtid) => (
-            <View key={dtid}>
+      <ScrollView >
+
+        <View style={{ width: '95%', marginLeft: pxToDp(10), marginTop: pxToDp(20), marginBottom: pxToDp(20), backgroundColor: '#fff',borderRadius:pxToDp(10),elevation:3 }}>
+          {this.props.userinfo.dongtai.map((item, dtid) => (
+            <View key={dtid} >
               <BottomSheet
                 isVisible={this.state.isShow}
-                containerStyle={{ backgroundColor: 'rgba(0.5, 0.25, 0, 0.2)' }}
-              >
+                containerStyle={{ backgroundColor: 'rgba(0.5, 0.25, 0, 0.2)' }}>
                 {this.state.list.map((l, i) => (
-                  <ListItem
-                    key={i}
-                    containerStyle={l.containerStyle}
-                    onPress={l.onPress}
-                  >
+                  <ListItem key={i} containerStyle={l.containerStyle} onPress={l.onPress}>
                     <ListItem.Content>
-                      <ListItem.Title style={l.titleStyle}>
-                        {l.title}
-                      </ListItem.Title>
+                      <ListItem.Title style={l.titleStyle}>{l.title}</ListItem.Title>
                     </ListItem.Content>
-                  </ListItem>
-                ))}
+                  </ListItem>))}
               </BottomSheet>
-              <TouchableOpacity
-                style={{ position: 'absolute', top: 10, right: 20 }}
-                onPress={() => this.setState({ isShow: true })}
-              >
-                <SvgUri svgXmlData={sandian} width="20" height="20" />
+              <TouchableOpacity style={{ position: 'absolute', top: 10, right: 20 }}
+                onPress={() => this.setState({ isShow: true })} >
+                <SvgUri svgXmlData={sandian} width='20' height='20' />
               </TouchableOpacity>
-              <View
-                style={{
-                  flexDirection: 'row',
-                  alignItems: 'flex-end',
-                  marginBottom: pxToDp(10),
-                  marginLeft: pxToDp(10)
-                }}
-              >
-                <Text style={{ fontSize: pxToDp(25), fontWeight: 'bold' }}>
-                  {item.date.substr(3, 3)}
-                </Text>
-                <Text style={{ fontSize: 17, paddingLeft: 5 }}>
-                  {item.date.substr(0, 3)}
-                </Text>
+              <View style={{ flexDirection: 'row', alignItems: 'flex-end', marginBottom: pxToDp(10), marginLeft: pxToDp(10) ,borderRadius:pxToDp(10) }}>
+                <Text style={{ fontSize: pxToDp(25), fontWeight: 'bold' }}>{item.date.substr(3, 3)}</Text>
+                <Text style={{ fontSize: 17, paddingLeft: 5 }}>{item.date.substr(0, 3)}</Text>
               </View>
-              <View
-                style={{
-                  elevation: 1,
-                  borderWidth: 0,
-                  backgroundColor: '#fcfcfc'
-                }}
-              >
-                <View
-                  style={{
-                    marginLeft: pxToDp(30),
-                    flexDirection: 'row',
-                    alignItems: 'flex-end'
-                  }}
-                ></View>
-                <View
-                  style={{ flexDirection: 'row', margin: pxToDp(10) }}
-                ></View>
-                <View
-                  style={{
-                    width: '90%',
-                    marginBottom: pxToDp(30),
-                    alignSelf: 'center'
-                  }}
-                >
-                  <Text
-                    style={{
-                      fontSize: pxToDp(18),
-                      marginBottom: pxToDp(10),
-                      paddingLeft: pxToDp(8),
-                      marginTop: pxToDp(10)
-                    }}
-                  >
-                    {item.dt}
-                  </Text>
-                  <ScrollView
-                    style={{
-                      flex: 1,
-                      height: pxToDp(150),
-                      marginTop: pxToDp(10)
-                    }}
-                    horizontal={true}
-                  >
+              <View style={{ elevation: 2, borderWidth: 0, backgroundColor: 'white',borderBottomLeftRadius:pxToDp(10),borderBottomRightRadius:pxToDp(10) }}>
+                <View style={{ marginLeft: pxToDp(30), flexDirection: 'row', alignItems: 'flex-end' }}>
+
+                </View>
+                <View style={{ flexDirection: 'row', margin: pxToDp(10), }}>
+                </View>
+                <View style={{ width: '90%', marginBottom: pxToDp(30), alignSelf: 'center' }}>
+                  <Text style={{ fontSize: pxToDp(18), marginBottom: pxToDp(10), paddingLeft: pxToDp(8), marginTop: pxToDp(10) }}>{item.dt}</Text>
+                  <ScrollView style={{ flex: 1, height: pxToDp(150), marginTop: pxToDp(10) }} horizontal={true}>
                     {item.dtimg2.map((item) => (
                       <Image
-                        style={{
-                          width: 150,
-                          height: '100%',
-                          borderRadius: 10,
-                          marginRight: 10
-                        }}
-                        source={{ uri: item }}
-                      />
+                        style={{ width: 150, height: '100%', borderRadius: 10, marginRight: 10 }}
+                        source={{ uri: item }} />
                     ))}
                   </ScrollView>
+
                 </View>
-              </View>
-              <View
-                style={{
-                  width: '90%',
-                  marginBottom: pxToDp(30),
-                  alignSelf: 'center'
-                }}
-              >
-                <Text
-                  style={{
-                    fontSize: pxToDp(18),
-                    marginBottom: pxToDp(10),
-                    paddingLeft: pxToDp(8),
-                    marginTop: pxToDp(10)
-                  }}
-                >
-                  {item.dt}
-                </Text>
-                <ScrollView
-                  style={{
-                    flex: 1,
-                    height: pxToDp(150),
-                    marginTop: pxToDp(10)
-                  }}
-                  horizontal={true}
-                >
-                  {item.dtimg2.map((item) => (
-                    <Image
-                      style={{
-                        width: 150,
-                        height: '100%',
-                        borderRadius: 10,
-                        marginRight: 10
-                      }}
-                      source={{ uri: item }}
-                    />
-                  ))}
-                </ScrollView>
-              </View>
-              <View
-                style={{
-                  flexDirection: 'row',
-                  justifyContent: 'space-around',
-                  marginBottom: pxToDp(10)
-                }}
-              >
-                <TouchableOpacity style={{ flexDirection: 'row' }}>
-                  <SvgUri svgXmlData={dianzan} width="20" height="20" />
-                  <Text
-                    style={{
-                      position: 'absolute',
-                      bottom: pxToDp(5),
-                      left: pxToDp(30)
-                    }}
-                  >
-                    {item.dz}
-                  </Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  onPress={() => this.context.navigate('Indongtai')}
-                >
-                  <SvgUri svgXmlData={pinglun} width="20" height="20" />
-                </TouchableOpacity>
-                <TouchableOpacity>
-                  <SvgUri svgXmlData={zhuanfa} width="25" height="25" />
-                </TouchableOpacity>
               </View>
             </View>
           ))}
