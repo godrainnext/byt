@@ -117,6 +117,8 @@ function Nav() {
         {/*Vr */}
         <Stack.Screen name="VR" component={Screens.VR} />
         {/**教程页面 */}
+        <Stack.Screen name="relatedImg" component={Screens.relatedImg} />
+        {/* 相关图片 */}
         <Stack.Screen name="Course" component={Screens.Course} />
         <Stack.Screen name="Timemap" component={Screens.Timemap} />
         {/**越剧基本功页面 */}
