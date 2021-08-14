@@ -141,6 +141,9 @@ function Nav() {
         <Stack.Screen name="Scriptlibrary" component={Screens.Scriptlibrary} />
         {/**名角个人页 */}
         <Stack.Screen name="Actress" component={Screens.Actress} />
+        {/* 剧本详情 */}
+        <Stack.Screen name="Screenpaly" component={Screens.Screenpaly} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );
