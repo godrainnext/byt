@@ -279,7 +279,7 @@ class Index extends PureComponent {
               </View>
             </TouchableOpacity>
           </View>
-          {/*单人练唱 */}
+          {/*VR */}
           <View style={{ marginLeft: pxToDp(10), marginRight: pxToDp(10) }}>
             <Text
               style={{
@@ -290,9 +290,9 @@ class Index extends PureComponent {
                 fontWeight: 'bold'
               }}
             >
-              单人练唱
+              VR
             </Text>
-            <TouchableOpacity onPress={() => this.context.navigate('Study')}>
+            <TouchableOpacity onPress={() => this.context.navigate('VR')}>
               <View
                 style={{
                   height: pxToDp(130),
@@ -308,12 +308,12 @@ class Index extends PureComponent {
                     alignSelf: 'center'
                   }}
                 >
-                  单人练唱
+                  VR
                 </Text>
               </View>
             </TouchableOpacity>
           </View>
-          {/*双人剧本 */}
+          {/*剧本练唱 */}
           <View style={{ marginLeft: pxToDp(10), marginRight: pxToDp(10) }}>
             <Text
               style={{
@@ -324,7 +324,7 @@ class Index extends PureComponent {
                 fontWeight: 'bold'
               }}
             >
-              双人剧本
+              剧本练唱
             </Text>
             <View style={styles.buttonContainer}>
               <TouchableOpacity onPress={() => this.Scrollable1.open()}>
@@ -334,10 +334,12 @@ class Index extends PureComponent {
                 />
               </TouchableOpacity>
               <View>
-                <TouchableOpacity onPress={() => this.Scrollable2.open()}>
+                <TouchableOpacity
+                  onPress={() => this.context.navigate('Study')}
+                >
                   <Image
                     style={styles.image2}
-                    source={require('../../../res/24.jpg')}
+                    source={require('../../../res/34.jpg')}
                   />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => this.Scrollable3.open()}>
@@ -348,7 +350,7 @@ class Index extends PureComponent {
                 </TouchableOpacity>
               </View>
             </View>
-
+            {/* 创建房间 */}
             <RBSheet
               ref={(ref) => {
                 this.Scrollable1 = ref;
@@ -381,8 +383,8 @@ class Index extends PureComponent {
                 </View>
               </ScrollView>
             </RBSheet>
-
-            <RBSheet
+            {/* 快速匹配 */}
+            {/* <RBSheet
               ref={(ref) => {
                 this.Scrollable2 = ref;
               }}
@@ -418,8 +420,8 @@ class Index extends PureComponent {
                   </TouchableOpacity>
                 </View>
               </ScrollView>
-            </RBSheet>
-
+            </RBSheet> */}
+            {/* 查找房间 */}
             <RBSheet
               ref={(ref) => {
                 this.Scrollable3 = ref;
