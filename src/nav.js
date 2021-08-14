@@ -9,7 +9,7 @@ const Stack = createStackNavigator();
 function Nav() {
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode="none" initialRouteName="Login">
+      <Stack.Navigator headerMode="none" initialRouteName="Tabbar">
         <Stack.Screen name="Tabbar" component={Tabbar} />
         {/*登录 */}
         <Stack.Screen name="Login" component={Screens.Login} />
@@ -151,6 +151,12 @@ function Nav() {
         <Stack.Screen name="Scriptlibrary" component={Screens.Scriptlibrary} />
         {/**名角个人页 */}
         <Stack.Screen name="Actress" component={Screens.Actress} />
+        {/**专辑页面 */}
+        <Stack.Screen name="Album" component={Screens.Album} />
+        {/**歌曲播放界面 */}
+        <Stack.Screen name="MusicPlayer" component={Screens.MusicPlayer} />
+        {/*流派页 */}
+        <Stack.Screen name="School" component={Screens.School} />
         {/* 剧本详情 */}
         <Stack.Screen name="Screenpaly" component={Screens.Screenpaly} />
       </Stack.Navigator>
