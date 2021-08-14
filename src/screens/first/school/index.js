@@ -3,19 +3,24 @@ import { View, Text, Image, ScrollView, StyleSheet, ImageBackground, TouchableOp
 import { pxToDp } from "../../../utils/styleKits";
 import Top from '../../../component/common/top';
 import Icon from 'react-native-vector-icons/AntDesign';
-
+import { NavigationContext } from '@react-navigation/native';
 
 class Index extends PureComponent {
+    constructor(props) {
+        super(props);
+      }
+      static contextType = NavigationContext;
     state = {
         schoolstate: {
-            image: 'https://tse1-mm.cn.bing.net/th/id/R-C.1693d122b9478d7792a51f549aadb2c9?rik=q5ATrivKbTnqzg&riu=http%3a%2f%2fd.ifengimg.com%2fq100%2fimg1.ugc.ifeng.com%2fnewugc%2f20190421%2f16%2fwemedia%2f51bf42238f5692a72322a20d11f6f10d01091eae_size425_w640_h360.png&ehk=YsxOvziJPS9igx1T%2b9GKznbYEGxsre4EhhwxE1A269s%3d&risl=&pid=ImgRaw&r=0',
-            text: '袁派唱腔的特点是质朴平易，委婉细腻,深沉含蓄，韵味醇厚。袁雪芬擅长依照人物的特定性格和感情创腔，不追求曲调的花梢，而注意以情带声，以真情实感和润腔韵味扣人心弦。在演唱上，她气息饱满，运腔婉转，喷口有力，吐字坚实而富有弹性，运腔中运用欲放又收、抑扬有致的处理，形成特有的韵味美。她常根据唱词的寓意，采用特殊的节奏形式，改变原来较为平稳的字位节奏，使唱腔和唱词语气紧密结合起来。如《西厢记》“赖婚”中的“若不是张解元他识人多”，在“若不是”后面的拖腔中运用了后起半拍的特殊的节奏形式，形象地显露了莺莺一提到意中人时难以掩饰的喜悦；“琴心”中“宝髻玲珑”的“玲珑”二字和“身在墙东”的“墙东”二字，都采用了前切分音节奏，使唱腔旋律在流畅中有跌宕，平稳中有跳跃。\n        袁派十分讲究重点唱句的演唱，擅用喷口、气口、加虚词以及强音、顿音等技巧进行特殊处理，造成演唱上的高潮。如《祥林嫂》中“阎王要把我一锯两半分”一句中，“一锯”二字以重音强调，"分"字以喷口唱法吐出，随即在三小节的拖腔中又多次运用气口，使唱腔若断若续，渲染了人物内心的恐惧。袁派的甩腔也常通过句幅的扩充、节奏的顿挫、调式的交替、结构的变化，使旋律迂回曲折，回味无穷。如《白蛇传·断桥》中的"到如今，凤泊鸾飘两地怨"的甩腔，通过句头、句幅的乐汇扩充，显得柔婉悠长；《祥林嫂》中“这真是走也难来留也难，进退两难怎安排”两句，通过宫徵调式交替的手法产生回肠荡气的效果。\n        袁派影响很大，戚雅仙、吕瑞英、金采风、张云霞等都师承袁派而后自成一家；师承袁派的演员有上海的朱东韵、方亚芬、华怡青和南京的陶琪等。',
-            video1: 'https://tse1-mm.cn.bing.net/th/id/R-C.1ab89fef7cc91ff8b288c7127f95b69e?rik=C%2fifpGj17xRn6w&riu=http%3a%2f%2fi0.hdslb.com%2fbfs%2farchive%2f9c87d0c61fb7e03a5e842b0a44d83b2b9ee99112.jpg&ehk=BkzVVrJJQM9%2ftrNGYCnXpftTwexUySj6ypqyUWTqYwI%3d&risl=&pid=ImgRaw&r=0',
-            video2: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20181016%2F45c85fb7dbcc48058ee5f94c2d799cc9.jpeg&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1630714303&t=bc77a6fb87c8f73930403585149cf29c',
-            videotitle1: '袁雪芬专辑',
-            videotitle2: '越剧“女王”方亚芬',
-            videotitle3: '赵心瑜越剧名段',
-            videotitle4: '袁派·华怡青专辑',
+            image1: 'https://img0.baidu.com/it/u=3755505946,3931956555&fm=26&fmt=auto&gp=0.jpg',
+            image2: 'https://tse1-mm.cn.bing.net/th/id/R-C.b2a1ef5f394f9dddfddac849e8a9ef0e?rik=QEJI95kT7hs9fA&riu=http%3a%2f%2fimg3.cache.netease.com%2fphoto%2f0003%2f2012-07-23%2f8736V0JT51GQ0003.jpg&ehk=aFM82WszWu%2bjQq01MC9QuTQzSEjee%2f7E7uXijWKfhoc%3d&risl=&pid=ImgRaw&r=0',
+            image3: 'https://img2.baidu.com/it/u=3738236468,3342797455&fm=26&fmt=auto&gp=0.jpg',
+            text1: '袁雪芬于1933年7月入四季春科班学戏，工青衣、闺门旦，兼学绍兴大班和徽班的武戏。师傅为绍兴文戏男班艺人鲍金龙。满师后，一度与女子越剧早期名旦王杏花同台，唱腔、表演受到她的影响。1936年到杭州演出，初次挂头牌。同年秋随科班初次到上海，并参加灌制了女子越剧的第一张唱片。1938年2月再次随科班来上海，曾与“同春舞台”的绍兴大班演员同台演出。此后一直在上海从事艺术活动。“孤岛”时期与小生演员马樟花合演3年余，曾对《梁祝哀史》作了初步的去芜存菁。演出《恒娘》等新戏，并上电台演唱，扩大了越剧影响，在艺术上崭露头角，被誉为越剧“新后”。为了摆脱当时社会上恶势力的纠缠，她洁身自励，持斋茹素，不唱堂会，不拜“过娘”。',
+            text2: '1942年10月起，在进步话剧的影响下，在大来剧场开始越剧改革，拿出自己的大部分包银，聘请专职编剧、导演、舞美设计、舞台监督，成立剧务部主持演出活动，在越剧界首次建立起正规的编戏、排戏制度；废除幕表制，使用完整的剧本；废除衣箱制，参照古代绘画，根据人物身份设计服装；打破传统的舞台形式，采用立体布景、油彩化装、灯光、音响，逐步形成综合的艺术机制。在表演上，博采众长，将话剧、电影重视刻画人物性格和内心活动的写实主义表演特点，与昆曲载歌载舞、重视形体动作美化的长处吸收到越剧中，加以融化、创新。1943年11月演出《香妃》时，与琴师周宝财合作，创造了新的〔尺调〕腔，后被其他越剧演员吸收、不断丰富，发展成越剧的主腔，并在此基础上衍化出不同的流派。其唱腔旋律淳朴，节奏多变，感情真挚深沉，韵味醇厚，委婉缠绵，声情并茂，被称“袁派”。',
+            text3: '1946年5月，把根据鲁迅名著《祝福》改编的《祥林嫂》，首次搬上越剧舞台，受到田汉、许广平、欧阳山尊、白杨、胡风、梅朵、田钟洛等进步文艺界和新闻界人士的称赞，被舆论称为“新越剧的里程碑”。该剧于1948年拍摄成电影。在中国共产党地下组织的支持下，在1947年8月《山河恋》联合义演及同年10月筱丹桂之死事件中，同国民党当局进行了坚决斗争，遭到反动势力的多次迫害。1949年7月，参加上海市军管会文艺处举办的第一届地方戏剧研究班学习，任表演系中队长。是年9月，她和梅兰芳、周信芳、程砚秋作为戏曲界特邀代表参加了第一届中国人民政治协商会议，并出席了10月1日的开国大典。',
+            text4: '其唱腔旋律淳朴，节奏多变，感情真挚深沉，韵味醇厚，委婉缠绵，声情并茂，被称“袁派”，为戚雅仙、张云霞、金采风、吕瑞英等一批越剧演员所继承和发展。在日本帝国主义侵占期间，演出了《香妃》、《红粉金戈》、《木兰从军》、《黑暗家庭》、《王昭君》等表现爱国思想、歌颂民族气节、反对封建礼教的剧目。',
+            text5: '越剧袁派集锦',
+            text6: '袁派是袁雪芬创立的越剧旦角流派,袁派十分讲究重点唱句的演唱，擅用喷口、气口、加虚词以及强音、顿音等技巧进行特殊处理，造成演唱上的高潮。'
         }
     }
     render() {
@@ -23,19 +28,34 @@ class Index extends PureComponent {
             <View style={styles.view}>
                 <Top icon1="arrow-back" title="袁派" />
                 <ScrollView style={styles.box}>
-                    <Image style={styles.image} source={{ uri: this.state.schoolstate.image }} />
-                    <Text style={styles.title}>流派特点</Text>
-                    <Text style={styles.text}>&emsp;&emsp;{this.state.schoolstate.text}</Text>
-                    <Text style={styles.title}>经典赏析</Text>
-                    <TouchableOpacity>
-                        <ImageBackground style={styles.video} imageStyle={styles.videoimage} source={{ uri: this.state.schoolstate.video1 }}>
-                            <Icon name="playcircleo" size={30} color={'white'} />
-                        </ImageBackground>
-                    </TouchableOpacity>
-                    <TouchableOpacity>
-                        <ImageBackground style={styles.video} imageStyle={styles.videoimage} source={{ uri: this.state.schoolstate.video2 }}>
-                            <Icon name="playcircleo" size={30} color={'white'} />
-                        </ImageBackground>
+                    {/*流派图片 */}
+                    <Image style={styles.image1} source={{ uri: this.state.schoolstate.image1 }} />
+                    {/*<View style={styles.song}>
+                        <ImageBackground style={styles.image2} imageStyle={styles.image22} source={{ uri: this.state.schoolstate.image2 }}>
+                            <TouchableOpacity>
+                                <Icon name="caretright" size={20} color={'white'} />
+                            </TouchableOpacity>
+                        </ImageBackground >
+                        <Text style={{ fontSize: pxToDp(15), color: 'black', alignSelf: 'center', fontWeight: 'bold',marginLeft:pxToDp(10) }}>
+                            袁雪芬 《祥林嫂》
+                        </Text>
+                    </View>*/}
+                    {/*流派信息 */}
+                    <Text style={styles.title}>个人经历</Text>
+                    <Text style={styles.text}>&emsp;&emsp;{this.state.schoolstate.text1}</Text>
+                    <Text style={styles.title}>袁派的创立</Text>
+                    <Text style={styles.text}>&emsp;&emsp;{this.state.schoolstate.text2}</Text>
+                    <Text style={styles.title}>袁派的发展</Text>
+                    <Text style={styles.text}>&emsp;&emsp;{this.state.schoolstate.text3}</Text>
+                    <Text style={styles.title}>艺术特色</Text>
+                    <Text style={styles.text}>&emsp;&emsp;{this.state.schoolstate.text4}</Text>
+                    {/*流派专辑 */}
+                    <TouchableOpacity style={styles.zhuanji} onPress={() => this.context.navigate('Album')}>
+                        <Image style={styles.image3} source={{ uri: this.state.schoolstate.image3 }} />
+                        <View style={{ width: pxToDp(220), justifyContent: 'center' }}>
+                            <Text style={styles.zhuanjititle}>{this.state.schoolstate.text5}</Text>
+                            <Text style={styles.zhuanjitext} numberOfLines={1}>{this.state.schoolstate.text6}</Text>
+                        </View>
                     </TouchableOpacity>
                 </ScrollView>
             </View>
@@ -45,43 +65,71 @@ class Index extends PureComponent {
 
 const styles = StyleSheet.create({
     view: {
-        backgroundColor: '#E2F4FE'
+        backgroundColor: '#E2F4FE',
+        flex: 1
     },
     box: {
         marginLeft: pxToDp(10),
-        marginLeft: pxToDp(10),
-        marginTop: pxToDp(10),
-        marginBottom: pxToDp(80)
+        marginRight: pxToDp(10),
+        marginBottom: pxToDp(10)
     },
-    image: {
+    image1: {
         width: pxToDp(355),
         borderRadius: pxToDp(12),
         height: pxToDp(170)
     },
+    image2: {
+        height: pxToDp(70),
+        width: pxToDp(70),
+        margin: pxToDp(5),
+        alignItems:'center',
+        justifyContent:"center"
+    },
+    image22:{
+        height: pxToDp(70),
+        width: pxToDp(70),
+        borderRadius:pxToDp(10)
+    },
     title: {
-        fontSize: pxToDp(20)
+        fontSize: pxToDp(18),
+        color: '#468CD3',
+        fontWeight: 'bold',
+        marginTop: pxToDp(10)
     },
     text: {
-        fontSize: pxToDp(14)
+        fontSize: pxToDp(15)
     },
-    videobox: {
+    zhuanji: {
         flexDirection: 'row',
-        flexWrap: 'wrap',
-        justifyContent: 'space-between',
-        width: pxToDp(357)
-    },
-    video: {
-        justifyContent: "space-between",
-        height: pxToDp(150),
-        width: pxToDp(355),
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginBottom: pxToDp(10)
-    },
-    videoimage: {
+        width: '100%',
+        height: pxToDp(100),
         borderRadius: pxToDp(10),
-        width: pxToDp(355),
-        height: pxToDp(150),
+        backgroundColor: 'rgba(255,255,255,0.5)',
+        marginTop: pxToDp(10)
+    },
+    image3: {
+        height: pxToDp(80),
+        width: pxToDp(80),
+        borderRadius: pxToDp(10),
+        margin: pxToDp(10)
+    },
+    zhuanjititle: {
+        fontSize: pxToDp(18),
+        fontWeight: 'bold',
+        color: 'black'
+    },
+    zhuanjitext: {
+        fontSize: pxToDp(15),
+        color: 'grey',
+        marginTop: pxToDp(10)
+    },
+    song: {
+        flexDirection: 'row',
+        width: '100%',
+        height: pxToDp(80),
+        borderRadius: pxToDp(10),
+        backgroundColor: 'rgba(255,255,255,0.5)',
+        marginTop: pxToDp(10)
     }
 })
 export default Index;

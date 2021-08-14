@@ -144,9 +144,9 @@ export default function Example() {
     return (
         <View style={styles.container}>
             <ScrollTabView headerHeight={headerHeight} renderScrollHeader={_renderScrollHeader}>
-                <TabView1 tabLabel="1"  userinfo={userInfo}/>
-                <TabView2 tabLabel="2"  userinfo={userInfo}/>
-                <TabView3 tabLabel="3" userinfo={userInfo}/>
+                <TabView1 tabLabel="动态"  userinfo={userInfo}/>
+                <TabView2 tabLabel="收藏"  userinfo={userInfo}/>
+                <TabView3 tabLabel="剧本" userinfo={userInfo}/>
             </ScrollTabView>
         </View>
     );

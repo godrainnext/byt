@@ -152,7 +152,7 @@ class Index extends PureComponent {
                 俯瞰百年
               </Text>
               <TouchableOpacity
-                onPress={() => this.context.navigate('PageTwo')}
+                onPress={() => this.context.navigate('Card')}
               >
                 <View style={{ flexDirection: 'row' }}>
                   <Text style={{ fontSize: pxToDp(15), color: 'grey' }}>

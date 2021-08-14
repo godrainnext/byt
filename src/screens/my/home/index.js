@@ -59,7 +59,9 @@ class Index extends PureComponent {
               <View>
                 <Text style={{ fontSize: pxToDp(18) }}>我的订单</Text>
               </View>
-              <TouchableOpacity onPress={() => this.context.navigate('Order')}>
+              <TouchableOpacity
+                onPress={() => this.context.navigate('Order', 0)}
+              >
                 <View
                   style={{
                     flexDirection: 'row',

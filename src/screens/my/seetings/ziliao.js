@@ -1,4 +1,3 @@
-
 import React, { PureComponent } from 'react';
 import {
   Text,
@@ -15,7 +14,8 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import { NavigationContext } from '@react-navigation/native';
 import CustomAlertDialog from '../component/CustomAlertDialog';
 import { pxToDp } from '../../../utils/styleKits';
-import * as ImagePicker from 'expo-image-picker';
+// import * as ImagePicker from 'expo-image-picker';
+import { launchImageLibrary } from 'react-native-image-picker';
 import DatePicker from 'react-native-datepicker';
 import Top from '@components/common/top';
 import { connect } from 'react-redux';
@@ -73,41 +73,50 @@ class Ziliao extends PureComponent {
     this.setState({ modalVisible: !this.state.modalVisible });
   }
   openImagePickerAsync = async () => {
-    let permissionResult =
-      await ImagePicker.requestMediaLibraryPermissionsAsync();
+    launchImageLibrary(
+      { mediaType: 'photo', selectionLimit: 1 },
+      (response) => {
+        if (response.error) {
+          console.log(response.error);
+        } else {
 
-    if (permissionResult.granted === false) {
-      return;
-    }
+          console.log(123);
+          console.log(response);
+          const pickerResult = response.assets[0];
 
-    let pickerResult = await ImagePicker.launchImageLibraryAsync();
-    const fd = new FormData();
-    let file = {
-      uri: pickerResult.uri,
-      type: 'multipart/form-data',
-      name: pickerResult.type
-    };
-    fd.append('file', file);
-    requset
-      .post({
-        url: URL.UPDATE_AVATER,
-        data: fd,
-        headers: {
-          Accept: 'Application/json',
-          'content-type': 'multipart/form-data'
+          const fd = new FormData();
+          let file = {
+            uri: pickerResult.uri,
+            type: 'multipart/form-data',
+            name: pickerResult.type
+          };
+          fd.append('file', file);
+          requset
+            .post({
+              url: URL.UPDATE_AVATER,
+              data: fd,
+              headers: {
+                Accept: 'Application/json',
+                'content-type': 'multipart/form-data'
+              }
+            })
+            .then((res) => {
+              this.props.changeAvatar(pickerResult.uri);
+              ToastAndroid.show(res, ToastAndroid.SHORT);
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+          this.setState({
+            avatar: pickerResult.uri,
+            modalVisible: false
+          });
+          // this.setState({ avatar: response.uri });
         }
-      })
-      .then((res) => {
-        this.props.changeAvatar(pickerResult.uri);
-        ToastAndroid.show(res, ToastAndroid.SHORT);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    this.setState({
-      avatar: pickerResult.uri,
-      modalVisible: false
-    });
+      }
+    );
+    /*
+     */
   };
   saveUserInfo = () => {
     const nickName = this.state.nickName;
@@ -166,7 +175,6 @@ class Ziliao extends PureComponent {
               />
             </TouchableOpacity>
             <View>
-            
               <Modal
                 visible={this.state.modalVisible}
                 animationType={'fade'}

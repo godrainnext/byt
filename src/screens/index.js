@@ -1,4 +1,4 @@
-export { default as Home } from './first/home'; //首页
+export { default as Home } from './first/home/index'; //首页
 export { default as PageOne } from './first/home/pages/pageone'; //流派传奇页
 export { default as PageTwo } from './first/home/pages/pagetwo'; //俯瞰百年页
 export { default as PageThree } from './first/home/pages/pagethree'; //名角风采页
@@ -10,8 +10,11 @@ export { default as Optuijian } from './first/opera/optuijian'; //唱段推荐
 export { default as Opperson } from './first/opera/opperson'; //名角的唱段页面
 export { default as Opgroup } from './first/opera/opgroup'; //流派的唱段页面
 export { default as Actress } from './first/actress/index'; //名角个人页
+export { default as Album } from './first/album'; //专辑页面
+export { default as MusicPlayer } from './first/musicplayer/musicPlayer'; //歌曲播放页面
+export { default as Card } from './first/card/index'; //俯瞰百年卡片
 
-export { default as My } from './my/home'; //个人中心首页
+export { default as My } from './my/home/index'; //个人中心首页
 export { default as Login } from './my/Login'; //登录页面
 export { default as leasedetails } from './my/order/leasedetails'; //租赁页
 export { default as Set } from './my/seetings/set'; //设置
@@ -61,6 +64,7 @@ export { default as Act } from './play/act'; //双人剧本页
 export { default as Drama } from './play/act/drama'; //剧本
 export { default as Scriptlibrary } from './play/scriptlibrary'; //剧本库
 export { default as VR } from './play/vr'; //越剧小镇VR
+export { default as relatedImg } from './Timeline/relatedImg'; //相关图片
 export { default as Course } from './play/course'; //教程页面
 export { default as Basic } from './play/course/bankuai/basic'; //越剧基本功板块
 export { default as Master } from './play/course/bankuai/master'; //越剧大师教学板块
@@ -75,7 +79,6 @@ export { default as SeeFang } from './talk/home/talkRoom/gindex'; //开启合唱
 export { default as Create } from './talk/home/live/create'; //剧本创作页
 export { default as Inluntan } from './talk/home/forum/inluntan';
 export { default as Forum } from './talk/home/forum/index'; //论坛页面
-
 
 export { default as Screenpaly } from './talk/home/script/screenplay'; //论坛页面
 

@@ -13,7 +13,7 @@ import EZSwiper from 'react-native-ezswiper';
 import { pxToDp } from './styleKits';
 const screenWidth = Dimensions.get('window').width;
 const imgzz =
-  'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg14.360buyimg.com%2Fn1%2Fjfs%2Ft15130%2F245%2F2284505791%2F297895%2Ffa8ada4a%2F5a93939dNaa84c4c1.jpg&refer=http%3A%2F%2Fimg14.360buyimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1630212303&t=e5e7a1cf401964bdfeca7410e630d1d0';
+  'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01b5d25e437bd7a801216518a5dfcc.jpg%401280w_1l_2o_100sh.jpg&refer=http%3A%2F%2Fimg.zcool.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631521402&t=fb184d02ab6406a9632bc6918240d82d';
 
 export default class Exswiper extends PureComponent {
   state = {
