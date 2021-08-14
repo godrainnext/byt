@@ -12,6 +12,7 @@ export { default as Opgroup } from './first/opera/opgroup'; //流派的唱段页
 export { default as Actress } from './first/actress/index'; //名角个人页
 export { default as Album } from './first/album'; //专辑页面
 export { default as MusicPlayer } from './first/musicplayer/musicPlayer'; //歌曲播放页面
+export { default as Card } from './first/card/index'; //俯瞰百年卡片
 
 export { default as My } from './my/home/index'; //个人中心首页
 export { default as Login } from './my/Login'; //登录页面

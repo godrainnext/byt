@@ -159,6 +159,8 @@ function Nav() {
         <Stack.Screen name="School" component={Screens.School} />
         {/* 剧本详情 */}
         <Stack.Screen name="Screenpaly" component={Screens.Screenpaly} />
+        {/*俯瞰百年卡片*/}
+        <Stack.Screen name="Card" component={Screens.Card} />
       </Stack.Navigator>
     </NavigationContainer>
   );
