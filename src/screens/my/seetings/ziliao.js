@@ -122,8 +122,8 @@ class Ziliao extends PureComponent {
         headers: {
           'content-type': 'application/json'
         }
-      })
-      .then((res) => {
+      }) 
+      .thegitn((res) => {
         ToastAndroid.show('保存信息成功', ToastAndroid.SHORT);
         this.props.getUserInfoAction();
       })
