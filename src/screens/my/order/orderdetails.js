@@ -6,387 +6,442 @@ import {
   Image,
   TouchableOpacity,
   StyleSheet,
-} from "react-native";
-import { pxToDp } from "../../../utils/styleKits";
-import Icon1 from "react-native-vector-icons/MaterialIcons";
-import { NavigationContext } from "@react-navigation/native";
-
+  ScrollView,
+  Dimensions,
+  Alert
+} from 'react-native';
+import { pxToDp } from '../../../utils/styleKits';
+import Top from '../../../component/common/top';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import { NavigationContext } from '@react-navigation/native';
+import RBSheet from 'react-native-raw-bottom-sheet';
 class orderdetails extends PureComponent {
+  showAlert() {
+    Alert.alert('是否确认收货？', '确认后就不可更改了哦', [
+      { text: '取消', onPress: this.opntion1Selected },
+      {
+        text: '确认',
+
+        onPress: () =>
+          this.setState({
+            colors: '#aaa',
+            Application: '已收货',
+            isshoushuo: true
+          })
+      }
+    ]);
+  }
+
+  state = {
+    way: '',
+    Application: '确认收货',
+    colors: '#ecf6fc',
+    isshoushuo: false
+  };
   static defaultProps = {
     style: {},
     textStyle: {},
-    cisabled: false,
+    cisabled: false
   };
   static contextType = NavigationContext;
-
   render() {
-    return (
-      <View style={{ backgroundColor: "#e2f4fe", flex: 1 }}>
-        <ImageBackground
-          style={{
-            backgroundColor: "#ecf6fc",
-            width: pxToDp(375),
-            height: pxToDp(150),
-          }}
-        >
-          <View
-            style={{
-              alignItems: "flex-end",
-              flexDirection: "row",
-              justifyContent: "space-between",
-              marginLeft: pxToDp(20),
-              marginRight: pxToDp(10),
-              marginTop: pxToDp(15),
-            }}
-          >
-            <Text style={{ fontSize: pxToDp(16), fontWeight: "bold" }}>
-              卖家已发货
-            </Text>
-            {/* <Text>支付剩余23时27分</Text> */}
-            <TouchableOpacity onPress={() => this.context.navigate("Tabbar")}>
-              <Icon1 name="home" size={24} color={"#bbb"} />
-            </TouchableOpacity>
-          </View>
-          <View style={{ marginLeft: pxToDp(20), marginTop: pxToDp(3) }}>
-            <Text style={{ fontSize: pxToDp(12) }}>应付金额 :￥166.90</Text>
-          </View>
-          <TouchableOpacity
-            style={{
-              flexDirection: "row",
-              marginLeft: pxToDp(20),
-              marginTop: pxToDp(18),
-            }}
-          >
-            <ImageBackground
-              style={{
-                justifyContent: "center",
-                alignItems: "center",
-                width: pxToDp(30),
-                height: pxToDp(30),
-                borderRadius: pxToDp(60),
-                backgroundColor: "white",
-              }}
-            >
-              <Image
-                style={{ width: pxToDp(20), height: pxToDp(20) }}
-                source={require("../../../res/快递.png")}
-              />
-            </ImageBackground>
-            <View style={{ marginLeft: pxToDp(8) }}>
-              <Text
-                style={{
-                  fontWeight: "bold",
-                  marginRight: pxToDp(20),
-                }}
-                numberOfLines={1}
-                ellipsizeMode={"tail"}
-              >
-                由【广东深圳福田转运中心】发往【上海宝山啊啊啊啊啊啊啊啊啊啊啊啊
+    console.log('new', this.props.route.params);
+    let invoice = [
+      { id: 7, content: '已签收,签收人：门卫', ctime: '2021-9-1 16:00' },
+      { id: 6, content: '派送中,您的快递即将送达', ctime: '2021-9-1 15:41' },
+      {
+        id: 5,
+        content:
+          '【杭州市】已离开浙江杭州分拨交付中心；发往 浙江省杭州拱墅区建华公司',
+        ctime: '2021-9-1 7:17'
+      },
+      {
+        id: 4,
+        content: '【泉州市】 已到达福建晋江分拨交付中心',
+        ctime: '2021-8-31 13:22'
+      },
+      { id: 3, content: '已揽件', ctime: '2021-8-31 8:06' },
+      { id: 2, content: '已发货', ctime: '2021-8-30 14:10' },
+      { id: 1, content: '已下单', ctime: '2021-8-30 12:59' }
+    ];
+    let items = [];
+    invoice.map((el, index) => {
+      let colorValue = index === 0 ? '#0b74c4' : '#888';
+      let backgroundColor = index === 0 ? '#0b74c4' : '#e0e0e0';
+      items.push(
+        <View style={styles.expressItem} key={index}>
+          <View style={styles.expressRightFirst}>
+            <View style={styles.process}>
+              <Text style={{ color: colorValue, fontSize: 14 }}>
+                {el.content}
               </Text>
-              <Text style={{ marginTop: pxToDp(5), fontSize: pxToDp(12) }}>
-                2019/06/25 03:36:09
+              <Text style={{ color: colorValue, fontSize: 12 }}>
+                {el.ctime}
               </Text>
             </View>
-            <Image
-              source={require("../../../res/箭头白.png")}
-              style={{
-                width: pxToDp(22),
-                height: pxToDp(22),
-                marginTop: pxToDp(4),
-                left: pxToDp(5),
-              }}
-            />
-          </TouchableOpacity>
-        </ImageBackground>
+          </View>
+          <View
+            style={[styles.expressLeft, { backgroundColor: backgroundColor }]}
+          />
+        </View>
+      );
+    });
+    const {
+      count,
+      shopId,
+      shopCarId,
+      howPay,
+      addressId,
+      color,
+      title,
+      price,
+      img,
+      create_time
+    } = this.props.route.params;
+    const { name, address, phoneNum } = this.props.route.params.address;
+    return (
+      <View style={{ backgroundColor: '#e2f4fe', flex: 1 }}>
+        <Top title="我的订单" icon1="arrow-back" />
+        {/* 地址 */}
         <View
           style={{
             marginLeft: pxToDp(10),
             marginRight: pxToDp(10),
-            justifyContent: "center",
-            backgroundColor: "white",
+            justifyContent: 'center',
+            backgroundColor: 'white',
             height: pxToDp(90),
-            bottom: pxToDp(20),
-            borderRadius: pxToDp(10),
+            borderRadius: pxToDp(10)
           }}
         >
           <View
             style={{
-              flexDirection: "row",
+              flexDirection: 'row',
               marginLeft: pxToDp(20),
-              marginBottom: pxToDp(2),
+              marginBottom: pxToDp(2)
             }}
           >
-            <Text style={{ fontSize: pxToDp(16), fontWeight: "bold" }}>
-              真是厉害
+            <Text style={{ fontSize: pxToDp(16), fontWeight: 'bold' }}>
+              {name}
             </Text>
             <Text
               style={{
                 marginLeft: pxToDp(20),
                 fontSize: pxToDp(15),
-                fontWeight: "bold",
+                fontWeight: 'bold'
               }}
             >
-              156****5137
+              {phoneNum}
             </Text>
           </View>
           <View style={{ marginLeft: pxToDp(20), marginTop: pxToDp(2) }}>
-            <Text>浙江省 杭州市 拱墅区 浙江树人大学</Text>
+            <Text>{address}</Text>
           </View>
         </View>
-        <View>
-          <TouchableOpacity
+        {/* 商品 */}
+        <View
+          style={{
+            height: pxToDp(140),
+            flexDirection: 'row',
+            backgroundColor: 'white',
+            marginLeft: pxToDp(10),
+            marginRight: pxToDp(10),
+            bottom: pxToDp(10),
+            borderRadius: pxToDp(10)
+          }}
+        >
+          <View style={{ justifyContent: 'center', marginLeft: pxToDp(15) }}>
+            <Image
+              style={{ width: pxToDp(110), height: pxToDp(110) }}
+              source={{
+                uri: img
+              }}
+            />
+          </View>
+          <View
             style={{
-              height: pxToDp(140),
-              flexDirection: "row",
-              backgroundColor: "white",
-              marginLeft: pxToDp(10),
-              marginRight: pxToDp(10),
-              bottom: pxToDp(10),
-              borderRadius: pxToDp(10),
+              marginLeft: pxToDp(8),
+              marginTop: pxToDp(18),
+              justifyContent: 'space-between'
             }}
           >
-            <View style={{ justifyContent: "center", marginLeft: pxToDp(15) }}>
-              <Image
-                style={{ width: pxToDp(110), height: pxToDp(110) }}
-                source={{
-                  uri: "https://img20.360buyimg.com/imgzone/jfs/t1/173507/4/18790/68769/60e68718E0f0ea850/91903dd60a5c5707.jpg",
-                }}
-              />
-            </View>
+            <Text style={{ fontSize: pxToDp(17), fontWeight: 'bold' }}>
+              {title}
+            </Text>
             <View
               style={{
-                marginLeft: pxToDp(8),
-                marginTop: pxToDp(18),
-                justifyContent: "space-between",
+                marginBottom: pxToDp(30),
+                width: pxToDp(220),
+                flexDirection: 'row',
+                justifyContent: 'space-between'
               }}
             >
-              <View style={{}}>
-                <Text style={{ fontSize: pxToDp(15), fontWeight: "bold" }}>
-                  花旦戏服戏剧越剧服装
-                </Text>
-              </View>
-              <View
+              <Text style={{ fontSize: pxToDp(14) }}>{color}</Text>
+              <Text style={{ fontSize: pxToDp(14), marginRight: pxToDp(10) }}>
+                X{count}
+              </Text>
+            </View>
+            <View style={{ marginBottom: pxToDp(15) }}>
+              <Text
                 style={{
-                  marginBottom: pxToDp(30),
-                  width: pxToDp(220),
-                  flexDirection: "row",
-                  justifyContent: "space-between",
+                  fontSize: pxToDp(18),
+                  color: 'red',
+                  fontWeight: 'bold'
                 }}
               >
-                <View style={{ width: pxToDp(150) }}>
-                  <Text style={{ fontSize: pxToDp(12) }}>红色 全套</Text>
-                </View>
-                <View>
-                  <Text
-                    style={{ fontSize: pxToDp(12), marginRight: pxToDp(10) }}
-                  >
-                    X1
-                  </Text>
-                </View>
-              </View>
-              <View style={{ marginBottom: pxToDp(15) }}>
-                <Text
-                  style={{
-                    fontSize: pxToDp(18),
-                    color: "red",
-                    fontWeight: "bold",
-                  }}
-                >
-                  166.90
-                </Text>
-              </View>
+                ￥{price * count}
+              </Text>
             </View>
-          </TouchableOpacity>
+          </View>
         </View>
+        {/* 订单 */}
         <View
           style={{
             height: pxToDp(150),
-            backgroundColor: "white",
+            backgroundColor: 'white',
             marginLeft: pxToDp(10),
-            marginRight: pxToDp(10),
-            borderRadius: pxToDp(10),
+            marginRight: pxToDp(10)
           }}
         >
-          <View style={{ marginLeft: pxToDp(15), marginTop: pxToDp(15) }}>
-            <View style={{ flexDirection: "row" }}>
-              <Text>订单编号:</Text>
-              <Text style={{ marginLeft: pxToDp(5) }}>109878783472</Text>
-              <TouchableOpacity style={{ marginLeft: pxToDp(140) }}>
-                <Text style={{ color: "red" }}>复制</Text>
-              </TouchableOpacity>
-            </View>
-            <View style={{ flexDirection: "row", marginTop: pxToDp(10) }}>
-              <Text>下单时间:</Text>
-              <Text style={{ marginLeft: pxToDp(5) }}>2019-06-25 13:10:42</Text>
-            </View>
-            <View style={{ flexDirection: "row", marginTop: pxToDp(10) }}>
-              <Text>支付方式:</Text>
-              <Text style={{ marginLeft: pxToDp(5) }}>微信支付</Text>
-            </View>
+          <View
+            style={{
+              marginLeft: pxToDp(15),
+              marginTop: pxToDp(15),
+              height: pxToDp(80),
+              justifyContent: 'space-around'
+            }}
+          >
+            <Text>订单编号: 109878783472</Text>
+            <Text>下单时间: {create_time}</Text>
+            <Text>
+              支付方式:{' '}
+              {howPay === 0
+                ? '微信支付'
+                : howPay === 1
+                ? '支付宝支付'
+                : '银行卡支付'}
+            </Text>
           </View>
           <View
             style={{
-              width: pxToDp(355),
-              height: pxToDp(1),
-              backgroundColor: "#e6e6e6",
-              marginTop: pxToDp(15),
-            }}
-          />
-          <View
-            style={{
-              flexDirection: "row",
-              marginTop: pxToDp(10),
-              justifyContent: "space-between",
-              marginLeft: pxToDp(45),
-              marginRight: pxToDp(45),
+              flexDirection: 'row',
+              justifyContent: 'space-around',
+              flex: 1
             }}
           >
-            <TouchableOpacity style={{ flexDirection: "row" }}>
+            <TouchableOpacity style={styles.smallbox1}>
               <Image
                 style={{ width: pxToDp(25), height: pxToDp(25) }}
-                source={require("../../../res/客服.png")}
+                source={require('../../../res/客服.png')}
               />
               <Text>我的客服</Text>
             </TouchableOpacity>
-            <View
-              style={{
-                height: pxToDp(45),
-                width: pxToDp(1),
-                backgroundColor: "#e6e6e6",
-                bottom: pxToDp(10),
-              }}
-            />
-            <TouchableOpacity style={{ flexDirection: "row" }}>
+            <TouchableOpacity style={styles.smallbox2}>
               <Image
                 style={{ width: pxToDp(25), height: pxToDp(25) }}
-                source={require("../../../res/电话.png")}
+                source={require('../../../res/电话.png')}
               />
               <Text>拨打电话</Text>
             </TouchableOpacity>
           </View>
         </View>
+        {/* 价格 */}
         <View
           style={{
-            backgroundColor: "white",
+            backgroundColor: 'white',
             height: pxToDp(120),
-            marginTop: pxToDp(10),
+            margin: pxToDp(10)
           }}
         >
-          <View
-            style={{
-              marginTop: pxToDp(10),
-              flexDirection: "row",
-              marginLeft: pxToDp(15),
-              alignItems: "flex-end",
-              justifyContent: "space-between",
-            }}
-          >
+          <View style={styles.pricebox}>
             <Text style={{ fontSize: pxToDp(14) }}>商品金额</Text>
-            <Text
-              style={{
-                fontSize: pxToDp(14),
-                marginRight: pxToDp(10),
-                fontWeight: "bold",
-                color: "red",
-              }}
-            >
-              ￥166.90
-            </Text>
+            <Text style={styles.textbox}>￥{price * count}</Text>
           </View>
-          <View
-            style={{
-              flexDirection: "row",
-              marginLeft: pxToDp(15),
-              alignItems: "flex-end",
-              justifyContent: "space-between",
-              marginTop: pxToDp(5),
-            }}
-          >
+          <View style={styles.pricebox}>
             <Text style={{ fontSize: pxToDp(14) }}>运费</Text>
-            <Text
-              style={{
-                fontSize: pxToDp(14),
-                marginRight: pxToDp(10),
-                fontWeight: "bold",
-                color: "red",
-              }}
-            >
-              包邮
-            </Text>
+            <Text style={styles.textbox}>包邮</Text>
           </View>
           <View
             style={{
-              flexDirection: "row",
+              flexDirection: 'row',
               marginTop: pxToDp(10),
-              justifyContent: "flex-end",
-              alignItems: "center",
+              justifyContent: 'flex-end',
+              alignItems: 'center'
             }}
           >
             <TouchableOpacity
+              onPress={() => this.Scrollable.open()}
               style={{
                 left: pxToDp(10),
-                justifyContent: "center",
-                alignItems: "center",
+                justifyContent: 'center',
+                alignItems: 'center',
                 borderRadius: pxToDp(25),
                 marginRight: pxToDp(20),
                 width: pxToDp(80),
-                height: pxToDp(30),
+                height: pxToDp(30)
               }}
             >
               <Text>查看物流</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              cisabled={this.props.disabled}
-              onPress={this.props.onPress}
+              onPress={this.showAlert.bind(this)}
+              disabled={this.state.isshoushuo}
               style={{
-                borderRadius: pxToDp(25),
+                borderRadius: pxToDp(35),
                 marginRight: pxToDp(20),
                 width: pxToDp(130),
                 height: pxToDp(40),
-                ...this.props.style,
-                overflow: "hidden",
+                justifyContent: 'center',
+                alignItems: 'center',
+                backgroundColor: this.state.colors
               }}
             >
-              <View
-                style={{
-                  flex: 1,
-                  paddingLeft: pxToDp(15),
-                  paddingRight: pxToDp(15),
-                  borderRadius: pxToDp(5),
-                  width: "100%",
-                  height: "100%",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  backgroundColor: "#ecf6fc",
-                }}
-              >
-                <Text>确认收货</Text>
-              </View>
+              <Text>{this.state.Application}</Text>
             </TouchableOpacity>
           </View>
         </View>
+        <RBSheet
+          ref={(ref) => {
+            this.Scrollable = ref;
+          }}
+          height={pxToDp(600)}
+          closeOnDragDowncustomStyles={{
+            container: { borderTopLeftRadius: 10, borderTopRightRadius: 10 }
+          }}
+        >
+          <ScrollView>
+            <View style={{ backgroundColor: '#468cd3', height: pxToDp(150) }}>
+              <View
+                style={{
+                  height: pxToDp(40),
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
+              >
+                <Text style={{ fontSize: pxToDp(20), color: '#ecf6fc' }}>
+                  已签收
+                </Text>
+              </View>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  margin: pxToDp(10),
+                  marginTop: 0,
+                  height: pxToDp(100)
+                }}
+              >
+                <Image
+                  style={{
+                    width: pxToDp(100)
+                  }}
+                  source={{ uri: img }}
+                />
+                <View
+                  style={{
+                    marginLeft: pxToDp(8),
+                    marginRight: pxToDp(8),
+                    width: pxToDp(220),
+                    justifyContent: 'space-around'
+                  }}
+                >
+                  <Text style={{ color: '#ecf6fc' }}>
+                    {title} {color}
+                  </Text>
+                  <Text style={{ color: '#ecf6fc' }}>
+                    中通快递:CC176548554455
+                  </Text>
+                  <Text style={{ fontSize: pxToDp(18), color: '#ecf6fc' }}>
+                    已送达
+                  </Text>
+                </View>
+                <View style={{ justifyContent: 'center' }}>
+                  <AntDesign name="right" size={pxToDp(18)} color="#ecf6fc" />
+                </View>
+              </View>
+            </View>
+            <View
+              style={{
+                height: pxToDp(450),
+                marginTop: pxToDp(20)
+              }}
+            >
+              <View>{items}</View>
+            </View>
+          </ScrollView>
+        </RBSheet>
       </View>
     );
   }
 }
-
 const styles = StyleSheet.create({
   linearGradient: {
     flex: 1,
     paddingLeft: pxToDp(15),
     paddingRight: pxToDp(15),
     borderRadius: pxToDp(5),
-    width: "100%",
-    height: "100%",
-    justifyContent: "center",
-    alignItems: "center",
+    width: '100%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   buttonText: {
     fontSize: pxToDp(15),
-    fontFamily: "Gill Sans",
-    textAlign: "center",
-    color: "#ffffff",
-    backgroundColor: "transparent",
+    fontFamily: 'Gill Sans',
+    textAlign: 'center',
+    color: '#ffffff',
+    backgroundColor: 'transparent'
   },
+  smallbox1: {
+    flexDirection: 'row',
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  smallbox2: {
+    flexDirection: 'row',
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  pricebox: {
+    marginTop: pxToDp(10),
+    flexDirection: 'row',
+    marginLeft: pxToDp(15),
+    alignItems: 'flex-end',
+    justifyContent: 'space-between'
+  },
+  textbox: {
+    fontSize: pxToDp(14),
+    marginRight: pxToDp(10),
+    fontWeight: 'bold',
+    color: 'red'
+  },
+  process: {
+    paddingVertical: pxToDp(10),
+    flexDirection: 'column',
+    paddingRight: pxToDp(20)
+  },
+  expressRightFirst: {
+    width: Dimensions.get('window').width,
+    paddingLeft: pxToDp(25),
+    borderLeftWidth: pxToDp(1),
+    borderLeftColor: '#e0e0e0',
+    flexDirection: 'column'
+  },
+  expressItem: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    paddingLeft: pxToDp(40),
+    width: Dimensions.get('window').width
+  },
+  expressLeft: {
+    width: pxToDp(10),
+    height: pxToDp(10),
+    borderRadius: pxToDp(5),
+    backgroundColor: '#e0e0e0',
+    position: 'relative',
+    right: Dimensions.get('window').width + 4,
+    top: pxToDp(20)
+  }
 });
 export default orderdetails;

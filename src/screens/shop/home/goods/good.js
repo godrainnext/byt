@@ -20,7 +20,6 @@ import Swiper from '@components/common/Swiper';
 import { getShopInfo } from '@service/shop';
 import { EasyLoading, Loading } from '@utils/ezLoading';
 const WINDOW_WIDTH = Dimensions.get('window').width;
-
 class shopdetails extends PureComponent {
   state = {
     count: 1,
@@ -130,7 +129,9 @@ class shopdetails extends PureComponent {
           shopimg: [...res.shopinnerimages],
           products: [...res.shopcarimages]
         });
+        console.log('detail', res);
       })
+
       .then(() => {
         EasyLoading.dismiss();
       });
