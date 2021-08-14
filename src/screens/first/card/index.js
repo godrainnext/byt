@@ -72,7 +72,7 @@ class history extends Component {
                         // 视频大图  开始
                         <View style={{ height: pxToDp(220), flexDirection: 'row', justifyContent: 'center', alignItems: 'center', margin: pxToDp(10), elevation: 10, shadowColor: 'black', shadowOffset: { width: 0, height: 0 }, shadowOpacity: 1, shadowRadius: 10, }}>
                             <View style={{ width: '96%', height: '100%', }}>
-                                <TouchableOpacity onPress={() => this.context.navigate("TalkTea")} >
+                                <TouchableOpacity>
                                     <ImageBackground style={{ width: '100%', height: pxToDp(220), }} imageStyle={{ borderRadius: pxToDp(10) }} source={{ uri: item.illustration }}>
                                         <View style={{ justifyContent: 'center', alignItems: 'center', height: '64%' }}>
                                         </View>
