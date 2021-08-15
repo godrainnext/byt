@@ -10,8 +10,9 @@ export { default as Optuijian } from './first/opera/optuijian'; //唱段推荐
 export { default as Opperson } from './first/opera/opperson'; //名角的唱段页面
 export { default as Opgroup } from './first/opera/opgroup'; //流派的唱段页面
 export { default as Actress } from './first/actress/index'; //名角个人页
-export { default as Album } from './first/album/idnex'//专辑页面
-export { default as MusicPlayer } from './first/musicplayer/musicPlayer'//歌曲播放页面
+export { default as Album } from './first/album'; //专辑页面
+export { default as MusicPlayer } from './first/musicplayer/musicPlayer'; //歌曲播放页面
+export { default as Card } from './first/card/index'; //俯瞰百年卡片
 
 export { default as My } from './my/home/index'; //个人中心首页
 export { default as Login } from './my/Login'; //登录页面
@@ -37,8 +38,8 @@ export { default as History } from './my/history'; //浏览历史
 export { default as Jifenshop } from './my/jifenshop/jifenshop'; //积分商城
 export { default as Orderone } from './my/order/pages/orderone'; //订单全部页
 export { default as Refund } from './my/order/pages/refund'; //退款订单页面
-export { default as Setting } from './my/seetings/setting'; //设置页面
-//export { default as Ziliao } from './my/seetings/ziliao'; //资料页面
+export { default as Myhome} from './my/home/myhome'; //个人页面
+export { default as Ziliao } from './my/seetings/ziliao'; //资料页面
 export { default as Collection } from './my/collection'; //收藏
 export { default as Fan } from './my/fan'; //粉丝
 export { default as Follow } from './my/follow'; //关注
@@ -64,6 +65,8 @@ export { default as Drama } from './play/act/drama'; //剧本
 export { default as Scriptlibrary } from './play/scriptlibrary'; //剧本库
 export { default as VR } from './play/vr'; //越剧小镇VR
 export { default as relatedImg } from './Timeline/relatedImg'; //相关图片
+export { default as relatedBook } from './Timeline/relatedBook'; //相关书籍
+export { default as bookDetail } from './Timeline/bookDetail'; //相关书籍详情
 export { default as Course } from './play/course'; //教程页面
 export { default as Basic } from './play/course/bankuai/basic'; //越剧基本功板块
 export { default as Master } from './play/course/bankuai/master'; //越剧大师教学板块
@@ -78,7 +81,6 @@ export { default as SeeFang } from './talk/home/talkRoom/gindex'; //开启合唱
 export { default as Create } from './talk/home/live/create'; //剧本创作页
 export { default as Inluntan } from './talk/home/forum/inluntan';
 export { default as Forum } from './talk/home/forum/index'; //论坛页面
-
 
 export { default as Screenpaly } from './talk/home/script/screenplay'; //论坛页面
 

@@ -23,7 +23,7 @@ class UserInner extends PureComponent {
       >
         <View style={{ flexDirection: 'row' }}>
           <TouchableOpacity
-            onPress={() => this.context.navigate('Setting')}
+            onPress={() => this.context.navigate('Myhome')}
           >
             <Image
               style={{

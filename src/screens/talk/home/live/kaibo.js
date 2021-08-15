@@ -1,7 +1,23 @@
 import React, { Component } from 'react';
-import { Platform, ScrollView, Text, TouchableOpacity, View, PermissionsAndroid, Image, Dimensions, StyleSheet } from 'react-native';
+import {
+  Platform,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+  PermissionsAndroid,
+  Image,
+  Dimensions,
+  StyleSheet
+} from 'react-native';
 import { Input } from 'react-native-elements';
-import RtcEngine, { RtcLocalView, RtcRemoteView, VideoRenderMode, ChannelProfile, ClientRole, } from 'react-native-agora'
+import RtcEngine, {
+  RtcLocalView,
+  RtcRemoteView,
+  VideoRenderMode,
+  ChannelProfile,
+  ClientRole
+} from 'react-native-agora';
 import { WebView } from 'react-native-webview';
 import { MarqueeHorizontal, MarqueeVertical } from 'react-native-marquee-ab';
 import { pxToDp } from '../../../../utils/styleKits';
@@ -494,42 +510,42 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   max: {
-    flex: 1,
+    flex: 1
   },
   buttonHolder: {
     height: pxToDp(100),
     alignItems: 'center',
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-evenly'
   },
   button: {
     paddingHorizontal: 20,
     paddingVertical: 10,
     backgroundColor: '#0093E9',
-    borderRadius: pxToDp(24),
+    borderRadius: pxToDp(24)
   },
   buttonText: {
-    color: '#fff',
+    color: '#fff'
   },
   fullView: {
     width: dimensions.width,
-    height: dimensions.height,
+    height: dimensions.height
   },
   remoteContainer: {
     width: '100%',
     height: dimensions.height,
-    position: 'absolute',
+    position: 'absolute'
     // marginTop:80
   },
   remote: {
     width: pxToDp(150),
     height: pxToDp(150),
-    marginHorizontal: 2.5,
+    marginHorizontal: 2.5
   },
   noUserText: {
     paddingHorizontal: 10,
     paddingVertical: 5,
-    color: '#0093E9',
-  },
+    color: '#0093E9'
+  }
 });
