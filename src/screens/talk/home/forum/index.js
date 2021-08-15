@@ -8,7 +8,8 @@ import {
   ScrollView,
   TouchableOpacity,
   ImageBackground,
-  Modal
+  Modal,
+  DeviceEventEmitter
 } from 'react-native';
 
 import { pxToDp } from '@utils/styleKits';
@@ -27,10 +28,14 @@ class Index extends PureComponent {
     isShow: false //
   };
   componentDidMount() {
-    getMomentListByStatus(0).then((res) => {
-      this.setState({ dongtai: [...res] });
+    this.changeListener = DeviceEventEmitter.addListener('momentChange');
+    getMomentListByStatus(0, 0, 10).then((res) => {
+      this.setState({ dongtai: [...res].reverse() });
       console.log(res);
     });
+  }
+  componentWillUnmount() {
+    this.changeListener.remove();
   }
   changeVisible = () => {
     console.log(123);

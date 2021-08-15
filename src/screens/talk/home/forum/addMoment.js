@@ -9,7 +9,8 @@ import {
   TouchableOpacity,
   Dimensions,
   Modal,
-  ToastAndroid
+  ToastAndroid,
+  DeviceEventEmitter
 } from 'react-native';
 import { pxToDp } from '@utils/styleKits';
 import RichTextView from '../components/RichTextView';
@@ -125,8 +126,11 @@ class index extends Component {
       })
       .then((res) => {
         this.handleEditingEnd();
-
+        this.props.toggleModalProps();
         ToastAndroid.show('发表文章成功', ToastAndroid.SHORT);
+      })
+      .then((ress) => {
+        DeviceEventEmitter.emit('momentChange');
       });
   };
   // componentWillMount() {
