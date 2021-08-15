@@ -15,7 +15,7 @@ export default class bookDetail extends Component {
 
         <View
           style={{
-            backgroundColor: '#e8d7df',
+            backgroundColor: '#ecf6fc',
             height: pxToDp(150),
             margin: pxToDp(10),
             flexDirection: 'row'
@@ -26,7 +26,7 @@ export default class bookDetail extends Component {
               width: pxToDp(120),
               height: pxToDp(130),
               margin: pxToDp(10),
-              backgroundColor: '#c26f9b'
+              backgroundColor: '#ecf6fc'
             }}
             source={require('../../res/play/1.jpg')}
           />
