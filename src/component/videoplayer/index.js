@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View ,Text} from 'react-native';
-import ScrollableTabView, { DefaultTabBar } from 'react-native-scrollable-tab-view';
+import ScrollableTabView from 'react-native-scrollable-tab-view';
 import VideoHead from './VideoHead.js/index';
 // 引入子页面
 import VideoInro from './VideoInro/index';
