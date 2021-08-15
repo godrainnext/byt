@@ -21,8 +21,8 @@ import SnapCarousel from '../../../component/SnapCarousel/index';
 class Index extends PureComponent {
   state = {
 
-}
-static contextType = NavigationContext;
+  }
+  static contextType = NavigationContext;
   render() {
     return (
       <View style={{ backgroundColor: '#ecf6fc', flex: 1 }}>
@@ -31,7 +31,7 @@ static contextType = NavigationContext;
           <ScrollView style={{ marginBottom: pxToDp(50) }}>
             {/*视频 */}
             <View style={{ flex: 1 }}>
-          {  /*  <Video
+              {  /*  <Video
                 source={require('../../../res/越剧介绍.mp4')}
                 rate={1.0}
                 volume={1.0}
@@ -587,6 +587,76 @@ static contextType = NavigationContext;
                   </View>
                 </View>
               </Carousel>
+            </View>
+
+            {/* 大图视频 */}
+            <View
+              style={{
+                height: pxToDp(220),
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginBottom: pxToDp(24)
+              }}
+            >
+              <View style={{ width: '96%', height: '100%' }}>
+                <TouchableOpacity onPress={() => this.context.navigate()}>
+                  <ImageBackground
+                    style={{ width: '100%', height: pxToDp(220) }}
+                    imageStyle={{ borderRadius: pxToDp(10) }}
+                    source={{
+                      uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg1.doubanio.com%2Fpview%2Fevent_poster%2Fraw%2Fpublic%2Ff3283bd44eec487.jpg&refer=http%3A%2F%2Fimg1.doubanio.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631083362&t=f518e0105b6e4d70c8bd1515d98d8802'
+                    }}
+                  >
+                    <View
+                      style={{
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        height: '76%'
+                      }}
+                    >
+                      <Image
+                        style={{ width: pxToDp(60), height: pxToDp(60) }}
+                      ></Image>
+                    </View>
+                    <View
+                      style={{
+                        backgroundColor: '#D2DFD5',
+                        opacity: 0.8,
+                        width: '100%',
+                        height: '24%',
+                        borderRadius: pxToDp(10)
+                      }}
+                    >
+                      <View style={{ margin: pxToDp(10) }}>
+                        <View
+                          style={{
+                            flexDirection: 'row',
+                            justifyContent: 'center',
+                            alignItems: 'center'
+                          }}
+                        >
+                          <Text style={{ fontSize: pxToDp(16), width: '96%' }}>
+                            跟沈歆雯学越剧
+                          </Text>
+                          <TouchableOpacity>
+                            <Icon1 name="close" size={18} color={'black'} />
+                          </TouchableOpacity>
+                        </View>
+                        <View
+                          style={{ flexDirection: 'row', alignItems: 'center' }}
+                        >
+                          <Icon name="control-play" size={14} color={'black'} />
+                          <Text style={{ marginLeft: pxToDp(4) }}>96.7万</Text>
+                          <View style={{ width: pxToDp(20) }}></View>
+                          <Icon name="clock" size={14} color={'black'} />
+                          <Text style={{ marginLeft: pxToDp(4) }}>02:12</Text>
+                        </View>
+                      </View>
+                    </View>
+                  </ImageBackground>
+                </TouchableOpacity>
+              </View>
             </View>
           </ScrollView>
         </View>

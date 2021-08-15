@@ -139,7 +139,7 @@ export class AlwaysOpen extends PureComponent {
         padding: pxToDp(20),
         flex: 1,
         backgroundColor: '#ecf6fc',
-        borderRadius: pxToDp(12)
+        borderRadius: pxToDp(12),
       }}
     >
       <View>
@@ -239,7 +239,7 @@ export class AlwaysOpen extends PureComponent {
       <Modalize
         ref={this.modalizeRef}
         modalStyle={s.content__modal}
-        alwaysOpen={500}
+        alwaysOpen={580}
         handlePosition="inside"
       >
         {this.renderContent()}
@@ -257,7 +257,6 @@ const s = StyleSheet.create({
 
   content__subheading: {
     marginBottom: 2,
-
     fontSize: 16,
     fontWeight: '600',
     color: '#ccc'
@@ -272,14 +271,14 @@ const s = StyleSheet.create({
   content__description: {
     paddingTop: 10,
     paddingBottom: 10,
-
     fontSize: 15,
     fontWeight: '200',
     lineHeight: 22,
     color: '#666'
   },
   bigbox: {
-    height: 560,
+    flex: 1,
+    marginBottom:pxToDp(200),
     marginTop: pxToDp(20)
   }
 });
