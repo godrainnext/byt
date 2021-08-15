@@ -32,7 +32,7 @@ class Index extends PureComponent {
     render() {
         const { like, alike, blike } = this.state;
         return (
-          <View>
+          <View style={{backgroundColor:'#ecf6fc', flex: 1 }}>
             <Top icon1="arrow-back" title="阅读剧本" />
             <View style={{ padding: pxToDp(15) }}>
               <ScrollView
