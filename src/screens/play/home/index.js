@@ -142,7 +142,7 @@ class Index extends PureComponent {
   };
 
   render() {
-    const { modalVisible,modalVisibles,text } = this.state;
+    const { modalVisible, modalVisibles, text } = this.state;
     const labels = [
       '第一天',
       '第二天',
@@ -669,13 +669,13 @@ class Index extends PureComponent {
               </View>
             </View>
           </View>
-
-          <TouchableOpacity
+          <View style={{ marginBottom: pxToDp(40) }}></View>
+          {/* <TouchableOpacity
             style={{ marginBottom: 200 }}
             onPress={() => this.context.navigate('VR')}
           >
             <Text>VR</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </ScrollView>
       </View>
     );

@@ -23,7 +23,7 @@ import {
   pinglun,
   stopmusic
 } from '../../../../component/common/iconSvg';
-
+import changeImgSize from '@utils/changeImgSize.js';
 class Index extends PureComponent {
   state = {
     list: [
@@ -79,7 +79,7 @@ class Index extends PureComponent {
     return (
       <ImageBackground
         style={{ flex: 1, height: pxToDp(150), marginTop: pxToDp(10) }}
-        source={{ uri: obj.picture }}
+        source={{ uri:changeImgSize(obj.picture,'small')  }}
       >
         <Video
           ref={video}
@@ -106,15 +106,7 @@ class Index extends PureComponent {
   };
   showArticle = (obj) => {
     return (
-<<<<<<< HEAD
       <ScrollView style={{ flex: 1, height: pxToDp(120), marginTop: pxToDp(10) }} horizontal={true} showsHorizontalScrollIndicator={false}>
-=======
-      <ScrollView
-        style={{ flex: 1, height: pxToDp(120), marginTop: pxToDp(10) }}
-        horizontal={true}
-        showsHorizontalScrollIndicator={false}
-      >
->>>>>>> 6718762c8bc90dc1cc720c28e8baa3e2963f848b
         {obj.images?.map((item, index) => (
           <Image
             key={index}
@@ -124,7 +116,7 @@ class Index extends PureComponent {
               borderRadius: pxToDp(10),
               marginRight: pxToDp(10)
             }}
-            source={{ uri: item }}
+            source={{ uri: changeImgSize(item,'small') }}
           />
         ))}
       </ScrollView>
