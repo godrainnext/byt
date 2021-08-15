@@ -163,6 +163,8 @@ function Nav() {
         <Stack.Screen name="Card" component={Screens.Card} />
         {/*视频播放页*/}
         <Stack.Screen name="Video" component={Screens.Video} />
+        {/*举报页*/}
+        <Stack.Screen name="Jubao" component={Screens.Jubao} />
       </Stack.Navigator>
     </NavigationContainer>
   );
