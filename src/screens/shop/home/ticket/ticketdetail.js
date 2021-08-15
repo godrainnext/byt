@@ -67,7 +67,7 @@ export default class ticketdetail extends PureComponent {
   render() {
     console.log('day', this.props.route.params);
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{ backgroundColor:'#ecf6fc',flex: 1 }}>
         <Top icon1="arrow-back" title="门票详情" />
         <ScrollView
           stickyHeaderIndices={[1]}
