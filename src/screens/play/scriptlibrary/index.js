@@ -90,7 +90,7 @@ class Index extends PureComponent {
   static contextType = NavigationContext;
   render() {
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{backgroundColor:'#ecf6fc', flex: 1 }}>
         <Top icon1="arrow-back" title="剧本中心" />
         <ScrollView style={{ flex: 1 }}>
           {/* 他山之石 */}
