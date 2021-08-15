@@ -106,7 +106,11 @@ class Index extends PureComponent {
   };
   showArticle = (obj) => {
     return (
-      <ScrollView style={{ flex: 1, height: pxToDp(120), marginTop: pxToDp(10) }} horizontal={true} showsHorizontalScrollIndicator={false}>
+      <ScrollView
+        style={{ flex: 1, height: pxToDp(120), marginTop: pxToDp(10) }}
+        horizontal={true}
+        showsHorizontalScrollIndicator={false}
+      >
         {obj.images?.map((item, index) => (
           <Image
             key={index}

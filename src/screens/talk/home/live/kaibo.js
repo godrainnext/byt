@@ -35,9 +35,9 @@ const requestCameraAndAudioPermission = async () => {
     ]);
     if (
       granted['android.permission.RECORD_AUDIO'] ===
-        PermissionsAndroid.RESULTS.GRANTED &&
+      PermissionsAndroid.RESULTS.GRANTED &&
       granted['android.permission.CAMERA'] ===
-        PermissionsAndroid.RESULTS.GRANTED
+      PermissionsAndroid.RESULTS.GRANTED
     ) {
       console.log('You can use the cameras & mic');
     } else {
@@ -89,8 +89,7 @@ export default class App extends Component {
 
     this.state = {
       appId: '29792ec3eded410facd609fb7ad76fef',
-      token:
-        '00629792ec3eded410facd609fb7ad76fefIADCc8H70U749XGwDaAgInl0TjHWz2j6gN0U1okFKIK5sUgDg6MAAAAAEACcjToMHqkYYQEAAQAeqRhh',
+      token: '00629792ec3eded410facd609fb7ad76fefIAAbKUcPA8ZKD6c3OvRQ3dLsbHqp9OSHU+zfE7bUrcatNkgDg6MAAAAAEACcjToMxfsZYQEAAQDE+xlh',
       // channelName: 'ABC',
       channelName: '',
       joinSucceed: false, //默认进入直播
@@ -344,8 +343,8 @@ export default class App extends Component {
     return (
       <View
         style={styles.remoteContainer}
-        // contentContainerStyle={{ paddingHorizontal: 2.5 }}
-        // horizontal={true}
+      // contentContainerStyle={{ paddingHorizontal: 2.5 }}
+      // horizontal={true}
       >
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
           <View
