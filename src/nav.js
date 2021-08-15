@@ -9,7 +9,7 @@ const Stack = createStackNavigator();
 function Nav() {
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode="none" initialRouteName="Tabbar">
+      <Stack.Navigator headerMode="none" initialRouteName="Login">
         <Stack.Screen name="Tabbar" component={Tabbar} />
         {/*登录 */}
         <Stack.Screen name="Login" component={Screens.Login} />
@@ -107,7 +107,7 @@ function Nav() {
         {/*练唱专辑详情 */}
         <Stack.Screen name="Details" component={Screens.Details} />
         {/*练唱页面*/}
-        {/*<Stack.Screen name="Sing" component={Screens.Sing} />*/}
+        <Stack.Screen name="Sing" component={Screens.Sing} />
         {/* 进入练唱页面 */}
         {<Stack.Screen name="Singbefore" component={Screens.Singbefore} />}
         {/*双人剧本 */}
@@ -166,6 +166,10 @@ function Nav() {
         <Stack.Screen name="Screenpaly" component={Screens.Screenpaly} />
         {/*俯瞰百年卡片*/}
         <Stack.Screen name="Card" component={Screens.Card} />
+        {/*视频播放页*/}
+        <Stack.Screen name="Video" component={Screens.Video} />
+        {/*举报页*/}
+        <Stack.Screen name="Jubao" component={Screens.Jubao} />
       </Stack.Navigator>
     </NavigationContainer>
   );

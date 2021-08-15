@@ -1,4 +1,4 @@
-{/*import React, { PureComponent, createRef } from 'react';
+import React, { PureComponent, createRef } from 'react';
 import { View, Image, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import Top from '@components/common/top';
 import { pxToDp } from '@utils/styleKits';
@@ -207,4 +207,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default Index;*/}
+export default Index;

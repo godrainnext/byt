@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery歌词同步的音乐播放器插件DEMO演示</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dist/APlayer.min.css">
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 32rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h1 {
+            font-size: 54px;
+            color: #333;
+            margin: 30px 0 10px;
+        }
+
+        h2 {
+            font-size: 22px;
+            color: #555;
+        }
+
+        h3 {
+            font-size: 24px;
+            color: #555;
+        }
+
+        hr {
+            display: block;
+            width: 7rem;
+            height: 1px;
+            margin: 2.5rem 0;
+            background-color: #eee;
+            border: 0;
+        }
+
+        a {
+            color: #08c;
+            text-decoration: none;
+        }
+
+        p {
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div style="text-align:center;clear:both;">
+            <script src="/gg_bd_ad_720x90.js" type="text/javascript"></script>
+            <script src="/follow.js" type="text/javascript"></script>
+        </div>
+        <!-- <h1>APlayer</h1> -->
+        <div id="player3" class="aplayer">
+            <pre class="aplayer-lrc-content">
+    [ti:十八相送]
+[ar:何赛飞/吴凤花]
+[al:《梁祝》]
+[by:越剧]
+[00:11.00]【越剧】《梁祝》十八相送
+[00:24.01]表演者：何赛飞/吴凤花
+[00:28.02]（选自《碧落黄泉》）
+[00:32.00]祝英台：书房门前一枝梅
+[00:44.00]祝英台：树上鸟儿对打对
+[00:49.00]祝英台：喜鹊满树喳喳叫
+[00:55.00]祝英台：向你梁兄报喜来
+[01:10.00]梁山伯：弟兄二人出门来
+[01:20.00]梁山伯：门前喜鹊成双对
+[01:25.00]梁山伯：从来喜鹊报喜讯
+[01:30.00]梁山伯：恭喜贤弟一路平安把家归
+[01:46.00]祝英台：出了城
+[01:55.00]祝英台：过了关
+[02:00.00]祝英台：但只见山上的樵夫把柴担
+[02:06.00]梁山伯：起早落夜多辛苦
+[02:11.00]梁山伯：打柴度日也艰难
+[02:19.00]祝英台：梁兄啊 他为何人把柴担
+[02:25.00]祝英台：你为哪个送下山
+[02:33.00]梁山伯：他为妻儿把柴担
+[02:39.00]梁山伯：我为你贤弟送下山
+[02:51.00]祝英台：过了一山又一山
+[03:06.00]梁山伯：前面到了凤凰山
+[03:14.00]祝英台：凤凰山上百花开
+[03:23.00]梁山伯：缺少芍药共牡丹
+[03:30.00]祝英台：梁兄你若是爱牡丹
+[03:36.00]祝英台：与我一同把家归
+[03:42.00]祝英台：我家有枝好牡丹
+[03:47.00]祝英台：梁兄你要摘也不难
+[03:55.00]梁山伯：你家牡丹虽然好
+[04:01.00]梁山伯：可惜是路远迢迢怎来攀
+[04:12.00]祝英台：青青荷叶清水塘
+[04:23.00]祝英台：鸳鸯成对又成双
+[04:32.00]祝英台：梁兄啊 英台若是女红妆
+[04:41.00]祝英台：梁兄你愿不愿配鸳鸯
+[04:49.00]梁山伯：配鸳鸯
+[04:52.00]梁山伯：配鸳鸯
+[04:54.00]梁山伯：可惜你英台不是女红妆
+[05:02.00]银心：前面到了一条河
+[05:08.00]四九：漂来一对大白鹅
+[05:14.00]祝英台：雄的就在前面走
+[05:24.00]祝英台：雌的后面叫哥哥
+[05:31.00]梁山伯：不见二鹅来开口
+[05:39.00]梁山伯：哪有雌鹅叫雄鹅
+[05:43.00]祝英台：你不见雌鹅她对你微微笑
+[05:51.00]祝英台：她笑你梁兄真像呆头鹅
+[05:59.00]梁山伯：既然我是呆头鹅
+[06:05.00]梁山伯：从今你莫叫我梁哥哥
+</pre>
+            <!-- </div>
+  <h3>Wide style</h3>
+  <div id="player1" class="aplayer"></div>
+  <h3>Narrow style</h3>
+  <div id="player2" class="aplayer"></div>
+</div> -->
+            <script src="dist/APlayer.min.js"></script>
+            <script>
+                // var ap1 = new APlayer({
+                //     element: document.getElementById('player1'),
+                //     narrow: false,
+                //     autoplay: false,
+                //     showlrc: false,
+                //     music: {
+                //         title: 'Sugar',
+                //         author: 'Maroon 5',
+                //         url: 'music/Sugar.mp3',
+                //         pic: 'music/Maroon5.jpg'
+                //     }
+                // });
+                // ap1.init();
+
+                // var ap2 = new APlayer({
+                //     element: document.getElementById('player2'),
+                //     narrow: true,
+                //     autoplay: false,
+                //     showlrc: false,
+                //     music: {
+                //         title: 'Sugar',
+                //         author: 'Maroon 5',
+                //         url: 'music/Sugar.mp3',
+                //         pic: 'music/Maroon5.jpg'
+                //     }
+                // });
+                // ap2.init();
+
+                var ap3 = new APlayer({
+                    element: document.getElementById('player3'),
+                    narrow: false,
+                    autoplay: false,
+                    showlrc: true,
+                    music: {
+                        title: '《梁祝》十八相送',
+                        author: '何赛飞/吴凤花',
+                        url: 'music/lz.mp3',
+                        pic: 'music/lz.jpg'
+                    }
+                });
+                ap3.init();
+            </script>
+
+            <div style="text-align:center;clear:both;margin-top:50px">
+                <script src="/gg_bd_ad_720x90-2.js" type="text/javascript"></script>
+            </div>
+</body>
+
+</html>

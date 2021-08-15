@@ -19,6 +19,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import Swiper from '@components/common/Swiper';
 import { getShopInfo } from '@service/shop';
 import { EasyLoading, Loading } from '@utils/ezLoading';
+import changeImgSize from '@utils/changeImgSize';
 const WINDOW_WIDTH = Dimensions.get('window').width;
 class shopdetails extends PureComponent {
   state = {
@@ -222,7 +223,7 @@ class shopdetails extends PureComponent {
                     margin: pxToDp(12),
                     borderRadius: pxToDp(8)
                   }}
-                  source={{ uri: item.img }}
+                  source={{ uri: changeImgSize(item.img, 'small') }}
                 />
               </View>
             ))}
@@ -259,7 +260,10 @@ class shopdetails extends PureComponent {
                     borderRadius: pxToDp(8)
                   }}
                   source={{
-                    uri: this.state.products[activeTab]?.img
+                    uri: changeImgSize(
+                      this.state.products[activeTab]?.img,
+                      'small'
+                    )
                   }}
                 />
               </Lightbox>
@@ -384,7 +388,7 @@ class shopdetails extends PureComponent {
                         height: pxToDp(100),
                         borderRadius: pxToDp(8)
                       }}
-                      source={{ uri: item.img }}
+                      source={{ uri: changeImgSize(item.img, 'small') }}
                     />
                     <Text
                       style={{

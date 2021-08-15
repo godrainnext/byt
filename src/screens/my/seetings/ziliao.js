@@ -79,9 +79,6 @@ class Ziliao extends PureComponent {
         if (response.error) {
           console.log(response.error);
         } else {
-
-          console.log(123);
-          console.log(response);
           const pickerResult = response.assets[0];
 
           const fd = new FormData();
@@ -131,7 +128,7 @@ class Ziliao extends PureComponent {
         headers: {
           'content-type': 'application/json'
         }
-      }) 
+      })
       .thegitn((res) => {
         ToastAndroid.show('保存信息成功', ToastAndroid.SHORT);
         this.props.getUserInfoAction();

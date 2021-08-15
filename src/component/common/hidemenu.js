@@ -139,7 +139,7 @@ export class AlwaysOpen extends PureComponent {
         padding: pxToDp(20),
         flex: 1,
         backgroundColor: '#ecf6fc',
-        borderRadius: pxToDp(12)
+        borderRadius: pxToDp(12),
       }}
     >
       <View>
@@ -258,9 +258,8 @@ const s = StyleSheet.create({
   },
 
   content__subheading: {
-    marginBottom: pxToDp(2),
-
-    fontSize: pxToDp(16),
+    marginBottom: 2,
+    fontSize: 16,
     fontWeight: '600',
     color: '#ccc'
   },
@@ -272,17 +271,16 @@ const s = StyleSheet.create({
   },
 
   content__description: {
-    paddingTop: pxToDp(10),
-    paddingBottom: pxToDp(10),
-
-    fontSize: pxToDp(15),
+    paddingTop: 10,
+    paddingBottom: 10,
+    fontSize: 15,
     fontWeight: '200',
     lineHeight: pxToDp(22),
     color: '#666'
   },
   bigbox: {
     flex: 1,
-    marginTop: pxToDp(20),
-    marginBottom: pxToDp(100)
+    marginBottom:pxToDp(200),
+    marginTop: pxToDp(20)
   }
 });

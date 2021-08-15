@@ -164,11 +164,77 @@ class Index extends PureComponent {
             </View>
             <Hy />
           </View>
-
+          {/*流派故事 */}
+          <View
+            style={{
+              margin: pxToDp(8)
+              //    marginTop: pxToDp(0),
+            }}
+          >
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between'
+              }}
+            >
+              <Text
+                style={{
+                  fontSize: pxToDp(18),
+                  color: '#468CD3',
+                  fontWeight: 'bold'
+                }}
+              >
+                流派传奇
+              </Text>
+              <TouchableOpacity
+                onPress={() => this.context.navigate('PageOne', 2)}
+              >
+                <View style={{ flexDirection: 'row' }}>
+                  <Text style={{ fontSize: pxToDp(15), color: 'grey' }}>
+                    查看更多
+                  </Text>
+                  <Ionicons name="chevron-forward" size={20} color="grey" />
+                </View>
+              </TouchableOpacity>
+            </View>
+          </View>
+          <Legend />
           {/*名角风采 */}
           <View
             style={{
-              marginTop: pxToDp(20),
+              margin: pxToDp(8)
+              //    marginTop: pxToDp(0),
+            }}
+          >
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between'
+              }}
+            >
+              <Text
+                style={{
+                  fontSize: pxToDp(18),
+                  color: '#468CD3',
+                  fontWeight: 'bold'
+                }}
+              >
+                梨园子弟
+              </Text>
+              <TouchableOpacity
+                onPress={() => this.context.navigate('PageThree', 2)}
+              >
+                <View style={{ flexDirection: 'row' }}>
+                  <Text style={{ fontSize: pxToDp(15), color: 'grey' }}>
+                    查看更多
+                  </Text>
+                  <Ionicons name="chevron-forward" size={20} color="grey" />
+                </View>
+              </TouchableOpacity>
+            </View>
+          </View>
+          <View
+            style={{
               borderRadius: pxToDp(10),
               height: pxToDp(310),
               backgroundColor: 'rgba(255,255,255,0.5)',
@@ -190,16 +256,10 @@ class Index extends PureComponent {
               }}
             >
               <View style={{ margin: pxToDp(10) }}>
-                <View style={{ marginTop: pxToDp(25) }}>
-                  <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold' }}>
-                    梨园弟子
-                  </Text>
-                  <Text style={{ fontSize: pxToDp(16), marginTop: pxToDp(5) }}>
-                    上下求索传承经典
-                  </Text>
+                <View style={{ marginTop: pxToDp(75) }}>
                 </View>
                 <ScrollView horizontal={true} style={{ marginTop: pxToDp(45) }}>
-                  <TouchableOpacity  onPress={() => this.context.navigate('Actress')}
+                  <TouchableOpacity onPress={() => this.context.navigate('Actress')}
                     style={{
                       width: pxToDp(100),
                       height: pxToDp(160),
@@ -413,41 +473,6 @@ class Index extends PureComponent {
               </View>
             </ImageBackground>
           </View>
-          {/*流派故事 */}
-          <View
-            style={{
-              margin: pxToDp(8)
-              //    marginTop: pxToDp(0),
-            }}
-          >
-            <View
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between'
-              }}
-            >
-              <Text
-                style={{
-                  fontSize: pxToDp(18),
-                  color: '#468CD3',
-                  fontWeight: 'bold'
-                }}
-              >
-                流派传奇
-              </Text>
-              <TouchableOpacity
-                onPress={() => this.context.navigate('PageOne', 2)}
-              >
-                <View style={{ flexDirection: 'row' }}>
-                  <Text style={{ fontSize: pxToDp(15), color: 'grey' }}>
-                    查看更多
-                  </Text>
-                  <Ionicons name="chevron-forward" size={20} color="grey" />
-                </View>
-              </TouchableOpacity>
-            </View>
-          </View>
-          <Legend />
         </ScrollView>
       </View>
     );
