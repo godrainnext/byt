@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { View ,Text} from 'react-native';
 import ScrollableTabView from 'react-native-scrollable-tab-view';
-import VideoHead from './VideoHead.js/index';
+import VideoHead from './VideoHead/index';
 // 引入子页面
 import VideoInro from './VideoInro/index';
 import VideoCom from './VideoCom/index';
-import { pxToDp } from '../../utils/stylesKits';
 
 export default () => {
     return <ScrollableTabView

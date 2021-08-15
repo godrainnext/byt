@@ -104,7 +104,7 @@ showArticle=(obj)=>{
   
         <ScrollView>
           <View style={{ width: '95%', marginLeft: pxToDp(10), marginTop: pxToDp(20), marginBottom: pxToDp(20) }}>
-            {this.props.dongtai.map((item, dtid) => (
+            {this.props.dongtai.map((item) => (
 
               <View key={item.id} style={{ elevation: 2, borderWidth: 0, marginBottom: pxToDp(20), backgroundColor: 'white', borderRadius: pxToDp(20) }}>
 

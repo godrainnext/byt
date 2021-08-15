@@ -9,7 +9,7 @@ const Stack = createStackNavigator();
 function Nav() {
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode="none" initialRouteName="Login">
+      <Stack.Navigator headerMode="none" initialRouteName="Tabbar">
         <Stack.Screen name="Tabbar" component={Tabbar} />
         {/*登录 */}
         <Stack.Screen name="Login" component={Screens.Login} />
@@ -161,6 +161,8 @@ function Nav() {
         <Stack.Screen name="Screenpaly" component={Screens.Screenpaly} />
         {/*俯瞰百年卡片*/}
         <Stack.Screen name="Card" component={Screens.Card} />
+        {/*视频播放页*/}
+        <Stack.Screen name="Video" component={Screens.Video} />
       </Stack.Navigator>
     </NavigationContainer>
   );
