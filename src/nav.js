@@ -9,7 +9,7 @@ const Stack = createStackNavigator();
 function Nav() {
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode="none" initialRouteName="Login">
+      <Stack.Navigator headerMode="none" initialRouteName="Tabbar">
         <Stack.Screen name="Tabbar" component={Tabbar} />
         {/*登录 */}
         <Stack.Screen name="Login" component={Screens.Login} />
@@ -65,9 +65,9 @@ function Nav() {
         {/**退款订单页面 */}
         <Stack.Screen name="Refund" component={Screens.Refund} />
         {/**设置首页面 */}
-        <Stack.Screen name="Setting" component={Screens.Setting} />
+        <Stack.Screen name="Myhome" component={Screens.Myhome} />
         {/**更改资料页面 */}
-        {/* <Stack.Screen name="Ziliao" component={Screens.Ziliao} />*/}
+         <Stack.Screen name="Ziliao" component={Screens.Ziliao} />
         {/**昵称页面 */}
         <Stack.Screen name="Nickname" component={Screens.Nickname} />
         {/** 个性签名页面*/}
@@ -117,6 +117,8 @@ function Nav() {
         {/*Vr */}
         <Stack.Screen name="VR" component={Screens.VR} />
         {/**教程页面 */}
+        <Stack.Screen name="relatedImg" component={Screens.relatedImg} />
+        {/* 相关图片 */}
         <Stack.Screen name="Course" component={Screens.Course} />
         <Stack.Screen name="Timemap" component={Screens.Timemap} />
         {/**越剧基本功页面 */}
@@ -149,9 +151,18 @@ function Nav() {
         <Stack.Screen name="Scriptlibrary" component={Screens.Scriptlibrary} />
         {/**名角个人页 */}
         <Stack.Screen name="Actress" component={Screens.Actress} />
+        {/**专辑页面 */}
+        <Stack.Screen name="Album" component={Screens.Album} />
+        {/**歌曲播放界面 */}
+        <Stack.Screen name="MusicPlayer" component={Screens.MusicPlayer} />
+        {/*流派页 */}
+        <Stack.Screen name="School" component={Screens.School} />
         {/* 剧本详情 */}
         <Stack.Screen name="Screenpaly" component={Screens.Screenpaly} />
-
+        {/*俯瞰百年卡片*/}
+        <Stack.Screen name="Card" component={Screens.Card} />
+        {/*视频播放页*/}
+        <Stack.Screen name="Video" component={Screens.Video} />
       </Stack.Navigator>
     </NavigationContainer>
   );

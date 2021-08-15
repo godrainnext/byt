@@ -170,7 +170,7 @@ export class AlwaysOpen extends PureComponent {
           }}
         >
           {/* 时空地图 */}
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => this.context.navigate('Timemap')}>
             <View
               style={{
                 justifyContent: 'center',
@@ -193,7 +193,7 @@ export class AlwaysOpen extends PureComponent {
             </View>
           </TouchableOpacity>
           {/* 相关图片 */}
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => this.context.navigate('relatedImg')}>
             <View style={{ justifyContent: 'center', height: pxToDp(60) }}>
               <View style={{ alignItems: 'center' }}>
                 <SvgUri svgXmlData={img} width="30" height="30" />
@@ -251,8 +251,8 @@ export class AlwaysOpen extends PureComponent {
 const s = StyleSheet.create({
   content__modal: {
     shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.45,
-    shadowRadius: 16
+    shadowOpacity: pxToDp(0.45),
+    shadowRadius: pxToDp(16)
   },
 
   content__subheading: {
@@ -263,7 +263,7 @@ const s = StyleSheet.create({
   },
 
   content__heading: {
-    fontSize: 24,
+    fontSize: pxToDp(24),
     fontWeight: '600',
     color: '#333'
   },
@@ -273,7 +273,7 @@ const s = StyleSheet.create({
     paddingBottom: 10,
     fontSize: 15,
     fontWeight: '200',
-    lineHeight: 22,
+    lineHeight: pxToDp(22),
     color: '#666'
   },
   bigbox: {
