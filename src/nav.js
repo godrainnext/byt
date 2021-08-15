@@ -9,7 +9,7 @@ const Stack = createStackNavigator();
 function Nav() {
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode="none" initialRouteName="Tabbar">
+      <Stack.Navigator headerMode="none" initialRouteName="Login">
         <Stack.Screen name="Tabbar" component={Tabbar} />
         {/*登录 */}
         <Stack.Screen name="Login" component={Screens.Login} />
@@ -107,7 +107,7 @@ function Nav() {
         {/*练唱专辑详情 */}
         <Stack.Screen name="Details" component={Screens.Details} />
         {/*练唱页面*/}
-        {/*<Stack.Screen name="Sing" component={Screens.Sing} />*/}
+        <Stack.Screen name="Sing" component={Screens.Sing} />
         {/* 进入练唱页面 */}
         {<Stack.Screen name="Singbefore" component={Screens.Singbefore} />}
         {/*双人剧本 */}

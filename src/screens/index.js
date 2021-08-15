@@ -54,10 +54,12 @@ export { default as ticketdetail } from './shop/home/ticket/ticketdetail'; //票
 export { default as Lease } from './shop/home/goods/lease'; //新增收货地址
 export { default as pointshop } from './shop/home/jifen/index'; //积分商城详情
 export { default as paySuccess } from './my/pay/paySuccess'; //支付成功页
+
+
 export { default as Play } from './play/home'; //游玩首页
 export { default as Study } from './play/study/study'; //练唱
 export { default as Details } from './play/study/details'; //练唱详情
-//export { default as Sing } from './play/study/sing'; //唱歌
+export { default as Sing } from './play/study/sing'; //唱歌
 export { default as Singbefore } from './play/study/singbefore'; //唱歌
 export { default as Act } from './play/act'; //双人剧本页
 //export { default as Change } from './play/change'; //AI换衣页
