@@ -9,7 +9,7 @@ const Stack = createStackNavigator();
 function Nav() {
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode="none" initialRouteName="Tabbar">
+      <Stack.Navigator headerMode="none" initialRouteName="Login">
         <Stack.Screen name="Tabbar" component={Tabbar} />
         {/*登录 */}
         <Stack.Screen name="Login" component={Screens.Login} />
@@ -67,7 +67,7 @@ function Nav() {
         {/**设置首页面 */}
         <Stack.Screen name="Myhome" component={Screens.Myhome} />
         {/**更改资料页面 */}
-         <Stack.Screen name="Ziliao" component={Screens.Ziliao} />
+        <Stack.Screen name="Ziliao" component={Screens.Ziliao} />
         {/**昵称页面 */}
         <Stack.Screen name="Nickname" component={Screens.Nickname} />
         {/** 个性签名页面*/}
@@ -163,6 +163,8 @@ function Nav() {
         <Stack.Screen name="Card" component={Screens.Card} />
         {/*视频播放页*/}
         <Stack.Screen name="Video" component={Screens.Video} />
+        {/*举报页*/}
+        <Stack.Screen name="Jubao" component={Screens.Jubao} />
       </Stack.Navigator>
     </NavigationContainer>
   );

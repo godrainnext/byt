@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect, memo } from 'react';
 import Carousel, { ParallaxImage } from 'react-native-snap-carousel';
 import { View, StyleSheet, Platform } from 'react-native';
 import { pxToDp } from '../../utils/styleKits';
+import changeImgSize from '@utils/changeImgSize';
 
 const MyCarousel = memo((props) => {
   const [entries, setEntries] = useState([]);
@@ -20,7 +21,7 @@ const MyCarousel = memo((props) => {
     return (
       <View style={styles.item}>
         <ParallaxImage
-          source={{ uri: item.imgrl }}
+          source={{ uri: changeImgSize(item.imgrl, 'small') }}
           containerStyle={styles.imageContainer}
           style={styles.image}
           parallaxFactor={0.4}

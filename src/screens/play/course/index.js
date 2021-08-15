@@ -42,7 +42,8 @@ class Index extends PureComponent {
                 style={{
                   width: pxToDp(355),
                   height: pxToDp(200),
-                  margin: pxToDp(10)}}
+                  marginTop:pxToDp(10)
+                }}
               />
             </View>
             <View
