@@ -23,6 +23,8 @@ import { MarqueeHorizontal, MarqueeVertical } from 'react-native-marquee-ab';
 import { pxToDp } from '../../../../utils/styleKits';
 import LottieView from 'lottie-react-native';
 import { NavigationContext } from '@react-navigation/native';
+import Top from '../../../../component/common/top';
+import axios from 'axios';
 const dimensions = {
   width: Dimensions.get('window').width,
   height: Dimensions.get('window').height
@@ -239,6 +241,7 @@ export default class App extends Component {
     ) : (
       <View style={styles.max}>
         <View style={styles.max}>
+          <Top title="开播" icon1="arrow-back" />
           <View>
             <View style={{ marginTop: 4 }}>
               <View
@@ -249,16 +252,6 @@ export default class App extends Component {
                   marginBottom: pxToDp(8)
                 }}
               >
-                <View
-                  style={{
-                    margin: pxToDp(4),
-                    height: pxToDp(32),
-                    justifyContent: 'center',
-                    alignItems: 'center'
-                  }}
-                >
-                  <Text style={{ fontSize: pxToDp(20) }}>开播</Text>
-                </View>
                 <Text style={{ color: '#50935E' }}>
                   请您如实准确填写本人信息，否则将认证失败
                 </Text>

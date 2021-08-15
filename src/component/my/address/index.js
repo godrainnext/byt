@@ -6,16 +6,17 @@ import { getAddressListAction } from '@screens/my/address/store/actions';
 import { NavigationContext } from '@react-navigation/native'
 import { Fragment } from 'react';
 class Address extends PureComponent {
- 
-  state={defaultAddress:{}}
+
+  state = { defaultAddress: {} }
   componentDidMount() {
     const defaultAddress = this.props.address.find((item) => item.isdefault === 1)
-    this.props.changeDefaultAddress( defaultAddress )
-    this.setState({defaultAddress})
+    this.props.changeDefaultAddress(defaultAddress)
+    this.setState({ defaultAddress })
     this.props.changeAddressId(defaultAddress.id)
   }
   changeDefaultAddress = (address) => {
-    this.props.changeDefaultAddress(  address )
+    this.setState({ defaultAddress: address })
+    this.props.changeDefaultAddress(address);
     this.props.changeAddressId(address.id)
   }
   static contextType = NavigationContext;

@@ -289,7 +289,7 @@ class Index extends PureComponent {
             </View>
           </Modal>
         </View>
-        <ScrollView style={{ marginBottom: pxToDp(60) }}>
+        <ScrollView style={{ marginBottom: pxToDp(100) }}>
           {/*戏服体验馆 */}
           <View style={{ borderRadius: pxToDp(10) }}>
             <TouchableOpacity onPress={() => this.context.navigate('Change')}>
@@ -669,13 +669,6 @@ class Index extends PureComponent {
               </View>
             </View>
           </View>
-          <View style={{ marginBottom: pxToDp(40) }}></View>
-          {/* <TouchableOpacity
-            style={{ marginBottom: 200 }}
-            onPress={() => this.context.navigate('VR')}
-          >
-            <Text>VR</Text>
-          </TouchableOpacity> */}
         </ScrollView>
       </View>
     );
