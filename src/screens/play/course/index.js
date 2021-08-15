@@ -16,7 +16,7 @@ import Icon1 from 'react-native-vector-icons/MaterialIcons';
 import Icon2 from 'react-native-vector-icons/MaterialIcons';
 import { Carousel } from '../../../component/common/teaset';
 import SnapCarousel from '../../../component/SnapCarousel/index';
-//import { Video } from 'react-native-video';
+import { Video } from 'expo-av';
 
 class Index extends PureComponent {
   state = {
@@ -30,7 +30,7 @@ class Index extends PureComponent {
           <Top icon1="arrow-back" title="教程" />
           <ScrollView style={{ marginBottom: pxToDp(50) }}>
             {/*视频 */}
-            {/*<View style={{ flex: 1 }}>
+            <View style={{ flex: 1 }}>
               <Video
                 source={require('../../../res/越剧介绍.mp4')}
                 rate={1.0}
@@ -42,9 +42,10 @@ class Index extends PureComponent {
                 style={{
                   width: pxToDp(355),
                   height: pxToDp(200),
-                  margin: pxToDp(10)
+                  marginTop:pxToDp(10)
+                }}
               />
-            </View>*/}
+            </View>
             <View
               style={{
                 flexDirection: 'row',

@@ -7,7 +7,8 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-  ImageBackground
+  ImageBackground,
+  Modal
 } from 'react-native';
 
 import { pxToDp } from '@utils/styleKits';

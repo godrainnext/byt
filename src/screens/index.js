@@ -84,3 +84,4 @@ export { default as Screenpaly } from './talk/home/script/screenplay'; //论坛�
 
 export { default as SeeZhiBo } from './talk/zhiboye/gindex';
 export { default as Video } from '../component/videoplayer/index'
+export { default as Jubao } from './talk/home/forum/jubao' //举报页
