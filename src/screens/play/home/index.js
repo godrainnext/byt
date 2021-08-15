@@ -35,23 +35,28 @@ class Index extends PureComponent {
       text: '',
       appId: '29792ec3eded410facd609fb7ad76fef',
       peerIds: [],
-      token: '00629792ec3eded410facd609fb7ad76fefIADCc8H70U749XGwDaAgInl0TjHWz2j6gN0U1okFKIK5sUgDg6MAAAAAEACcjToMHqkYYQEAAQAeqRhh',
+      token:
+        '00629792ec3eded410facd609fb7ad76fefIADCc8H70U749XGwDaAgInl0TjHWz2j6gN0U1okFKIK5sUgDg6MAAAAAEACcjToMHqkYYQEAAQAeqRhh',
       channelName: 'ABC',
       arr: [
         {
-          bacUriL: 'https://anchorpost.msstatic.com/cdnimage/anchorpost/1033/27/a678d87465509b7483726f82dfba20_2168_1627155664.jpg?imageview/4/0/w/338/h/190/blur/1/format/webp',
+          bacUriL:
+            'https://anchorpost.msstatic.com/cdnimage/anchorpost/1033/27/a678d87465509b7483726f82dfba20_2168_1627155664.jpg?imageview/4/0/w/338/h/190/blur/1/format/webp',
           nameL: '糖可爱',
           titleL: '恭喜镇长超皇恭喜真爷超皇！ 大象np',
           numL: '2.5万',
-          bacUriR: 'https://anchorpost.msstatic.com/cdnimage/anchorpost/1032/dc/d7e5883b0e124c0c0834e960090c95_5883_1606125262.jpg?imageview/4/0/w/338/h/190/blur/1/format/webp',
+          bacUriR:
+            'https://anchorpost.msstatic.com/cdnimage/anchorpost/1032/dc/d7e5883b0e124c0c0834e960090c95_5883_1606125262.jpg?imageview/4/0/w/338/h/190/blur/1/format/webp',
           nameR: '郭德纲于谦相声24小时',
           titleR: '【无唱段】郭德纲于谦相声德云晚安音频轮播',
           numR: '7546',
           appId: '29792ec3eded410facd609fb7ad76fef',
           channelName: 'ABC',
-          token: '00629792ec3eded410facd609fb7ad76fefIADCc8H70U749XGwDaAgInl0TjHWz2j6gN0U1okFKIK5sUgDg6MAAAAAEACcjToMHqkYYQEAAQAeqRhh',
+          token:
+            '00629792ec3eded410facd609fb7ad76fefIAAbKUcPA8ZKD6c3OvRQ3dLsbHqp9OSHU+zfE7bUrcatNkgDg6MAAAAAEACcjToMxfsZYQEAAQDE+xlh',
           roomName: 'hdia'
-        }]
+        }
+      ]
     };
   }
   static contextType = NavigationContext;

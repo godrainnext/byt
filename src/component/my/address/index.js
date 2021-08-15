@@ -10,17 +10,19 @@ class Address extends PureComponent {
   state={defaultAddress:{}}
   componentDidMount() {
     const defaultAddress = this.props.address.find((item) => item.isdefault === 1)
+
     this.props.changeDefaultAddress( defaultAddress )
     this.setState({defaultAddress})
     this.props.changeAddressId(defaultAddress.id)
   }
   changeDefaultAddress = (address) => {
-    this.props.changeDefaultAddress(  address )
+    this.setState({defaultAddress:address})
+    this.props.changeDefaultAddress(address);
     this.props.changeAddressId(address.id)
   }
   static contextType = NavigationContext;
   render() {
-
+    console.log(this.state.defaultAddress);
     return (
       <Fragment>
         {

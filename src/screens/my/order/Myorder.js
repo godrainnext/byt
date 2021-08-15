@@ -125,9 +125,10 @@ class orders extends PureComponent {
       ToastAndroid.show('请选择支付方式', ToastAndroid.SHORT);
     }
   };
-  componentDidMount() {}
+
   static contextType = NavigationContext;
   changeDefaultAddress = (payload) => {
+
     this.setState({ defaultAddress: payload });
   };
   render() {
@@ -154,6 +155,7 @@ class orders extends PureComponent {
           </View>
           {/* 收获地址 */}
           <Address
+            defaultAddress={this.state.defaultAddress}
             changeAddressId={this.changeAddressId}
             changeDefaultAddress={this.changeDefaultAddress}
           />
