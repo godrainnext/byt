@@ -95,42 +95,50 @@ class Index extends PureComponent {
             </View>
             <ScrollView horizontal={true}>
               <View style={{ flexDirection: 'row', marginTop: pxToDp(5) }}>
-                <Image
-                  style={{
-                    height: pxToDp(130),
-                    width: pxToDp(200),
-                    borderRadius: pxToDp(10),
-                    marginLeft: pxToDp(10)
-                  }}
-                  source={require('../../../res/13.jpg')}
-                />
-                <Image
-                  style={{
-                    height: pxToDp(130),
-                    width: pxToDp(200),
-                    borderRadius: pxToDp(10),
-                    marginLeft: pxToDp(10)
-                  }}
-                  source={require('../../../res/14.jpg')}
-                />
-                <Image
-                  style={{
-                    height: pxToDp(130),
-                    width: pxToDp(200),
-                    borderRadius: pxToDp(10),
-                    marginLeft: pxToDp(10)
-                  }}
-                  source={require('../../../res/15.jpg')}
-                />
-                <Image
-                  style={{
-                    height: pxToDp(130),
-                    width: pxToDp(200),
-                    borderRadius: pxToDp(10),
-                    marginLeft: pxToDp(10)
-                  }}
-                  source={require('../../../res/16.jpg')}
-                />
+                <TouchableOpacity onPress={() => this.context.navigate('Video')}>
+                  <Image
+                    style={{
+                      height: pxToDp(130),
+                      width: pxToDp(200),
+                      borderRadius: pxToDp(10),
+                      marginLeft: pxToDp(10)
+                    }}
+                    source={require('../../../res/13.jpg')}
+                  />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => this.context.navigate('Video')}>
+                  <Image
+                    style={{
+                      height: pxToDp(130),
+                      width: pxToDp(200),
+                      borderRadius: pxToDp(10),
+                      marginLeft: pxToDp(10)
+                    }}
+                    source={require('../../../res/14.jpg')}
+                  />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => this.context.navigate('Video')}>
+                  <Image
+                    style={{
+                      height: pxToDp(130),
+                      width: pxToDp(200),
+                      borderRadius: pxToDp(10),
+                      marginLeft: pxToDp(10)
+                    }}
+                    source={require('../../../res/15.jpg')}
+                  />
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => this.context.navigate('Video')}>
+                  <Image
+                    style={{
+                      height: pxToDp(130),
+                      width: pxToDp(200),
+                      borderRadius: pxToDp(10),
+                      marginLeft: pxToDp(10)
+                    }}
+                    source={require('../../../res/16.jpg')}
+                  />
+                </TouchableOpacity>
               </View>
             </ScrollView>
           </View>

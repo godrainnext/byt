@@ -41,7 +41,7 @@ class Index extends PureComponent {
             </TouchableOpacity>
           </View>
         </View>
-        <TouchableOpacity onPress={() => this.context.navigate()}>
+        <TouchableOpacity  onPress={() => this.context.navigate('Video')}>
           <View style={styles.box}>
             <Image
               style={styles.image}
@@ -61,7 +61,7 @@ class Index extends PureComponent {
             </View>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => this.context.navigate()}>
+        <TouchableOpacity  onPress={() => this.context.navigate('Video')}>
           <View style={styles.box}>
             <Image
               style={styles.image}
@@ -81,7 +81,7 @@ class Index extends PureComponent {
             </View>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => this.context.navigate()}>
+        <TouchableOpacity  onPress={() => this.context.navigate('Video')}>
           <View style={styles.box}>
             <Image
               style={styles.image}
@@ -117,7 +117,7 @@ class Index extends PureComponent {
             </TouchableOpacity>
           </View>
         </View>
-        <TouchableOpacity onPress={() => this.context.navigate()}>
+        <TouchableOpacity  onPress={() => this.context.navigate('Video')}>
           <View style={styles.box}>
             <Image
               style={styles.image}
@@ -137,7 +137,7 @@ class Index extends PureComponent {
             </View>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => this.context.navigate()}>
+        <TouchableOpacity  onPress={() => this.context.navigate('Video')}>
           <View style={styles.box}>
             <Image
               style={styles.image}
@@ -157,7 +157,7 @@ class Index extends PureComponent {
             </View>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => this.context.navigate()}>
+        <TouchableOpacity  onPress={() => this.context.navigate('Video')}>
           <View style={styles.box}>
             <Image
               style={styles.image}
@@ -193,7 +193,7 @@ class Index extends PureComponent {
             </TouchableOpacity>
           </View>
         </View>
-        <TouchableOpacity onPress={() => this.context.navigate()}>
+        <TouchableOpacity  onPress={() => this.context.navigate('Video')}>
           <View style={styles.box}>
             <Image
               style={styles.image}
@@ -213,7 +213,7 @@ class Index extends PureComponent {
             </View>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => this.context.navigate()}>
+        <TouchableOpacity  onPress={() => this.context.navigate('Video')}>
           <View style={styles.box}>
             <Image
               style={styles.image}
@@ -233,7 +233,7 @@ class Index extends PureComponent {
             </View>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => this.context.navigate()}>
+        <TouchableOpacity  onPress={() => this.context.navigate('Video')}>
           <View style={styles.box}>
             <Image
               style={styles.image}
@@ -253,7 +253,7 @@ class Index extends PureComponent {
             </View>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => this.context.navigate()}>
+        <TouchableOpacity  onPress={() => this.context.navigate('Video')}>
           <View style={styles.box}>
             <Image
               style={styles.image}

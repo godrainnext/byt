@@ -1,9 +1,14 @@
 import React, { PureComponent } from "react";
-import { View, Text, Image, ScrollView, StyleSheet } from "react-native";
+import { View, Text, Image, ScrollView, StyleSheet,TouchableOpacity } from "react-native";
 import Top from '../../../../component/common/top';
 import { pxToDp } from "../../../../utils/styleKits";
-
+import { NavigationContext } from '@react-navigation/native';
 class Index extends PureComponent {
+    constructor(props) {
+        super(props);
+        this.state = {};
+      }
+      static contextType = NavigationContext;
     render() {
         return (
             <View style={{ backgroundColor: '#ECF6FC', flex: 1 }}>
@@ -14,26 +19,34 @@ class Index extends PureComponent {
                         <Text style={styles.title}>形体训练</Text>
                         <Text style={styles.text}>形体训练从站法、手法、腿功、腰功开始，属共同训练项目。</Text>
                         <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between' }}>
-                            <View style={styles.box}>
-                                <Image style={styles.image} source={require('../../../../res/31.jpg')} />
-                                <Text style={styles.head}>【越剧基本功】手的造型</Text>
-                                <Text style={styles.head}>裘鑫琴</Text>
-                            </View>
-                            <View style={styles.box}>
-                                <Image style={styles.image} source={require('../../../../res/32.jpg')} />
-                                <Text style={styles.head}>【越剧基本功】臂膀训练</Text>
-                                <Text style={styles.head}>裘鑫琴</Text>
-                            </View>
-                            <View style={styles.box}>
-                                <Image style={styles.image} source={require('../../../../res/16.jpg')} />
-                                <Text style={styles.head}>【越剧基本功】脚位</Text>
-                                <Text style={styles.head}>裘鑫琴</Text>
-                            </View>
-                            <View style={styles.box}>
-                                <Image style={styles.image} source={require('../../../../res/33.jpg')} />
-                                <Text style={styles.head}>【越剧基本功】身段组合</Text>
-                                <Text style={styles.head}>裘鑫琴</Text>
-                            </View>
+                            <TouchableOpacity onPress={() => this.context.navigate('Video')}>
+                                <View style={styles.box}>
+                                    <Image style={styles.image} source={require('../../../../res/31.jpg')} />
+                                    <Text style={styles.head}>【越剧基本功】手的造型</Text>
+                                    <Text style={styles.head}>裘鑫琴</Text>
+                                </View>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => this.context.navigate('Video')}>
+                                <View style={styles.box}>
+                                    <Image style={styles.image} source={require('../../../../res/32.jpg')} />
+                                    <Text style={styles.head}>【越剧基本功】臂膀训练</Text>
+                                    <Text style={styles.head}>裘鑫琴</Text>
+                                </View>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => this.context.navigate('Video')}>
+                                <View style={styles.box}>
+                                    <Image style={styles.image} source={require('../../../../res/16.jpg')} />
+                                    <Text style={styles.head}>【越剧基本功】脚位</Text>
+                                    <Text style={styles.head}>裘鑫琴</Text>
+                                </View>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={() => this.context.navigate('Video')}>
+                                <View style={styles.box}>
+                                    <Image style={styles.image} source={require('../../../../res/33.jpg')} />
+                                    <Text style={styles.head}>【越剧基本功】身段组合</Text>
+                                    <Text style={styles.head}>裘鑫琴</Text>
+                                </View>
+                            </TouchableOpacity>
                         </View>
                     </View>
                     {/*练嗓子 */}
