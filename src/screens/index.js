@@ -85,5 +85,5 @@ export { default as Forum } from './talk/home/forum/index'; //论坛页面
 export { default as Screenpaly } from './talk/home/script/screenplay'; //论坛页面
 
 export { default as SeeZhiBo } from './talk/zhiboye/gindex';
-export { default as Video } from '../component/videoplayer/index'
+export { default as Video } from '../component/videoplayer/index'//视频页
 export { default as Jubao } from './talk/home/forum/jubao' //举报页

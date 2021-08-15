@@ -5,6 +5,7 @@ import { pxToDp } from '@utils/styleKits';
 import { MarqueeHorizontal, MarqueeVertical } from 'react-native-marquee-ab';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import Icon1 from 'react-native-vector-icons/MaterialIcons';
+
 class index extends Component {
     render() {
         return (

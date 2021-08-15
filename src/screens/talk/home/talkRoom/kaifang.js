@@ -10,7 +10,7 @@ import { NavigationContext } from '@react-navigation/native';
 import axios from 'axios';
 import PulseLoader from 'react-native-pulse-loader';
 import Top from '@components/common/top';
-
+ 
 const dimensions = {
   width: Dimensions.get('window').width,
   height: Dimensions.get('window').height,

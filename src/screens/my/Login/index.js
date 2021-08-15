@@ -16,7 +16,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { Input } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { NavigationContext } from '@react-navigation/native';
-
+import Ionicons from 'react-native-vector-icons/FontAwesome';
 import { pxToDp } from '@utils/styleKits';
 import requset from '../../../service';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -147,204 +147,179 @@ class Login extends PureComponent {
       });
   };
   render() {
-    
-      UIManager.setLayoutAnimationEnabledExperimental &&
-        UIManager.setLayoutAnimationEnabledExperimental(true);
-      return (
-        <ImageBackground
-          source={require('./11.jpg')}
-          style={{ width: '100%', height: '100%' }}
+
+    UIManager.setLayoutAnimationEnabledExperimental &&
+      UIManager.setLayoutAnimationEnabledExperimental(true);
+    return (
+      <ImageBackground
+        source={require('./11.jpg')}
+        style={{ width: '100%', height: '100%' }}
+      >
+        <Image
+          source={require('./111.png')}
+          style={{
+            width: pxToDp(150),
+            height: pxToDp(150),
+            position: 'absolute',
+            left: pxToDp(120),
+            top: pxToDp(30)
+          }}
+        />
+        <Animated.Text
+          style={[
+            styles.opcity1,
+            {
+              opacity: this.state.opcitytext1, // Bind opacity to animated value
+              left: pxToDp(50)
+            }
+          ]}
         >
-          <Image
-            source={require('./111.png')}
-            style={{
-              width: pxToDp(150),
-              height: pxToDp(150),
-              position: 'absolute',
-              left: pxToDp(120),
-              top: pxToDp(30)
-            }}
-          />
-          <Animated.Text
-            style={[
-              styles.opcity1,
-              {
-                opacity: this.state.opcitytext1, // Bind opacity to animated value
-                left: pxToDp(50)
-              }
-            ]}
-          >
-            至死不负情
-          </Animated.Text>
-          <Animated.Text
-            style={[
-              styles.opcity1,
-              {
-                top: pxToDp(100),
-                opacity: this.state.opcitytext2 // Bind opacity to animated value
-              }
-            ]}
-          >
-            留得千秋载。
-          </Animated.Text>
-          <Animated.Text
-            style={[
-              styles.opcity2,
-              {
-                opacity: this.state.opcitytext3 // Bind opacity to animated value
-              }
-            ]}
-          >
-            至死不负情
-          </Animated.Text>
-          <Animated.Text
-            style={[
-              styles.opcity2,
-              {
-                right: pxToDp(50),
-                top: pxToDp(100),
-                opacity: this.state.opcitytext4 // Bind opacity to animated value
-              }
-            ]}
-          >
-            留得千秋载。
-          </Animated.Text>
+          至死不负情
+        </Animated.Text>
+        <Animated.Text
+          style={[
+            styles.opcity1,
+            {
+              top: pxToDp(100),
+              opacity: this.state.opcitytext2 // Bind opacity to animated value
+            }
+          ]}
+        >
+          留得千秋载。
+        </Animated.Text>
+        <Animated.Text
+          style={[
+            styles.opcity2,
+            {
+              opacity: this.state.opcitytext3 // Bind opacity to animated value
+            }
+          ]}
+        >
+          至死不负情
+        </Animated.Text>
+        <Animated.Text
+          style={[
+            styles.opcity2,
+            {
+              right: pxToDp(50),
+              top: pxToDp(100),
+              opacity: this.state.opcitytext4 // Bind opacity to animated value
+            }
+          ]}
+        >
+          留得千秋载。
+        </Animated.Text>
 
+        <View
+          style={{
+            borderRadius: 20,
+            height: this.state.loginbox,
+            width: pxToDp(250),
+            position: 'absolute',
+            top: pxToDp(300),
+            left: pxToDp(60),
+            overflow: 'hidden'
+          }}
+        >
           <View
             style={{
-              borderRadius: 20,
-              height: this.state.loginbox,
-              width: pxToDp(250),
-              position: 'absolute',
-              top: pxToDp(300),
-              left: pxToDp(60),
-              overflow: 'hidden'
+              width: '80%',
+              marginLeft: pxToDp(20),
+              marginTop: pxToDp(25)
             }}
           >
-            <View
-              style={{
-                width: '80%',
-                marginLeft: pxToDp(20),
-                marginTop: pxToDp(25)
-              }}
-            >
-              <Input
-                placeholder="请输入用户名"
-                leftIcon={<Icon name="user" size={24} />}
-                onChangeText={(username) => this.setState({ username })}
-                value={this.state.username}
-              />
-            </View>
-            <View style={{ width: '80%', marginLeft: pxToDp(20) }}>
-              <Input
-                secureTextEntry={true}
-                placeholder="请输入密码"
-                leftIcon={{ type: 'font-awesome', name: 'lock' }}
-                onChangeText={(password) => this.setState({ password })}
-                value={this.state.password}
-              />
-              {/*登录按钮--------------------------------*/}
-            </View>
-            <TouchableOpacity style={styles.loginbtn} onPress={this.Login}>
-              <Text>登录</Text>
-            </TouchableOpacity>
-            {/*第三方登录--------------------------------*/}
-            <View
-              style={{
-                position: 'absolute',
-                bottom: pxToDp(20),
-                left: pxToDp(30),
-                borderTopWidth: 1,
-                borderColor: '#b0bfc4',
-                width: pxToDp(190),
-                height: pxToDp(70),
-                flexDirection: 'row'
-              }}
-            >
-              <Image
-                source={require('./bg.jpg')}
-                style={{
-                  width: pxToDp(50),
-                  height: pxToDp(50),
-                  borderRadius: pxToDp(60),
-                  marginLeft: pxToDp(28),
-                  marginTop: pxToDp(10)
-                }}
-              />
-              <Image
-                source={require('./bg.jpg')}
-                style={{
-                  width: pxToDp(50),
-                  height: pxToDp(50),
-                  borderRadius: pxToDp(60),
-                  marginLeft: pxToDp(37),
-                  marginTop: pxToDp(10)
-                }}
-              />
-            </View>
+            <Input
+              placeholder="请输入用户名"
+              leftIcon={<Icon name="user" size={24} />}
+              onChangeText={(username) => this.setState({ username })}
+              value={this.state.username}
+            />
           </View>
+          <View style={{ width: '80%', marginLeft: pxToDp(20) }}>
+            <Input
+              secureTextEntry={true}
+              placeholder="请输入密码"
+              leftIcon={{ type: 'font-awesome', name: 'lock' }}
+              onChangeText={(password) => this.setState({ password })}
+              value={this.state.password}
+            />
+            {/*登录按钮--------------------------------*/}
+          </View>
+          <TouchableOpacity style={styles.loginbtn} onPress={this.Login}>
+            <Text>登录</Text>
+          </TouchableOpacity>
+          {/*第三方登录--------------------------------*/}
+          <View style={{ flexDirection: "row", marginTop: pxToDp(40), alignItems: 'center', alignSelf: 'center' }}>
+            <TouchableOpacity>
+              <Ionicons name="qq" size={25} color="#87CEFA" style={{ marginRight: pxToDp(30) }} />
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <Ionicons name="wechat" size={25} color="#32CD32" />
+            </TouchableOpacity>
+          </View>
+        </View>
+        <View
+          style={{
+            borderRadius: 20,
+            height: this.state.regbox,
+            width: pxToDp(250),
+            position: 'absolute',
+            top: pxToDp(300),
+            left: pxToDp(60),
+            overflow: 'hidden'
+          }}
+        >
           <View
             style={{
-              borderRadius: 20,
-              height: this.state.regbox,
-              width: pxToDp(250),
-              position: 'absolute',
-              top: pxToDp(300),
-              left: pxToDp(60),
-              overflow: 'hidden'
+              width: '80%',
+              marginLeft: pxToDp(20),
+              marginTop: pxToDp(15)
             }}
           >
-            <View
-              style={{
-                width: '80%',
-                marginLeft: pxToDp(20),
-                marginTop: pxToDp(15)
-              }}
-            >
-              <Input
-                placeholder="恁是我爹"
-                leftIcon={<Icon name="user" size={24} />}
-                onChangeText={(regusername) => this.setState({ regusername })}
-                value={this.state.regusername}
-              />
-            </View>
-            <View style={{ width: '80%', marginLeft: pxToDp(20) }}>
-              <Input
-                secureTextEntry={true}
-                placeholder="我是恁爹"
-                leftIcon={{ type: 'font-awesome', name: 'lock' }}
-                onChangeText={(regpassword1) => this.setState({ regpassword1 })}
-                value={this.state.regpassword1}
-              />
-            </View>
-            <View style={{ width: '80%', marginLeft: pxToDp(20) }}>
-              <Input
-                secureTextEntry={true}
-                placeholder="我是恁爹"
-                leftIcon={{ type: 'font-awesome', name: 'lock' }}
-                onChangeText={(regpassword2) => this.setState({ regpassword2 })}
-                value={this.state.regpassword2}
-              />
-            </View>
-            <TouchableOpacity
-              style={styles.loginbtn}
-              onPress={this.registerSubimit}
-            >
-              <Text>登录</Text>
-            </TouchableOpacity>
+            <Input
+              placeholder="恁是我爹"
+              leftIcon={<Icon name="user" size={24} />}
+              onChangeText={(regusername) => this.setState({ regusername })}
+              value={this.state.regusername}
+            />
           </View>
-
-          <TouchableOpacity style={styles.login} onPress={this.SingUp}>
-            <Text style={{ fontSize: 20, color: '#fff' }}>老戏迷</Text>
+          <View style={{ width: '80%', marginLeft: pxToDp(20) }}>
+            <Input
+              secureTextEntry={true}
+              placeholder="我是恁爹"
+              leftIcon={{ type: 'font-awesome', name: 'lock' }}
+              onChangeText={(regpassword1) => this.setState({ regpassword1 })}
+              value={this.state.regpassword1}
+            />
+          </View>
+          <View style={{ width: '80%', marginLeft: pxToDp(20) }}>
+            <Input
+              secureTextEntry={true}
+              placeholder="我是恁爹"
+              leftIcon={{ type: 'font-awesome', name: 'lock' }}
+              onChangeText={(regpassword2) => this.setState({ regpassword2 })}
+              value={this.state.regpassword2}
+            />
+          </View>
+          <TouchableOpacity
+            style={styles.loginbtn}
+            onPress={this.registerSubimit}
+          >
+            <Text>登录</Text>
           </TouchableOpacity>
+        </View>
 
-          <TouchableOpacity style={styles.register} onPress={this.toRegister}>
-            <Text style={{ fontSize: 20, color: '#fff' }}>新戏迷</Text>
-          </TouchableOpacity>
-        </ImageBackground>
-      );
-    }
-  
+        <TouchableOpacity style={styles.login} onPress={this.SingUp}>
+          <Text style={{ fontSize: 20, color: '#fff' }}>老戏迷</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.register} onPress={this.toRegister}>
+          <Text style={{ fontSize: 20, color: '#fff' }}>新戏迷</Text>
+        </TouchableOpacity>
+      </ImageBackground>
+    );
+  }
+
 }
 const styles = StyleSheet.create({
   opcity1: {
