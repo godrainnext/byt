@@ -28,10 +28,14 @@ class Index extends PureComponent {
     isShow: false //
   };
   componentDidMount() {
-    this.changeListener = DeviceEventEmitter.addListener('momentChange');
+    this.changeListener = DeviceEventEmitter.addListener('momentChange', () => {
+      getMomentListByStatus(0, 0, 10).then((res) => {
+        this.setState({ dongtai: [...res].reverse() });
+        console.log(res);
+      });
+    });
     getMomentListByStatus(0, 0, 10).then((res) => {
       this.setState({ dongtai: [...res].reverse() });
-      console.log(res);
     });
   }
   componentWillUnmount() {

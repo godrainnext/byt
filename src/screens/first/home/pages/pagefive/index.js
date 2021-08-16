@@ -5,22 +5,25 @@ import Icon1 from 'react-native-vector-icons/MaterialIcons';
 import Top from '@components/common/top';
 import { pxToDp } from '@utils/styleKits';
 import { getMomentById } from '@service/home';
+import { connect } from 'react-redux';
 class index extends PureComponent {
   state = {
     title: '',
     content: ``,
     images: [],
-    cover: ''
+    cover: '',
+    commments: []
   };
   componentDidMount() {
     getMomentById(this.props.route.params).then((res) => {
+      console.log(res);
       this.setState({ ...res });
     });
   }
   render() {
     const arr1 = this.state.content.split('/img');
     const { images, cover } = this.state;
-    console.log(this.props.route);
+    console.log(this.props.userInfo);
     return (
       <ScrollView stickyHeaderIndices={[0]}>
         <View>
@@ -237,4 +240,6 @@ const styles = StyleSheet.create({
   }
 });
 
-export default index;
+export default connect((state) => ({
+  userInfo: state.getIn(['homeReducer', 'userInfo'])
+}))(index);

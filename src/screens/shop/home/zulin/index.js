@@ -35,16 +35,18 @@ class Index extends PureComponent {
             backgroundColor: '#ecf6fc'
           }}
         >
-          {this.state.zuliList.map((item, id) => (
-            <Maylike
-              key={item.id}
-              imguri={item.imguri}
-              name={item.title}
-              number={item.sellnum}
-              price={item.price}
-              id={item.id}
-            />
-          ))}
+          <View style={styles.tcard}>
+            {this.state.zuliList.map((item, id) => (
+              <Maylike
+                key={item.id}
+                imguri={item.imguri}
+                name={item.title}
+                number={item.sellnum}
+                price={item.price}
+                id={item.id}
+              />
+            ))}
+          </View>
         </ScrollView>
       </View>
     );

@@ -124,6 +124,7 @@ class shopdetails extends PureComponent {
     EasyLoading.show('loading');
     getShopInfo(id)
       .then((res) => {
+        console.log(res);
         this.setState({
           shopbanner: [...res.bannerImages],
           shop: { ...res.shopInner },

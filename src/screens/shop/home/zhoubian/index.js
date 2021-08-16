@@ -19,6 +19,7 @@ class Index extends PureComponent {
   componentDidMount() {
     const status = this.props.route.params;
     getShopListByStatus(status).then((res) => {
+      console.log(res);
       this.setState({ shop: res });
     });
   }
@@ -27,23 +28,19 @@ class Index extends PureComponent {
     return (
       <View>
         <Top icon1="arrow-back" title="周边商城" />
-        <ScrollView
-          style={{
-            marginBottom: pxToDp(70),
-            height: '100%',
-            backgroundColor: '#ecf6fc'
-          }}
-        >
-          {this.state.shop.map((item, id) => (
-            <Maylike
-              key={item.id}
-              imguri={item.imguri}
-              name={item.title}
-              number={item.sellnum}
-              price={item.price}
-              id={item.id}
-            />
-          ))}
+        <ScrollView style={styles.scrollview}>
+          <View style={styles.tcard}>
+            {this.state.shop.map((item, id) => (
+              <Maylike
+                key={item.id}
+                imguri={item.imguri}
+                name={item.title}
+                number={item.sellnum}
+                price={item.price}
+                id={item.id}
+              />
+            ))}
+          </View>
         </ScrollView>
       </View>
     );
@@ -53,7 +50,9 @@ const styles = StyleSheet.create({
   scrollview: {
     backgroundColor: '#E2F4FE',
     flexDirection: 'row',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
+    marginBottom: pxToDp(70),
+    height: '100%'
   },
   tcard: {
     flexDirection: 'row',

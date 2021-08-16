@@ -126,11 +126,12 @@ class index extends Component {
       })
       .then((res) => {
         this.handleEditingEnd();
-        this.props.toggleModalProps();
+
         ToastAndroid.show('发表文章成功', ToastAndroid.SHORT);
       })
       .then((ress) => {
         DeviceEventEmitter.emit('momentChange');
+        this.props.toggleModalProps();
       });
   };
   // componentWillMount() {
