@@ -16,12 +16,13 @@ class UserInner extends PureComponent {
       <View
         style={{
           borderRadius: pxToDp(10),
-          backgroundColor: 'rgba(255,255,255,0.5)',
+          backgroundColor: '#f0fcff',
           margin: pxToDp(10),
-          height: pxToDp(140)
+          height: pxToDp(140),
+          elevation:3,borderWidth:0
         }}
       >
-        <View style={{ flexDirection: 'row' }}>
+        <View style={{ flexDirection: 'row',}}>
           <TouchableOpacity
             onPress={() => this.context.navigate('Myhome')}
           >
@@ -61,7 +62,7 @@ class UserInner extends PureComponent {
           </View>
         </View>
         <View
-          style={{ flexDirection: 'row', justifyContent: 'space-around' }}
+          style={{ flexDirection: 'row', justifyContent: 'space-around', }}
         >
           <View>
             <TouchableOpacity
@@ -78,7 +79,7 @@ class UserInner extends PureComponent {
               >
                 2
               </Text>
-              <Text style={{ fontSize: pxToDp(15), color: 'gray' }}>
+              <Text style={{ fontSize: pxToDp(15), color: 'gray' ,}}>
                 点赞
               </Text>
             </TouchableOpacity>

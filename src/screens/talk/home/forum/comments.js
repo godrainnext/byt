@@ -30,7 +30,7 @@ class Index extends PureComponent {
     mycomment:'',
   };
   showRBsheet = async (id) => {
-    await getCommentInnerById(id).then(res => this.setState({ reply: [...res[0].recomment] })).then(() => this[`RBSheet${id}`].open())
+    await getCommentInnerById(id).then(res => this.setState({ reply: [...res[0].recomment] })).then(() => this[`RBSheet+${id}`].open())
   }
   reply = (id) => {
     this.props.inputRef.focus()

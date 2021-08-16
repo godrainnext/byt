@@ -16,7 +16,7 @@ import { NavigationContext } from '@react-navigation/native';
 import { connect } from 'react-redux';
 import { getUserOriderListAction } from '../../first/home/store/actions';
 import UserInner from '../../../component/home/userInner';
-
+import LinearGradient from 'react-native-linear-gradient';
 class Index extends PureComponent {
   state = { avatar: '' };
 
@@ -36,16 +36,25 @@ class Index extends PureComponent {
   static contextType = NavigationContext;
   render() {
     return (
-      <View>
+      <LinearGradient colors={['#a1d9fd','white']}start={{x: 0, y: 0}} end={{x: 0, y: .8}} style={{flex:1}}>
         <Top title="戏痴" />
         <ScrollView>
+          
+{/*        
+          <View style={{position:'absolute',width:400,height:400,bottom:350,borderRadius:100,alignSelf:'center',opacity:.4}}>
+          
+         
+          </View>  */}
+     
           <UserInner />
           <View
             style={{
               borderRadius: pxToDp(10),
-              backgroundColor: 'rgba(255,255,255,0.5)',
+              backgroundColor: '#f0fcff',
               margin: pxToDp(10),
-              height: pxToDp(140)
+              height: pxToDp(140),
+              marginTop: pxToDp(10),
+              elevation:3,borderWidth:0
             }}
           >
             <View
@@ -53,7 +62,6 @@ class Index extends PureComponent {
                 flexDirection: 'row',
                 justifyContent: 'space-between',
                 margin: pxToDp(10),
-                marginTop: pxToDp(20)
               }}
             >
               <View>
@@ -66,7 +74,8 @@ class Index extends PureComponent {
                   style={{
                     flexDirection: 'row',
                     fontSize: pxToDp(15),
-                    marginRight: pxToDp(8)
+                    marginRight: pxToDp(8),
+                
                   }}
                 >
                   <Text>查看全部订单 </Text>
@@ -94,7 +103,7 @@ class Index extends PureComponent {
               <TouchableOpacity
                 onPress={() => this.context.navigate('Order', 2)}
               >
-                <View style={{ alignItems: 'center' }}>
+                <View style={{ alignItems: 'center'}}>
                   <Ionicons name="truck" size={25} color="#468CD3" />
                   <Text style={{ fontSize: pxToDp(15), marginTop: pxToDp(8) }}>
                     待收货
@@ -138,7 +147,7 @@ class Index extends PureComponent {
             </TouchableOpacity>
           </View>
         </ScrollView>
-      </View>
+        </LinearGradient >
     );
   }
 }
