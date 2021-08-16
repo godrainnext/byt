@@ -23,6 +23,8 @@ import { MarqueeHorizontal, MarqueeVertical } from 'react-native-marquee-ab';
 import { pxToDp } from '../../../../utils/styleKits';
 import LottieView from 'lottie-react-native';
 import { NavigationContext } from '@react-navigation/native';
+import Top from '../../../../component/common/top';
+import axios from 'axios';
 const dimensions = {
   width: Dimensions.get('window').width,
   height: Dimensions.get('window').height
@@ -35,9 +37,9 @@ const requestCameraAndAudioPermission = async () => {
     ]);
     if (
       granted['android.permission.RECORD_AUDIO'] ===
-        PermissionsAndroid.RESULTS.GRANTED &&
+      PermissionsAndroid.RESULTS.GRANTED &&
       granted['android.permission.CAMERA'] ===
-        PermissionsAndroid.RESULTS.GRANTED
+      PermissionsAndroid.RESULTS.GRANTED
     ) {
       console.log('You can use the cameras & mic');
     } else {
@@ -89,8 +91,7 @@ export default class App extends Component {
 
     this.state = {
       appId: '29792ec3eded410facd609fb7ad76fef',
-      token:
-        '00629792ec3eded410facd609fb7ad76fefIADCc8H70U749XGwDaAgInl0TjHWz2j6gN0U1okFKIK5sUgDg6MAAAAAEACcjToMHqkYYQEAAQAeqRhh',
+      token: '00629792ec3eded410facd609fb7ad76fefIAAbKUcPA8ZKD6c3OvRQ3dLsbHqp9OSHU+zfE7bUrcatNkgDg6MAAAAAEACcjToMxfsZYQEAAQDE+xlh',
       // channelName: 'ABC',
       channelName: '',
       joinSucceed: false, //默认进入直播
@@ -240,6 +241,7 @@ export default class App extends Component {
     ) : (
       <View style={styles.max}>
         <View style={styles.max}>
+          <Top title="开播" icon1="arrow-back" />
           <View>
             <View style={{ marginTop: 4 }}>
               <View
@@ -250,16 +252,6 @@ export default class App extends Component {
                   marginBottom: pxToDp(8)
                 }}
               >
-                <View
-                  style={{
-                    margin: pxToDp(4),
-                    height: pxToDp(32),
-                    justifyContent: 'center',
-                    alignItems: 'center'
-                  }}
-                >
-                  <Text style={{ fontSize: pxToDp(20) }}>开播</Text>
-                </View>
                 <Text style={{ color: '#50935E' }}>
                   请您如实准确填写本人信息，否则将认证失败
                 </Text>
@@ -344,8 +336,8 @@ export default class App extends Component {
     return (
       <View
         style={styles.remoteContainer}
-        // contentContainerStyle={{ paddingHorizontal: 2.5 }}
-        // horizontal={true}
+      // contentContainerStyle={{ paddingHorizontal: 2.5 }}
+      // horizontal={true}
       >
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
           <View

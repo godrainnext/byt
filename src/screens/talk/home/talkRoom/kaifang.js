@@ -10,7 +10,7 @@ import { NavigationContext } from '@react-navigation/native';
 import axios from 'axios';
 import PulseLoader from 'react-native-pulse-loader';
 import Top from '@components/common/top';
-
+ 
 const dimensions = {
   width: Dimensions.get('window').width,
   height: Dimensions.get('window').height,
@@ -75,7 +75,7 @@ export default class App extends Component {
 
     this.state = {
       appId: '29792ec3eded410facd609fb7ad76fef',
-      token: '00629792ec3eded410facd609fb7ad76fefIADCc8H70U749XGwDaAgInl0TjHWz2j6gN0U1okFKIK5sUgDg6MAAAAAEACcjToMHqkYYQEAAQAeqRhh',
+      token: '00629792ec3eded410facd609fb7ad76fefIAAbKUcPA8ZKD6c3OvRQ3dLsbHqp9OSHU+zfE7bUrcatNkgDg6MAAAAAEACcjToMxfsZYQEAAQDE+xlh',
       // channelName: 'ABC',
       channelName: '',
       joinSucceed: false,//默认进入直播

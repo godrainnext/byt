@@ -202,7 +202,9 @@ export class AlwaysOpen extends PureComponent {
             </View>
           </TouchableOpacity>
           {/* 相关书籍 */}
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => this.context.navigate('relatedBook')}
+          >
             <View style={{ justifyContent: 'center', height: pxToDp(60) }}>
               <View style={{ alignItems: 'center' }}>
                 <SvgUri svgXmlData={book} width="30" height="30" />

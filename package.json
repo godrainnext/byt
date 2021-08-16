@@ -77,6 +77,10 @@
     "metro-react-native-babel-preset": "^0.64.0",
     "react-test-renderer": "17.0.1"
   },
+  
+  "resolutions": { 
+    "@react-native-community/viewpager": "^5.0.11"
+  },
   "jest": {
     "preset": "react-native"
   },

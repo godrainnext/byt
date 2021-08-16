@@ -27,7 +27,7 @@ class Index extends PureComponent {
     isShow: false //
   };
   componentDidMount() {
-    getMomentListByStatus(0).then((res) => {
+    getMomentListByStatus(0,0,10).then((res) => {
       this.setState({ dongtai: [...res] });
       console.log(res);
     });

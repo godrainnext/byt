@@ -4,7 +4,7 @@ import Accordion from 'react-native-collapsible/Accordion';
 import { pxToDp } from '../../../../utils/styleKits';
 import Icon from 'react-native-vector-icons/AntDesign';
 import Top from '../../../../component/common/top';
-
+import { NavigationContext } from '@react-navigation/native';
 
 const CONTENT = [
     {
@@ -57,6 +57,7 @@ const CONTENT = [
     },
 ];
 export default class Index extends PureComponent {
+   
     state = {
         activeSections: [],
         collapsed: true,
@@ -67,7 +68,7 @@ export default class Index extends PureComponent {
         this.setState({
             activeSections: sections.includes(undefined) ? [] : sections,
         });
-    };
+    }; static contextType = NavigationContext;
 
     renderHeader = (section) => {
         return (
@@ -86,18 +87,18 @@ export default class Index extends PureComponent {
         );
     };
 
-    renderContent(section) {
+    renderContent=(section)=> {
         return (
             <View style={{ backgroundColor: 'rgba(255,255,255,0.5)', height: pxToDp(120) }}>
-                <TouchableOpacity style={{ flexDirection: 'row', margin: pxToDp(10) }}>
+                <TouchableOpacity style={{ flexDirection: 'row', margin: pxToDp(10) }} onPress={() => this.context.navigate('Video')}>
                     <Icon name="playcircleo" size={20} color={'black'} />
                     <Text style={{ fontSize: pxToDp(15) }}>{section.content1}</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={{ flexDirection: 'row', margin: pxToDp(10) }}>
+                <TouchableOpacity style={{ flexDirection: 'row', margin: pxToDp(10) }} onPress={() => this.context.navigate('Video')}>
                     <Icon name="playcircleo" size={20} color={'black'} />
                     <Text style={{ fontSize: pxToDp(15) }}>{section.content2}</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={{ flexDirection: 'row', margin: pxToDp(10) }}>
+                <TouchableOpacity style={{ flexDirection: 'row', margin: pxToDp(10) }} onPress={() => this.context.navigate('Video')}>
                     <Icon name="playcircleo" size={20} color={'black'} />
                     <Text style={{ fontSize: pxToDp(15) }}>{section.content3}</Text>
                 </TouchableOpacity>

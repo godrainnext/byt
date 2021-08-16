@@ -72,7 +72,7 @@ export default class App extends PureComponent {
 
         this.state = {
             appId: '29792ec3eded410facd609fb7ad76fef',
-            // token: '00629792ec3eded410facd609fb7ad76fefIABQJlJ/vuCCE4fiqUt0Cv6WFxBO3LYnuALI6+IxKXVITEgDg6MAAAAAEACcjToM5FUXYQEAAQDkVRdh',
+            // token: '00629792ec3eded410facd609fb7ad76fefIAAbKUcPA8ZKD6c3OvRQ3dLsbHqp9OSHU+zfE7bUrcatNkgDg6MAAAAAEACcjToMxfsZYQEAAQDE+xlh',
             // channelName: 'ABC',
             channelName: '',
             joinSucceed: false,//默认进入直播

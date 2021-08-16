@@ -107,7 +107,7 @@ function Nav() {
         {/*练唱专辑详情 */}
         <Stack.Screen name="Details" component={Screens.Details} />
         {/*练唱页面*/}
-        {/*<Stack.Screen name="Sing" component={Screens.Sing} />*/}
+        <Stack.Screen name="Sing" component={Screens.Sing} />
         {/* 进入练唱页面 */}
         {<Stack.Screen name="Singbefore" component={Screens.Singbefore} />}
         {/*双人剧本 */}
@@ -119,9 +119,14 @@ function Nav() {
         {/**教程页面 */}
         <Stack.Screen name="relatedImg" component={Screens.relatedImg} />
         {/* 相关图片 */}
+        <Stack.Screen name="relatedBook" component={Screens.relatedBook} />
+        {/* 相关书籍 */}
+        <Stack.Screen name="bookDetail" component={Screens.bookDetail} />
+        {/* 相关书籍详情 */}
         <Stack.Screen name="Course" component={Screens.Course} />
-        <Stack.Screen name="Timemap" component={Screens.Timemap} />
         {/**越剧基本功页面 */}
+        <Stack.Screen name="Timemap" component={Screens.Timemap} />
+        {/* 时空地图 */}
         <Stack.Screen name="Timeline" component={Screens.Timeline} />
         {/* 时间轴 */}
         <Stack.Screen name="Basic" component={Screens.Basic} />
