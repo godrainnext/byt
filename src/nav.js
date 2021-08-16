@@ -9,7 +9,10 @@ const Stack = createStackNavigator();
 function Nav() {
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode="none" initialRouteName="Login">
+      <Stack.Navigator headerMode="none" initialRouteName="Tabbar">
+
+      <Stack.Screen name="NewTimeLine" component={Screens.NewTimeLine} />
+
         <Stack.Screen name="Tabbar" component={Tabbar} />
         {/*登录 */}
         <Stack.Screen name="Login" component={Screens.Login} />
@@ -170,6 +173,8 @@ function Nav() {
         <Stack.Screen name="Video" component={Screens.Video} />
         {/*举报页*/}
         <Stack.Screen name="Jubao" component={Screens.Jubao} />
+        {/**波纹按钮 */}
+        <Stack.Screen name="WaterButton" component={Screens.WaterButton} />
       </Stack.Navigator>
     </NavigationContainer>
   );

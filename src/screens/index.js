@@ -89,3 +89,6 @@ export { default as Screenpaly } from './talk/home/script/screenplay'; //论坛�
 export { default as SeeZhiBo } from './talk/zhiboye/gindex';
 export { default as Video } from '../component/videoplayer/index'//视频页
 export { default as Jubao } from './talk/home/forum/jubao' //举报页
+export { default as WaterButton } from '../component/common/waterbutton'//波纹按钮
+
+export { default as NewTimeLine } from './test/test5'
