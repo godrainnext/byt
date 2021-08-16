@@ -13,12 +13,12 @@ import { pxToDp } from '@utils/styleKits';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Top from '@components/common/top';
 import ImageFade from '@components/ImageFade/index';
-import ActressView from '@components/common/actressview';
 import { NavigationContext } from '@react-navigation/native';
 import { getUserInfoAction } from './store/actions';
 import { connect } from 'react-redux';
 import Legend from '@components/first/legend';
 import Hy from '@components/first/hy';
+import HighLights from '@components/first/HighLights';
 const SLIDER_1_FIRST_ITEM = 1;
 
 class Index extends PureComponent {
@@ -65,50 +65,9 @@ class Index extends PureComponent {
               />
             </ImageFade>
           </View>
-          {/*俯瞰百年 */}
-          <View style={{ margin: pxToDp(10), marginTop: pxToDp(0) }}>
-            <View
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between'
-              }}
-            >
-              <Text
-                style={{
-                  fontSize: pxToDp(18),
-                  color: '#468CD3',
-                  fontWeight: 'bold'
-                }}
-              >
-                精选唱段
-              </Text>
-              <TouchableOpacity onPress={() => this.context.navigate('Opera')}>
-                <View style={{ flexDirection: 'row' }}>
-                  <Text style={{ fontSize: pxToDp(15), color: 'grey' }}>
-                    查看更多
-                  </Text>
-                  <Ionicons name="chevron-forward" size={20} color="grey" />
-                </View>
-              </TouchableOpacity>
-            </View>
-            <ScrollView horizontal={true}>
-              <View style={{ flexDirection: 'row', marginTop: pxToDp(5) }}>
-                <TouchableOpacity
-                  onPress={() => this.context.navigate('Video')}
-                >
-                  <Image
-                    style={{
-                      height: pxToDp(130),
-                      width: pxToDp(200),
-                      borderRadius: pxToDp(10),
-                      marginLeft: pxToDp(10)
-                    }}
-                    source={require('../../../res/13.jpg')}
-                  />
-                </TouchableOpacity>
-              </View>
-            </ScrollView>
-          </View>
+          {/*段落欣赏 */}
+          <HighLights />
+
           {/*俯瞰百年 */}
           <View style={{ margin: pxToDp(10), marginTop: pxToDp(0) }}>
             <View
