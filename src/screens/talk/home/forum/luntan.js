@@ -3,6 +3,7 @@ import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity, ImageBackg
 import { pxToDp } from '@utils/styleKits';
 import { NavigationContext } from "@react-navigation/native";
 import SvgUri from 'react-native-svg-uri';
+import { BottomSheet, ListItem } from 'react-native-elements';
 import { } from 'react-native-elements/dist/list/ListItem';
 import { sandian } from '../../../../component/common/iconSvg'
 import { Audio } from 'expo-av';
@@ -79,7 +80,7 @@ class Index extends PureComponent {
   showArticle = (obj) => {
     return (
       <ScrollView style={{ flex: 1, height: pxToDp(120), marginTop: pxToDp(10) }} horizontal={true} showsHorizontalScrollIndicator={false}>
-        {obj.images.map((item, index) => (
+        {obj.images?.map((item, index) => (
           <Image
             key={index}
             style={{ width: pxToDp(155), height: '100%', borderRadius: pxToDp(10), marginRight: pxToDp(10) }}
@@ -168,6 +169,8 @@ class Index extends PureComponent {
                   <TouchableOpacity onPress={() => this.context.navigate('Inluntan', item.id)}>
                     <Text style={{ fontSize: pxToDp(18), marginBottom: pxToDp(10), paddingLeft: pxToDp(8), marginTop: pxToDp(10) }}>{item.content}</Text>
                   </TouchableOpacity>
+
+
                   {item.label ? this.showMusic(item) : this.showArticle(item)}
                 </View>
                 <View style={{ flexDirection: 'row', justifyContent: 'space-around', marginBottom: pxToDp(10) }}>

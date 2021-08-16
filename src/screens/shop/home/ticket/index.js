@@ -10,6 +10,7 @@ import {
 import Top from '../../../../component/common/top';
 import { pxToDp } from '../../../../utils/styleKits';
 import { NavigationContext } from '@react-navigation/native';
+import LottieView from 'lottie-react-native';
 export default class index extends PureComponent {
   constructor(props) {
     super(props);
@@ -98,19 +99,28 @@ export default class index extends PureComponent {
   render() {
     const { activeTab } = this.state;
     return (
-      <View style={{ backgroundColor:'#ecf6fc',flex: 1 }}>
+      <View style={{ backgroundColor: '#ecf6fc', flex: 1 }}>
         <Top title="票务系统" icon1="arrow-back" />
         <View style={styles.topbox}>
           <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold' }}>演出</Text>
         </View>
         <ScrollView
+          showsVerticalScrollIndicator={false}
           style={{ flex: 1, margin: pxToDp(20), marginTop: pxToDp(10) }}
         >
           {/* 演出盒子 */}
           <View style={styles.message}>
             <Text style={styles.boxtext1}>小百花越剧场大剧场</Text>
-            <Text style={styles.boxtext2}>415粉丝|0场在售演出</Text>
-            <Text style={styles.boxtext2}>去主页</Text>
+            <Text style={styles.boxtext2}>415粉丝&ensp;|&ensp;0场在售演出</Text>
+            <View>
+              <Text style={styles.boxtext2}>去主页</Text>
+              {/* <LottieView
+                style={{ width: pxToDp(10), height: pxToDp(10) }}
+                source={require('../../../../../lottie/fast1.json')}
+                autoPlay
+                loop
+              /> */}
+            </View>
           </View>
           {/* 票务选择 */}
           {this.state.data.map((item, index) => (
@@ -216,13 +226,16 @@ const styles = StyleSheet.create({
   boxtext1: {
     fontSize: pxToDp(20),
     marginLeft: pxToDp(10),
+    marginTop: pxToDp(4),
     fontWeight: 'bold',
     color: '#fff'
   },
   boxtext2: {
     fontSize: pxToDp(14),
     marginLeft: pxToDp(10),
-    color: '#fff'
+    color: '#fff',
+    marginTop: pxToDp(4),
+    marginBottom: pxToDp(4)
   },
   img: {
     width: pxToDp(90),
@@ -234,6 +247,8 @@ const styles = StyleSheet.create({
   },
   message: {
     height: pxToDp(100),
+    marginTop: pxToDp(15),
+    marginBottom: pxToDp(15),
     backgroundColor: '#62649f',
     borderRadius: pxToDp(16),
     justifyContent: 'space-around',

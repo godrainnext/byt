@@ -147,7 +147,7 @@ class Index extends PureComponent {
   };
 
   render() {
-    const { modalVisible,modalVisibles,text } = this.state;
+    const { modalVisible, modalVisibles, text } = this.state;
     const labels = [
       '第一天',
       '第二天',

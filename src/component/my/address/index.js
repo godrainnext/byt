@@ -1,33 +1,39 @@
-import React, { PureComponent } from 'react'
-import { View, Text, TouchableOpacity, Image } from 'react-native'
+import React, { PureComponent } from 'react';
+import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { pxToDp } from '@utils/styleKits';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import { getAddressListAction } from '@screens/my/address/store/actions';
-import { NavigationContext } from '@react-navigation/native'
+import { NavigationContext } from '@react-navigation/native';
 import { Fragment } from 'react';
 class Address extends PureComponent {
- 
-  state={defaultAddress:{}}
+  state = { defaultAddress: {} };
   componentDidMount() {
-    const defaultAddress = this.props.address.find((item) => item.isdefault === 1)
+    const defaultAddress = this.props.address.find(
+      (item) => item.isdefault === 1
+    );
 
-    this.props.changeDefaultAddress( defaultAddress )
-    this.setState({defaultAddress})
-    this.props.changeAddressId(defaultAddress.id)
+    this.props.changeDefaultAddress(defaultAddress);
+    this.setState({ defaultAddress });
+    this.props.changeAddressId(defaultAddress.id);
   }
   changeDefaultAddress = (address) => {
-    this.setState({defaultAddress:address})
+    this.setState({ defaultAddress: address });
     this.props.changeDefaultAddress(address);
-    this.props.changeAddressId(address.id)
-  }
+    this.props.changeAddressId(address.id);
+  };
   static contextType = NavigationContext;
   render() {
     console.log(this.state.defaultAddress);
     return (
       <Fragment>
-        {
-          this.props.address.length ? <TouchableOpacity
-            onPress={() => this.context.navigate('address', { id: this.state.defaultAddress.id, changeDefaultAddress: this.changeDefaultAddress })}
+        {this.props.address.length ? (
+          <TouchableOpacity
+            onPress={() =>
+              this.context.navigate('address', {
+                id: this.state.defaultAddress.id,
+                changeDefaultAddress: this.changeDefaultAddress
+              })
+            }
             style={{
               marginTop: pxToDp(5),
               borderRadius: pxToDp(10),
@@ -61,18 +67,23 @@ class Address extends PureComponent {
             <View style={{ marginLeft: pxToDp(20), marginBottom: pxToDp(10) }}>
               <Text style={{ fontSize: pxToDp(14) }}>
                 {this.state.defaultAddress.address}
-
               </Text>
             </View>
-          </TouchableOpacity> : <TouchableOpacity onPress={() => this.context.navigate('newAddress')}><Text>还没有地址?前往添加新地址</Text></TouchableOpacity>}
-
+          </TouchableOpacity>
+        ) : (
+          <TouchableOpacity onPress={() => this.context.navigate('newAddress')}>
+            <Text>还没有地址?前往添加新地址</Text>
+          </TouchableOpacity>
+        )}
       </Fragment>
-    )
+    );
   }
 }
 
-const mapStateToProps = (state) => ({ address: state.getIn(['addressReducer', 'address']) })
+const mapStateToProps = (state) => ({
+  address: state.getIn(['addressReducer', 'address'])
+});
 
 export default connect(mapStateToProps, {
   getAddressListAction
-})(Address)
+})(Address);

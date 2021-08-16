@@ -1,8 +1,16 @@
 import React, { PureComponent } from 'react';
-import { StyleSheet, View, Text, Image, ScrollView, TouchableOpacity, ImageBackground } from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+  ImageBackground
+} from 'react-native';
 import { pxToDp } from '@utils/styleKits';
-import { NavigationContext } from "@react-navigation/native";
-import { FAB } from 'react-native-elements'
+import { NavigationContext } from '@react-navigation/native';
+import { FAB } from 'react-native-elements';
 import LottieView from 'lottie-react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 
@@ -35,11 +43,10 @@ class Index extends PureComponent {
         }
       ]
     };
-
   }
   toggleModal = () => {
     this.setState({ isModalVisible: !this.state.isModalVisible });
-  }
+  };
   componentDidMount() {
     // this.init();r
   }
@@ -54,15 +61,15 @@ class Index extends PureComponent {
     // this._engine = await RtcEngine.create(appId);
     // await this._engine.enableVideo();
 
-    this._engine = await RtcEngine.create(appId)
+    this._engine = await RtcEngine.create(appId);
     // 启用视频模块。
-    await this._engine.enableVideo()
+    await this._engine.enableVideo();
     // 开启本地视频预览。
-    await this._engine.startPreview()
+    await this._engine.startPreview();
     // 将频道场景设为直播。
-    await this._engine.setChannelProfile(ChannelProfile.LiveBroadcasting)
+    await this._engine.setChannelProfile(ChannelProfile.LiveBroadcasting);
     // 设置用户角色为主播。
-    await this._engine.setClientRole(ClientRole.Audience)
+    await this._engine.setClientRole(ClientRole.Audience);
     this._engine.addListener('Warning', (warn) => {
       console.log('Warning', warn);
     });
@@ -79,7 +86,7 @@ class Index extends PureComponent {
       if (peerIds.indexOf(uid) === -1) {
         this.setState({
           // Add peer ID to state array
-          peerIds: [...peerIds, uid],
+          peerIds: [...peerIds, uid]
         });
       }
     });
@@ -89,7 +96,7 @@ class Index extends PureComponent {
       const { peerIds } = this.state;
       this.setState({
         // Remove peer ID from state array
-        peerIds: peerIds.filter((id) => id !== uid),
+        peerIds: peerIds.filter((id) => id !== uid)
       });
     });
 
@@ -98,7 +105,7 @@ class Index extends PureComponent {
       console.log('JoinChannelSuccess', channel, uid, elapsed);
       // Set state variable to true
       this.setState({
-        joinSucceed: true,
+        joinSucceed: true
       });
     });
     console.log(1234);
@@ -122,99 +129,274 @@ class Index extends PureComponent {
   render() {
     return (
       <View style={{ flex: 1, backgroundColor: '#ecf6fc' }}>
-        <ScrollView >
-          <View >
-            <TouchableOpacity onPress={() => this.context.navigate('SeeZhiBo', {
-              roomName: this.state.arr[0].roomName,
-              channelName: this.state.arr[0].channelName,
-              token: this.state.arr[0].token,
-              startCall: this.startCall,
-              peerIds: this.state.peerIds
-            })}>
-              <ImageBackground style={styles.image} imageStyle={{ borderRadius: pxToDp(8) }} source={require('../../../../res/13.jpg')} >
-                <Text style={{ color: "white", fontSize: pxToDp(20), margin: pxToDp(10), left: pxToDp(220) }}>直播间名字</Text>
-                <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
-                  <Text style={{ color: "white", fontSize: pxToDp(15), margin: pxToDp(10) }}>主播名字</Text>
-                  <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center", marginLeft: pxToDp(150) }}>
+        <ScrollView>
+          <View>
+            <TouchableOpacity
+              onPress={() =>
+                this.context.navigate('SeeZhiBo', {
+                  roomName: this.state.arr[0].roomName,
+                  channelName: this.state.arr[0].channelName,
+                  token: this.state.arr[0].token,
+                  startCall: this.startCall,
+                  peerIds: this.state.peerIds
+                })
+              }
+            >
+              <ImageBackground
+                style={styles.image}
+                imageStyle={{ borderRadius: pxToDp(8) }}
+                source={require('../../../../res/13.jpg')}
+              >
+                <Text
+                  style={{
+                    color: 'white',
+                    fontSize: pxToDp(20),
+                    margin: pxToDp(10),
+                    left: pxToDp(220)
+                  }}
+                >
+                  直播间名字
+                </Text>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    alignItems: 'center'
+                  }}
+                >
+                  <Text
+                    style={{
+                      color: 'white',
+                      fontSize: pxToDp(15),
+                      margin: pxToDp(10)
+                    }}
+                  >
+                    主播名字
+                  </Text>
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      marginLeft: pxToDp(150)
+                    }}
+                  >
                     <Icon name="eyeo" size={24} color={'grey'} />
-                    <Text style={{ color: "white", marginLeft: pxToDp(5) }}>66</Text>
+                    <Text style={{ color: 'white', marginLeft: pxToDp(5) }}>
+                      66
+                    </Text>
                   </View>
-                  <LottieView style={{ width: pxToDp(70), }} source={require('../../../../res/705-linear-line.json')} autoPlay loop />
+                  <LottieView
+                    style={{ width: pxToDp(70) }}
+                    source={require('../../../../res/705-linear-line.json')}
+                    autoPlay
+                    loop
+                  />
                 </View>
               </ImageBackground>
             </TouchableOpacity>
           </View>
           <View>
-            <TouchableOpacity onPress={() => this.context.navigate('SeeFang', {
-              roomName: this.state.arr[0].roomName,
-              channelName: this.state.arr[0].channelName,
-              token: this.state.arr[0].token,
-              startCall: this.startCall,
-              peerIds: this.state.peerIds
-            })}>
-              <ImageBackground style={styles.image} imageStyle={{ borderRadius: pxToDp(8) }} source={require('../../../../res/14.jpg')} >
-                <Text style={{ color: "white", fontSize: pxToDp(20), margin: pxToDp(10), left: pxToDp(220) }}>直播间名字</Text>
-                <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
-                  <Text style={{ color: "white", fontSize: pxToDp(15), margin: pxToDp(10) }}>主播名字</Text>
-                  <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center", marginLeft: pxToDp(150) }}>
+            <TouchableOpacity
+              onPress={() =>
+                this.context.navigate('SeeFang', {
+                  roomName: this.state.arr[0].roomName,
+                  channelName: this.state.arr[0].channelName,
+                  token: this.state.arr[0].token,
+                  startCall: this.startCall,
+                  peerIds: this.state.peerIds
+                })
+              }
+            >
+              <ImageBackground
+                style={styles.image}
+                imageStyle={{ borderRadius: pxToDp(8) }}
+                source={require('../../../../res/14.jpg')}
+              >
+                <Text
+                  style={{
+                    color: 'white',
+                    fontSize: pxToDp(20),
+                    margin: pxToDp(10),
+                    left: pxToDp(220)
+                  }}
+                >
+                  直播间名字
+                </Text>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    alignItems: 'center'
+                  }}
+                >
+                  <Text
+                    style={{
+                      color: 'white',
+                      fontSize: pxToDp(15),
+                      margin: pxToDp(10)
+                    }}
+                  >
+                    主播名字
+                  </Text>
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      marginLeft: pxToDp(150)
+                    }}
+                  >
                     <Icon name="eyeo" size={24} color={'grey'} />
-                    <Text style={{ color: "white", marginLeft: pxToDp(5) }}>66</Text>
+                    <Text style={{ color: 'white', marginLeft: pxToDp(5) }}>
+                      66
+                    </Text>
                   </View>
-                  <LottieView style={{ width: pxToDp(70), }} source={require('../../../../res/705-linear-line.json')} autoPlay loop />
+                  <LottieView
+                    style={{ width: pxToDp(70) }}
+                    source={require('../../../../res/705-linear-line.json')}
+                    autoPlay
+                    loop
+                  />
                 </View>
               </ImageBackground>
             </TouchableOpacity>
           </View>
           <View>
-            <ImageBackground style={styles.image} imageStyle={{ borderRadius: pxToDp(8) }} source={require('../../../../res/15.jpg')} >
-              <Text style={{ color: "white", fontSize: pxToDp(20), margin: pxToDp(10), left: pxToDp(220) }}>直播间名字</Text>
-              <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
-                <Text style={{ color: "white", fontSize: pxToDp(15), margin: pxToDp(10) }}>主播名字</Text>
-                <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center", marginLeft: pxToDp(150) }}>
+            <ImageBackground
+              style={styles.image}
+              imageStyle={{ borderRadius: pxToDp(8) }}
+              source={require('../../../../res/15.jpg')}
+            >
+              <Text
+                style={{
+                  color: 'white',
+                  fontSize: pxToDp(20),
+                  margin: pxToDp(10),
+                  left: pxToDp(220)
+                }}
+              >
+                直播间名字
+              </Text>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  alignItems: 'center'
+                }}
+              >
+                <Text
+                  style={{
+                    color: 'white',
+                    fontSize: pxToDp(15),
+                    margin: pxToDp(10)
+                  }}
+                >
+                  主播名字
+                </Text>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    marginLeft: pxToDp(150)
+                  }}
+                >
                   <Icon name="eyeo" size={24} color={'grey'} />
-                  <Text style={{ color: "white", marginLeft: pxToDp(5) }}>66</Text>
+                  <Text style={{ color: 'white', marginLeft: pxToDp(5) }}>
+                    66
+                  </Text>
                 </View>
-                <LottieView style={{ width: pxToDp(70), }} source={require('../../../../res/705-linear-line.json')} autoPlay loop />
+                <LottieView
+                  style={{ width: pxToDp(70) }}
+                  source={require('../../../../res/705-linear-line.json')}
+                  autoPlay
+                  loop
+                />
               </View>
             </ImageBackground>
           </View>
           <View>
-            <ImageBackground style={styles.image} imageStyle={{ borderRadius: pxToDp(8) }} source={require('../../../../res/16.jpg')} >
-              <Text style={{ color: "white", fontSize: pxToDp(20), margin: pxToDp(10), left: pxToDp(220) }}>直播间名字</Text>
-              <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
-                <Text style={{ color: "white", fontSize: pxToDp(15), margin: pxToDp(10) }}>主播名字</Text>
-                <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center", marginLeft: pxToDp(150) }}>
+            <ImageBackground
+              style={styles.image}
+              imageStyle={{ borderRadius: pxToDp(8) }}
+              source={require('../../../../res/16.jpg')}
+            >
+              <Text
+                style={{
+                  color: 'white',
+                  fontSize: pxToDp(20),
+                  margin: pxToDp(10),
+                  left: pxToDp(220)
+                }}
+              >
+                直播间名字
+              </Text>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  alignItems: 'center'
+                }}
+              >
+                <Text
+                  style={{
+                    color: 'white',
+                    fontSize: pxToDp(15),
+                    margin: pxToDp(10)
+                  }}
+                >
+                  主播名字
+                </Text>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    marginLeft: pxToDp(150)
+                  }}
+                >
                   <Icon name="eyeo" size={24} color={'grey'} />
-                  <Text style={{ color: "white", marginLeft: pxToDp(5) }}>66</Text>
+                  <Text style={{ color: 'white', marginLeft: pxToDp(5) }}>
+                    66
+                  </Text>
                 </View>
-                <LottieView style={{ width: pxToDp(70), }} source={require('../../../../res/705-linear-line.json')} autoPlay loop />
+                <LottieView
+                  style={{ width: pxToDp(70) }}
+                  source={require('../../../../res/705-linear-line.json')}
+                  autoPlay
+                  loop
+                />
               </View>
             </ImageBackground>
           </View>
-        </ScrollView >
-        <FAB size="large" placement="right" color="#B0C4DE" onPress={() => this.context.navigate("KaiBo")} />
+        </ScrollView>
+        <FAB
+          size="large"
+          placement="right"
+          color="#B0C4DE"
+          onPress={() => this.context.navigate('KaiBo')}
+        />
         {/* <FAB size="large" placement="right" color="red" onPress={() => this.context.navigate("KaiFang")} /> */}
-
       </View>
     );
   }
-
 }
 
 const styles = StyleSheet.create({
   actionButtonIcon: {
     fontSize: 20,
     height: 22,
-    color: 'white',
+    color: 'white'
   },
   image: {
     borderRadius: pxToDp(10),
-    justifyContent: "space-between",
+    justifyContent: 'space-between',
     height: pxToDp(200),
     width: pxToDp(355),
     borderRadius: pxToDp(10),
     margin: pxToDp(10)
   }
 });
-0
+0;
 export default Index;

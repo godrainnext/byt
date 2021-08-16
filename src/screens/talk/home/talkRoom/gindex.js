@@ -1,5 +1,5 @@
-import React,{ PureComponent } from 'react';
-import { Platform, ScrollView, Text, TouchableOpacity, View, PermissionsAndroid, Image, Dimensions, StyleSheet } from 'react-native';
+import React, { PureComponent } from 'react';
+import { Platform,ImageBackground, ScrollView, Text, TouchableOpacity, View, PermissionsAndroid, Image, Dimensions, StyleSheet } from 'react-native';
 import { Input } from 'react-native-elements';
 import RtcEngine, { RtcLocalView, RtcRemoteView, VideoRenderMode, ChannelProfile, ClientRole, } from 'react-native-agora'
 import { WebView } from 'react-native-webview';
@@ -8,6 +8,8 @@ import { pxToDp } from '@utils/styleKits';
 import LottieView from 'lottie-react-native';
 import { NavigationContext } from '@react-navigation/native';
 import axios from 'axios';
+import Top from '@components/common/top';
+
 const dimensions = {
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
@@ -72,7 +74,7 @@ export default class App extends PureComponent {
 
         this.state = {
             appId: '29792ec3eded410facd609fb7ad76fef',
-            // token: '00629792ec3eded410facd609fb7ad76fefIABQJlJ/vuCCE4fiqUt0Cv6WFxBO3LYnuALI6+IxKXVITEgDg6MAAAAAEACcjToM5FUXYQEAAQDkVRdh',
+            // token: '00629792ec3eded410facd609fb7ad76fefIAAbKUcPA8ZKD6c3OvRQ3dLsbHqp9OSHU+zfE7bUrcatNkgDg6MAAAAAEACcjToMxfsZYQEAAQDE+xlh',
             // channelName: 'ABC',
             channelName: '',
             joinSucceed: false,//默认进入直播
@@ -238,8 +240,10 @@ export default class App extends PureComponent {
         const { peerIds } = this.state;
         console.log(peerIds);
         return (
-            <View style={styles.fullView}>
-                {/* <View style={{ flex:1}}>
+            <ImageBackground style={{ width: '100%', height: '100%' }} source={{ uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic.vjshi.com%2F2015-07-03%2F1435906279772_102%2F00002.jpg%3Fx-oss-process%3Dstyle%2Fwatermark&refer=http%3A%2F%2Fpic.vjshi.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631528779&t=9aa6e3fc4a10ebf05c0ad6f581c2c98e' }}>
+
+                <View style={styles.fullView}>
+                    {/* <View style={{ flex:1}}>
                     {peerIds.map((value) => {
                         return (
                             <RtcRemoteView.SurfaceView
@@ -253,14 +257,15 @@ export default class App extends PureComponent {
                     })}
                 </View> */}
 
-                {/* <RtcLocalView.SurfaceView
+                    {/* <RtcLocalView.SurfaceView
                     style={styles.max}
                     // channelId={this.props.route.params.channelName}
                     channelId={this.props.route.params.channelName}
                     renderMode={VideoRenderMode.Hidden}
                 /> */}
-                {this._renderRemoteVideos()}
-            </View>
+                    {this._renderRemoteVideos()}
+                </View>
+            </ImageBackground>
         );
     };
 
@@ -272,7 +277,9 @@ export default class App extends PureComponent {
             // contentContainerStyle={{ paddingHorizontal: 2.5 }}
             // horizontal={true}
             >
+                <Top title='小剧场' icon1="arrow-back" />
 
+                {/* 
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                     <View style={{ backgroundColor: 'rgba(0,0,0,0.4)', height: pxToDp(50), width: pxToDp(190), flexDirection: 'row', justifyContent: 'center', alignItems: 'center', borderRadius: pxToDp(24), padding: pxToDp(4) }}>
                         <View style={{ marginRight: pxToDp(8) }}>
@@ -306,7 +313,6 @@ export default class App extends PureComponent {
                     </View>
                     <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginLeft: pxToDp(16) }} >
                         <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginRight: pxToDp(8) }}>
-                            {/* <LottieView style={{ width: pxToDp(70), marginLeft: pxToDp(16) }} source={require('../../lottie/705-linear-line.json')} autoPlay loop /> */}
                             <LottieView style={{ width: pxToDp(70), marginLeft: pxToDp(16) }} source={require('../../../../lottie/16773-fire.json')} autoPlay loop />
                             <Text>40热度</Text>
                         </View>
@@ -316,7 +322,7 @@ export default class App extends PureComponent {
                             </View>
                         </TouchableOpacity>
                     </View>
-                </View>
+                </View> */}
                 {/* <WebView
                     style={{ width: pxToDp(350), height: pxToDp(400), backgroundColor: 'transparent', marginTop: pxToDp(320) }}
                     // source={{ html: HTML }}
@@ -332,6 +338,46 @@ export default class App extends PureComponent {
                     onMessage={event => { '接收h5页面传过来的消息' }}
                 /> */}
 
+                <View style={{ height: pxToDp(412), }}>
+                    <WebView
+                        style={{ width: '100%', height: pxToDp(320), backgroundColor: 'transparent', }}
+                        // source={{ html: HTML }}
+                        source={{ uri: "file:///android_asset/static.bundle/music.html" }}
+                        originWhitelist={['*']}
+                        // source={{ html:this.props.html,baseUrl:'file:///android_asset/web/'}}
+                        // source={{ html:this.props.html,baseUrl:'http://127.0.0.1:5500/src/page/test/index.html'}}
+                        javaScriptEnabled={true}//是否开启js
+                        domStorageEnabled={true}//是否开启存储
+                        scalesPageToFit={false}//用户是否可以改变页面
+                        scrollEnabled={false}
+                        // injectedJavaScript={`	`}
+                        onMessage={event => { '接收h5页面传过来的消息' }}
+                    />
+                    <View style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center' }}>
+                        <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+                            <Image style={{ width: pxToDp(65), height: pxToDp(65), borderRadius: pxToDp(24) }} source={{ uri: 'https://pics2.baidu.com/feed/bd315c6034a85edf1a928e0e0da87425dc547587.jpeg?token=119b3f2abe0889ed0753ea8c3e8b288d' }}></Image>
+                            {/* <PulseLoader
+                avatar={'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fn.sinaimg.cn%2Fsinacn20109%2F760%2Fw400h360%2F20191211%2Fa8b3-iknhexi8274828.jpg&refer=http%3A%2F%2Fn.sinaimg.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631579838&t=ee8f687abcaebebad05066b5a419cc3e'}
+              /> */}
+                            <Text style={{ fontSize: pxToDp(16) }}>野原新之助</Text>
+                        </View>
+                        <TouchableOpacity style={{ width: pxToDp(80), height: pxToDp(40), borderRadius: pxToDp(32), backgroundColor: '#468cd3', justifyContent: 'center', alignItems: 'center' }}>
+                            <Text style={{ fontSize: pxToDp(16) }}>
+                                开始演唱
+                            </Text>
+                        </TouchableOpacity>
+                        <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+                            {/* <PulseLoader
+                avatar={'https://img0.baidu.com/it/u=4203889072,870375471&fm=26&fmt=auto&gp=0.jpg'}
+              /> */}
+                            <Image style={{ width: pxToDp(65), height: pxToDp(65), borderRadius: pxToDp(24) }} source={{ uri: 'https://img0.baidu.com/it/u=4203889072,870375471&fm=26&fmt=auto&gp=0.jpg' }}></Image>
+                            <Text style={{ fontSize: pxToDp(16) }}>蜡笔小新</Text>
+                        </View>
+                    </View>
+                </View>
+                <View style={{ justifyContent: 'center', alignItems: 'center', margin: pxToDp(8) }}>
+                    <Text style={{ fontSize: pxToDp(14), color: '#468cd3' }}>开始演唱啦，请留意各自演唱的分段哦</Text>
+                </View>
 
             </View>
         );
