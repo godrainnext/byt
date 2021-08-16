@@ -144,23 +144,39 @@ class Index extends PureComponent {
               width: '100%',
               height: pxToDp(100),
               marginTop: pxToDp(20),
-              flexDirection: 'row'
+              flexDirection: 'row',
+              justifyContent: 'space-between'
             }}
           >
-            <Image
-              source={{ uri: user?.avatarUrl }}
-              style={{
-                height: pxToDp(60),
-                width: pxToDp(60),
-                borderRadius: pxToDp(60),
-                margin: pxToDp(15)
-              }}
-            />
-            <View style={{ marginTop: pxToDp(20), paddingLeft: pxToDp(5) }}>
-              <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold' }}>
-                {user?.nickName}
-              </Text>
+            <View style={{ flexDirection: 'row' }}>
+              <Image
+                source={{ uri: user?.avatarUrl }}
+                style={{
+                  height: pxToDp(60),
+                  width: pxToDp(60),
+                  borderRadius: pxToDp(60),
+                  margin: pxToDp(15)
+                }}
+              />
+              <View style={{ marginTop: pxToDp(20), paddingLeft: pxToDp(5) }}>
+                <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold' }}>
+                  {user?.nickName}
+                </Text>
+              </View>
             </View>
+            <TouchableOpacity
+              style={{
+                width: pxToDp(50),
+                borderWidth: pxToDp(1),
+                alignSelf: 'center',
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginRight: pxToDp(20),
+                height: pxToDp(40)
+              }}
+            >
+              <Text style={{ fontSize: pxToDp(18) }}>关注</Text>
+            </TouchableOpacity>
           </View>
           <View style={{ margin: pxToDp(15) }}>
             <Text style={{ fontSize: pxToDp(18) }}>{content}</Text>

@@ -124,16 +124,13 @@ class shopdetails extends PureComponent {
     EasyLoading.show('loading');
     getShopInfo(id)
       .then((res) => {
-        console.log(res);
         this.setState({
           shopbanner: [...res.bannerImages],
           shop: { ...res.shopInner },
           shopimg: [...res.shopinnerimages],
           products: [...res.shopcarimages]
         });
-        console.log('detail', res);
       })
-
       .then(() => {
         EasyLoading.dismiss();
       });

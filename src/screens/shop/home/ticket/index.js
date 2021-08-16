@@ -98,7 +98,7 @@ export default class index extends PureComponent {
   render() {
     const { activeTab } = this.state;
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{ backgroundColor:'#ecf6fc',flex: 1 }}>
         <Top title="票务系统" icon1="arrow-back" />
         <View style={styles.topbox}>
           <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold' }}>演出</Text>

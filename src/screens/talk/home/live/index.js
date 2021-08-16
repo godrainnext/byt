@@ -12,7 +12,7 @@ class Index extends PureComponent {
     this.state = {
       appId: '29792ec3eded410facd609fb7ad76fef',
       peerIds: [],
-      token: '00629792ec3eded410facd609fb7ad76fefIADCc8H70U749XGwDaAgInl0TjHWz2j6gN0U1okFKIK5sUgDg6MAAAAAEACcjToMHqkYYQEAAQAeqRhh',
+      token: '00629792ec3eded410facd609fb7ad76fefIAAbKUcPA8ZKD6c3OvRQ3dLsbHqp9OSHU+zfE7bUrcatNkgDg6MAAAAAEACcjToMxfsZYQEAAQDE+xlh',
       channelName: 'ABC',
       arr: [
         {
@@ -26,7 +26,7 @@ class Index extends PureComponent {
           numR: '7546',
           appId: '29792ec3eded410facd609fb7ad76fef',
           channelName: 'ABC',
-          token: '00629792ec3eded410facd609fb7ad76fefIADCc8H70U749XGwDaAgInl0TjHWz2j6gN0U1okFKIK5sUgDg6MAAAAAEACcjToMHqkYYQEAAQAeqRhh',
+          token: '00629792ec3eded410facd609fb7ad76fefIAAbKUcPA8ZKD6c3OvRQ3dLsbHqp9OSHU+zfE7bUrcatNkgDg6MAAAAAEACcjToMxfsZYQEAAQDE+xlh',
           roomName: 'hdia'
         }]
     }

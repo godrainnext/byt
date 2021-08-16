@@ -82,9 +82,7 @@ class Index extends PureComponent {
               >
                 精选唱段
               </Text>
-              <TouchableOpacity
-                onPress={() => this.context.navigate('Opera')}
-              >
+              <TouchableOpacity onPress={() => this.context.navigate('Opera')}>
                 <View style={{ flexDirection: 'row' }}>
                   <Text style={{ fontSize: pxToDp(15), color: 'grey' }}>
                     查看更多
@@ -95,7 +93,9 @@ class Index extends PureComponent {
             </View>
             <ScrollView horizontal={true}>
               <View style={{ flexDirection: 'row', marginTop: pxToDp(5) }}>
-                <TouchableOpacity onPress={() => this.context.navigate('Video')}>
+                <TouchableOpacity
+                  onPress={() => this.context.navigate('Video')}
+                >
                   <Image
                     style={{
                       height: pxToDp(130),
@@ -104,39 +104,6 @@ class Index extends PureComponent {
                       marginLeft: pxToDp(10)
                     }}
                     source={require('../../../res/13.jpg')}
-                  />
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => this.context.navigate('Video')}>
-                  <Image
-                    style={{
-                      height: pxToDp(130),
-                      width: pxToDp(200),
-                      borderRadius: pxToDp(10),
-                      marginLeft: pxToDp(10)
-                    }}
-                    source={require('../../../res/14.jpg')}
-                  />
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => this.context.navigate('Video')}>
-                  <Image
-                    style={{
-                      height: pxToDp(130),
-                      width: pxToDp(200),
-                      borderRadius: pxToDp(10),
-                      marginLeft: pxToDp(10)
-                    }}
-                    source={require('../../../res/15.jpg')}
-                  />
-                </TouchableOpacity>
-                <TouchableOpacity onPress={() => this.context.navigate('Video')}>
-                  <Image
-                    style={{
-                      height: pxToDp(130),
-                      width: pxToDp(200),
-                      borderRadius: pxToDp(10),
-                      marginLeft: pxToDp(10)
-                    }}
-                    source={require('../../../res/16.jpg')}
                   />
                 </TouchableOpacity>
               </View>
@@ -159,9 +126,7 @@ class Index extends PureComponent {
               >
                 俯瞰百年
               </Text>
-              <TouchableOpacity
-                onPress={() => this.context.navigate('Card')}
-              >
+              <TouchableOpacity onPress={() => this.context.navigate('Card')}>
                 <View style={{ flexDirection: 'row' }}>
                   <Text style={{ fontSize: pxToDp(15), color: 'grey' }}>
                     查看更多
@@ -170,6 +135,7 @@ class Index extends PureComponent {
                 </View>
               </TouchableOpacity>
             </View>
+            {/* 俯瞰百年轮播图 */}
             <Hy />
           </View>
           {/*流派故事 */}
@@ -264,10 +230,10 @@ class Index extends PureComponent {
               }}
             >
               <View style={{ margin: pxToDp(10) }}>
-                <View style={{ marginTop: pxToDp(75) }}>
-                </View>
+                <View style={{ marginTop: pxToDp(75) }}></View>
                 <ScrollView horizontal={true} style={{ marginTop: pxToDp(45) }}>
-                  <TouchableOpacity onPress={() => this.context.navigate('Actress')}
+                  <TouchableOpacity
+                    onPress={() => this.context.navigate('Actress')}
                     style={{
                       width: pxToDp(100),
                       height: pxToDp(160),
@@ -296,7 +262,7 @@ class Index extends PureComponent {
                     >
                       <Text style={{ fontSize: pxToDp(15) }}>方亚芬</Text>
                     </View>
-                  </ TouchableOpacity>
+                  </TouchableOpacity>
                   <View
                     style={{
                       width: pxToDp(100),

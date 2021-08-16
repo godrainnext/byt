@@ -65,7 +65,6 @@ class Index extends PureComponent {
       }
     });
 
-    console.log(newComments);
     return (
       <View>
         {newComments.length ? (
@@ -130,7 +129,7 @@ class Index extends PureComponent {
                       style={{ marginRight: 20 }}
                     />
                   </TouchableOpacity>
-                  <TouchableOpacity onPress={() => this.reply(item.id)}>
+                  <TouchableOpacity onPress={() => this.showRBsheet(item.id)}>
                     <SvgUri svgXmlData={pinglun} width="20" height="20" />
                   </TouchableOpacity>
                 </View>
@@ -235,8 +234,8 @@ class Index extends PureComponent {
                   openDuration={0}
                 >
                   <ScrollView style={{ flex: 1 }}>
-                    {this.state.reply?.map((item) => (
-                      <View key={item.id}>
+                    {this.state.reply?.map((items) => (
+                      <View key={items.id}>
                         <View
                           style={{
                             flexDirection: 'row',
@@ -244,7 +243,7 @@ class Index extends PureComponent {
                           }}
                         >
                           <Image
-                            source={{ uri: item.avatar }}
+                            source={{ uri: items.avatar }}
                             style={{
                               width: pxToDp(40),
                               height: pxToDp(40),
@@ -253,7 +252,7 @@ class Index extends PureComponent {
                             }}
                           />
                           <Text style={{ marginTop: pxToDp(20) }}>
-                            {item.nickName}
+                            {items.nickName}
                           </Text>
                         </View>
                         <View style={{ marginLeft: 80 }}>
@@ -265,7 +264,7 @@ class Index extends PureComponent {
                                 fontSize: pxToDp(16)
                               }}
                             >
-                              回复{item.nickName}:
+                              回复{item.user.nickName}:
                             </Text>
                             <Text
                               style={{
@@ -275,7 +274,7 @@ class Index extends PureComponent {
                                 width: '90%'
                               }}
                             >
-                              {item.content}
+                              {items.content}
                             </Text>
                           </View>
                           <Text
@@ -286,7 +285,7 @@ class Index extends PureComponent {
                               marginTop: pxToDp(-15)
                             }}
                           >
-                            {item.createAt}
+                            {items.createAt}
                           </Text>
                           <View
                             style={{

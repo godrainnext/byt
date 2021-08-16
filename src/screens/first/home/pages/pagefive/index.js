@@ -22,24 +22,14 @@ class index extends PureComponent {
   }
   render() {
     const arr1 = this.state.content.split('/img');
-    const { images, cover } = this.state;
-    console.log(this.props.userInfo);
+    const { images } = this.state;
+    console.log(arr1);
     return (
       <ScrollView stickyHeaderIndices={[0]}>
         <View>
-          <Top icon1="arrow-back" title="精选唱段" />
+          <Top icon1="arrow-back" title="越文" />
         </View>
         <View>
-          <View>
-            <Image
-              style={{ width: '100%', height: pxToDp(200) }}
-              source={{
-                uri: cover
-                  ? cover
-                  : 'https://img0.baidu.com/it/u=952587805,2463391979&fm=26&fmt=auto&gp=0.jpg'
-              }}
-            ></Image>
-          </View>
           <View style={{ alignItems: 'center' }}>
             <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold' }}>
               {/* 谁翻乐府旧谣?title */}
@@ -49,20 +39,6 @@ class index extends PureComponent {
 
           {arr1.map((item, index) => (
             <View>
-              {index === 0 ? (
-                <View></View>
-              ) : (
-                <View>
-                  <Image
-                    style={{ width: '100%', height: pxToDp(200) }}
-                    source={{
-                      uri: images[index]
-                        ? images[index]
-                        : 'https://img0.baidu.com/it/u=952587805,2463391979&fm=26&fmt=auto&gp=0.jpg'
-                    }}
-                  ></Image>
-                </View>
-              )}
               {item.split('/d').map((item, index) => (
                 <View>
                   <Text style={{ fontSize: pxToDp(15), margin: pxToDp(4) }}>
@@ -70,6 +46,18 @@ class index extends PureComponent {
                   </Text>
                 </View>
               ))}
+              {images[index] ? (
+                <View>
+                  <Image
+                    style={{ width: '100%', height: pxToDp(200) }}
+                    source={{
+                      uri: images[index]
+                    }}
+                  ></Image>
+                </View>
+              ) : (
+                <View></View>
+              )}
             </View>
           ))}
         </View>

@@ -42,7 +42,8 @@ class index extends Component {
     } else {
       return (
         <TouchableOpacity activeOpacity={1} onPress={() => this._openPicker()}>
-          <SvgUri svgXmlData={talk} style={{ width: 100, height: 100 }} />
+          {/* <SvgUri svgXmlData={talk} style={{ width: 100, height: 100 }} /> */}
+        <Image style={{width:pxToDp(100),height:pxToDp(100)}} source={require('../../../../res/addimg.png')}></Image>
         </TouchableOpacity>
       );
     }
