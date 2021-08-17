@@ -9,7 +9,8 @@ const Stack = createStackNavigator();
 function Nav() {
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode="none" initialRouteName="Login">
+      <Stack.Navigator headerMode="none" initialRouteName="Tabbar">
+
         <Stack.Screen name="NewTimeLine" component={Screens.NewTimeLine} />
 
         <Stack.Screen name="Tabbar" component={Tabbar} />

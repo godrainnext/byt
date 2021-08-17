@@ -48,10 +48,10 @@ class Index extends PureComponent {
 }
 const styles = StyleSheet.create({
   scrollview: {
-    backgroundColor: '#E2F4FE',
+    backgroundColor: 'white',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    marginBottom: pxToDp(70),
+    marginBottom: pxToDp(80),
     height: '100%'
   },
   tcard: {
