@@ -11,7 +11,7 @@ const Stack = createStackNavigator();
 function Nav() {
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode="none" initialRouteName="Login">
+      <Stack.Navigator headerMode="none" initialRouteName="Testtt">
 
       <Stack.Screen name="NewTimeLine" component={Screens.NewTimeLine}/>
 
@@ -73,6 +73,7 @@ function Nav() {
         <Stack.Screen name="Refund" component={Screens.Refund} />
         {/**设置首页面 */}
         <Stack.Screen name="Myhome" component={Screens.Myhome} />
+        <Stack.Screen name="OthersHome" component={Screens.OthersHome} />
         {/**更改资料页面 */}
         <Stack.Screen name="Ziliao" component={Screens.Ziliao} />
         {/**昵称页面 */}
@@ -169,8 +170,24 @@ function Nav() {
         <Stack.Screen name="MusicPlayer" component={Screens.MusicPlayer} />
         {/*流派页 */}
         <Stack.Screen name="School" component={Screens.School} />
-        {/* 剧本详情 */}
+        {/* 剧本1详情 */}
         <Stack.Screen name="Screenpaly" component={Screens.Screenpaly} />
+        {/* 剧本2详情 */}
+        <Stack.Screen name="Screenpaly2" component={Screens.Screenpaly2} />
+        {/* 剧本3详情 */}
+        <Stack.Screen name="Screenpaly3" component={Screens.Screenpaly3} />
+        {/* 剧本4详情 */}
+        <Stack.Screen name="Screenpaly4" component={Screens.Screenpaly4} />
+        {/* 剧本5详情 */}
+        <Stack.Screen name="Screenpaly5" component={Screens.Screenpaly5} />
+        {/* 剧本6详情 */}
+        <Stack.Screen name="Screenpaly6" component={Screens.Screenpaly6} />
+        {/* 剧本7详情 */}
+        <Stack.Screen name="Screenpaly7" component={Screens.Screenpaly7} />
+        {/* 剧本8详情 */}
+        <Stack.Screen name="Screenpaly8" component={Screens.Screenpaly8} />
+        {/* 剧本9详情 */}
+        <Stack.Screen name="Screenpaly9" component={Screens.Screenpaly9} />
         {/*俯瞰百年卡片*/}
         <Stack.Screen name="Card" component={Screens.Card} />
         {/*视频播放页*/}

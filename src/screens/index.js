@@ -39,6 +39,7 @@ export { default as Jifenshop } from './my/jifenshop/jifenshop'; //积分商城
 export { default as Orderone } from './my/order/pages/orderone'; //订单全部页
 export { default as Refund } from './my/order/pages/refund'; //退款订单页面
 export { default as Myhome } from './my/home/myhome'; //个人页面
+export { default as OthersHome } from './my/home/othershome'; //个人页面
 export { default as Ziliao } from './my/seetings/ziliao'; //资料页面
 export { default as Collection } from './my/collection'; //收藏
 export { default as Fan } from './my/fan'; //粉丝
@@ -83,7 +84,15 @@ export { default as Create } from './talk/home/live/create'; //剧本创作页
 export { default as Inluntan } from './talk/home/forum/inluntan';
 export { default as Forum } from './talk/home/forum/index'; //论坛页面
 
-export { default as Screenpaly } from './talk/home/script/screenplay'; //论坛页面
+export { default as Screenpaly } from './talk/home/script/screenplay'; //剧本1页面
+export { default as Screenpaly2 } from './talk/home/script/screenplay2'; //剧本2页面
+export { default as Screenpaly3 } from './talk/home/script/screenplay3'; //剧本3页面
+export { default as Screenpaly4 } from './talk/home/script/screenplay4'; //剧本4页面
+export { default as Screenpaly5 } from './talk/home/script/screenplay5'; //剧本5页面
+export { default as Screenpaly6 } from './talk/home/script/screenplay6'; //剧本6页面
+export { default as Screenpaly7 } from './talk/home/script/screenplay7'; //剧本7页面
+export { default as Screenpaly8 } from './talk/home/script/screenplay8'; //剧本8页面
+export { default as Screenpaly9 } from './talk/home/script/screenplay9'; //剧本9页面
 
 export { default as SeeZhiBo } from './talk/zhiboye/gindex';
 export { default as Video } from '../component/videoplayer/index'; //视频页

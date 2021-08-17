@@ -11,25 +11,46 @@ import {
 import Top from '../../../component/common/top';
 import { pxToDp } from '../../../utils/styleKits';
 import { getUserFollow, cancelFollow } from '@service/mine';
+import { NavigationContext } from '@react-navigation/native';
+
 class Index extends PureComponent {
+  static contextType = NavigationContext;
+
   state = { follow: [] };
-  componentDidMount() {}
   removeFollow = async (id) => {
     await cancelFollow(id);
-    DeviceEventEmitter.emit('removeFollow');
+    getUserFollow().then((res) => {
+      this.setState({ follow: res.follow });
+    });
   };
+  componentDidMount() {
+    this.removeFollows = DeviceEventEmitter.addListener('removeFollow', () => {
+      getUserFollow().then((res) => {
+        this.setState({ follow: res.follow });
+      });
+    });
+    getUserFollow().then((res) => {
+      this.setState({ follow: res.follow });
+    });
+  }
+  componentWillUnmount() {
+    this.removeFollows.remove();
+  }
   render() {
     return (
       <View style={{ backgroundColor: '#E2F4FE', flex: 1 }}>
         <Top icon1="arrow-back" title="关注" />
-        {this.props.route.params?.map((item) => (
+        {this.state.follow?.map((item) => (
           <View style={styles.box} key={item.id}>
-            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <TouchableOpacity
+              onPress={() => this.context.navigate('OthersHome', item.id)}
+              style={{ flexDirection: 'row', alignItems: 'center' }}
+            >
               <Image style={styles.image} source={{ uri: item.avatar }} />
               <Text style={{ fontSize: pxToDp(16), marginLeft: pxToDp(10) }}>
                 {item.name ? item.name : '未知用户名'}
               </Text>
-            </View>
+            </TouchableOpacity>
             <TouchableOpacity
               style={styles.touch}
               onPress={() => this.removeFollow(item.id)}

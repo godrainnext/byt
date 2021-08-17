@@ -54,7 +54,7 @@ class Index extends PureComponent {
 }
 const styles = StyleSheet.create({
   scrollview: {
-    backgroundColor: '#E2F4FE',
+    backgroundColor: 'white',
     marginBottom: pxToDp(70),
     flexDirection: 'row',
     flexWrap: 'wrap'
