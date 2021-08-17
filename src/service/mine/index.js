@@ -1,8 +1,11 @@
-import requset from '../index';
-export const getUserAddress = () => requset.get({ url: '/user/address' });
+import request from '../index';
+export const getUserAddress = () => request.get({ url: '/user/address' });
 export const deleteAddress = (addressId) =>
-  requset.delete({ url: `/user/address/${addressId}` });
-export const getUserFollow = () => requset.get({ url: '/user/follow' });
-export const getUserFans = () => requset.get({ url: '/user/fans' });
+  request.delete({ url: `/user/address/${addressId}` });
+export const getUserFollow = () => request.get({ url: '/user/follow' });
+export const getUserFans = () => request.get({ url: '/user/fans' });
 export const cancelFollow = (id) =>
-  requset.delete({ url: `/user/follow/${id}` });
+  request.delete({ url: `/user/follow/${id}` });
+export const addFollow = (id) => request.post({ url: `/user/follow/${id}` });
+export const getUserInfoById = (id) =>
+  request.get({ url: `/user/userInfoById/${id}` });

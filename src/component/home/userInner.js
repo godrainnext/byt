@@ -11,28 +11,48 @@ import { pxToDp } from '@utils/styleKits';
 import changeImgSize from '@utils/changeImgSize';
 import { NavigationContext } from '@react-navigation/native';
 import { getUserFollow, getUserFans } from '@service/mine';
-
+import { changeUserFollowAction } from '../../screens/my/follow/store/action';
 class UserInner extends PureComponent {
-  state = { follow: [], fans: [] };
+  state = {
+    fansCount: 0,
+    followCount: 0
+  };
   static contextType = NavigationContext;
   componentDidMount() {
-    DeviceEventEmitter.addListener('removeFollow', () => {
+    this.addFollow = DeviceEventEmitter.addListener('addFollow', () => {
+      getUserFans().then((res) => {
+        this.setState({ fansCount: res.fansCount });
+      });
       getUserFollow().then((res) => {
-        this.setState({ follow: res });
+        this.setState({ followCount: res.followCount });
+        this.props.changeUserFollowAction(res.follow);
       });
     });
-    getUserFollow().then((res) => {
-      this.setState({ follow: res });
+
+    this.removeFollows = DeviceEventEmitter.addListener('removeFollow', () => {
+      getUserFollow().then((res) => {
+        this.setState({ followCount: res.followCount });
+        this.props.changeUserFollowAction(res.follow);
+      });
+      getUserFans().then((res) => {
+        this.setState({ fansCount: res.fansCount });
+      });
     });
     getUserFans().then((res) => {
-      this.setState({ fans: res });
+      this.setState({ fansCount: res.fansCount });
+    });
+    getUserFollow().then((res) => {
+      this.props.changeUserFollowAction(res.follow);
+      this.setState({ followCount: res.followCount });
     });
   }
-
+  componentWillUnmount() {
+    this.addFollow.remove();
+    this.removeFollows.remove();
+  }
   render() {
-    const { nickName, avatar } = this.props.userInfo;
-    const { followCount = 0 } = this.state.follow;
-    const { fansCount = 0 } = this.state.fans;
+    const { nickName, avatar, id } = this.props.userInfo;
+    const { fansCount, followCount } = this.state;
     return (
       <View
         style={{
@@ -43,7 +63,7 @@ class UserInner extends PureComponent {
         }}
       >
         <View style={{ flexDirection: 'row' }}>
-          <TouchableOpacity onPress={() => this.context.navigate('Myhome')}>
+          <TouchableOpacity onPress={() => this.context.navigate('Myhome', id)}>
             <Image
               style={{
                 height: pxToDp(60),
@@ -119,7 +139,7 @@ class UserInner extends PureComponent {
           <View>
             <TouchableOpacity
               onPress={() => {
-                this.context.navigate('Follow', this.state.follow.follow);
+                this.context.navigate('Follow', id);
               }}
             >
               <Text
@@ -137,7 +157,7 @@ class UserInner extends PureComponent {
           <View>
             <TouchableOpacity
               onPress={() => {
-                this.context.navigate('Fan');
+                this.context.navigate('Fan', id);
               }}
             >
               <Text
@@ -157,7 +177,10 @@ class UserInner extends PureComponent {
     );
   }
 }
-export default connect((state) => ({
-  userInfo: state.getIn(['homeReducer', 'userInfo']),
-  avatar: state.getIn(['SettingReducer', 'avatar'])
-}))(UserInner);
+export default connect(
+  (state) => ({
+    userInfo: state.getIn(['homeReducer', 'userInfo']),
+    avatar: state.getIn(['SettingReducer', 'avatar'])
+  }),
+  { changeUserFollowAction }
+)(UserInner);
