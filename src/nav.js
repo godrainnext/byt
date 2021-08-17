@@ -116,7 +116,7 @@ function Nav() {
         {/*双人剧本 */}
         <Stack.Screen name="Act" component={Screens.Act} />
         {/*AI换衣  */}
-        {/* <Stack.Screen name="Change" component={Screens.Change} />*/}
+        <Stack.Screen name="Change" component={Screens.Change} />
         {/*Vr */}
         <Stack.Screen name="VR" component={Screens.VR} />
         {/**教程页面 */}

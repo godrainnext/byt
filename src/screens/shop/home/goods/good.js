@@ -130,9 +130,7 @@ class shopdetails extends PureComponent {
           shopimg: [...res.shopinnerimages],
           products: [...res.shopcarimages]
         });
-        console.log('detail', res);
       })
-
       .then(() => {
         EasyLoading.dismiss();
       });

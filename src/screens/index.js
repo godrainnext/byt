@@ -38,7 +38,7 @@ export { default as History } from './my/history'; //浏览历史
 export { default as Jifenshop } from './my/jifenshop/jifenshop'; //积分商城
 export { default as Orderone } from './my/order/pages/orderone'; //订单全部页
 export { default as Refund } from './my/order/pages/refund'; //退款订单页面
-export { default as Myhome} from './my/home/myhome'; //个人页面
+export { default as Myhome } from './my/home/myhome'; //个人页面
 export { default as Ziliao } from './my/seetings/ziliao'; //资料页面
 export { default as Collection } from './my/collection'; //收藏
 export { default as Fan } from './my/fan'; //粉丝
@@ -55,14 +55,13 @@ export { default as Lease } from './shop/home/goods/lease'; //新增收货地址
 export { default as pointshop } from './shop/home/jifen/index'; //积分商城详情
 export { default as paySuccess } from './my/pay/paySuccess'; //支付成功页
 
-
 export { default as Play } from './play/home'; //游玩首页
 export { default as Study } from './play/study/study'; //练唱
 export { default as Details } from './play/study/details'; //练唱详情
 export { default as Sing } from './play/study/sing'; //唱歌
 export { default as Singbefore } from './play/study/singbefore'; //唱歌
 export { default as Act } from './play/act'; //双人剧本页
-//export { default as Change } from './play/change'; //AI换衣页
+export { default as Change } from './play/change'; //AI换衣页
 export { default as Drama } from './play/act/drama'; //剧本
 export { default as Scriptlibrary } from './play/scriptlibrary'; //剧本库
 export { default as VR } from './play/vr'; //越剧小镇VR
@@ -87,8 +86,8 @@ export { default as Forum } from './talk/home/forum/index'; //论坛页面
 export { default as Screenpaly } from './talk/home/script/screenplay'; //论坛页面
 
 export { default as SeeZhiBo } from './talk/zhiboye/gindex';
-export { default as Video } from '../component/videoplayer/index'//视频页
-export { default as Jubao } from './talk/home/forum/jubao' //举报页
-export { default as WaterButton } from '../component/common/waterbutton'//波纹按钮
+export { default as Video } from '../component/videoplayer/index'; //视频页
+export { default as Jubao } from './talk/home/forum/jubao'; //举报页
+export { default as WaterButton } from '../component/common/waterbutton'; //波纹按钮
 
-export { default as NewTimeLine } from './test/test5'
+export { default as NewTimeLine } from './test/test5';

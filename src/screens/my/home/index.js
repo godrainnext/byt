@@ -39,6 +39,7 @@ class Index extends PureComponent {
       <View>
         <Top title="戏痴" />
         <ScrollView>
+          {/* 上层userInner */}
           <UserInner />
           <View
             style={{
