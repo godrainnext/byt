@@ -60,7 +60,7 @@ export class Loading extends React.PureComponent {
         transparent={true}
         visible={this.state.isShow}
         onRequestClose={() => {
-          alert('Modal has been closed.');
+          EasyLoading.dismiss();
         }}
       >
         <View style={styles.container}>

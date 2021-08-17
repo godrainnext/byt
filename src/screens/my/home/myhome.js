@@ -36,51 +36,7 @@ function TabView3(props) {
 }
 
 export default function Example() {
-  // const userinfo={
-  //   id: 1,
-  //   bcimg:
-  //     'https://img2.baidu.com/it/u=2116882029,1761299726&fm=26&fmt=auto&gp=0.jpg',
-  //   userimg:
-  //     'https://img2.baidu.com/it/u=2116882029,1761299726&fm=26&fmt=auto&gp=0.jpg',
-  //   username: 'ppp',
-  //   userqm: 'aaaaaaaaaaaaaaaaaaaaa',
-  //   userfans: 10,
-  //   usergz: 10,
-  //   userhz: 1,
-  //   collect: [
-  //     { collectid: 1, collectimg: '', title: '乌拉乌拉乌拉', playnum: 111 }
-  //   ],
-  //   dongtai: [
-  //     {
-  //       dtid: 1,
-  //       dtimg:
-  //         'https://img2.baidu.com/it/u=2116882029,1761299726&fm=26&fmt=auto&gp=0.jpg',
-  //       name: 'wulawulaaaa',
-  //       date: '03月20日',
-  //       dt: '乌拉乌拉乌拉乌拉乌拉乌拉乌拉乌拉乌拉',
-  //       dz: 123,
-  //       dtimg2: [
-  //         'https://img2.baidu.com/it/u=2116882029,1761299726&fm=26&fmt=auto&gp=0.jpg',
-  //         'https://img2.baidu.com/it/u=2116882029,1761299726&fm=26&fmt=auto&gp=0.jpg',
-  //         'https://img2.baidu.com/it/u=2116882029,1761299726&fm=26&fmt=auto&gp=0.jpg',
-  //         'https://img2.baidu.com/it/u=2116882029,1761299726&fm=26&fmt=auto&gp=0.jpg',
-  //         'https://img2.baidu.com/it/u=2116882029,1761299726&fm=26&fmt=auto&gp=0.jpg',
-  //         'https://img2.baidu.com/it/u=2116882029,1761299726&fm=26&fmt=auto&gp=0.jpg'
-  //       ]
-  //     }
-  //   ],
-  
-  //   soucang: [
-  //     {
-  //       scid: 1,
-  //       scimg:
-  //         'https://img2.baidu.com/it/u=2116882029,1761299726&fm=26&fmt=auto&gp=0.jpg',
-  //       bookname: '111111',
-  //       name: '12111',
-  //       date: '2019-05-02'
-  //     }
-  //   ]
-  // }
+
   const [userInfo,setUserInfo]=useState({
     id: 1,
     bcimg:

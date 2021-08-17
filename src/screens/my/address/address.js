@@ -24,6 +24,7 @@ class SwiperListItem extends PureComponent {
   changeBtn = (id, item) => {
     requset.patch({ url: `/user/address/${id}` }).then((res) => {
       this.setState({ checkedId: id });
+
       this.props.route.params.changeDefaultAddress(item);
     });
   };

@@ -5,38 +5,31 @@ import Icon1 from 'react-native-vector-icons/MaterialIcons';
 import Top from '@components/common/top';
 import { pxToDp } from '@utils/styleKits';
 import { getMomentById } from '@service/home';
+import { connect } from 'react-redux';
 class index extends PureComponent {
   state = {
     title: '',
     content: ``,
     images: [],
-    cover: ''
+    cover: '',
+    commments: []
   };
   componentDidMount() {
     getMomentById(this.props.route.params).then((res) => {
+      console.log(res);
       this.setState({ ...res });
     });
   }
   render() {
     const arr1 = this.state.content.split('/img');
-    const { images, cover } = this.state;
-    console.log(this.props.route);
+    const { images } = this.state;
+    console.log(arr1);
     return (
       <ScrollView stickyHeaderIndices={[0]}>
         <View>
-          <Top icon1="arrow-back" title="精选唱段" />
+          <Top icon1="arrow-back" title="越文" />
         </View>
         <View>
-          <View>
-            <Image
-              style={{ width: '100%', height: pxToDp(200) }}
-              source={{
-                uri: cover
-                  ? cover
-                  : 'https://img0.baidu.com/it/u=952587805,2463391979&fm=26&fmt=auto&gp=0.jpg'
-              }}
-            ></Image>
-          </View>
           <View style={{ alignItems: 'center' }}>
             <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold' }}>
               {/* 谁翻乐府旧谣?title */}
@@ -46,20 +39,6 @@ class index extends PureComponent {
 
           {arr1.map((item, index) => (
             <View>
-              {index === 0 ? (
-                <View></View>
-              ) : (
-                <View>
-                  <Image
-                    style={{ width: '100%', height: pxToDp(200) }}
-                    source={{
-                      uri: images[index]
-                        ? images[index]
-                        : 'https://img0.baidu.com/it/u=952587805,2463391979&fm=26&fmt=auto&gp=0.jpg'
-                    }}
-                  ></Image>
-                </View>
-              )}
               {item.split('/d').map((item, index) => (
                 <View>
                   <Text style={{ fontSize: pxToDp(15), margin: pxToDp(4) }}>
@@ -67,6 +46,18 @@ class index extends PureComponent {
                   </Text>
                 </View>
               ))}
+              {images[index] ? (
+                <View>
+                  <Image
+                    style={{ width: '100%', height: pxToDp(200) }}
+                    source={{
+                      uri: images[index]
+                    }}
+                  ></Image>
+                </View>
+              ) : (
+                <View></View>
+              )}
             </View>
           ))}
         </View>
@@ -237,4 +228,6 @@ const styles = StyleSheet.create({
   }
 });
 
-export default index;
+export default connect((state) => ({
+  userInfo: state.getIn(['homeReducer', 'userInfo'])
+}))(index);

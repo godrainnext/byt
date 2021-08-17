@@ -130,9 +130,7 @@ class shopdetails extends PureComponent {
           shopimg: [...res.shopinnerimages],
           products: [...res.shopcarimages]
         });
-        console.log('detail', res);
       })
-
       .then(() => {
         EasyLoading.dismiss();
       });
@@ -499,7 +497,7 @@ class shopdetails extends PureComponent {
               marginBottom: pxToDp(5)
             }}
           >
-            <Text>立即购买</Text>
+            <Text>开始阅读</Text>
           </TouchableOpacity>
         </View>
       </View>

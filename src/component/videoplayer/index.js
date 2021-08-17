@@ -1,20 +1,70 @@
-import React, { Component } from 'react';
-import { View ,Text} from 'react-native';
-import ScrollableTabView from 'react-native-scrollable-tab-view';
-import VideoHead from './VideoHead/index';
-// 引入子页面
+import React, { useState, useCallback, useEffect } from 'react';
+import { StyleSheet, View, Text } from 'react-native';
+import {
+  ScrollTabView,
+  ScrollView,
+  FlatList
+} from 'react-native-scroll-head-tab-view';
+import CustormerBar from './VideoHead';
 import VideoInro from './VideoInro/index';
 import VideoCom from './VideoCom/index';
+import { getVideoById } from '@service/home';
+function TabView1(props) {
+  const data = new Array(1).fill({});
 
-export default () => {
-    return <ScrollableTabView
-      style={{}}
-      initialPage={0}
-      renderTabBar={() => <VideoHead />}
-    >
-      <VideoInro tabLabel='简介'></VideoInro>
-      <VideoCom tabLabel='评论'></VideoCom>
-    </ScrollableTabView>;
+  return (
+    <ScrollView {...props}>
+      <VideoInro {...props} />
+    </ScrollView>
+  );
+}
+
+function TabView2(props) {
+  return (
+    <ScrollView {...props}>
+      <VideoCom {...props} />
+    </ScrollView>
+  );
+}
+export default function Example(props) {
+  const [videoInfo, setvideoInfo] = useState({});
+  useEffect(() => {
+    console.log(props);
+    getVideoById(props.route.params).then((res) => {
+      console.log(res);
+      setvideoInfo(res);
+    });
+  }, []);
+  const [headerHeight, setHeaderHeight] = useState(200);
+  const headerOnLayout = useCallback((event) => {
+    const { height } = event.nativeEvent.layout;
+    setHeaderHeight(height);
+  }, []);
+
+  const _renderScrollHeader = useCallback((video) => {
+    const data = new Array(1).fill({});
+    return (
+      <View onLayout={headerOnLayout}>
+        <CustormerBar videoInfo={video} />
+      </View>
+    );
+  }, []);
+
+  return (
+    <View style={styles.container}>
+      <ScrollTabView
+        headerHeight={headerHeight}
+        renderScrollHeader={() => _renderScrollHeader(videoInfo)}
+      >
+        <TabView1 tabLabel="简介" videoInfo={videoInfo} />
+        <TabView2 tabLabel="评论" videoInfo={videoInfo} />
+      </ScrollTabView>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1
   }
-
-// export default index;
+});
