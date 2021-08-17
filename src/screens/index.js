@@ -39,6 +39,7 @@ export { default as Jifenshop } from './my/jifenshop/jifenshop'; //积分商城
 export { default as Orderone } from './my/order/pages/orderone'; //订单全部页
 export { default as Refund } from './my/order/pages/refund'; //退款订单页面
 export { default as Myhome } from './my/home/myhome'; //个人页面
+export { default as OthersHome } from './my/home/othershome'; //个人页面
 export { default as Ziliao } from './my/seetings/ziliao'; //资料页面
 export { default as Collection } from './my/collection'; //收藏
 export { default as Fan } from './my/fan'; //粉丝

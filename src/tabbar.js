@@ -69,7 +69,7 @@ class Index extends PureComponent {
         title: '戏痴',
         renderIcon: () => <Svg width="20" height="20" svgXmlData={my} />,
         renderSelectedIcon: () => (
-          <Svg width="20" height="20" svgXmlData={selectedMy} />
+          <Svg width="40" height="40" svgXmlData={selectedMy} />
         ),
         onPress: () => this.setState({ selectedTab: 'my' }),
         component: <My />

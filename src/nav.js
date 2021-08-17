@@ -68,6 +68,7 @@ function Nav() {
         <Stack.Screen name="Refund" component={Screens.Refund} />
         {/**设置首页面 */}
         <Stack.Screen name="Myhome" component={Screens.Myhome} />
+        <Stack.Screen name="OthersHome" component={Screens.OthersHome} />
         {/**更改资料页面 */}
         <Stack.Screen name="Ziliao" component={Screens.Ziliao} />
         {/**昵称页面 */}

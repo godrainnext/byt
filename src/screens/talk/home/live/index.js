@@ -112,12 +112,7 @@ class Index extends PureComponent {
   };
 
   startCall = async () => {
-    // console.log(this.props.route.params.token)
-    // await this.init()
-    // Join Channel using null token and channel name
     await this._engine?.joinChannel(
-      // this.props.route.params.token,
-      // this.props.route.params.channelName,
       this.state.token,
       this.state.channelName,
       null,
@@ -398,5 +393,4 @@ const styles = StyleSheet.create({
     margin: pxToDp(10)
   }
 });
-0;
 export default Index;
