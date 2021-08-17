@@ -17,6 +17,8 @@ import { connect } from 'react-redux';
 import { getUserOriderListAction } from '../../first/home/store/actions';
 import UserInner from '../../../component/home/userInner';
 import LinearGradient from 'react-native-linear-gradient';
+import MyAddress from '../../../component/my/address/myAddress';
+
 class Index extends PureComponent {
   state = { avatar: '' };
 
@@ -131,13 +133,15 @@ class Index extends PureComponent {
             </View>
           </View>
           <View>
+            <MyAddress />
+
             <TouchableOpacity
               onPress={() => this.context.navigate('Jifenshop')}
             >
               <List icon="server-outline" title="积分商城" />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => this.context.navigate('History')}>
-              <List icon="time-outline" title="历史浏览" />
+              <List icon="server-outline" title="历史浏览" />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => this.context.navigate('Apply')}>
               <List icon="videocam-outline" title="直播申请" />

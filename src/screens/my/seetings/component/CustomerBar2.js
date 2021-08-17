@@ -11,7 +11,6 @@ import Top from '@components/common/top';
 
 import { NavigationContext } from '@react-navigation/native';
 import { connect } from 'react-redux';
-import changeImgSize from '@utils/changeImgSize';
 import { getUserInfoById } from '@service/mine';
 import FollowButton from '@components/FollowButton';
 const jubao =

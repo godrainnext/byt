@@ -4,16 +4,14 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { Easing,Animated,} from 'react-native';
 import Tabbar from './tabbar';
 import * as Screens from './screens';
-import { TransitionSpecs } from '@react-navigation/stack';
-import { CardStyleInterpolators } from '@react-navigation/stack';
+
 const Stack = createStackNavigator();
 
 function Nav() {
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode="none" initialRouteName="Testtt">
-
-      <Stack.Screen name="NewTimeLine" component={Screens.NewTimeLine}/>
+      <Stack.Navigator headerMode="none" initialRouteName="Login">
+        <Stack.Screen name="NewTimeLine" component={Screens.NewTimeLine} />
 
         <Stack.Screen name="Tabbar" component={Tabbar}  />
         {/*登录 */}
