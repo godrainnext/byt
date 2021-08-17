@@ -16,6 +16,7 @@ import { NavigationContext } from '@react-navigation/native';
 import { connect } from 'react-redux';
 import { getUserOriderListAction } from '../../first/home/store/actions';
 import UserInner from '../../../component/home/userInner';
+import MyAddress from '../../../component/my/address/myAddress';
 
 class Index extends PureComponent {
   state = { avatar: '' };
@@ -123,9 +124,8 @@ class Index extends PureComponent {
             </View>
           </View>
           <View>
-            <TouchableOpacity onPress={() => this.context.navigate('address')}>
-              <List icon="cart-outline" title="收获地址" />
-            </TouchableOpacity>
+            <MyAddress />
+
             <TouchableOpacity
               onPress={() => this.context.navigate('Jifenshop')}
             >

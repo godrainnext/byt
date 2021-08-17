@@ -35,7 +35,12 @@ class NewAddress extends PureComponent {
       .then((res) => {
         this.props.getAddressListAction();
       })
-      .then(() => this.context.navigate('Myorder', this.props.route.params));
+      .then(() => {
+        console.log(this.props.route.params);
+        this.props.route.params
+          ? this.context.navigate('Myorder', this.props.route.params)
+          : this.context.goBack();
+      });
   };
   static contextType = NavigationContext;
   //选择地区
