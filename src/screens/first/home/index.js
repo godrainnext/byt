@@ -38,7 +38,7 @@ class Index extends PureComponent {
     return (
       <View>
         <Top title="百越台" icon2="search" />
-        <ScrollView style={{ marginBottom: 60 }}>
+        <ScrollView style={{ marginBottom: 80 }}>
           {/* 轮播图 */}
           <View style={{ margin: pxToDp(8), borderRadius: pxToDp(20) }}>
             <ImageFade

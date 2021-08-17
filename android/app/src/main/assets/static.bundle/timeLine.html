@@ -107,13 +107,13 @@
 
 <body>
     <div class="ui-timeLine">
-        <a v-for="item in 55" class="item">
+        <a v-for="item in  items" class="item">
             <div class="line"></div>
             <div class="dot"></div>
             <div class="box">
                 <div class="cbox">
-                    <div class="date">123</div>
-                    <div class="title">123</div>
+                    <div class="date">{{item.date}}</div>
+                    <div class="title">{{item.content}}</div>
                     <!-- <div class="types">
                         <span>{{"type"}}</span>
                     </div> -->
@@ -162,7 +162,8 @@
         var vue_data = new Vue({
             el: ".ui-timeLine",
             data: {
-                items: ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+                // items: ["", "", "", "", "", "", "", "", "", "", "", "", ""],
+                items:[{date:1,img:'2',content:3},{date:1,img:'2',content:3},{date:1,img:'2',content:3},{date:1,img:'2',content:3},{date:1,img:'2',content:3},]
             },
             mounted: function() {
                 $(".ui-timeLine").uiTimeLine();
