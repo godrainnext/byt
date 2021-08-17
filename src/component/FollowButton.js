@@ -1,17 +1,13 @@
-import React, { memo, useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import { DeviceEventEmitter } from 'react-native';
-import { useFollow } from '../utils/useFollow';
+import useFollow from '../utils/useFollow';
 import { Button } from 'react-native-elements';
 import { addFollow, cancelFollow } from '@service/mine';
 import { pxToDp } from '../utils/styleKits';
 
-export default memo(function (props) {
+export default memo(function FollowButton(props) {
   const [isFollow, setIsFollow] = useState(useFollow(props.userId));
 
-  // const result = useFollow(props.userId);
-  // // setIsFollow(useFollow(result));
-  // console.log(result);
-  // setIsFollow(result);
   const addFollows = (id) => {
     if (!isFollow) {
       addFollow(id).then((res) => {

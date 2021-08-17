@@ -65,7 +65,12 @@ class SwiperListItem extends PureComponent {
         >
           <TouchableOpacity
             style={{ width: '100%', height: '100%' }}
-            onPress={() => this.context.navigate('newAddress')}
+            onPress={() =>
+              this.context.navigate(
+                'newAddress',
+                this.props.route.params.orider
+              )
+            }
           >
             <Text
               style={{

@@ -10,7 +10,7 @@ import { NavigationContext } from '@react-navigation/native';
 import { pxToDp } from '../../../utils/styleKits';
 import requset from '@service/index';
 import { connect } from 'react-redux';
-import { updateAddress } from './store/actions';
+import { getAddressListAction } from './store/actions';
 
 class NewAddress extends PureComponent {
   constructor(props) {
@@ -33,17 +33,9 @@ class NewAddress extends PureComponent {
         }
       })
       .then((res) => {
-        this.props.updateAddress([
-          {
-            id: res.insertId,
-            name: this.state.person,
-            address: this.state.address,
-            phoneNum: this.state.phone,
-            isdefault: 0
-          }
-        ]);
+        this.props.getAddressListAction();
       })
-      .then(() => this.context.navigate('Myorder'));
+      .then(() => this.context.navigate('Myorder', this.props.route.params));
   };
   static contextType = NavigationContext;
   //选择地区
@@ -136,9 +128,6 @@ class NewAddress extends PureComponent {
           }}
         >
           <View style={s.bottom}>
-            <View style={{ justifyContent: 'center', height: pxToDp(45) }}>
-              <Text style={{ fontSize: pxToDp(17) }}>设为默认地址</Text>
-            </View>
             <View>
               <Switch
                 style={{ marginTop: pxToDp(10), marginRight: pxToDp(10) }}
@@ -195,4 +184,4 @@ const s = StyleSheet.create({
     marginLeft: pxToDp(10)
   }
 });
-export default connect(() => ({}), { updateAddress })(NewAddress);
+export default connect(() => ({}), { getAddressListAction })(NewAddress);

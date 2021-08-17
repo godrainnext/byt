@@ -6,32 +6,29 @@ import { getAddressListAction } from '@screens/my/address/store/actions';
 import { NavigationContext } from '@react-navigation/native';
 import { Fragment } from 'react';
 class Address extends PureComponent {
-  state = { defaultAddress: {} };
   componentDidMount() {
     const defaultAddress = this.props.address.find(
       (item) => item.isdefault === 1
     );
-
-    this.props.changeDefaultAddress(defaultAddress);
-    this.setState({ defaultAddress });
+    this.props.changeDefaultAddresses(defaultAddress);
     this.props.changeAddressId(defaultAddress.id);
   }
   changeDefaultAddress = (address) => {
-    this.setState({ defaultAddress: address });
-    this.props.changeDefaultAddress(address);
+    this.props.changeDefaultAddresses(address);
     this.props.changeAddressId(address.id);
   };
   static contextType = NavigationContext;
   render() {
-    console.log(this.state.defaultAddress);
+    console.log(this.props);
     return (
       <Fragment>
         {this.props.address.length ? (
           <TouchableOpacity
             onPress={() =>
               this.context.navigate('address', {
-                id: this.state.defaultAddress.id,
-                changeDefaultAddress: this.changeDefaultAddress
+                id: this.props.defaultAddress?.id,
+                changeDefaultAddress: this.changeDefaultAddress,
+                orider: this.props.orider
               })
             }
             style={{
@@ -49,10 +46,10 @@ class Address extends PureComponent {
               }}
             >
               <Text style={{ fontSize: pxToDp(16) }}>
-                {this.state.defaultAddress.name}
+                {this.props.defaultAddress?.name}
               </Text>
               <Text style={{ fontSize: pxToDp(16), marginLeft: pxToDp(40) }}>
-                {this.state.defaultAddress.phoneNum}
+                {this.props.defaultAddress?.phoneNum}
               </Text>
               <Image
                 style={{
@@ -66,12 +63,18 @@ class Address extends PureComponent {
             </View>
             <View style={{ marginLeft: pxToDp(20), marginBottom: pxToDp(10) }}>
               <Text style={{ fontSize: pxToDp(14) }}>
-                {this.state.defaultAddress.address}
+                {this.props.defaultAddress?.address}
               </Text>
             </View>
           </TouchableOpacity>
         ) : (
-          <TouchableOpacity onPress={() => this.context.navigate('newAddress')}>
+          <TouchableOpacity
+            onPress={() =>
+              this.context.navigate('newAddress', {
+                ...this.props.route.params
+              })
+            }
+          >
             <Text>还没有地址?前往添加新地址</Text>
           </TouchableOpacity>
         )}

@@ -36,9 +36,6 @@ class Index extends PureComponent {
       <View style={{ backgroundColor: '#E2F4FE', flex: 1 }}>
         <Top icon1="arrow-back" title="粉丝" />
         <View>
-          <View>
-            <TextInput style={styles.textinput} placeholder="搜索我的粉丝" />
-          </View>
           {this.state.fans.map((item) => (
             <View style={styles.box} key={item.id}>
               <TouchableOpacity
