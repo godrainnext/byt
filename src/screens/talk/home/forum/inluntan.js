@@ -18,13 +18,17 @@ import { Video } from 'react-native-unimodules';
 import SvgUri from 'react-native-svg-uri';
 import { stopmusic, playmusic } from '../../../../component/common/iconSvg';
 import request from '@service/index';
+import { addFollow, cancelFollow } from '../../../../service/mine';
+import { DeviceEventEmitter } from 'react-native';
+import { Button } from 'react-native-elements';
 
 class Index extends PureComponent {
   state = {
     inner: {},
     status: {},
     mycomment: '',
-    myyyyyyyy: { user: '' }
+    myyyyyyyy: { user: '' },
+    isFollow: false
   };
   _submit = () => {
     if (!this.state.mycomment) {
@@ -55,6 +59,19 @@ class Index extends PureComponent {
       })
       .catch((err) => console.log(err));
   }
+  addFollows = (id) => {
+    if (!this.state.isFollow) {
+      addFollow(id).then((res) => {
+        this.setState({ isFollow: true });
+        DeviceEventEmitter.emit('addFollow');
+      });
+    } else {
+      cancelFollow(id).then((res) => {
+        this.setState({ isFollow: false });
+        DeviceEventEmitter.emit('removeFollow');
+      });
+    }
+  };
 
   showArticle = () => {
     const { images } = this.state.inner;
@@ -164,19 +181,16 @@ class Index extends PureComponent {
                 </Text>
               </View>
             </View>
-            <TouchableOpacity
-              style={{
-                width: pxToDp(50),
+            <Button
+              type={this.state.isFollow ? 'clear' : 'outline'}
+              buttonStyle={{
                 borderWidth: pxToDp(1),
-                alignSelf: 'center',
-                alignItems: 'center',
-                justifyContent: 'center',
                 marginRight: pxToDp(20),
-                height: pxToDp(40)
+                marginTop: pxToDp(20)
               }}
-            >
-              <Text style={{ fontSize: pxToDp(18) }}>关注</Text>
-            </TouchableOpacity>
+              title={this.state.isFollow ? '已关注' : '关注'}
+              onPress={() => this.addFollows(user?.id)}
+            ></Button>
           </View>
           <View style={{ margin: pxToDp(15) }}>
             <Text style={{ fontSize: pxToDp(18) }}>{content}</Text>
