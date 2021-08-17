@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
-import { View, Text, TouchableOpacity, StyleSheet, Image, Slider, Animated, Easing, Platform, findNodeHandle, Dimensions, ScrollView } from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet, Image, Slider, Animated, Easing, Platform, findNodeHandle, Dimensions, } from 'react-native'
 import { commonStyle } from './commonStyle'
 import Video from 'react-native-video'
 import { VibrancyView, BlurView } from 'react-native-blur'
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import Icon1 from 'react-native-vector-icons/MaterialIcons';
 import { pxToDp } from '../../../utils/styleKits';
+import { AlwaysOpen } from "../../../component/common/songmenu";
+import Top from '../../../component/common/top';
 // import { Slider } from '@react-native-community/slider'
 const mockData = require('./musicList.json')
 const deviceInfo = {
@@ -40,6 +42,7 @@ export default class MusicPlayer extends Component {
       playIcon: 'pause',
       playModeIcon: 'music_cycle_o',
       musicInfo: {},
+      ArrIndex: 0,
     }
     this.spinAnimated = Animated.timing(this.state.spinValue, {
       toValue: 1,
@@ -228,74 +231,84 @@ export default class MusicPlayer extends Component {
     // let musicInfo = mockData.list[this.state.currentIndex]
     // console.log(musicInfo);
     const { musicInfo } = this.state
+    const { ArrIndex } = this.state;
 
     return (
-      <View style={styles.bgContainer}>
-        <Image
-          style={styles.image}
-          source={{ uri: musicInfo.cover }}
-        />
-        <View style={{ flex: 1 }}>
-          <View style={{ justifyContent: 'space-between', height: pxToDp(230), marginTop: pxToDp(50), marginLeft: pxToDp(220), alignItems: 'center' }}>
-            {/* 喜欢 */}
-            <Icon name={'heart'} size={pxToDp(20)} color={commonStyle.white} />
-            {/* 下载 */}
-            <Icon1 name={'file-download'} size={pxToDp(20)} color={commonStyle.white} />
-            {/* 上一首 */}
-            <TouchableOpacity
-              onPress={() => this.preSong(this.state.currentIndex - 1)}
-            >
-              <Icon1 name={'skip-previous'} size={pxToDp(25)} color={commonStyle.white} />
-            </TouchableOpacity>
-            {/* 下一首 */}
-            <TouchableOpacity
-              onPress={() => this.nextSong(this.state.currentIndex + 1)}
-            >
-              <Icon1 name={'skip-next'} size={pxToDp(25)} color={commonStyle.white} />
-            </TouchableOpacity>
-            {/**播放暂停 */}
-            <TouchableOpacity
-              style={{ width: pxToDp(46), height: pxToDp(46), borderRadius: pxToDp(23), borderWidth: 1, borderColor: commonStyle.white, justifyContent: 'center', alignItems: 'center' }}
-              onPress={() => this.play()}
-            >
-              <Icon1 name={this.state.playIcon} size={pxToDp(20)} color={commonStyle.white} />
-            </TouchableOpacity>
-          </View>
-          <View style={{ marginLeft: pxToDp(40), marginTop: pxToDp(-20) }}>
-            <Text style={styles.title}>{musicInfo.page}</Text>
-            <Text style={styles.subTitle}>{musicInfo.title}</Text>
-          </View>
-          <View style={styles.progressStyle}>
-            <Text style={{ width: pxToDp(35), fontSize: pxToDp(11), color: commonStyle.white, marginLeft: pxToDp(5) }}>{this.formatMediaTime(Math.floor(this.state.currentTime))}</Text>
-            <Slider
-              style={styles.slider}
-              value={this.state.slideValue}
-              maximumValue={this.state.duration}
-              minimumTrackTintColor={commonStyle.themeColor}
-              maximumTrackTintColor={commonStyle.iconGray}
-              step={1}
-              onValueChange={value => this.setState({ currentTime: value })}
-              onSlidingComplete={value => this.player.seek(value)}
-            />
-            <View style={{ width: pxToDp(35), alignItems: 'flex-end', marginRight: pxToDp(5) }}>
-              <Text style={{ fontSize: pxToDp(11), color: commonStyle.white }}>{this.formatMediaTime(Math.floor(this.state.duration))}</Text>
+      <View style={{width:'100%',height:'100%'}}>
+        <View style={styles.bgContainer}>
+          <Image
+            style={styles.image}
+            source={{ uri: musicInfo.cover }}
+          />
+          <View style={{ flex: 1 }}>
+            <View style={{ justifyContent: 'space-between', height: pxToDp(230), marginTop: pxToDp(50), marginLeft: pxToDp(180), alignItems: 'center' }}>
+              {/* 喜欢 */}
+              <Icon name={'heart'} size={pxToDp(20)} color='grey' />
+              {/* 下载 */}
+              <Icon1 name={'file-download'} size={pxToDp(20)} color='grey' />
+              {/* 上一首 */}
+              <TouchableOpacity
+                onPress={() => this.preSong(this.state.currentIndex - 1)}
+              >
+                <Icon1 name={'skip-previous'} size={pxToDp(25)} color='grey' />
+              </TouchableOpacity>
+              {/* 下一首 */}
+              <TouchableOpacity
+                onPress={() => this.nextSong(this.state.currentIndex + 1)}
+              >
+                <Icon1 name={'skip-next'} size={pxToDp(25)} color='grey' />
+              </TouchableOpacity>
+              {/**播放暂停 */}
+              <TouchableOpacity
+                style={{ width: pxToDp(46), height: pxToDp(46), borderRadius: pxToDp(23), borderWidth: 1, borderColor: 'grey', justifyContent: 'center', alignItems: 'center' }}
+                onPress={() => this.play()}
+              >
+                <Icon1 name={this.state.playIcon} size={pxToDp(20)} color='grey' />
+              </TouchableOpacity>
+            </View>
+            <View style={{ marginLeft: pxToDp(40), marginTop: pxToDp(-20) }}>
+              <Text style={styles.title}>{musicInfo.page}</Text>
+              <Text style={styles.subTitle}>{musicInfo.title}</Text>
+            </View>
+            <View style={styles.progressStyle}>
+              <Text style={{ width: pxToDp(35), fontSize: pxToDp(11), color: 'grey', marginLeft: pxToDp(5) }}>{this.formatMediaTime(Math.floor(this.state.currentTime))}</Text>
+              <Slider
+                style={styles.slider}
+                value={this.state.slideValue}
+                maximumValue={this.state.duration}
+                minimumTrackTintColor={commonStyle.themeColor}
+                maximumTrackTintColor={commonStyle.iconGray}
+                step={1}
+                onValueChange={value => this.setState({ currentTime: value })}
+                onSlidingComplete={value => this.player.seek(value)}
+              />
+              <View style={{ width: pxToDp(35), alignItems: 'flex-end', marginRight: pxToDp(5) }}>
+                <Text style={{ fontSize: pxToDp(11), color: 'grey' }}>{this.formatMediaTime(Math.floor(this.state.duration))}</Text>
+              </View>
             </View>
           </View>
+          <Video
+            ref={video => this.player = video}
+            source={{ uri: musicInfo.url }}
+            volume={1.0}
+            paused={this.state.paused}
+            playInBackground={true}
+            onLoadStart={this.loadStart}
+            onLoad={data => this.setDuration(data)}
+            onProgress={(data) => this.setTime(data)}
+            onEnd={(data) => this.onEnd(data)}
+            onError={(data) => this.videoError(data)}
+            onBuffer={this.onBuffer}
+            onTimedMetadata={this.onTimedMetadata} />
         </View>
-        <Video
-          ref={video => this.player = video}
-          source={{ uri: musicInfo.url }}
-          volume={1.0}
-          paused={this.state.paused}
-          playInBackground={true}
-          onLoadStart={this.loadStart}
-          onLoad={data => this.setDuration(data)}
-          onProgress={(data) => this.setTime(data)}
-          onEnd={(data) => this.onEnd(data)}
-          onError={(data) => this.videoError(data)}
-          onBuffer={this.onBuffer}
-          onTimedMetadata={this.onTimedMetadata} />
+        <View style={{width:'100%',height:pxToDp(700),zIndex:9999,elevation:9999}}>
+        <AlwaysOpen ArrData={ArrIndex} />
+
+        </View>
+
       </View>
+
+
     )
   }
 
@@ -306,25 +319,11 @@ export default class MusicPlayer extends Component {
   render() {
     // const data = this.state.musicInfo || {}
     const data = mockData.list[this.state.currentIndex]
+    const { ArrIndex } = this.state;
     return (
       data.url ?
         <View style={styles.container}>
-          <Image
-            ref={(img) => { this.backgroundImage = img }}
-            style={styles.bgContainer}
-            source={{ uri: data.cover }}
-            resizeMode='cover'
-            onLoadEnd={() => this.imageLoaded()}
-          />
-          <View >
-            {
-              <BlurView
-                viewRef={this.state.viewRef}
-                blurType="light"
-                blurAmount={10}
-              />
-            }
-          </View>
+          <Top icon1="arrow-back"  />
           {this.renderPlayer()}
         </View> : <View />
     )
@@ -334,19 +333,26 @@ export default class MusicPlayer extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'transparent'
+    backgroundColor: '#ecf6fc',
   },
   bgContainer: {
     position: 'absolute',
-    height: '100%',
-    width: '100%',
+    height: '50%',
+    width: '87%',
+    backgroundColor: 'white',
+    borderRadius: pxToDp(8),
+    marginTop: pxToDp(20),
+    marginLeft: pxToDp(40),
+    elevation: 10,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+    shadowColor: 'black',  //  阴影颜色
+    shadowRadius: pxToDp(10),  //  圆
   },
   title: {
-    color: commonStyle.white,
+    color: 'grey',
     fontSize: pxToDp(16)
   },
   subTitle: {
-    color: commonStyle.white,
+    color: 'grey',
     fontSize: pxToDp(13),
     marginTop: pxToDp(5)
   },
@@ -378,6 +384,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     position: 'absolute',
     left: pxToDp(30),
-    marginTop: pxToDp(50)
+    marginTop: pxToDp(50),
+    marginLeft: pxToDp(-55),
   },
 })

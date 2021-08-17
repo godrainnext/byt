@@ -43,7 +43,7 @@ class Index extends PureComponent {
     //activeTab 当前激活索引
     return (
       <View style={{ flexDirection: 'column' }}>
-        <Top icon1="arrow-back" title="设置" />
+        <Top icon1="arrow-back" title="个人中心" />
 
         <View style={{ height: pxToDp(300) }}>
           <ImageBackground

@@ -11,7 +11,7 @@ function Nav() {
     <NavigationContainer>
       <Stack.Navigator headerMode="none" initialRouteName="Login">
 
-      <Stack.Screen name="NewTimeLine" component={Screens.NewTimeLine} />
+        <Stack.Screen name="NewTimeLine" component={Screens.NewTimeLine} />
 
         <Stack.Screen name="Tabbar" component={Tabbar} />
         {/*登录 */}
