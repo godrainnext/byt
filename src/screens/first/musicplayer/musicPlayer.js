@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { View, Text, TouchableOpacity, StyleSheet, Image, Slider, Animated, Easing, Platform, findNodeHandle, Dimensions } from 'react-native'
+import { View, Text, TouchableOpacity, StyleSheet, Image, Slider, Animated, Easing, Platform, findNodeHandle, Dimensions, ScrollView } from 'react-native'
 import { commonStyle } from './commonStyle'
 import Video from 'react-native-video'
 import { VibrancyView, BlurView } from 'react-native-blur'
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import Icon1 from 'react-native-vector-icons/MaterialIcons';
-import { pxToDp } from '../../../utils/styleKits'
+import { pxToDp } from '../../../utils/styleKits';
 // import { Slider } from '@react-native-community/slider'
 const mockData = require('./musicList.json')
 const deviceInfo = {
@@ -91,7 +91,7 @@ export default class MusicPlayer extends Component {
     this.spin()
     // console.log(mockData);
     // console.log(this.props.route.params);
-    this.setState({ musicInfo: mockData.list.find(item=>item.id===this.props.route.params) })
+    this.setState({ musicInfo: mockData.list.find(item => item.id === this.props.route.params) })
     // fetch(musicListUrl, {
     //   method: 'GET',
     //   headers: header
@@ -227,67 +227,43 @@ export default class MusicPlayer extends Component {
     // console.log(this.state.musicInfo);
     // let musicInfo = mockData.list[this.state.currentIndex]
     // console.log(musicInfo);
-    const {musicInfo}=this.state
+    const { musicInfo } = this.state
 
     return (
       <View style={styles.bgContainer}>
-        <View style={styles.navBarStyle}>
-          <View style={styles.navBarContent}>
-            <TouchableOpacity
-              style={{ marginTop: pxToDp(5) }}
-              onPress={() => this.props.navigation.goBack()}
-            >
-              {/* <Icon name="arrow-right" size={24} color={'#bbb'} /> */}
-
-              <Icon1 name={'keyboard-arrow-left'} size={pxToDp(28)} color={commonStyle.white} />
-            </TouchableOpacity>
-            <View style={{ alignItems: 'center' }}>
-              <Text style={styles.title}>{musicInfo.page}</Text>
-              <Text style={styles.subTitle}>{musicInfo.title}</Text>
-            </View>
-            <TouchableOpacity
-              style={{ marginTop: pxToDp(5) }}
-              onPress={() => alert('分享')}
-            >
-              <Icon name={'share'} size={pxToDp(20)} color={commonStyle.white} />
-            </TouchableOpacity>
-          </View>
-        </View>
-        <View
-          style={styles.djCard}>
-        </View>
-
-        <Animated.Image
-          style={{
-            width: pxToDp(275),
-            height: pxToDp(275),
-            borderRadius: pxToDp(85),
-            alignSelf: 'center',
-            position: 'absolute',
-            top: pxToDp(183),
-            right: pxToDp(12),
-            transform: [{
-              rotate: this.state.spinValue.interpolate({
-                inputRange: [0, 1],
-                outputRange: ['0deg', '360deg']
-              })
-            }]
-          }}
-          source={require('./CD2.png')} />
         <Image
-          style={{ width: pxToDp(240), height: pxToDp(240), borderRadius: pxToDp(16), alignSelf: 'center', position: 'absolute', top: pxToDp(200), left: pxToDp(30) ,}}
+          style={styles.image}
           source={{ uri: musicInfo.cover }}
         />
-        <View style={{ flex: 1 ,marginTop:pxToDp(10)}}>
-          <View style={{ flexDirection: 'row', alignItems: 'center', marginHorizontal: pxToDp(50), justifyContent: 'space-around', bottom: -60 }}>
+        <View style={{ flex: 1 }}>
+          <View style={{ justifyContent: 'space-between', height: pxToDp(230), marginTop: pxToDp(50), marginLeft: pxToDp(220), alignItems: 'center' }}>
             {/* 喜欢 */}
             <Icon name={'heart'} size={pxToDp(20)} color={commonStyle.white} />
             {/* 下载 */}
             <Icon1 name={'file-download'} size={pxToDp(20)} color={commonStyle.white} />
-            {/* 评论 */}
-            <Icon1 name={'sms'} size={pxToDp(20)} color={commonStyle.white} />
-            {/* 更多 */}
-            <Icon1 name={'more-vert'} size={pxToDp(20)} color={commonStyle.white} />
+            {/* 上一首 */}
+            <TouchableOpacity
+              onPress={() => this.preSong(this.state.currentIndex - 1)}
+            >
+              <Icon1 name={'skip-previous'} size={pxToDp(25)} color={commonStyle.white} />
+            </TouchableOpacity>
+            {/* 下一首 */}
+            <TouchableOpacity
+              onPress={() => this.nextSong(this.state.currentIndex + 1)}
+            >
+              <Icon1 name={'skip-next'} size={pxToDp(25)} color={commonStyle.white} />
+            </TouchableOpacity>
+            {/**播放暂停 */}
+            <TouchableOpacity
+              style={{ width: pxToDp(46), height: pxToDp(46), borderRadius: pxToDp(23), borderWidth: 1, borderColor: commonStyle.white, justifyContent: 'center', alignItems: 'center' }}
+              onPress={() => this.play()}
+            >
+              <Icon1 name={this.state.playIcon} size={pxToDp(20)} color={commonStyle.white} />
+            </TouchableOpacity>
+          </View>
+          <View style={{ marginLeft: pxToDp(40), marginTop: pxToDp(-20) }}>
+            <Text style={styles.title}>{musicInfo.page}</Text>
+            <Text style={styles.subTitle}>{musicInfo.title}</Text>
           </View>
           <View style={styles.progressStyle}>
             <Text style={{ width: pxToDp(35), fontSize: pxToDp(11), color: commonStyle.white, marginLeft: pxToDp(5) }}>{this.formatMediaTime(Math.floor(this.state.currentTime))}</Text>
@@ -304,42 +280,6 @@ export default class MusicPlayer extends Component {
             <View style={{ width: pxToDp(35), alignItems: 'flex-end', marginRight: pxToDp(5) }}>
               <Text style={{ fontSize: pxToDp(11), color: commonStyle.white }}>{this.formatMediaTime(Math.floor(this.state.duration))}</Text>
             </View>
-          </View>
-          <View style={styles.toolBar}>
-            <TouchableOpacity
-              style={{ width: pxToDp(50), marginLeft: pxToDp(5) }}
-              onPress={() => this.playMode(this.state.playMode)}
-            >
-              {/* <Icon1 name={`oneIcon|${this.state.playModeIcon}`} size={16} color={commonStyle.white} /> */}
-              <Icon1 name={'replay'} size={pxToDp(16)} color={commonStyle.white} />
-
-            </TouchableOpacity>
-            <View style={styles.cdStyle}>
-              {/* 上一首 */}
-              <TouchableOpacity
-                onPress={() => this.preSong(this.state.currentIndex - 1)}
-              >
-                <Icon1 name={'skip-previous'} size={pxToDp(25)} color={commonStyle.white} />
-              </TouchableOpacity>
-              {/* 播放&暂停 */}
-              <TouchableOpacity
-                style={{ width: pxToDp(35), height: pxToDp(35), borderRadius: pxToDp(20), borderWidth: 1, borderColor: commonStyle.white, justifyContent: 'center', alignItems: 'center' }}
-                onPress={() => this.play()}
-              >
-                <Icon1 name={this.state.playIcon} size={pxToDp(20)} color={commonStyle.white} />
-              </TouchableOpacity>
-              {/* 下一首 */}
-              <TouchableOpacity
-                onPress={() => this.nextSong(this.state.currentIndex + 1)}
-              >
-                <Icon1 name={'skip-next'} size={pxToDp(25)} color={commonStyle.white} />
-              </TouchableOpacity>
-            </View>
-            <TouchableOpacity
-              style={{ width: pxToDp(50), alignItems: 'flex-end', marginRight: pxToDp(5) }}
-            >
-              <Icon1 name={'list-alt'} size={pxToDp(20)} color={commonStyle.white} />
-            </TouchableOpacity>
           </View>
         </View>
         <Video
@@ -376,19 +316,13 @@ export default class MusicPlayer extends Component {
             resizeMode='cover'
             onLoadEnd={() => this.imageLoaded()}
           />
-          <View style={styles.bgContainer}>
+          <View >
             {
-              Platform.OS === 'ios' ?
-                <VibrancyView
-                  blurType={'light'}
-                  blurAmount={20}
-                  style={styles.container} /> :
-                <BlurView
-                  style={styles.absolute}
-                  viewRef={this.state.viewRef}
-                  blurType="light"
-                  blurAmount={10}
-                />
+              <BlurView
+                viewRef={this.state.viewRef}
+                blurType="light"
+                blurAmount={10}
+              />
             }
           </View>
           {this.renderPlayer()}
@@ -400,50 +334,21 @@ export default class MusicPlayer extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'transparent',
+    backgroundColor: 'transparent'
   },
   bgContainer: {
     position: 'absolute',
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
     height: '100%',
-    width: deviceInfo.deviceWidth
-  },
-  navBarStyle: {
-    position: 'absolute',
-    backgroundColor: 'rgba(0, 0, 0, 0)',
-    width: deviceInfo.deviceWidth,
-    height: pxToDp(64),
-    borderWidth: 0.5,
-    borderColor: commonStyle.lineColor
-  },
-  navBarContent: {
-    marginTop: pxToDp(12),
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginHorizontal: 10
+    width: '100%',
   },
   title: {
     color: commonStyle.white,
-    fontSize: pxToDp(14)
+    fontSize: pxToDp(16)
   },
   subTitle: {
     color: commonStyle.white,
-    fontSize: pxToDp(11),
+    fontSize: pxToDp(13),
     marginTop: pxToDp(5)
-  },
-  djCard: {
-    width: pxToDp(270),
-    height: pxToDp(270),
-    marginTop: pxToDp(185),
-    borderColor: commonStyle.gray,
-    borderWidth: pxToDp(10),
-    borderRadius: pxToDp(190),
-    alignSelf: 'center',
-    opacity: 0.2
   },
   playerStyle: {
     position: 'absolute',
@@ -454,25 +359,10 @@ const styles = StyleSheet.create({
     marginHorizontal: pxToDp(10),
     alignItems: 'center',
     position: 'absolute',
-    bottom: pxToDp(80)
+    marginTop: pxToDp(320)
   },
   slider: {
-    flex: 1,
-    marginHorizontal: pxToDp(5),
-  },
-  toolBar: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginHorizontal: 10,
-    position: 'absolute',
-    bottom: 0,
-    marginVertical: 30
-  },
-  cdStyle: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-around',
+    flex: 1
   },
   absolute: {
     position: "absolute",
@@ -480,5 +370,14 @@ const styles = StyleSheet.create({
     left: 0,
     bottom: 0,
     right: 0,
-  }
+  },
+  image: {
+    width: pxToDp(200),
+    height: pxToDp(200),
+    borderRadius: pxToDp(8),
+    alignSelf: 'center',
+    position: 'absolute',
+    left: pxToDp(30),
+    marginTop: pxToDp(50)
+  },
 })
