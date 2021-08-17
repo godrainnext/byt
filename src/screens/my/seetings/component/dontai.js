@@ -35,8 +35,8 @@ class Index extends PureComponent {
     isShow: false
   };
   componentDidMount() {
-    console.log(this.props.userId);
     getMomentListByUserId(this.props.userId).then((res) => {
+      console.log(res);
       this.setState({ contentArr: res.contentArr });
     });
   }
@@ -138,27 +138,36 @@ class Index extends PureComponent {
                     >
                       {item.content}
                     </Text>
-                    <ScrollView
-                      style={{
-                        flex: 1,
-                        height: pxToDp(150),
-                        marginTop: pxToDp(10)
+                    <TouchableOpacity
+                      onPress={() => {
+                        this.context.navigate('Inluntan', {
+                          momentId: item.momentId,
+                          userId: this.props.userId
+                        });
                       }}
-                      horizontal={true}
                     >
-                      {item.images.map((item, index) => (
-                        <Image
-                          key={index}
-                          style={{
-                            width: 150,
-                            height: '100%',
-                            borderRadius: 10,
-                            marginRight: 10
-                          }}
-                          source={{ uri: item }}
-                        />
-                      ))}
-                    </ScrollView>
+                      <ScrollView
+                        style={{
+                          flex: 1,
+                          height: pxToDp(150),
+                          marginTop: pxToDp(10)
+                        }}
+                        horizontal={true}
+                      >
+                        {item.images.map((item, index) => (
+                          <Image
+                            key={index}
+                            style={{
+                              width: 150,
+                              height: '100%',
+                              borderRadius: 10,
+                              marginRight: 10
+                            }}
+                            source={{ uri: item }}
+                          />
+                        ))}
+                      </ScrollView>
+                    </TouchableOpacity>
                   </View>
                 </View>
               </View>
