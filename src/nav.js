@@ -10,6 +10,9 @@ function Nav() {
   return (
     <NavigationContainer>
       <Stack.Navigator headerMode="none" initialRouteName="Login">
+
+      <Stack.Screen name="NewTimeLine" component={Screens.NewTimeLine} />
+
         <Stack.Screen name="Tabbar" component={Tabbar} />
         {/*登录 */}
         <Stack.Screen name="Login" component={Screens.Login} />
@@ -113,7 +116,7 @@ function Nav() {
         {/*双人剧本 */}
         <Stack.Screen name="Act" component={Screens.Act} />
         {/*AI换衣  */}
-        {/* <Stack.Screen name="Change" component={Screens.Change} />*/}
+        <Stack.Screen name="Change" component={Screens.Change} />
         {/*Vr */}
         <Stack.Screen name="VR" component={Screens.VR} />
         {/**教程页面 */}
@@ -186,6 +189,8 @@ function Nav() {
         <Stack.Screen name="Video" component={Screens.Video} />
         {/*举报页*/}
         <Stack.Screen name="Jubao" component={Screens.Jubao} />
+        {/**波纹按钮 */}
+        <Stack.Screen name="WaterButton" component={Screens.WaterButton} />
       </Stack.Navigator>
     </NavigationContainer>
   );

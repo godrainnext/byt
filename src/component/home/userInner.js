@@ -1,17 +1,38 @@
-import React, { PureComponent } from 'react'
-import { Text, View, TouchableOpacity, Image } from 'react-native'
-import { connect } from 'react-redux'
-import { pxToDp } from '@utils/styleKits'
-import changeImgSize from '@utils/changeImgSize'
+import React, { PureComponent } from 'react';
+import {
+  Text,
+  View,
+  TouchableOpacity,
+  Image,
+  DeviceEventEmitter
+} from 'react-native';
+import { connect } from 'react-redux';
+import { pxToDp } from '@utils/styleKits';
+import changeImgSize from '@utils/changeImgSize';
 import { NavigationContext } from '@react-navigation/native';
+import { getUserFollow, getUserFans } from '@service/mine';
 
 class UserInner extends PureComponent {
+  state = { follow: [], fans: [] };
   static contextType = NavigationContext;
+  componentDidMount() {
+    DeviceEventEmitter.addListener('removeFollow', () => {
+      getUserFollow().then((res) => {
+        this.setState({ follow: res });
+      });
+    });
+    getUserFollow().then((res) => {
+      this.setState({ follow: res });
+    });
+    getUserFans().then((res) => {
+      this.setState({ fans: res });
+    });
+  }
 
   render() {
-
-    console.log(this.props.userInfo);
-    const { fansCount, followCount, nickName, avatar } = this.props.userInfo;
+    const { nickName, avatar } = this.props.userInfo;
+    const { followCount = 0 } = this.state.follow;
+    const { fansCount = 0 } = this.state.fans;
     return (
       <View
         style={{
@@ -22,9 +43,7 @@ class UserInner extends PureComponent {
         }}
       >
         <View style={{ flexDirection: 'row' }}>
-          <TouchableOpacity
-            onPress={() => this.context.navigate('Myhome')}
-          >
+          <TouchableOpacity onPress={() => this.context.navigate('Myhome')}>
             <Image
               style={{
                 height: pxToDp(60),
@@ -60,9 +79,7 @@ class UserInner extends PureComponent {
             </View>
           </View>
         </View>
-        <View
-          style={{ flexDirection: 'row', justifyContent: 'space-around' }}
-        >
+        <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
           <View>
             <TouchableOpacity
               onPress={() => {
@@ -78,9 +95,7 @@ class UserInner extends PureComponent {
               >
                 2
               </Text>
-              <Text style={{ fontSize: pxToDp(15), color: 'gray' }}>
-                点赞
-              </Text>
+              <Text style={{ fontSize: pxToDp(15), color: 'gray' }}>点赞</Text>
             </TouchableOpacity>
           </View>
           <View>
@@ -98,15 +113,13 @@ class UserInner extends PureComponent {
               >
                 5
               </Text>
-              <Text style={{ fontSize: pxToDp(15), color: 'gray' }}>
-                收藏
-              </Text>
+              <Text style={{ fontSize: pxToDp(15), color: 'gray' }}>收藏</Text>
             </TouchableOpacity>
           </View>
           <View>
             <TouchableOpacity
               onPress={() => {
-                this.context.navigate('Follow');
+                this.context.navigate('Follow', this.state.follow.follow);
               }}
             >
               <Text
@@ -118,9 +131,7 @@ class UserInner extends PureComponent {
               >
                 {followCount}
               </Text>
-              <Text style={{ fontSize: pxToDp(15), color: 'gray' }}>
-                关注
-              </Text>
+              <Text style={{ fontSize: pxToDp(15), color: 'gray' }}>关注</Text>
             </TouchableOpacity>
           </View>
           <View>
@@ -138,19 +149,15 @@ class UserInner extends PureComponent {
               >
                 {fansCount}
               </Text>
-              <Text style={{ fontSize: pxToDp(15), color: 'gray' }}>
-                粉丝
-              </Text>
+              <Text style={{ fontSize: pxToDp(15), color: 'gray' }}>粉丝</Text>
             </TouchableOpacity>
           </View>
         </View>
       </View>
-    )
+    );
   }
 }
-export default connect(
-  (state) => ({
-    userInfo: state.getIn(['homeReducer', 'userInfo']),
-    avatar: state.getIn(['SettingReducer', 'avatar'])
-  })
-)(UserInner);
+export default connect((state) => ({
+  userInfo: state.getIn(['homeReducer', 'userInfo']),
+  avatar: state.getIn(['SettingReducer', 'avatar'])
+}))(UserInner);

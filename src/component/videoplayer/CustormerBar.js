@@ -7,6 +7,26 @@ import { connect } from 'react-redux';
 import VideoPlayScreen from './VideoPlayScreen';
 class Index extends PureComponent {
   static contextType = NavigationContext;
+  constructor(props) {
+    super(props);
+    this.state = {
+      videoHeight: pxToDp(220),
+      hidden: false
+    };
+  }
+  onIt = () => {
+    this.setState({
+      videoHeight: pxToDp(800),
+      hidden: true
+    });
+  };
+
+  upIt = () => {
+    this.setState({
+      videoHeight: pxToDp(220),
+      hidden: false
+    });
+  };
   render() {
     return (
       <View style={{ flexDirection: 'column' }}>
@@ -18,7 +38,11 @@ class Index extends PureComponent {
               width: '100%'
             }}
           >
-            <VideoPlayScreen />
+            <VideoPlayScreen
+              onIt={this.onIt}
+              upIt={this.upIt}
+              videoinfo={this.props.videoInfo}
+            />
             {/* <Button onPress={()=>this.onIt()} title='111'></Button> */}
           </View>
         </View>
