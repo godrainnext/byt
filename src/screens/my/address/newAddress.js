@@ -154,14 +154,12 @@ class NewAddress extends PureComponent {
         </View>
         <View
           style={{
-            position: 'absolute',
-            bottom: 0,
             backgroundColor: '#ecf6fc',
             width: pxToDp(300),
             height: pxToDp(50),
+            marginTop: pxToDp(10),
             borderRadius: pxToDp(50),
-            alignSelf: 'center',
-            marginBottom: pxToDp(300)
+            alignSelf: 'center'
           }}
         >
           <TouchableOpacity

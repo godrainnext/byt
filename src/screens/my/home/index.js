@@ -123,13 +123,16 @@ class Index extends PureComponent {
             </View>
           </View>
           <View>
+            <TouchableOpacity onPress={() => this.context.navigate('address')}>
+              <List icon="cart-outline" title="收获地址" />
+            </TouchableOpacity>
             <TouchableOpacity
               onPress={() => this.context.navigate('Jifenshop')}
             >
               <List icon="server-outline" title="积分商城" />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => this.context.navigate('History')}>
-              <List icon="time-outline" title="历史浏览" />
+              <List icon="server-outline" title="历史浏览" />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => this.context.navigate('Apply')}>
               <List icon="videocam-outline" title="直播申请" />

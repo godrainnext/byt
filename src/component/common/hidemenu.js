@@ -139,7 +139,7 @@ export class AlwaysOpen extends PureComponent {
         padding: pxToDp(20),
         flex: 1,
         backgroundColor: '#ecf6fc',
-        borderRadius: pxToDp(12),
+        borderRadius: pxToDp(12)
       }}
     >
       <View>
@@ -184,7 +184,9 @@ export class AlwaysOpen extends PureComponent {
             </View>
           </TouchableOpacity>
           {/* 时间线 */}
-          <TouchableOpacity onPress={() => this.context.navigate('PageTwo')}>
+          <TouchableOpacity
+            onPress={() => this.context.navigate('NewTimeLine')}
+          >
             <View style={{ justifyContent: 'center', height: pxToDp(60) }}>
               <View style={{ alignItems: 'center' }}>
                 <SvgUri svgXmlData={timeline} width="30" height="30" />
