@@ -499,7 +499,7 @@ class shopdetails extends PureComponent {
               marginBottom: pxToDp(5)
             }}
           >
-            <Text>开始阅读</Text>
+            <Text>立即购买</Text>
           </TouchableOpacity>
         </View>
       </View>

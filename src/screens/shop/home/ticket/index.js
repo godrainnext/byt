@@ -112,14 +112,23 @@ export default class index extends PureComponent {
           <View style={styles.message}>
             <Text style={styles.boxtext1}>小百花越剧场大剧场</Text>
             <Text style={styles.boxtext2}>415粉丝&ensp;|&ensp;0场在售演出</Text>
-            <View>
+            <View
+              style={{
+                flexDirection: 'row',
+                height: pxToDp(30)
+              }}
+            >
               <Text style={styles.boxtext2}>去主页</Text>
-              {/* <LottieView
-                style={{ width: pxToDp(10), height: pxToDp(10) }}
+              <LottieView
+                style={{
+                  width: pxToDp(40),
+                  marginTop: pxToDp(4.5),
+                  marginLeft: pxToDp(3.5)
+                }}
                 source={require('../../../../../lottie/fast1.json')}
                 autoPlay
                 loop
-              /> */}
+              />
             </View>
           </View>
           {/* 票务选择 */}
@@ -224,9 +233,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   boxtext1: {
-    fontSize: pxToDp(20),
+    fontSize: pxToDp(18),
     marginLeft: pxToDp(10),
-    marginTop: pxToDp(4),
+    marginTop: pxToDp(6),
     fontWeight: 'bold',
     color: '#fff'
   },
@@ -234,8 +243,7 @@ const styles = StyleSheet.create({
     fontSize: pxToDp(14),
     marginLeft: pxToDp(10),
     color: '#fff',
-    marginTop: pxToDp(4),
-    marginBottom: pxToDp(4)
+    marginTop: pxToDp(6)
   },
   img: {
     width: pxToDp(90),
@@ -249,7 +257,7 @@ const styles = StyleSheet.create({
     height: pxToDp(100),
     marginTop: pxToDp(15),
     marginBottom: pxToDp(15),
-    backgroundColor: '#62649f',
+    backgroundColor: '#995fbd',
     borderRadius: pxToDp(16),
     justifyContent: 'space-around',
     elevation: 10, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）

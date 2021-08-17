@@ -32,8 +32,8 @@ class Index extends PureComponent {
     render() {
         const { like, alike, blike } = this.state;
         return (
-          <View style={{backgroundColor:'#ecf6fc', flex: 1 }}>
-            <Top icon1="arrow-back" title="阅读剧本" />
+          <View style={{ backgroundColor: '#ecf6fc', flex: 1 }}>
+            <Top icon1="arrow-back" title="追鱼" />
             <View style={{ padding: pxToDp(15) }}>
               <ScrollView
                 showsVerticalScrollIndicator={false}
@@ -41,7 +41,7 @@ class Index extends PureComponent {
                 style={{}}
               >
                 <View>
-                  <Text style={{ fontSize: pxToDp(20), fontWeight: "bold" }}>
+                  <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold' }}>
                     追鱼
                   </Text>
                 </View>
@@ -49,7 +49,7 @@ class Index extends PureComponent {
                   style={{
                     marginTop: pxToDp(10),
                     fontSize: pxToDp(17),
-                    marginBottom: pxToDp(10),
+                    marginBottom: pxToDp(10)
                   }}
                 >
                   徐玉兰演张珍，王文娟演鲤鱼精
@@ -60,9 +60,9 @@ class Index extends PureComponent {
                       width: pxToDp(320),
                       height: pxToDp(240),
                       borderRadius: pxToDp(8),
-                      marginLeft: pxToDp(13),
+                      marginLeft: pxToDp(13)
                     }}
-                    source={require("../../../../res/play/fengmian.jpg")}
+                    source={require('../../../../res/play/fengmian.jpg')}
                   />
                 </View>
                 <Text style={styles.Text}>
@@ -167,20 +167,20 @@ class Index extends PureComponent {
                     width: pxToDp(350),
                     marginTop: pxToDp(20),
                     height: pxToDp(1),
-                    backgroundColor: "black",
-                    opacity: 0.2,
+                    backgroundColor: 'black',
+                    opacity: 0.2
                   }}
                 />
 
                 <View style={{ marginTop: pxToDp(15) }}>
-                  <View style={{ flexDirection: "row", alignItems: "center" }}>
+                  <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                     <Image
                       style={{
                         width: pxToDp(40),
                         height: pxToDp(40),
-                        borderRadius: pxToDp(40),
+                        borderRadius: pxToDp(40)
                       }}
-                      source={require("../../../../res/play/1.jpg")}
+                      source={require('../../../../res/play/1.jpg')}
                     />
                     <Text
                       style={{ fontSize: pxToDp(15), marginLeft: pxToDp(10) }}
@@ -197,12 +197,12 @@ class Index extends PureComponent {
                   </View>
                   <View
                     style={{
-                      flexDirection: "row",
+                      flexDirection: 'row',
                       marginTop: pxToDp(10),
                       marginLeft: pxToDp(45),
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                      marginRight: pxToDp(10),
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      marginRight: pxToDp(10)
                     }}
                   >
                     <View>
@@ -212,12 +212,12 @@ class Index extends PureComponent {
                       onPress={() => {
                         this.rendertouch1();
                       }}
-                      style={{ flexDirection: "row" }}
+                      style={{ flexDirection: 'row' }}
                     >
                       <Icon
-                        name={like ? "like2" : "like1"}
+                        name={like ? 'like2' : 'like1'}
                         size={18}
-                        color={like ? "black" : "red"}
+                        color={like ? 'black' : 'red'}
                       />
                       <Text>6</Text>
                     </TouchableOpacity>
@@ -228,21 +228,21 @@ class Index extends PureComponent {
                       marginLeft: pxToDp(40),
                       marginTop: pxToDp(20),
                       height: pxToDp(1),
-                      backgroundColor: "black",
-                      opacity: 0.2,
+                      backgroundColor: 'black',
+                      opacity: 0.2
                     }}
                   />
                 </View>
 
                 <View style={{ marginTop: pxToDp(15) }}>
-                  <View style={{ flexDirection: "row", alignItems: "center" }}>
+                  <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                     <Image
                       style={{
                         width: pxToDp(40),
                         height: pxToDp(40),
-                        borderRadius: pxToDp(40),
+                        borderRadius: pxToDp(40)
                       }}
-                      source={require("../../../../res/play/1.jpg")}
+                      source={require('../../../../res/play/1.jpg')}
                     />
                     <Text
                       style={{ fontSize: pxToDp(15), marginLeft: pxToDp(10) }}
@@ -259,12 +259,12 @@ class Index extends PureComponent {
                   </View>
                   <View
                     style={{
-                      flexDirection: "row",
+                      flexDirection: 'row',
                       marginTop: pxToDp(10),
                       marginLeft: pxToDp(45),
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                      marginRight: pxToDp(10),
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      marginRight: pxToDp(10)
                     }}
                   >
                     <View>
@@ -274,12 +274,12 @@ class Index extends PureComponent {
                       onPress={() => {
                         this.rendertouch2();
                       }}
-                      style={{ flexDirection: "row" }}
+                      style={{ flexDirection: 'row' }}
                     >
                       <Icon
-                        name={alike ? "like2" : "like1"}
+                        name={alike ? 'like2' : 'like1'}
                         size={18}
-                        color={alike ? "black" : "red"}
+                        color={alike ? 'black' : 'red'}
                       />
                       <Text>6</Text>
                     </TouchableOpacity>
@@ -290,23 +290,23 @@ class Index extends PureComponent {
                       marginLeft: pxToDp(40),
                       marginTop: pxToDp(20),
                       height: pxToDp(1),
-                      backgroundColor: "black",
-                      opacity: 0.2,
+                      backgroundColor: 'black',
+                      opacity: 0.2
                     }}
                   />
                 </View>
 
                 <View style={{ marginTop: pxToDp(15) }}>
                   <TouchableOpacity
-                    style={{ flexDirection: "row", alignItems: "center" }}
+                    style={{ flexDirection: 'row', alignItems: 'center' }}
                   >
                     <Image
                       style={{
                         width: pxToDp(40),
                         height: pxToDp(40),
-                        borderRadius: pxToDp(40),
+                        borderRadius: pxToDp(40)
                       }}
-                      source={require("../../../../res/play/1.jpg")}
+                      source={require('../../../../res/play/1.jpg')}
                     />
                     <Text
                       style={{ fontSize: pxToDp(15), marginLeft: pxToDp(10) }}
@@ -323,12 +323,12 @@ class Index extends PureComponent {
                   </View>
                   <View
                     style={{
-                      flexDirection: "row",
+                      flexDirection: 'row',
                       marginTop: pxToDp(10),
                       marginLeft: pxToDp(45),
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                      marginRight: pxToDp(10),
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      marginRight: pxToDp(10)
                     }}
                   >
                     <View>
@@ -338,12 +338,12 @@ class Index extends PureComponent {
                       onPress={() => {
                         this.rendertouch3();
                       }}
-                      style={{ flexDirection: "row" }}
+                      style={{ flexDirection: 'row' }}
                     >
                       <Icon
-                        name={blike ? "like2" : "like1"}
+                        name={blike ? 'like2' : 'like1'}
                         size={18}
-                        color={blike ? "black" : "red"}
+                        color={blike ? 'black' : 'red'}
                       />
                       <Text>6</Text>
                     </TouchableOpacity>
@@ -354,8 +354,8 @@ class Index extends PureComponent {
                       marginLeft: pxToDp(40),
                       marginTop: pxToDp(20),
                       height: pxToDp(1),
-                      backgroundColor: "black",
-                      opacity: 0.2,
+                      backgroundColor: 'black',
+                      opacity: 0.2
                     }}
                   />
                 </View>
