@@ -194,6 +194,8 @@ function Nav() {
         <Stack.Screen name="Jubao" component={Screens.Jubao} />
         {/**波纹按钮 */}
         <Stack.Screen name="WaterButton" component={Screens.WaterButton} />
+        {/*剧本热度榜单 */}
+        <Stack.Screen name="HotList" component={Screens.HotList} />
         <Stack.Screen name="Testtt" component={Screens.Testtt} />
       </Stack.Navigator>
     </NavigationContainer>

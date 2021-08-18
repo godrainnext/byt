@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { View, StatusBar } from 'react-native';
 import VideoPlayScreen from '../VideoPlayScreen';
 import { pxToDp } from '@utils/styleKits';
 
 import Top from '@components/common/top';
-class index extends Component {
+class index extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {

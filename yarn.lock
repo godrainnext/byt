@@ -7100,8 +7100,8 @@ react-native-parallax-scroll-view@^0.21.3:
 
 react-native-parallax-scrollview@^3.0.0:
   version "3.0.0"
-  resolved "https://registry.nlark.com/react-native-parallax-scrollview/download/react-native-parallax-scrollview-3.0.0.tgz#43ad2aeb45b8e4eca3076ce550419871b131bb20"
-  integrity sha1-Q60q60W45OyjB2zlUEGYcbExuyA=
+  resolved "https://registry.yarnpkg.com/react-native-parallax-scrollview/-/react-native-parallax-scrollview-3.0.0.tgz#43ad2aeb45b8e4eca3076ce550419871b131bb20"
+  integrity sha512-NCw4s6OO2blrvUFnWQHlHEnAzZSik2n6yR2Oyy7QCheih+8U19hwYY/utr4dn1gDVlkBA2FAEy993RMpyo6c2A==
 
 react-native-picker@^4.3.7:
   version "4.3.7"

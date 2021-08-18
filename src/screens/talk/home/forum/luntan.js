@@ -144,7 +144,14 @@ class Index extends PureComponent {
           </Modal>
         </View>
         <ScrollView>
-          <View style={{ width: '95%', marginLeft: pxToDp(10), marginTop: pxToDp(20), marginBottom: pxToDp(20) }}>
+          <View
+            style={{
+              width: '95%',
+              marginLeft: pxToDp(10),
+            marginTop: pxToDp(10),
+              marginBottom: pxToDp(20)
+            }}
+          >
             {this.props.dongtai.map((item, dtid) => (
 
               <View key={item.id} style={{ elevation: 2, borderWidth: 0, marginBottom: pxToDp(20), backgroundColor: 'white', borderRadius: pxToDp(20) }}>

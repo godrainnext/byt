@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import {
   View,
   Text,
@@ -17,7 +17,7 @@ import { MarqueeHorizontal, MarqueeVertical } from 'react-native-marquee-ab';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import Icon1 from 'react-native-vector-icons/MaterialIcons';
 
-class index extends Component {
+class index extends PureComponent {
   render() {
     return (
       <ScrollView>
