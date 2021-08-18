@@ -134,7 +134,6 @@ class Index extends PureComponent {
                   </TouchableOpacity>
                 </View>
               </View>
-              {/* {item.reply.map((reply) => ( */}
               {item.reply.content ? (
                 <View style={{ backgroundColor: '#f6fbfe' }}>
                   <View
