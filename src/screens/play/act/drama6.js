@@ -22,7 +22,7 @@ class Index extends PureComponent {
     render() {
         return (
             <View style={{ backgroundColor: '#E2F4FE' }}>
-                <Top icon1="arrow-back" title="剧本详情" />
+                <Top icon1="arrow-back" title="剧本简介" />
                 <ScrollView
                     style={{
                         marginLeft: pxToDp(10),
