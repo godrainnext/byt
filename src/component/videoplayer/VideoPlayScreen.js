@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import {
   View,
   Dimensions,
@@ -32,7 +32,7 @@ function formatTime(second) {
   return [zero(h), zero(i), zero(s)].join(':');
 }
 
-export default class VideoPlayScreen extends Component {
+export default class VideoPlayScreen extends PureComponent {
   static navigationOptions = {
     headerTitle: '测试视频播放'
   };

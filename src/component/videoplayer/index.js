@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect,memo } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import {
   ScrollTabView,
@@ -26,7 +26,7 @@ function TabView2(props) {
     </ScrollView>
   );
 }
-export default function Example(props) {
+export default memo(function Example(props) {
   const [videoInfo, setvideoInfo] = useState({});
   useEffect(() => {
     console.log(props);
@@ -61,7 +61,7 @@ export default function Example(props) {
       </ScrollTabView>
     </View>
   );
-}
+});
 
 const styles = StyleSheet.create({
   container: {
