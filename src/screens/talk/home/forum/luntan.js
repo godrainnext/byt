@@ -199,7 +199,7 @@ class Index extends PureComponent {
             style={{
               width: '95%',
               marginLeft: pxToDp(10),
-              marginTop: pxToDp(20),
+            marginTop: pxToDp(10),
               marginBottom: pxToDp(20)
             }}
           >
@@ -343,7 +343,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 22
   },
   modalView: {
     margin: 20,

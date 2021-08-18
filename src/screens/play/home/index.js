@@ -858,8 +858,8 @@ const styles = StyleSheet.create({
     borderRadius: pxToDp(8)
   },
   book11: {
-    marginTop: pxToDp(-135),
-    marginLeft: pxToDp(20),
+    marginTop: pxToDp(-136),
+    marginLeft: pxToDp(16),
     height: pxToDp(120),
     width: pxToDp(100),
     borderRadius: pxToDp(8),
