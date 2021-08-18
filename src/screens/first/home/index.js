@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import {
   View,
   Text,
@@ -9,64 +9,58 @@ import {
   SafeAreaView,
   ImageBackground
 } from 'react-native';
-import { pxToDp } from '@utils/styleKits';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import Top from '@components/common/top';
-import ImageFade from '@components/ImageFade/index';
 import { NavigationContext } from '@react-navigation/native';
-import { getUserInfoAction } from './store/actions';
-import { connect } from 'react-redux';
-import Legend from '@components/first/legend';
-import Hy from '@components/first/hy';
+import { pxToDp } from '@utils/styleKits';
+import Top from '@components/common/top';
+import ParallaxScrollView from 'react-native-parallax-scroll-view';
 import HighLights from '@components/first/HighLights';
+import Hy from '@components/first/hy';
+import Legend from '@components/first/legend';
 import Actress from '@components/first/actress';
-const SLIDER_1_FIRST_ITEM = 1;
-
-class Index extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      slider1ActiveSlide: SLIDER_1_FIRST_ITEM
-    };
-  }
+import { connect } from 'react-redux';
+import { getUserInfoAction } from './store/actions';
+class Index extends Component {
+  static contextType = NavigationContext;
+  state = { arr: [] };
   componentDidMount() {
     this.props.getUserInfoAction();
   }
 
-  static contextType = NavigationContext;
-
   render() {
     return (
-      <View>
-        <Top title="百越台" icon2="search" />
-        <ScrollView style={{ marginBottom: 80 }}>
-          {/* 轮播图 */}
-          <View style={{ margin: pxToDp(8), borderRadius: pxToDp(20) }}>
-            <ImageFade
-              ref="ImageFade"
-              duration={800}
-              delay={3000}
-              style={{ width: '100%', height: pxToDp(200) }}
-            >
-              <Image
-                style={{
-                  width: '100%',
-                  height: pxToDp(200),
-                  borderRadius: pxToDp(20)
-                }}
-                source={require('../../../res/12.jpg')}
-              />
-              <Image
-                style={{
-                  width: '100%',
-                  height: pxToDp(200),
-                  borderRadius: pxToDp(20)
-                }}
-                source={require('../../../res/19-2.jpg')}
-              />
-            </ImageFade>
+      <ParallaxScrollView
+        renderStickyHeader={() => <Top title="百越庭" />}
+        stickyHeaderHeight={70}
+        parallaxHeaderHeight={200}
+        backgroundSpeed={10}
+        renderBackground={() => (
+          <View key="background">
+            <Image
+              source={{
+                uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic27.nipic.com%2F20130307%2F8984340_113532918000_2.jpg&refer=http%3A%2F%2Fpic27.nipic.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631857652&t=03b4f1cf6deeb6e50010fe5e59eb881d'
+              }}
+              style={{
+                width: 450,
+                height: 250
+              }}
+            ></Image>
+            <View
+              style={{
+                position: 'absolute',
+                top: 0,
+                width: window.width,
+                backgroundColor: 'rgba(0,0,0,.4)',
+                height: 250
+              }}
+            />
           </View>
-          {/*段落欣赏 */}
+        )}
+        //自定义头部内容
+        renderForeground={() => <View style={{ Top: 200, left: 100 }}></View>}
+        scrollableViewStyle={{ backgroundColor: '#fcfcfc' }}
+      >
+        <View style={{ margin: pxToDp(10), marginTop: pxToDp(30), flex: 1 }}>
           <HighLights />
 
           {/*俯瞰百年 */}
@@ -168,8 +162,8 @@ class Index extends PureComponent {
             </View>
           </View>
           <Actress />
-        </ScrollView>
-      </View>
+        </View>
+      </ParallaxScrollView>
     );
   }
 }

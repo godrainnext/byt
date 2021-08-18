@@ -3,7 +3,7 @@ import { Text, View, SafeAreaView, ScrollView } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import { sliderWidth, itemWidth } from './scorll/styles/SliderEntry.style';
 import SliderEntry from './scorll/components/SliderEntry';
-import styles, { colors } from './scorll/styles/index.style';
+// import styles, { colors } from './scorll/styles/index.style';
 import { getListByStatus } from '@service/home';
 import { pxToDp } from '@utils/styleKits';
 import { NavigationContext } from '@react-navigation/native';
@@ -25,14 +25,12 @@ export default class Hy extends PureComponent {
   layoutExample(number, title, type) {
     const isTinder = type === 'tinder';
     return (
-      <View style={{ marginBottom: pxToDp(-10), marginTop: pxToDp(-10) }}>
+      <View style={{marginTop:pxToDp(20) }}>
         <Carousel
           data={this.state.enter}
           renderItem={isTinder ? this._renderLightItem : this._renderItem}
           sliderWidth={sliderWidth}
           itemWidth={itemWidth}
-          containerCustomStyle={styles.slider}
-          contentContainerCustomStyle={styles.sliderContentContainer}
           layout={type}
           loop={true}
         />
@@ -42,10 +40,10 @@ export default class Hy extends PureComponent {
   render() {
     const example3 = this.layoutExample('', '', 'stack');
     return (
-      <SafeAreaView style={styles.safeArea}>
-        <View style={styles.container}>
+      <SafeAreaView >
+        <View >
           <ScrollView
-            style={styles.scrollview}
+            
             scrollEventThrottle={200}
             directionalLockEnabled={true}
           >
