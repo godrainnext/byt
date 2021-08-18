@@ -74,6 +74,7 @@ export { default as Basic } from './play/course/bankuai/basic'; //越剧基本�
 export { default as Master } from './play/course/bankuai/master'; //越剧大师教学板块
 export { default as Timemap } from '../ddd/index'; //时空地图
 export { default as Timeline } from './Timeline/index';
+export { default as HotList } from './play/hotlist'//剧本热度榜单
 
 export { default as Talk } from './talk/home/index'; //论坛首页
 export { default as Apply } from './talk/home/live/apply'; //申请直播页
