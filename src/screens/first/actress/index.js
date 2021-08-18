@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect, memo } from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import { ScrollTabView, ScrollView } from 'react-native-scroll-head-tab-view';
 import { pxToDp } from '../../../utils/styleKits';
@@ -10,7 +10,7 @@ import {
 } from '../../../service/home/actress';
 import { useNavigation } from '@react-navigation/native';
 
-function TabView1(props) {
+const TabView1 = memo(function (props) {
   const [videoList, setvideoList] = useState([1]);
   const navigation = useNavigation();
   useEffect(() => {
@@ -34,9 +34,9 @@ function TabView1(props) {
       </View>
     </ScrollView>
   );
-}
-function TabView2(props) {
-  const [picList, setpicList] = useState([1]);
+});
+const TabView2 = memo(function (props) {
+  const [picList, setpicList] = useState([]);
   useEffect(() => {
     getRolePicById(props.id).then((res) => {
       setpicList(res.picList);
@@ -53,6 +53,8 @@ function TabView2(props) {
               style={styles.image2}
               source={{
                 uri: item
+                  ? item
+                  : 'http://120.79.86.32:3000/role/avatar/a97e90c21e46716abd524141ac3ccb40'
               }}
             />
           ))}
@@ -60,9 +62,8 @@ function TabView2(props) {
       </View>
     </ScrollView>
   );
-}
-
-function TabView3(props) {
+});
+const TabView3 = memo(function (props) {
   const [momentList, setmomentList] = useState([1]);
   useEffect(() => {
     getRoleMomentById(props.id).then((res) => {
@@ -89,9 +90,9 @@ function TabView3(props) {
       </View>
     </ScrollView>
   );
-}
+});
 
-function TabView4(props) {
+const TabView4 = memo(function (props) {
   return (
     <ScrollView {...props}>
       <View>
@@ -131,9 +132,9 @@ function TabView4(props) {
       </View>
     </ScrollView>
   );
-}
+});
 
-export default function Example(props) {
+export default memo(function Example(props) {
   const [headerHeight, setHeaderHeight] = useState(200);
   const headerOnLayout = useCallback((event) => {
     const { height } = event.nativeEvent.layout;
@@ -176,7 +177,7 @@ export default function Example(props) {
       </ScrollTabView>
     </View>
   );
-}
+});
 
 const styles = StyleSheet.create({
   container: {

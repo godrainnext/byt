@@ -10,7 +10,6 @@ import {
   Dimensions,
   StyleSheet
 } from 'react-native';
-import { Input } from 'react-native-elements';
 import RtcEngine, {
   RtcLocalView,
   RtcRemoteView,
@@ -23,7 +22,7 @@ import { MarqueeHorizontal, MarqueeVertical } from 'react-native-marquee-ab';
 import { pxToDp } from '@utils/styleKits';
 import LottieView from 'lottie-react-native';
 import { NavigationContext } from '@react-navigation/native';
-import axios from 'axios';
+import { connect } from 'react-redux';
 const dimensions = {
   width: Dimensions.get('window').width,
   height: Dimensions.get('window').height
@@ -80,7 +79,7 @@ const HTML = `
 //   joinSucceed: boolean;
 //   peerIds: number[];
 // }
-export default class App extends PureComponent {
+class App extends PureComponent {
   //   _engine?: RtcEngine;
   static contextType = NavigationContext;
 
@@ -139,14 +138,14 @@ export default class App extends PureComponent {
   }
 
   componentDidMount() {
-    this.startCall();
+    this.startCall(this.props.route.params.user.id);
   }
 
   /**
    * @name init
    * @description Function to initialize the Rtc Engine, attach event listeners and actions
    */
-  init = async () => {
+  init = async (id) => {
     const { appId } = this.state;
 
     this._engine = await RtcEngine.create(appId);
@@ -155,8 +154,13 @@ export default class App extends PureComponent {
     // 开启本地视频预览。
     await this._engine.startPreview();
     // 将频道场景设为直播。
-    await this._engine.setChannelProfile(ChannelProfile.LiveBroadcasting);
-    // 设置用户角色为主播。
+    if (this.props.userInfo.id === id) {
+      await this._engine.setClientRole(ClientRole.Broadcaster);
+    } else {
+      await this._engine.setChannelProfile(ChannelProfile.LiveBroadcasting);
+      // 设置用户角色为主播。
+    }
+
     await this._engine.setClientRole(ClientRole.Audience);
     this._engine.addListener('Warning', (warn) => {
       console.log('Warning', warn);
@@ -202,8 +206,8 @@ export default class App extends PureComponent {
    * @name startCall
    * @description Function to start the call
    */
-  startCall = async () => {
-    await this.init();
+  startCall = async (id) => {
+    await this.init(id);
     await this._engine?.joinChannel(
       this.props.route.params.token,
       this.props.route.params.channelName,
@@ -464,3 +468,6 @@ const styles = StyleSheet.create({
     color: '#0093E9'
   }
 });
+export default connect((state) => ({
+  userInfo: state.getIn(['homeReduer', 'userInfo'])
+}))(App);
