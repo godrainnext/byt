@@ -20,6 +20,7 @@ class UserInner extends PureComponent {
   static contextType = NavigationContext;
   componentDidMount() {
     this.addFollow = DeviceEventEmitter.addListener('addFollow', () => {
+      console.log(1234);
       getUserFans().then((res) => {
         this.setState({ fansCount: res.fansCount });
       });
@@ -57,9 +58,10 @@ class UserInner extends PureComponent {
       <View
         style={{
           borderRadius: pxToDp(10),
-          backgroundColor: 'rgba(255,255,255,0.5)',
+          backgroundColor: '#f0fcff',
           margin: pxToDp(10),
-          height: pxToDp(140)
+          height: pxToDp(140),
+          elevation:3,borderWidth:0
         }}
       >
         <View style={{ flexDirection: 'row' }}>

@@ -20,8 +20,7 @@ import { stopmusic, playmusic } from '../../../../component/common/iconSvg';
 import request from '@service/index';
 import { addFollow, cancelFollow } from '../../../../service/mine';
 import { DeviceEventEmitter } from 'react-native';
-import { Button } from 'react-native-elements';
-
+import FollowButton from '@components/FollowButton';
 class Index extends PureComponent {
   state = {
     inner: {},
@@ -37,14 +36,14 @@ class Index extends PureComponent {
 
     request
       .post({
-        url: `/comment/${this.props.route.params}`,
+        url: `/comment/${this.props.route.params.momentId}`,
         data: {
           content: this.state.mycomment
         }
       })
       .then((res) => {
         this.setState({ mycomment: '' });
-        getMomentInnerById(this.props.route.params)
+        getMomentInnerById(this.props.route.params.momentId)
           .then((res) => {
             this.setState({ inner: { ...res } });
           })
@@ -53,7 +52,7 @@ class Index extends PureComponent {
   };
 
   componentDidMount() {
-    getMomentInnerById(this.props.route.params)
+    getMomentInnerById(this.props.route.params.momentId)
       .then((res) => {
         this.setState({ inner: { ...res } });
       })
@@ -181,16 +180,7 @@ class Index extends PureComponent {
                 </Text>
               </View>
             </View>
-            <Button
-              type={this.state.isFollow ? 'clear' : 'outline'}
-              buttonStyle={{
-                borderWidth: pxToDp(1),
-                marginRight: pxToDp(20),
-                marginTop: pxToDp(20)
-              }}
-              title={this.state.isFollow ? '已关注' : '关注'}
-              onPress={() => this.addFollows(user?.id)}
-            ></Button>
+            <FollowButton userId={this.props.route.params.userId} />
           </View>
           <View style={{ margin: pxToDp(15) }}>
             <Text style={{ fontSize: pxToDp(18) }}>{content}</Text>

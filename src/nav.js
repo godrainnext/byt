@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { Easing,Animated,} from 'react-native';
 import Tabbar from './tabbar';
 import * as Screens from './screens';
 
@@ -10,10 +11,9 @@ function Nav() {
   return (
     <NavigationContainer>
       <Stack.Navigator headerMode="none" initialRouteName="Tabbar">
-
         <Stack.Screen name="NewTimeLine" component={Screens.NewTimeLine} />
 
-        <Stack.Screen name="Tabbar" component={Tabbar} />
+        <Stack.Screen name="Tabbar" component={Tabbar}  />
         {/*登录 */}
         <Stack.Screen name="Login" component={Screens.Login} />
         {/*首页 */}
@@ -38,8 +38,10 @@ function Nav() {
         <Stack.Screen name="Pagefive" component={Screens.Pagefive} />
         {/*我的 */}
         <Stack.Screen name="My" component={Screens.My} />
+        
         {/*设置 */}
         <Stack.Screen name="Set" component={Screens.Set} />
+        
         {/*具体的设置内容 关于我们、推送、意见、隐私 */}
         <Stack.Screen name="Women" component={Screens.Women} />
         <Stack.Screen name="Tuisong" component={Screens.Tuisong} />
@@ -194,6 +196,7 @@ function Nav() {
         <Stack.Screen name="WaterButton" component={Screens.WaterButton} />
         {/*剧本热度榜单 */}
         <Stack.Screen name="HotList" component={Screens.HotList} />
+        <Stack.Screen name="Testtt" component={Screens.Testtt} />
       </Stack.Navigator>
     </NavigationContainer>
   );

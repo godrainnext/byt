@@ -24,13 +24,12 @@ class SwiperListItem extends PureComponent {
   changeBtn = (id, item) => {
     requset.patch({ url: `/user/address/${id}` }).then((res) => {
       this.setState({ checkedId: id });
-
       this.props.route.params.changeDefaultAddress(item);
     });
   };
-  componentDidMount() {
-    this.setState({ checkedId: this.props.route.params.id });
-  }
+   componentDidMount() {
+     this.setState({ checkedId: this.props.route.params.id });
+   }
   static contextType = NavigationContext;
   render() {
     return (
@@ -57,7 +56,7 @@ class SwiperListItem extends PureComponent {
           style={{
             position: 'absolute',
             bottom: 0,
-            backgroundColor: '#EE3F4D',
+            backgroundColor: '#f0bb51',
             width: '100%',
             height: pxToDp(50),
             borderBottomLeftRadius: pxToDp(8),
@@ -66,7 +65,12 @@ class SwiperListItem extends PureComponent {
         >
           <TouchableOpacity
             style={{ width: '100%', height: '100%' }}
-            onPress={() => this.context.navigate('newAddress')}
+            onPress={() =>
+              this.context.navigate(
+                'newAddress',
+                this.props.route.params.orider
+              )
+            }
           >
             <Text
               style={{
