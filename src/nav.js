@@ -157,7 +157,13 @@ function Nav() {
         {/* 进房间 */}
         <Stack.Screen name="SeeFang" component={Screens.SeeFang} />
         {/**剧本页 */}
-        <Stack.Screen name="Drama" component={Screens.Drama} />
+        <Stack.Screen name="Drama" component={Screens.Drama} /> 
+        <Stack.Screen name="Drama1" component={Screens.Drama1} /> 
+        <Stack.Screen name="Drama2" component={Screens.Drama2} />
+        <Stack.Screen name="Drama3" component={Screens.Drama3} />
+        <Stack.Screen name="Drama4" component={Screens.Drama4} />
+        <Stack.Screen name="Drama5" component={Screens.Drama5} />
+        <Stack.Screen name="Drama6" component={Screens.Drama6} />
         {/**剧本库页面 */}
         <Stack.Screen name="Scriptlibrary" component={Screens.Scriptlibrary} />
         {/**名角个人页 */}
