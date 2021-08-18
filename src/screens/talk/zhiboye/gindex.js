@@ -154,12 +154,12 @@ class App extends PureComponent {
     // 开启本地视频预览。
     await this._engine.startPreview();
     // 将频道场景设为直播。
-    if (this.props.userInfo.id === id) {
-      await this._engine.setClientRole(ClientRole.Broadcaster);
-    } else {
-      await this._engine.setChannelProfile(ChannelProfile.LiveBroadcasting);
-      // 设置用户角色为主播。
-    }
+    // if (this.props.userInfo.id === id) {
+    //   await this._engine.setClientRole(ClientRole.Broadcaster);
+    // } else {
+    await this._engine.setChannelProfile(ChannelProfile.LiveBroadcasting);
+    // 设置用户角色为主播。
+    // }
 
     await this._engine.setClientRole(ClientRole.Audience);
     this._engine.addListener('Warning', (warn) => {
@@ -249,7 +249,7 @@ class App extends PureComponent {
               <RtcRemoteView.SurfaceView
                 style={styles.remote}
                 uid={value}
-                channelId={this.state.channelName}
+                channelId={this.props.route.channelName}
                 renderMode={VideoRenderMode.Hidden}
                 zOrderMediaOverlay={true}
               />

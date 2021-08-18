@@ -230,8 +230,8 @@ class App extends Component {
         data: fd
       });
 
-      await this._engine?.joinChannel(token, this.state.channelName, null, 0);
       this.setState({ result });
+      await this._engine?.joinChannel(token, this.state.channelName, null, 0);
     } else {
       ToastAndroid.show('请输入个人信息与封面', ToastAndroid.SHORT);
     }
@@ -247,11 +247,14 @@ class App extends Component {
   };
 
   closeCall = () => {
+    console.log(this.state.result.insertId);
     request
       .delete({ url: `/stream/${this.state.result.insertId}` })
       .then((res) => {
-        this.endCall().then(this.context.navigate('Tabbar'));
-      });
+        console.log(res);
+        this.endCall();
+      })
+      .then(() => this.context.navigate('Tabbar'));
   };
 
   render() {
