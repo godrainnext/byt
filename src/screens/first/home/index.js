@@ -279,8 +279,8 @@ class Index extends PureComponent {
                       style={{
                         width: pxToDp(100),
                         height: pxToDp(140),
-                        borderTopLeftRadius: pxToDp(10),
-                        borderTopRightRadius: pxToDp(10)
+                        borderTopLeftRadius: pxToDp(32),
+                        borderTopRightRadius: pxToDp(16)
                       }}
                       source={{
                         uri: 'https://img0.baidu.com/it/u=2918427680,1568245037&fm=26&fmt=auto&gp=0.jpg'
@@ -291,7 +291,9 @@ class Index extends PureComponent {
                         justifyContent: 'center',
                         alignItems: 'center',
                         flex: 1,
-                        backgroundColor: 'white'
+                        backgroundColor: '#ccc',
+                        borderBottomRightRadius:pxToDp(32),
+                        borderBottomLeftRadius:pxToDp(16),
                       }}
                     >
                       <Text style={{ fontSize: pxToDp(15) }}>方亚芬</Text>

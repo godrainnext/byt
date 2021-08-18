@@ -10,6 +10,7 @@ function Nav() {
   return (
     <NavigationContainer>
       <Stack.Navigator headerMode="none" initialRouteName="Login">
+
         <Stack.Screen name="Tabbar" component={Tabbar} />
         {/*登录 */}
         <Stack.Screen name="Login" component={Screens.Login} />
@@ -170,6 +171,13 @@ function Nav() {
         <Stack.Screen name="Video" component={Screens.Video} />
         {/*举报页*/}
         <Stack.Screen name="Jubao" component={Screens.Jubao} />
+
+
+
+        <Stack.Screen name="Test1" component={Screens.Test1} />
+        <Stack.Screen name="Test2" component={Screens.Test2} />
+        <Stack.Screen name="Test3" component={Screens.Test3} />
+        <Stack.Screen name="Test4" component={Screens.Test4} />
       </Stack.Navigator>
     </NavigationContainer>
   );
