@@ -17,6 +17,7 @@ class index extends PureComponent {
     commments: []
   };
   componentDidMount() {
+    console.log(12312);
     getMomentById(this.props.route.params).then((res) => {
       console.log(res);
       this.setState({ ...res });

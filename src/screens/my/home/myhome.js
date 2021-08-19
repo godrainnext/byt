@@ -1,44 +1,32 @@
-import React, { useState, useCallback } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
-import { ScrollTabView, ScrollView, FlatList } from 'react-native-scroll-head-tab-view';
+import React, { Component } from 'react';
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity,
+  SafeAreaView,
+  ImageBackground
+} from 'react-native';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import { NavigationContext } from '@react-navigation/native';
+import { pxToDp } from '@utils/styleKits';
+import Top from '@components/common/top';
+import { getVideList } from '../../../service/home';
+import ParallaxScrollView from 'react-native-parallax-scroll-view';
+import HighLights from '@components/first/HighLights';
+import ImageFade from '@components/ImageFade/index';
+import Hy from '@components/first/hy';
+import Legend from '@components/first/legend';
+import { connect } from 'react-redux';
+import CustormerBar from '../seetings/component/CustormerBar';
 import Dongtai from '../seetings/component/dontai';
-import Collect from '../seetings/component/collect';
-import Soucang from '../seetings/component/soucang';
-import CustormerBar from '../seetings/component/CustormerBar'
+export default class hello extends Component {
 
-function TabView1(props) {
-    const data = new Array(1).fill({});
-  
-        return (
-          <ScrollView {...props}>
-                <Dongtai {...props}/></ScrollView>
-        );
-    };
-
-
-function TabView2(props) {
-
-        return (
-          <ScrollView {...props}>
-          <Collect {...props}/></ScrollView>
-        );
-       
-  
-
-}
-
-function TabView3(props) {
-    const data = new Array(2).fill({});
-    return (
-      <ScrollView {...props}>
-      <Soucang {...props}/></ScrollView>
-    );
-}
-
-export default function Example(props) {
-
-  const [userInfo,setUserInfo]=useState({
-    id: 1,
+  static contextType = NavigationContext;
+  state = {
+    arr: [], id: 1,
     bcimg:
       'https://img2.baidu.com/it/u=2116882029,1761299726&fm=26&fmt=auto&gp=0.jpg',
     userimg:
@@ -70,7 +58,7 @@ export default function Example(props) {
         ]
       }
     ],
-  
+
     soucang: [
       {
         scid: 1,
@@ -81,35 +69,52 @@ export default function Example(props) {
         date: '2019-05-02'
       }
     ]
-  })
-    const [headerHeight, setHeaderHeight] = useState(200);
-    const headerOnLayout = useCallback((event) => {
-        const { height } = event.nativeEvent.layout;
-        setHeaderHeight(height);
-    }, []);
+  };
+  componentDidMount() {
+    getVideList(0).then((res) => {
+      this.setState({ arr: res });
+    });
+  }
 
-    const _renderScrollHeader = useCallback(() => {
-        const data = new Array(1).fill({});
-        return (
-            <View onLayout={headerOnLayout}>
-              <CustormerBar/>
-            </View>
-        );
-    }, []);
-
+  render() {
+    const { userinfo } = this.state
     return (
-        <View style={styles.container}>
-            <ScrollTabView headerHeight={headerHeight} renderScrollHeader={_renderScrollHeader}>
-                <TabView1 tabLabel="动态"  userId={props.route.params}/>
-                <TabView2 tabLabel="收藏"  userinfo={userInfo}/>
-                <TabView3 tabLabel="剧本" userinfo={userInfo}/>
-            </ScrollTabView>
-        </View>
-    );
-}
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-});
+      <ParallaxScrollView
+        renderStickyHeader={() => (<Top icon1="arrow-back" title="个人中心" />)}
+        stickyHeaderHeight={40}
+        parallaxHeaderHeight={380}
+        navBarColor='#fa9222'
+        rendernavBar={<Top />}
+        backgroundSpeed={10}
+        renderBackground={() => (
+          <View key="background">
+            <Image source={{ uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic27.nipic.com%2F20130307%2F8984340_113532918000_2.jpg&refer=http%3A%2F%2Fpic27.nipic.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631857652&t=03b4f1cf6deeb6e50010fe5e59eb881d' }}
+
+              style={{
+                width: '100%',
+                height: 400,
+              }}>
+            </Image>
+            <View style={{ position: 'absolute', top: 0, width: window.width, backgroundColor: 'rgba(0,0,0,.4)', height: 300 }} />
+          </View>
+        )
+        }
+        //自定义头部内容
+        renderForeground={() => (
+          <CustormerBar />
+        )
+
+        }
+
+        scrollableViewStyle={{ backgroundColor: '#fcfcfc' }}
+      >
+        <ImageBackground source={require('./myback.png')}
+          style={{ width: 400, height: 200, }} />
+
+        <Dongtai userId={this.props.route.params} />
+
+      </ParallaxScrollView>
+    )
+  }
+}
