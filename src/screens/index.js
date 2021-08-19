@@ -64,7 +64,13 @@ export { default as Sing } from './play/study/sing'; //唱歌
 export { default as Singbefore } from './play/study/singbefore'; //唱歌
 export { default as Act } from './play/act'; //双人剧本页
 export { default as Change } from './play/change'; //AI换衣页
-export { default as Drama } from './play/act/drama'; //剧本
+export { default as Drama } from './play/act/drama1'; //剧本
+export { default as Drama1 } from './play/act/drama1'; //剧本1 追鱼
+export { default as Drama2 } from './play/act/drama2'; //剧本2 五女拜寿
+export { default as Drama3 } from './play/act/drama3'; //剧本3 梁山伯与祝英台
+export { default as Drama4 } from './play/act/drama4'; //剧本4 红楼梦
+export { default as Drama5 } from './play/act/drama5'; //剧本5 碧玉簪
+export { default as Drama6 } from './play/act/drama6'; //剧本6 周仁哭坟
 export { default as Scriptlibrary } from './play/scriptlibrary'; //剧本库
 export { default as VR } from './play/vr'; //越剧小镇VR
 export { default as relatedImg } from './Timeline/relatedImg'; //相关图片
