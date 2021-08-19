@@ -236,7 +236,7 @@ class Index extends PureComponent {
     return (
       <View>
         <Top title="越吟" />
-        <ScrollView style={{ marginBottom: pxToDp(80) }}>
+        <ScrollView>
           {/*签到的内容 */}
           <View style={styles.centeredView}>
             <Modal
@@ -660,7 +660,7 @@ class Index extends PureComponent {
               <Ionicons name="chevron-forward" size={20} color="grey" />
             </TouchableOpacity>
           </View>
-          <View>
+          <View style={{ marginBottom: pxToDp(80)}}>
             {this.state.book.map((item) => (
               <View style={styles.bookbox}>
                 <View style={styles.bookbotton}>
@@ -674,7 +674,7 @@ class Index extends PureComponent {
                     <Text stlye={{ fontSize: pxToDp(13) }} numberOfLines={2}>{item.context}</Text>
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                       <Text>推荐指数</Text>
-                      <View style={{ flexDirection: 'row', marginLeft: pxToDp(5) }}>
+                      <View style={{ flexDirection: 'row', marginLeft: pxToDp(5)}}>
                         <Svg width="20" height="20" svgXmlData={star} />
                         <Svg width="20" height="20" svgXmlData={star} />
                         <Svg width="20" height="20" svgXmlData={star} />

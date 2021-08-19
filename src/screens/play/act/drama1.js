@@ -3,7 +3,7 @@ import { View, Text, Image, TouchableOpacity, ScrollView, TextInput } from "reac
 import Top from '../../../component/common/top'
 import { pxToDp } from "../../../utils/styleKits";
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
+import { NavigationContext } from '@react-navigation/native';
 
 class Index extends PureComponent {
   state = {
@@ -19,13 +19,15 @@ class Index extends PureComponent {
       text1: '该剧1956年11月21日，由上海越剧院二团首演于大众剧场。剧本根据康德改编的湘剧本移植整理，黄沙导演，顾振遐、杜春阳音乐整理，黄子希、顾大良舞台设计，薛传刚舞蹈指导。筱桂芳饰张珍、王文娟饰鲤鱼精、郑忠梅饰金宠、陈兰芳饰金牡丹、钱妙花饰假包公、徐慧琴饰真包公，周宝奎饰金夫人，魏小云饰乌龟精，、金采风饰观音。',
       text2: '1957年4月，在杭州为苏联最高苏维埃主席团主席伏罗希洛夫招待演出，陪同观看的有周恩来总理及贺龙副总理。演毕，伏罗希洛夫上台和演员们一一握手，并风趣地对乌龟精说：“你是好人，成全了别人”。他两手握着真假包公的手说：“你们两个也要团结啊！”',
       text3: '1959年8月，由天马电影制片厂摄制成彩色戏曲艺术片。12月，上海文艺出版社出版了该剧的单行本。 1960年，上海越剧院携该剧赴香港演出。同年，香港万里书店将该剧收入《越剧精华》第二集出版发行。该剧主要唱段已由中国唱片社和音像出版单位，制成唱片和音带发行。',
-      path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20190621%2F7d6310d2b139428cb9d2879fce7f1815.jpeg&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631878939&t=ec2f52b347c1bdefb233546a0dac57c7'
+      path1: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20190621%2F7d6310d2b139428cb9d2879fce7f1815.jpeg&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631878939&t=ec2f52b347c1bdefb233546a0dac57c7',
+      path2: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20190614%2F1e3e605bfd104fe7b78a71ac22b33080.jpeg&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631924206&t=a33d3574aac710c72a8b2b7805f51081'
     }
   };
+  static contextType = NavigationContext;
   render() {
     return (
       <View style={{ backgroundColor: '#E2F4FE' }}>
-        <Top icon1="arrow-back" title="剧本简介" />
+        <Top icon1="arrow-back" title="追鱼" />
         <ScrollView
           style={{
             marginLeft: pxToDp(10),
@@ -34,9 +36,9 @@ class Index extends PureComponent {
         >
           <Image
             style={{ height: pxToDp(180), borderRadius: pxToDp(8), width: '100%' }}
-            source={{ uri: this.state.dramalist.path }}
+            source={{ uri: this.state.dramalist.path1 }}
           />
-          <Text style={{ fontSize: pxToDp(24), fontWeight: 'bold', marginBottom: pxToDp(20) }}>
+          <Text style={{ fontSize: pxToDp(24), fontWeight: 'bold', marginBottom: pxToDp(20), marginTop: pxToDp(10) }}>
             {this.state.dramalist.title}
           </Text>
           <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(10) }}>
@@ -76,9 +78,29 @@ class Index extends PureComponent {
             <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(20) }}>
               &emsp;&emsp;{this.state.dramalist.text2}
             </Text>
-            <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(80) }}>
+            <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(20) }}>
               &emsp;&emsp;{this.state.dramalist.text3}
             </Text>
+          </View>
+          <View>
+            <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold', marginBottom: pxToDp(10) }} onPress={() => this.context.navigate('ScreenPlay')}>
+              剧本详情
+            </Text>
+            <TouchableOpacity style={{
+              marginBottom: pxToDp(80),
+              height: pxToDp(100),
+              width: '100%',
+              borderRadius: pxToDp(8),
+              //elevation: 5,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+              //shadowColor: 'black',  //  阴影颜色
+              //shadowRadius: pxToDp(8),  //  圆角,
+              //shadowOffset: { width: 0, height: 0 },
+              // shadowOpacity: 1,
+            }}
+              onPress={() => this.context.navigate('Screenpaly')}
+            >
+              <Image style={{ height: pxToDp(100), width: '100%', borderRadius: pxToDp(8) }} source={{ uri: this.state.dramalist.path2 }} />
+            </TouchableOpacity>
           </View>
         </ScrollView>
       </View>
