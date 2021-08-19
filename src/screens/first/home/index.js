@@ -20,13 +20,21 @@ import Legend from '@components/first/legend';
 import Actress from '@components/first/actress';
 import { connect } from 'react-redux';
 import { getUserInfoAction } from './store/actions';
+import  RecommendCard  from '../../../component/common/recommendcard'
+
 class Index extends Component {
+
   static contextType = NavigationContext;
-  state = { arr: [] };
+  state = {
+    arr: [],
+    isModalVisible: false
+  };
   componentDidMount() {
     this.props.getUserInfoAction();
   }
-
+  toggleModal = () => {
+    this.setState({ isModalVisible: !this.state.isModalVisible });
+  }
   render() {
     return (
       <ParallaxScrollView
@@ -61,11 +69,26 @@ class Index extends Component {
         scrollableViewStyle={{ backgroundColor: '#fcfcfc' }}
       >
         <View style={{ margin: pxToDp(10), marginTop: pxToDp(30), flex: 1 }}>
-    
+          <View style={{ flexDirection: 'row', width: '100%', justifyContent: 'space-around', marginBottom: pxToDp(20) }}>
+            <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'center' }} onPress={this.toggleModal} >
+              <Ionicons name="library-sharp" size={30} color="#468CD3" />
+              <Text style={{ fontSize: pxToDp(15) }}>推荐</Text>
+            </TouchableOpacity>
+            <RecommendCard isModalVisible={this.state.isModalVisible} toggleModalProps={this.toggleModal} />
+            <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'center' }} >
+              <Ionicons name="today-sharp" size={30} color="#468CD3" />
+              <Text style={{ fontSize: pxToDp(15) }}>签到</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'center' }} >
+              <Ionicons name="earth-sharp" size={30} color="#468CD3" />
+              <Text style={{ fontSize: pxToDp(15) }}>不及丢</Text>
+            </TouchableOpacity>
+          </View>
+
           <HighLights />
 
           {/*俯瞰百年 */}
-          <View style={{ margin: pxToDp(10), marginTop: pxToDp(0) }}>
+          <View style={{ margin: pxToDp(10), marginTop: pxToDp(10) }}>
             <View
               style={{
                 flexDirection: 'row',

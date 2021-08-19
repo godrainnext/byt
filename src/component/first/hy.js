@@ -42,8 +42,7 @@ export default class Hy extends PureComponent {
     return (
       <SafeAreaView >
         <View >
-          <ScrollView
-            
+          <ScrollView     
             scrollEventThrottle={200}
             directionalLockEnabled={true}
           >

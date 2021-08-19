@@ -16,7 +16,7 @@ import { pxToDp } from '@utils/styleKits';
 import { MarqueeHorizontal, MarqueeVertical } from 'react-native-marquee-ab';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import Icon1 from 'react-native-vector-icons/MaterialIcons';
-import { getVideoCommentById } from '../../../service/video';
+import  getVideoCommentById  from '../../../service/video';
 import SvgUri from 'react-native-svg-uri'
 import { pinglun,dianzan,sandian,allcomment } from '../../common/iconSvg';
 import RBSheet  from 'react-native-raw-bottom-sheet';
