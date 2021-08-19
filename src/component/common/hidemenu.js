@@ -147,7 +147,7 @@ export class AlwaysOpen extends PureComponent {
           style={{
             width: '100%',
             flexDirection: 'row',
-            height: pxToDp(40),
+            height: pxToDp(48),
             alignItems: 'center'
           }}
         >
@@ -243,7 +243,7 @@ export class AlwaysOpen extends PureComponent {
       <Modalize
         ref={this.modalizeRef}
         modalStyle={s.content__modal}
-        alwaysOpen={580}
+        alwaysOpen={pxToDp(540)}
         handlePosition="inside"
       >
         {this.renderContent()}
