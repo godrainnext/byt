@@ -37,7 +37,6 @@ class Index extends PureComponent {
   };
   reply = (id) => {
     this.props.inputRef.focus();
-    console.log(this.props.inputRef);
   };
   _submit = async (id) => {
     if (!this.state.mycomment) {

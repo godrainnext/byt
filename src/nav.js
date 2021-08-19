@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Easing,Animated,} from 'react-native';
+import { Easing, Animated } from 'react-native';
 import Tabbar from './tabbar';
 import * as Screens from './screens';
 
@@ -13,7 +13,7 @@ function Nav() {
       <Stack.Navigator headerMode="none" initialRouteName="Tabbar">
         <Stack.Screen name="NewTimeLine" component={Screens.NewTimeLine} />
 
-        <Stack.Screen name="Tabbar" component={Tabbar}  />
+        <Stack.Screen name="Tabbar" component={Tabbar} />
         {/*登录 */}
         <Stack.Screen name="Login" component={Screens.Login} />
         {/*首页 */}
@@ -38,10 +38,10 @@ function Nav() {
         <Stack.Screen name="Pagefive" component={Screens.Pagefive} />
         {/*我的 */}
         <Stack.Screen name="My" component={Screens.My} />
-        
+
         {/*设置 */}
         <Stack.Screen name="Set" component={Screens.Set} />
-        
+
         {/*具体的设置内容 关于我们、推送、意见、隐私 */}
         <Stack.Screen name="Women" component={Screens.Women} />
         <Stack.Screen name="Tuisong" component={Screens.Tuisong} />
@@ -157,8 +157,8 @@ function Nav() {
         {/* 进房间 */}
         <Stack.Screen name="SeeFang" component={Screens.SeeFang} />
         {/**剧本页 */}
-        <Stack.Screen name="Drama" component={Screens.Drama} /> 
-        <Stack.Screen name="Drama1" component={Screens.Drama1} /> 
+        <Stack.Screen name="Drama" component={Screens.Drama} />
+        <Stack.Screen name="Drama1" component={Screens.Drama1} />
         <Stack.Screen name="Drama2" component={Screens.Drama2} />
         <Stack.Screen name="Drama3" component={Screens.Drama3} />
         <Stack.Screen name="Drama4" component={Screens.Drama4} />

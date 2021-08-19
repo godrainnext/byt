@@ -13,8 +13,6 @@ import {
 import { pxToDp } from '@utils/styleKits';
 import { NavigationContext } from '@react-navigation/native';
 import SvgUri from 'react-native-svg-uri';
-import { BottomSheet, ListItem } from 'react-native-elements';
-import {} from 'react-native-elements/dist/list/ListItem';
 import { sandian } from '../../../../component/common/iconSvg';
 import { Audio } from 'expo-av';
 import { Video } from 'expo-av';
@@ -105,7 +103,7 @@ class Index extends PureComponent {
       >
         {obj.images?.map((item, index) => (
           <Image
-            key={index}
+            key={item}
             style={{
               width: pxToDp(155),
               height: '100%',
@@ -203,7 +201,7 @@ class Index extends PureComponent {
               marginBottom: pxToDp(20)
             }}
           >
-            {this.props.dongtai.map((item, dtid) => (
+            {this.props.dongtai.map((item) => (
               <View
                 key={item.id}
                 style={{

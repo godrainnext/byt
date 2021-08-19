@@ -67,6 +67,7 @@ class Index extends PureComponent {
   componentDidMount() {
     this.changeListener = DeviceEventEmitter.addListener('momentChange', () => {
       getMomentListByStatus(0, 0, 10).then((res) => {
+        console.log(res);
         this.setState({ dongtai: [...res].reverse() });
       });
     });
@@ -155,6 +156,7 @@ class Index extends PureComponent {
             >
               {this.state.field.map((item, index) => (
                 <TouchableOpacity
+                  key={item.id}
                   style={{
                     marginLeft: pxToDp(10),
                     marginTop: pxToDp(10),

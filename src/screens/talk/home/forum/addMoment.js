@@ -134,6 +134,7 @@ class index extends PureComponent {
         ToastAndroid.show('发表文章成功', ToastAndroid.SHORT);
       })
       .then((ress) => {
+        console.log('发送事件');
         DeviceEventEmitter.emit('momentChange');
         this.props.toggleModalProps();
       });

@@ -50,27 +50,6 @@ class index extends Component {
             name: pickerResult.type
           };
           fd.append('file', file);
-          requset
-            .post({
-              url: URL.UPDATE_AVATER,
-              data: fd,
-              headers: {
-                Accept: 'Application/json',
-                'content-type': 'multipart/form-data'
-              }
-            })
-            .then((res) => {
-              this.props.changeAvatar(pickerResult.uri);
-              ToastAndroid.show(res, ToastAndroid.SHORT);
-            })
-            .catch((err) => {
-              console.log(err);
-            });
-          this.setState({
-            avatar: pickerResult.uri,
-            modalVisible: false
-          });
-          // this.setState({ avatar: response.uri });
         }
       }
     );
