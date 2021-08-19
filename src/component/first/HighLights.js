@@ -45,7 +45,11 @@ export default class HighLights extends Component {
         </View>
         <ScrollView
           horizontal={true}
-          style={{ height: 350, marginLeft: -20, marginRight: -20 }}
+          style={{
+            height: pxToDp(350),
+            marginLeft: pxToDp(-24),
+            top: pxToDp(-16)
+          }}
           showsHorizontalScrollIndicator={false}
         >
           {this.state.arr.map((item, index) => (

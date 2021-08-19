@@ -13,6 +13,8 @@ import { NavigationContext } from '@react-navigation/native';
 import { FAB } from 'react-native-elements';
 import LottieView from 'lottie-react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
+import SvgUri from 'react-native-svg-uri';
+import { live } from '../../../../component/common/iconSvg';
 import { getStreamList } from '../../../../service/shop';
 
 class Index extends Component {
@@ -118,6 +120,11 @@ class Index extends Component {
           placement="right"
           color="#B0C4DE"
           onPress={() => this.context.navigate('KaiBo')}
+          icon={
+            <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+              <SvgUri svgXmlData={live} width="32" height="32" />
+            </View>
+          }
         />
         {/* <FAB size="large" placement="right" color="red" onPress={() => this.context.navigate("KaiFang")} /> */}
       </View>
