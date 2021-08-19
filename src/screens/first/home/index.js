@@ -61,6 +61,7 @@ class Index extends Component {
         scrollableViewStyle={{ backgroundColor: '#fcfcfc' }}
       >
         <View style={{ margin: pxToDp(10), marginTop: pxToDp(30), flex: 1 }}>
+    
           <HighLights />
 
           {/*俯瞰百年 */}

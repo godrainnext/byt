@@ -26,49 +26,9 @@ export default class hello extends Component {
 
   static contextType = NavigationContext;
   state = {
-    arr: [], id: 1,
-    bcimg:
-      'https://img2.baidu.com/it/u=2116882029,1761299726&fm=26&fmt=auto&gp=0.jpg',
-    userimg:
-      'https://img2.baidu.com/it/u=2116882029,1761299726&fm=26&fmt=auto&gp=0.jpg',
-    username: 'ppp',
-    userqm: 'aaaaaaaaaaaaaaaaaaaaa',
-    userfans: 10,
-    usergz: 10,
-    userhz: 1,
-    collect: [
-      { collectid: 1, collectimg: '', title: '乌拉乌拉乌拉', playnum: 111 }
-    ],
-    dongtai: [
-      {
-        dtid: 1,
-        dtimg:
-          'https://img2.baidu.com/it/u=2116882029,1761299726&fm=26&fmt=auto&gp=0.jpg',
-        name: 'wulawulaaaa',
-        date: '03月20日',
-        dt: '乌拉乌拉乌拉乌拉乌拉乌拉乌拉乌拉乌拉',
-        dz: 123,
-        dtimg2: [
-          'https://img2.baidu.com/it/u=2116882029,1761299726&fm=26&fmt=auto&gp=0.jpg',
-          'https://img2.baidu.com/it/u=2116882029,1761299726&fm=26&fmt=auto&gp=0.jpg',
-          'https://img2.baidu.com/it/u=2116882029,1761299726&fm=26&fmt=auto&gp=0.jpg',
-          'https://img2.baidu.com/it/u=2116882029,1761299726&fm=26&fmt=auto&gp=0.jpg',
-          'https://img2.baidu.com/it/u=2116882029,1761299726&fm=26&fmt=auto&gp=0.jpg',
-          'https://img2.baidu.com/it/u=2116882029,1761299726&fm=26&fmt=auto&gp=0.jpg'
-        ]
-      }
-    ],
+    arr: [], sctop: 0,
 
-    soucang: [
-      {
-        scid: 1,
-        scimg:
-          'https://img2.baidu.com/it/u=2116882029,1761299726&fm=26&fmt=auto&gp=0.jpg',
-        bookname: '111111',
-        name: '12111',
-        date: '2019-05-02'
-      }
-    ]
+
   };
   componentDidMount() {
     getVideList(0).then((res) => {
@@ -81,6 +41,15 @@ export default class hello extends Component {
     return (
 
       <ParallaxScrollView
+        onScroll={(event) => {
+          {
+            console.log(event.nativeEvent.contentOffset.y);
+            this.setState({
+              sctop: event.nativeEvent.contentOffset.y - (event.nativeEvent.contentOffset.y / 2)
+            });
+          }
+        }}
+
         renderStickyHeader={() => (<Top icon1="arrow-back" title="个人中心" />)}
         stickyHeaderHeight={40}
         parallaxHeaderHeight={380}
@@ -109,12 +78,36 @@ export default class hello extends Component {
 
         scrollableViewStyle={{ backgroundColor: '#fcfcfc' }}
       >
-        <ImageBackground source={require('./myback.png')}
-          style={{ width: 400, height: 200, }} />
 
-        <Dongtai userId={this.props.route.params} />
-
+          <View style={{ flex: 1 }}>
+            <View style={[style.top, { top: this.state.sctop }]}>
+              <ImageBackground source={require('./myback.png')}
+                style={{ width: 400, height: 200, }} />
+            </View>
+            <View style={style.bottom}>
+              <Dongtai userId={this.props.route.params} />
+            </View>
+          </View>
+      
       </ParallaxScrollView>
     )
   }
 }
+const style = StyleSheet.create({
+  sv: {
+    flex: 1,
+  },
+  text: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  top: {
+    width: 140,
+    position: 'relative'
+  },
+  bottom: {
+    width: 350,
+    position: 'relative',
+    zIndex: 1
+  }
+})

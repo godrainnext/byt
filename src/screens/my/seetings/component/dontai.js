@@ -113,7 +113,7 @@ class Index extends PureComponent {
 
   render() {
     return (
-      <View>
+      <View >
 
         <View
           style={{
@@ -125,6 +125,7 @@ class Index extends PureComponent {
             backgroundColor: '#fcfcfc',
             borderRadius: pxToDp(10),
             elevation: 3
+           
           }}
         > 
           {this.state.contentArr ? (
