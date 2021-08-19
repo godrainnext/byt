@@ -14,13 +14,13 @@ import { NavigationContext } from '@react-navigation/native';
 import Top from '../../../../component/common/dongtaiTop';
 import Comments from './comments';
 import { getMomentInnerById } from '@service/moment';
-import { Video } from 'react-native-unimodules';
 import SvgUri from 'react-native-svg-uri';
 import { stopmusic, playmusic } from '../../../../component/common/iconSvg';
 import request from '@service/index';
 import { addFollow, cancelFollow } from '../../../../service/mine';
 import { DeviceEventEmitter } from 'react-native';
 import FollowButton from '@components/FollowButton';
+import {Video,Audio} from 'expo-av'
 class Index extends PureComponent {
   state = {
     inner: {},
@@ -36,14 +36,14 @@ class Index extends PureComponent {
 
     request
       .post({
-        url: `/comment/${this.props.route.params.momentId}`,
+        url: `/comment/${this.props.route.params}`,
         data: {
           content: this.state.mycomment
         }
       })
       .then((res) => {
         this.setState({ mycomment: '' });
-        getMomentInnerById(this.props.route.params.momentId)
+        getMomentInnerById(this.props.route.params)
           .then((res) => {
             this.setState({ inner: { ...res } });
           })
@@ -52,9 +52,10 @@ class Index extends PureComponent {
   };
 
   componentDidMount() {
-    getMomentInnerById(this.props.route.params.momentId)
+    getMomentInnerById(this.props.route.params)
       .then((res) => {
         this.setState({ inner: { ...res } });
+        console.log(res);
       })
       .catch((err) => console.log(err));
   }
@@ -104,7 +105,7 @@ class Index extends PureComponent {
   };
   showMusic = () => {
     const video = createRef();
-    const { picture, music } = this.state.inner;
+    const { cover, music } = this.state.inner;
     return (
       <ImageBackground
         style={{
@@ -112,7 +113,7 @@ class Index extends PureComponent {
           height: pxToDp(150),
           marginTop: pxToDp(10)
         }}
-        source={{ uri: picture }}
+        source={{ uri: cover}}
       >
         <Video
           ref={video}
@@ -145,7 +146,8 @@ class Index extends PureComponent {
       createTime,
       title = 666,
       user,
-      label
+      label,
+      cover
     } = this.state.inner;
 
     return (

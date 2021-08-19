@@ -61,7 +61,7 @@ class Index extends PureComponent {
   showMusic = (obj) => {
     const video = createRef()
     return (
-      <ImageBackground style={{ flex: 1, height: pxToDp(150), marginTop: pxToDp(10), }} source={{ uri: obj.picture }}>
+      <ImageBackground  key={obj.music} style={{ flex: 1, height: pxToDp(150), marginTop: pxToDp(10), }} source={{ uri: obj.picture }}>
         <Video
           ref={video}
           source={{ uri: obj.music }}
@@ -78,11 +78,12 @@ class Index extends PureComponent {
     )
   }
   showArticle = (obj) => {
+    console.log(obj);
     return (
-      <ScrollView style={{ flex: 1, height: pxToDp(120), marginTop: pxToDp(10) }} horizontal={true} showsHorizontalScrollIndicator={false}>
-        {obj.images?.map((item, index) => (
+      <ScrollView   style={{ flex: 1, height: pxToDp(120), marginTop: pxToDp(10) }} horizontal={true} showsHorizontalScrollIndicator={false}>
+        {obj.images?.map((item) => (
           <Image
-            key={index}
+            key={item}
             style={{ width: pxToDp(155), height: '100%', borderRadius: pxToDp(10), marginRight: pxToDp(10) }}
             source={{ uri: item }} />
         ))}
@@ -173,7 +174,7 @@ class Index extends PureComponent {
                   </TouchableOpacity>
                 </View>
                 <View style={{ width: '90%', marginBottom: pxToDp(30), alignSelf: 'center' }}>
-                  <TouchableOpacity onPress={() => this.context.navigate('Inluntan', item.id)}>
+                  <TouchableOpacity onPress={() => {this.context.navigate('Inluntan', item.id);console.log(item);}}>
                     <Text style={{ fontSize: pxToDp(18), marginBottom: pxToDp(10), paddingLeft: pxToDp(8), marginTop: pxToDp(10) }}>{item.content}</Text>
                   </TouchableOpacity>
 

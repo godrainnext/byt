@@ -86,12 +86,12 @@ class Index extends PureComponent {
   }
   componentDidMount() {
     this.changeListener = DeviceEventEmitter.addListener('momentChange', () => {
-      getMomentListByStatus(0, 0, 10).then((res) => {
+      getMomentListByStatus(0, 0, 20).then((res) => {
         this.setState({ dongtai: [...res].reverse() });
         console.log(res);
       });
     });
-    getMomentListByStatus(0, 0, 10).then((res) => {
+    getMomentListByStatus(0, 0, 20).then((res) => {
       this.setState({ dongtai: [...res].reverse() });
     });
   }

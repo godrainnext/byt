@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
 import React, { PureComponent } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View,DeviceEventEmitter } from 'react-native';
 import Otherbanner from './Otherbanner';
 import { Input } from 'react-native-elements';
 import { NavigationContext } from '@react-navigation/native';

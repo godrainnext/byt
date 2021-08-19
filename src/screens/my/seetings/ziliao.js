@@ -138,7 +138,7 @@ class Ziliao extends PureComponent {
           'content-type': 'application/json'
         }
       })
-      .thegitn((res) => {
+      .then((res) => {
         ToastAndroid.show('保存信息成功', ToastAndroid.SHORT);
         this.props.getUserInfoAction();
       })
@@ -309,7 +309,7 @@ class Ziliao extends PureComponent {
             />
             <Image
               source={require('./dan.png')}
-              style={{ width: 30, height: 50, marginLeft: pxToDp(60) }}
+              style={{ width: 30, height: 50, marginLeft: pxToDp(40) }}
             />
             <CheckBox
               title="女"
@@ -370,9 +370,10 @@ class Ziliao extends PureComponent {
               marginTop: pxToDp(50)
             }}
           >
-            <TouchableOpacity onPress={this.saveUserInfo}>
+          
               <Button
                 title="保     存"
+                onPress={this.saveUserInfo}
                 ViewComponent={LinearGradient}
                 titleStyle={{ color: '#fcfcfc' }}
                 linearGradientProps={{
@@ -381,7 +382,7 @@ class Ziliao extends PureComponent {
                   end: { x: 1, y: 0.5 }
                 }}
               />
-            </TouchableOpacity>
+          
           </View>
         </View>
       </View>
