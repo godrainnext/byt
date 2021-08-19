@@ -145,7 +145,7 @@ class Index extends PureComponent {
               <List icon="server-outline" title="积分商城" />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => this.context.navigate('History')}>
-              <List icon="server-outline" title="历史浏览" />
+              <List icon="eye-outline" title="历史浏览" />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => this.context.navigate('Apply')}>
               <List icon="videocam-outline" title="直播申请" />
