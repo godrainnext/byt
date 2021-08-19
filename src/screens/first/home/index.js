@@ -20,8 +20,8 @@ import Legend from '@components/first/legend';
 import Actress from '@components/first/actress';
 import { connect } from 'react-redux';
 import { getUserInfoAction } from './store/actions';
-import  RecommendCard  from '../../../component/common/recommendcard'
-
+import RecommendCard from '../../../component/common/recommendcard';
+import Qiandao from '../../../component/common/qiandao';
 class Index extends Component {
 
   static contextType = NavigationContext;
@@ -70,15 +70,15 @@ class Index extends Component {
       >
         <View style={{ margin: pxToDp(10), marginTop: pxToDp(30), flex: 1 }}>
           <View style={{ flexDirection: 'row', width: '100%', justifyContent: 'space-around', marginBottom: pxToDp(20) }}>
+            {/**推荐卡片 */}
             <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'center' }} onPress={this.toggleModal} >
               <Ionicons name="library-sharp" size={30} color="#468CD3" />
               <Text style={{ fontSize: pxToDp(15) }}>推荐</Text>
             </TouchableOpacity>
             <RecommendCard isModalVisible={this.state.isModalVisible} toggleModalProps={this.toggleModal} />
-            <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'center' }} >
-              <Ionicons name="today-sharp" size={30} color="#468CD3" />
-              <Text style={{ fontSize: pxToDp(15) }}>签到</Text>
-            </TouchableOpacity>
+            {/**签到 */}
+            <Qiandao />
+            {/**待定 */}
             <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'center' }} >
               <Ionicons name="earth-sharp" size={30} color="#468CD3" />
               <Text style={{ fontSize: pxToDp(15) }}>不及丢</Text>
