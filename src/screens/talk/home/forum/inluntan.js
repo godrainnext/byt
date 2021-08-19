@@ -36,14 +36,14 @@ class Index extends PureComponent {
 
     request
       .post({
-        url: `/comment/${this.props.route.params.momentId}`,
+        url: `/comment/${this.props.route.params}`,
         data: {
           content: this.state.mycomment
         }
       })
       .then((res) => {
         this.setState({ mycomment: '' });
-        getMomentInnerById(this.props.route.params.momentId)
+        getMomentInnerById(this.props.route.params)
           .then((res) => {
             this.setState({ inner: { ...res } });
           })
@@ -52,8 +52,9 @@ class Index extends PureComponent {
   };
 
   componentDidMount() {
-    getMomentInnerById(this.props.route.params.momentId)
+    getMomentInnerById(this.props.route.params)
       .then((res) => {
+        console.log(res);
         this.setState({ inner: { ...res } });
       })
       .catch((err) => console.log(err));

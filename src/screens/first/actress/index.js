@@ -17,7 +17,7 @@ const TabView1 = memo(function (props) {
     getRoleVideoById(props.id).then((res) => {
       setvideoList(res.videoList);
     });
-  }, [props.id]);
+  }, []);
 
   return (
     <ScrollView {...props}>
@@ -41,8 +41,7 @@ const TabView2 = memo(function (props) {
     getRolePicById(props.id).then((res) => {
       setpicList(res.picList);
     });
-  }, [props.id]);
-  console.log(picList);
+  }, []);
   return (
     <ScrollView {...props}>
       <View>
@@ -69,7 +68,7 @@ const TabView3 = memo(function (props) {
     getRoleMomentById(props.id).then((res) => {
       setmomentList(res.momentList);
     });
-  }, [props.id]);
+  }, []);
   return (
     <ScrollView {...props}>
       <View>
