@@ -145,40 +145,6 @@
     </div>
 
     <script>
-<<<<<<< HEAD
-        (function($) {
-            $.fn.uiTimeLine = function() {
-                var $timeLine = $(".ui-timeLine");
-                var $activeLine = $(".ui-timeLine .activeLine");
-                var $dots = $(".ui-timeLine .dot");
-                var $cboxs = $(".ui-timeLine .item .cbox");
-                return this.each(function() {
-                    function setActiveLineHeight() {
-                        let height = $(document).scrollTop() + window.screen.height;
-                        let j = 0;
-                        for (let i = 0; i < $dots.length; i++) {
-                            if ($($dots[i]).offset().top < height) {
-                                $($($dots[i])).addClass("active");
-                                $($cboxs[i]).css({
-                                    "left": 0
-                                });
-                                j = i;
-                            } else {
-                                $($($dots[i])).removeClass("active")
-                                $($cboxs[i]).css({
-                                    "left": "100vw"
-                                });
-                            }
-                        }
-                        $activeLine.css({
-                            "height": $($dots[j]).offset().top - $timeLine.offset().top + 40 + "px"
-                        })
-                    }
-                    $(window).on('scroll', setActiveLineHeight);
-                    setActiveLineHeight();
-                    
-                })
-=======
       (function ($) {
         $.fn.uiTimeLine = function () {
           var $timeLine = $('.ui-timeLine');
@@ -207,7 +173,6 @@
                 height:
                   $($dots[j]).offset().top - $timeLine.offset().top + 40 + 'px'
               });
->>>>>>> 563800ae57b1fe40ca4dedb51d7125b99c22a92d
             }
             $(window).on('scroll', setActiveLineHeight);
             setActiveLineHeight();
