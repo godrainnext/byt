@@ -309,7 +309,7 @@ class Ziliao extends PureComponent {
             />
             <Image
               source={require('./dan.png')}
-              style={{ width: 30, height: 50, marginLeft: pxToDp(60) }}
+              style={{ width: 30, height: 50, marginLeft: pxToDp(40) }}
             />
             <CheckBox
               title="女"

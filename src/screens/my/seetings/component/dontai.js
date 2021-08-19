@@ -1,20 +1,25 @@
-import React, { PureComponent ,createRef} from 'react';
+import React, { PureComponent, createRef } from 'react';
 import {
   View,
   Text,
   Image,
   StyleSheet,
   ScrollView,
-  TouchableOpacity,ImageBackground
+  TouchableOpacity,
+  ImageBackground
 } from 'react-native';
 import { pxToDp } from '@utils/styleKits';
 import { NavigationContext } from '@react-navigation/native';
 import SvgUri from 'react-native-svg-uri';
-import { sandian,playmusic, stopmusic } from '../../../../component/common/iconSvg';
+import {
+  sandian,
+  playmusic,
+  stopmusic
+} from '../../../../component/common/iconSvg';
 import { BottomSheet, ListItem } from 'react-native-elements';
 import { getMomentListByUserId } from '../../../../service/moment';
 import { Audio } from 'expo-av';
-import { Video } from 'expo-av'
+import { Video } from 'expo-av';
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 
 class Index extends PureComponent {
@@ -36,7 +41,7 @@ class Index extends PureComponent {
   componentDidMount() {
     getMomentListByUserId(this.props.userId).then((res) => {
       this.setState({ contentArr: res.contentArr });
-      console.log(res)
+      console.log(res);
     });
   }
   playSound = async () => {
@@ -44,89 +49,111 @@ class Index extends PureComponent {
       console.log('Loading Sound');
       console.log('Playing Sound');
       for (const sound of this.state.sound) {
-        this.setState({ playingsong: sound })
+        this.setState({ playingsong: sound });
         await sound.playAsync();
       }
-      this.setState({ isplay: true })
+      this.setState({ isplay: true });
 
       console.log(this.state.sound);
-
     } else {
       for (const uri of this.state.URI) {
-        const { sound } = await Audio.Sound.createAsync(
-          { uri }
-        );
+        const { sound } = await Audio.Sound.createAsync({ uri });
         this.setState({ sound: [...this.state.sound, sound] });
       }
-
 
       console.log('Loading Sound');
       console.log('Playing Sound');
       for (const sound of this.state.sound) {
-        this.setState({ playingsong: sound })
+        this.setState({ playingsong: sound });
         await sound.playAsync();
       }
 
-      this.setState({ isplay: true })
+      this.setState({ isplay: true });
     }
-
-  }
+  };
 
   pauseSound = async () => {
-    console.log('Stopping Sound')
+    console.log('Stopping Sound');
     // this.setState({sound:undefined})
-    await this.state.playingsong.pauseAsync()
-    this.setState({ isplay: false })
-  }
+    await this.state.playingsong.pauseAsync();
+    this.setState({ isplay: false });
+  };
   showMusic = (obj) => {
-    const video = createRef()
+    const video = createRef();
     return (
-      <ImageBackground style={{ flex: 1, height: pxToDp(150), marginTop: pxToDp(10), }} source={{ uri: obj.cover }}>
+      <ImageBackground
+        style={{
+          flex: 1,
+          height: pxToDp(150),
+          marginTop: pxToDp(10),
+          backgroundColor: 'rgba(255,255,255,0.5)'
+        }}
+        source={{ uri: obj.cover }}
+      >
         <Video
           ref={video}
           source={{ uri: obj.music }}
           resizeMode="contain"
-          onPlaybackStatusUpdate={status => this.setState({ status })}
+          onPlaybackStatusUpdate={(status) => this.setState({ status })}
         />
-        <TouchableOpacity style={{ position: 'absolute', bottom: 10, right: 10, opacity: .5 }}
+        <TouchableOpacity
+          style={{ position: 'absolute', bottom: 10, right: 10, opacity: 0.5 }}
           onPress={() =>
-            this.state.status.isPlaying ? video.current.pauseAsync() : video.current.playAsync()
-          }>
-          <SvgUri svgXmlData={this.state.status.isPlaying ? stopmusic : playmusic} width='30' height='30' />
+            this.state.status.isPlaying
+              ? video.current.pauseAsync()
+              : video.current.playAsync()
+          }
+        >
+          <SvgUri
+            svgXmlData={this.state.status.isPlaying ? stopmusic : playmusic}
+            width="30"
+            height="30"
+          />
         </TouchableOpacity>
-      </ImageBackground >
-    )
-  }
+      </ImageBackground>
+    );
+  };
   showArticle = (obj) => {
     return (
-      <ScrollView style={{ flex: 1, height: pxToDp(120), marginTop: pxToDp(10) }} horizontal={true} showsHorizontalScrollIndicator={false}>
+      <ScrollView
+        style={{ flex: 1, height: pxToDp(120), marginTop: pxToDp(10) }}
+        horizontal={true}
+        showsHorizontalScrollIndicator={false}
+      >
         {obj.images?.map((item, index) => (
           <Image
             key={index}
-            style={{ width: pxToDp(155), height: '100%', borderRadius: pxToDp(10), marginRight: pxToDp(10) }}
-            source={{ uri: item }} />
+            style={{
+              width: pxToDp(155),
+              height: '100%',
+              borderRadius: pxToDp(10),
+              marginRight: pxToDp(10)
+            }}
+            source={{ uri: item }}
+          />
         ))}
-      </ScrollView>)
-  }
+      </ScrollView>
+    );
+  };
 
   static contextType = NavigationContext;
 
   render() {
     return (
       <View>
-
         <View
           style={{
-            width: '85%',
-            alignSelf:'center',
+            width: '98%',
+            alignSelf: 'center',
             marginLeft: pxToDp(10),
+            marginRight: pxToDp(10),
             marginTop: pxToDp(20),
             marginBottom: pxToDp(20),
-            backgroundColor: '#fcfcfc',
+            backgroundColor: 'rgba(255,255,255,0.5)',
             borderRadius: pxToDp(10),
             elevation: 3
           }}
-        > 
+        >
           {this.state.contentArr ? (
             this.state.contentArr.map((item) => (
               <View key={item.momentId}>
@@ -176,7 +203,7 @@ class Index extends PureComponent {
                   style={{
                     elevation: 2,
                     borderWidth: 0,
-                    backgroundColor: 'white',
+                    backgroundColor: 'rgba(255,255,255,0.5)',
                     borderBottomLeftRadius: pxToDp(10),
                     borderBottomRightRadius: pxToDp(10)
                   }}
@@ -208,8 +235,7 @@ class Index extends PureComponent {
                     >
                       {item.content}
                     </Text>
-                    
-                 
+
                     {item.label ? this.showMusic(item) : this.showArticle(item)}
                   </View>
                 </View>

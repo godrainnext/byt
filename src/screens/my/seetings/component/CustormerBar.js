@@ -14,7 +14,7 @@ import SvgUri from 'react-native-svg-uri';
 import { NavigationContext } from '@react-navigation/native';
 import { connect } from 'react-redux';
 import changeImgSize from '@utils/changeImgSize';
-import {  Button } from 'react-native-elements';
+import { Button } from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
 const jubao =
   '<svg t="1627606303248" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5636" width="200" height="200"><path d="M377.3056 990.0032a30.08 30.08 0 0 1-30.0032-29.9008 29.952 29.952 0 0 1 29.9008-30.1056l463.3984-1.408h0.1024a30.0672 30.0672 0 0 1 29.9904 29.9136 30.0288 30.0288 0 0 1-29.888 30.0928l-463.5008 1.408c0.0896 0 0.0896 0 0 0z" fill="#2c2c2c" p-id="5637"></path><path d="M853.6064 958.5024a29.952 29.952 0 0 1-30.0032-30.0032V639.0016c0-84.9024-32.3968-164.608-91.3024-224.6016-58.7008-59.8016-136.8064-92.8-219.8016-92.8s-160.9984 32.896-219.8016 92.8c-58.8928 60.0064-91.3024 139.6992-91.3024 224.6016v289.4976a29.952 29.952 0 0 1-29.9904 30.0032 29.952 29.952 0 0 1-30.0032-30.0032V639.0016c0-50.9056 9.792-100.1984 29.0944-146.7008a379.6224 379.6224 0 0 1 79.5008-120 370.624 370.624 0 0 1 117.9008-80.9984 364.032 364.032 0 0 1 144.6016-29.696c50.0992 0 98.8032 9.984 144.6016 29.696a367.9232 367.9232 0 0 1 117.888 80.9984 378.3296 378.3296 0 0 1 79.4112 119.8976 380.8768 380.8768 0 0 1 29.0944 146.7008v289.4976a29.9008 29.9008 0 0 1-29.888 30.1056z" fill="#2c2c2c" p-id="5638"></path><path d="M796.8 284.0064c-5.1968 0-10.496-1.408-15.3984-4.3008a29.9904 29.9904 0 0 1-10.4064-41.1008l45.504-76.1088a29.9904 29.9904 0 0 1 51.4944 30.7072l-45.4912 76.096a29.7088 29.7088 0 0 1-25.7024 14.6944z m-579.8016 0a29.9904 29.9904 0 0 1-25.792-14.6048l-45.504-76.096a29.9008 29.9008 0 0 1 10.3936-41.1008 29.9008 29.9008 0 0 1 41.1008 10.3936l45.504 76.096a29.9008 29.9008 0 0 1-25.7024 45.312z m296.9984-119.104a29.9648 29.9648 0 0 1-29.9904-29.4016l-1.408-70.7072A29.9648 29.9648 0 0 1 512 34.2016h0.6016a29.9648 29.9648 0 0 1 30.0032 29.4016l1.3952 70.6944a29.9648 29.9648 0 0 1-29.4016 30.592h-0.6016zM345.1008 614.784a30.0416 30.0416 0 0 1-29.6064-35.3024 175.8336 175.8336 0 0 1 72.8064-113.792 175.7184 175.7184 0 0 1 131.9936-29.0048c11.904 2.0992 23.6032 5.504 34.7008 9.9968a30.0032 30.0032 0 0 1-22.2976 55.7056 115.1744 115.1744 0 0 0-22.8992-6.6048 115.584 115.584 0 0 0-87.104 19.1104 116.096 116.096 0 0 0-48.0896 75.0976 29.9776 29.9776 0 0 1-29.504 24.7936z" fill="#2c2c2c" p-id="5639"></path></svg>';
@@ -47,125 +47,104 @@ class Index extends PureComponent {
       <View style={{ flexDirection: 'column' }}>
         <Top icon1="arrow-back" title="个人中心" />
 
-        <View style={{ height: pxToDp(250) }}>
-          <View
-            style={{ width: '100%', height: pxToDp(270), }}
-            source={{
-              uri: this.props.avatar
-                ? this.props.avatar
-                : changeImgSize(avatar, 'small')
-            }}
-          >
-             <ImageBackground style={{backgroundColor:'black',opacity:.5,width: '100%', height: pxToDp(320), }}/>
-          <View>
-            <TouchableOpacity style={{position:'absolute',top:pxToDp(-280),left:pxToDp(140)}}
-            TouchableOpacity={1}>
-              <View style={{backgroundColor:'#fff',borderRadius:100,alignSelf:'center'}}>
-              <Image
-                source={{
-                  uri: this.props.avatar
-                    ? this.props.avatar
-                    : changeImgSize(avatar, 'small')
-                }}
-                style={{
-                  width: pxToDp(90),
-                  height: pxToDp(90),
-                  borderRadius: pxToDp(50),
-                  margin: pxToDp(3),
+        <View>
+          <View style={{ justifyContent: 'center' }}>
+            <ImageBackground style={{ backgroundColor: 'black', opacity: .5, width: '100%', height: pxToDp(320), }} />
+            <View>
+              <TouchableOpacity style={{ position: 'absolute', top: pxToDp(-300), left: pxToDp(140) }}
+                TouchableOpacity={1}>
+                <View style={{ backgroundColor: '#fff', borderRadius: 100, alignSelf: 'center' }}>
+                  <Image
+                    source={{
+                      uri: this.props.avatar
+                        ? this.props.avatar
+                        : changeImgSize(avatar, 'small')
+                    }}
+                    style={{
+                      width: pxToDp(90),
+                      height: pxToDp(90),
+                      borderRadius: pxToDp(50),
+                      margin: pxToDp(3),
 
+                    }}
+                  />
+                </View>
+              </TouchableOpacity>
+              <Text
+                style={{
+                  fontSize: pxToDp(20),
+                  bottom: 190,
+                  fontWeight: 'bold', color: '#fff',
+                  alignSelf: 'center'
                 }}
-              />
-              </View>
-            </TouchableOpacity>
-            <Text
-              style={{
-                fontSize: pxToDp(20),
-                top: pxToDp(-180),
-                left: pxToDp(55),
-                alignSelf:'center',
-                width: pxToDp(150),fontWeight:'bold',color:'#fff'
-              }}
-              numberOfLines={1}
-            >
-              {nickName}
-            </Text>
-          </View>
-          <View
-            style={{
-              flexDirection: 'row',
-              position: 'absolute',
-              top: pxToDp(160),
-              right: pxToDp(0)
-            }}
-          >
-            <View style={{ marginRight: pxToDp(20) }}>
-              <TouchableOpacity
-                style={{ justifyContent: 'center', alignItems: 'center' }}
+                numberOfLines={1}
               >
-                <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold',color: '#fcfcfc'}}>
+                {nickName}
+              </Text>
+            </View>
+            <View
+              style={{
+                flexDirection: 'row',
+                position: 'absolute',
+                top: pxToDp(160),
+                right: pxToDp(0)
+              }}
+            >
+              <View style={{ marginRight: pxToDp(20),  alignItems: 'center' }}>
+
+                <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold', color: '#fcfcfc' }}>
                   {fansCount}
                 </Text>
-                <Text style={{ fontSize: pxToDp(15), color: '#fcfcfc'  }}>
+                <Text style={{ fontSize: pxToDp(15), color: '#fcfcfc' }}>
                   粉丝
                 </Text>
-              </TouchableOpacity>
-            </View>
-            <View style={{ marginRight: pxToDp(145) }}>
-              <TouchableOpacity
-                style={{ justifyContent: 'center', alignItems: 'center' }}
-              >
-                <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold',color: '#fcfcfc' }}>
+
+              </View>
+              <View style={{ marginRight: pxToDp(145), alignItems: 'center' }}>
+
+                <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold', color: '#fcfcfc' }}>
                   {followCount}
                 </Text>
                 <Text style={{ fontSize: pxToDp(15), color: '#fcfcfc' }}>
                   关注
                 </Text>
+
+              </View>
+
+              <TouchableOpacity
+
+                style={{ position: 'absolute', top: pxToDp(88), width: pxToDp(150), right: pxToDp(105), borderRadius: 16, overflow: 'hidden' }}>
+                <Button
+                  title='编辑资料'
+                  onPress={() =>
+                    this.context.navigate('Ziliao', this.props.userInfo)}
+                  ViewComponent={LinearGradient}
+                  titleStyle={{ color: '#fcfcfc', fontWeight: 'bold', fontSize: 20 }}
+                  linearGradientProps={{
+                    colors: ['#fa9222', '#ffd501'],
+                    start: { x: 0, y: 0.5 },
+                    end: { x: 1, y: 0.5 },
+                  }}
+                />
               </TouchableOpacity>
             </View>
 
-            <TouchableOpacity
-           
-               style={{position:'absolute',top:pxToDp(88),width:pxToDp(150),right:pxToDp(105),borderRadius:16,overflow:'hidden'}}>
-              <Button
-              title='编辑资料'
-              onPress={() =>
-                this.context.navigate('Ziliao', this.props.userInfo)}
-              ViewComponent={LinearGradient}
-              titleStyle={{ color: '#fcfcfc',fontWeight:'bold',fontSize:20 }}
-              linearGradientProps={{
-                colors: ['#fa9222', '#ffd501'],
-                start: { x: 0, y: 0.5 },
-                end: { x: 1, y: 0.5 },
+            <View
+              style={{
+                alignSelf: 'center',
+                bottom: pxToDp(130),
+
+                width: '80%'
               }}
-            />
-            </TouchableOpacity>
+            >
+              <Text style={{ color: '#fcfcfc', fontSize: 15, alignSelf: 'center' }} numberOfLines={1}>
+                {ownSay}
+              </Text>
+            </View>
+
           </View>
 
-          <View
-            style={{
-              position: 'absolute',
-              alignSelf:'center',
-              bottom: pxToDp(40),
-              left: pxToDp(140),
-              width: '80%'
-            }}
-          >
-            <Text style={{ color: '#fcfcfc', fontSize: 15 }} numberOfLines={1}>
-              {ownSay}
-            </Text>
-          </View>
-  
         </View>
-        </View>
-        <View
-          style={{
-            height: pxToDp(60),
-            flexDirection: 'row',
-            paddingLeft: pxToDp(16),
-            justifyContent: 'space-around'
-          }}
-          source={require('./2.png')}
-        ></View>
       </View>
     );
   }

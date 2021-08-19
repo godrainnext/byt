@@ -12,6 +12,7 @@ import {
   my,
   selectedMy
 } from './res/fonts/iconSvg';
+import {Image,} from 'react-native'
 import Svg from 'react-native-svg-uri';
 import First from './screens/first/home';
 import Play from './screens/play/home';
@@ -27,9 +28,9 @@ class Index extends PureComponent {
       {
         selected: 'play',
         title: '越吟',
-        renderIcon: () => <Svg width="20" height="20" svgXmlData={play} />,
+        renderIcon: () =><Image style={{ width: pxToDp(80), height: pxToDp(28) }} source={require("./sb.png")}></Image>,
         renderSelectedIcon: () => (
-          <Svg width="20" height="20" svgXmlData={selectedPlay} />
+          <Image style={{ width: pxToDp(100), height: pxToDp(28) }} source={require("./sb.png")}></Image>
         ),
         onPress: () => this.setState({ selectedTab: 'play' }),
         component: <Play />
@@ -37,9 +38,9 @@ class Index extends PureComponent {
       {
         selected: 'talk',
         title: '戏缘',
-        renderIcon: () => <Svg width="20" height="20" svgXmlData={talk} />,
+        renderIcon: () =><Image style={{ width: pxToDp(80), height: pxToDp(28) }} source={require("./sb1.png")}></Image>,
         renderSelectedIcon: () => (
-          <Svg width="20" height="20" svgXmlData={selectedTalk} />
+          <Image style={{ width: pxToDp(100), height: pxToDp(28) }} source={require("./sb1.png")}></Image>
         ),
         onPress: () => this.setState({ selectedTab: 'talk' }),
         component: <Talk />
@@ -47,9 +48,9 @@ class Index extends PureComponent {
       {
         selected: 'first',
         title: '百越台',
-        renderIcon: () => <Svg width="20" height="20" svgXmlData={first} />,
+        renderIcon: () => <Image style={{ width: pxToDp(80), height: pxToDp(28) }} source={require("./sb4.png")}></Image>,
         renderSelectedIcon: () => (
-          <Svg width="20" height="20" svgXmlData={selectedFirst} />
+          <Image style={{ width: pxToDp(100), height: pxToDp(28) }} source={require("./sb4.png")}></Image>
         ),
         onPress: () => this.setState({ selectedTab: 'first' }),
         component: <First />
@@ -57,9 +58,9 @@ class Index extends PureComponent {
       {
         selected: 'shop',
         title: '越市',
-        renderIcon: () => <Svg width="20" height="20" svgXmlData={shop} />,
+        renderIcon: () => <Image style={{ width: pxToDp(80), height: pxToDp(28) }} source={require("./sb2.png")}></Image>,
         renderSelectedIcon: () => (
-          <Svg width="20" height="20" svgXmlData={selectedShop} />
+          <Image style={{ width: pxToDp(95), height: pxToDp(28) }} source={require("./sb2.png")}></Image>
         ),
         onPress: () => this.setState({ selectedTab: 'shop' }),
         component: <Shop />
@@ -67,9 +68,9 @@ class Index extends PureComponent {
       {
         selected: 'my',
         title: '戏痴',
-        renderIcon: () => <Svg width="20" height="20" svgXmlData={my} />,
+        renderIcon: () =>  <Image style={{ width: pxToDp(80), height: pxToDp(28) }} source={require("./sb3.png")}></Image>,
         renderSelectedIcon: () => (
-          <Svg width="20" height="20" svgXmlData={selectedMy} />
+          <Image style={{ width: pxToDp(95), height: pxToDp(28) }} source={require("./sb3.png")}></Image>
         ),
         onPress: () => this.setState({ selectedTab: 'my' }),
         component: <My />
