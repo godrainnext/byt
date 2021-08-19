@@ -12,7 +12,8 @@ import { pxToDp } from '@utils/styleKits';
 import Icon from 'react-native-vector-icons/AntDesign';
 import Top from '@components/common/top';
 import { NavigationContext } from '@react-navigation/native';
-
+import { dianzan } from '../../../../component/common/iconSvg';
+import SvgUri from 'react-native-svg-uri';
 class Index extends PureComponent {
   state = {
     like: true,
@@ -40,7 +41,7 @@ class Index extends PureComponent {
     return (
       <View style={{ backgroundColor: '#ecf6fc', flex: 1 }}>
         <Top icon1="arrow-back" title="柳毅传书" />
-        <View style={{ padding: pxToDp(15) }}>
+        <View style={{ padding: pxToDp(10) }}>
           <ScrollView
             showsVerticalScrollIndicator={false}
             scrollbars="none"
@@ -63,10 +64,9 @@ class Index extends PureComponent {
             <View>
               <Image
                 style={{
-                  width: pxToDp(320),
-                  height: pxToDp(240),
+                  width: '100%',
+                  height: pxToDp(200),
                   borderRadius: pxToDp(8),
-                  marginLeft: pxToDp(13)
                 }}
                 source={require('../../../../res/play/fengmian6.jpg')}
               />
@@ -163,193 +163,61 @@ class Index extends PureComponent {
               <Text style={styles.texthead}>小龙父（白）</Text>:
               押下去，气死我也！
             </Text>
-            {/* 分界线 */}
-            <View
+           {/* 分界线 */}
+           <View
               style={{
                 width: pxToDp(350),
                 marginTop: pxToDp(20),
                 height: pxToDp(1),
                 backgroundColor: 'black',
-                opacity: 0.2
+                opacity: 0.2,
+                marginBottom:pxToDp(10)
               }}
             />
-
-            <View style={{ marginTop: pxToDp(15) }}>
-              <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                <Image
-                  style={{
-                    width: pxToDp(40),
-                    height: pxToDp(40),
-                    borderRadius: pxToDp(40)
-                  }}
-                  source={require('../../../../res/play/1.jpg')}
-                />
-                <Text style={{ fontSize: pxToDp(15), marginLeft: pxToDp(10) }}>
-                  真是厉害
-                </Text>
-              </View>
-              <View style={{ marginLeft: pxToDp(45), marginTop: pxToDp(5) }}>
-                <Text>
-                  真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错
-                </Text>
-              </View>
-              <View
-                style={{
-                  flexDirection: 'row',
-                  marginTop: pxToDp(10),
-                  marginLeft: pxToDp(45),
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  marginRight: pxToDp(10)
-                }}
-              >
-                <View>
-                  <Text>2021.06.21</Text>
+            <View style={{marginBottom:pxToDp(120)}}>
+              <View style={{ flexDirection: 'row', width: '95%', justifyContent: 'space-between',alignItems:'center'}}>
+                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                  <Image style={{  width: pxToDp(40),height: pxToDp(40),margin: pxToDp(5), borderRadius: pxToDp(20)}} source={{uri:"https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp0.qhmsg.com%2Ft01c0bee555e7f14acf.jpg&refer=http%3A%2F%2Fp0.qhmsg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631928400&t=8fa3da0873ef4c8b3fbc9f9a83582446"}}/>
+                  <View>
+                    <Text style={{fontSize:pxToDp(14)}}>越剧小生</Text>
+                    <Text style={{fontSize:pxToDp(13),color:'grey'}}>12分钟前</Text>
+                  </View>
                 </View>
-                <TouchableOpacity
-                  onPress={() => {
-                    this.rendertouch1();
-                  }}
-                  style={{ flexDirection: 'row' }}
-                >
-                  <Icon
-                    name={like ? 'like2' : 'like1'}
-                    size={18}
-                    color={like ? 'black' : 'red'}
-                  />
-                  <Text>6</Text>
-                </TouchableOpacity>
-              </View>
-              <View
-                style={{
-                  width: pxToDp(310),
-                  marginLeft: pxToDp(40),
-                  marginTop: pxToDp(20),
-                  height: pxToDp(1),
-                  backgroundColor: 'black',
-                  opacity: 0.2
-                }}
-              />
-            </View>
-
-            <View style={{ marginTop: pxToDp(15) }}>
-              <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                <Image
-                  style={{
-                    width: pxToDp(40),
-                    height: pxToDp(40),
-                    borderRadius: pxToDp(40)
-                  }}
-                  source={require('../../../../res/play/1.jpg')}
+                <SvgUri
+                  svgXmlData={dianzan}
+                  width="15"
+                  height="15"
                 />
-                <Text style={{ fontSize: pxToDp(15), marginLeft: pxToDp(10) }}>
-                  真是厉害
-                </Text>
               </View>
-              <View style={{ marginLeft: pxToDp(45), marginTop: pxToDp(5) }}>
-                <Text>
-                  真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错
-                </Text>
-              </View>
-              <View
-                style={{
-                  flexDirection: 'row',
-                  marginTop: pxToDp(10),
-                  marginLeft: pxToDp(45),
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  marginRight: pxToDp(10)
-                }}
-              >
-                <View>
-                  <Text>2021.06.21</Text>
-                </View>
-                <TouchableOpacity
-                  onPress={() => {
-                    this.rendertouch2();
-                  }}
-                  style={{ flexDirection: 'row' }}
-                >
-                  <Icon
-                    name={alike ? 'like2' : 'like1'}
-                    size={18}
-                    color={alike ? 'black' : 'red'}
-                  />
-                  <Text>6</Text>
-                </TouchableOpacity>
-              </View>
-              <View
-                style={{
-                  width: pxToDp(310),
-                  marginLeft: pxToDp(40),
-                  marginTop: pxToDp(20),
-                  height: pxToDp(1),
-                  backgroundColor: 'black',
-                  opacity: 0.2
-                }}
-              />
-            </View>
-
-            <View style={{ marginTop: pxToDp(15) }}>
-              <TouchableOpacity
-                style={{ flexDirection: 'row', alignItems: 'center' }}
-              >
-                <Image
-                  style={{
-                    width: pxToDp(40),
-                    height: pxToDp(40),
-                    borderRadius: pxToDp(40)
-                  }}
-                  source={require('../../../../res/play/1.jpg')}
-                />
-                <Text style={{ fontSize: pxToDp(15), marginLeft: pxToDp(10) }}>
-                  真是厉害
-                </Text>
-              </TouchableOpacity>
-              <View style={{ marginLeft: pxToDp(45), marginTop: pxToDp(5) }}>
-                <Text>
-                  真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错真不错
-                </Text>
-              </View>
-              <View
-                style={{
-                  flexDirection: 'row',
-                  marginTop: pxToDp(10),
-                  marginLeft: pxToDp(45),
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  marginRight: pxToDp(10)
-                }}
-              >
-                <View>
-                  <Text>2021.06.21</Text>
-                </View>
-                <TouchableOpacity
-                  onPress={() => {
-                    this.rendertouch3();
-                  }}
-                  style={{ flexDirection: 'row' }}
-                >
-                  <Icon
-                    name={blike ? 'like2' : 'like1'}
-                    size={18}
-                    color={blike ? 'black' : 'red'}
-                  />
-                  <Text>6</Text>
-                </TouchableOpacity>
-              </View>
-              <View
-                style={{
-                  width: pxToDp(310),
-                  marginLeft: pxToDp(40),
-                  marginTop: pxToDp(20),
-                  height: pxToDp(1),
-                  backgroundColor: 'black',
-                  opacity: 0.2
-                }}
-              />
+              <Text style={{marginLeft:pxToDp(50),fontSize:pxToDp(14)}}>抬头能和你分享同一个月亮，就很美好</Text>
             </View>
           </ScrollView>
+          <View
+          style={{
+            backgroundColor: '#fff',
+            height: pxToDp(48),
+            width:'110%',
+            alignItems: 'center',
+            flexDirection: 'row',
+            position: 'absolute',
+            bottom:70
+          }}
+        >
+          <TextInput
+            placeholder="发一条友善的评论"
+            style={{
+              height: '80%',
+              backgroundColor: '#ddd',
+              width: '75%',
+              marginLeft: pxToDp(20),
+              borderRadius: pxToDp(20),
+              paddingLeft: pxToDp(10)
+            }}
+          />
+          <TouchableOpacity>
+            <Text style={{ marginLeft: pxToDp(20) }}>发布</Text>
+          </TouchableOpacity>
+        </View>
         </View>
       </View>
     );
