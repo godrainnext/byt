@@ -13,6 +13,7 @@ export { default as Actress } from './first/actress/index'; //名角个人页
 export { default as Album } from './first/album'; //专辑页面
 export { default as MusicPlayer } from './first/musicplayer/musicPlayer'; //歌曲播放页面
 export { default as Card } from './first/card/index'; //俯瞰百年卡片
+// export { default as Card } from ''; //个人中心地址管理
 
 export { default as My } from './my/home/index'; //个人中心首页
 export { default as Login } from './my/Login'; //登录页面
@@ -38,7 +39,8 @@ export { default as History } from './my/history'; //浏览历史
 export { default as Jifenshop } from './my/jifenshop/jifenshop'; //积分商城
 export { default as Orderone } from './my/order/pages/orderone'; //订单全部页
 export { default as Refund } from './my/order/pages/refund'; //退款订单页面
-export { default as Myhome} from './my/home/myhome'; //个人页面
+export { default as Myhome } from './my/home/myhome'; //个人页面
+export { default as OthersHome } from './my/home/othershome'; //个人页面
 export { default as Ziliao } from './my/seetings/ziliao'; //资料页面
 export { default as Collection } from './my/collection'; //收藏
 export { default as Fan } from './my/fan'; //粉丝
@@ -55,14 +57,13 @@ export { default as Lease } from './shop/home/goods/lease'; //新增收货地址
 export { default as pointshop } from './shop/home/jifen/index'; //积分商城详情
 export { default as paySuccess } from './my/pay/paySuccess'; //支付成功页
 
-
 export { default as Play } from './play/home'; //游玩首页
 export { default as Study } from './play/study/study'; //练唱
 export { default as Details } from './play/study/details'; //练唱详情
 export { default as Sing } from './play/study/sing'; //唱歌
 export { default as Singbefore } from './play/study/singbefore'; //唱歌
 export { default as Act } from './play/act'; //双人剧本页
-//export { default as Change } from './play/change'; //AI换衣页
+export { default as Change } from './play/change'; //AI换衣页
 export { default as Drama } from './play/act/drama'; //剧本
 export { default as Scriptlibrary } from './play/scriptlibrary'; //剧本库
 export { default as VR } from './play/vr'; //越剧小镇VR
@@ -74,6 +75,7 @@ export { default as Basic } from './play/course/bankuai/basic'; //越剧基本�
 export { default as Master } from './play/course/bankuai/master'; //越剧大师教学板块
 export { default as Timemap } from '../ddd/index'; //时空地图
 export { default as Timeline } from './Timeline/index';
+export { default as HotList } from './play/hotlist'//剧本热度榜单
 
 export { default as Talk } from './talk/home/index'; //论坛首页
 export { default as Apply } from './talk/home/live/apply'; //申请直播页
@@ -84,7 +86,15 @@ export { default as Create } from './talk/home/live/create'; //剧本创作页
 export { default as Inluntan } from './talk/home/forum/inluntan';
 export { default as Forum } from './talk/home/forum/index'; //论坛页面
 
-export { default as Screenpaly } from './talk/home/script/screenplay'; //论坛页面
+export { default as Screenpaly } from './talk/home/script/screenplay'; //剧本1页面
+export { default as Screenpaly2 } from './talk/home/script/screenplay2'; //剧本2页面
+export { default as Screenpaly3 } from './talk/home/script/screenplay3'; //剧本3页面
+export { default as Screenpaly4 } from './talk/home/script/screenplay4'; //剧本4页面
+export { default as Screenpaly5 } from './talk/home/script/screenplay5'; //剧本5页面
+export { default as Screenpaly6 } from './talk/home/script/screenplay6'; //剧本6页面
+export { default as Screenpaly7 } from './talk/home/script/screenplay7'; //剧本7页面
+export { default as Screenpaly8 } from './talk/home/script/screenplay8'; //剧本8页面
+export { default as Screenpaly9 } from './talk/home/script/screenplay9'; //剧本9页面
 
 export { default as SeeZhiBo } from './talk/zhiboye/gindex';
 export { default as Video } from '../component/videoplayer/index'//视频页
@@ -96,3 +106,7 @@ export { default as Test1 } from './test/test1'
 export { default as Test2 } from './test/test2' 
 export { default as Test3 } from './test/test3' 
 export { default as Test4 } from './test/test4' 
+export { default as WaterButton } from '../component/common/waterbutton'; //波纹按钮
+
+export { default as NewTimeLine } from './test/test5';
+export { default as Testtt} from '../testtt';

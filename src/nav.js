@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { Easing,Animated,} from 'react-native';
 import Tabbar from './tabbar';
 import * as Screens from './screens';
 
@@ -9,9 +10,10 @@ const Stack = createStackNavigator();
 function Nav() {
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode="none" initialRouteName="Login">
+      <Stack.Navigator headerMode="none" initialRouteName="Tabbar">
+        <Stack.Screen name="NewTimeLine" component={Screens.NewTimeLine} />
 
-        <Stack.Screen name="Tabbar" component={Tabbar} />
+        <Stack.Screen name="Tabbar" component={Tabbar}  />
         {/*登录 */}
         <Stack.Screen name="Login" component={Screens.Login} />
         {/*首页 */}
@@ -36,8 +38,10 @@ function Nav() {
         <Stack.Screen name="Pagefive" component={Screens.Pagefive} />
         {/*我的 */}
         <Stack.Screen name="My" component={Screens.My} />
+        
         {/*设置 */}
         <Stack.Screen name="Set" component={Screens.Set} />
+        
         {/*具体的设置内容 关于我们、推送、意见、隐私 */}
         <Stack.Screen name="Women" component={Screens.Women} />
         <Stack.Screen name="Tuisong" component={Screens.Tuisong} />
@@ -67,6 +71,7 @@ function Nav() {
         <Stack.Screen name="Refund" component={Screens.Refund} />
         {/**设置首页面 */}
         <Stack.Screen name="Myhome" component={Screens.Myhome} />
+        <Stack.Screen name="OthersHome" component={Screens.OthersHome} />
         {/**更改资料页面 */}
         <Stack.Screen name="Ziliao" component={Screens.Ziliao} />
         {/**昵称页面 */}
@@ -114,7 +119,7 @@ function Nav() {
         {/*双人剧本 */}
         <Stack.Screen name="Act" component={Screens.Act} />
         {/*AI换衣  */}
-        {/* <Stack.Screen name="Change" component={Screens.Change} />*/}
+        <Stack.Screen name="Change" component={Screens.Change} />
         {/*Vr */}
         <Stack.Screen name="VR" component={Screens.VR} />
         {/**教程页面 */}
@@ -163,8 +168,24 @@ function Nav() {
         <Stack.Screen name="MusicPlayer" component={Screens.MusicPlayer} />
         {/*流派页 */}
         <Stack.Screen name="School" component={Screens.School} />
-        {/* 剧本详情 */}
+        {/* 剧本1详情 */}
         <Stack.Screen name="Screenpaly" component={Screens.Screenpaly} />
+        {/* 剧本2详情 */}
+        <Stack.Screen name="Screenpaly2" component={Screens.Screenpaly2} />
+        {/* 剧本3详情 */}
+        <Stack.Screen name="Screenpaly3" component={Screens.Screenpaly3} />
+        {/* 剧本4详情 */}
+        <Stack.Screen name="Screenpaly4" component={Screens.Screenpaly4} />
+        {/* 剧本5详情 */}
+        <Stack.Screen name="Screenpaly5" component={Screens.Screenpaly5} />
+        {/* 剧本6详情 */}
+        <Stack.Screen name="Screenpaly6" component={Screens.Screenpaly6} />
+        {/* 剧本7详情 */}
+        <Stack.Screen name="Screenpaly7" component={Screens.Screenpaly7} />
+        {/* 剧本8详情 */}
+        <Stack.Screen name="Screenpaly8" component={Screens.Screenpaly8} />
+        {/* 剧本9详情 */}
+        <Stack.Screen name="Screenpaly9" component={Screens.Screenpaly9} />
         {/*俯瞰百年卡片*/}
         <Stack.Screen name="Card" component={Screens.Card} />
         {/*视频播放页*/}
@@ -178,6 +199,11 @@ function Nav() {
         <Stack.Screen name="Test2" component={Screens.Test2} />
         <Stack.Screen name="Test3" component={Screens.Test3} />
         <Stack.Screen name="Test4" component={Screens.Test4} />
+        {/**波纹按钮 */}
+        <Stack.Screen name="WaterButton" component={Screens.WaterButton} />
+        {/*剧本热度榜单 */}
+        <Stack.Screen name="HotList" component={Screens.HotList} />
+        <Stack.Screen name="Testtt" component={Screens.Testtt} />
       </Stack.Navigator>
     </NavigationContainer>
   );

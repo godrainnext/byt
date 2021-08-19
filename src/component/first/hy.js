@@ -12,7 +12,6 @@ export default class Hy extends PureComponent {
   state = { enter: [] };
   componentDidMount() {
     getListByStatus(1).then((res) => {
-      console.log(res);
       this.setState({ enter: res });
     });
   }

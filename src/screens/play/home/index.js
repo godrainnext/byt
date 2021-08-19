@@ -17,7 +17,9 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import { TextInput } from 'react-native-gesture-handler';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import StepIndicator from 'react-native-step-indicator';
-
+import Svg from 'react-native-svg-uri';
+import { star, right, jinpai, yinpai, tongpai } from '../../../component/common/iconSvg';
+import { Carousel } from '../../../component/common/teaset';
 class Index extends PureComponent {
   onSharePress() {
     this.setState({ showSharePop: !this.state.showSharePop });
@@ -35,23 +37,59 @@ class Index extends PureComponent {
       text: '',
       appId: '29792ec3eded410facd609fb7ad76fef',
       peerIds: [],
-      token: '00629792ec3eded410facd609fb7ad76fefIADCc8H70U749XGwDaAgInl0TjHWz2j6gN0U1okFKIK5sUgDg6MAAAAAEACcjToMHqkYYQEAAQAeqRhh',
+      token:
+        '00629792ec3eded410facd609fb7ad76fefIADCc8H70U749XGwDaAgInl0TjHWz2j6gN0U1okFKIK5sUgDg6MAAAAAEACcjToMHqkYYQEAAQAeqRhh',
       channelName: 'ABC',
       arr: [
         {
-          bacUriL: 'https://anchorpost.msstatic.com/cdnimage/anchorpost/1033/27/a678d87465509b7483726f82dfba20_2168_1627155664.jpg?imageview/4/0/w/338/h/190/blur/1/format/webp',
+          bacUriL:
+            'https://anchorpost.msstatic.com/cdnimage/anchorpost/1033/27/a678d87465509b7483726f82dfba20_2168_1627155664.jpg?imageview/4/0/w/338/h/190/blur/1/format/webp',
           nameL: '糖可爱',
           titleL: '恭喜镇长超皇恭喜真爷超皇！ 大象np',
           numL: '2.5万',
-          bacUriR: 'https://anchorpost.msstatic.com/cdnimage/anchorpost/1032/dc/d7e5883b0e124c0c0834e960090c95_5883_1606125262.jpg?imageview/4/0/w/338/h/190/blur/1/format/webp',
+          bacUriR:
+            'https://anchorpost.msstatic.com/cdnimage/anchorpost/1032/dc/d7e5883b0e124c0c0834e960090c95_5883_1606125262.jpg?imageview/4/0/w/338/h/190/blur/1/format/webp',
           nameR: '郭德纲于谦相声24小时',
           titleR: '【无唱段】郭德纲于谦相声德云晚安音频轮播',
           numR: '7546',
           appId: '29792ec3eded410facd609fb7ad76fef',
           channelName: 'ABC',
-          token: '00629792ec3eded410facd609fb7ad76fefIADCc8H70U749XGwDaAgInl0TjHWz2j6gN0U1okFKIK5sUgDg6MAAAAAEACcjToMHqkYYQEAAQAeqRhh',
-          roomName: 'hdia'
-        }]
+          token:
+            '00629792ec3eded410facd609fb7ad76fefIAAbKUcPA8ZKD6c3OvRQ3dLsbHqp9OSHU+zfE7bUrcatNkgDg6MAAAAAEACcjToMxfsZYQEAAQDE+xlh',
+          roomName: 'hdia',
+        }
+      ],
+      book: [
+        {
+          id: '1', title: "追鱼", context: "追鱼,其主要剧情为：北宋嘉佑年间，应天府（今商丘）学子张珍之父与开封府金牡丹小姐之父金丞相原本乃是同窗好友，自幼指腹为婚。张珍父母去世后，家道衰败，金丞相嫌他贫穷便冷眼相待，让他独居后苑碧波亭，并以“金家三代不招白衣婿”为由，命张珍独居后花园碧波潭畔草庐读书，伺机退婚。鲤鱼精不甘水府寂寥，见张珍纯朴，就变成牡丹小姐每晚和他相会，不料被真牡丹小姐发现被赶出金门。假牡丹与张珍在回乡路上，被金丞相见到误以为其女与张私奔。到府内真假牡丹难辨，特请包公，鲤鱼精又闹个真假包公。后鲤鱼精转为凡人，与张珍结为夫妻。",
+          path: 'https://tse1-mm.cn.bing.net/th/id/R-C.09c6e90235b64a74e410e32c0b066740?rik=NXUt3kmSNer%2fVA&riu=http%3a%2f%2fi1.hdslb.com%2fbfs%2farchive%2feb476a0eed8d390ccbb89a76ec9eba802412b473.jpg&ehk=H7uDdyzqoosCQAGzv2tmz240YETTBtixjDqyWGBeXZg%3d&risl=&pid=ImgRaw&r=0'
+        },
+        {
+          id: '2', title: '五女拜寿', context: '该剧讲述的是尚书杨继康做寿，五个女儿女婿前来祝寿，因养女三春及婿邹应龙贫贱，杨夫人不悦赶出府去。后杨因得罪严嵩革职，诸女皆不能依靠，唯三春将其收留。后邹中状元，扳倒严嵩，杨沉冤得雪，诸女又来拜寿。一番沉浮，杨夫人方知人间冷暖。',
+          path: 'https://img1.baidu.com/it/u=838358760,1964554786&fm=26&fmt=auto&gp=0.jpg'
+        },
+        {
+          id: '3', title: '梁山伯与祝英台', context: '《梁山伯与祝英台》是中国古代民间四大爱情故事之一（另外三个为《白蛇传》、《孟姜女传说》和《牛郎织女》），是中国最具魅力的口头传承艺术及国家级非物质文化遗产，也是在世界上产生广泛影响的中国民间传说。',
+          path: 'https://img0.baidu.com/it/u=1223018592,1263472188&fm=26&fmt=auto&gp=0.jpg'
+        }
+      ],
+      books: [
+        {
+          id: '1', title: "红楼梦", context: "新版越剧《红楼梦》创作于1999年，首演于同年8月。它从调整戏剧结构入手，别样营造大悲大喜、大实大虚的舞台意境，并提高舞美空间层次，丰富音乐形象，整合流派表演，精缩演出时间，实现了一次富有创意的新编。",
+          path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimage8.pinlue.com%2Fimg3%2Ftu_jpg%2FksnrPhRhOUPIvAqAbKCblUE58P73JL45ksk6RoStOt1QqsyGRULuDNlm589MJep46BicicicnEeYd9uoxplOgImkg%2F640.jpeg&refer=http%3A%2F%2Fimage8.pinlue.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631837799&t=26164c70c17997051e585d51c8be88fd',
+          icon: jinpai
+        },
+        {
+          id: '2', title: "碧玉簪", context: "碧玉簪《碧玉簪》讲述了王玉林得尚书李廷甫赏识，获许配廷甫女秀英为妻。秀英的表兄顾文友因妒生恨，骗取秀英的碧玉簪放进伪造情书里，诬陷秀英与他有染。最终玉林送凤冠请罪，夫妇冰释前嫌。",
+          path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fweixin.sanbiaoge.com%2Fcunchu5%2F2021-03-05%2F6_16149534226318178.jpg&refer=http%3A%2F%2Fweixin.sanbiaoge.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631837861&t=bccaf84652f1353d90b378e7225577c7',
+          icon: yinpai
+        },
+        {
+          id: '3', title: "周仁哭坟", context: "《周仁哭坟》越剧折子戏，选材自京剧《周仁献嫂》。由朱福侠编导。《周仁哭坟》一折专为《吴凤花越剧舞台艺术风采》专场表演而编写排演，集中演绎周仁在其妻坟前哭诉冤屈的情绪。",
+          path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Finews.gtimg.com%2Fnewsapp_bt%2F0%2F10088823340%2F1000.jpg&refer=http%3A%2F%2Finews.gtimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631837909&t=641368304e82a93e756196f93fd1d805',
+          icon: tongpai
+        }
+      ]
     };
   }
   static contextType = NavigationContext;
@@ -195,101 +233,102 @@ class Index extends PureComponent {
     return (
       <View>
         <Top title="越吟" />
-        <View style={styles.centeredView}>
-          <Modal
-            animationType="slide"
-            transparent={true}
-            visible={modalVisibles}
-            onRequestClose={() => {
-              Alert.alert('Modal has been closed.');
-              this.setModalVisible(!modalVisibles);
-            }}
-          >
-            <View style={styles.centeredView}>
-              <View style={styles.modalView}>
-                <Text style={styles.modalText4}>今日之约已了 我们明日再聚</Text>
-                <TouchableOpacity
-                  onPress={() => {
-                    this.setModalVisibles(!modalVisibles);
-                  }}
-                >
-                  <View style={styles.button}>
-                    <Text style={styles.modalText5}>确认</Text>
-                  </View>
-                </TouchableOpacity>
-              </View>
-            </View>
-          </Modal>
-          <Modal
-            animationType="slide"
-            transparent={true}
-            visible={modalVisible}
-            onRequestClose={() => {
-              Alert.alert('Modal has been closed.');
-              this.setModalVisible(!modalVisible);
-            }}
-          >
-            <View style={styles.centeredView}>
-              <View style={styles.modalView}>
-                <View style={{ marginLeft: pxToDp(330) }}>
+        <ScrollView style={{ marginBottom: pxToDp(80) }}>
+          {/*签到的内容 */}
+          <View style={styles.centeredView}>
+            <Modal
+              animationType="slide"
+              transparent={true}
+              visible={modalVisibles}
+              onRequestClose={() => {
+                Alert.alert('Modal has been closed.');
+                this.setModalVisible(!modalVisibles);
+              }}
+            >
+              <View style={styles.centeredView}>
+                <View style={styles.modalView}>
+                  <Text style={styles.modalText4}>今日之约已了 我们明日再聚</Text>
                   <TouchableOpacity
                     onPress={() => {
-                      this.setModalVisible(!modalVisible);
+                      this.setModalVisibles(!modalVisibles);
                     }}
                   >
-                    <Ionicons
-                      name="md-close-circle-outline"
-                      size={30}
-                      color="grey"
-                    />
+                    <View style={styles.button}>
+                      <Text style={styles.modalText5}>确认</Text>
+                    </View>
                   </TouchableOpacity>
                 </View>
-                <Text style={styles.modalText1}>-每日签到-</Text>
-                <View style={{ flexDirection: 'row', width: pxToDp(334) }}>
-                  {this.state.jifen.map((item, index) => (
-                    <Text style={{ marginRight: pxToDp(31), color: 'grey' }}>
-                      {item}
+              </View>
+            </Modal>
+            <Modal
+              animationType="slide"
+              transparent={true}
+              visible={modalVisible}
+              onRequestClose={() => {
+                Alert.alert('Modal has been closed.');
+                this.setModalVisible(!modalVisible);
+              }}
+            >
+              <View style={styles.centeredView}>
+                <View style={styles.modalView}>
+                  <View style={{ marginLeft: pxToDp(330) }}>
+                    <TouchableOpacity
+                      onPress={() => {
+                        this.setModalVisible(!modalVisible);
+                      }}
+                    >
+                      <Ionicons
+                        name="md-close-circle-outline"
+                        size={30}
+                        color="grey"
+                      />
+                    </TouchableOpacity>
+                  </View>
+                  <Text style={styles.modalText1}>-每日签到-</Text>
+                  <View style={{ flexDirection: 'row', width: pxToDp(334) }}>
+                    {this.state.jifen.map((item, index) => (
+                      <Text style={{ marginRight: pxToDp(31), color: 'grey' }}>
+                        {item}
+                      </Text>
+                    ))}
+                  </View>
+                  <View style={{ width: pxToDp(370) }}>
+                    <StepIndicator
+                      stepCount={7}
+                      customStyles={customStyles}
+                      currentPosition={this.state.currentPosition}
+                      labels={labels}
+                    />
+                  </View>
+                  <TouchableOpacity
+                    disabled={this.state.isclick}
+                    style={{
+                      ...styles.openButton,
+                      backgroundColor: this.state.color
+                    }}
+                    onPress={() => {
+                      this.setState({
+                        currentPosition: this.state.currentPosition + 1
+                      });
+                      this.setState({ color: 'grey' });
+                      this.setState({ isclick: true });
+                      this.setModalVisibles(true);
+                    }}
+                  >
+                    <Text style={styles.textStyle}>
+                      {this.state.isclick ? '已签到' : '签到'}
                     </Text>
-                  ))}
-                </View>
-                <View style={{ width: pxToDp(370) }}>
-                  <StepIndicator
-                    stepCount={7}
-                    customStyles={customStyles}
-                    currentPosition={this.state.currentPosition}
-                    labels={labels}
-                  />
-                </View>
-                <TouchableOpacity
-                  disabled={this.state.isclick}
-                  style={{
-                    ...styles.openButton,
-                    backgroundColor: this.state.color
-                  }}
-                  onPress={() => {
-                    this.setState({
-                      currentPosition: this.state.currentPosition + 1
-                    });
-                    this.setState({ color: 'grey' });
-                    this.setState({ isclick: true });
-                    this.setModalVisibles(true);
-                  }}
-                >
-                  <Text style={styles.textStyle}>
-                    {this.state.isclick ? '已签到' : '签到'}
-                  </Text>
-                </TouchableOpacity>
-                <View style={{ marginBottom: pxToDp(20) }}>
-                  <Text style={styles.modalText2}>-签到说明-</Text>
-                  <Text style={styles.modalText3}>
-                    每日签到一次，连续签到奖励更多
-                  </Text>
+                  </TouchableOpacity>
+                  <View style={{ marginBottom: pxToDp(20) }}>
+                    <Text style={styles.modalText2}>-签到说明-</Text>
+                    <Text style={styles.modalText3}>
+                      每日签到一次，连续签到奖励更多
+                    </Text>
+                  </View>
                 </View>
               </View>
-            </View>
-          </Modal>
-        </View>
-        <ScrollView style={{ marginBottom: pxToDp(100) }}>
+            </Modal>
+          </View>
           {/*戏服体验馆 */}
           <View style={{ borderRadius: pxToDp(10) }}>
             <TouchableOpacity onPress={() => this.context.navigate('Change')}>
@@ -576,98 +615,79 @@ class Index extends PureComponent {
               </ScrollView>
             </RBSheet>
           </View>
+          {/* 轮播图 */}
+          <View style={{ flexDirection: 'row', width: pxToDp(350), justifyContent: 'space-between', alignItems: 'center' }}>
+            <Text style={{ fontSize: pxToDp(18), margin: pxToDp(10), color: '#468CD3', fontWeight: 'bold' }}>本周热门</Text>
+            <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.context.navigate('HotList')}>
+              <Text style={{ fontSize: pxToDp(15), color: 'grey' }}>查看更多</Text>
+              <Ionicons name="chevron-forward" size={20} color="grey" />
+            </TouchableOpacity>
+          </View>
+          <View
+            style={styles.carousel}>
+            <Carousel control style={{ height: pxToDp(155) }}>
+              {this.state.books.map((item) => (
+                <TouchableOpacity style={styles.bookbox}>
+                  <View style={styles.bookbotton}>
+                    <View style={{ marginLeft: pxToDp(130), marginTop: pxToDp(10) }}>
+                      <View style={styles.bookinf1}>
+                        <View>
+                          <Text style={{ fontSize: pxToDp(17), fontWeight: 'bold' }}>{item.title}</Text>
+                        </View>
+                        <View>
+                          <Svg width="32" height="32" svgXmlData={item.icon} />
+                        </View>
+                      </View>
+                      <Text style={{ fontSize: pxToDp(14) }} numberOfLines={3}>{item.context}</Text>
+                    </View>
+                  </View>
+                  <View style={styles.book11}>
+                    <Image style={styles.bookimage} source={{ uri: item.path }} />
+                    <View style={{ height: pxToDp(104), width: pxToDp(4), backgroundColor: 'lightgrey', borderTopLeftRadius: pxToDp(8), borderTopRightRadius: pxToDp(8) }}>
+                    </View>
+                  </View>
+                </TouchableOpacity>))}
+            </Carousel>
+          </View>
           {/*剧本推荐 */}
+          <View style={{ flexDirection: 'row', width: pxToDp(350), justifyContent: 'space-between', alignItems: 'center' }}>
+            <Text style={{ fontSize: pxToDp(18), margin: pxToDp(10), color: '#468CD3', fontWeight: 'bold' }}>剧本推荐</Text>
+            <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.context.navigate('Scriptlibrary')}>
+              <Text style={{ fontSize: pxToDp(15), color: 'grey' }}>查看更多</Text>
+              <Ionicons name="chevron-forward" size={20} color="grey" />
+            </TouchableOpacity>
+          </View>
           <View>
-            <Text
-              style={{
-                fontSize: pxToDp(18),
-                margin: pxToDp(10),
-                color: '#468CD3',
-                fontWeight: 'bold'
-              }}
-            >
-              剧本推荐
-            </Text>
-            <View
-              style={{
-                flexDirection: 'row',
-                borderBottomColor: 'grey',
-                borderBottomWidth: pxToDp(0.5),
-                margin: pxToDp(10),
-                height: pxToDp(110)
-              }}
-            >
-              <TouchableOpacity onPress={() => this.context.navigate('Drama')}>
-                <Image
-                  style={{
-                    height: pxToDp(100),
-                    width: pxToDp(100),
-                    borderRadius: pxToDp(10)
-                  }}
-                  source={require('../../../res/play/1.jpg')}
-                />
-              </TouchableOpacity>
-              <View style={{ marginLeft: pxToDp(10), width: pxToDp(230) }}>
-                <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold' }}>
-                  追鱼 书馆
-                </Text>
-                <Text style={{ fontSize: pxToDp(14), marginTop: pxToDp(15) }}>
-                  我张珍远道来投亲
-                </Text>
+            {this.state.book.map((item) => (
+              <View style={styles.bookbox}>
+                <View style={styles.bookbotton}>
+                  <View style={{ marginLeft: pxToDp(120), marginTop: pxToDp(10) }}>
+                    <View style={styles.bookinf}>
+                      <Text style={{ fontSize: pxToDp(17), fontWeight: 'bold' }}>{item.title}</Text>
+                      <TouchableOpacity onPress={() => this.context.navigate('Drama')} >
+                        <Svg width="32" height="32" svgXmlData={right} />
+                      </TouchableOpacity>
+                    </View>
+                    <Text stlye={{ fontSize: pxToDp(13) }} numberOfLines={2}>{item.context}</Text>
+                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                      <Text>推荐指数</Text>
+                      <View style={{ flexDirection: 'row', marginLeft: pxToDp(5) }}>
+                        <Svg width="20" height="20" svgXmlData={star} />
+                        <Svg width="20" height="20" svgXmlData={star} />
+                        <Svg width="20" height="20" svgXmlData={star} />
+                        <Svg width="20" height="20" svgXmlData={star} />
+                        <Svg width="20" height="20" svgXmlData={star} />
+                      </View>
+                    </View>
+                  </View>
+                </View>
+                <View style={styles.book}>
+                  <Image style={styles.bookimage} source={{ uri: item.path }} />
+                  <View style={{ height: pxToDp(104), width: pxToDp(4), backgroundColor: 'lightgrey', borderTopLeftRadius: pxToDp(8), borderTopRightRadius: pxToDp(8) }}>
+                  </View>
+                </View>
               </View>
-            </View>
-            <View
-              style={{
-                flexDirection: 'row',
-                borderBottomColor: 'grey',
-                borderBottomWidth: pxToDp(0.5),
-                margin: pxToDp(10),
-                height: pxToDp(110)
-              }}
-            >
-              <Image
-                style={{
-                  height: pxToDp(100),
-                  width: pxToDp(100),
-                  borderRadius: pxToDp(10)
-                }}
-                source={require('../../../res/play/2.jpg')}
-              />
-              <View style={{ marginLeft: pxToDp(10), width: pxToDp(230) }}>
-                <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold' }}>
-                  周仁哭坟
-                </Text>
-                <Text style={{ fontSize: pxToDp(14), marginTop: pxToDp(15) }}>
-                  冷冷雨飕飕风
-                </Text>
-              </View>
-            </View>
-            <View
-              style={{
-                flexDirection: 'row',
-                borderBottomColor: 'grey',
-                borderBottomWidth: pxToDp(0.5),
-                margin: pxToDp(10),
-                height: pxToDp(110)
-              }}
-            >
-              <Image
-                style={{
-                  height: pxToDp(100),
-                  width: pxToDp(100),
-                  borderRadius: pxToDp(10)
-                }}
-                source={require('../../../res/play/3.jpg')}
-              />
-              <View style={{ marginLeft: pxToDp(10), width: pxToDp(230) }}>
-                <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold' }}>
-                  梁祝 十八相送
-                </Text>
-                <Text style={{ fontSize: pxToDp(14), marginTop: pxToDp(15) }}>
-                  书房门前一枝梅
-                </Text>
-              </View>
-            </View>
+            ))}
           </View>
         </ScrollView>
       </View>
@@ -793,6 +813,77 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: pxToDp(10)
-  }
+  },
+  book: {
+    marginTop: pxToDp(-128),
+    // marginLeft: pxToDp(4),
+    height: pxToDp(120),
+    width: pxToDp(100),
+    borderRadius: pxToDp(8),
+    elevation: 5,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+    shadowColor: 'black',  //  阴影颜色
+    shadowRadius: pxToDp(8),  //  圆角,
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  bookbox: {
+    height: pxToDp(130),
+    marginLeft: pxToDp(10),
+    marginRight: pxToDp(10),
+    marginTop: pxToDp(10)
+  },
+  bookbotton: {
+    height: pxToDp(110),
+    backgroundColor: 'white',
+    borderRadius: pxToDp(8),
+    marginTop: pxToDp(30),
+    elevation: 5,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+    shadowColor: 'black',  //  阴影颜色
+    shadowRadius: pxToDp(8),  //  圆角,
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 1,
+  },
+  bookinf: {
+    flexDirection: 'row',
+    width: pxToDp(220),
+    alignItems: 'center',
+    justifyContent: 'space-between'
+  },
+  bookimage: {
+    height: pxToDp(128),
+    width: pxToDp(100),
+    borderRadius: pxToDp(8)
+  },
+  book11: {
+    marginTop: pxToDp(-136),
+    marginLeft: pxToDp(16),
+    height: pxToDp(120),
+    width: pxToDp(100),
+    borderRadius: pxToDp(8),
+    elevation: 8,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+    shadowColor: 'black',  //  阴影颜色
+    shadowRadius: pxToDp(8),  //  圆角,
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 1,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  bookinf1: {
+    flexDirection: 'row',
+    width: pxToDp(190),
+    alignItems: 'center',
+    justifyContent: 'space-between'
+  },
+  carousel: {
+    borderRadius: pxToDp(20),
+    height: pxToDp(155),
+    marginLeft: pxToDp(10),
+    marginRight: pxToDp(10),
+    marginTop: pxToDp(15)
+  },
 });
 export default Index;

@@ -54,7 +54,7 @@ class Index extends PureComponent {
               justifyContent: 'center'
             }}
           >
-            <Text>立即购买</Text>
+            <Text>开始阅读</Text>
           </TouchableOpacity>
         </View>
       </View>

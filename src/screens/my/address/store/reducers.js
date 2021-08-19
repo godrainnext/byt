@@ -5,7 +5,7 @@ const State = Map({ address: [] });
 export default (state = State, { type, payload }) => {
   switch (type) {
     case UPDATE_ADDRESS:
-      return state.update('address', (x) => [...x, ...payload]);
+      return state.set('address', payload);
     case DELTE_ADDRESS:
       return state.update('address', (x) =>
         x.filter((item) => item.id !== payload.id)

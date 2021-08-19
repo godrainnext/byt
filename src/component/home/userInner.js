@@ -1,30 +1,71 @@
-import React, { PureComponent } from 'react'
-import { Text, View, TouchableOpacity, Image } from 'react-native'
-import { connect } from 'react-redux'
-import { pxToDp } from '@utils/styleKits'
-import changeImgSize from '@utils/changeImgSize'
+import React, { PureComponent } from 'react';
+import {
+  Text,
+  View,
+  TouchableOpacity,
+  Image,
+  DeviceEventEmitter
+} from 'react-native';
+import { connect } from 'react-redux';
+import { pxToDp } from '@utils/styleKits';
+import changeImgSize from '@utils/changeImgSize';
 import { NavigationContext } from '@react-navigation/native';
-
+import { getUserFollow, getUserFans } from '@service/mine';
+import { changeUserFollowAction } from '../../screens/my/follow/store/action';
 class UserInner extends PureComponent {
+  state = {
+    fansCount: 0,
+    followCount: 0
+  };
   static contextType = NavigationContext;
+  componentDidMount() {
+    this.addFollow = DeviceEventEmitter.addListener('addFollow', () => {
+      console.log(1234);
+      getUserFans().then((res) => {
+        this.setState({ fansCount: res.fansCount });
+      });
+      getUserFollow().then((res) => {
+        this.setState({ followCount: res.followCount });
+        this.props.changeUserFollowAction(res.follow);
+      });
+    });
 
+    this.removeFollows = DeviceEventEmitter.addListener('removeFollow', () => {
+      getUserFollow().then((res) => {
+        this.setState({ followCount: res.followCount });
+        this.props.changeUserFollowAction(res.follow);
+      });
+      getUserFans().then((res) => {
+        this.setState({ fansCount: res.fansCount });
+      });
+    });
+    getUserFans().then((res) => {
+      this.setState({ fansCount: res.fansCount });
+    });
+    getUserFollow().then((res) => {
+      this.props.changeUserFollowAction(res.follow);
+      this.setState({ followCount: res.followCount });
+    });
+  }
+  componentWillUnmount() {
+    this.addFollow.remove();
+    this.removeFollows.remove();
+  }
   render() {
-
-    console.log(this.props.userInfo);
-    const { fansCount, followCount, nickName, avatar } = this.props.userInfo;
+    const { nickName, avatar, id } = this.props.userInfo;
+    const { fansCount, followCount } = this.state;
     return (
       <View
         style={{
           borderRadius: pxToDp(10),
-          backgroundColor: 'rgba(255,255,255,0.5)',
+          backgroundColor: '#f0fcff',
           margin: pxToDp(10),
-          height: pxToDp(140)
+          height: pxToDp(140),
+          elevation:3,borderWidth:0
         }}
       >
         <View style={{ flexDirection: 'row' }}>
-          <TouchableOpacity
-            onPress={() => this.context.navigate('Myhome')}
-          >
+          <TouchableOpacity onPress={() => this.context.navigate('Myhome', id)}>
             <Image
               style={{
                 height: pxToDp(60),
@@ -60,9 +101,7 @@ class UserInner extends PureComponent {
             </View>
           </View>
         </View>
-        <View
-          style={{ flexDirection: 'row', justifyContent: 'space-around' }}
-        >
+        <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
           <View>
             <TouchableOpacity
               onPress={() => {
@@ -78,9 +117,7 @@ class UserInner extends PureComponent {
               >
                 2
               </Text>
-              <Text style={{ fontSize: pxToDp(15), color: 'gray' }}>
-                点赞
-              </Text>
+              <Text style={{ fontSize: pxToDp(15), color: 'gray' }}>点赞</Text>
             </TouchableOpacity>
           </View>
           <View>
@@ -98,15 +135,13 @@ class UserInner extends PureComponent {
               >
                 5
               </Text>
-              <Text style={{ fontSize: pxToDp(15), color: 'gray' }}>
-                收藏
-              </Text>
+              <Text style={{ fontSize: pxToDp(15), color: 'gray' }}>收藏</Text>
             </TouchableOpacity>
           </View>
           <View>
             <TouchableOpacity
               onPress={() => {
-                this.context.navigate('Follow');
+                this.context.navigate('Follow', id);
               }}
             >
               <Text
@@ -118,15 +153,13 @@ class UserInner extends PureComponent {
               >
                 {followCount}
               </Text>
-              <Text style={{ fontSize: pxToDp(15), color: 'gray' }}>
-                关注
-              </Text>
+              <Text style={{ fontSize: pxToDp(15), color: 'gray' }}>关注</Text>
             </TouchableOpacity>
           </View>
           <View>
             <TouchableOpacity
               onPress={() => {
-                this.context.navigate('Fan');
+                this.context.navigate('Fan', id);
               }}
             >
               <Text
@@ -138,19 +171,18 @@ class UserInner extends PureComponent {
               >
                 {fansCount}
               </Text>
-              <Text style={{ fontSize: pxToDp(15), color: 'gray' }}>
-                粉丝
-              </Text>
+              <Text style={{ fontSize: pxToDp(15), color: 'gray' }}>粉丝</Text>
             </TouchableOpacity>
           </View>
         </View>
       </View>
-    )
+    );
   }
 }
 export default connect(
   (state) => ({
     userInfo: state.getIn(['homeReducer', 'userInfo']),
     avatar: state.getIn(['SettingReducer', 'avatar'])
-  })
+  }),
+  { changeUserFollowAction }
 )(UserInner);

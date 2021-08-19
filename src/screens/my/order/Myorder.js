@@ -114,7 +114,6 @@ class orders extends PureComponent {
         img,
         create_time
       };
-      console.log(this.state.defaultAddress);
       addOrider(data).then((res) =>
         this.context.navigate('paySuccess', {
           ...data,
@@ -125,14 +124,13 @@ class orders extends PureComponent {
       ToastAndroid.show('请选择支付方式', ToastAndroid.SHORT);
     }
   };
-  componentDidMount() {}
+
   static contextType = NavigationContext;
   changeDefaultAddress = (payload) => {
     this.setState({ defaultAddress: payload });
   };
   render() {
     console.log(this.props.route.params);
-
     const { count, title, color, img, price } = this.props.route.params;
 
     return (
@@ -154,8 +152,10 @@ class orders extends PureComponent {
           </View>
           {/* 收获地址 */}
           <Address
+            orider={this.props.route.params}
+            defaultAddress={this.state.defaultAddress}
             changeAddressId={this.changeAddressId}
-            changeDefaultAddress={this.changeDefaultAddress}
+            changeDefaultAddresses={this.changeDefaultAddress}
           />
           {/* 商品信息 */}
           <TouchableOpacity

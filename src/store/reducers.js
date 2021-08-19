@@ -2,7 +2,8 @@ import { combineReducers } from 'redux-immutable';
 import {
   LoginReducer,
   SettingReducer,
-  addressReducer
+  addressReducer,
+  FollowReducer
 } from '@screens/my/store';
 import { homeReducer, oriderReducer } from '@screens/first/store';
 
@@ -11,6 +12,7 @@ export default combineReducers({
   homeReducer,
   SettingReducer,
   oriderReducer,
-  addressReducer
+  addressReducer,
+  FollowReducer
 });
 //对combineReducers进行数据结构优化

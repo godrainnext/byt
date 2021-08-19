@@ -6,7 +6,7 @@ import Orderone from './pages/orderone';
 import { shallowEqual, useSelector } from 'react-redux';
 
 export default ({ route, navigation }) => {
-  const { orider } = useSelector(
+  const { orider } = useSelector( 
     (state) => ({
       orider: state.getIn(['oriderReducer', 'orider'])
     }),

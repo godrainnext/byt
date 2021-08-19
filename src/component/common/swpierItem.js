@@ -10,6 +10,7 @@ import { NavigationContext } from '@react-navigation/native';
 import { connect } from 'react-redux';
 import { deleteAddressAction } from '@screens/my/address/store/actions';
 import { deleteAddress } from '@service/mine';
+import { pxToDp } from '../../utils/styleKits';
 class SwpierItem extends PureComponent {
   state = {
     // isClick: false,
@@ -36,7 +37,7 @@ class SwpierItem extends PureComponent {
         <Card style={{ width: '100%' }} elevation={10}>
           <SwipeRow
             leftOpenValue={75}
-            rightOpenValue={-160}
+            rightOpenValue={-88}
             disableRightSwipe={true} //禁止向右滑动
           >
             <View style={styles.rowBack}>
@@ -152,7 +153,7 @@ const styles = StyleSheet.create({
     height: 120
   },
   backRightBtnRight: {
-    backgroundColor: '#fa292c',
+    backgroundColor: '#f8726f',
     height: 120,
     width: 80,
     alignItems: 'center',
