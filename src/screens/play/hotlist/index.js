@@ -236,7 +236,7 @@ const styles = StyleSheet.create({
     height: pxToDp(120),
     width: pxToDp(95),
     borderRadius: pxToDp(8),
-    marginLeft: pxToDp(15),
+    marginLeft: pxToDp(10),
     marginTop: pxToDp(-20)
   },
   booktitle2: {

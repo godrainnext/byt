@@ -6,7 +6,8 @@ import {
   ScrollView,
   Image,
   TouchableOpacity,
-  FlatList
+  FlatList,
+  TextInput
 } from 'react-native';
 import { pxToDp } from '@utils/styleKits';
 import Icon from 'react-native-vector-icons/AntDesign';
