@@ -17,6 +17,8 @@ import Tiebar from './luntan';
 import { NavigationContext } from '@react-navigation/native';
 import { getMomentListByStatus } from '@service/moment';
 import Addmoment from './addMoment';
+import SvgUri from 'react-native-svg-uri';
+import { daohang } from '../../../../component/common/iconSvg';
 import { FAB } from 'react-native-elements';
 import EZSwiper from 'react-native-ezswiper';
 const images = [
@@ -65,19 +67,15 @@ class Index extends PureComponent {
     isShow: false //
   };
   componentDidMount() {
-    this.changeListener = DeviceEventEmitter.addListener('momentChange', () => {
-      getMomentListByStatus(0, 0, 10).then((res) => {
-        console.log(res);
-        this.setState({ dongtai: [...res].reverse() });
-      });
-    });
-    getMomentListByStatus(0, 0, 10).then((res) => {
+    getMomentListByStatus(0, 0, 15).then((res) => {
       this.setState({ dongtai: [...res].reverse() });
     });
   }
-  componentWillUnmount() {
-    this.changeListener.remove();
-  }
+  updateList = (newMoment) => {
+    this.setState({
+      dongtai: [newMoment, ...this.state.dongtai]
+    });
+  };
   changeVisible = () => {
     this.setState({ isShow: !this.state.isShow });
   };
@@ -113,6 +111,7 @@ class Index extends PureComponent {
       <View style={{ flex: 1, backgroundColor: '#ecf6fc' }}>
         <View>
           <Addmoment
+            updateList={this.updateList}
             toggleModalProps={this.changeVisible}
             isModalVisible={this.state.isShow}
           />
@@ -152,7 +151,7 @@ class Index extends PureComponent {
             <ScrollView
               horizontal={true}
               showsHorizontalScrollIndicator={false}
-              style={{ height: pxToDp(120) }}
+              style={{ height: pxToDp(88) }}
             >
               {this.state.field.map((item, index) => (
                 <TouchableOpacity
@@ -161,7 +160,7 @@ class Index extends PureComponent {
                     marginLeft: pxToDp(10),
                     marginTop: pxToDp(10),
                     width: pxToDp(150),
-                    height: pxToDp(90),
+                    height: pxToDp(72),
                     borderRadius: pxToDp(10)
                   }}
                 >
@@ -186,7 +185,10 @@ class Index extends PureComponent {
                 </TouchableOpacity>
               ))}
             </ScrollView>
-            <Tiebar dongtai={this.state.dongtai} />
+            <View style={{ marginTop: pxToDp(-16) }}>
+              {/* 下方文章 */}
+              <Tiebar dongtai={this.state.dongtai} />
+            </View>
           </View>
         </ScrollView>
         <FAB
@@ -194,6 +196,11 @@ class Index extends PureComponent {
           placement="right"
           color="#B0C4DE"
           onPress={this.changeVisible}
+          icon={
+            <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+              <SvgUri svgXmlData={daohang} width="32" height="32" />
+            </View>
+          }
         />
       </View>
     );

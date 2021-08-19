@@ -29,9 +29,7 @@ function TabView2(props) {
 export default memo(function Example(props) {
   const [videoInfo, setvideoInfo] = useState({});
   useEffect(() => {
-    console.log(props);
     getVideoById(props.route.params).then((res) => {
-      console.log(res);
       setvideoInfo(res);
     });
   }, []);
@@ -57,7 +55,7 @@ export default memo(function Example(props) {
         renderScrollHeader={() => _renderScrollHeader(videoInfo)}
       >
         <TabView1 tabLabel="简介" videoInfo={videoInfo} />
-        <TabView2 tabLabel="评论" videoInfo={videoInfo} />
+        <TabView2 tabLabel="评论" videoId={props.route.params} />
       </ScrollTabView>
     </View>
   );

@@ -8,7 +8,7 @@ import {
   getRoleMomentById,
   getRolePicById
 } from '../../../service/home/actress';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 const TabView1 = memo(function (props) {
   const [videoList, setvideoList] = useState([1]);
@@ -63,6 +63,8 @@ const TabView2 = memo(function (props) {
   );
 });
 const TabView3 = memo(function (props) {
+  const navigation = useNavigation();
+
   const [momentList, setmomentList] = useState([1]);
   useEffect(() => {
     getRoleMomentById(props.id).then((res) => {
@@ -71,22 +73,24 @@ const TabView3 = memo(function (props) {
   }, []);
   return (
     <ScrollView {...props}>
-      <View>
-        {momentList.map((item) => (
-          <View style={styles.box} key={item.id}>
-            <Image style={styles.image3} source={{ uri: item.avatar }} />
-            <View
-              style={{
-                marginLeft: pxToDp(10),
-                marginTop: pxToDp(8),
-                width: pxToDp(280)
-              }}
-            >
-              <Text style={styles.text}>{item.title}</Text>
-            </View>
+      {momentList.map((item) => (
+        <TouchableOpacity
+          onPress={() => navigation.navigate('Pagefive', item.id)}
+          style={styles.box}
+          key={item.id}
+        >
+          <Image style={styles.image3} source={{ uri: item.avatar }} />
+          <View
+            style={{
+              marginLeft: pxToDp(10),
+              marginTop: pxToDp(8),
+              width: pxToDp(280)
+            }}
+          >
+            <Text style={styles.text}>{item.title}</Text>
           </View>
-        ))}
-      </View>
+        </TouchableOpacity>
+      ))}
     </ScrollView>
   );
 });

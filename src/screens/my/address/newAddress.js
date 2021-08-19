@@ -67,31 +67,47 @@ class NewAddress extends PureComponent {
     return (
       <View style={{ backgroundColor: '#e2f4fe', flex: 1 }}>
         <Top icon1="arrow-back" title="新增地址" />
-        <View style={s.top}>
-          <View style={{ height: pxToDp(45) }}>
-            <Input
-              placeholder="姓名"
-              onChangeText={(person) => this.setState({ person })}
-              style={{
-                height: pxToDp(45),
-                paddingLeft: pxToDp(12)
-              }}
-              leftIcon={<Text style={{ fontSize: pxToDp(18) }}>收 货 人</Text>}
-            />
+        <View
+          style={{
+            backgroundColor: 'white',
+            margin: pxToDp(8),
+            borderRadius: pxToDp(16),
+            elevation: 10,
+            shadowColor: 'black', //  阴影颜色
+            shadowOffset: { width: 0, height: 0 }, // 阴影偏移
+            shadowOpacity: 1, // 阴影不透明度
+            shadowRadius: 10 //  圆角
+          }}
+        >
+          <View style={s.top}>
+            <View style={{ height: pxToDp(45) }}>
+              <Input
+                placeholder="姓名"
+                onChangeText={(person) => this.setState({ person })}
+                style={{
+                  height: pxToDp(45),
+                  paddingLeft: pxToDp(12)
+                }}
+                leftIcon={
+                  <Text style={{ fontSize: pxToDp(18) }}>收 货 人</Text>
+                }
+              />
+            </View>
+            <View style={{ height: pxToDp(45) }}>
+              <Input
+                placeholder="11位手机号"
+                onChangeText={(phone) => this.setState({ phone })}
+                style={{
+                  height: pxToDp(45),
+                  paddingLeft: pxToDp(7)
+                }}
+                leftIcon={
+                  <Text style={{ fontSize: pxToDp(18) }}>联系电话</Text>
+                }
+              />
+            </View>
           </View>
-          <View style={{ height: pxToDp(45) }}>
-            <Input
-              placeholder="11位手机号"
-              onChangeText={(phone) => this.setState({ phone })}
-              style={{
-                height: pxToDp(45),
-                paddingLeft: pxToDp(7)
-              }}
-              leftIcon={<Text style={{ fontSize: pxToDp(18) }}>联系电话</Text>}
-            />
-          </View>
-        </View>
-        {/* <View style={s.center}>
+          {/* <View style={s.center}>
           <View style={{ height: pxToDp(pxToDp(45)) }}>
               <TouchableOpacity onPress={this.showCityPicker}>
               <Input
@@ -115,34 +131,39 @@ class NewAddress extends PureComponent {
             </TouchableOpacity> 
           </View>
         </View> */}
-        <View style={{ height: pxToDp(45) }}>
-          <Input
-            placeholder="请输入地址"
-            onChangeText={(address) => this.setState({ address })}
+          <View style={{ height: pxToDp(45) }}>
+            <Input
+              placeholder="请输入地址"
+              onChangeText={(address) => this.setState({ address })}
+              style={{
+                height: pxToDp(45),
+                paddingLeft: pxToDp(7)
+              }}
+              leftIcon={<Text style={{ fontSize: pxToDp(18) }}>地址信息</Text>}
+            />
+          </View>
+
+          <View
             style={{
               height: pxToDp(45),
-              paddingLeft: pxToDp(7)
+              marginTop: pxToDp(20)
             }}
-            leftIcon={<Text style={{ fontSize: pxToDp(18) }}>地址信息</Text>}
-          />
-        </View>
-        <View
-          style={{
-            height: pxToDp(45),
-            marginTop: pxToDp(20)
-          }}
-        >
-          <View style={s.bottom}>
-            <View>
-              <Switch
-                style={{ marginTop: pxToDp(10), marginRight: pxToDp(10) }}
-                //动态改变value
-                value={this.state.value}
-                //当切换开关室回调此方法
-                onValueChange={(value) => {
-                  this.setState({ value: value });
-                }}
-              />
+          >
+            <View style={s.bottom}>
+              <View style={{ justifyContent: 'center', height: pxToDp(45) }}>
+                <Text style={{ fontSize: pxToDp(17) }}>设为默认地址</Text>
+              </View>
+              <View>
+                <Switch
+                  style={{ marginTop: pxToDp(10), marginRight: pxToDp(10) }}
+                  //动态改变value
+                  value={this.state.value}
+                  //当切换开关室回调此方法
+                  onValueChange={(value) => {
+                    this.setState({ value: value });
+                  }}
+                />
+              </View>
             </View>
           </View>
         </View>

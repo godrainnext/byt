@@ -15,6 +15,7 @@ class index extends PureComponent {
     commments: []
   };
   componentDidMount() {
+    console.log(12312);
     getMomentById(this.props.route.params).then((res) => {
       console.log(res);
       this.setState({ ...res });
@@ -39,10 +40,10 @@ class index extends PureComponent {
 
           {arr1.map((item, index) => (
             <View>
-              {item.split('/d').map((item, index) => (
+              {item.split('/d').map((items) => (
                 <View>
                   <Text style={{ fontSize: pxToDp(15), margin: pxToDp(4) }}>
-                    &emsp;&emsp;{item}
+                    &emsp;&emsp;{items}
                   </Text>
                 </View>
               ))}
