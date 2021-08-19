@@ -3,7 +3,7 @@ import { View, Text, Image, TouchableOpacity, ScrollView, TextInput } from "reac
 import Top from '../../../component/common/top'
 import { pxToDp } from "../../../utils/styleKits";
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
+import { NavigationContext } from '@react-navigation/native';
 
 class Index extends PureComponent {
     state = {
@@ -20,13 +20,15 @@ class Index extends PureComponent {
             text2: '《梁祝》是越剧传统骨子老戏，越剧诞生之初，男班老艺人便已在舞台上演出《梁山伯》。',
             text3: '三十年代女班兴起，《梁山伯》一剧被更多越剧艺人的搬上舞台，剧名也被更名为《梁祝哀史》。其中影响最大的当属袁雪芬马樟花的《梁祝哀史》，马樟花和袁雪芬觉得传统《梁祝》剧本内容充满迷信、色情等因素，于是重新整理剧本，去其糟粕，获得成功。',
             text4: '袁雪芬与范瑞娟初演《梁祝哀史》的时间是1945年，1951年，华东越剧实验剧团重排该剧，增尾“化蝶”，剧本由袁雪芬、范瑞娟口述，徐进等执笔，黄沙导演，陈捷、薛岩音乐整理，幸熙、苏石风布景设计。范瑞娟饰梁山伯、傅全香饰祝英台、张桂凤饰祝公远、吕瑞英饰银心、魏小云饰四九、金艳芳饰师母。该剧于1952年参加第一届全国戏曲观摩演出大会，获剧本奖、演出一等奖、音乐作曲奖、舞美设计奖，主演范瑞娟和傅全香获演员一等奖、张桂凤获演员二等奖、吕瑞英获演员三等奖。1953年，该剧由上海电影制片厂摄制成第一部国产彩色戏曲艺术片，由徐进、桑弧编剧，桑弧、黄沙导演，袁雪芬和范瑞娟主演。',
-            path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg3.duitang.com%2Fuploads%2Fitem%2F201501%2F28%2F20150128210205_Zka5i.jpeg&refer=http%3A%2F%2Fimg3.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631880565&t=24bda8203bfc054bc37d4075cec2bc17'
+            path1: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg3.duitang.com%2Fuploads%2Fitem%2F201501%2F28%2F20150128210205_Zka5i.jpeg&refer=http%3A%2F%2Fimg3.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631880565&t=24bda8203bfc054bc37d4075cec2bc17',
+            path2: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fopinion.zjol.com.cn%2Fbwgd%2F201804%2FW020180413267001471214.jpg&refer=http%3A%2F%2Fopinion.zjol.com.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631926023&t=99cc0afcdf337789da9d488023e41087'
         }
     };
+    static contextType = NavigationContext;
     render() {
         return (
             <View style={{ backgroundColor: '#E2F4FE' }}>
-                <Top icon1="arrow-back" title="剧本简介" />
+                <Top icon1="arrow-back" title="梁山伯与祝英台" />
                 <ScrollView
                     style={{
                         marginLeft: pxToDp(10),
@@ -35,9 +37,9 @@ class Index extends PureComponent {
                 >
                     <Image
                         style={{ height: pxToDp(178), borderRadius: pxToDp(8), width: '100%' }}
-                        source={{ uri: this.state.dramalist.path }}
+                        source={{ uri: this.state.dramalist.path1 }}
                     />
-                    <Text style={{ fontSize: pxToDp(24), fontWeight: 'bold', marginBottom: pxToDp(20) }}>
+                    <Text style={{ fontSize: pxToDp(24), fontWeight: 'bold', marginBottom: pxToDp(20), marginTop: pxToDp(10) }}>
                         {this.state.dramalist.title}
                     </Text>
                     <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(10) }}>
@@ -80,9 +82,29 @@ class Index extends PureComponent {
                         <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(20) }}>
                             &emsp;&emsp;{this.state.dramalist.text3}
                         </Text>
-                        <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(80) }}>
+                        <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(20) }}>
                             &emsp;&emsp;{this.state.dramalist.text4}
                         </Text>
+                    </View>
+                    <View>
+                        <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold', marginBottom: pxToDp(10) }} onPress={() => this.context.navigate('ScreenPlay3')}>
+                            剧本详情
+                        </Text>
+                        <TouchableOpacity style={{
+                            marginBottom: pxToDp(80),
+                            height: pxToDp(100),
+                            width: '100%',
+                            borderRadius: pxToDp(8),
+                            //elevation: 5,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                            //shadowColor: 'black',  //  阴影颜色
+                            //shadowRadius: pxToDp(8),  //  圆角,
+                            //shadowOffset: { width: 0, height: 0 },
+                            // shadowOpacity: 1,
+                        }}
+                            onPress={() => this.context.navigate('Screenpaly3')}
+                        >
+                            <Image style={{ height: pxToDp(100), width: '100%', borderRadius: pxToDp(8) }} source={{ uri: this.state.dramalist.path2 }} />
+                        </TouchableOpacity>
                     </View>
                 </ScrollView>
             </View>

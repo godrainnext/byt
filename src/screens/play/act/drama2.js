@@ -3,7 +3,7 @@ import { View, Text, Image, TouchableOpacity, ScrollView, TextInput } from "reac
 import Top from '../../../component/common/top'
 import { pxToDp } from "../../../utils/styleKits";
 import Ionicons from 'react-native-vector-icons/Ionicons';
-
+import { NavigationContext } from '@react-navigation/native';
 
 class Index extends PureComponent {
   state = {
@@ -18,14 +18,16 @@ class Index extends PureComponent {
       text1: '《五女拜寿》是浙江小百花越剧团的立团剧目。1984年长春电影制片厂将该剧拍摄为电影，由张骏声执导，浙江小百花越剧团演出，获得第五届中国电影“金鸡奖”最佳戏曲片。',
       text2: '此剧不仅寓教于乐，且行当齐全，生旦多对，使唱腔设计流派纷呈，有利演员的实践与培养。由浙江嘉兴地区青年越剧团首演。艺术顾问邢竹琴，导演朱顺庆、朱敏，作曲朱国柱，舞美设计刘祖鹏。1983年浙江越剧小百花演出团在浙江省首届戏剧节演出获得优秀剧本奖，并选为该团首次赴香港演出剧目，享誉海内外。',
       text3: '1984年由该团演出、长春电影制片厂拍摄成戏曲艺术片，评为第五届全国电影“金鸡奖”最佳戏曲片。在长影厂第七届“小百花奖”评选中，何赛飞获优秀女主角奖、董柯娣获特别奖。',
-      text4:'同年赴京参加国庆35周年献礼演出获广泛好评，并在怀仁堂、人民大会堂作专场演出。邓颖超同志在家亲切接见“小百花”们并亲笔题词：“不骄不满，才能进步，精益求精，后来居上。”此年获文化部、中国剧协颁发的全国优秀剧本奖。剧本收入浙江文艺出版社出版的《顾锡东剧作选》。',
-      path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fs8.sinaimg.cn%2Fmw690%2F002XzAS3zy6JRdvbswL17%26690&refer=http%3A%2F%2Fs8.sinaimg.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631879343&t=f02277c8d4a2cc9d84a93d0aecfedaed'
+      text4: '同年赴京参加国庆35周年献礼演出获广泛好评，并在怀仁堂、人民大会堂作专场演出。邓颖超同志在家亲切接见“小百花”们并亲笔题词：“不骄不满，才能进步，精益求精，后来居上。”此年获文化部、中国剧协颁发的全国优秀剧本奖。剧本收入浙江文艺出版社出版的《顾锡东剧作选》。',
+      path1: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fs8.sinaimg.cn%2Fmw690%2F002XzAS3zy6JRdvbswL17%26690&refer=http%3A%2F%2Fs8.sinaimg.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631879343&t=f02277c8d4a2cc9d84a93d0aecfedaed',
+      path2: 'https://img1.baidu.com/it/u=838358760,1964554786&fm=26&fmt=auto&gp=0.jpg'
     }
   };
+  static contextType = NavigationContext;
   render() {
     return (
       <View style={{ backgroundColor: '#E2F4FE' }}>
-        <Top icon1="arrow-back" title="剧本简介" />
+        <Top icon1="arrow-back" title="五女拜寿" />
         <ScrollView
           style={{
             marginLeft: pxToDp(10),
@@ -34,9 +36,9 @@ class Index extends PureComponent {
         >
           <Image
             style={{ height: pxToDp(178), borderRadius: pxToDp(8), width: '100%' }}
-            source={{ uri: this.state.dramalist.path }}
+            source={{ uri: this.state.dramalist.path1 }}
           />
-          <Text style={{ fontSize: pxToDp(24), fontWeight: 'bold', marginBottom: pxToDp(20) }}>
+          <Text style={{ fontSize: pxToDp(24), fontWeight: 'bold', marginBottom: pxToDp(20),marginTop:pxToDp(10) }}>
             {this.state.dramalist.title}
           </Text>
           <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(10) }}>
@@ -76,9 +78,29 @@ class Index extends PureComponent {
             <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(20) }}>
               &emsp;&emsp;{this.state.dramalist.text3}
             </Text>
-            <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(80) }}>
+            <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(20) }}>
               &emsp;&emsp;{this.state.dramalist.text4}
             </Text>
+          </View>
+          <View>
+            <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold', marginBottom: pxToDp(10) }} onPress={() => this.context.navigate('ScreenPlay')}>
+              剧本详情
+            </Text>
+            <TouchableOpacity style={{
+              marginBottom: pxToDp(80),
+              height: pxToDp(100),
+              width: '100%',
+              borderRadius: pxToDp(8),
+              //elevation: 5,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+              //shadowColor: 'black',  //  阴影颜色
+              //shadowRadius: pxToDp(8),  //  圆角,
+              //shadowOffset: { width: 0, height: 0 },
+              // shadowOpacity: 1,
+            }}
+              onPress={() => this.context.navigate('Screenpaly4')}
+            >
+              <Image style={{ height: pxToDp(100), width: '100%', borderRadius: pxToDp(8) }} source={{ uri: this.state.dramalist.path2 }} />
+            </TouchableOpacity>
           </View>
         </ScrollView>
       </View>

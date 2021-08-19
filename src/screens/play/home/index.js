@@ -18,7 +18,13 @@ import { TextInput } from 'react-native-gesture-handler';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import StepIndicator from 'react-native-step-indicator';
 import Svg from 'react-native-svg-uri';
-import { star, right, jinpai, yinpai, tongpai } from '../../../component/common/iconSvg';
+import {
+  star,
+  right,
+  jinpai,
+  yinpai,
+  tongpai
+} from '../../../component/common/iconSvg';
 import { Carousel } from '../../../component/common/teaset';
 class Index extends PureComponent {
   onSharePress() {
@@ -256,7 +262,7 @@ class Index extends PureComponent {
     return (
       <View>
         <Top title="越吟" />
-        <ScrollView style={{ marginBottom: pxToDp(80) }}>
+        <ScrollView>
           {/*签到的内容 */}
           <View style={styles.centeredView}>
             <Modal
@@ -707,7 +713,7 @@ class Index extends PureComponent {
               <Ionicons name="chevron-forward" size={20} color="grey" />
             </TouchableOpacity>
           </View>
-          <View>
+          <View style={{ marginBottom: pxToDp(80) }}>
             {this.state.book.map((item) => (
               <View style={styles.bookbox}>
                 <View style={styles.bookbotton}>

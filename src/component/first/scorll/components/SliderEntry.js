@@ -4,7 +4,9 @@ import PropTypes from 'prop-types';
 import { ParallaxImage } from 'react-native-snap-carousel';
 import styles from '../styles/SliderEntry.style';
 import { NavigationContext } from '@react-navigation/native';
-
+import { right } from '../../../common/iconSvg';
+import Svg from 'react-native-svg-uri';
+import { pxToDp } from '../../../../utils/styleKits';
 export default class SliderEntry extends PureComponent {
   static contextType = NavigationContext;
 
@@ -48,12 +50,17 @@ export default class SliderEntry extends PureComponent {
     } = this.props;
 
     const uppercaseTitle = title ? (
-      <Text
-        style={[styles.title, even ? styles.titleEven : {}]}
-        numberOfLines={2}
-      >
-        {title.toUpperCase()}
-      </Text>
+      <View style={{height:20}}>
+        <Text
+          style={[styles.title, even ? styles.titleEven : {}]}
+          numberOfLines={2}
+        >
+          {title.toUpperCase()}
+        </Text>
+        <View style={{marginLeft:pxToDp(250)}}>
+        <Svg width="32" height="32" svgXmlData={right} />
+      </View>
+    </View>
     ) : (
       false
     );
