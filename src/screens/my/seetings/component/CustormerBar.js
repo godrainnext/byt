@@ -48,7 +48,7 @@ class Index extends PureComponent {
         <Top icon1="arrow-back" title="个人中心" />
 
         <View style={{ height: pxToDp(250) }}>
-          <ImageBackground
+          <View
             style={{ width: '100%', height: pxToDp(270), }}
             source={{
               uri: this.props.avatar
@@ -56,11 +56,11 @@ class Index extends PureComponent {
                 : changeImgSize(avatar, 'small')
             }}
           >
-             <ImageBackground style={{backgroundColor:'black',opacity:.5,width: '100%', height: pxToDp(270), }}/>
+             <ImageBackground style={{backgroundColor:'black',opacity:.5,width: '100%', height: pxToDp(320), }}/>
           <View>
-            <TouchableOpacity style={{position:'absolute',top:pxToDp(-250),left:pxToDp(140)}}
+            <TouchableOpacity style={{position:'absolute',top:pxToDp(-280),left:pxToDp(140)}}
             TouchableOpacity={1}>
-              <View style={{backgroundColor:'#fff',borderRadius:100}}>
+              <View style={{backgroundColor:'#fff',borderRadius:100,alignSelf:'center'}}>
               <Image
                 source={{
                   uri: this.props.avatar
@@ -80,8 +80,9 @@ class Index extends PureComponent {
             <Text
               style={{
                 fontSize: pxToDp(20),
-                top: pxToDp(-140),
-                left: pxToDp(150),
+                top: pxToDp(-180),
+                left: pxToDp(55),
+                alignSelf:'center',
                 width: pxToDp(150),fontWeight:'bold',color:'#fff'
               }}
               numberOfLines={1}
@@ -143,8 +144,9 @@ class Index extends PureComponent {
           <View
             style={{
               position: 'absolute',
+              alignSelf:'center',
               bottom: pxToDp(40),
-              left: pxToDp(150),
+              left: pxToDp(140),
               width: '80%'
             }}
           >
@@ -153,7 +155,7 @@ class Index extends PureComponent {
             </Text>
           </View>
   
-        </ImageBackground>
+        </View>
         </View>
         <View
           style={{

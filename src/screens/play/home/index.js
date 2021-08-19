@@ -62,32 +62,35 @@ class Index extends PureComponent {
       book: [
         {
           id: '1', title: "追鱼", context: "追鱼,其主要剧情为：北宋嘉佑年间，应天府（今商丘）学子张珍之父与开封府金牡丹小姐之父金丞相原本乃是同窗好友，自幼指腹为婚。张珍父母去世后，家道衰败，金丞相嫌他贫穷便冷眼相待，让他独居后苑碧波亭，并以“金家三代不招白衣婿”为由，命张珍独居后花园碧波潭畔草庐读书，伺机退婚。鲤鱼精不甘水府寂寥，见张珍纯朴，就变成牡丹小姐每晚和他相会，不料被真牡丹小姐发现被赶出金门。假牡丹与张珍在回乡路上，被金丞相见到误以为其女与张私奔。到府内真假牡丹难辨，特请包公，鲤鱼精又闹个真假包公。后鲤鱼精转为凡人，与张珍结为夫妻。",
-          path: 'https://tse1-mm.cn.bing.net/th/id/R-C.09c6e90235b64a74e410e32c0b066740?rik=NXUt3kmSNer%2fVA&riu=http%3a%2f%2fi1.hdslb.com%2fbfs%2farchive%2feb476a0eed8d390ccbb89a76ec9eba802412b473.jpg&ehk=H7uDdyzqoosCQAGzv2tmz240YETTBtixjDqyWGBeXZg%3d&risl=&pid=ImgRaw&r=0'
+          path: 'https://tse1-mm.cn.bing.net/th/id/R-C.09c6e90235b64a74e410e32c0b066740?rik=NXUt3kmSNer%2fVA&riu=http%3a%2f%2fi1.hdslb.com%2fbfs%2farchive%2feb476a0eed8d390ccbb89a76ec9eba802412b473.jpg&ehk=H7uDdyzqoosCQAGzv2tmz240YETTBtixjDqyWGBeXZg%3d&risl=&pid=ImgRaw&r=0',
+          drama:'Drama1'
         },
         {
           id: '2', title: '五女拜寿', context: '该剧讲述的是尚书杨继康做寿，五个女儿女婿前来祝寿，因养女三春及婿邹应龙贫贱，杨夫人不悦赶出府去。后杨因得罪严嵩革职，诸女皆不能依靠，唯三春将其收留。后邹中状元，扳倒严嵩，杨沉冤得雪，诸女又来拜寿。一番沉浮，杨夫人方知人间冷暖。',
-          path: 'https://img1.baidu.com/it/u=838358760,1964554786&fm=26&fmt=auto&gp=0.jpg'
+          path: 'https://img1.baidu.com/it/u=838358760,1964554786&fm=26&fmt=auto&gp=0.jpg',
+          drama:'Drama2'
         },
         {
           id: '3', title: '梁山伯与祝英台', context: '《梁山伯与祝英台》是中国古代民间四大爱情故事之一（另外三个为《白蛇传》、《孟姜女传说》和《牛郎织女》），是中国最具魅力的口头传承艺术及国家级非物质文化遗产，也是在世界上产生广泛影响的中国民间传说。',
-          path: 'https://img0.baidu.com/it/u=1223018592,1263472188&fm=26&fmt=auto&gp=0.jpg'
+          path: 'https://img0.baidu.com/it/u=1223018592,1263472188&fm=26&fmt=auto&gp=0.jpg',
+          drama:'Drama3'
         }
       ],
       books: [
         {
           id: '1', title: "红楼梦", context: "新版越剧《红楼梦》创作于1999年，首演于同年8月。它从调整戏剧结构入手，别样营造大悲大喜、大实大虚的舞台意境，并提高舞美空间层次，丰富音乐形象，整合流派表演，精缩演出时间，实现了一次富有创意的新编。",
           path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimage8.pinlue.com%2Fimg3%2Ftu_jpg%2FksnrPhRhOUPIvAqAbKCblUE58P73JL45ksk6RoStOt1QqsyGRULuDNlm589MJep46BicicicnEeYd9uoxplOgImkg%2F640.jpeg&refer=http%3A%2F%2Fimage8.pinlue.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631837799&t=26164c70c17997051e585d51c8be88fd',
-          icon: jinpai
+          icon: jinpai, drama:'Drama4'
         },
         {
           id: '2', title: "碧玉簪", context: "碧玉簪《碧玉簪》讲述了王玉林得尚书李廷甫赏识，获许配廷甫女秀英为妻。秀英的表兄顾文友因妒生恨，骗取秀英的碧玉簪放进伪造情书里，诬陷秀英与他有染。最终玉林送凤冠请罪，夫妇冰释前嫌。",
           path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fweixin.sanbiaoge.com%2Fcunchu5%2F2021-03-05%2F6_16149534226318178.jpg&refer=http%3A%2F%2Fweixin.sanbiaoge.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631837861&t=bccaf84652f1353d90b378e7225577c7',
-          icon: yinpai
+          icon: yinpai, drama:'Drama5'
         },
         {
           id: '3', title: "周仁哭坟", context: "《周仁哭坟》越剧折子戏，选材自京剧《周仁献嫂》。由朱福侠编导。《周仁哭坟》一折专为《吴凤花越剧舞台艺术风采》专场表演而编写排演，集中演绎周仁在其妻坟前哭诉冤屈的情绪。",
           path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Finews.gtimg.com%2Fnewsapp_bt%2F0%2F10088823340%2F1000.jpg&refer=http%3A%2F%2Finews.gtimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631837909&t=641368304e82a93e756196f93fd1d805',
-          icon: tongpai
+          icon: tongpai, drama:'Drama6'
         }
       ]
     };
@@ -627,7 +630,7 @@ class Index extends PureComponent {
             style={styles.carousel}>
             <Carousel control style={{ height: pxToDp(155) }}>
               {this.state.books.map((item) => (
-                <TouchableOpacity style={styles.bookbox}>
+                <TouchableOpacity style={styles.bookbox} onPress={() => this.context.navigate(item.drama)} >
                   <View style={styles.bookbotton}>
                     <View style={{ marginLeft: pxToDp(130), marginTop: pxToDp(10) }}>
                       <View style={styles.bookinf1}>
@@ -664,7 +667,7 @@ class Index extends PureComponent {
                   <View style={{ marginLeft: pxToDp(120), marginTop: pxToDp(10) }}>
                     <View style={styles.bookinf}>
                       <Text style={{ fontSize: pxToDp(17), fontWeight: 'bold' }}>{item.title}</Text>
-                      <TouchableOpacity onPress={() => this.context.navigate('Drama')} >
+                      <TouchableOpacity onPress={() => this.context.navigate(item.drama)} >
                         <Svg width="32" height="32" svgXmlData={right} />
                       </TouchableOpacity>
                     </View>

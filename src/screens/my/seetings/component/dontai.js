@@ -15,7 +15,7 @@ import { BottomSheet, ListItem } from 'react-native-elements';
 import { getMomentListByUserId } from '../../../../service/moment';
 import { Audio } from 'expo-av';
 import { Video } from 'expo-av'
-
+import ParallaxScrollView from 'react-native-parallax-scroll-view';
 
 class Index extends PureComponent {
   state = {
@@ -81,7 +81,7 @@ class Index extends PureComponent {
   showMusic = (obj) => {
     const video = createRef()
     return (
-      <ImageBackground style={{ flex: 1, height: pxToDp(150), marginTop: pxToDp(10), }} source={{ uri: obj.picture }}>
+      <ImageBackground style={{ flex: 1, height: pxToDp(150), marginTop: pxToDp(10), }} source={{ uri: obj.cover }}>
         <Video
           ref={video}
           source={{ uri: obj.music }}
@@ -113,10 +113,12 @@ class Index extends PureComponent {
 
   render() {
     return (
-      <ScrollView>
+      <View>
+
         <View
           style={{
-            width: '95%',
+            width: '85%',
+            alignSelf:'center',
             marginLeft: pxToDp(10),
             marginTop: pxToDp(20),
             marginBottom: pxToDp(20),
@@ -124,7 +126,7 @@ class Index extends PureComponent {
             borderRadius: pxToDp(10),
             elevation: 3
           }}
-        >
+        > 
           {this.state.contentArr ? (
             this.state.contentArr.map((item) => (
               <View key={item.momentId}>
@@ -219,7 +221,7 @@ class Index extends PureComponent {
             </View>
           )}
         </View>
-      </ScrollView>
+      </View>
     );
   }
 }

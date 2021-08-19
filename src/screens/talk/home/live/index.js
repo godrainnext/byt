@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import {
   StyleSheet,
   View,
@@ -15,7 +15,7 @@ import LottieView from 'lottie-react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
 import { getStreamList } from '../../../../service/shop';
 
-class Index extends PureComponent {
+class Index extends Component {
   constructor(props) {
     super(props);
     this.state = {

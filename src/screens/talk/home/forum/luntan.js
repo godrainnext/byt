@@ -173,7 +173,7 @@ class Index extends PureComponent {
                   </TouchableOpacity>
                 </View>
                 <View style={{ width: '90%', marginBottom: pxToDp(30), alignSelf: 'center' }}>
-                  <TouchableOpacity onPress={() => this.context.navigate('Inluntan', item.id)}>
+                  <TouchableOpacity onPress={() => {this.context.navigate('Inluntan', item.id);console.log(item);}}>
                     <Text style={{ fontSize: pxToDp(18), marginBottom: pxToDp(10), paddingLeft: pxToDp(8), marginTop: pxToDp(10) }}>{item.content}</Text>
                   </TouchableOpacity>
 

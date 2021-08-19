@@ -157,8 +157,8 @@ class App extends PureComponent {
     // if (this.props.userInfo.id === id) {
     //   await this._engine.setClientRole(ClientRole.Broadcaster);
     // } else {
-      await this._engine.setChannelProfile(ChannelProfile.LiveBroadcasting);
-      // 设置用户角色为主播。
+    await this._engine.setChannelProfile(ChannelProfile.LiveBroadcasting);
+    // 设置用户角色为主播。
     // }
 
     await this._engine.setClientRole(ClientRole.Audience);
@@ -249,7 +249,7 @@ class App extends PureComponent {
               <RtcRemoteView.SurfaceView
                 style={styles.remote}
                 uid={value}
-                channelId={this.state.channelName}
+                channelId={this.props.route.channelName}
                 renderMode={VideoRenderMode.Hidden}
                 zOrderMediaOverlay={true}
               />

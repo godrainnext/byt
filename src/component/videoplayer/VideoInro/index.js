@@ -52,7 +52,7 @@ class index extends PureComponent {
                 <Text>{collectionNum}</Text>
               </View>
               <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                <Icon1 name="get-app" size={32} color={'gray'} />
+               <Icon1 name={'file-download'} size={pxToDp(32)} color='grey' />
                 <Text>缓存</Text>
               </View>
               <View style={{ justifyContent: 'center', alignItems: 'center' }}>
