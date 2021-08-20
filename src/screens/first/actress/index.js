@@ -24,7 +24,7 @@ const TabView1 = memo(function (props) {
       <View>
         {videoList.map((item) => (
           <TouchableOpacity
-            style={{ margin: pxToDp(10) }}
+            style={{ margin: pxToDp(8) }}
             onPress={() => navigation.navigate('Video', item.id)}
           >
             <Image style={styles.image1} source={{ uri: item.avatar }} />

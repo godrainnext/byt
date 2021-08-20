@@ -25,7 +25,7 @@ export default StyleSheet.create({
   slideInnerContainer: {
     width: pxToDp(330),
     height: pxToDp(240),
-    right: pxToDp(30),
+    right: pxToDp(24),
     paddingHorizontal: itemHorizontalMargin,
     paddingBottom: 18 // needed for shadow
   },

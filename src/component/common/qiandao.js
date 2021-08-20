@@ -165,7 +165,7 @@ class Index extends PureComponent {
                         </View>
                     </Modal>
                 </View>
-                <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'center',marginLeft:pxToDp(50) }} onPress={() => {
+                <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'center',marginLeft:pxToDp(48) }} onPress={() => {
                     this.setModalVisible(true);
                 }}>
                     <Ionicons name="today-sharp" size={32} color="#468CD3" />
@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
     },
     modalView: {
         backgroundColor: 'white',
-        borderRadius: 12,
+        borderRadius:pxToDp(8),
         alignItems: 'center',
         shadowColor: '#000',
         shadowOffset: {
@@ -195,7 +195,7 @@ const styles = StyleSheet.create({
     },
     openButton: {
         backgroundColor: '#F194FF',
-        borderRadius: 5,
+        borderRadius:pxToDp(8),
         marginTop: pxToDp(35),
         elevation: 12,
         width: pxToDp(240),
@@ -214,7 +214,7 @@ const styles = StyleSheet.create({
         height: pxToDp(40),
         width: pxToDp(30),
         backgroundColor: '#f5f5f5',
-        borderRadius: pxToDp(10)
+        borderRadius: pxToDp(8)
     },
     centeredView: {
         flex: 1,

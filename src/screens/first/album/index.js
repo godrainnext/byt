@@ -23,10 +23,10 @@ class Index extends PureComponent {
             <View style={{ backgroundColor: '#ecf6fc', flex: 1 }}>
                 <Top icon1="arrow-back" />
                 {/*头部信息 */}
-                <View style={{ marginLeft: pxToDp(10), marginRight: pxToDp(10) }}>
-                    <View style={{ flexDirection: 'row', marginTop: pxToDp(10), backgroundColor: 'rgba(255,255,255,0.5)', borderRadius: pxToDp(10) }}>
+                <View style={{ marginLeft: pxToDp(8), marginRight: pxToDp(8) }}>
+                    <View style={{ flexDirection: 'row', marginTop: pxToDp(8), backgroundColor: 'rgba(255,255,255,0.5)', borderRadius: pxToDp(8) }}>
                         <Image style={styles.image} source={require('../../../res/genre/6.jpg')} />
-                        <View style={{ justifyContent: 'space-between', height: pxToDp(90), marginTop: pxToDp(10) }}>
+                        <View style={{ justifyContent: 'space-between', height: pxToDp(90), marginTop: pxToDp(8) }}>
                             <View>
                                 <Text style={styles.title}>{this.state.data.title}</Text>
                                 <Text style={styles.text}>{this.state.data.information}</Text>
@@ -34,7 +34,7 @@ class Index extends PureComponent {
                             <View style={{ flexDirection: 'row', width: pxToDp(230), justifyContent: 'space-between', alignItems: 'center' }}>
                                 <View style={{ flexDirection: 'row', alignItems: 'center', }}>
                                     <Image style={styles.image2} source={require('../../../res/8.jpg')} />
-                                    <Text style={{ marginLeft: pxToDp(5), fontSize: pxToDp(13) }}>听戏</Text>
+                                    <Text style={{ marginLeft: pxToDp(8), fontSize: pxToDp(13) }}>听戏</Text>
                                 </View>
                                 <TouchableOpacity style={styles.touch}>
                                     <Text style={{ color: 'white', fontSize: pxToDp(13) }}>+收藏</Text>
@@ -42,8 +42,8 @@ class Index extends PureComponent {
                             </View>
                         </View>
                     </View>
-                    <View style={{ backgroundColor: 'rgba(255,255,255,0.5)', width: '100%', marginTop: pxToDp(10) }}>
-                        <Text style={{ margin: pxToDp(5), fontSize: pxToDp(13) }}>{this.state.data.brief}</Text>
+                    <View style={{ backgroundColor: 'rgba(255,255,255,0.5)', width: '100%', marginTop: pxToDp(8) }}>
+                        <Text style={{ margin: pxToDp(8), fontSize: pxToDp(13) }}>{this.state.data.brief}</Text>
                     </View>
                 </View>
                 {/*歌单信息 */}
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
         height: pxToDp(90),
         width: pxToDp(90),
         borderRadius: pxToDp(10),
-        margin: pxToDp(10)
+        margin: pxToDp(8)
     },
     title: {
         fontSize: pxToDp(16),

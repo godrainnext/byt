@@ -36,7 +36,7 @@ class Index extends PureComponent {
 export default Index;
 const styles = StyleSheet.create({
   box: {
-    margin: pxToDp(10),
+    margin: pxToDp(8),
     flexDirection: 'row',
     borderBottomWidth: pxToDp(1),
     borderBottomColor: 'grey',

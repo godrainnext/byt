@@ -11,7 +11,7 @@ class Index extends PureComponent {
                 <Top icon1="arrow-back" title="文章详情" icon2="ellipsis-horizontal" />
                 <View >
                     <ScrollView style={{ marginBottom: pxToDp(180) }}>
-                        <View style={{ marginLeft: pxToDp(15), marginRight: pxToDp(15), marginTop: pxToDp(15) }}>
+                        <View style={{ marginLeft: pxToDp(16), marginRight: pxToDp(16), marginTop: pxToDp(16) }}>
                             {/**文章标题 */}
                             <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold' }}>嵊州 越剧的起源地</Text>
                             {/**作者信息 */}
