@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { pxToDp } from '@utils/styleKits';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
@@ -7,7 +7,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { NavigationContext } from '@react-navigation/native';
 
 import { getVideList } from '@service/home';
-class index extends Component {
+class index extends PureComponent {
   state = { arr: [] };
   componentDidMount() {
     getVideList(0).then((res) => {
@@ -52,7 +52,7 @@ class index extends Component {
                 <Text>{collectionNum}</Text>
               </View>
               <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                <Icon1 name="get-app" size={32} color={'gray'} />
+               <Icon1 name={'file-download'} size={pxToDp(32)} color='grey' />
                 <Text>缓存</Text>
               </View>
               <View style={{ justifyContent: 'center', alignItems: 'center' }}>

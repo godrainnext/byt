@@ -22,4 +22,6 @@ export const getShopListByStatus = (status, offset = 0, top = 5) =>
     }
   });
 
-export const addOrider = (data) => request.post({ url: `user/orider`, data });
+export const addOrider = (data) => request.post({ url: `/user/orider`, data });
+
+export const getStreamList = () => request.get({ url: '/stream' });

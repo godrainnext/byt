@@ -30,9 +30,6 @@ export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      appId: '29792ec3eded410facd609fb7ad76fef',
-      token:
-        '00629792ec3eded410facd609fb7ad76fefIAAbKUcPA8ZKD6c3OvRQ3dLsbHqp9OSHU+zfE7bUrcatNkgDg6MAAAAAEACcjToMxfsZYQEAAQDE+xlh'
     };
   }
 

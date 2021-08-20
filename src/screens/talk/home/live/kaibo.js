@@ -8,7 +8,8 @@ import {
   PermissionsAndroid,
   Image,
   Dimensions,
-  StyleSheet
+  StyleSheet,
+  ToastAndroid
 } from 'react-native';
 import { Input } from 'react-native-elements';
 import RtcEngine, {
@@ -24,7 +25,9 @@ import { pxToDp } from '../../../../utils/styleKits';
 import LottieView from 'lottie-react-native';
 import { NavigationContext } from '@react-navigation/native';
 import Top from '../../../../component/common/top';
-import axios from 'axios';
+import { launchImageLibrary } from 'react-native-image-picker';
+import request from '@service/index';
+import { connect } from 'react-redux';
 const dimensions = {
   width: Dimensions.get('window').width,
   height: Dimensions.get('window').height
@@ -37,9 +40,9 @@ const requestCameraAndAudioPermission = async () => {
     ]);
     if (
       granted['android.permission.RECORD_AUDIO'] ===
-      PermissionsAndroid.RESULTS.GRANTED &&
+        PermissionsAndroid.RESULTS.GRANTED &&
       granted['android.permission.CAMERA'] ===
-      PermissionsAndroid.RESULTS.GRANTED
+        PermissionsAndroid.RESULTS.GRANTED
     ) {
       console.log('You can use the cameras & mic');
     } else {
@@ -81,7 +84,7 @@ const HTML = `
 //   joinSucceed: boolean;
 //   peerIds: number[];
 // }
-export default class App extends Component {
+class App extends Component {
   //   _engine?: RtcEngine;
   static contextType = NavigationContext;
 
@@ -91,14 +94,16 @@ export default class App extends Component {
 
     this.state = {
       appId: '29792ec3eded410facd609fb7ad76fef',
-      token: '00629792ec3eded410facd609fb7ad76fefIAAbKUcPA8ZKD6c3OvRQ3dLsbHqp9OSHU+zfE7bUrcatNkgDg6MAAAAAEACcjToMxfsZYQEAAQDE+xlh',
+      token:
+        '00629792ec3eded410facd609fb7ad76fefIABpETFY+6FE43RijdulLOEgxp1roHUSSYalrUbZyLMofMu4JTQAAAAAIgAm/Chp5B0eYQQAAQB02hxhAgB02hxhAwB02hxhBAB02hxh',
       // channelName: 'ABC',
       channelName: '',
       joinSucceed: false, //默认进入直播
       peerIds: [],
       roomName: '',
       roomImg: '',
-      arr: []
+      image: {},
+      result: {}
     };
     if (Platform.OS === 'android') {
       // Request required permissions from Android
@@ -108,38 +113,32 @@ export default class App extends Component {
     }
   }
   tianjia() {
-    if (this.state.arr != null && this.state.arr.length >= 1) {
-      //这里的判断根据所传图片张数定
-      return;
-    } else {
-      return (
-        <TouchableOpacity activeOpacity={1} onPress={() => this._openPicker()}>
-          <Image
-            source={require('../../../../res/addimg.png')}
-            style={{ width: pxToDp(40), height: pxToDp(40) }}
-          />
-        </TouchableOpacity>
-      );
-    }
+    return (
+      <TouchableOpacity activeOpacity={1} onPress={() => this._openPicker()}>
+        <Image
+          source={require('../../../../res/addimg.png')}
+          style={{ width: pxToDp(40), height: pxToDp(40) }}
+        />
+      </TouchableOpacity>
+    );
   }
   //打开本地图册
   _openPicker() {
-    ImagePicker.openPicker({
-      width: 300,
-      height: 400,
-      cropping: true,
-      multiple: true,
-      maxFiles: 9
-    }).then((image) => {
-      console.log('imag', image);
-      this.setState({
-        arr: image
-      });
-      //     const {arr} = this.state;
-      //    arr.push(image);
-      //     this.setState({arr})
-      //     console.log('arr',arr[1])
-    });
+    launchImageLibrary(
+      {
+        mediaType: 'photo',
+        selectionLimit: 1
+      },
+      (response) => {
+        if (response.error) {
+          console.log(response.error);
+        } else {
+          const pickerResult = response.assets[0];
+          console.log(pickerResult);
+          this.setState({ image: pickerResult });
+        }
+      }
+    );
   }
 
   componentDidMount() {
@@ -180,6 +179,7 @@ export default class App extends Component {
       if (peerIds.indexOf(uid) === -1) {
         this.setState({
           // Add peer ID to state array
+
           peerIds: [...peerIds, uid]
         });
       }
@@ -211,14 +211,30 @@ export default class App extends Component {
   startCall = async () => {
     // console.log(this.props.route.params.token)
     // Join Channel using null token and channel name
-    await this._engine?.joinChannel(
-      // this.props.route.params.token,
-      // this.props.route.params.channelName,
-      this.state.token,
-      this.state.channelName,
-      null,
-      0
-    );
+    const fd = new FormData();
+    const file = {
+      uri: this.state.image.uri,
+      type: 'multipart/form-data',
+      name: this.state.image.type
+    };
+    fd.append('file', file);
+    if (this.state.roomName && this.state.token && this.state.channelName) {
+      const token = await request.post({
+        url: `/stream/token/${this.state.channelName}`
+      });
+      fd.append('name', this.state.roomName);
+      fd.append('token', token);
+      fd.append('cannalName', this.state.channelName);
+      const result = await request.post({
+        url: '/stream',
+        data: fd
+      });
+
+      this.setState({ result });
+      await this._engine?.joinChannel(token, this.state.channelName, null, 0);
+    } else {
+      ToastAndroid.show('请输入个人信息与封面', ToastAndroid.SHORT);
+    }
   };
 
   /**
@@ -231,13 +247,20 @@ export default class App extends Component {
   };
 
   closeCall = () => {
-    this.endCall().then(this.context.navigate('Tabbar'));
+    console.log(this.state.result.insertId);
+    request
+      .delete({ url: `/stream/${this.state.result.insertId}` })
+      .then((res) => {
+        console.log(res);
+        this.endCall();
+      })
+      .then(() => this.context.navigate('Tabbar'));
   };
 
   render() {
     const { roomName, channelName, roomImg, joinSucceed } = this.state;
     return joinSucceed ? (
-      <View style={{ flex: 1 }}>{this._renderVideos()}</View>
+      <View style={{ flex: 1 }}>{this._renderVideos(this.props.userInfo)}</View>
     ) : (
       <View style={styles.max}>
         <View style={styles.max}>
@@ -271,52 +294,27 @@ export default class App extends Component {
                 leftIcon={<Text style={{ fontSize: pxToDp(16) }}>*房间号</Text>}
               />
               <Input
-                rightIcon={
-                  <View>
-                    {this.tianjia()}
-
-                    {this.state.arr.map((v, k) => {
-                      return (
-                        <View style={styles.Box} key={k}>
-                          <TouchableOpacity
-                            onPress={() => this.setState({ roomImg: v.path })}
-                          >
-                            <Image
-                              style={{ height: pxToDp(40), width: pxToDp(40) }}
-                              source={{ uri: v.path }}
-                            />
-                          </TouchableOpacity>
-                        </View>
-                      );
-                    })}
-                  </View>
-                }
+                rightIcon={<View>{this.tianjia()}</View>}
                 disabled={true}
                 leftIcon={<Text style={{ fontSize: pxToDp(16) }}>*封面图</Text>}
               />
-              {/* <TouchableOpacity
-                                    activeOpacity={1}
-                                    onPress={() => this._openPicker()}>
-                                    <View style={{ marginTop: pxToDp(8) }}>
-                                        <Image style={{ width: pxToDp(100), height: pxToDp(100) }} source={require("../../images/addimg.png")}></Image>
-                                    </View>
-                                </TouchableOpacity> */}
             </View>
           </View>
+          <Image
+            source={{ uri: this.state.image.uri }}
+            style={{ width: 200, height: 200 }}
+          />
           <View style={styles.buttonHolder}>
             <TouchableOpacity onPress={this.startCall} style={styles.button}>
               <Text style={styles.buttonText}> 开始直播 </Text>
             </TouchableOpacity>
-            {/* <TouchableOpacity onPress={this.endCall} style={styles.button}>
-              <Text style={styles.buttonText}> 结束直播 </Text>
-            </TouchableOpacity> */}
           </View>
         </View>
       </View>
     );
   }
 
-  _renderVideos = () => {
+  _renderVideos = (userInfo) => {
     const { joinSucceed } = this.state;
     return joinSucceed ? (
       <View style={styles.fullView}>
@@ -326,18 +324,18 @@ export default class App extends Component {
           channelId={this.state.channelName}
           renderMode={VideoRenderMode.Hidden}
         />
-        {this._renderRemoteVideos()}
+        {this._renderRemoteVideos(userInfo)}
       </View>
     ) : null;
   };
 
-  _renderRemoteVideos = () => {
+  _renderRemoteVideos = (userInfo) => {
     const { peerIds } = this.state;
     return (
       <View
         style={styles.remoteContainer}
-      // contentContainerStyle={{ paddingHorizontal: 2.5 }}
-      // horizontal={true}
+        // contentContainerStyle={{ paddingHorizontal: 2.5 }}
+        // horizontal={true}
       >
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
           <View
@@ -361,7 +359,7 @@ export default class App extends Component {
                   borderRadius: pxToDp(30)
                 }}
                 source={{
-                  uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fa4.att.hudong.com%2F40%2F67%2F01300000375382124123679222720.jpg&refer=http%3A%2F%2Fa4.att.hudong.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1630999562&t=6c0560e4b4201a4592ec342b0fa58f50'
+                  uri: userInfo.avatar
                 }}
               ></Image>
             </View>
@@ -384,7 +382,9 @@ export default class App extends Component {
                 }}
               />
               {/* <Text style={{ color: 'white', fontSize: 18 }}>{this.props.route.params.roomName}</Text> */}
-              <Text style={{ color: 'white', fontSize: 16 }}>猪倌不养猪</Text>
+              <Text style={{ color: 'white', fontSize: 16 }}>
+                {userInfo.nickName}
+              </Text>
               {/* <Text style={{ fontSize: 12, color: 'gray' }}>40热度</Text> */}
             </View>
             {/* <TouchableOpacity style={{ borderRadius: pxToDp(30), backgroundColor: 'orange', marginLeft: pxToDp(8), justifyContent: 'center', alignItems: 'center', height: pxToDp(26) }}>
@@ -548,3 +548,6 @@ const styles = StyleSheet.create({
     color: '#0093E9'
   }
 });
+export default connect((state) => ({
+  userInfo: state.getIn(['homeReducer', 'userInfo'])
+}))(App);

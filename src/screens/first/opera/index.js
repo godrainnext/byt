@@ -12,7 +12,7 @@ import { NavigationContext } from '@react-navigation/native';
 import { pxToDp } from '@utils/styleKits';
 import Top from '@components/common/top';
 // import { Optuijian } from '../..';
-
+import Opera from '@components/first/opera';
 class Index extends PureComponent {
   constructor(props) {
     super(props);
@@ -41,66 +41,7 @@ class Index extends PureComponent {
             </TouchableOpacity>
           </View>
         </View>
-        <TouchableOpacity  onPress={() => this.context.navigate('Video')}>
-          <View style={styles.box}>
-            <Image
-              style={styles.image}
-              source={require('../../../res/13.jpg')}
-            />
-            <View style={styles.botbox}>
-              <Text style={styles.text1}>负心的状元郎，原来是这样的下场</Text>
-              <View>
-                <Text style={styles.text2}>杭州越剧团</Text>
-                <View style={styles.smallbox}>
-                  <Text style={styles.text2}>2004观看 · 07-23</Text>
-                  <TouchableOpacity>
-                    <Ionicons name="ellipsis-vertical" size={20} color="grey" />
-                  </TouchableOpacity>
-                </View>
-              </View>
-            </View>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity  onPress={() => this.context.navigate('Video')}>
-          <View style={styles.box}>
-            <Image
-              style={styles.image}
-              source={require('../../../res/12.jpg')}
-            />
-            <View style={styles.botbox}>
-              <Text style={styles.text1}>黛玉葬花</Text>
-              <View>
-                <Text style={styles.text2}>杭州小百花越剧团</Text>
-                <View style={styles.smallbox}>
-                  <Text style={styles.text2}>26572观看 · 08-01</Text>
-                  <TouchableOpacity>
-                    <Ionicons name="ellipsis-vertical" size={20} color="grey" />
-                  </TouchableOpacity>
-                </View>
-              </View>
-            </View>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity  onPress={() => this.context.navigate('Video')}>
-          <View style={styles.box}>
-            <Image
-              style={styles.image}
-              source={require('../../../res/play/3.jpg')}
-            />
-            <View style={styles.botbox}>
-              <Text style={styles.text1}>梁祝</Text>
-              <View>
-                <Text style={styles.text2}>杭州小百花越剧团</Text>
-                <View style={styles.smallbox}>
-                  <Text style={styles.text2}>56732观看 · 07-31</Text>
-                  <TouchableOpacity>
-                    <Ionicons name="ellipsis-vertical" size={20} color="grey" />
-                  </TouchableOpacity>
-                </View>
-              </View>
-            </View>
-          </View>
-        </TouchableOpacity>
+        <Opera status={0} />
         {/*名角唱段 */}
         <View style={styles.view}>
           <View
@@ -117,66 +58,7 @@ class Index extends PureComponent {
             </TouchableOpacity>
           </View>
         </View>
-        <TouchableOpacity  onPress={() => this.context.navigate('Video')}>
-          <View style={styles.box}>
-            <Image
-              style={styles.image}
-              source={require('../../../res/play/6.jpg')}
-            />
-            <View style={styles.botbox}>
-              <Text style={styles.text1}>袁雪芬 范瑞娟《祥林嫂》</Text>
-              <View>
-                <Text style={styles.text2}></Text>
-                <View style={styles.smallbox}>
-                  <Text style={styles.text2}>22531观看 · 07-23</Text>
-                  <TouchableOpacity>
-                    <Ionicons name="ellipsis-vertical" size={20} color="grey" />
-                  </TouchableOpacity>
-                </View>
-              </View>
-            </View>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity  onPress={() => this.context.navigate('Video')}>
-          <View style={styles.box}>
-            <Image
-              style={styles.image}
-              source={require('../../../res/play/7.jpg')}
-            />
-            <View style={styles.botbox}>
-              <Text style={styles.text1}>赵心瑜《碧玉簪·归宁》</Text>
-              <View>
-                <Text style={styles.text2}></Text>
-                <View style={styles.smallbox}>
-                  <Text style={styles.text2}>22531观看 · 07-23</Text>
-                  <TouchableOpacity>
-                    <Ionicons name="ellipsis-vertical" size={20} color="grey" />
-                  </TouchableOpacity>
-                </View>
-              </View>
-            </View>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity  onPress={() => this.context.navigate('Video')}>
-          <View style={styles.box}>
-            <Image
-              style={styles.image}
-              source={require('../../../res/play/8.jpg')}
-            />
-            <View style={styles.botbox}>
-              <Text style={styles.text1}>茅威涛《陆游与唐琬》</Text>
-              <View>
-                <Text style={styles.text2}></Text>
-                <View style={styles.smallbox}>
-                  <Text style={styles.text2}>66531观看 · 05-23</Text>
-                  <TouchableOpacity>
-                    <Ionicons name="ellipsis-vertical" size={20} color="grey" />
-                  </TouchableOpacity>
-                </View>
-              </View>
-            </View>
-          </View>
-        </TouchableOpacity>
+        <Opera status={1} />
         {/*流派纷呈 */}
         <View style={styles.view}>
           <View
@@ -193,7 +75,7 @@ class Index extends PureComponent {
             </TouchableOpacity>
           </View>
         </View>
-        <TouchableOpacity  onPress={() => this.context.navigate('Video')}>
+        <TouchableOpacity onPress={() => this.context.navigate('Video')}>
           <View style={styles.box}>
             <Image
               style={styles.image}
@@ -205,66 +87,6 @@ class Index extends PureComponent {
                 <Text style={styles.text2}></Text>
                 <View style={styles.smallbox}>
                   <Text style={styles.text2}>225321观看 · 07-23</Text>
-                  <TouchableOpacity>
-                    <Ionicons name="ellipsis-vertical" size={20} color="grey" />
-                  </TouchableOpacity>
-                </View>
-              </View>
-            </View>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity  onPress={() => this.context.navigate('Video')}>
-          <View style={styles.box}>
-            <Image
-              style={styles.image}
-              source={require('../../../res/genre/4.jpg')}
-            />
-            <View style={styles.botbox}>
-              <Text style={styles.text1}>越剧傅派集锦</Text>
-              <View>
-                <Text style={styles.text2}></Text>
-                <View style={styles.smallbox}>
-                  <Text style={styles.text2}>22531观看 · 07-23</Text>
-                  <TouchableOpacity>
-                    <Ionicons name="ellipsis-vertical" size={20} color="grey" />
-                  </TouchableOpacity>
-                </View>
-              </View>
-            </View>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity  onPress={() => this.context.navigate('Video')}>
-          <View style={styles.box}>
-            <Image
-              style={styles.image}
-              source={require('../../../res/genre/7.jpg')}
-            />
-            <View style={styles.botbox}>
-              <Text style={styles.text1}>越剧 王派唱段专辑</Text>
-              <View>
-                <Text style={styles.text2}></Text>
-                <View style={styles.smallbox}>
-                  <Text style={styles.text2}>66531观看 · 05-23</Text>
-                  <TouchableOpacity>
-                    <Ionicons name="ellipsis-vertical" size={20} color="grey" />
-                  </TouchableOpacity>
-                </View>
-              </View>
-            </View>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity  onPress={() => this.context.navigate('Video')}>
-          <View style={styles.box}>
-            <Image
-              style={styles.image}
-              source={require('../../../res/genre/8.jpg')}
-            />
-            <View style={styles.botbox}>
-              <Text style={styles.text1}>越剧 陆派专辑</Text>
-              <View>
-                <Text style={styles.text2}></Text>
-                <View style={styles.smallbox}>
-                  <Text style={styles.text2}>63341观看 · 07-13</Text>
                   <TouchableOpacity>
                     <Ionicons name="ellipsis-vertical" size={20} color="grey" />
                   </TouchableOpacity>

@@ -75,61 +75,33 @@ class Index extends PureComponent {
               marginBottom: pxToDp(15)
             }}
           >
-            <Text
-              style={{
-                color: '#468CD3',
-                fontSize: pxToDp(18),
-                fontWeight: 'bold',
-                position: 'absolute'
-              }}
-            >
+            <Text style={{ color: '#468CD3', fontSize: pxToDp(18), fontWeight: 'bold', position: 'absolute' }}>
               长袖轻舞，越音袅袅
             </Text>
           </View>
-          <View
-            style={{ flexDirection: 'row', justifyContent: 'space-around' }}
-          >
-            <View style={styles.box}>
-              <Image
-                style={styles.image2}
-                source={require('../../../res/7.jpg')}
-              />
-              <Text style={styles.text}>今日特惠</Text>
-            </View>
+          <View style={{margin:pxToDp(10),flexDirection:'row'}}>
+            {/*线下门票 */}
             <TouchableOpacity onPress={() => this.context.navigate('ticket')}>
-              <View style={styles.box}>
+              <Image style={styles.image3} source={require('../../../res/门票.jpg')} />
+            </TouchableOpacity>
+            {/*戏服租赁 */}
+            <View style={{height:pxToDp(170),justifyContent: 'space-between',marginLeft:pxToDp(15)}}>
+              <TouchableOpacity onPress={() => this.context.navigate('Zulin', 0)}>
                 <Image
-                  style={styles.image2}
-                  source={require('../../../res/13.jpg')}
+                  style={styles.image4}
+                  source={require('../../../res/30.jpg')}
                 />
-                <Text style={styles.text}>线下门票</Text>
-              </View>
-            </TouchableOpacity>
-            <View style={styles.box}>
-              <Image
-                style={styles.image2}
-                source={require('../../../res/16.jpg')}
-              />
-              <Text style={styles.text}>当季新品</Text>
+              </TouchableOpacity>
+              {/*越剧周边 */}
+              <TouchableOpacity
+                onPress={() => this.context.navigate('Zhoubian', 1)}
+              >
+                <Image
+                  style={styles.image4}
+                  source={require('../../../res/29.jpg')}
+                />
+              </TouchableOpacity>
             </View>
-          </View>
-          {/*戏服租赁 */}
-          <View style={{ margin: pxToDp(10) }}>
-            <TouchableOpacity onPress={() => this.context.navigate('Zulin', 0)}>
-              <Image
-                style={styles.image3}
-                source={require('../../../res/30.jpg')}
-              />
-            </TouchableOpacity>
-            {/*越剧周边 */}
-            <TouchableOpacity
-              onPress={() => this.context.navigate('Zhoubian', 1)}
-            >
-              <Image
-                style={styles.image4}
-                source={require('../../../res/29.jpg')}
-              />
-            </TouchableOpacity>
           </View>
           {/*推荐模块 */}
           <Text style={styles.title}>你可能喜欢</Text>
@@ -163,7 +135,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: pxToDp(200),
     margin: pxToDp(10),
-    borderRadius: pxToDp(10)
+    borderRadius: pxToDp(8)
   },
   tcard: {
     flexDirection: 'row',
@@ -199,20 +171,20 @@ const styles = StyleSheet.create({
   image1: {
     height: pxToDp(100),
     width: pxToDp(355),
-    borderRadius: pxToDp(10)
+    borderRadius: pxToDp(8)
   },
   box: {
     height: pxToDp(115),
     width: pxToDp(105),
     backgroundColor: '#468cd3',
     alignItems: 'center',
-    borderRadius: pxToDp(10)
+    borderRadius: pxToDp(8)
   },
   image2: {
     height: pxToDp(90),
     width: pxToDp(105),
-    borderTopLeftRadius: pxToDp(10),
-    borderTopRightRadius: pxToDp(10)
+    borderTopLeftRadius: pxToDp(8),
+    borderTopRightRadius: pxToDp(8)
   },
   text: {
     fontSize: pxToDp(15),
@@ -222,15 +194,15 @@ const styles = StyleSheet.create({
     marginTop: pxToDp(3)
   },
   image3: {
-    height: pxToDp(150),
-    width: pxToDp(355),
-    borderRadius: pxToDp(10)
+    height: pxToDp(170),
+    width: pxToDp(170),
+    borderRadius: pxToDp(8)
   },
   image4: {
-    height: pxToDp(150),
-    width: pxToDp(355),
-    marginTop: pxToDp(10),
-    borderRadius: pxToDp(10)
+    height: pxToDp(80),
+    width: pxToDp(170),
+    borderRadius: pxToDp(8),
+    alignSelf: 'center'
   }
 });
 export default connect(() => ({}), { getAddressListAction })(Index);
