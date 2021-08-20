@@ -32,7 +32,7 @@ export default class index extends PureComponent {
         <ImageBackground
           style={{
             width: '100%',
-            height: pxToDp(250)
+            height: pxToDp(240)
           }}
           imageStyle={{
             borderTopLeftRadius: pxToDp(10),

@@ -47,7 +47,7 @@ export default class HighLights extends Component {
         <ScrollView
           horizontal={true}
           style={{
-            height: pxToDp(350)
+            height: pxToDp(240)
           }}
           showsHorizontalScrollIndicator={false}
         >
@@ -77,8 +77,8 @@ export default class HighLights extends Component {
               > */}
                 <Image
                   style={{
-                    height: pxToDp(140),
-                    width: pxToDp(140),
+                    height: pxToDp(130),
+                    width: pxToDp(130),
                     position: 'absolute',
                     top: 0,
                     right: 0,
@@ -89,14 +89,14 @@ export default class HighLights extends Component {
                 {/* </TouchableOpacity>   */}
                 <View
                   style={{
-                    height: '68%',
+                    height: '70%',
                     width: '40%',
                     alignItems: 'center',
                     borderBottomWidth:pxToDp(0.5),
                     borderColor: '#ccc'
                   }}
                 >
-                  <Text style={{ marginTop: pxToDp(30), fontWeight: 'bold' }}>
+                  <Text style={{ marginTop: pxToDp(10), fontWeight: 'bold' }}>
                     2017.12
                   </Text>
                   <Text style={{ fontSize: pxToDp(24), fontWeight: 'bold' }}>15</Text>
@@ -115,7 +115,7 @@ export default class HighLights extends Component {
                     height: '20%',
                     width: '64%',
                     position: 'absolute',
-                    top: pxToDp(166),
+                    top: pxToDp(146),
                     right: 0,
                     borderLeftWidth: pxToDp(0.5),
                     borderColor: '#ccc'
