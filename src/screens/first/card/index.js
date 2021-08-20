@@ -37,7 +37,7 @@ class history extends Component {
                 flexDirection: 'row',
                 justifyContent: 'center',
                 alignItems: 'center',
-                margin: pxToDp(10),
+                margin: pxToDp(8),
                 elevation: 10,
                 shadowColor: 'black',
                 shadowOffset: { width: 0, height: 0 },
@@ -70,7 +70,7 @@ class history extends Component {
                         borderRadius: pxToDp(8)
                       }}
                     >
-                      <View style={{ margin: pxToDp(10) }}>
+                      <View style={{ margin: pxToDp(8) }}>
                         <View
                           style={{
                             flexDirection: 'row',
@@ -83,7 +83,7 @@ class history extends Component {
                             style={{
                               fontSize: pxToDp(16),
                               width: '96%',
-                              marginBottom: pxToDp(6)
+                              marginBottom: pxToDp(8)
                             }}
                           >
                             {item.title}
@@ -94,7 +94,7 @@ class history extends Component {
                         >
                           <Text
                             numberOfLines={2}
-                            style={{ marginLeft: pxToDp(4) }}
+                            style={{ marginLeft: pxToDp(8) }}
                           >
                             {item.ezcontent}
                           </Text>

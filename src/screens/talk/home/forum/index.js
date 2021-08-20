@@ -23,13 +23,13 @@ import { FAB } from 'react-native-elements';
 import EZSwiper from 'react-native-ezswiper';
 const images = [
   {
-    uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fmmbiz.qpic.cn%2Fmmbiz_jpg%2FRqm4Bk9vroAzBHPOfFMm14cWHLl0gmRZD8sunnz5mxlDCAbmlRfFEECBU2zeuE7dV9edNhg8IYpld8ILriaSvrg%2F640.jpeg&refer=http%3A%2F%2Fmmbiz.qpic.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631858460&t=c5a56ff4372f1925ef950e0f6cee2eb8'
+    uri: 'http://img05.lantingyahui.com/Img05/49/99/30/9e791ddb-a31e-4687-bf71-f21695d302df.jpg'
   },
   {
-    uri: 'https://img1.baidu.com/it/u=2686354713,1431007342&fm=26&fmt=auto&gp=0.jpg'
+    uri: 'http://img03.lantingyahui.com/Img03/79/30/34/3f1ff8ca-2a76-4d9b-88a2-21e6498816b6.jpg'
   },
   {
-    uri: 'https://pics5.baidu.com/feed/14ce36d3d539b600e385f38cdeb3b72cc75cb7a8.jpeg?token=8ff70aeedc3c563450849f19b777d49e'
+    uri: 'http://img04.lantingyahui.com/Img04/44/03/69/36c6859e-3854-4b33-9863-d7da7666c5f5.jpg'
   }
 ];
 const { height, width } = Dimensions.get('window');
@@ -167,8 +167,8 @@ class Index extends PureComponent {
                 fontSize: pxToDp(18),
                 color: '#468CD3',
                 fontWeight: 'bold',
-                marginTop: pxToDp(10),
-                marginLeft: pxToDp(10)
+                marginTop: pxToDp(8),
+                marginLeft: pxToDp(8)
               }}
             >
               热门话题
@@ -182,8 +182,8 @@ class Index extends PureComponent {
                 <TouchableOpacity
                   onPress={() => this.openTopic(index)}
                   style={{
-                    marginLeft: pxToDp(10),
-                    marginTop: pxToDp(10),
+                    marginLeft: pxToDp(8),
+                    marginTop: pxToDp(8),
                     width: pxToDp(150),
                     height: pxToDp(72),
                     borderRadius: pxToDp(8)

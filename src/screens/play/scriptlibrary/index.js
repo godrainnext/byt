@@ -79,7 +79,7 @@ class Index extends PureComponent {
         <Top icon1="arrow-back" title="剧本中心" />
         <ScrollView style={{ flex: 1 }}>
           {/*剧本推荐 */}
-          <Text style={{fontSize: pxToDp(18),color: '#468CD3',fontWeight: 'bold',marginTop:pxToDp(10),marginLeft:pxToDp(10)}}>猜你喜欢</Text>
+          <Text style={{fontSize: pxToDp(18),color: '#468CD3',fontWeight: 'bold',marginTop:pxToDp(12),marginLeft:pxToDp(8)}}>猜你喜欢</Text>
           {this.state.drama.map((item) => (
             <View style={styles.bookbox}>
               <View style={styles.bookbotton11}>
@@ -111,7 +111,7 @@ class Index extends PureComponent {
           ))}
           {/*介绍 */}
           <View>
-          <Text style={{fontSize: pxToDp(18),color: '#468CD3',fontWeight: 'bold',marginTop:pxToDp(10),marginLeft:pxToDp(10)}}>他山之石</Text>
+          <Text style={{fontSize: pxToDp(18),color: '#468CD3',fontWeight: 'bold',marginTop:pxToDp(12),marginLeft:pxToDp(8)}}>他山之石</Text>
             <ImageBackground style={styles.shujia1} source={require('../../../res/短书架.png')}>
               <ScrollView horizontal={true}>
                 {this.state.booksss.map((item) => (
@@ -159,8 +159,8 @@ class Index extends PureComponent {
             </ImageBackground>
           </View>
           {/**书架 */}
-          <Text style={{fontSize: pxToDp(18),color: '#468CD3',fontWeight: 'bold',marginTop:pxToDp(10),marginLeft:pxToDp(10)}}>永恒经典</Text>
-          <ImageBackground style={{ height: pxToDp(385), width: '100%', marginTop: pxToDp(10) }} source={require('../../../res/书架.png')}>
+          <Text style={{fontSize: pxToDp(18),color: '#468CD3',fontWeight: 'bold',marginLeft:pxToDp(8),marginBottom:pxToDp(12)}}>永恒经典</Text>
+          <ImageBackground style={{ height: pxToDp(385), width: '100%' }} source={require('../../../res/书架.png')}>
             <ScrollView horizontal={true}>
               {this.state.data.map((item) => (
                 <View style={styles.shujia}>
@@ -200,7 +200,7 @@ const styles = StyleSheet.create({
   },
   text3: {
     fontSize: pxToDp(14),
-    marginTop: pxToDp(5),
+    marginTop: pxToDp(8),
     width: pxToDp(220)
   },
   actionButtonIcon: {
@@ -223,7 +223,6 @@ const styles = StyleSheet.create({
     shadowRadius: pxToDp(8), //  圆角,
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 1,
-    marginTop: pxToDp(10)
   },
   book1: {
     marginTop: pxToDp(-130),
@@ -242,15 +241,15 @@ const styles = StyleSheet.create({
   },
   bookbox: {
     height: pxToDp(130),
-    marginLeft: pxToDp(10),
-    marginRight: pxToDp(10),
-    marginTop: pxToDp(10)
+    marginLeft: pxToDp(8),
+    marginRight: pxToDp(8),
+    marginTop: pxToDp(12)
   },
   bookbotton: {
     height: pxToDp(100),
     backgroundColor: 'white',
     borderRadius: pxToDp(8),
-    marginTop: pxToDp(30)
+    marginTop: pxToDp(32),
   },
   bookinf: {
     flexDirection: 'row',
@@ -266,17 +265,17 @@ const styles = StyleSheet.create({
   shujia1: {
     height: pxToDp(185),
     width: '100%',
-    marginTop: pxToDp(10)
+    marginTop: pxToDp(12)
   },
   books: {
     height: pxToDp(150),
     width: pxToDp(95),
     backgroundColor: 'white',
     borderRadius: pxToDp(8),
-    marginLeft: pxToDp(10),
-    elevation: 8, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
-    shadowColor: 'black', //  阴影颜色
-    shadowRadius: pxToDp(8), //  圆角,
+    marginLeft: pxToDp(8),
+    elevation: 8,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+    shadowColor: 'black',  //  阴影颜色
+    shadowRadius: pxToDp(8),  //  圆角,
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 1
   },
@@ -291,7 +290,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: pxToDp(80),
     justifyContent: 'space-between',
-    marginLeft: pxToDp(10)
+    marginLeft: pxToDp(8)
   },
   bookbotton11: {
     height: pxToDp(100),

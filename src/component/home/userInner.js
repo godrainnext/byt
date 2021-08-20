@@ -59,7 +59,7 @@ class UserInner extends PureComponent {
         style={{
           borderRadius: pxToDp(8),
           backgroundColor: '#f0fcff',
-          margin: pxToDp(10),
+          margin: pxToDp(8),
           height: pxToDp(140),
           elevation: 3,
           borderWidth: 0
@@ -72,7 +72,7 @@ class UserInner extends PureComponent {
                 height: pxToDp(60),
                 width: pxToDp(60),
                 borderRadius: pxToDp(32),
-                margin: pxToDp(10)
+                margin: pxToDp(8)
               }}
               source={{
                 uri: this.props.avatar
@@ -92,7 +92,7 @@ class UserInner extends PureComponent {
             <View>
               <Text
                 style={{
-                  margin: pxToDp(10),
+                  margin: pxToDp(8),
                   fontSize: pxToDp(20),
                   fontWeight: 'bold'
                 }}

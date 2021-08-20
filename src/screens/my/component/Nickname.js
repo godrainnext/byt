@@ -29,8 +29,8 @@ export default class Nickname extends PureComponent {
         />
         <View
           style={{
-            marginLeft: pxToDp(15),
-            marginRight: pxToDp(15)
+            marginLeft: pxToDp(16),
+            marginRight: pxToDp(16)
           }}
         >
           <Input

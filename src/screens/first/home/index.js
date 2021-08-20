@@ -114,8 +114,8 @@ class Index extends Component {
                 uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic27.nipic.com%2F20130307%2F8984340_113532918000_2.jpg&refer=http%3A%2F%2Fpic27.nipic.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631857652&t=03b4f1cf6deeb6e50010fe5e59eb881d'
               }}
               style={{
-                width: 450,
-                height: 250
+                width: pxToDp(450),
+                height: pxToDp(250)
               }}
             ></Image>
             <View
@@ -124,7 +124,7 @@ class Index extends Component {
                 top: 0,
                 width: window.width,
                 backgroundColor: 'rgba(0,0,0,.4)',
-                height: 250
+                height: pxToDp(250)
               }}
             />
           </View>
@@ -133,10 +133,10 @@ class Index extends Component {
         renderForeground={() => <View style={{ Top: 200, left: 100 }}></View>}
         scrollableViewStyle={{ backgroundColor: '#fcfcfc' }}
       >
-        <View style={{ margin: pxToDp(10), marginTop: pxToDp(30), flex: 1 }}>
-          <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={{ marginBottom: pxToDp(20)}}>
+        <View style={{ marginLeft: pxToDp(8), marginTop: pxToDp(16), marginRight: pxToDp(8), flex: 1 }}>
+          <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={{ marginBottom: pxToDp(8) }}>
             {/**推荐卡片 */}
-            <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'center',marginLeft: pxToDp(10) }} onPress={this.toggleModal} >
+            <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'center', marginLeft: pxToDp(8) }} onPress={this.toggleModal} >
               <Ionicons name="layers-outline" size={32} color="#468CD3" />
               <Text style={{ fontSize: pxToDp(15), marginTop: pxToDp(5) }}>推荐</Text>
             </TouchableOpacity>
@@ -144,35 +144,34 @@ class Index extends Component {
             {/**签到 */}
             <Qiandao />
             {/**剧本库 */}
-            <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'center', marginLeft: pxToDp(50) }} onPress={() => this.context.navigate('Scriptlibrary')}>
+            <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'center', marginLeft: pxToDp(48) }} onPress={() => this.context.navigate('Scriptlibrary')}>
               <Ionicons name="library-sharp" size={32} color="#468CD3" />
               <Text style={{ fontSize: pxToDp(15), marginTop: pxToDp(5) }}>剧本</Text>
             </TouchableOpacity>
             {/**教程 */}
-            <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'center', marginLeft: pxToDp(50) }} onPress={() => this.context.navigate('Course')} >
+            <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'center', marginLeft: pxToDp(48) }} onPress={() => this.context.navigate('Course')} >
               <Ionicons name="md-color-wand" size={32} color="#468CD3" />
               <Text style={{ fontSize: pxToDp(15), marginTop: pxToDp(5) }}>教程</Text>
             </TouchableOpacity>
             {/**图谱 */}
-            <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'center', marginLeft: pxToDp(50) }} onPress={() => this.context.navigate('Timeline')}>
+            <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'center', marginLeft: pxToDp(48) }} onPress={() => this.context.navigate('Timeline')}>
               <Entypo name="colours" size={30} color="#468CD3" />
               <Text style={{ fontSize: pxToDp(15), marginTop: pxToDp(5) }}>图谱</Text>
             </TouchableOpacity>
             {/**VR */}
-            <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'center', marginLeft: pxToDp(50),marginRight:pxToDp(10) }} onPress={() => this.context.navigate('VR')} >
+            <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'center', marginLeft: pxToDp(48), marginRight: pxToDp(10) }} onPress={() => this.context.navigate('VR')} >
               <Ionicons name="earth-sharp" size={32} color="#468CD3" />
               <Text style={{ fontSize: pxToDp(15), marginTop: pxToDp(5) }}>VR</Text>
             </TouchableOpacity>
           </ScrollView>
-
+          {/**精选唱段 */}
           <HighLights />
-
           {/*俯瞰百年 */}
-          <View style={{ margin: pxToDp(10), marginTop: pxToDp(10) }}>
+          <View style={{ margin: pxToDp(8) }}>
             <View
               style={{
                 flexDirection: 'row',
-                justifyContent: 'space-between'
+                justifyContent: 'space-between',
               }}
             >
               <Text
@@ -206,7 +205,8 @@ class Index extends Component {
             <View
               style={{
                 flexDirection: 'row',
-                justifyContent: 'space-between'
+                justifyContent: 'space-between',
+                marginBottom: pxToDp(8)
               }}
             >
               <Text
@@ -246,14 +246,15 @@ class Index extends Component {
           {/*梨园子弟 */}
           <View
             style={{
-              margin: pxToDp(8)
-              //    marginTop: pxToDp(0),
+              margin: pxToDp(8),
+              marginTop: pxToDp(24),
             }}
           >
             <View
               style={{
                 flexDirection: 'row',
-                justifyContent: 'space-between'
+                justifyContent: 'space-between',
+                marginBottom: pxToDp(8)
               }}
             >
               <Text
@@ -278,19 +279,19 @@ class Index extends Component {
             </View>
           </View>
           <Actress />
-           {/* 轮播图 */}
-           <View
+          {/* 轮播图 */}
+          <View
             style={{
               flexDirection: 'row',
-              width: pxToDp(350),
               justifyContent: 'space-between',
-              alignItems: 'center'
+              alignItems: 'center',
+              marginRight:pxToDp(8)
             }}
           >
             <Text
               style={{
                 fontSize: pxToDp(18),
-                margin: pxToDp(10),
+                margin: pxToDp(8),
                 color: '#468CD3',
                 fontWeight: 'bold'
               }}
@@ -345,7 +346,7 @@ class Index extends Component {
                         height: pxToDp(104),
                         width: pxToDp(4),
                         backgroundColor: 'lightgrey',
-                        borderBottomRightRadius:pxToDp(8),
+                        borderBottomRightRadius: pxToDp(8),
                         borderTopRightRadius: pxToDp(8)
                       }}
                     ></View>
@@ -366,9 +367,10 @@ class Index extends Component {
             <Text
               style={{
                 fontSize: pxToDp(18),
-                margin: pxToDp(10),
+                margin: pxToDp(8),
                 color: '#468CD3',
-                fontWeight: 'bold'
+                fontWeight: 'bold',
+                marginBottom:pxToDp(0)
               }}
             >
               剧本推荐
@@ -385,10 +387,10 @@ class Index extends Component {
           </View>
           <View style={{ marginBottom: pxToDp(20) }}>
             {this.state.book.map((item) => (
-              <View style={styles.bookbox}>
+              <View style={styles.bookbox1}>
                 <View style={styles.bookbotton}>
                   <View
-                    style={{ marginLeft: pxToDp(120), marginTop: pxToDp(10) }}
+                    style={{ marginLeft: pxToDp(120), marginTop: pxToDp(8) }}
                   >
                     <View style={styles.bookinf}>
                       <Text
@@ -406,11 +408,11 @@ class Index extends Component {
                       {item.context}
                     </Text>
                     <View
-                      style={{ flexDirection: 'row', alignItems: 'center' }}
+                      style={{ flexDirection: 'row', alignItems: 'center', marginTop: pxToDp(5) }}
                     >
                       <Text>推荐指数</Text>
                       <View
-                        style={{ flexDirection: 'row', marginLeft: pxToDp(5) }}
+                        style={{ flexDirection: 'row', marginLeft: pxToDp(8) }}
                       >
                         <Svg width="20" height="20" svgXmlData={star} />
                         <Svg width="20" height="20" svgXmlData={star} />
@@ -429,7 +431,7 @@ class Index extends Component {
                       width: pxToDp(4),
                       backgroundColor: 'lightgrey',
                       borderTopRightRadius: pxToDp(8),
-                      borderBottomRightRadius:pxToDp(8)
+                      borderBottomRightRadius: pxToDp(8)
                     }}
                   ></View>
                 </View>
@@ -460,9 +462,8 @@ const styles = StyleSheet.create({
   },
   bookbox: {
     height: pxToDp(130),
-    marginLeft: pxToDp(10),
-    marginRight: pxToDp(10),
-    marginTop: pxToDp(10)
+    marginLeft: pxToDp(8),
+    marginRight: pxToDp(8),
   },
   bookbotton: {
     height: pxToDp(110),
@@ -477,7 +478,7 @@ const styles = StyleSheet.create({
   },
   bookinf: {
     flexDirection: 'row',
-    width: pxToDp(220),
+    width: pxToDp(210),
     alignItems: 'center',
     justifyContent: 'space-between'
   },
@@ -503,17 +504,22 @@ const styles = StyleSheet.create({
   },
   bookinf1: {
     flexDirection: 'row',
-    width: pxToDp(190),
+    width: pxToDp(180),
     alignItems: 'center',
     justifyContent: 'space-between'
   },
   carousel: {
     borderRadius: pxToDp(24),
     height: pxToDp(155),
-    marginLeft: pxToDp(10),
-    marginRight: pxToDp(10),
-    marginTop: pxToDp(8)
-  }
+    marginLeft: pxToDp(8),
+    marginRight: pxToDp(8)
+  },
+  bookbox1: {
+    height: pxToDp(130),
+    marginLeft: pxToDp(8),
+    marginRight: pxToDp(8),
+    marginTop:pxToDp(8)
+  },
 });
 
 export default connect(
