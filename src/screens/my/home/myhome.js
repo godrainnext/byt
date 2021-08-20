@@ -65,7 +65,7 @@ export default class hello extends Component {
                 height: 400,
               }}>
             </Image>
-            <View style={{ position: 'absolute', top: 0, width: window.width, backgroundColor: 'rgba(0,0,0,.4)', height: 300 }} />
+           
           </View>
         )
         }
