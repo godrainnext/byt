@@ -28,9 +28,9 @@ class Index extends PureComponent {
       {
         selected: 'play',
         title: '越吟',
-        renderIcon: () =><Image style={{ width: pxToDp(80), height: pxToDp(28) }} source={require("./sb.png")}></Image>,
+        renderIcon: () =><Image style={{ width: pxToDp(80), height: pxToDp(28) }} source={require("./sb.jpg")}></Image>,
         renderSelectedIcon: () => (
-          <Image style={{ width: pxToDp(100), height: pxToDp(28) }} source={require("./sb.png")}></Image>
+          <Image style={{ width: pxToDp(100), height: pxToDp(28) }} source={require("./sb.jpg")}></Image>
         ),
         onPress: () => this.setState({ selectedTab: 'play' }),
         component: <Play />
@@ -38,9 +38,9 @@ class Index extends PureComponent {
       {
         selected: 'talk',
         title: '戏缘',
-        renderIcon: () =><Image style={{ width: pxToDp(80), height: pxToDp(28) }} source={require("./sb1.png")}></Image>,
+        renderIcon: () =><Image style={{ width: pxToDp(80), height: pxToDp(28) }} source={require("./sb1.jpg")}></Image>,
         renderSelectedIcon: () => (
-          <Image style={{ width: pxToDp(100), height: pxToDp(28) }} source={require("./sb1.png")}></Image>
+          <Image style={{ width: pxToDp(100), height: pxToDp(28) }} source={require("./sb1.jpg")}></Image>
         ),
         onPress: () => this.setState({ selectedTab: 'talk' }),
         component: <Talk />
@@ -68,9 +68,9 @@ class Index extends PureComponent {
       {
         selected: 'my',
         title: '戏痴',
-        renderIcon: () =>  <Image style={{ width: pxToDp(80), height: pxToDp(28) }} source={require("./sb3.png")}></Image>,
+        renderIcon: () =>  <Image style={{ width: pxToDp(80), height: pxToDp(28) }} source={require("./sb3.jpg")}></Image>,
         renderSelectedIcon: () => (
-          <Image style={{ width: pxToDp(95), height: pxToDp(28) }} source={require("./sb3.png")}></Image>
+          <Image style={{ width: pxToDp(95), height: pxToDp(28) }} source={require("./sb3.jpg")}></Image>
         ),
         onPress: () => this.setState({ selectedTab: 'my' }),
         component: <My />
