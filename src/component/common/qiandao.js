@@ -165,11 +165,11 @@ class Index extends PureComponent {
                         </View>
                     </Modal>
                 </View>
-                <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'center' }} onPress={() => {
+                <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'center',marginLeft:pxToDp(50) }} onPress={() => {
                     this.setModalVisible(true);
                 }}>
-                    <Ionicons name="today-sharp" size={30} color="#468CD3" />
-                    <Text style={{ fontSize: pxToDp(15) }}>签到</Text>
+                    <Ionicons name="today-sharp" size={32} color="#468CD3" />
+                    <Text style={{ fontSize: pxToDp(15),marginTop:pxToDp(5)}}>签到</Text>
                 </TouchableOpacity>
             </View>
         );

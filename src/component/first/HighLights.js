@@ -7,6 +7,7 @@ import { pxToDp } from '@utils/styleKits';
 import changeImgSize from '@utils/changeImgSize';
 import { Button } from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
+
 export default class HighLights extends Component {
   static contextType = NavigationContext;
   state = { arr: [] };

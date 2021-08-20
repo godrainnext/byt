@@ -113,6 +113,8 @@ export { default as Test1 } from './test/test1'
 export { default as Test2 } from './test/test2' 
 export { default as Test3 } from './test/test3' 
 export { default as Test4 } from './test/test4' 
+export { default as Test6 } from './test/test6' 
+
 export { default as WaterButton } from '../component/common/waterbutton'; //波纹按钮
 
 export { default as NewTimeLine } from './test/test5';
