@@ -144,11 +144,11 @@ class Index extends PureComponent {
               <EZSwiper
                 style={[
                   styles.swiper,
-                  { width: width - 50, height: 150, marginLeft: pxToDp(25) }
+                  { width: width - 20, height: 160, marginLeft: pxToDp(10) }
                 ]}
                 dataSource={images}
-                width={width - 50}
-                height={150}
+                width={width - 20}
+                height={160}
                 renderRow={this.renderRow}
                 ratio={0.867}
                 loop={true}
