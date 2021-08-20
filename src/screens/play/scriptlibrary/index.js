@@ -104,7 +104,7 @@ class Index extends PureComponent {
               </View>
               <View style={styles.book1}>
                 <Image style={styles.bookimage1} source={{ uri: item.path }} />
-                <View style={{ height: pxToDp(104), width: pxToDp(4), backgroundColor: 'lightgrey', borderTopLeftRadius: pxToDp(8), borderTopRightRadius: pxToDp(8) }}>
+                <View style={{ height: pxToDp(104), width: pxToDp(4), backgroundColor: 'lightgrey', borderTopRightRadius: pxToDp(8),borderBottomRightRadius:pxToDp(8) }}>
                 </View>
               </View>
             </View>
@@ -226,8 +226,8 @@ const styles = StyleSheet.create({
     marginTop: pxToDp(10)
   },
   book1: {
-    marginTop: pxToDp(-125),
-    marginLeft: pxToDp(5),
+    marginTop: pxToDp(-130),
+    marginLeft: pxToDp(12),
     height: pxToDp(120),
     width: pxToDp(100),
     borderRadius: pxToDp(8),
