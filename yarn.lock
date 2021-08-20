@@ -7033,8 +7033,8 @@ react-native-ezswiper@^1.3.0:
 
 react-native-flip-card@^3.5.6:
   version "3.5.6"
-  resolved "https://registry.yarnpkg.com/react-native-flip-card/-/react-native-flip-card-3.5.6.tgz#de26f0285aa6f8ee10bb4b696c60c6fb43bb580f"
-  integrity sha512-lqsjl4vF5DyHD7mjBJpyBoaLKVxalzoKfCosE63QF+TaCF9MKdJrxmGFQj/i64GDiMJqeS/5sNDcICUXtgFsVA==
+  resolved "https://registry.nlark.com/react-native-flip-card/download/react-native-flip-card-3.5.6.tgz#de26f0285aa6f8ee10bb4b696c60c6fb43bb580f"
+  integrity sha1-3ibwKFqm+O4Qu0tpbGDG+0O7WA8=
   dependencies:
     prop-types "^15.5.10"
 
