@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5F5F5',
     textAlign: 'center',
     height: pxToDp(40),
-    borderRadius: pxToDp(30),
+    borderRadius: pxToDp(32),
     marginLeft: pxToDp(8),
     marginRight: pxToDp(8),
     marginTop: pxToDp(8)
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     width: pxToDp(80),
     marginRight: pxToDp(8),
     alignSelf: 'center',
-    borderRadius: pxToDp(16),
+    borderRadius: pxToDp(24),
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 1,

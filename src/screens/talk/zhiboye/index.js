@@ -309,20 +309,41 @@ export default class App extends Component {
     return (
       <View
         style={styles.remoteContainer}
-      // contentContainerStyle={{ paddingHorizontal: 2.5 }}
-      // horizontal={true}
+        // contentContainerStyle={{ paddingHorizontal: 2.5 }}
+        // horizontal={true}
       >
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-          <View style={{ backgroundColor: 'rgba(0,0,0,0.4)', height: pxToDp(50), width: pxToDp(168), flexDirection: 'row', justifyContent: 'center', alignItems: 'center', borderRadius: pxToDp(24), padding: pxToDp(4) }}>
-            <View style={{ marginRight: pxToDp(8) ,marginLeft:pxToDp(-8)}}>
-              <Image style={{ width: pxToDp(45), height: pxToDp(45), backgroundColor: 'gray', borderRadius: pxToDp(30) }} source={{ uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fa4.att.hudong.com%2F40%2F67%2F01300000375382124123679222720.jpg&refer=http%3A%2F%2Fa4.att.hudong.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1630999562&t=6c0560e4b4201a4592ec342b0fa58f50' }}></Image>
+          <View
+            style={{
+              backgroundColor: 'rgba(0,0,0,0.4)',
+              height: pxToDp(50),
+              width: pxToDp(168),
+              flexDirection: 'row',
+              justifyContent: 'center',
+              alignItems: 'center',
+              borderRadius: pxToDp(24),
+              padding: pxToDp(4)
+            }}
+          >
+            <View style={{ marginRight: pxToDp(8), marginLeft: pxToDp(-8) }}>
+              <Image
+                style={{
+                  width: pxToDp(45),
+                  height: pxToDp(45),
+                  backgroundColor: 'gray',
+                  borderRadius: pxToDp(32)
+                }}
+                source={{
+                  uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fa4.att.hudong.com%2F40%2F67%2F01300000375382124123679222720.jpg&refer=http%3A%2F%2Fa4.att.hudong.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1630999562&t=6c0560e4b4201a4592ec342b0fa58f50'
+                }}
+              ></Image>
             </View>
-            <View style={{marginBottom:pxToDp(4)}}>
+            <View style={{ marginBottom: pxToDp(4) }}>
               <MarqueeHorizontal
                 textList={[
                   { label: '1', value: this.state.roomName },
                   { label: '2', value: this.state.roomName },
-                  { label: '3', value: this.state.roomName },
+                  { label: '3', value: this.state.roomName }
                 ]}
                 speed={20}
                 width={80}
@@ -345,35 +366,82 @@ export default class App extends Component {
               </View>
             </TouchableOpacity> */}
           </View>
-          <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginLeft: pxToDp(16) }} >
-            <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginRight: pxToDp(8) }}>
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'center',
+              alignItems: 'center',
+              marginLeft: pxToDp(16)
+            }}
+          >
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'center',
+                marginRight: pxToDp(8)
+              }}
+            >
               {/* <LottieView style={{ width: pxToDp(70), marginLeft: pxToDp(16) }} source={require('../../lottie/705-linear-line.json')} autoPlay loop /> */}
-              <LottieView style={{ width: pxToDp(70), marginLeft: pxToDp(16) }} source={require('../../lottie/16773-fire.json')} autoPlay loop />
+              <LottieView
+                style={{ width: pxToDp(70), marginLeft: pxToDp(16) }}
+                source={require('../../lottie/16773-fire.json')}
+                autoPlay
+                loop
+              />
               <Text>40热度</Text>
             </View>
-            <TouchableOpacity onPress={this.closeCall} style={{ backgroundColor: 'rgba(0,0,0,0.4)', height: pxToDp(24), width: pxToDp(24), flexDirection: 'row', justifyContent: 'center', alignItems: 'center', borderRadius: pxToDp(24), padding: pxToDp(4) }}>
-              <View style={{ height: pxToDp(20), width: pxToDp(20), justifyContent: 'center', alignItems: 'center' }}>
-                <Text style={{ color: 'white', fontSize: 16, fontWeight: 'bold' }}>X</Text>
+            <TouchableOpacity
+              onPress={this.closeCall}
+              style={{
+                backgroundColor: 'rgba(0,0,0,0.4)',
+                height: pxToDp(24),
+                width: pxToDp(24),
+                flexDirection: 'row',
+                justifyContent: 'center',
+                alignItems: 'center',
+                borderRadius: pxToDp(24),
+                padding: pxToDp(4)
+              }}
+            >
+              <View
+                style={{
+                  height: pxToDp(20),
+                  width: pxToDp(20),
+                  justifyContent: 'center',
+                  alignItems: 'center'
+                }}
+              >
+                <Text
+                  style={{ color: 'white', fontSize: 16, fontWeight: 'bold' }}
+                >
+                  X
+                </Text>
               </View>
             </TouchableOpacity>
           </View>
         </View>
 
-
-
         <WebView
-          style={{ width: pxToDp(350), height: pxToDp(400), backgroundColor: 'transparent', marginTop: pxToDp(320) }}
+          style={{
+            width: pxToDp(350),
+            height: pxToDp(400),
+            backgroundColor: 'transparent',
+            marginTop: pxToDp(320)
+          }}
           // source={{ html: HTML }}
-          source={{ uri: "file:///android_asset/static.bundle/index.html" }}
+          source={{ uri: 'file:///android_asset/static.bundle/index.html' }}
           originWhitelist={['*']}
           // source={{ html:this.props.html,baseUrl:'file:///android_asset/web/'}}
           // source={{ html:this.props.html,baseUrl:'http://127.0.0.1:5500/src/page/test/index.html'}}
-          javaScriptEnabled={true}//是否开启js
-          domStorageEnabled={true}//是否开启存储
-          scalesPageToFit={false}//用户是否可以改变页面
+          javaScriptEnabled={true} //是否开启js
+          domStorageEnabled={true} //是否开启存储
+          scalesPageToFit={false} //用户是否可以改变页面
           scrollEnabled={false}
           // injectedJavaScript={`	`}
-          onMessage={event => { '接收h5页面传过来的消息' }}
+          onMessage={(event) => {
+            '接收h5页面传过来的消息';
+          }}
         />
         {/* <WebView
           style={{ width: pxToDp(80), height: pxToDp(80), backgroundColor: 'transparent',marginTop:pxToDp(200)}}

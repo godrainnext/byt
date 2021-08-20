@@ -67,7 +67,7 @@ export default class ticketdetail extends PureComponent {
   render() {
     console.log('day', this.props.route.params);
     return (
-      <View style={{ backgroundColor:'#ecf6fc',flex: 1 }}>
+      <View style={{ backgroundColor: '#ecf6fc', flex: 1 }}>
         <Top icon1="arrow-back" title="门票详情" />
         <ScrollView
           stickyHeaderIndices={[1]}
@@ -334,7 +334,7 @@ export default class ticketdetail extends PureComponent {
                     style={{
                       height: pxToDp(30),
                       width: pxToDp(30),
-                      borderRadius: pxToDp(30)
+                      borderRadius: pxToDp(32)
                     }}
                   />
                   <Text style={{ fontWeight: 'bold' }}>{item.name}</Text>
@@ -443,7 +443,7 @@ const styles = StyleSheet.create({
   },
   smallbox: {
     height: pxToDp(20),
-    borderRadius: pxToDp(20),
+    borderRadius: pxToDp(24),
     justifyContent: 'center',
     backgroundColor: '#ecf6fc',
     marginRight: pxToDp(15)

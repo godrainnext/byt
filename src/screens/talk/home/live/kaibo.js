@@ -356,7 +356,7 @@ class App extends Component {
                   width: pxToDp(45),
                   height: pxToDp(45),
                   backgroundColor: 'gray',
-                  borderRadius: pxToDp(30)
+                  borderRadius: pxToDp(32)
                 }}
                 source={{
                   uri: userInfo.avatar

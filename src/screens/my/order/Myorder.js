@@ -140,7 +140,7 @@ class orders extends PureComponent {
           {/* 订单状态 */}
           <View
             style={{
-              borderRadius: pxToDp(10),
+              borderRadius: pxToDp(8),
               margin: pxToDp(5),
               height: pxToDp(50),
               justifyContent: 'center',
@@ -164,7 +164,7 @@ class orders extends PureComponent {
               flexDirection: 'row',
               backgroundColor: 'white',
               margin: pxToDp(5),
-              borderRadius: pxToDp(10)
+              borderRadius: pxToDp(8)
             }}
           >
             <View style={{ justifyContent: 'center', marginLeft: pxToDp(15) }}>
@@ -220,7 +220,7 @@ class orders extends PureComponent {
             style={{
               backgroundColor: 'white',
               margin: pxToDp(5),
-              borderRadius: pxToDp(10)
+              borderRadius: pxToDp(8)
             }}
           >
             <View
@@ -270,7 +270,7 @@ class orders extends PureComponent {
                 flexDirection: 'row',
                 backgroundColor: 'white',
                 margin: pxToDp(5),
-                borderRadius: pxToDp(10)
+                borderRadius: pxToDp(8)
               }}
             >
               <Text style={{ marginLeft: pxToDp(15) }}>支付方式:</Text>
@@ -320,7 +320,7 @@ class orders extends PureComponent {
             cisabled={this.props.disabled}
             onPress={this.addOrder}
             style={{
-              borderRadius: pxToDp(25),
+              borderRadius: pxToDp(24),
               marginRight: pxToDp(20),
               width: pxToDp(130),
               height: pxToDp(40),
@@ -342,7 +342,7 @@ class orders extends PureComponent {
                 flex: 1,
                 paddingLeft: pxToDp(15),
                 paddingRight: pxToDp(15),
-                borderRadius: pxToDp(5),
+                borderRadius: pxToDp(4),
                 width: '100%',
                 height: '100%',
                 justifyContent: 'center',
@@ -425,7 +425,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingLeft: pxToDp(15),
     paddingRight: pxToDp(15),
-    borderRadius: pxToDp(5),
+    borderRadius: pxToDp(4),
     width: '100%',
     height: '100%',
     justifyContent: 'center',

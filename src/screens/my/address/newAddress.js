@@ -172,8 +172,8 @@ class NewAddress extends PureComponent {
             backgroundColor: '#ecf6fc',
             width: pxToDp(300),
             height: pxToDp(50),
-            marginTop: pxToDp(8),
-            borderRadius: pxToDp(50),
+            marginTop: pxToDp(10),
+            borderRadius: pxToDp(48),
             alignSelf: 'center'
           }}
         >

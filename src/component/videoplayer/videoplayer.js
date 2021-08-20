@@ -303,28 +303,28 @@ export default class videoplayer extends React.Component {
     }
 }
 var styles = StyleSheet.create({
-    myVideo: {
-        width: 340,
-        height: 240
-    },
-    playBtn: {
-        width: 50,
-        height: 50,
-        backgroundColor: '#fff',
-        borderRadius: 50,
-        position: "absolute",
-        top: "50%",
-        left: "50%",
-        marginLeft: -25,
-        marginTop: -25,
-        zIndex: 999
-    },
-    sliderBox: {
-        flex: 0,
-        flexDirection: 'row',
-        alignItems: 'center'
-    },
-    expandableText: {
-        backgroundColor: '#fff'
-    }
+  myVideo: {
+    width: 340,
+    height: 240
+  },
+  playBtn: {
+    width: 50,
+    height: 50,
+    backgroundColor: '#fff',
+    borderRadius: 48,
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    marginLeft: -25,
+    marginTop: -25,
+    zIndex: 999
+  },
+  sliderBox: {
+    flex: 0,
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  expandableText: {
+    backgroundColor: '#fff'
+  }
 });

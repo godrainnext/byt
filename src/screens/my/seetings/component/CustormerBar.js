@@ -49,11 +49,30 @@ class Index extends PureComponent {
 
         <View>
           <View style={{ justifyContent: 'center' }}>
-            <ImageBackground style={{ backgroundColor: 'black', opacity: .5, width: '100%', height: pxToDp(320), }} />
+            <ImageBackground
+              style={{
+                backgroundColor: 'black',
+                opacity: 0.5,
+                width: '100%',
+                height: pxToDp(320)
+              }}
+            />
             <View>
-              <TouchableOpacity style={{ position: 'absolute', top: pxToDp(-300), left: pxToDp(140) }}
-                TouchableOpacity={1}>
-                <View style={{ backgroundColor: '#fff', borderRadius: 100, alignSelf: 'center' }}>
+              <TouchableOpacity
+                style={{
+                  position: 'absolute',
+                  top: pxToDp(-300),
+                  left: pxToDp(140)
+                }}
+                TouchableOpacity={1}
+              >
+                <View
+                  style={{
+                    backgroundColor: '#fff',
+                    borderRadius: 100,
+                    alignSelf: 'center'
+                  }}
+                >
                   <Image
                     source={{
                       uri: this.props.avatar
@@ -63,9 +82,8 @@ class Index extends PureComponent {
                     style={{
                       width: pxToDp(90),
                       height: pxToDp(90),
-                      borderRadius: pxToDp(50),
-                      margin: pxToDp(3),
-
+                      borderRadius: pxToDp(48),
+                      margin: pxToDp(3)
                     }}
                   />
                 </View>
@@ -74,7 +92,8 @@ class Index extends PureComponent {
                 style={{
                   fontSize: pxToDp(20),
                   bottom: 190,
-                  fontWeight: 'bold', color: '#fff',
+                  fontWeight: 'bold',
+                  color: '#fff',
                   alignSelf: 'center'
                 }}
                 numberOfLines={1}
@@ -90,40 +109,60 @@ class Index extends PureComponent {
                 right: pxToDp(0)
               }}
             >
-              <View style={{ marginRight: pxToDp(20),  alignItems: 'center' }}>
-
-                <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold', color: '#fcfcfc' }}>
+              <View style={{ marginRight: pxToDp(20), alignItems: 'center' }}>
+                <Text
+                  style={{
+                    fontSize: pxToDp(18),
+                    fontWeight: 'bold',
+                    color: '#fcfcfc'
+                  }}
+                >
                   {fansCount}
                 </Text>
                 <Text style={{ fontSize: pxToDp(15), color: '#fcfcfc' }}>
                   粉丝
                 </Text>
-
               </View>
               <View style={{ marginRight: pxToDp(145), alignItems: 'center' }}>
-
-                <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold', color: '#fcfcfc' }}>
+                <Text
+                  style={{
+                    fontSize: pxToDp(18),
+                    fontWeight: 'bold',
+                    color: '#fcfcfc'
+                  }}
+                >
                   {followCount}
                 </Text>
                 <Text style={{ fontSize: pxToDp(15), color: '#fcfcfc' }}>
                   关注
                 </Text>
-
               </View>
 
               <TouchableOpacity
-
-                style={{ position: 'absolute', top: pxToDp(88), width: pxToDp(150), right: pxToDp(105), borderRadius: 16, overflow: 'hidden' }}>
+                style={{
+                  position: 'absolute',
+                  top: pxToDp(88),
+                  width: pxToDp(150),
+                  right: pxToDp(105),
+                  borderRadius: pxToDp(16),
+                  overflow: 'hidden'
+                }}
+              >
                 <Button
-                  title='编辑资料'
+                  title="编辑资料"
                   onPress={() =>
-                    this.context.navigate('Ziliao', this.props.userInfo)}
+                    this.context.navigate('Ziliao', this.props.userInfo)
+                  }
                   ViewComponent={LinearGradient}
-                  titleStyle={{ color: '#fcfcfc', fontWeight: 'bold', fontSize: 20 }}
+                  titleStyle={{
+                    color: '#fcfcfc',
+                    fontWeight: 'bold',
+                    fontSize: 20
+                  }}
                   linearGradientProps={{
                     colors: ['#fa9222', '#ffd501'],
                     start: { x: 0, y: 0.5 },
-                    end: { x: 1, y: 0.5 },
+                    end: { x: 1, y: 0.5 }
                   }}
                 />
               </TouchableOpacity>
@@ -137,13 +176,14 @@ class Index extends PureComponent {
                 width: '80%'
               }}
             >
-              <Text style={{ color: '#fcfcfc', fontSize: 15, alignSelf: 'center' }} numberOfLines={1}>
+              <Text
+                style={{ color: '#fcfcfc', fontSize: 15, alignSelf: 'center' }}
+                numberOfLines={1}
+              >
                 {ownSay}
               </Text>
             </View>
-
           </View>
-
         </View>
       </View>
     );

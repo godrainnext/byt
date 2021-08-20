@@ -3,10 +3,40 @@ import { Text, View, Image, TouchableOpacity, StyleSheet } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import Top from '../../../../component/common/top';
 import { pxToDp } from '../../../../utils/styleKits';
+import { NavigationContext } from '@react-navigation/native';
+import { addOrider } from '../../../../../src/service/shop/index';
 
 export default class index extends PureComponent {
+  static contextType = NavigationContext;
+  goCreateOrder = () => {
+    const { color, img, name, value } = this.props.route.params;
+    const data = {
+      color,
+      img,
+      name,
+      value
+    };
+    addOrider(data).then((res) =>
+      this.context.navigate('Jifenorder', {
+        ...data
+        //  address: this.state.defaultAddress
+      })
+    );
+  };
   render() {
     console.log('day', this.props.route.params);
+    const {
+      color,
+      img,
+      name,
+      value,
+      price,
+      material,
+      size,
+      specs,
+      made,
+      detail
+    } = this.props.route.params;
     return (
       <View style={{ flex: 1 }}>
         <Top title="积分兑换" icon1="arrow-back" />
@@ -18,7 +48,7 @@ export default class index extends PureComponent {
         >
           <View>
             <Image
-              source={this.props.route.params.img}
+              source={img}
               style={{ height: pxToDp(375), width: pxToDp(375) }}
             />
             <View
@@ -42,14 +72,12 @@ export default class index extends PureComponent {
                 }}
               >
                 <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold' }}>
-                  {this.props.route.params.name}
+                  {name}
                 </Text>
               </View>
             </View>
             <View style={{ marginLeft: pxToDp(15), flexDirection: 'row' }}>
-              <Text style={{ fontSize: pxToDp(25) }}>
-                {this.props.route.params.value}
-              </Text>
+              <Text style={{ fontSize: pxToDp(25) }}>{value}</Text>
               <Text style={{ fontSize: pxToDp(16), alignSelf: 'flex-end' }}>
                 积分
               </Text>
@@ -59,24 +87,16 @@ export default class index extends PureComponent {
             <Text style={{ fontSize: pxToDp(16), fontWeight: 'bold' }}>
               商品详情
             </Text>
-            <Text style={{ marginTop: pxToDp(8) }}>
-              价值：{this.props.route.params.price}
-            </Text>
-            <Text style={{ marginTop: pxToDp(8) }}>
-              色彩：{this.props.route.params.color}
-            </Text>
-            <Text style={{ marginTop: pxToDp(8) }}>
-              材质：{this.props.route.params.material}
-            </Text>
-            <Text style={{ marginTop: pxToDp(8) }}>
-              尺寸：{this.props.route.params.size}
-            </Text>
-            <Text style={{ marginTop: pxToDp(8) }}>
-              规格：{this.props.route.params.specs}
-            </Text>
-            <Text style={{ marginTop: pxToDp(8) }}>
-              工艺：{this.props.route.params.made}
-            </Text>
+            <View
+              style={{ height: pxToDp(200), justifyContent: 'space-around' }}
+            >
+              <Text>价值：{price}</Text>
+              <Text>色彩：{color}</Text>
+              <Text>材质：{material}</Text>
+              <Text>尺寸：{size}</Text>
+              <Text>规格：{specs}</Text>
+              <Text>工艺：{made}</Text>
+            </View>
             <Text
               style={{
                 fontSize: pxToDp(16),
@@ -86,12 +106,10 @@ export default class index extends PureComponent {
             >
               具体介绍
             </Text>
-            <Text style={{ marginTop: pxToDp(8) }}>
-              {this.props.route.params.detail}
-            </Text>
+            <Text style={{ marginTop: pxToDp(8) }}>{detail}</Text>
           </View>
         </ScrollView>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={this.goCreateOrder}>
           <View style={styles.button}>
             <Text style={{ fontSize: pxToDp(20) }}>立即兑换</Text>
           </View>
@@ -114,7 +132,7 @@ const styles = StyleSheet.create({
     margin: pxToDp(8),
     marginLeft: pxToDp(16),
     marginRight: pxToDp(16),
-    borderRadius: pxToDp(20),
+    borderRadius: pxToDp(24),
     justifyContent: 'center',
     alignItems: 'center'
   }

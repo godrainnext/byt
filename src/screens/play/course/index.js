@@ -71,7 +71,7 @@ class Index extends PureComponent {
                     justifyContent: 'center',
                     alignItems: 'flex-start'
                   }}
-                  imageStyle={{ borderRadius: pxToDp(10) }}
+                  imageStyle={{ borderRadius: pxToDp(8) }}
                   source={require('../../../res/31.jpg')}
                 >
                   <Text
@@ -100,7 +100,7 @@ class Index extends PureComponent {
                   width: '49%',
                   height: pxToDp(80),
                   backgroundColor: 'rgba(255,255,255,0.5)',
-                  borderRadius: pxToDp(10),
+                  borderRadius: pxToDp(8),
                   justifyContent: 'space-around',
                   flexDirection: 'row',
                   alignItems: 'center'
@@ -110,7 +110,7 @@ class Index extends PureComponent {
                   style={{
                     width: pxToDp(70),
                     height: pxToDp(70),
-                    borderRadius: pxToDp(10)
+                    borderRadius: pxToDp(8)
                   }}
                   source={require('../../../res/genre/5.jpg')}
                 ></Image>
@@ -255,7 +255,7 @@ class Index extends PureComponent {
                       style={{
                         width: '30%',
                         height: pxToDp(140),
-                        borderRadius: pxToDp(10)
+                        borderRadius: pxToDp(8)
                       }}
                     >
                       <ImageBackground
@@ -265,7 +265,7 @@ class Index extends PureComponent {
                           flexDirection: 'row',
                           alignItems: 'flex-end'
                         }}
-                        imageStyle={{ borderRadius: pxToDp(10) }}
+                        imageStyle={{ borderRadius: pxToDp(8) }}
                         source={{
                           uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fn.sinaimg.cn%2Fsinakd2020723s%2F660%2Fw400h260%2F20200723%2F77aa-iwtqvyk3596226.jpg&refer=http%3A%2F%2Fn.sinaimg.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631088242&t=8d11f82c9b8959e2ebe4a2f3d2da915c'
                         }}
@@ -304,7 +304,7 @@ class Index extends PureComponent {
                       style={{
                         width: '30%',
                         height: pxToDp(140),
-                        borderRadius: pxToDp(10)
+                        borderRadius: pxToDp(8)
                       }}
                     >
                       <ImageBackground
@@ -314,7 +314,7 @@ class Index extends PureComponent {
                           flexDirection: 'row',
                           alignItems: 'flex-end'
                         }}
-                        imageStyle={{ borderRadius: pxToDp(10) }}
+                        imageStyle={{ borderRadius: pxToDp(8) }}
                         source={{
                           uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fphotoblog%2F1805%2F12%2Fc4%2F86800294_1526116090750_mthumb.jpg&refer=http%3A%2F%2Fimg.pconline.com.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631088747&t=39a0a671e23c977056b8eb6f6cccbef6'
                         }}
@@ -353,7 +353,7 @@ class Index extends PureComponent {
                       style={{
                         width: '30%',
                         height: pxToDp(140),
-                        borderRadius: pxToDp(10)
+                        borderRadius: pxToDp(8)
                       }}
                     >
                       <TouchableOpacity
@@ -366,7 +366,7 @@ class Index extends PureComponent {
                             flexDirection: 'row',
                             alignItems: 'flex-end'
                           }}
-                          imageStyle={{ borderRadius: pxToDp(10) }}
+                          imageStyle={{ borderRadius: pxToDp(8) }}
                           source={{
                             uri: 'https://img0.baidu.com/it/u=2176866696,2026454484&fm=26&fmt=auto&gp=0.jpg'
                           }}
@@ -536,7 +536,7 @@ class Index extends PureComponent {
                   style={{
                     width: '100%',
                     height: pxToDp(100),
-                    borderRadius: pxToDp(20),
+                    borderRadius: pxToDp(24),
                     backgroundColor: 'rgba(255,255,255,0.5)',
                     justifyContent: 'space-around',
                     alignItems: 'center'
@@ -547,7 +547,7 @@ class Index extends PureComponent {
                       style={{
                         width: '38%',
                         height: pxToDp(92),
-                        borderRadius: pxToDp(10)
+                        borderRadius: pxToDp(8)
                       }}
                       source={{
                         uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fupfile.cuepa.cn%2Fnewspics%2F2016%2F02%2Fs_184c49bcb3de665e32b015a291c0725d11750.jpg&refer=http%3A%2F%2Fupfile.cuepa.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631089466&t=0622beb059cad15f78be53db35a89e9f'

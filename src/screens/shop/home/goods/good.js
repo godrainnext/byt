@@ -323,17 +323,17 @@ class shopdetails extends PureComponent {
                       style={{
                         justifyContent: 'center',
                         backgroundColor:
-                        index === activeSizeTab ? '#ecf6fc' : 'white',
-                        borderRadius: pxToDp(5),
+                          index === activeSizeTab ? '#ecf6fc' : 'white',
+                        borderRadius: pxToDp(4),
                         borderColor:
-                        index === activeSizeTab ? '#468CD3' : 'white',
+                          index === activeSizeTab ? '#468CD3' : 'white',
                         borderWidth:
-                        index === activeSizeTab ? pxToDp(1) : pxToDp(0),
+                          index === activeSizeTab ? pxToDp(1) : pxToDp(0),
                         height: pxToDp(30),
                         width: pxToDp(50),
-                        elevation: 5,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
-                        shadowColor: 'black',  //  阴影颜色
-                        shadowRadius: pxToDp(5),  //  圆角
+                        elevation: 5, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                        shadowColor: 'black', //  阴影颜色
+                        shadowRadius: pxToDp(5) //  圆角
                       }}
                     >
                       <Text
@@ -341,8 +341,7 @@ class shopdetails extends PureComponent {
                           alignSelf: 'center',
                           marginTop: pxToDp(4),
                           marginBottom: pxToDp(4),
-                          color:
-                          index === activeSizeTab ? '#468CD3' :'black'
+                          color: index === activeSizeTab ? '#468CD3' : 'black'
                         }}
                       >
                         {item.size}
@@ -369,7 +368,7 @@ class shopdetails extends PureComponent {
             <View style={{ flexWrap: 'wrap', flexDirection: 'row' }}>
               {this.state.products.map((item, index) => (
                 <TouchableOpacity
-               activeOpacity={1}
+                  activeOpacity={1}
                   key={item.id}
                   onPress={() => {
                     this.changeTab(index, item);
@@ -385,17 +384,15 @@ class shopdetails extends PureComponent {
                     style={{
                       justifyContent: 'center',
                       backgroundColor:
-                      index === activeTab ? '#ecf6fc' : 'white',
-                      borderColor:
-                      index === activeTab ? '#468CD3' : 'white',
-                      borderWidth:
-                      index === activeTab ? pxToDp(1) : pxToDp(0),
+                        index === activeTab ? '#ecf6fc' : 'white',
+                      borderColor: index === activeTab ? '#468CD3' : 'white',
+                      borderWidth: index === activeTab ? pxToDp(1) : pxToDp(0),
                       borderRadius: pxToDp(8),
                       height: pxToDp(131),
-                      elevation: 5,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
-                      shadowColor: 'grey',  //  阴影颜色
-                      shadowRadius: pxToDp(10),  //  圆角
-                      marginBottom:pxToDp(1)
+                      elevation: 5, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                      shadowColor: 'grey', //  阴影颜色
+                      shadowRadius: pxToDp(10), //  圆角
+                      marginBottom: pxToDp(1)
                     }}
                   >
                     <Image
@@ -403,7 +400,7 @@ class shopdetails extends PureComponent {
                         width: pxToDp(98),
                         height: pxToDp(98),
                         borderTopLeftRadius: pxToDp(8),
-                        borderTopRightRadius:pxToDp(8)
+                        borderTopRightRadius: pxToDp(8)
                       }}
                       source={{ uri: changeImgSize(item.img, 'small') }}
                     />
@@ -413,8 +410,7 @@ class shopdetails extends PureComponent {
                         alignSelf: 'center',
                         marginTop: pxToDp(5),
                         marginBottom: pxToDp(5),
-                        color:
-                        index === activeTab ? '#468CD3' :'black'
+                        color: index === activeTab ? '#468CD3' : 'black'
                       }}
                     >
                       {item.color}
@@ -530,9 +526,9 @@ const styles = StyleSheet.create({
   button: {
     width: pxToDp(80),
     height: pxToDp(70),
-    borderRadius: pxToDp(5),
+    borderRadius: pxToDp(4),
     marginTop: pxToDp(15),
-    borderRadius: pxToDp(5),
+    borderRadius: pxToDp(4),
     justifyContent: 'center',
     alignItems: 'center'
   },
@@ -540,10 +536,10 @@ const styles = StyleSheet.create({
     color: 'white',
     borderWidth: 1,
     borderColor: 'white',
-    padding: 8,
-    borderRadius: 3,
+    padding: pxToDp(8),
+    borderRadius: pxToDp(4),
     textAlign: 'center',
-    margin: 10,
+    margin: pxToDp(10),
     alignSelf: 'flex-end'
   },
   ImageShow: {

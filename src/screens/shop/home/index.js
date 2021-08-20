@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
     height: '100%',
     width: '100%',
     borderRadius: pxToDp(8),
-    marginBottom: pxToDp(8)
+    marginBottom: pxToDp(10)
   },
   title: {
     margin: pxToDp(8),

@@ -56,47 +56,47 @@ class Index extends PureComponent {
 }
 
 const styles = StyleSheet.create({
-    touch: {
-        backgroundColor: '#DCDCDC',
-        width: pxToDp(90),
-        height: pxToDp(30),
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginTop: pxToDp(10)
-    },
-    title: {
-        fontSize: pxToDp(16),
-        marginTop: pxToDp(10)
-    },
-    text: {
-        fontSize: pxToDp(14)
-    },
-    box: {
-        flexDirection: 'row',
-        flexWrap: 'wrap',
-        width: pxToDp(350),
-        justifyContent: 'space-around',
-        marginTop: pxToDp(5),
-        backgroundColor: 'rgba(255,255,255,0.5)',
-        height: pxToDp(135),
-        borderRadius: pxToDp(10)
-    },
-    textinput: {
-        backgroundColor: 'rgba(255,255,255,0.5)',
-        height: pxToDp(150),
-        width: pxToDp(350),
-        borderRadius: pxToDp(10),
-        marginTop: pxToDp(5),
-    },
-    tijiao:{
-        height:pxToDp(30),
-        width:pxToDp(230),
-        backgroundColor:"#468cd3",
-        borderRadius:pxToDp(15),
-        marginTop:pxToDp(50),
-        alignItems:'center',
-        justifyContent:'center',
-        alignSelf:'center'
-    }
-})
+  touch: {
+    backgroundColor: '#DCDCDC',
+    width: pxToDp(90),
+    height: pxToDp(30),
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: pxToDp(10)
+  },
+  title: {
+    fontSize: pxToDp(16),
+    marginTop: pxToDp(10)
+  },
+  text: {
+    fontSize: pxToDp(14)
+  },
+  box: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    width: pxToDp(350),
+    justifyContent: 'space-around',
+    marginTop: pxToDp(5),
+    backgroundColor: 'rgba(255,255,255,0.5)',
+    height: pxToDp(135),
+    borderRadius: pxToDp(8)
+  },
+  textinput: {
+    backgroundColor: 'rgba(255,255,255,0.5)',
+    height: pxToDp(150),
+    width: pxToDp(350),
+    borderRadius: pxToDp(8),
+    marginTop: pxToDp(5)
+  },
+  tijiao: {
+    height: pxToDp(30),
+    width: pxToDp(230),
+    backgroundColor: '#468cd3',
+    borderRadius: pxToDp(16),
+    marginTop: pxToDp(50),
+    alignItems: 'center',
+    justifyContent: 'center',
+    alignSelf: 'center'
+  }
+});
 export default Index;

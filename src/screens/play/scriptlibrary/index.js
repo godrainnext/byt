@@ -211,16 +211,16 @@ const styles = StyleSheet.create({
   book: {
     height: pxToDp(322),
     width: pxToDp(83),
-    borderRadius: pxToDp(8),
+    borderRadius: pxToDp(8)
   },
   shujia: {
     height: pxToDp(322),
     width: pxToDp(83),
     borderRadius: pxToDp(8),
     marginLeft: pxToDp(10),
-    elevation: 8,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
-    shadowColor: 'black',  //  阴影颜色
-    shadowRadius: pxToDp(8),  //  圆角,
+    elevation: 8, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+    shadowColor: 'black', //  阴影颜色
+    shadowRadius: pxToDp(8), //  圆角,
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 1,
   },
@@ -230,9 +230,9 @@ const styles = StyleSheet.create({
     height: pxToDp(120),
     width: pxToDp(100),
     borderRadius: pxToDp(8),
-    elevation: 8,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
-    shadowColor: 'black',  //  阴影颜色
-    shadowRadius: pxToDp(8),  //  圆角,
+    elevation: 8, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+    shadowColor: 'black', //  阴影颜色
+    shadowRadius: pxToDp(8), //  圆角,
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 1,
     flexDirection: 'row',
@@ -277,7 +277,7 @@ const styles = StyleSheet.create({
     shadowColor: 'black',  //  阴影颜色
     shadowRadius: pxToDp(8),  //  圆角,
     shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 1,
+    shadowOpacity: 1
   },
   booksimage: {
     height: pxToDp(120),
@@ -297,9 +297,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: pxToDp(8),
     marginTop: pxToDp(30),
-    elevation: 8,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
-    shadowColor: 'black',  //  阴影颜色
-    shadowRadius: pxToDp(8),  //  圆角,
-  },
+    elevation: 8, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+    shadowColor: 'black', //  阴影颜色
+    shadowRadius: pxToDp(8) //  圆角,
+  }
 });
 export default Index;

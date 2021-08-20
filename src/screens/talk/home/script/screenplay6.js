@@ -67,7 +67,7 @@ class Index extends PureComponent {
                 style={{
                   width: '100%',
                   height: pxToDp(200),
-                  borderRadius: pxToDp(8),
+                  borderRadius: pxToDp(8)
                 }}
                 source={require('../../../../res/play/fengmian6.jpg')}
               />
@@ -164,61 +164,78 @@ class Index extends PureComponent {
               <Text style={styles.texthead}>小龙父（白）</Text>:
               押下去，气死我也！
             </Text>
-           {/* 分界线 */}
-           <View
+            {/* 分界线 */}
+            <View
               style={{
                 width: pxToDp(350),
                 marginTop: pxToDp(20),
                 height: pxToDp(1),
                 backgroundColor: 'black',
                 opacity: 0.2,
-                marginBottom:pxToDp(10)
+                marginBottom: pxToDp(10)
               }}
             />
-            <View style={{marginBottom:pxToDp(120)}}>
-              <View style={{ flexDirection: 'row', width: '95%', justifyContent: 'space-between',alignItems:'center'}}>
+            <View style={{ marginBottom: pxToDp(120) }}>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  width: '95%',
+                  justifyContent: 'space-between',
+                  alignItems: 'center'
+                }}
+              >
                 <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                  <Image style={{  width: pxToDp(40),height: pxToDp(40),margin: pxToDp(5), borderRadius: pxToDp(20)}} source={{uri:"https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp0.qhmsg.com%2Ft01c0bee555e7f14acf.jpg&refer=http%3A%2F%2Fp0.qhmsg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631928400&t=8fa3da0873ef4c8b3fbc9f9a83582446"}}/>
+                  <Image
+                    style={{
+                      width: pxToDp(40),
+                      height: pxToDp(40),
+                      margin: pxToDp(5),
+                      borderRadius: pxToDp(24)
+                    }}
+                    source={{
+                      uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp0.qhmsg.com%2Ft01c0bee555e7f14acf.jpg&refer=http%3A%2F%2Fp0.qhmsg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631928400&t=8fa3da0873ef4c8b3fbc9f9a83582446'
+                    }}
+                  />
                   <View>
-                    <Text style={{fontSize:pxToDp(14)}}>越剧小生</Text>
-                    <Text style={{fontSize:pxToDp(13),color:'grey'}}>12分钟前</Text>
+                    <Text style={{ fontSize: pxToDp(14) }}>越剧小生</Text>
+                    <Text style={{ fontSize: pxToDp(13), color: 'grey' }}>
+                      12分钟前
+                    </Text>
                   </View>
                 </View>
-                <SvgUri
-                  svgXmlData={dianzan}
-                  width="15"
-                  height="15"
-                />
+                <SvgUri svgXmlData={dianzan} width="15" height="15" />
               </View>
-              <Text style={{marginLeft:pxToDp(50),fontSize:pxToDp(14)}}>抬头能和你分享同一个月亮，就很美好</Text>
+              <Text style={{ marginLeft: pxToDp(50), fontSize: pxToDp(14) }}>
+                抬头能和你分享同一个月亮，就很美好
+              </Text>
             </View>
           </ScrollView>
           <View
-          style={{
-            backgroundColor: '#fff',
-            height: pxToDp(48),
-            width:'110%',
-            alignItems: 'center',
-            flexDirection: 'row',
-            position: 'absolute',
-            bottom:70
-          }}
-        >
-          <TextInput
-            placeholder="发一条友善的评论"
             style={{
-              height: '80%',
-              backgroundColor: '#ddd',
-              width: '75%',
-              marginLeft: pxToDp(20),
-              borderRadius: pxToDp(20),
-              paddingLeft: pxToDp(10)
+              backgroundColor: '#fff',
+              height: pxToDp(48),
+              width: '110%',
+              alignItems: 'center',
+              flexDirection: 'row',
+              position: 'absolute',
+              bottom: 70
             }}
-          />
-          <TouchableOpacity>
-            <Text style={{ marginLeft: pxToDp(20) }}>发布</Text>
-          </TouchableOpacity>
-        </View>
+          >
+            <TextInput
+              placeholder="发一条友善的评论"
+              style={{
+                height: '80%',
+                backgroundColor: '#ddd',
+                width: '75%',
+                marginLeft: pxToDp(20),
+                borderRadius: pxToDp(24),
+                paddingLeft: pxToDp(10)
+              }}
+            />
+            <TouchableOpacity>
+              <Text style={{ marginLeft: pxToDp(20) }}>发布</Text>
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
     );

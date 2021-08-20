@@ -59,7 +59,7 @@ export default class topic extends Component {
                 style={{ margin: pxToDp(16) }}
               />
             </TouchableOpacity>
-            <View
+            <TouchableOpacity
               style={{
                 flexDirection: 'row',
                 justifyContent: 'flex-end',
@@ -70,7 +70,7 @@ export default class topic extends Component {
             >
               <Text style={{ fontSize: pxToDp(16) }}>{number}人参与讨论</Text>
               <AntDesign name="right" size={pxToDp(20)} />
-            </View>
+            </TouchableOpacity>
           </ImageBackground>
           {/* 中间内容 */}
           <View
@@ -113,8 +113,8 @@ export default class topic extends Component {
               margin: pxToDp(8),
               backgroundColor: 'orange',
               flexDirection: 'row',
-              alignItems: 'center',
-              borderRadius: pxToDp(16)
+              alignItems: 'center'
+              //    borderRadius: pxToDp(16)
             }}
           >
             <Text style={{ fontSize: pxToDp(18), marginLeft: pxToDp(16) }}>

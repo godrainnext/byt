@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     padding: 5,
     height: 200
   },
-  cover: { width: 50, height: 50, borderRadius: 50 },
+  cover: { width: 50, height: 50, borderRadius: 48 },
   cover1: {
     width: 80,
     height: 80,
@@ -89,7 +89,7 @@ class ListItem extends PureComponent {
         <View style={{ backgroundColor: '#fff' }}>
           <Image
             source={require('../../res/4.jpg')}
-            style={{ width: 40, height: 40, borderRadius: 20, margin: 10 }}
+            style={{ width: 40, height: 40, borderRadius: 24, margin: 10 }}
           />
         </View>
         <View style={{ position: 'absolute', top: 10, left: 60 }}>

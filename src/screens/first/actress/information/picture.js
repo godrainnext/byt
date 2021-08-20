@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   image2: {
     height: pxToDp(300),
     width: pxToDp(250),
-    margin: pxToDp(8),
-    borderRadius: pxToDp(10)
+    margin: pxToDp(5),
+    borderRadius: pxToDp(8)
   }
 });
