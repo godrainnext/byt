@@ -19,6 +19,8 @@ import ImagePicker from 'react-native-image-crop-picker';
 import { NavigationContext } from '@react-navigation/native';
 import Top from '../../../../component/common/top';
 import { CheckBox } from 'react-native-elements';
+import { ToastAndroid } from 'react-native';
+import { apply } from '../../../../service/mine';
 
 const { height, width } = Dimensions.get('window');
 
@@ -31,25 +33,33 @@ class index extends Component {
       username: '',
       modalVisible: false,
       showTypePop: false,
-      checked: true
+      checked: true,
+      back: '',
+      people: ''
     };
   }
   openImagePickerAsync = async () => {
+    this._changeModal();
     launchImageLibrary(
       { mediaType: 'photo', selectionLimit: 1 },
       (response) => {
         if (response.error) {
+          ToastAndroid.show('图片选择失败', ToastAndroid.SHORT);
           console.log(response.error);
         } else {
           const pickerResult = response.assets[0];
-
-          const fd = new FormData();
           let file = {
             uri: pickerResult.uri,
             type: 'multipart/form-data',
             name: pickerResult.type
           };
-          fd.append('file', file);
+
+          if (this.state.people) {
+            this.setState({ back: pickerResult.uri });
+          } else {
+            this.setState({ people: pickerResult.uri });
+          }
+          this.setState({ arr: [...this.state.arr, file] });
         }
       }
     );
@@ -65,9 +75,33 @@ class index extends Component {
   _changeModal() {
     this.setState({ modalVisible: !this.state.modalVisible });
   }
+  init = () => {
+    this.setState({ arr: [], username: '', fayan: '' });
+  };
+  submit = () => {
+    if (
+      this.state.arr.length === 2 &&
+      this.state.username &&
+      this.state.fayan
+    ) {
+      const fd = new FormData();
+      for (const file of this.state.arr) {
+        fd.append('file', file);
+      }
+      fd.append('realName', this.state.username);
+      fd.append('idCard', this.state.fayan);
+
+      apply(fd).then(() => {
+        ToastAndroid.show('申请成功，2-4个工作日内生效', ToastAndroid.LONG);
+        this.init();
+        this.context.goBack();
+      });
+    } else {
+      ToastAndroid.show('请完善个人信息', ToastAndroid.SHORT);
+    }
+  };
 
   render() {
-    const { isModalVisible, toggleModalProps, arr } = this.props;
     // console.log(arr);
     return (
       <View style={{ flex: 1 }}>
@@ -119,12 +153,18 @@ class index extends Component {
                   >
                     <Input
                       placeholder="请输入真实姓名"
+                      onChangeText={(value) =>
+                        this.setState({ username: value })
+                      }
+                      value={this.state.username}
                       leftIcon={
                         <Text style={{ fontSize: pxToDp(16) }}>*真实姓名</Text>
                       }
                     />
                     <Input
                       placeholder="请输入身份证号码"
+                      value={this.state.fayan}
+                      onChangeText={(value) => this.setState({ fayan: value })}
                       maxLength={18}
                       keyboardType="number-pad"
                       leftIcon={
@@ -160,7 +200,11 @@ class index extends Component {
                     >
                       <Image
                         style={{ width: pxToDp(200), height: pxToDp(150) }}
-                        source={require('../../../../res/s3.png')}
+                        source={
+                          this.state.people
+                            ? { uri: this.state.people }
+                            : require('../../../../res/s3.png')
+                        }
                       ></Image>
                     </View>
                     <Text
@@ -188,7 +232,11 @@ class index extends Component {
                     >
                       <Image
                         style={{ width: pxToDp(200), height: pxToDp(150) }}
-                        source={require('../../../../res/s4.png')}
+                        source={
+                          this.state.back
+                            ? { uri: this.state.back }
+                            : require('../../../../res/s4.png')
+                        }
                       ></Image>
                     </View>
                     <Text
@@ -265,7 +313,7 @@ class index extends Component {
           >
             <TouchableOpacity
               activeOpacity={0.8}
-              onPress={this.cancelToken}
+              onPress={this.submit}
               style={{
                 justifyContent: 'center',
                 alignItems: 'center',
