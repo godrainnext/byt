@@ -18,6 +18,7 @@ export { default as Card } from './first/card/index'; //俯瞰百年卡片
 export { default as My } from './my/home/index'; //个人中心首页
 export { default as Login } from './my/Login'; //登录页面
 export { default as leasedetails } from './my/order/leasedetails'; //租赁页
+export { default as Jifenorder } from './my/order/jifenorder'; //积分订单
 export { default as Set } from './my/seetings/set'; //设置
 export { default as Tuisong } from './my/seetings/tuisong'; //推送页
 export { default as Women } from './my/seetings/women'; //关于我们页

@@ -59,7 +59,7 @@ class Index extends PureComponent {
                 alignItems: 'center',
                 width: '48%',
                 height: pxToDp(40),
-                borderRadius: 10,
+                borderRadius: pxToDp(8),
                 marginTop: pxToDp(32),
                 backgroundColor: '#f0bb51',
                 elevation: 4, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）

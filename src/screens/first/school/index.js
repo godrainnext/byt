@@ -69,32 +69,32 @@ const styles = StyleSheet.create({
         flex: 1
     },
     box: {
-        marginLeft: pxToDp(10),
-        marginRight: pxToDp(10),
-        marginBottom: pxToDp(10)
+        marginLeft: pxToDp(8),
+        marginRight: pxToDp(8),
+        marginBottom: pxToDp(8)
     },
     image1: {
         width: pxToDp(355),
-        borderRadius: pxToDp(12),
+        borderRadius: pxToDp(8),
         height: pxToDp(170)
     },
     image2: {
         height: pxToDp(70),
         width: pxToDp(70),
-        margin: pxToDp(5),
+        margin: pxToDp(8),
         alignItems:'center',
         justifyContent:"center"
     },
     image22:{
         height: pxToDp(70),
         width: pxToDp(70),
-        borderRadius:pxToDp(10)
+        borderRadius:pxToDp(8)
     },
     title: {
         fontSize: pxToDp(18),
         color: '#468CD3',
         fontWeight: 'bold',
-        marginTop: pxToDp(10)
+        marginTop: pxToDp(8)
     },
     text: {
         fontSize: pxToDp(15)
@@ -103,15 +103,15 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         width: '100%',
         height: pxToDp(100),
-        borderRadius: pxToDp(10),
+        borderRadius: pxToDp(8),
         backgroundColor: 'rgba(255,255,255,0.5)',
-        marginTop: pxToDp(10)
+        marginTop: pxToDp(8)
     },
     image3: {
         height: pxToDp(80),
         width: pxToDp(80),
-        borderRadius: pxToDp(10),
-        margin: pxToDp(10)
+        borderRadius: pxToDp(8),
+        margin: pxToDp(8)
     },
     zhuanjititle: {
         fontSize: pxToDp(18),
@@ -121,15 +121,15 @@ const styles = StyleSheet.create({
     zhuanjitext: {
         fontSize: pxToDp(15),
         color: 'grey',
-        marginTop: pxToDp(10)
+        marginTop: pxToDp(8)
     },
     song: {
         flexDirection: 'row',
         width: '100%',
         height: pxToDp(80),
-        borderRadius: pxToDp(10),
+        borderRadius: pxToDp(8),
         backgroundColor: 'rgba(255,255,255,0.5)',
-        marginTop: pxToDp(10)
+        marginTop: pxToDp(8)
     }
 })
 export default Index;

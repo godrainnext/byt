@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   image: {
     height: pxToDp(110),
     width: pxToDp(170),
-    borderRadius: pxToDp(10),
+    borderRadius: pxToDp(8),
     marginLeft: pxToDp(10)
   },
   botbox: {

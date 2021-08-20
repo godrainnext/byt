@@ -47,7 +47,7 @@ class Index extends PureComponent {
               style={{ flexDirection: 'row', alignItems: 'center' }}
             >
               <Image style={styles.image} source={{ uri: item.avatar }} />
-              <Text style={{ fontSize: pxToDp(16), marginLeft: pxToDp(10) }}>
+              <Text style={{ fontSize: pxToDp(16), marginLeft: pxToDp(8) }}>
                 {item.name ? item.name : '未知用户名'}
               </Text>
             </TouchableOpacity>
@@ -70,15 +70,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#F5F5F5',
     textAlign: 'center',
     height: pxToDp(40),
-    borderRadius: pxToDp(30),
-    marginLeft: pxToDp(10),
-    marginRight: pxToDp(10),
-    marginTop: pxToDp(5)
+    borderRadius: pxToDp(32),
+    marginLeft: pxToDp(8),
+    marginRight: pxToDp(8),
+    marginTop: pxToDp(8)
   },
   box: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    margin: pxToDp(10),
+    margin: pxToDp(8),
     borderBottomWidth: pxToDp(1),
     borderBottomColor: '#D3D3D3',
     height: pxToDp(65)
@@ -87,14 +87,14 @@ const styles = StyleSheet.create({
     height: pxToDp(50),
     width: pxToDp(50),
     borderRadius: pxToDp(25),
-    marginLeft: pxToDp(10)
+    marginLeft: pxToDp(8)
   },
   touch: {
     height: pxToDp(30),
     width: pxToDp(80),
-    marginRight: pxToDp(10),
+    marginRight: pxToDp(8),
     alignSelf: 'center',
-    borderRadius: pxToDp(20),
+    borderRadius: pxToDp(24),
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'white',

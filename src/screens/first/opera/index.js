@@ -102,9 +102,9 @@ class Index extends PureComponent {
 
 const styles = StyleSheet.create({
   view: {
-    marginTop: pxToDp(10),
-    marginLeft: pxToDp(10),
-    marginRight: pxToDp(10)
+    marginTop: pxToDp(8),
+    marginLeft: pxToDp(8),
+    marginRight: pxToDp(8)
   },
   title: {
     fontSize: pxToDp(18),
@@ -117,20 +117,20 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     borderBottomColor: 'grey',
     borderBottomWidth: pxToDp(0.5),
-    marginTop: pxToDp(10)
+    marginTop: pxToDp(8)
   },
   image: {
     height: pxToDp(110),
     width: pxToDp(170),
-    borderRadius: pxToDp(10),
-    marginLeft: pxToDp(10)
+    borderRadius: pxToDp(8),
+    marginLeft: pxToDp(8)
   },
   botbox: {
     justifyContent: 'space-between',
     width: pxToDp(180),
     height: pxToDp(110),
-    marginLeft: pxToDp(10),
-    marginRight: pxToDp(10)
+    marginLeft: pxToDp(8),
+    marginRight: pxToDp(8)
   },
   text1: {
     fontSize: pxToDp(15),

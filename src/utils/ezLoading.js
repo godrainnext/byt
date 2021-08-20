@@ -83,16 +83,16 @@ export class Loading extends React.PureComponent {
 
 const styles = StyleSheet.create({
   load_box: {
-    width: 100,
-    height: 100,
+    width: pxToDp(100),
+    height: pxToDp(100),
     backgroundColor: '#468cd3',
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 10
+    borderRadius: pxToDp(8)
   },
   load_progress: {
-    width: 50,
-    height: 50
+    width: pxToDp(50),
+    height: pxToDp(50)
   },
   //默认字体颜色
   load_text: {

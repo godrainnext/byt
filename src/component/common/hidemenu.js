@@ -352,7 +352,7 @@ export class AlwaysOpen extends PureComponent {
         padding: pxToDp(20),
         flex: 1,
         backgroundColor: '#ecf6fc',
-        borderRadius: pxToDp(12)
+        borderRadius: pxToDp(16)
       }}
     >
       <View>

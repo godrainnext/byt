@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
   ocard: {
     backgroundColor: 'white',
     width: pxToDp(170),
-    borderRadius: pxToDp(10),
+    borderRadius: pxToDp(8),
     margin: pxToDp(10),
     marginRight: pxToDp(5)
   },

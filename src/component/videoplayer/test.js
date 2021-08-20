@@ -187,84 +187,84 @@ export default class VideoScreen extends Component {
 
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'flex-start',
-        alignItems: 'center',
-        backgroundColor: 'black',
-    },
-    textStyle: {
-        paddingLeft: 10,
-        paddingTop: 25,
-        justifyContent: 'flex-start',
-        flexDirection: 'row',
-    },
-    btnStyle: {
-        paddingRight: 10,
-        paddingTop: 25,
-        justifyContent: 'flex-end',
-        flexDirection: 'row',
-    },
-    fullScreen: {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        bottom: 0,
-        right: 0,
-    },
-    controls: {
-        backgroundColor: 'transparent',
-        borderRadius: 5,
-        position: 'absolute',
-        bottom: 20,
-        left: 20,
-        right: 20,
-    },
-    progress: {
-        flex: 1,
-        flexDirection: 'row',
-        borderRadius: 3,
-        overflow: 'hidden',
-    },
-    innerProgressCompleted: {
-        height: 20,
-        backgroundColor: '#cccccc',
-    },
-    innerProgressRemaining: {
-        height: 20,
-        backgroundColor: '#2C2C2C',
-    },
-    generalControls: {
-        flex: 1,
-        flexDirection: 'row',
-        borderRadius: 4,
-        overflow: 'hidden',
-        paddingTop: 10,
-    },
-    rateControl: {
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'center',
-    },
-    volumeControl: {
-        fontSize: 25,
-        color: '#fff',
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'center',
-    },
-    resizeModeControl: {
-        flex: 1,
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    controlOption: {
-        alignSelf: 'center',
-        fontSize: 11,
-        color: 'white',
-        paddingLeft: 2,
-        paddingRight: 2,
-        lineHeight: 12,
-    },
+  container: {
+    flex: 1,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    backgroundColor: 'black'
+  },
+  textStyle: {
+    paddingLeft: 10,
+    paddingTop: 25,
+    justifyContent: 'flex-start',
+    flexDirection: 'row'
+  },
+  btnStyle: {
+    paddingRight: 10,
+    paddingTop: 25,
+    justifyContent: 'flex-end',
+    flexDirection: 'row'
+  },
+  fullScreen: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    bottom: 0,
+    right: 0
+  },
+  controls: {
+    backgroundColor: 'transparent',
+    borderRadius: 4,
+    position: 'absolute',
+    bottom: 20,
+    left: 20,
+    right: 20
+  },
+  progress: {
+    flex: 1,
+    flexDirection: 'row',
+    borderRadius: 4,
+    overflow: 'hidden'
+  },
+  innerProgressCompleted: {
+    height: 20,
+    backgroundColor: '#cccccc'
+  },
+  innerProgressRemaining: {
+    height: 20,
+    backgroundColor: '#2C2C2C'
+  },
+  generalControls: {
+    flex: 1,
+    flexDirection: 'row',
+    borderRadius: 4,
+    overflow: 'hidden',
+    paddingTop: 10
+  },
+  rateControl: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center'
+  },
+  volumeControl: {
+    fontSize: 25,
+    color: '#fff',
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'center'
+  },
+  resizeModeControl: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  controlOption: {
+    alignSelf: 'center',
+    fontSize: 11,
+    color: 'white',
+    paddingLeft: 2,
+    paddingRight: 2,
+    lineHeight: 12
+  }
 });

@@ -189,7 +189,7 @@ class Index extends PureComponent {
                     alignItems: 'flex-end',
                     marginTop: pxToDp(10),
                     marginLeft: pxToDp(10),
-                    borderRadius: pxToDp(10)
+                    borderRadius: pxToDp(8)
                   }}
                 >
                   <Text style={{ fontSize: pxToDp(25), fontWeight: 'bold' }}>

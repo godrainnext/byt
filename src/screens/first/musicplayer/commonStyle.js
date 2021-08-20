@@ -2,7 +2,8 @@
  * Created by guangqiang on 2017/8/27.
  */
 
-import {Platform} from 'react-native'
+import { Platform } from 'react-native'
+import { pxToDp } from '../../../utils/styleKits'
 export const commonStyle = {
 
   /** color **/
@@ -49,27 +50,27 @@ export const commonStyle = {
 
   /** space **/
   // 上边距
-  marginTop: 10,
+  marginTop: pxToDp(8),
   // 左边距
-  marginLeft: 10,
+  marginLeft: pxToDp(8),
   // 下边距
-  marginBotton: 10,
+  marginBotton: pxToDp(8),
   // 右边距
-  marginRight: 10,
+  marginRight: pxToDp(8),
   // 内边距
-  padding: 10,
+  padding: pxToDp(8),
   // 导航的leftItem的左间距
-  navMarginLeft: 15,
+  navMarginLeft: pxToDp(8),
   // 导航的rightItem的右间距
-  navMarginRight: 15,
+  navMarginRight: pxToDp(8),
 
   /** width **/
   // 导航栏左右按钮image宽度
-  navImageWidth: 25,
+  navImageWidth: pxToDp(25),
   // 边框线宽度
-  borderWidth: 1,
+  borderWidth: pxToDp(1),
   // 分割线高度
-  lineWidth: 0.8,
+  lineWidth: pxToDp(0.8),
 
   /** height **/
   // 导航栏的高度
@@ -79,29 +80,29 @@ export const commonStyle = {
   // 导航栏除掉状态栏的高度
   navContentHeight: Platform.OS === 'ios' ? 44 : 56,
   // tabBar的高度
-  tabBar: 49,
+  tabBar: pxToDp(49),
   // 底部按钮高度
-  bottonBtnHeight: 44,
+  bottonBtnHeight: pxToDp(44),
   // 通用列表cell高度
-  cellHeight: 44,
+  cellHeight: pxToDp(44),
   // 导航栏左右按钮image高度
-  navImageHeight: 25,
+  navImageHeight: pxToDp(25),
 
   /** font **/
   // 默认文字字体
-  textFont: 14,
+  textFont: pxToDp(14),
   // 默认按钮文字字体
-  btnFont: 15,
+  btnFont: pxToDp(15),
   // 导航title字体
-  navTitleFont: 17,
+  navTitleFont: pxToDp(17),
   // tabBar文字字体
-  barBarTitleFont: 12,
-  // 占位符的默认字体大小
-  placeholderFont: 13,
+  barBarTitleFont: pxToDp(12),
+  // 占位符的默认字体大
+  placeholderFont: pxToDp(13),
   // 导航左按钮的字体
-  navRightTitleFont: 15,
+  navRightTitleFont: pxToDp(15),
   // 导航右按钮字体
-  navLeftTitleFont: 15,
+  navLeftTitleFont: pxToDp(15),
 
   /** opacity **/
   // mask

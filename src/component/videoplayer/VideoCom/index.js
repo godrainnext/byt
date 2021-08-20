@@ -304,7 +304,7 @@ class index extends PureComponent {
                         backgroundColor: '#fcfcfc',
                         width: '75%',
                         marginLeft: pxToDp(20),
-                        borderRadius: pxToDp(20),
+                        borderRadius: pxToDp(16),
                         paddingLeft: pxToDp(10)
                       }}
                       onChangeText={(mycomment) => this.setState({ mycomment })}

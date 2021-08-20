@@ -166,7 +166,7 @@ class Ziliao extends PureComponent {
             height: '75%',
             backgroundColor: '#fff',
             alignSelf: 'center',
-            borderRadius: 32,
+            borderRadius: pxToDp(32),
             marginTop: pxToDp(60),
             elevation: 10,
             shadowColor: 'black', //  阴影颜色
@@ -415,7 +415,7 @@ const s = StyleSheet.create({
     height: pxToDp(250),
     backgroundColor: '#e2f4fe',
     justifyContent: 'space-evenly',
-    borderRadius: pxToDp(30)
+    borderRadius: pxToDp(32)
   },
   modalTitle: {
     width: '70%',

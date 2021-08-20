@@ -42,7 +42,7 @@ export default class SignBtn extends PureComponent {
 const styles = StyleSheet.create({
   linearGradient: {
     flex: 1,
-    borderRadius: 25,
+    borderRadius: 24,
     width: '100%',
     height: '100%',
     backgroundColor: 'red'

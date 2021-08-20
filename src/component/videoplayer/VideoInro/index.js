@@ -52,7 +52,7 @@ class index extends PureComponent {
                 <Text>{collectionNum}</Text>
               </View>
               <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-               <Icon1 name={'file-download'} size={pxToDp(32)} color='grey' />
+                <Icon1 name={'file-download'} size={pxToDp(32)} color="grey" />
                 <Text>缓存</Text>
               </View>
               <View style={{ justifyContent: 'center', alignItems: 'center' }}>
@@ -75,7 +75,7 @@ class index extends PureComponent {
                     style={{
                       width: '100%',
                       height: pxToDp(110),
-                      borderRadius: pxToDp(10),
+                      borderRadius: pxToDp(8),
                       justifyContent: 'space-around',
                       alignItems: 'center',
                       borderBottomWidth: 1,
@@ -93,7 +93,7 @@ class index extends PureComponent {
                         style={{
                           width: '40%',
                           height: pxToDp(90),
-                          borderRadius: pxToDp(10)
+                          borderRadius: pxToDp(8)
                         }}
                         source={{ uri: item.avatar }}
                       ></Image>

@@ -183,8 +183,8 @@ class index extends PureComponent {
           style={{
             flex: 1,
             backgroundColor: '#eee',
-            borderRadius: 20,
-            padding: 10
+            borderRadius: pxToDp(24),
+            padding: pxToDp(10)
           }}
         >
           <ScrollView>
@@ -279,18 +279,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    width: 245,
-    height: 50,
+    width: pxToDp(245),
+    height: pxToDp(50),
     backgroundColor: 'transparent',
     borderColor: 'rgba(171, 190, 215, 0.56)',
-    borderRadius: 20,
-    marginLeft: 20,
-    marginTop: 20
+    borderRadius: pxToDp(24),
+    marginLeft: pxToDp(20),
+    marginTop: pxToDp(20)
   },
   icon: {
-    width: 16,
-    height: 16,
-    marginRight: 10,
+    width: pxToDp(16),
+    height: pxToDp(16),
+    marginRight: pxToDp(10),
     justifyContent: 'center',
     alignItems: 'center'
   },
