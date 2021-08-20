@@ -186,7 +186,7 @@ class Index extends PureComponent {
                     marginTop: pxToDp(10),
                     width: pxToDp(150),
                     height: pxToDp(72),
-                    borderRadius: pxToDp(10)
+                    borderRadius: pxToDp(8)
                   }}
                 >
                   <View>

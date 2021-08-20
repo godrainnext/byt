@@ -295,7 +295,7 @@ class App extends PureComponent {
                   width: pxToDp(45),
                   height: pxToDp(45),
                   backgroundColor: 'gray',
-                  borderRadius: pxToDp(30)
+                  borderRadius: pxToDp(32)
                 }}
                 source={{
                   uri: stream.avatar
@@ -326,7 +326,7 @@ class App extends PureComponent {
             </View>
             <TouchableOpacity
               style={{
-                borderRadius: pxToDp(30),
+                borderRadius: pxToDp(32),
                 backgroundColor: 'orange',
                 marginLeft: pxToDp(8),
                 justifyContent: 'center',

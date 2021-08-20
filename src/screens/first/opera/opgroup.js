@@ -103,47 +103,47 @@ class Index extends PureComponent {
 }
 
 const styles = StyleSheet.create({
-    text1: {
-        color: 'white',
-        fontSize: pxToDp(24)
-    },
-    box: {
-        height: pxToDp(120),
-        justifyContent: 'space-between',
-        marginLeft: pxToDp(10),
-        marginTop: pxToDp(20)
-    },
-    botbox: {
-        backgroundColor: '#ecf6fc',
-        marginTop: pxToDp(-10),
-        borderTopLeftRadius: pxToDp(10),
-        borderTopRightRadius: pxToDp(10)
-    },
-    image: {
-        height: pxToDp(130),
-        width: pxToDp(170),
-        borderTopRightRadius: pxToDp(10),
-        borderTopLeftRadius: pxToDp(10)
-    },
-    imagebox: {
-        borderRadius: pxToDp(10),
-        marginLeft: pxToDp(12),
-        marginTop: pxToDp(15),
-        height: pxToDp(190),
-        width: pxToDp(170),
-        backgroundColor: 'white'
-    },
-    text2: {
-        color: 'black',
-        fontSize: pxToDp(14),
-        marginTop: pxToDp(5),
-        marginLeft: pxToDp(5)
-    },
-    text3: {
-        color: 'grey',
-        fontSize: pxToDp(14),
-        marginTop: pxToDp(5),
-        marginLeft: pxToDp(5)
-    }
-})
+  text1: {
+    color: 'white',
+    fontSize: pxToDp(24)
+  },
+  box: {
+    height: pxToDp(120),
+    justifyContent: 'space-between',
+    marginLeft: pxToDp(10),
+    marginTop: pxToDp(20)
+  },
+  botbox: {
+    backgroundColor: '#ecf6fc',
+    marginTop: pxToDp(-10),
+    borderTopLeftRadius: pxToDp(10),
+    borderTopRightRadius: pxToDp(10)
+  },
+  image: {
+    height: pxToDp(130),
+    width: pxToDp(170),
+    borderTopRightRadius: pxToDp(10),
+    borderTopLeftRadius: pxToDp(10)
+  },
+  imagebox: {
+    borderRadius: pxToDp(8),
+    marginLeft: pxToDp(12),
+    marginTop: pxToDp(15),
+    height: pxToDp(190),
+    width: pxToDp(170),
+    backgroundColor: 'white'
+  },
+  text2: {
+    color: 'black',
+    fontSize: pxToDp(14),
+    marginTop: pxToDp(5),
+    marginLeft: pxToDp(5)
+  },
+  text3: {
+    color: 'grey',
+    fontSize: pxToDp(14),
+    marginTop: pxToDp(5),
+    marginLeft: pxToDp(5)
+  }
+});
 export default Index;

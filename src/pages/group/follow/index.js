@@ -113,81 +113,81 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: StatusBar.currentHeight || 0,
+    marginTop: StatusBar.currentHeight || 0
   },
-  listItem:{
-    height:180,
-    width:totalWidth,
+  listItem: {
+    height: 180,
+    width: totalWidth,
     backgroundColor: '#FFFFFF',
-    paddingLeft:15,
-    paddingTop:15,
-    paddingRight:15,
+    paddingLeft: 15,
+    paddingTop: 15,
+    paddingRight: 15,
     flexDirection: 'row',
-    marginTop:7
+    marginTop: 7
   },
   item: {
     padding: 20,
     marginVertical: 8,
-    marginHorizontal: 16,
+    marginHorizontal: 16
   },
-  headPic:{
+  headPic: {
     height: 40,
-    width:40,
-    borderRadius:20,
-    marginTop:3,
-    marginLeft:-5
+    width: 40,
+    borderRadius: 24,
+    marginTop: 3,
+    marginLeft: -5
   },
-  rightBox:{
-    flex:1,
-    marginLeft:10,
-    height:100,
-    width:"80%"
+  rightBox: {
+    flex: 1,
+    marginLeft: 10,
+    height: 100,
+    width: '80%'
   },
   userName: {
-    fontSize: 18,
+    fontSize: 18
   },
-  content:{
-    fontSize:12,
-    color:"grey"
+  content: {
+    fontSize: 12,
+    color: 'grey'
   },
-  Follow:{
-    marginTop:-30
+  Follow: {
+    marginTop: -30
   },
-  follow:{
-   marginLeft:260,
-   backgroundColor:"red",
-   marginEnd:10,
-   borderRadius:20,
-   justifyContent:"center",
-   alignItems:'center'
+  follow: {
+    marginLeft: 260,
+    backgroundColor: 'red',
+    marginEnd: 10,
+    borderRadius: 24,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
-  bot:{
-    marginLeft:0,
-    height:95,
-    marginTop:30,
-    marginLeft:-45,
-    backgroundColor:"lightgrey"
+  bot: {
+    marginLeft: 0,
+    height: 95,
+    marginTop: 30,
+    marginLeft: -45,
+    backgroundColor: 'lightgrey'
   },
-  articleTitle:{
-   fontSize:14,
-   width:"80%",
-   fontWeight:"bold",
+  articleTitle: {
+    fontSize: 14,
+    width: '80%',
+    fontWeight: 'bold'
   },
-  article:{
-    width:"80%",
-    fontSize:13,
+  article: {
+    width: '80%',
+    fontSize: 13
   },
-  articlePic:{
+  articlePic: {
     height: 60,
-    width:60,
-    marginTop:-90,
-    marginBottom:23,
-    marginLeft:300,
+    width: 60,
+    marginTop: -90,
+    marginBottom: 23,
+    marginLeft: 300
   },
-  like:{
-    flex:1,
-    fontSize:9,
-    marginTop:4
+  like: {
+    flex: 1,
+    fontSize: 9,
+    marginTop: 4
   }
 });
 

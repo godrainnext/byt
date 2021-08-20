@@ -42,7 +42,7 @@ class Index extends PureComponent {
             style={{
               height: pxToDp(110),
               width: pxToDp(110),
-              borderRadius: pxToDp(10)
+              borderRadius: pxToDp(8)
             }}
             source={{ uri: item.img }}
           />
@@ -75,7 +75,7 @@ class Index extends PureComponent {
               borderWidth: pxToDp(1),
               height: pxToDp(23),
               width: pxToDp(70),
-              borderRadius: pxToDp(10),
+              borderRadius: pxToDp(8),
               alignItems: 'center',
               justifyContent: 'center',
               marginRight: pxToDp(10)

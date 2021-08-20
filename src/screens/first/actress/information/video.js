@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
   image1: {
     height: pxToDp(170),
     width: pxToDp(355),
-    borderRadius: pxToDp(10)
+    borderRadius: pxToDp(8)
   },
 
   text: {

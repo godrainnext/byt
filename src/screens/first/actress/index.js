@@ -187,13 +187,13 @@ const styles = StyleSheet.create({
   image1: {
     height: pxToDp(170),
     width: pxToDp(355),
-    borderRadius: pxToDp(10)
+    borderRadius: pxToDp(8)
   },
   image2: {
     height: pxToDp(300),
     width: pxToDp(250),
     margin: pxToDp(5),
-    borderRadius: pxToDp(10)
+    borderRadius: pxToDp(8)
   },
   box: {
     margin: pxToDp(10),
@@ -220,12 +220,12 @@ const styles = StyleSheet.create({
   image4: {
     width: pxToDp(135),
     height: pxToDp(90),
-    borderRadius: pxToDp(10)
+    borderRadius: pxToDp(8)
   },
   image5: {
     height: pxToDp(200),
     width: pxToDp(150),
     marginTop: pxToDp(20),
-    borderRadius: pxToDp(10)
+    borderRadius: pxToDp(8)
   }
 });

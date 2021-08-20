@@ -51,39 +51,39 @@ class Index extends PureComponent {
 }
 
 const styles = StyleSheet.create({
-    text1: {
-        color: 'white',
-        fontSize: pxToDp(24)
-    },
-    box: {
-        height: pxToDp(120),
-        justifyContent: 'space-between',
-        marginLeft: pxToDp(10),
-        marginTop: pxToDp(20)
-    },
-    botbox: {
-        backgroundColor: '#ecf6fc',
-        marginTop: pxToDp(-10),
-        borderTopLeftRadius: pxToDp(10),
-        borderTopRightRadius: pxToDp(10)
-    },
-    image: {
-        height: pxToDp(160),
-        width: pxToDp(355),
-        borderRadius: pxToDp(10)
-    },
-    imagebox: {
-        borderRadius: pxToDp(10),
-        marginLeft: pxToDp(15),
-        marginRight: pxToDp(15),
-        marginTop: pxToDp(15),
-        overflow: 'hidden'
-    },
-    text2: {
-        color: 'white',
-        fontSize: pxToDp(18),
-        marginTop: pxToDp(120),
-        marginLeft:pxToDp(10)
-    }
-})
+  text1: {
+    color: 'white',
+    fontSize: pxToDp(24)
+  },
+  box: {
+    height: pxToDp(120),
+    justifyContent: 'space-between',
+    marginLeft: pxToDp(10),
+    marginTop: pxToDp(20)
+  },
+  botbox: {
+    backgroundColor: '#ecf6fc',
+    marginTop: pxToDp(-10),
+    borderTopLeftRadius: pxToDp(10),
+    borderTopRightRadius: pxToDp(10)
+  },
+  image: {
+    height: pxToDp(160),
+    width: pxToDp(355),
+    borderRadius: pxToDp(8)
+  },
+  imagebox: {
+    borderRadius: pxToDp(8),
+    marginLeft: pxToDp(15),
+    marginRight: pxToDp(15),
+    marginTop: pxToDp(15),
+    overflow: 'hidden'
+  },
+  text2: {
+    color: 'white',
+    fontSize: pxToDp(18),
+    marginTop: pxToDp(120),
+    marginLeft: pxToDp(10)
+  }
+});
 export default Index;

@@ -30,55 +30,55 @@ class Index extends PureComponent {
     }
 }
 const styles = StyleSheet.create({
-    topbox: {
-        flexDirection: 'row',
-        margin: pxToDp(10)
-    },
-    image1: {
-        height: pxToDp(180),
-        width: pxToDp(180),
-        borderRadius: pxToDp(20)
-    },
-    image2: {
-        height: pxToDp(85),
-        width: pxToDp(165),
-        borderRadius: pxToDp(10)
-    },
-    image3: {
-        height: pxToDp(85),
-        width: pxToDp(165),
-        borderRadius: pxToDp(10),
-        marginTop: pxToDp(10)
-    },
-    text1: {
-        fontSize: pxToDp(20),
-        fontWeight: 'bold',
-        marginLeft: pxToDp(10)
-    },
-    image4: {
-        height: pxToDp(120),
-        width: pxToDp(120),
-        borderRadius: pxToDp(10)
-    },
-    text2: {
-        fontSize: pxToDp(18),
-        fontWeight: 'bold',
-        marginTop: pxToDp(10)
-    },
-    touch: {
-        backgroundColor: '#B0E0E6',
-        borderRadius: pxToDp(10),
-        height: pxToDp(20),
-        width: pxToDp(50),
-        alignItems: 'center',
-        marginTop: pxToDp(50)
-    },
-    botbox: {
-        flexDirection: 'row',
-        borderBottomColor: 'grey',
-        borderBottomWidth: pxToDp(0.5),
-        margin: pxToDp(10),
-        height: pxToDp(130)
-    }
-})
+  topbox: {
+    flexDirection: 'row',
+    margin: pxToDp(10)
+  },
+  image1: {
+    height: pxToDp(180),
+    width: pxToDp(180),
+    borderRadius: pxToDp(24)
+  },
+  image2: {
+    height: pxToDp(85),
+    width: pxToDp(165),
+    borderRadius: pxToDp(8)
+  },
+  image3: {
+    height: pxToDp(85),
+    width: pxToDp(165),
+    borderRadius: pxToDp(8),
+    marginTop: pxToDp(10)
+  },
+  text1: {
+    fontSize: pxToDp(20),
+    fontWeight: 'bold',
+    marginLeft: pxToDp(10)
+  },
+  image4: {
+    height: pxToDp(120),
+    width: pxToDp(120),
+    borderRadius: pxToDp(8)
+  },
+  text2: {
+    fontSize: pxToDp(18),
+    fontWeight: 'bold',
+    marginTop: pxToDp(10)
+  },
+  touch: {
+    backgroundColor: '#B0E0E6',
+    borderRadius: pxToDp(8),
+    height: pxToDp(20),
+    width: pxToDp(50),
+    alignItems: 'center',
+    marginTop: pxToDp(50)
+  },
+  botbox: {
+    flexDirection: 'row',
+    borderBottomColor: 'grey',
+    borderBottomWidth: pxToDp(0.5),
+    margin: pxToDp(10),
+    height: pxToDp(130)
+  }
+});
 export default Index;

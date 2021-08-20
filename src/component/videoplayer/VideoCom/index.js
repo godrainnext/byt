@@ -44,7 +44,7 @@ class index extends PureComponent {
             <View key={item.id} style={{ backgroundColor: '#f6fbfe' }}>
               <View style={{ flexDirection: 'row' }}>
                 <Image
-                  source={{ uri: changeImgSize(item.user.avatar,'small') }}
+                  source={{ uri: changeImgSize(item.user.avatar, 'small') }}
                   style={{
                     width: pxToDp(50),
                     height: pxToDp(50),
@@ -106,13 +106,15 @@ class index extends PureComponent {
                   </TouchableOpacity>
                 </View>
               </View>
-              {item.recomment? (
+              {item.recomment ? (
                 <View style={{ backgroundColor: '#f6fbfe' }}>
                   <View
                     style={{ flexDirection: 'row', marginLeft: pxToDp(35) }}
                   >
                     <Image
-                      source={{ uri:changeImgSize(item.recomment[0].avatar,'small') }}
+                      source={{
+                        uri: changeImgSize(item.recomment[0].avatar, 'small')
+                      }}
                       style={{
                         width: pxToDp(40),
                         height: pxToDp(40),
@@ -214,7 +216,9 @@ class index extends PureComponent {
                           }}
                         >
                           <Image
-                            source={{ uri:  changeImgSize(items.user.avatar,'small')}}
+                            source={{
+                              uri: changeImgSize(items.user.avatar, 'small')
+                            }}
                             style={{
                               width: pxToDp(40),
                               height: pxToDp(40),
@@ -302,7 +306,7 @@ class index extends PureComponent {
                         backgroundColor: '#fcfcfc',
                         width: '75%',
                         marginLeft: pxToDp(20),
-                        borderRadius: pxToDp(20),
+                        borderRadius: pxToDp(16),
                         paddingLeft: pxToDp(10)
                       }}
                       onChangeText={(mycomment) => this.setState({ mycomment })}

@@ -168,7 +168,7 @@ export default class hello extends Component {
           </View>
           <View
             style={{
-              borderRadius: pxToDp(10),
+              borderRadius: pxToDp(16),
               height: pxToDp(310),
               backgroundColor: 'rgba(255,255,255,0.5)',
               marginRight: pxToDp(10),
@@ -196,7 +196,7 @@ export default class hello extends Component {
                     style={{
                       width: pxToDp(100),
                       height: pxToDp(160),
-                      borderRadius: pxToDp(10),
+                      borderRadius: pxToDp(16),
                       marginRight: pxToDp(20)
                     }}
                   >
@@ -226,7 +226,7 @@ export default class hello extends Component {
                     style={{
                       width: pxToDp(100),
                       height: pxToDp(160),
-                      borderRadius: pxToDp(10),
+                      borderRadius: pxToDp(16),
                       marginRight: pxToDp(20)
                     }}
                   >
@@ -256,7 +256,7 @@ export default class hello extends Component {
                     style={{
                       width: pxToDp(100),
                       height: pxToDp(160),
-                      borderRadius: pxToDp(10),
+                      borderRadius: pxToDp(16),
                       marginRight: pxToDp(20)
                     }}
                   >
@@ -286,7 +286,7 @@ export default class hello extends Component {
                     style={{
                       width: pxToDp(100),
                       height: pxToDp(160),
-                      borderRadius: pxToDp(10),
+                      borderRadius: pxToDp(16),
                       marginRight: pxToDp(20)
                     }}
                   >
@@ -316,7 +316,7 @@ export default class hello extends Component {
                     style={{
                       width: pxToDp(100),
                       height: pxToDp(160),
-                      borderRadius: pxToDp(10),
+                      borderRadius: pxToDp(16),
                       marginRight: pxToDp(20)
                     }}
                   >
@@ -346,7 +346,7 @@ export default class hello extends Component {
                     style={{
                       width: pxToDp(100),
                       height: pxToDp(160),
-                      borderRadius: pxToDp(10),
+                      borderRadius: pxToDp(16),
                       marginRight: pxToDp(20)
                     }}
                   >
@@ -376,7 +376,7 @@ export default class hello extends Component {
                     style={{
                       width: pxToDp(100),
                       height: pxToDp(160),
-                      borderRadius: pxToDp(10),
+                      borderRadius: pxToDp(16),
                       marginRight: pxToDp(20)
                     }}
                   >

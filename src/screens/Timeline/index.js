@@ -57,7 +57,7 @@ export default class index extends PureComponent {
                   <ImageBackground
                     style={styles.boxImg}
                     imageStyle={{
-                      borderRadius: pxToDp(50)
+                      borderRadius: pxToDp(48)
                     }}
                     source={require('../../res/genre/t1.jpg')}
                   ></ImageBackground>
@@ -85,7 +85,7 @@ export default class index extends PureComponent {
                   <ImageBackground
                     style={styles.boxImg}
                     imageStyle={{
-                      borderRadius: pxToDp(50)
+                      borderRadius: pxToDp(48)
                     }}
                     source={require('../../res/genre/t2.jpg')}
                   ></ImageBackground>
@@ -113,7 +113,7 @@ export default class index extends PureComponent {
                   <ImageBackground
                     style={styles.boxImg}
                     imageStyle={{
-                      borderRadius: pxToDp(50)
+                      borderRadius: pxToDp(48)
                     }}
                     source={require('../../res/genre/t3.png')}
                   ></ImageBackground>
@@ -141,7 +141,7 @@ export default class index extends PureComponent {
                   <ImageBackground
                     style={styles.boxImg}
                     imageStyle={{
-                      borderRadius: pxToDp(50)
+                      borderRadius: pxToDp(48)
                     }}
                     source={require('../../res/genre/t4.jpg')}
                   ></ImageBackground>
@@ -177,7 +177,7 @@ export default class index extends PureComponent {
                   <ImageBackground
                     style={styles.boxImg}
                     imageStyle={{
-                      borderRadius: pxToDp(50)
+                      borderRadius: pxToDp(48)
                     }}
                     source={require('../../res/genre/t5.jpg')}
                   ></ImageBackground>
@@ -205,7 +205,7 @@ export default class index extends PureComponent {
                   <ImageBackground
                     style={styles.boxImg}
                     imageStyle={{
-                      borderRadius: pxToDp(50)
+                      borderRadius: pxToDp(48)
                     }}
                     source={require('../../res/genre/6.jpg')}
                   ></ImageBackground>
@@ -234,7 +234,7 @@ export default class index extends PureComponent {
                   <ImageBackground
                     style={styles.boxImg}
                     imageStyle={{
-                      borderRadius: pxToDp(50)
+                      borderRadius: pxToDp(48)
                     }}
                     source={require('../../res/genre/t7.jpg')}
                   ></ImageBackground>
@@ -270,7 +270,7 @@ export default class index extends PureComponent {
                   <ImageBackground
                     style={styles.boxImg}
                     imageStyle={{
-                      borderRadius: pxToDp(50)
+                      borderRadius: pxToDp(48)
                     }}
                     source={require('../../res/genre/t8.jpg')}
                   ></ImageBackground>
@@ -298,7 +298,7 @@ export default class index extends PureComponent {
                   <ImageBackground
                     style={styles.boxImg}
                     imageStyle={{
-                      borderRadius: pxToDp(50)
+                      borderRadius: pxToDp(48)
                     }}
                     source={require('../../res/genre/t9.jpg')}
                   ></ImageBackground>
@@ -326,7 +326,7 @@ export default class index extends PureComponent {
                   <ImageBackground
                     style={styles.boxImg}
                     imageStyle={{
-                      borderRadius: pxToDp(50)
+                      borderRadius: pxToDp(48)
                     }}
                     source={require('../../res/genre/t10.jpg')}
                   ></ImageBackground>
@@ -354,7 +354,7 @@ export default class index extends PureComponent {
                   <ImageBackground
                     style={styles.boxImg}
                     imageStyle={{
-                      borderRadius: pxToDp(50)
+                      borderRadius: pxToDp(48)
                     }}
                     source={require('../../res/genre/t11.jpg')}
                   ></ImageBackground>
@@ -388,19 +388,19 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     height: pxToDp(230),
-    borderRadius: pxToDp(10),
+    borderRadius: pxToDp(8),
     margin: pxToDp(10)
   },
   image: {
     height: pxToDp(210),
     width: pxToDp(355),
-    borderRadius: pxToDp(10),
+    borderRadius: pxToDp(8),
     backgroundColor: '#666'
   },
   box: {
     width: pxToDp(50),
     height: pxToDp(50),
-    borderRadius: pxToDp(50),
+    borderRadius: pxToDp(48),
     backgroundColor: '#c26f9b'
   },
   boxImg: {
@@ -408,6 +408,6 @@ const styles = StyleSheet.create({
     height: pxToDp(50)
   },
   smallbox: {
-    borderRadius: pxToDp(50)
+    borderRadius: pxToDp(48)
   }
 });

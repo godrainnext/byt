@@ -133,30 +133,30 @@ export default class Index extends PureComponent {
     }
 }
 const styles = StyleSheet.create({
-    box: {
-        flexDirection: 'row',
-        width: pxToDp(330),
-        justifyContent: 'space-between',
-        alignItems: 'center'
-    },
-    image: {
-        height: pxToDp(60),
-        width: pxToDp(60),
-        borderRadius: pxToDp(30)
-    },
-    title: {
-        fontSize: pxToDp(17),
-        fontWeight: 'bold',
-        marginBottom: pxToDp(5)
-    },
-    icon: {
-        width: pxToDp(20),
-        height: pxToDp(20)
-    },
-    headimage: {
-        width: "100%",
-        height: pxToDp(210),
-        borderRadius: pxToDp(10),
-        marginTop: pxToDp(10)
-    }
-})
+  box: {
+    flexDirection: 'row',
+    width: pxToDp(330),
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  },
+  image: {
+    height: pxToDp(60),
+    width: pxToDp(60),
+    borderRadius: pxToDp(32)
+  },
+  title: {
+    fontSize: pxToDp(17),
+    fontWeight: 'bold',
+    marginBottom: pxToDp(5)
+  },
+  icon: {
+    width: pxToDp(20),
+    height: pxToDp(20)
+  },
+  headimage: {
+    width: '100%',
+    height: pxToDp(210),
+    borderRadius: pxToDp(8),
+    marginTop: pxToDp(10)
+  }
+});

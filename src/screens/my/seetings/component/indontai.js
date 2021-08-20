@@ -37,36 +37,68 @@ class Index extends PureComponent {
     }
     render() {
         return (
-            <ScrollView style={{ backgroundColor: '#fff' }}>
-                <Top icon1='arrow-back' title="设置" />
-                <View style={{ width: '100%', height: pxToDp(100), marginTop: pxToDp(20), flexDirection: 'row' }}>
-                    <Image source={{ uri: this.state.louzhu.lzimg }} style={{ height: pxToDp(60), width: pxToDp(60), borderRadius: pxToDp(60), margin: pxToDp(15) }} />
-                    <View style={{ marginTop: pxToDp(20), paddingLeft: pxToDp(5) }}>
-                        <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold' }}>{this.state.louzhu.lzname}</Text>
-                    </View>
+          <ScrollView style={{ backgroundColor: '#fff' }}>
+            <Top icon1="arrow-back" title="设置" />
+            <View
+              style={{
+                width: '100%',
+                height: pxToDp(100),
+                marginTop: pxToDp(20),
+                flexDirection: 'row'
+              }}
+            >
+              <Image
+                source={{ uri: this.state.louzhu.lzimg }}
+                style={{
+                  height: pxToDp(60),
+                  width: pxToDp(60),
+                  borderRadius: pxToDp(60),
+                  margin: pxToDp(15)
+                }}
+              />
+              <View style={{ marginTop: pxToDp(20), paddingLeft: pxToDp(5) }}>
+                <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold' }}>
+                  {this.state.louzhu.lzname}
+                </Text>
+              </View>
+            </View>
+            <View style={{ margin: pxToDp(15) }}>
+              <Text style={{ fontSize: pxToDp(18) }}>
+                {this.state.louzhu.dt}
+              </Text>
+            </View>
+            <ScrollView
+              style={{
+                height: pxToDp(150),
+                marginTop: pxToDp(10),
+                width: '95%',
+                marginLeft: pxToDp(10)
+              }}
+              horizontal={true}
+            >
+              {this.state.louzhu.dtimg.map((item, index) => (
+                <View key={index} style={{ marginBottom: pxToDp(10) }}>
+                  <Image
+                    style={{
+                      width: pxToDp(150),
+                      height: pxToDp(150),
+                      borderRadius: pxToDp(16),
+                      marginRight: pxToDp(10)
+                    }}
+                    source={{ uri: item }}
+                  />
                 </View>
-                <View style={{ margin: pxToDp(15) }}>
-                    <Text style={{ fontSize: pxToDp(18) }}>{this.state.louzhu.dt}</Text>
-                </View>
-                <ScrollView style={{ height: pxToDp(150), marginTop: pxToDp(10), width: '95%', marginLeft: pxToDp(10) }} horizontal={true}>
+              ))}
+            </ScrollView>
+            {/* <Text style={{paddingLeft:pxToDp(15),color:'gray'}}>{this.state.louzhu.date}</Text> */}
+            <View style={{ backgroundColor: '#fff', marginTop: pxToDp(30) }}>
+              <Text style={{ fontSize: pxToDp(18), margin: pxToDp(15) }}>
+                全部
+              </Text>
 
-                    {this.state.louzhu.dtimg.map((item, index) => (
-                        <View key={index} style={{ marginBottom: pxToDp(10) }}>
-                            <Image
-                                style={{ width: pxToDp(150), height: pxToDp(150), borderRadius: pxToDp(15), marginRight: pxToDp(10) }}
-                                source={{ uri: item }} />
-                        </View>
-                    ))}
-                </ScrollView>
-                {/* <Text style={{paddingLeft:pxToDp(15),color:'gray'}}>{this.state.louzhu.date}</Text> */}
-                <View style={{ backgroundColor: '#fff', marginTop: pxToDp(30) }}>
-                    <Text style={{ fontSize: pxToDp(18), margin: pxToDp(15), }}>全部</Text>
-
-                    <Comments
-                        comments={this.state.comments} />
-
-                </View>
-            </ScrollView >
+              <Comments comments={this.state.comments} />
+            </View>
+          </ScrollView>
         );
     }
 }

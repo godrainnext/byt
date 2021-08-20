@@ -22,7 +22,7 @@ export default class index extends PureComponent {
     return (
       <View
         style={{
-          borderRadius: pxToDp(10),
+          borderRadius: pxToDp(8),
           height: pxToDp(310),
           backgroundColor: 'rgba(255,255,255,0.5)',
           marginRight: pxToDp(10),
@@ -52,7 +52,7 @@ export default class index extends PureComponent {
                   style={{
                     width: pxToDp(100),
                     height: pxToDp(160),
-                    borderRadius: pxToDp(10),
+                    borderRadius: pxToDp(8),
                     marginRight: pxToDp(20)
                   }}
                 >

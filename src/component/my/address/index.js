@@ -33,7 +33,7 @@ class Address extends PureComponent {
             }
             style={{
               marginTop: pxToDp(5),
-              borderRadius: pxToDp(10),
+              borderRadius: pxToDp(8),
               margin: pxToDp(5),
               backgroundColor: 'white'
             }}

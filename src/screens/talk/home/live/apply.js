@@ -97,8 +97,8 @@ class index extends Component {
           style={{
             flex: 1,
             backgroundColor: '#eee',
-            borderRadius: 20,
-            padding: 10
+            borderRadius: pxToDp(24),
+            padding: pxToDp(10)
           }}
         >
           <ScrollView showsVerticalScrollIndicator={false}>
@@ -350,7 +350,7 @@ const s = StyleSheet.create({
     height: pxToDp(250),
     backgroundColor: 'white',
     justifyContent: 'space-evenly',
-    borderRadius: pxToDp(30)
+    borderRadius: pxToDp(32)
   },
   modalTitle: {
     width: '70%',
