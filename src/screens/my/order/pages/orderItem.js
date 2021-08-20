@@ -4,6 +4,7 @@ import { pxToDp } from '../../../../utils/styleKits';
 
 class Index extends PureComponent {
   render() {
+    console.log(this.props.page);
     return this.props.page.map((item) => (
       <View
         key={item.oriderId}

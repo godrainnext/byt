@@ -85,21 +85,16 @@ class Index extends PureComponent {
     };
   }
   componentDidMount() {
-    this.changeListener = DeviceEventEmitter.addListener('momentChange', () => {
-      getMomentListByStatus(0, 0, 20).then((res) => {
-        this.setState({ dongtai: [...res].reverse() });
-        console.log(res);
-      });
-    });
-    getMomentListByStatus(0, 0, 20).then((res) => {
+    getMomentListByStatus(0, 0, 15).then((res) => {
       this.setState({ dongtai: [...res].reverse() });
     });
   }
-  componentWillUnmount() {
-    this.changeListener.remove();
-  }
+  updateList = (newMoment) => {
+    this.setState({
+      dongtai: [newMoment, ...this.state.dongtai]
+    });
+  };
   changeVisible = () => {
-    console.log(123);
     this.setState({ isShow: !this.state.isShow });
   };
   renderRow(obj, index) {
@@ -137,6 +132,7 @@ class Index extends PureComponent {
       <View style={{ flex: 1, backgroundColor: '#ecf6fc' }}>
         <View>
           <Addmoment
+            updateList={this.updateList}
             toggleModalProps={this.changeVisible}
             isModalVisible={this.state.isShow}
           />
@@ -180,6 +176,7 @@ class Index extends PureComponent {
             >
               {this.state.field.map((item, index) => (
                 <TouchableOpacity
+                  key={item.id}
                   onPress={() => this.openTopic(index)}
                   style={{
                     marginLeft: pxToDp(8),
@@ -211,6 +208,7 @@ class Index extends PureComponent {
               ))}
             </ScrollView>
             <View style={{ marginTop: pxToDp(-16) }}>
+              {/* 下方文章 */}
               <Tiebar dongtai={this.state.dongtai} />
             </View>
           </View>
@@ -238,13 +236,13 @@ const styles = StyleSheet.create({
   },
   swiper: {
     backgroundColor: '#f1f1f1',
-    width: pxToDp(345),
+    width: pxToDp(345)
   },
   cell: {
     //backgroundColor: 'red',
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
-  },
+    justifyContent: 'center'
+  }
 });
 export default Index;

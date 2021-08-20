@@ -13,23 +13,20 @@ import {
 } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { pxToDp } from '@utils/styleKits';
-import { MarqueeHorizontal, MarqueeVertical } from 'react-native-marquee-ab';
-import Icon from 'react-native-vector-icons/SimpleLineIcons';
-import Icon1 from 'react-native-vector-icons/MaterialIcons';
-import  getVideoCommentById  from '../../../service/video';
-import SvgUri from 'react-native-svg-uri'
-import { pinglun,dianzan,sandian,allcomment } from '../../common/iconSvg';
-import RBSheet  from 'react-native-raw-bottom-sheet';
-import changeImgSize from '@utils/changeImgSize'
+
+import { getVideoCommentById } from '../../../service/video';
+import SvgUri from 'react-native-svg-uri';
+import { pinglun, dianzan, sandian, allcomment } from '../../common/iconSvg';
+import RBSheet from 'react-native-raw-bottom-sheet';
+import changeImgSize from '@utils/changeImgSize';
 
 class index extends PureComponent {
-  state={comment:[]}
-  componentDidMount(){
-    console.log(this.props.videoId);
-    getVideoCommentById(this.props.videoId).then(res=>{
+  state = { comment: [] };
+  componentDidMount() {
+    getVideoCommentById(this.props.videoId).then((res) => {
       console.log(res);
-      this.setState({comment:res})
-    })
+      this.setState({ comment: res });
+    });
   }
   showRBsheet = async (id) => {
     await getCommentInnerById(id)
@@ -37,6 +34,7 @@ class index extends PureComponent {
       .then(() => this[`RBSheet${id}`].open());
   };
   render() {
+    console.log(this.state.comment);
     return (
       <View>
         {this.state.comment.length ? (
@@ -339,7 +337,5 @@ class index extends PureComponent {
     );
   }
 }
-
-
 
 export default index;

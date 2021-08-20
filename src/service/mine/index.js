@@ -9,3 +9,6 @@ export const cancelFollow = (id) =>
 export const addFollow = (id) => request.post({ url: `/user/follow/${id}` });
 export const getUserInfoById = (id) =>
   request.get({ url: `/user/userInfoById/${id}` });
+
+export const apply = (fd) =>
+  request.post({ url: `/user/applySteam`, data: fd });
