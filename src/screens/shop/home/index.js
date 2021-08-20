@@ -140,19 +140,18 @@ const styles = StyleSheet.create({
   },
   tcard: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
-    width: pxToDp(420)
+    width:'100%',
+    justifyContent:'space-between'
   },
   ocard: {
     backgroundColor: 'white',
-    width: pxToDp(170),
+    width: pxToDp(174),
     borderRadius: pxToDp(8),
-    margin: pxToDp(8),
-    marginRight: pxToDp(5)
+    margin: pxToDp(8)
   },
   image: {
     height: pxToDp(170),
-    width: pxToDp(170),
+    width: pxToDp(174),
     borderTopLeftRadius: pxToDp(8),
     borderTopRightRadius: pxToDp(8)
   },
@@ -194,13 +193,13 @@ const styles = StyleSheet.create({
     marginTop: pxToDp(3)
   },
   image3: {
-    height: pxToDp(170),
-    width: pxToDp(170),
+    height: pxToDp(174),
+    width: pxToDp(174),
     borderRadius: pxToDp(8)
   },
   image4: {
     height: pxToDp(80),
-    width: pxToDp(178),
+    width: pxToDp(174),
     borderRadius: pxToDp(8),
     alignSelf: 'center'
   }
