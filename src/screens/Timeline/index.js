@@ -28,7 +28,7 @@ export default class index extends PureComponent {
         stickyHeaderIndices={[0]}
         style={{ backgroundColor: 'green', width: '100%', height: '100%' }}
       >
-        <Top icon1="arrow-back" title="时间轴" />
+        <Top icon1="arrow-back" title="图谱" />
         <View
           style={{
             height: pxToDp(780),
@@ -50,13 +50,16 @@ export default class index extends PureComponent {
               }}
             >
               <View style={styles.box}>
-                <TouchableOpacity style={styles.smallbox}>
+                <TouchableOpacity
+                  onPress={() => this.setState({ ArrIndex: 3 })}
+                  style={styles.smallbox}
+                >
                   <ImageBackground
                     style={styles.boxImg}
                     imageStyle={{
                       borderRadius: pxToDp(50)
                     }}
-                    source={require('../../res/genre/1.jpg')}
+                    source={require('../../res/genre/t1.jpg')}
                   ></ImageBackground>
                   <View
                     style={{
@@ -69,19 +72,22 @@ export default class index extends PureComponent {
                         fontWeight: 'bold'
                       }}
                     >
-                      郭德纲
+                      张桂凤
                     </Text>
                   </View>
                 </TouchableOpacity>
               </View>
               <View style={styles.box}>
-                <TouchableOpacity style={styles.smallbox}>
+                <TouchableOpacity
+                  onPress={() => this.setState({ ArrIndex: 4 })}
+                  style={styles.smallbox}
+                >
                   <ImageBackground
                     style={styles.boxImg}
                     imageStyle={{
                       borderRadius: pxToDp(50)
                     }}
-                    source={require('../../res/genre/2.jpg')}
+                    source={require('../../res/genre/t2.jpg')}
                   ></ImageBackground>
                   <View
                     style={{
@@ -94,19 +100,22 @@ export default class index extends PureComponent {
                         fontWeight: 'bold'
                       }}
                     >
-                      郭德纲
+                      姚水娟
                     </Text>
                   </View>
                 </TouchableOpacity>
               </View>
               <View style={styles.box}>
-                <TouchableOpacity style={styles.smallbox}>
+                <TouchableOpacity
+                  onPress={() => this.setState({ ArrIndex: 5 })}
+                  style={styles.smallbox}
+                >
                   <ImageBackground
                     style={styles.boxImg}
                     imageStyle={{
                       borderRadius: pxToDp(50)
                     }}
-                    source={require('../../res/genre/3.jpg')}
+                    source={require('../../res/genre/t3.png')}
                   ></ImageBackground>
                   <View
                     style={{
@@ -119,19 +128,22 @@ export default class index extends PureComponent {
                         fontWeight: 'bold'
                       }}
                     >
-                      郭德纲
+                      白玉梅
                     </Text>
                   </View>
                 </TouchableOpacity>
               </View>
               <View style={styles.box}>
-                <TouchableOpacity style={styles.smallbox}>
+                <TouchableOpacity
+                  onPress={() => this.setState({ ArrIndex: 6 })}
+                  style={styles.smallbox}
+                >
                   <ImageBackground
                     style={styles.boxImg}
                     imageStyle={{
                       borderRadius: pxToDp(50)
                     }}
-                    source={require('../../res/genre/4.jpg')}
+                    source={require('../../res/genre/t4.jpg')}
                   ></ImageBackground>
                   <View
                     style={{
@@ -144,7 +156,7 @@ export default class index extends PureComponent {
                         fontWeight: 'bold'
                       }}
                     >
-                      郭德纲
+                      徐天红
                     </Text>
                   </View>
                 </TouchableOpacity>
@@ -167,7 +179,7 @@ export default class index extends PureComponent {
                     imageStyle={{
                       borderRadius: pxToDp(50)
                     }}
-                    source={require('../../res/genre/5.jpg')}
+                    source={require('../../res/genre/t5.jpg')}
                   ></ImageBackground>
                   <View
                     style={{
@@ -224,7 +236,7 @@ export default class index extends PureComponent {
                     imageStyle={{
                       borderRadius: pxToDp(50)
                     }}
-                    source={require('../../res/genre/7.jpg')}
+                    source={require('../../res/genre/t7.jpg')}
                   ></ImageBackground>
                   <View
                     style={{
@@ -251,13 +263,16 @@ export default class index extends PureComponent {
               }}
             >
               <View style={styles.box}>
-                <TouchableOpacity style={styles.smallbox}>
+                <TouchableOpacity
+                  onPress={() => this.setState({ ArrIndex: 7 })}
+                  style={styles.smallbox}
+                >
                   <ImageBackground
                     style={styles.boxImg}
                     imageStyle={{
                       borderRadius: pxToDp(50)
                     }}
-                    source={require('../../res/genre/8.jpg')}
+                    source={require('../../res/genre/t8.jpg')}
                   ></ImageBackground>
                   <View
                     style={{
@@ -270,19 +285,22 @@ export default class index extends PureComponent {
                         fontWeight: 'bold'
                       }}
                     >
-                      郭德纲
+                      京剧
                     </Text>
                   </View>
                 </TouchableOpacity>
               </View>
               <View style={styles.box}>
-                <TouchableOpacity style={styles.smallbox}>
+                <TouchableOpacity
+                  onPress={() => this.setState({ ArrIndex: 8 })}
+                  style={styles.smallbox}
+                >
                   <ImageBackground
                     style={styles.boxImg}
                     imageStyle={{
                       borderRadius: pxToDp(50)
                     }}
-                    source={require('../../res/genre/9.jpg')}
+                    source={require('../../res/genre/t9.jpg')}
                   ></ImageBackground>
                   <View
                     style={{
@@ -295,19 +313,22 @@ export default class index extends PureComponent {
                         fontWeight: 'bold'
                       }}
                     >
-                      郭德纲
+                      昆曲
                     </Text>
                   </View>
                 </TouchableOpacity>
               </View>
               <View style={styles.box}>
-                <TouchableOpacity style={styles.smallbox}>
+                <TouchableOpacity
+                  onPress={() => this.setState({ ArrIndex: 9 })}
+                  style={styles.smallbox}
+                >
                   <ImageBackground
                     style={styles.boxImg}
                     imageStyle={{
                       borderRadius: pxToDp(50)
                     }}
-                    source={require('../../res/genre/10.jpg')}
+                    source={require('../../res/genre/t10.jpg')}
                   ></ImageBackground>
                   <View
                     style={{
@@ -320,19 +341,22 @@ export default class index extends PureComponent {
                         fontWeight: 'bold'
                       }}
                     >
-                      郭德纲
+                      梁祝
                     </Text>
                   </View>
                 </TouchableOpacity>
               </View>
               <View style={styles.box}>
-                <TouchableOpacity style={styles.smallbox}>
+                <TouchableOpacity
+                  onPress={() => this.setState({ ArrIndex: 10 })}
+                  style={styles.smallbox}
+                >
                   <ImageBackground
                     style={styles.boxImg}
                     imageStyle={{
                       borderRadius: pxToDp(50)
                     }}
-                    source={require('../../res/genre/11.jpg')}
+                    source={require('../../res/genre/t11.jpg')}
                   ></ImageBackground>
                   <View
                     style={{
@@ -345,39 +369,13 @@ export default class index extends PureComponent {
                         fontWeight: 'bold'
                       }}
                     >
-                      郭德纲
+                      红楼梦
                     </Text>
                   </View>
                 </TouchableOpacity>
               </View>
             </View>
           </View>
-          {/* <Swiper
-              removeClippedSubviews={false}
-              showsButtons={true} //显示控制按钮
-              showsPagination={true} //是否显示小圆点
-              autoplayTimeout={3} //每隔3秒切换
-            >
-              <View style={styles.slide}>
-                <ImageBackground
-                  style={styles.image}
-                  //   source={require("../../res/22.jpg")}
-                ></ImageBackground>
-              </View>
-              <View style={styles.slide}>
-                <ImageBackground
-                  style={styles.image}
-                  // source={require("../../res/8.jpg")}
-                />
-              </View>
-              <View style={styles.slide}>
-                <ImageBackground
-                  style={styles.image}
-                  //  source={require("../../res/performer/10.jpg")}
-                />
-              </View>
-            </Swiper> */}
-
           <AlwaysOpen ArrData={ArrIndex} />
         </View>
       </View>
