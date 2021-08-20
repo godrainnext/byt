@@ -1,11 +1,7 @@
 import React, { PureComponent } from 'react';
-
 import { NavigationContext } from '@react-navigation/native';
-
 import { connect } from 'react-redux';
-
 import Comment from './Comment';
-
 class Index extends PureComponent {
   state = {
     arr: []
