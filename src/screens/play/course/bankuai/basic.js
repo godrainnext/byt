@@ -111,31 +111,31 @@ class Index extends PureComponent {
 }
 
 const styles = StyleSheet.create({
-    title: {
-        fontSize: pxToDp(18),
-        color: '#468CD3',
-        fontWeight: 'bold',
-        marginTop: pxToDp(10)
-    },
-    text: {
-        fontSize: pxToDp(14)
-    },
-    box: {
-        height: pxToDp(143),
-        width: pxToDp(170),
-        borderRadius: pxToDp(10),
-        backgroundColor: 'white',
-        marginTop: pxToDp(10)
-    },
-    image: {
-        height: pxToDp(100),
-        width: pxToDp(170),
-        borderTopLeftRadius: pxToDp(10),
-        borderTopRightRadius: pxToDp(10)
-    },
-    head: {
-        fontSize: pxToDp(14),
-        marginLeft: pxToDp(5)
-    }
-})
+  title: {
+    fontSize: pxToDp(18),
+    color: '#468CD3',
+    fontWeight: 'bold',
+    marginTop: pxToDp(10)
+  },
+  text: {
+    fontSize: pxToDp(14)
+  },
+  box: {
+    height: pxToDp(143),
+    width: pxToDp(170),
+    borderRadius: pxToDp(8),
+    backgroundColor: 'white',
+    marginTop: pxToDp(10)
+  },
+  image: {
+    height: pxToDp(100),
+    width: pxToDp(170),
+    borderTopLeftRadius: pxToDp(10),
+    borderTopRightRadius: pxToDp(10)
+  },
+  head: {
+    fontSize: pxToDp(14),
+    marginLeft: pxToDp(5)
+  }
+});
 export default Index;

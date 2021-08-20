@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Easing,Animated,} from 'react-native';
+import { Easing, Animated } from 'react-native';
 import Tabbar from './tabbar';
 import * as Screens from './screens';
 
@@ -80,6 +80,8 @@ function Nav() {
         <Stack.Screen name="Signature" component={Screens.Singnature} />
         {/**订单确认页面*/}
         <Stack.Screen name="orderdetails" component={Screens.orderdetails} />
+        {/* 积分订单 */}
+        <Stack.Screen name="Jifenorder" component={Screens.Jifenorder} />
         {/**租赁订单确认*/}
         <Stack.Screen name="leasedetails" component={Screens.leasedetails} />
         {/**关注列表 */}

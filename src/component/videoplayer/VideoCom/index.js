@@ -13,23 +13,20 @@ import {
 } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { pxToDp } from '@utils/styleKits';
-import { MarqueeHorizontal, MarqueeVertical } from 'react-native-marquee-ab';
-import Icon from 'react-native-vector-icons/SimpleLineIcons';
-import Icon1 from 'react-native-vector-icons/MaterialIcons';
-import  getVideoCommentById  from '../../../service/video';
-import SvgUri from 'react-native-svg-uri'
-import { pinglun,dianzan,sandian,allcomment } from '../../common/iconSvg';
-import RBSheet  from 'react-native-raw-bottom-sheet';
-import changeImgSize from '@utils/changeImgSize'
+
+import { getVideoCommentById } from '../../../service/video';
+import SvgUri from 'react-native-svg-uri';
+import { pinglun, dianzan, sandian, allcomment } from '../../common/iconSvg';
+import RBSheet from 'react-native-raw-bottom-sheet';
+import changeImgSize from '@utils/changeImgSize';
 
 class index extends PureComponent {
-  state={comment:[]}
-  componentDidMount(){
-    console.log(this.props.videoId);
-    getVideoCommentById(this.props.videoId).then(res=>{
+  state = { comment: [] };
+  componentDidMount() {
+    getVideoCommentById(this.props.videoId).then((res) => {
       console.log(res);
-      this.setState({comment:res})
-    })
+      this.setState({ comment: res });
+    });
   }
   showRBsheet = async (id) => {
     await getCommentInnerById(id)
@@ -37,6 +34,7 @@ class index extends PureComponent {
       .then(() => this[`RBSheet${id}`].open());
   };
   render() {
+    console.log(this.state.comment);
     return (
       <View>
         {this.state.comment.length ? (
@@ -44,7 +42,7 @@ class index extends PureComponent {
             <View key={item.id} style={{ backgroundColor: '#f6fbfe' }}>
               <View style={{ flexDirection: 'row' }}>
                 <Image
-                  source={{ uri: changeImgSize(item.user.avatar,'small') }}
+                  source={{ uri: changeImgSize(item.user.avatar, 'small') }}
                   style={{
                     width: pxToDp(50),
                     height: pxToDp(50),
@@ -106,13 +104,15 @@ class index extends PureComponent {
                   </TouchableOpacity>
                 </View>
               </View>
-              {item.recomment? (
+              {item.recomment ? (
                 <View style={{ backgroundColor: '#f6fbfe' }}>
                   <View
                     style={{ flexDirection: 'row', marginLeft: pxToDp(35) }}
                   >
                     <Image
-                      source={{ uri:changeImgSize(item.recomment[0].avatar,'small') }}
+                      source={{
+                        uri: changeImgSize(item.recomment[0].avatar, 'small')
+                      }}
                       style={{
                         width: pxToDp(40),
                         height: pxToDp(40),
@@ -214,7 +214,9 @@ class index extends PureComponent {
                           }}
                         >
                           <Image
-                            source={{ uri:  changeImgSize(items.user.avatar,'small')}}
+                            source={{
+                              uri: changeImgSize(items.user.avatar, 'small')
+                            }}
                             style={{
                               width: pxToDp(40),
                               height: pxToDp(40),
@@ -302,7 +304,7 @@ class index extends PureComponent {
                         backgroundColor: '#fcfcfc',
                         width: '75%',
                         marginLeft: pxToDp(20),
-                        borderRadius: pxToDp(20),
+                        borderRadius: pxToDp(16),
                         paddingLeft: pxToDp(10)
                       }}
                       onChangeText={(mycomment) => this.setState({ mycomment })}
@@ -335,7 +337,5 @@ class index extends PureComponent {
     );
   }
 }
-
-
 
 export default index;

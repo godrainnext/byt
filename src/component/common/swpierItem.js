@@ -112,7 +112,7 @@ class SwpierItem extends PureComponent {
                     width: 23,
                     height: 23,
                     borderWidth: 0.5,
-                    borderRadius: 30,
+                    borderRadius: 32,
                     borderColor: 'gray'
                   }}
                 >

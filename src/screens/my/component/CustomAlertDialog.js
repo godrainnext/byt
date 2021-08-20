@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   View
 } from 'react-native';
+import { pxToDp } from '../../../utils/styleKits';
 
 const { width } = Dimensions.get('window');
 export default class CustomAlertDialog extends PureComponent {
@@ -98,23 +99,23 @@ const styles = StyleSheet.create({
   optArea: {
     flex: 1,
     flexDirection: 'column',
-    marginTop: 12,
-    marginBottom: 12
+    marginTop: pxToDp(8),
+    marginBottom: pxToDp(8)
   },
   item: {
     width: width,
-    height: 40,
-    paddingLeft: 20,
-    paddingRight: 20,
+    height: pxToDp(40),
+    paddingLeft: pxToDp(20),
+    paddingRight: pxToDp(20),
     alignItems: 'center'
   },
   itemText: {
-    fontSize: 16
+    fontSize: pxToDp(16)
   },
   cancel: {
     width: width,
-    height: 30,
-    marginTop: 12,
+    height: pxToDp(30),
+    marginTop: pxToDp(8),
     alignItems: 'center',
     backgroundColor: '#ffffff'
   }

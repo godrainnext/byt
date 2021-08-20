@@ -60,7 +60,7 @@ class Index extends PureComponent {
         return (
             <View style={{ backgroundColor: '#E2F4FE' }}>
                 <Top icon1='arrow-back' title="单人练唱" />
-                <View style={{ flexDirection: "row", marginLeft: pxToDp(10), marginRight: pxToDp(10), marginTop: pxToDp(10), marginBottom: pxToDp(5), backgroundColor: "white", height: pxToDp(35), alignItems: "center", borderRadius: pxToDp(16) }}>
+                <View style={{ flexDirection: "row", marginLeft: pxToDp(8), marginRight: pxToDp(10), marginTop: pxToDp(10), marginBottom: pxToDp(5), backgroundColor: "white", height: pxToDp(35), alignItems: "center", borderRadius: pxToDp(16) }}>
                     <Text style={{ marginLeft: pxToDp(20), fontWeight: "bold" }}>搜索</Text>
                     <TextInput style={{ marginLeft: pxToDp(5), width: pxToDp(290) }}
                         placeholder="" />
@@ -89,9 +89,9 @@ const styles = StyleSheet.create({
     box: {
         flexDirection: 'row',
         height: pxToDp(120),
-        marginLeft: pxToDp(10),
-        marginRight: pxToDp(10),
-        marginTop: pxToDp(10),
+        marginLeft: pxToDp(8),
+        marginRight: pxToDp(8),
+        marginTop: pxToDp(8),
         borderRadius: pxToDp(8),
         backgroundColor: "white",
         alignItems: "center",
@@ -109,18 +109,18 @@ const styles = StyleSheet.create({
     text1: {
         fontSize: pxToDp(14),
         color: '#000000',
-        marginLeft: pxToDp(10)
+        marginLeft: pxToDp(8)
     },
     text2: {
         fontSize: pxToDp(14),
         color: '#696969',
-        marginLeft: pxToDp(10)
+        marginLeft: pxToDp(8)
     },
     text3: {
         fontSize: pxToDp(11),
         color: '#808080',
         marginTop: pxToDp(25),
-        marginLeft: pxToDp(10)
+        marginLeft: pxToDp(8)
     }
 })
 export default Index;

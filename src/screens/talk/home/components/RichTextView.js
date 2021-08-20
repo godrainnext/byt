@@ -2,7 +2,7 @@
  * Created by jackson on 2018/08/13.
  * 富文本
  */
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, View, TextInput, Text, Dimensions } from 'react-native';
 import { pxToDp } from '@utils/styleKits';
@@ -10,7 +10,7 @@ const ScreenHeight = Dimensions.get('window').height;
 const ScreenWidth = Dimensions.get('window').width;
 const defaultMinHeight = 100;
 //模块声名并导出
-export default class RichTextView extends Component {
+export default class RichTextView extends PureComponent {
   //属性声名
   static propTypes = {
     style: PropTypes.object,

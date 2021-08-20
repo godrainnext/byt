@@ -26,7 +26,7 @@ export default class page extends PureComponent {
             width: '95%',
             height: '100%',
             margin: 10,
-            borderRadius: 10
+            borderRadius: 8
           }}
         >
           <Text style={styles.big}>{this.props.pagedata.title}</Text>
@@ -48,7 +48,7 @@ export default class page extends PureComponent {
                     height: 300,
                     alignSelf: 'center',
                     marginBottom: 10,
-                    borderRadius: 10
+                    borderRadius: 8
                   }}
                 />
               </View>
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     borderWidth: 5,
-    borderRadius: 20
+    borderRadius: 24
   },
 
   image: {

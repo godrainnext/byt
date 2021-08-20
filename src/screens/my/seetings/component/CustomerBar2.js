@@ -49,7 +49,7 @@ class Index extends PureComponent {
                 style={{
                   width: pxToDp(90),
                   height: pxToDp(90),
-                  borderRadius: pxToDp(50),
+                  borderRadius: pxToDp(48),
                   margin: pxToDp(10)
                 }}
               />

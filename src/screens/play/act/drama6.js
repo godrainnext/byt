@@ -27,8 +27,8 @@ class Index extends PureComponent {
                 <Top icon1="arrow-back" title="周仁哭坟" />
                 <ScrollView
                     style={{
-                        marginLeft: pxToDp(10),
-                        marginRight: pxToDp(10),
+                        marginLeft: pxToDp(8),
+                        marginRight: pxToDp(8),
                     }}
                 >
                     <Image

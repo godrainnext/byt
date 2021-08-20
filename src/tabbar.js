@@ -39,6 +39,16 @@ class Index extends PureComponent {
         renderSelectedIcon: () => (
           <Image style={{ width: pxToDp(28), height: pxToDp(28),}} source={require("./res/商城.png")}></Image>
         ),
+        renderSelectedIcon: () => (
+          <Image
+            style={{
+              width: pxToDp(28),
+              height: pxToDp(28),
+              borderRadius: pxToDp(16)
+            }}
+            source={require('./res/商城.png')}
+          ></Image>
+        )
       },
       {
   selected: 'shop',
@@ -57,9 +67,9 @@ class Index extends PureComponent {
         renderSelectedIcon: () => (
           <Image style={{ width: pxToDp(35), height: pxToDp(28) }} source={require("./sb44.png")}></Image>
         ),
-          onPress: () => this.setState({ selectedTab: 'my' }),
-            component: <My />
-}
+        onPress: () => this.setState({ selectedTab: 'my' }),
+        component: <My />
+      }
     ]
   };
 render() {

@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'dodgerblue',
-    borderRadius: 5
+    borderRadius: 4
   },
   imgs: {
     width: 200,

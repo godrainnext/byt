@@ -34,34 +34,43 @@ class Index extends PureComponent {
         inputRange: [0, 1],
         outputRange: ['rgba(70,140,211,1)', 'rgba(70,140,211,0)'],})
         return (
-            <View style={{alignItems:'center',justifyContent:'center',height:pxToDp(200),width:pxToDp(200)}}>
-                <Animated.View
-                    style={{
-                        borderColor: alph,
-                        borderWidth: 2,
-                        width: math,
-                        height: math,
-                        borderRadius: math,
-                        backgroundColor: alph,
-                        justifyContent: 'center',
-                        alignItems: 'center'
-
-                    }}
-                >
-                    <TouchableOpacity
-                        onPress={() => {
-                            this.loopTouchAnimated();
-                        }}
-                    >
-                        <Image style={{height:pxToDp(92),width:pxToDp(92),borderRadius:pxToDp(46)}}
-                            source={require('../../res/麦克风.jpg')}
-                        />
-                    </TouchableOpacity>
-
-                </Animated.View>
-
-            </View>
-        )
+          <View
+            style={{
+              alignItems: 'center',
+              justifyContent: 'center',
+              height: pxToDp(200),
+              width: pxToDp(200)
+            }}
+          >
+            <Animated.View
+              style={{
+                borderColor: alph,
+                borderWidth: 2,
+                width: math,
+                height: math,
+                borderRadius: math,
+                backgroundColor: alph,
+                justifyContent: 'center',
+                alignItems: 'center'
+              }}
+            >
+              <TouchableOpacity
+                onPress={() => {
+                  this.loopTouchAnimated();
+                }}
+              >
+                <Image
+                  style={{
+                    height: pxToDp(92),
+                    width: pxToDp(92),
+                    borderRadius: pxToDp(48)
+                  }}
+                  source={require('../../res/麦克风.jpg')}
+                />
+              </TouchableOpacity>
+            </Animated.View>
+          </View>
+        );
     }
 }
 export default Index;

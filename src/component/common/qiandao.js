@@ -195,7 +195,7 @@ const styles = StyleSheet.create({
     },
     openButton: {
         backgroundColor: '#F194FF',
-        borderRadius: 5,
+        borderRadius: pxToDp(8),
         marginTop: pxToDp(35),
         elevation: 12,
         width: pxToDp(240),
@@ -214,7 +214,7 @@ const styles = StyleSheet.create({
         height: pxToDp(40),
         width: pxToDp(30),
         backgroundColor: '#f5f5f5',
-        borderRadius: pxToDp(10)
+        borderRadius: pxToDp(8)
     },
     centeredView: {
         flex: 1,

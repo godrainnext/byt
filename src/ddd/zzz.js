@@ -92,7 +92,7 @@ class exswiper extends PureComponent {
               backgroundColor: '#383A3F',
               width: '85%',
               position: 'absolute',
-              borderRadius: 3,
+              borderRadius: 4,
               bottom: 20,
               elevation: 10,
               padding: 15,

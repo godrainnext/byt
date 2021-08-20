@@ -65,11 +65,11 @@ export default class hello extends Component {
         renderForeground={() => <View style={{ Top: 200, left: 100 }}></View>}
         scrollableViewStyle={{ backgroundColor: '#fcfcfc' }}
       >
-        <View style={{ margin: pxToDp(10), marginTop: pxToDp(30), flex: 1 }}>
+        <View style={{ margin: pxToDp(8), marginTop: pxToDp(30), flex: 1 }}>
           <HighLights />
 
           {/*俯瞰百年 */}
-          <View style={{ margin: pxToDp(10), marginTop: pxToDp(0) }}>
+          <View style={{ margin: pxToDp(8), marginTop: pxToDp(0) }}>
             <View
               style={{
                 flexDirection: 'row',
@@ -168,11 +168,11 @@ export default class hello extends Component {
           </View>
           <View
             style={{
-              borderRadius: pxToDp(10),
+              borderRadius: pxToDp(16),
               height: pxToDp(310),
               backgroundColor: 'rgba(255,255,255,0.5)',
-              marginRight: pxToDp(10),
-              marginLeft: pxToDp(10)
+              marginRight: pxToDp(8),
+              marginLeft: pxToDp(8)
             }}
           >
             <ImageBackground
@@ -181,8 +181,8 @@ export default class hello extends Component {
                 height: pxToDp(250)
               }}
               imageStyle={{
-                borderTopLeftRadius: pxToDp(10),
-                borderTopRightRadius: pxToDp(10)
+                borderTopLeftRadius: pxToDp(8),
+                borderTopRightRadius: pxToDp(8)
               }}
               source={{
                 uri: 'https://img0.baidu.com/it/u=2584689132,3841583287&fm=26&fmt=auto&gp=0.jpg'
@@ -196,7 +196,7 @@ export default class hello extends Component {
                     style={{
                       width: pxToDp(100),
                       height: pxToDp(160),
-                      borderRadius: pxToDp(10),
+                      borderRadius: pxToDp(16),
                       marginRight: pxToDp(20)
                     }}
                   >
@@ -226,7 +226,7 @@ export default class hello extends Component {
                     style={{
                       width: pxToDp(100),
                       height: pxToDp(160),
-                      borderRadius: pxToDp(10),
+                      borderRadius: pxToDp(16),
                       marginRight: pxToDp(20)
                     }}
                   >
@@ -234,8 +234,8 @@ export default class hello extends Component {
                       style={{
                         width: pxToDp(100),
                         height: pxToDp(140),
-                        borderTopLeftRadius: pxToDp(10),
-                        borderTopRightRadius: pxToDp(10)
+                        borderTopLeftRadius: pxToDp(8),
+                        borderTopRightRadius: pxToDp(8)
                       }}
                       source={{
                         uri: 'https://pic1.zhimg.com/v2-932f9bb899443925a471296b7e7aa89d_r.jpg'
@@ -256,7 +256,7 @@ export default class hello extends Component {
                     style={{
                       width: pxToDp(100),
                       height: pxToDp(160),
-                      borderRadius: pxToDp(10),
+                      borderRadius: pxToDp(16),
                       marginRight: pxToDp(20)
                     }}
                   >
@@ -286,7 +286,7 @@ export default class hello extends Component {
                     style={{
                       width: pxToDp(100),
                       height: pxToDp(160),
-                      borderRadius: pxToDp(10),
+                      borderRadius: pxToDp(16),
                       marginRight: pxToDp(20)
                     }}
                   >
@@ -294,8 +294,8 @@ export default class hello extends Component {
                       style={{
                         width: pxToDp(100),
                         height: pxToDp(140),
-                        borderTopLeftRadius: pxToDp(10),
-                        borderTopRightRadius: pxToDp(10)
+                        borderTopLeftRadius: pxToDp(8),
+                        borderTopRightRadius: pxToDp(8)
                       }}
                       source={{
                         uri: 'http://i1.go2yd.com/image.php?url=0WB85K1RSk'
@@ -316,7 +316,7 @@ export default class hello extends Component {
                     style={{
                       width: pxToDp(100),
                       height: pxToDp(160),
-                      borderRadius: pxToDp(10),
+                      borderRadius: pxToDp(16),
                       marginRight: pxToDp(20)
                     }}
                   >
@@ -346,7 +346,7 @@ export default class hello extends Component {
                     style={{
                       width: pxToDp(100),
                       height: pxToDp(160),
-                      borderRadius: pxToDp(10),
+                      borderRadius: pxToDp(16),
                       marginRight: pxToDp(20)
                     }}
                   >
@@ -376,7 +376,7 @@ export default class hello extends Component {
                     style={{
                       width: pxToDp(100),
                       height: pxToDp(160),
-                      borderRadius: pxToDp(10),
+                      borderRadius: pxToDp(16),
                       marginRight: pxToDp(20)
                     }}
                   >

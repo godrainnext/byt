@@ -362,7 +362,7 @@ class shopdetails extends PureComponent {
                           justifyContent: 'center',
                           backgroundColor:
                             index === activeSizeTab ? '#468cd3' : '#ecf6fc',
-                          borderRadius: pxToDp(5),
+                          borderRadius: pxToDp(4),
                           height: pxToDp(30),
                           width: pxToDp(50)
                         }}
@@ -612,7 +612,7 @@ class shopdetails extends PureComponent {
             style={{
               width: pxToDp(320),
               height: pxToDp(40),
-              borderRadius: pxToDp(20),
+              borderRadius: pxToDp(24),
               justifyContent: 'center',
               alignItems: 'center',
               marginTop: pxToDp(10),
@@ -664,9 +664,9 @@ const styles = StyleSheet.create({
   button: {
     width: pxToDp(80),
     height: pxToDp(70),
-    borderRadius: pxToDp(5),
+    borderRadius: pxToDp(4),
     marginTop: pxToDp(15),
-    borderRadius: pxToDp(5),
+    borderRadius: pxToDp(4),
     justifyContent: 'center',
     alignItems: 'center'
   },
@@ -674,10 +674,10 @@ const styles = StyleSheet.create({
     color: 'white',
     borderWidth: 1,
     borderColor: 'white',
-    padding: 8,
-    borderRadius: 3,
+    padding: pxToDp(8),
+    borderRadius: pxToDp(4),
     textAlign: 'center',
-    margin: 10,
+    margin: pxToDp(10),
     alignSelf: 'flex-end'
   },
   ImageShow: {

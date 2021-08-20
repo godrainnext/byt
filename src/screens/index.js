@@ -18,6 +18,7 @@ export { default as Card } from './first/card/index'; //俯瞰百年卡片
 export { default as My } from './my/home/index'; //个人中心首页
 export { default as Login } from './my/Login'; //登录页面
 export { default as leasedetails } from './my/order/leasedetails'; //租赁页
+export { default as Jifenorder } from './my/order/jifenorder'; //积分订单
 export { default as Set } from './my/seetings/set'; //设置
 export { default as Tuisong } from './my/seetings/tuisong'; //推送页
 export { default as Women } from './my/seetings/women'; //关于我们页
@@ -81,7 +82,7 @@ export { default as Basic } from './play/course/bankuai/basic'; //越剧基本�
 export { default as Master } from './play/course/bankuai/master'; //越剧大师教学板块
 export { default as Timemap } from '../ddd/index'; //时空地图
 export { default as Timeline } from './Timeline/index';
-export { default as HotList } from './play/hotlist'//剧本热度榜单
+export { default as HotList } from './play/hotlist'; //剧本热度榜单
 
 export { default as Talk } from './talk/home/index'; //论坛首页
 export { default as Apply } from './talk/home/live/apply'; //申请直播页
@@ -109,4 +110,4 @@ export { default as Jubao } from './talk/home/forum/jubao'; //举报页
 export { default as WaterButton } from '../component/common/waterbutton'; //波纹按钮
 
 export { default as NewTimeLine } from './test/test5';
-export { default as Testtt} from '../testtt';
+export { default as Testtt } from '../testtt';

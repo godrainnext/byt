@@ -18,11 +18,12 @@ export default class HighLights extends Component {
   }
   render() {
     return (
-      <View style={{ margin: pxToDp(10), marginTop: pxToDp(0) }}>
+      <View style={{ margin: pxToDp(8) }}>
         <View
           style={{
             flexDirection: 'row',
-            justifyContent: 'space-between'
+            justifyContent: 'space-between',
+            marginBottom:pxToDp(8)
           }}
         >
           <Text
@@ -46,9 +47,7 @@ export default class HighLights extends Component {
         <ScrollView
           horizontal={true}
           style={{
-            height: pxToDp(350),
-            marginLeft: pxToDp(-24),
-            top: pxToDp(-16)
+            height: pxToDp(240)
           }}
           showsHorizontalScrollIndicator={false}
         >
@@ -56,21 +55,19 @@ export default class HighLights extends Component {
             <View
               style={{
                 flexDirection: 'row',
-                marginTop: pxToDp(20),
-                height: '100%'
+                height: '100%',
+                marginLeft: pxToDp(-5)
               }}
               key={item.id}
             >
               <View
                 style={{
                   backgroundColor: '#fff',
-                  width: 250,
-                  marginLeft: 20,
-                  borderRadius: 8,
+                  width: pxToDp(220),
+                  borderRadius: pxToDp(8),
+                  margin: pxToDp(8),
                   elevation: 5,
                   borderWidth: 0,
-                  marginBottom: pxToDp(30),
-                  marginTop: pxToDp(20),
                   overflow: 'hidden'
                 }}
               >
@@ -80,12 +77,12 @@ export default class HighLights extends Component {
               > */}
                 <Image
                   style={{
-                    height: 160,
-                    width: 160,
+                    height: pxToDp(130),
+                    width: pxToDp(130),
                     position: 'absolute',
                     top: 0,
                     right: 0,
-                    borderTopRightRadius: 8
+                    borderTopRightRadius: pxToDp(8)
                   }}
                   source={{ uri: changeImgSize(item.avatar, 'small') }}
                 />
@@ -95,30 +92,22 @@ export default class HighLights extends Component {
                     height: '70%',
                     width: '40%',
                     alignItems: 'center',
-                    borderBottomWidth: 0.5,
+                    borderBottomWidth:pxToDp(0.5),
                     borderColor: '#ccc'
                   }}
                 >
-                  <Text style={{ marginTop: pxToDp(30), fontWeight: 'bold' }}>
+                  <Text style={{ marginTop: pxToDp(10), fontWeight: 'bold' }}>
                     2017.12
                   </Text>
-                  <Text style={{ fontSize: 30, fontWeight: 'bold' }}>15</Text>
+                  <Text style={{ fontSize: pxToDp(24), fontWeight: 'bold' }}>15</Text>
                   <View
                     style={{
                       flexDirection: 'row',
                       justifyContent: 'space-evenly'
                     }}
                   >
-                    <Text
-                      style={{
-                        fontSize: 16,
-                        width: 16,
-                        marginRight: pxToDp(20)
-                      }}
-                    >
-                      丁酉年
-                    </Text>
-                    <Text style={{ fontSize: 16, width: 16 }}>十月廿八</Text>
+                    <Text style={{ fontSize: pxToDp(16), width: pxToDp(16), marginRight: pxToDp(20) }}>丁酉年</Text>
+                    <Text style={{ fontSize: pxToDp(16), width: pxToDp(16) }}>十月廿八</Text>
                   </View>
                 </View>
                 <View
@@ -126,20 +115,20 @@ export default class HighLights extends Component {
                     height: '20%',
                     width: '64%',
                     position: 'absolute',
-                    top: pxToDp(166),
+                    top: pxToDp(146),
                     right: 0,
-                    borderLeftWidth: 0.5,
+                    borderLeftWidth: pxToDp(0.5),
                     borderColor: '#ccc'
                   }}
                 >
-                  <Text style={{ alignSelf: 'center', fontSize: 18 }}>
+                  <Text style={{ alignSelf: 'center', fontSize: pxToDp(16) }}>
                     {item.title}
                   </Text>
                 </View>
                 <View style={{ height: '30%', width: '100%' }}>
                   <Text
                     style={{
-                      fontSize: 14,
+                      fontSize: pxToDp(15),
                       paddingLeft: pxToDp(20)
                     }}
                     numberOfLines={2}
@@ -151,16 +140,16 @@ export default class HighLights extends Component {
                     onPress={() => this.context.navigate('Video', item.id)}
                     ViewComponent={LinearGradient}
                     buttonStyle={{
-                      width: 60,
-                      height: 30,
+                      width: pxToDp(60),
+                      height: pxToDp(30),
                       alignSelf: 'flex-end',
-                      borderRadius: 32,
-                      marginRight: 10
+                      borderRadius: pxToDp(16),
+                      marginRight: pxToDp(16)
                     }}
                     titleStyle={{
                       color: '#fcfcfc',
                       fontWeight: 'bold',
-                      fontSize: 10
+                      fontSize: pxToDp(10)
                     }}
                     linearGradientProps={{
                       colors: ['#fa9222', '#ffd501'],

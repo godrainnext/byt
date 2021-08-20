@@ -55,11 +55,11 @@ class Index extends PureComponent {
           <UserInner />
           <View
             style={{
-              borderRadius: pxToDp(10),
+              borderRadius: pxToDp(8),
               backgroundColor: '#f0fcff',
-              margin: pxToDp(10),
+              margin: pxToDp(8),
               height: pxToDp(140),
-              marginTop: pxToDp(10),
+              marginTop: pxToDp(8),
               elevation: 3,
               borderWidth: 0
             }}
@@ -68,7 +68,8 @@ class Index extends PureComponent {
               style={{
                 flexDirection: 'row',
                 justifyContent: 'space-between',
-                margin: pxToDp(10)
+                margin: pxToDp(10),
+                alignItems:'center'
               }}
             >
               <View>
@@ -93,7 +94,7 @@ class Index extends PureComponent {
               style={{
                 flexDirection: 'row',
                 justifyContent: 'space-around',
-                marginTop: pxToDp(10)
+                marginTop: pxToDp(12)
               }}
             >
               <TouchableOpacity

@@ -105,12 +105,12 @@ class orderdetails extends PureComponent {
         {/* 地址 */}
         <View
           style={{
-            marginLeft: pxToDp(10),
-            marginRight: pxToDp(10),
+            marginLeft: pxToDp(8),
+            marginRight: pxToDp(8),
             justifyContent: 'center',
             backgroundColor: 'white',
             height: pxToDp(90),
-            borderRadius: pxToDp(10)
+            borderRadius: pxToDp(8)
           }}
         >
           <View
@@ -143,10 +143,10 @@ class orderdetails extends PureComponent {
             height: pxToDp(140),
             flexDirection: 'row',
             backgroundColor: 'white',
-            marginLeft: pxToDp(10),
-            marginRight: pxToDp(10),
-            bottom: pxToDp(10),
-            borderRadius: pxToDp(10)
+            marginLeft: pxToDp(8),
+            marginRight: pxToDp(8),
+            bottom: pxToDp(8),
+            borderRadius: pxToDp(8)
           }}
         >
           <View style={{ justifyContent: 'center', marginLeft: pxToDp(15) }}>
@@ -176,7 +176,7 @@ class orderdetails extends PureComponent {
               }}
             >
               <Text style={{ fontSize: pxToDp(14) }}>{color}</Text>
-              <Text style={{ fontSize: pxToDp(14), marginRight: pxToDp(10) }}>
+              <Text style={{ fontSize: pxToDp(14), marginRight: pxToDp(8) }}>
                 X{count}
               </Text>
             </View>
@@ -198,8 +198,8 @@ class orderdetails extends PureComponent {
           style={{
             height: pxToDp(150),
             backgroundColor: 'white',
-            marginLeft: pxToDp(10),
-            marginRight: pxToDp(10)
+            marginLeft: pxToDp(8),
+            marginRight: pxToDp(8)
           }}
         >
           <View
@@ -249,7 +249,7 @@ class orderdetails extends PureComponent {
           style={{
             backgroundColor: 'white',
             height: pxToDp(120),
-            margin: pxToDp(10)
+            margin: pxToDp(8)
           }}
         >
           <View style={styles.pricebox}>
@@ -271,10 +271,10 @@ class orderdetails extends PureComponent {
             <TouchableOpacity
               onPress={() => this.Scrollable.open()}
               style={{
-                left: pxToDp(10),
+                left: pxToDp(8),
                 justifyContent: 'center',
                 alignItems: 'center',
-                borderRadius: pxToDp(25),
+                borderRadius: pxToDp(24),
                 marginRight: pxToDp(20),
                 width: pxToDp(80),
                 height: pxToDp(30)
@@ -286,7 +286,7 @@ class orderdetails extends PureComponent {
               onPress={this.showAlert.bind(this)}
               disabled={this.state.isshoushuo}
               style={{
-                borderRadius: pxToDp(35),
+                borderRadius: pxToDp(32),
                 marginRight: pxToDp(20),
                 width: pxToDp(130),
                 height: pxToDp(40),
@@ -324,7 +324,7 @@ class orderdetails extends PureComponent {
               <View
                 style={{
                   flexDirection: 'row',
-                  margin: pxToDp(10),
+                  margin: pxToDp(8),
                   marginTop: 0,
                   height: pxToDp(100)
                 }}
@@ -377,7 +377,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingLeft: pxToDp(15),
     paddingRight: pxToDp(15),
-    borderRadius: pxToDp(5),
+    borderRadius: pxToDp(4),
     width: '100%',
     height: '100%',
     justifyContent: 'center',
@@ -411,12 +411,12 @@ const styles = StyleSheet.create({
   },
   textbox: {
     fontSize: pxToDp(14),
-    marginRight: pxToDp(10),
+    marginRight: pxToDp(8),
     fontWeight: 'bold',
     color: 'red'
   },
   process: {
-    paddingVertical: pxToDp(10),
+    paddingVertical: pxToDp(8),
     flexDirection: 'column',
     paddingRight: pxToDp(20)
   },
@@ -437,7 +437,7 @@ const styles = StyleSheet.create({
   expressLeft: {
     width: pxToDp(10),
     height: pxToDp(10),
-    borderRadius: pxToDp(5),
+    borderRadius: pxToDp(4),
     backgroundColor: '#e0e0e0',
     position: 'relative',
     right: Dimensions.get('window').width + 4,
