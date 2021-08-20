@@ -150,8 +150,20 @@ class Index extends Component {
               </TouchableOpacity>
             </View>
           </View>
-          <Legend />
-          {/*名角风采 */}
+          <View
+            style={{
+              backgroundColor: 'white',
+              borderRadius: pxToDp(8),
+              elevation: 10,
+              shadowColor: 'black', //  阴影颜色
+              shadowOffset: { width: 0, height: 0 }, // 阴影偏移
+              shadowOpacity: 1, // 阴影不透明度
+              shadowRadius: 10 //  圆角
+            }}
+          >
+            <Legend />
+          </View>
+          {/*梨园子弟 */}
           <View
             style={{
               margin: pxToDp(8)

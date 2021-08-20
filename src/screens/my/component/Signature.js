@@ -31,16 +31,21 @@ export default class Signature extends PureComponent {
         <View>
           <Input
             style={{
-              height: pxToDp(100),
+              height: pxToDp(150),
               width: pxToDp(412),
-              borderBottomWidth: 1,
-              borderBottomColor: '#ccc',
-              borderColor: '#666',
               textAlign: 'left',
               textAlignVertical: 'top',
-              textShadowColor: '#000'
+              backgroundColor: 'white',
+              borderRadius: pxToDp(16),
+              marginTop: pxToDp(8),
+              elevation: 10,
+              shadowColor: 'black', //  阴影颜色
+              shadowOffset: { width: 0, height: 0 }, // 阴影偏移
+              shadowOpacity: 1, // 阴影不透明度
+              shadowRadius: 10 //  圆角
             }}
             multiline={true}
+            inputContainerStyle={{ borderBottomWidth: 0 }}
             onChangeText={(ownSay) => this.getNickName(ownSay)}
             value={this.state.ownSay}
           />

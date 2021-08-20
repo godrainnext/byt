@@ -20,12 +20,10 @@ export default (props) => {
   console.log(route.params);
   return (
     <ScrollableTabView
-      locked={true}
       initialPage={route.params}
       renderTabBar={() => <CustormerBar />}
     >
       <Orderone tabLabel="全部" orider={orider} />
-
       <Orderone tabLabel="待支付" orider={needPay} />
       <Orderone tabLabel="待收货" orider={needReceipt} />
       <Orderone tabLabel="待评价" orider={needComment} />

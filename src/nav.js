@@ -148,6 +148,8 @@ function Nav() {
         <Stack.Screen name="Forum" component={Screens.Forum} />
         {/**论坛帖子详情 */}
         <Stack.Screen name="Inluntan" component={Screens.Inluntan} />
+        {/**论坛帖子详情 */}
+        <Stack.Screen name="Topic" component={Screens.Topic} />
         {/*直播间 */}
         <Stack.Screen name="SeeZhiBo" component={Screens.SeeZhiBo} />
         {/* 开播 */}

@@ -80,7 +80,7 @@ class index extends Component {
             padding: 10
           }}
         >
-          <ScrollView>
+          <ScrollView showsVerticalScrollIndicator={false}>
             {/* <MyNav title='个人信息验证' /> */}
             <View
               style={{
@@ -233,9 +233,10 @@ class index extends Component {
                   style={{
                     justifyContent: 'center',
                     alignItems: 'center',
-                    height: pxToDp(65),
+                    height: pxToDp(88),
                     padding: pxToDp(8),
-                    marginTop: pxToDp(16)
+                    marginTop: pxToDp(16),
+                    marginBottom: pxToDp(8)
                   }}
                 >
                   <Text style={{ color: 'gray' }}>
