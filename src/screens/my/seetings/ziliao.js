@@ -144,7 +144,7 @@ class Ziliao extends PureComponent {
       })
       .then((ress) => {
         DeviceEventEmitter.emit('valueChange');
-        this.context.navigate('Setting');
+        this.context.navigate('Myhome');
       });
   };
   render() {
@@ -371,8 +371,8 @@ class Ziliao extends PureComponent {
             }}
           >
             <Button
-              title="保     存"
               onPress={this.saveUserInfo}
+              title="保     存"
               ViewComponent={LinearGradient}
               titleStyle={{ color: '#fcfcfc' }}
               linearGradientProps={{
