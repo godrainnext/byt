@@ -9,23 +9,24 @@ import { right } from '../../../component/common/iconSvg'
 class Index extends PureComponent {
     state = {
         dramalist: {
-            title: '周仁哭坟',
-            author: '朱福侠编导',
-            year: '暂无',
-            int1: '明代嘉靖年间，严嵩当权，朝臣杜宪被害身死。其子杜文学，结交友人凤承东，见杜家势败，落井下石以求邀功，向严嵩进谗，谓杜文学会对严嵩不利，严派人往杜家搜捕文学，杜文学仓卒之间将其妻托付予义弟周仁，请求照顾其妻，而杜文学在审讯之后，被发配充至云南。',
-            int2: '严府总管严年垂涎杜妻美貌，胁迫周仁献出杜妻，威迫利诱，既许以富贵，又以杜文学性命以为要挟。周仁夫妇迫于无奈，为免杜文学被害、又不忍献出杜妻，遂由周妻代嫁，洞房之时，周妻谋刺严年失手，自剔而死。',
-            int3: '周仁将其妻殓葬，只能当作杜妻，因为他献出杜妻，被世人误解、以为卖兄求荣，于是受尽世人唾骂。',
-            text1: '《周仁哭坟》越剧折子戏，选材自京剧《周仁献嫂》。由朱福侠编导。《周仁哭坟》一折专为《吴凤花越剧舞台艺术风采》专场表演而编写排演，集中演绎周仁在其妻坟前哭诉冤屈的情绪。',
-            text2: '2019年4月24日，蔡浙飞演出的《周仁哭坟》入选第七届中国戏剧奖·梅花表演奖（第29届中国戏剧梅花奖）戏曲类获奖公示名单。',
-            path1: 'https://img2.baidu.com/it/u=3264834321,2161118406&fm=26&fmt=auto&gp=0.jpg',
-            path2: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fstc-new.8531.cn%2Fassets%2F20190530%2F1559174521113_5cef1d79159bb8144ed90266.png&refer=http%3A%2F%2Fstc-new.8531.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631926163&t=0f7eb5e01a1e7801be30ec9976adf7f2'
+            title: '北地王',
+            author: '庄志',
+            year: '1957年',
+            int1: '魏征西将军邓艾，领军攻蜀，以奇兵偷渡阴平，降江油，攻绵竹，成都震动，后主刘禅，决意降魏。',
+            int2: '其五子北地王刘谌，挡驾于御街，泣血谏奏，力阻父王降魏，刘禅不纳。',
+            int3: '刘谌悲愤回宫，与妻崔氏共议殉国，崔氏先行碰死，谌乃杀其三子，然后至昭烈帝庙中，伏地哭诉，羞见祖宗基业弃于他人，全家赴难盟志，旋即自刎而死。蜀国随告灭亡。',
+            text1: '该剧于民国三十六年(1947)秋由玉兰剧团在龙门戏院首演，初名《国破山河在》。庄志编剧，吴琛导演，丝纪扬作曲，张坚安舞美设计。徐玉兰饰北地王，许金彩饰崔氏，郑采君饰巫婆。洪深、田汉、陈白尘、蓝马、安娥等观剧座谈。演出连满五个星期。',
+            text2: '1957年，上海越剧院二团重演，更名《北地王》。导演石景山，作曲顾振遐，舞台设计幸熙，服装设计陈利华，灯光设计吴报章、金秀谋，技导汪传钤。徐玉兰饰刘谌、王文娟饰崔氏、周宝奎饰谯周、郑忠梅饰黄皓、魏小云饰刘禅、徐慧琴饰郤正。首轮演出35场均满座，观众达53 935人。该剧“哭祖庙”一场，唱做繁重，特别是大段〔弦下调〕，运用了〔导板〕、〔快板〕、〔跺板〕等多种板式，音调高亢激越，感情悲愤壮烈，发展了〔弦下调〕的表现功能，受到周恩来总理的赞赏。“哭祖庙”是徐玉兰的代表作之一，常作为折子戏演出，并作为小生行当的教材剧目。剧中“叹月”、“杀宫”、“哭祖庙”等场的唱段，由中国唱片社灌制成唱片发行。1948年大中华唱片公司灌制了徐玉兰、许金彩演唱的《国破山河在》唱片2张。',
+            text3: '时隔近半个世纪，由杭州越剧院创新重排、徐、王派的优秀传人郑国凤、陈晓红领衔的《北地王》于2013年3月11日在杭州红星剧院首演，并获得巨大成功。新编排的剧本中加重了刘谌与其妻崔氏的感情戏，让“杀宫”一折更加生动贴切。',
+            path1: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20180515%2F639996a955844c4daaf8dc7f12a7c492.jpeg&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632101400&t=ef8149f3926a106587ef024446292f29',
+            path2: 'https://ss3.baidu.com/9fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/bba1cd11728b4710db769619c4cec3fdfd03238d.jpg'
         }
     };
     static contextType = NavigationContext;
     render() {
         return (
             <View style={{ backgroundColor: '#E2F4FE' }}>
-                <Top icon1="arrow-back" title="周仁哭坟" />
+                <Top icon1="arrow-back" title="北地王" />
                 <ScrollView
                     style={{
                         marginLeft: pxToDp(8),
@@ -69,6 +70,9 @@ class Index extends PureComponent {
                         </Text>
                         <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(20) }}>
                             &emsp;&emsp;{this.state.dramalist.text2}
+                        </Text>
+                        <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(20) }}>
+                            &emsp;&emsp;{this.state.dramalist.text3}
                         </Text>
                     </View>
                     <View>

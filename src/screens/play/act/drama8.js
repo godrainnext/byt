@@ -9,23 +9,25 @@ import { right } from '../../../component/common/iconSvg'
 class Index extends PureComponent {
     state = {
         dramalist: {
-            title: '周仁哭坟',
-            author: '朱福侠编导',
-            year: '暂无',
-            int1: '明代嘉靖年间，严嵩当权，朝臣杜宪被害身死。其子杜文学，结交友人凤承东，见杜家势败，落井下石以求邀功，向严嵩进谗，谓杜文学会对严嵩不利，严派人往杜家搜捕文学，杜文学仓卒之间将其妻托付予义弟周仁，请求照顾其妻，而杜文学在审讯之后，被发配充至云南。',
-            int2: '严府总管严年垂涎杜妻美貌，胁迫周仁献出杜妻，威迫利诱，既许以富贵，又以杜文学性命以为要挟。周仁夫妇迫于无奈，为免杜文学被害、又不忍献出杜妻，遂由周妻代嫁，洞房之时，周妻谋刺严年失手，自剔而死。',
-            int3: '周仁将其妻殓葬，只能当作杜妻，因为他献出杜妻，被世人误解、以为卖兄求荣，于是受尽世人唾骂。',
-            text1: '《周仁哭坟》越剧折子戏，选材自京剧《周仁献嫂》。由朱福侠编导。《周仁哭坟》一折专为《吴凤花越剧舞台艺术风采》专场表演而编写排演，集中演绎周仁在其妻坟前哭诉冤屈的情绪。',
-            text2: '2019年4月24日，蔡浙飞演出的《周仁哭坟》入选第七届中国戏剧奖·梅花表演奖（第29届中国戏剧梅花奖）戏曲类获奖公示名单。',
-            path1: 'https://img2.baidu.com/it/u=3264834321,2161118406&fm=26&fmt=auto&gp=0.jpg',
-            path2: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fstc-new.8531.cn%2Fassets%2F20190530%2F1559174521113_5cef1d79159bb8144ed90266.png&refer=http%3A%2F%2Fstc-new.8531.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631926163&t=0f7eb5e01a1e7801be30ec9976adf7f2'
+            title: '柳永',
+            author: '王仁杰',
+            year: '2013年',
+            int1: '科举落第之后，柳永过着尤红殢翠、耽溺诗酒的放浪生涯，一封妻子的书信敦促他谨记十年前离乡别井的初衷，他悔恨交加，立志科场进取。',
+            int2: '后虽再试中榜，却因《鹤冲天》一词冒犯朝廷而又落第，悲愤之余的柳永，无奈地自嘲自己为“奉旨填词柳三变”。失意的柳永在江南干谒尝尽人间冷暖，犯了官场大忌，又一次被命运摆弄。',
+            int3: '江南蹭蹬六年，柳永回到心为之所系的撷芳楼，却发现虫娘已不复旧虫娘，他明白自己该走了。年过半百的柳永圆了科举梦，到地方上做过小官。风烛残年，仁宗皇帝怜他年老，恩召京城当个户部五品闲官。',
+            int4: '此时他已病入膏肓，情场上风光不再，只有虫娘楚楚时常陪侍在侧。他拒绝了朝廷的“应制”，不愿再为之歌功颂德。最后时刻，他颇有自知之明地回顾了自己一生的得与失、恩与怨、功与过。伟大歌者魂归道山，留下了不朽词作，为我们民族的文化史增添了辉煌篇章。',
+            text1: '2013南京越剧《柳永》将于10月16日在南京人民大会堂演出，有机巧妙的剧情，亮点频出的唱腔，以及艺术家们投入而到位的表演，此场演出异彩纷呈，定会给观众朋友们带来耳目一新的视听感受。',
+            text2: '越剧《柳永》是福建著名剧作家王仁杰为王君安量身创作的一部戏。柳永是北宋著名词人，婉约派最具代表性的人物，崇安（今福建武夷山）人，其词多描绘城市风光和歌妓生活,在当时流传极其广泛，人称“凡有井水饮处，皆能歌柳词”。越剧《柳永》撷取了柳永一生的几个重要片断，彰显其文学成就。',
+            text3: '芳华越剧团这次为《柳永》配备的创作队伍堪称国家级，与越剧大师尹桂芳生前长期合作的上海音乐学院连波教授担任唱腔设计，中国舞台美术学会副会长、中央戏剧学院教授刘杏林担任舞美设计，中央戏剧学院硕士生导师胡耀辉担任灯光设计。',
+            path1: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fphotoblog%2F1310%2F13%2Fc4%2F27438803_27438803_1381656050044_mthumb.jpg&refer=http%3A%2F%2Fimg.pconline.com.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632100400&t=d0f2a390628f6a7082bd4b8b7460e864',
+            path2: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg1001.pocoimg.cn%2Fimage%2Fpoco%2Fworks%2F24%2F2013%2F0830%2F21%2F64538678201308302117502196233708479_019_64538678.jpg&refer=http%3A%2F%2Fimg1001.pocoimg.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632106758&t=9449c470539ff45db1bf9d4f32815b7a'
         }
     };
     static contextType = NavigationContext;
     render() {
         return (
             <View style={{ backgroundColor: '#E2F4FE' }}>
-                <Top icon1="arrow-back" title="周仁哭坟" />
+                <Top icon1="arrow-back" title="柳永" />
                 <ScrollView
                     style={{
                         marginLeft: pxToDp(8),
@@ -59,6 +61,9 @@ class Index extends PureComponent {
                         <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(10) }}>
                             &emsp;&emsp;{this.state.dramalist.int3}
                         </Text>
+                        <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(10) }}>
+                            &emsp;&emsp;{this.state.dramalist.int4}
+                        </Text>
                     </View>
                     <View style={{ marginTop: pxToDp(10) }}>
                         <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold', marginBottom: pxToDp(20) }}>
@@ -69,6 +74,9 @@ class Index extends PureComponent {
                         </Text>
                         <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(20) }}>
                             &emsp;&emsp;{this.state.dramalist.text2}
+                        </Text>
+                        <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(20) }}>
+                            &emsp;&emsp;{this.state.dramalist.text3}
                         </Text>
                     </View>
                     <View>

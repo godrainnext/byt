@@ -9,23 +9,26 @@ import { right } from '../../../component/common/iconSvg'
 class Index extends PureComponent {
     state = {
         dramalist: {
-            title: '周仁哭坟',
-            author: '朱福侠编导',
-            year: '暂无',
-            int1: '明代嘉靖年间，严嵩当权，朝臣杜宪被害身死。其子杜文学，结交友人凤承东，见杜家势败，落井下石以求邀功，向严嵩进谗，谓杜文学会对严嵩不利，严派人往杜家搜捕文学，杜文学仓卒之间将其妻托付予义弟周仁，请求照顾其妻，而杜文学在审讯之后，被发配充至云南。',
-            int2: '严府总管严年垂涎杜妻美貌，胁迫周仁献出杜妻，威迫利诱，既许以富贵，又以杜文学性命以为要挟。周仁夫妇迫于无奈，为免杜文学被害、又不忍献出杜妻，遂由周妻代嫁，洞房之时，周妻谋刺严年失手，自剔而死。',
-            int3: '周仁将其妻殓葬，只能当作杜妻，因为他献出杜妻，被世人误解、以为卖兄求荣，于是受尽世人唾骂。',
-            text1: '《周仁哭坟》越剧折子戏，选材自京剧《周仁献嫂》。由朱福侠编导。《周仁哭坟》一折专为《吴凤花越剧舞台艺术风采》专场表演而编写排演，集中演绎周仁在其妻坟前哭诉冤屈的情绪。',
-            text2: '2019年4月24日，蔡浙飞演出的《周仁哭坟》入选第七届中国戏剧奖·梅花表演奖（第29届中国戏剧梅花奖）戏曲类获奖公示名单。',
-            path1: 'https://img2.baidu.com/it/u=3264834321,2161118406&fm=26&fmt=auto&gp=0.jpg',
-            path2: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fstc-new.8531.cn%2Fassets%2F20190530%2F1559174521113_5cef1d79159bb8144ed90266.png&refer=http%3A%2F%2Fstc-new.8531.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631926163&t=0f7eb5e01a1e7801be30ec9976adf7f2'
+            title: '蝴蝶梦',
+            author: '陈薪伊',
+            year: '2012年',
+            int1: '《越剧 蝴蝶梦》剧情是庄周之妻田秀为助夫学道，苦守南华十年，常常顾影自怜，夜梦蝴蝶。',
+            int2: '后庄周终成道林圣贤，楚国王孙造访南华，诚请庄周赴楚任相，被田秀拒绝，却引起庄周猜忌。',
+            int3: '庄周又在宣道途中，偶遇小寡妇煽坟。经讯问，方知其夫临终遗言：“须待坟干方可再嫁”。于是庄周据此推理，荒唐试妻。',
+            int4: '试妻过程中，他既疑又爱，既爱又疑，身不由己，时露破绽。那么这场荒诞游戏，终究如何结局，又验证了什么呢？',
+            text1: '《蝴蝶梦》是我国首部水墨越剧电影，在嵊州市首映后取得观众的一致好评。',
+            text2: '剧中以庄周试妻的情节，摒弃了以往男尊女卑、女人是祸水的封建思想，而且注入了许多的女性人文关怀，强烈地突出了以田秀为代表的中国古代女子自尊自强、追求人格独立的精神。',
+            text3: '《蝴蝶梦》取材于明代冯梦龙“三言二拍”中“庄周试妻”的故事。这部电影采用数字虚拟合成技术，把戏曲艺术与水墨画结合在一起，记录在大银幕上，既节约成本，又可以为戏曲艺术电影开辟一条新的拍摄路径。',
+            text4: '这部戏被誉为是中国越剧的一个里程碑式的作品。影片制片人是曾经担任中央电视台戏曲频道主持人的韦翔东，影片主演王志萍和郑国凤是当今越剧界王文娟、徐玉兰两位大师的顶尖传人。',
+            path1: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fi2.hdslb.com%2Fbfs%2Farchive%2Fab086b0965b5001548cb29bc6b5d35375e5c2c3e.jpg&refer=http%3A%2F%2Fi2.hdslb.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632100517&t=94958bffbfd453bab61ed549bf650fcf',
+            path2: 'https://img0.baidu.com/it/u=856597818,4242309343&fm=26&fmt=auto&gp=0.jpg'
         }
     };
     static contextType = NavigationContext;
     render() {
         return (
             <View style={{ backgroundColor: '#E2F4FE' }}>
-                <Top icon1="arrow-back" title="周仁哭坟" />
+                <Top icon1="arrow-back" title="蝴蝶梦" />
                 <ScrollView
                     style={{
                         marginLeft: pxToDp(8),
@@ -59,6 +62,9 @@ class Index extends PureComponent {
                         <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(10) }}>
                             &emsp;&emsp;{this.state.dramalist.int3}
                         </Text>
+                        <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(10) }}>
+                            &emsp;&emsp;{this.state.dramalist.int4}
+                        </Text>
                     </View>
                     <View style={{ marginTop: pxToDp(10) }}>
                         <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold', marginBottom: pxToDp(20) }}>
@@ -69,6 +75,12 @@ class Index extends PureComponent {
                         </Text>
                         <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(20) }}>
                             &emsp;&emsp;{this.state.dramalist.text2}
+                        </Text>
+                        <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(20) }}>
+                            &emsp;&emsp;{this.state.dramalist.text3}
+                        </Text>
+                        <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(20) }}>
+                            &emsp;&emsp;{this.state.dramalist.text4}
                         </Text>
                     </View>
                     <View>

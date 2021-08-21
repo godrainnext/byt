@@ -4,7 +4,8 @@ import Top from '../../../component/common/top'
 import { pxToDp } from "../../../utils/styleKits";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { NavigationContext } from '@react-navigation/native';
-
+import Svg from 'react-native-svg-uri';
+import { right } from '../../../component/common/iconSvg'
 class Index extends PureComponent {
     state = {
         dramalist: {
@@ -20,7 +21,7 @@ class Index extends PureComponent {
             text3: '由于文本的不同，新版《红楼梦》对音乐包括唱腔进行了新的创作。唱腔有删有减，伴唱则增多于删。新版对原版7段伴唱采用了三段，新写了5段。新版在主旋律和配乐上作了全新的处理，即使保留的主要唱段及伴唱也重新处理了配器，而且在“读西厢”、“葬花”、“泄密”、“哭灵”等场次中进一步发挥，发展了伴唱的特有功能，掺入和声、哼鸣，富有感染力。音乐上的再创作加强了人物刻画，推动了剧情发展，提高了审美价值。',
             text4: '就舞台呈现而言，观众一走进剧场，首先看到的是具有贾府典型特征的环境：一对富有质感的石狮子与气派非凡的朱漆大门、雕梁画栋。大门一开，华美绝伦的大观园就呈现在观众眼前。亭台楼阁、水榭画舫、草木花树、小桥流水……舞台美术每一场都体现出迥然不同的美感特征，或华丽热闹、或清新淡雅、或古朴凝重……其中，“黛玉葬花”一场最为凄美。暮春时节，落英缤纷，一片桃树林中走来了扛着花锄的黛玉。远处传来隐隐约约的欢声笑语，这里却是冷冷清清。舞台上，冷色调的灯光衬托出黛玉的孤独落寞。当演员大段凄婉抒情的演唱进行中，台上数十株桃树忽然纷纷颤抖，落下片片花瓣，一时间舞台上犹如下了一场“花瓣雨”，凋谢飘零的花瓣满台飞舞，葬花的黛玉反被花葬，场面相当感人。到了全戏最后一场“太虚幻境”时，离家出走的宝玉回首往事，黛玉的形象在舞台深处升起，原版中“黛玉进府”宝黛初逢时的对唱，梦幻般地在此重现，两人遥遥相望，营造出一片“红楼一梦”的意境。2001年为适应一般剧场的演出，按原设计缩小改制了布景，取得了良好的效果。此外，人物服饰方面，则从样式、纹饰乃至制作上都力求创新，既不失古典神韵，又追求现代美感。',
             path1: 'https://tse2-mm.cn.bing.net/th/id/OIP-C.q-Jw_8yCoOvabLwqrGclMgHaFK?w=257&h=180&c=7&o=5&dpr=1.75&pid=1.7',
-            path2:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimage8.pinlue.com%2Fimg3%2Ftu_jpg%2FksnrPhRhOUPIvAqAbKCblUE58P73JL45ksk6RoStOt1QqsyGRULuDNlm589MJep46BicicicnEeYd9uoxplOgImkg%2F640.jpeg&refer=http%3A%2F%2Fimage8.pinlue.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631926082&t=fc895f7b5140976131519792158bf07d'
+            path2: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimage8.pinlue.com%2Fimg3%2Ftu_jpg%2FksnrPhRhOUPIvAqAbKCblUE58P73JL45ksk6RoStOt1QqsyGRULuDNlm589MJep46BicicicnEeYd9uoxplOgImkg%2F640.jpeg&refer=http%3A%2F%2Fimage8.pinlue.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631926082&t=fc895f7b5140976131519792158bf07d'
         }
     };
     static contextType = NavigationContext;
@@ -38,7 +39,7 @@ class Index extends PureComponent {
                         style={{ height: pxToDp(178), borderRadius: pxToDp(8), width: '100%' }}
                         source={{ uri: this.state.dramalist.path1 }}
                     />
-                    <Text style={{ fontSize: pxToDp(24), fontWeight: 'bold', marginBottom: pxToDp(20),marginTop:pxToDp(10) }}>
+                    <Text style={{ fontSize: pxToDp(24), fontWeight: 'bold', marginBottom: pxToDp(20), marginTop: pxToDp(10) }}>
                         {this.state.dramalist.title}
                     </Text>
                     <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(10) }}>
@@ -83,25 +84,28 @@ class Index extends PureComponent {
                         </Text>
                     </View>
                     <View>
-            <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold', marginBottom: pxToDp(10) }} onPress={() => this.context.navigate('ScreenPlay')}>
-              剧本详情
-            </Text>
-            <TouchableOpacity style={{
-              marginBottom: pxToDp(80),
-              height: pxToDp(100),
-              width: '100%',
-              borderRadius: pxToDp(8),
-              //elevation: 5,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
-              //shadowColor: 'black',  //  阴影颜色
-              //shadowRadius: pxToDp(8),  //  圆角,
-              //shadowOffset: { width: 0, height: 0 },
-              // shadowOpacity: 1,
-            }}
-              onPress={() => this.context.navigate('Screenpaly')}
-            >
-              <Image style={{ height: pxToDp(100), width: '100%', borderRadius: pxToDp(8) }} source={{ uri: this.state.dramalist.path2 }} />
-            </TouchableOpacity>
-          </View>
+                        <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold', marginBottom: pxToDp(10) }} onPress={() => this.context.navigate('ScreenPlay')}>
+                            剧本详情
+                        </Text>
+                        <TouchableOpacity style={{
+                            marginBottom: pxToDp(80),
+                            height: pxToDp(100),
+                            width: '100%',
+                            borderRadius: pxToDp(8),
+                            //elevation: 5,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                            //shadowColor: 'black',  //  阴影颜色
+                            //shadowRadius: pxToDp(8),  //  圆角,
+                            //shadowOffset: { width: 0, height: 0 },
+                            // shadowOpacity: 1,
+                        }}
+                            onPress={() => this.context.navigate('Screenpaly')}
+                        >
+                            <Image style={{ height: pxToDp(100), width: '100%', borderRadius: pxToDp(8) }} source={{ uri: this.state.dramalist.path2 }} />
+                            <View style={{ marginTop: pxToDp(-60), marginLeft: pxToDp(300) }}>
+                                <Svg width="32" height="32" svgXmlData={right} />
+                            </View>
+                        </TouchableOpacity>
+                    </View>
                 </ScrollView>
             </View>
         );
