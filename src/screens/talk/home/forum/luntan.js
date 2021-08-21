@@ -243,7 +243,12 @@ class Index extends PureComponent {
                     }}
                   />
                   <TouchableOpacity
-                    onPress={() => this.context.navigate('Inluntan', item.id)}
+                    onPress={() =>
+                      this.context.navigate('Inluntan', {
+                        mid: item.id,
+                        uid: item.user.id
+                      })
+                    }
                   >
                     <View style={{ marginTop: pxToDp(10) }}>
                       <Text
@@ -276,7 +281,10 @@ class Index extends PureComponent {
                 >
                   <TouchableOpacity
                     onPress={() => {
-                      this.context.navigate('Inluntan', item.id);
+                      this.context.navigate('Inluntan', {
+                        mid: item.id,
+                        uid: item.user.id
+                      });
                     }}
                   >
                     <Text
@@ -323,7 +331,12 @@ class Index extends PureComponent {
                     </Text>
                   </TouchableOpacity>
                   <TouchableOpacity
-                    onPress={() => this.context.navigate('Inluntan', item.id)}
+                    onPress={() =>
+                      this.context.navigate('Inluntan', {
+                        mid: item.id,
+                        uid: item.user.id
+                      })
+                    }
                   >
                     <SvgUri svgXmlData={pinglun} width="20" height="20" />
                   </TouchableOpacity>
@@ -368,7 +381,12 @@ class Index extends PureComponent {
                     }}
                   />
                   <TouchableOpacity
-                    onPress={() => this.context.navigate('Inluntan', item.id)}
+                    onPress={() =>
+                      this.context.navigate('Inluntan', {
+                        mid: item.id,
+                        uid: item.user.id
+                      })
+                    }
                   >
                     <View style={{ marginTop: pxToDp(10) }}>
                       <Text
@@ -401,7 +419,10 @@ class Index extends PureComponent {
                 >
                   <TouchableOpacity
                     onPress={() => {
-                      this.context.navigate('Inluntan', item.id);
+                      this.context.navigate('Inluntan', {
+                        mid: item.id,
+                        uid: item.user.id
+                      });
                     }}
                   >
                     <Text
@@ -448,7 +469,12 @@ class Index extends PureComponent {
                     </Text>
                   </TouchableOpacity>
                   <TouchableOpacity
-                    onPress={() => this.context.navigate('Inluntan', item.id)}
+                    onPress={() =>
+                      this.context.navigate('Inluntan', {
+                        mid: item.id,
+                        uid: item.user.id
+                      })
+                    }
                   >
                     <SvgUri svgXmlData={pinglun} width="20" height="20" />
                   </TouchableOpacity>

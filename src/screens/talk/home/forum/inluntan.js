@@ -20,7 +20,7 @@ import request from '@service/index';
 import { addFollow, cancelFollow } from '../../../../service/mine';
 import { DeviceEventEmitter } from 'react-native';
 import FollowButton from '@components/FollowButton';
-import {Video,Audio} from 'expo-av'
+import { Video, Audio } from 'expo-av';
 class Index extends PureComponent {
   state = {
     inner: {},
@@ -36,14 +36,14 @@ class Index extends PureComponent {
 
     request
       .post({
-        url: `/comment/${this.props.route.params}`,
+        url: `/comment/${this.props.route.params.mid}`,
         data: {
           content: this.state.mycomment
         }
       })
       .then((res) => {
         this.setState({ mycomment: '' });
-        getMomentInnerById(this.props.route.params)
+        getMomentInnerById(this.props.route.params.mid)
           .then((res) => {
             this.setState({ inner: { ...res } });
           })
@@ -52,7 +52,7 @@ class Index extends PureComponent {
   };
 
   componentDidMount() {
-    getMomentInnerById(this.props.route.params)
+    getMomentInnerById(this.props.route.params.mid)
       .then((res) => {
         this.setState({ inner: { ...res } });
         console.log(res);
@@ -113,7 +113,7 @@ class Index extends PureComponent {
           height: pxToDp(150),
           marginTop: pxToDp(10)
         }}
-        source={{ uri: cover}}
+        source={{ uri: cover }}
       >
         <Video
           ref={video}
@@ -140,6 +140,7 @@ class Index extends PureComponent {
   };
   static contextType = NavigationContext;
   render() {
+    console.log(this.props.route.params);
     const {
       comments,
       content = 123,
@@ -208,7 +209,7 @@ class Index extends PureComponent {
               </View>
               {/* 关注 */}
               <View style={{ marginTop: pxToDp(16), marginRight: pxToDp(8) }}>
-                <FollowButton userId={this.props.route.params.userId} />
+                <FollowButton userId={this.props.route.params.uid} />
               </View>
             </View>
             <View style={{ margin: pxToDp(8) }}>

@@ -30,7 +30,7 @@ class Index extends PureComponent {
           >
             <Text style={styles.title}>经典推荐</Text>
             <TouchableOpacity
-              onPress={() => this.context.navigate('Optuijian')}
+              onPress={() => this.context.navigate('Optuijian', 0)}
             >
               <View style={{ flexDirection: 'row' }}>
                 <Text style={{ fontSize: pxToDp(15), color: 'grey' }}>
@@ -48,7 +48,9 @@ class Index extends PureComponent {
             style={{ flexDirection: 'row', justifyContent: 'space-between' }}
           >
             <Text style={styles.title}>名角唱段</Text>
-            <TouchableOpacity onPress={() => this.context.navigate('Opperson')}>
+            <TouchableOpacity
+              onPress={() => this.context.navigate('Opperson', 1)}
+            >
               <View style={{ flexDirection: 'row' }}>
                 <Text style={{ fontSize: pxToDp(15), color: 'grey' }}>
                   查看更多
