@@ -177,7 +177,6 @@ class Index extends PureComponent {
               onPress={v.onPress}
               selectedTitleStyle={{ color: '#dc3023', height: 30, fontSize: 15, borderRadius: 50 }}
               tabStyle={{
-
                 backgroundColor: '#ecf6fc',
                 justifyContent: 'center',
                 padding: 10
@@ -335,7 +334,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-
-
 });
 export default Index;

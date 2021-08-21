@@ -8,9 +8,9 @@ import Sing from './sing/index'
 export default memo(() => {
   return (
     <ScrollableTabView initialPage={0} renderTabBar={() => <CustormerBar />}>
-      <Live tabLabel="直播广场" />
-      <Forum tabLabel="论坛" />
-      <Sing tabLabel='k歌之王'/>
+      <Sing tabLabel='百曲' />
+      <Forum tabLabel="乐道" />
+      <Live tabLabel="如面" />
     </ScrollableTabView>
   );
 });

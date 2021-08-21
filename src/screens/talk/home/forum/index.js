@@ -19,7 +19,6 @@ import { getMomentListByStatus } from '@service/moment';
 import Addmoment from './addMoment';
 import SvgUri from 'react-native-svg-uri';
 import { daohang } from '../../../../component/common/iconSvg';
-import { FAB } from 'react-native-elements';
 import EZSwiper from 'react-native-ezswiper';
 const images = [
   {
@@ -129,7 +128,7 @@ class Index extends PureComponent {
   static contextType = NavigationContext;
   render() {
     return (
-      <View style={{ flex: 1, backgroundColor: '#ecf6fc' }}>
+      <View style={{ flex: 1, backgroundColor: 'white' }}>
         <View>
           <Addmoment
             updateList={this.updateList}
@@ -213,17 +212,6 @@ class Index extends PureComponent {
             </View>
           </View>
         </ScrollView>
-        <FAB
-          size="large"
-          placement="right"
-          color="#B0C4DE"
-          onPress={this.changeVisible}
-          icon={
-            <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-              <SvgUri svgXmlData={daohang} width="32" height="32" />
-            </View>
-          }
-        />
       </View>
     );
   }

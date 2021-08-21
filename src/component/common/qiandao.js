@@ -82,7 +82,7 @@ class Index extends PureComponent {
                         <View style={styles.centeredView}>
                             <View style={styles.modalView}>
                                 <Text style={styles.modalText4}>
-                                    今日之约已了 我们明日再聚
+                                   今日已签到~
                                 </Text>
                                 <TouchableOpacity
                                     onPress={() => {
