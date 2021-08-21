@@ -1,19 +1,15 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import {
   View,
   Text,
   Image,
   StyleSheet,
   ScrollView,
-  TouchableOpacity,
-  SafeAreaView,
-  ImageBackground,
-  Easing
+  TouchableOpacity
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { NavigationContext } from '@react-navigation/native';
 import { pxToDp } from '@utils/styleKits';
-
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 import HighLights from '@components/first/HighLights';
 import Hy from '@components/first/hy';
@@ -33,9 +29,10 @@ import {
   tongpai
 } from '../../../component/common/iconSvg';
 import { Carousel } from '../../../component/common/teaset';
-
+import Top from '@components/common/top';
+import Swiper from 'react-native-swiper';
 let navHeight = 45;
-class Index extends Component {
+class Index extends PureComponent {
   static contextType = NavigationContext;
   state = {
     arr: [],
@@ -107,87 +104,46 @@ class Index extends Component {
   };
   render() {
     return (
-      <ParallaxScrollView
-        ref={(view) => {
-          this.myScrollView = view;
+      <View
+        style={{
+          marginLeft: pxToDp(8),
+          marginTop: pxToDp(16),
+          marginRight: pxToDp(8),
+          flex: 1
         }}
-        contentOffset={{ x: 0, y: 0 }}
-        onScroll={(event) => {
-          let offsetY = event.nativeEvent.contentOffset.y;
-          let opacity = offsetY / navHeight + 0.05;
-          // if (opacity > 5 || opacity < -5) {
-          //   // 这里可以优化减少render， 1和0 滑快了会有些影响， 这里你可以看着给值， 当然也可以不优化
-          //   return;
-          // }
-          // console.log(opacity);
-          this.setState({
-            fadeAnim: opacity
-          });
-          this.setState({ y: event.nativeEvent.contentOffset.y });
-        }}
-        renderFixedHeader={() => {
-          return (
-            <View
-              style={{
-                width: '100%',
-                height: 50,
-                backgroundColor: this.state.fadeAnim < 0.2 ? 'white' : 'white',
-                opacity: this.state.fadeAnim,
-                borderWidth: 0.3,
-                borderColor: '#ccc'
-              }}
-            >
-              <Text
-                style={{
-                  color: this.state.fadeAnim < 0.2 ? 'white' : 'red',
-                  fontWeight: 'bold',
-                  alignSelf: 'center',
-                  fontSize: 30
-                }}
-              >
-                百越庭
-              </Text>
-            </View>
-          );
-        }}
-        // renderStickyHeader={() => <Top title="越台" />}
-        // stickyHeaderHeight={70}
-        parallaxHeaderHeight={250}
-        backgroundSpeed={10}
-        renderBackground={() => (
-          <View>
-            <Image
-              source={{
-                uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic27.nipic.com%2F20130307%2F8984340_113532918000_2.jpg&refer=http%3A%2F%2Fpic27.nipic.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631857652&t=03b4f1cf6deeb6e50010fe5e59eb881d'
-              }}
-              style={{
-                width: pxToDp(450),
-                height: pxToDp(250)
-              }}
-            ></Image>
-            <View
-              style={{
-                position: 'absolute',
-                top: 0,
-                width: window.width,
-                backgroundColor: 'rgba(0,0,0,.4)',
-                height: pxToDp(250)
-              }}
-            />
-          </View>
-        )}
-        //自定义头部内容
-        renderForeground={() => <View style={{ Top: 200, left: 100 }}></View>}
-        scrollableViewStyle={{ backgroundColor: '#fcfcfc' }}
       >
-        <View
-          style={{
-            marginLeft: pxToDp(8),
-            marginTop: pxToDp(16),
-            marginRight: pxToDp(8),
-            flex: 1
-          }}
-        >
+        <ScrollView>
+          <View style={{ height: pxToDp(240) }}>
+            <Swiper
+              removeClippedSubviews={false}
+              showsButtons={false}
+              loop={true}
+              autoplay={true}
+              showsPagination={false}
+              autoplayTimeout={3}
+              style={{ marginTop: pxToDp(8) }}
+            >
+              <View style={styles.slide}>
+                <Image
+                  style={styles.lunboimage}
+                  source={require('../../../res/19.jpg')}
+                />
+              </View>
+              <View style={styles.slide}>
+                <Image
+                  style={styles.lunboimage}
+                  source={require('../../../res/19-1.jpg')}
+                />
+              </View>
+              <View style={styles.slide}>
+                <Image
+                  style={styles.lunboimage}
+                  source={require('../../../res/19-2.jpg')}
+                />
+              </View>
+            </Swiper>
+          </View>
+
           <ScrollView
             horizontal={true}
             showsHorizontalScrollIndicator={false}
@@ -541,8 +497,8 @@ class Index extends Component {
               </View>
             ))}
           </View>
-        </View>
-      </ParallaxScrollView>
+        </ScrollView>
+      </View>
     );
   }
 }
@@ -622,6 +578,78 @@ const styles = StyleSheet.create({
     marginLeft: pxToDp(8),
     marginRight: pxToDp(8),
     marginTop: pxToDp(8)
+  },
+  slide: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: pxToDp(200),
+    margin: pxToDp(8),
+    borderRadius: pxToDp(8)
+  },
+  tcard: {
+    flexDirection: 'row',
+    width: '100%',
+    justifyContent: 'space-between'
+  },
+  ocard: {
+    backgroundColor: 'white',
+    width: pxToDp(174),
+    borderRadius: pxToDp(8),
+    margin: pxToDp(8)
+  },
+  image: {
+    height: pxToDp(170),
+    width: pxToDp(174),
+    borderTopLeftRadius: pxToDp(8),
+    borderTopRightRadius: pxToDp(8)
+  },
+  lunboimage: {
+    height: '100%',
+    width: '100%',
+    borderRadius: pxToDp(8),
+    marginBottom: pxToDp(10)
+  },
+  title: {
+    margin: pxToDp(8),
+    color: '#468CD3',
+    fontSize: pxToDp(18),
+    fontWeight: 'bold'
+  },
+  image1: {
+    height: pxToDp(100),
+    width: pxToDp(355),
+    borderRadius: pxToDp(8)
+  },
+  box: {
+    height: pxToDp(115),
+    width: pxToDp(105),
+    backgroundColor: '#468cd3',
+    alignItems: 'center',
+    borderRadius: pxToDp(8)
+  },
+  image2: {
+    height: pxToDp(90),
+    width: pxToDp(105),
+    borderTopLeftRadius: pxToDp(8),
+    borderTopRightRadius: pxToDp(8)
+  },
+  text: {
+    fontSize: pxToDp(15),
+    color: 'white',
+    fontWeight: 'bold',
+    alignSelf: 'center',
+    marginTop: pxToDp(3)
+  },
+  image3: {
+    height: pxToDp(174),
+    width: pxToDp(174),
+    borderRadius: pxToDp(8)
+  },
+  image4: {
+    height: pxToDp(80),
+    width: pxToDp(174),
+    borderRadius: pxToDp(8),
+    alignSelf: 'center'
   }
 });
 

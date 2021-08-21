@@ -20,7 +20,6 @@ import { BottomSheet, ListItem } from 'react-native-elements';
 import { getMomentListByUserId } from '../../../../service/moment';
 import { Audio } from 'expo-av';
 import { Video } from 'expo-av';
-import ParallaxScrollView from 'react-native-parallax-scroll-view';
 
 class Index extends PureComponent {
   state = {
