@@ -30,7 +30,7 @@ class Index extends PureComponent {
           >
             <Text style={styles.title}>经典推荐</Text>
             <TouchableOpacity
-              onPress={() => this.context.navigate('Optuijian')}
+              onPress={() => this.context.navigate('Optuijian', 0)}
             >
               <View style={{ flexDirection: 'row' }}>
                 <Text style={{ fontSize: pxToDp(15), color: 'grey' }}>
@@ -48,7 +48,9 @@ class Index extends PureComponent {
             style={{ flexDirection: 'row', justifyContent: 'space-between' }}
           >
             <Text style={styles.title}>名角唱段</Text>
-            <TouchableOpacity onPress={() => this.context.navigate('Opperson')}>
+            <TouchableOpacity
+              onPress={() => this.context.navigate('Opperson', 1)}
+            >
               <View style={{ flexDirection: 'row' }}>
                 <Text style={{ fontSize: pxToDp(15), color: 'grey' }}>
                   查看更多
@@ -59,42 +61,6 @@ class Index extends PureComponent {
           </View>
         </View>
         <Opera status={1} />
-        {/*流派纷呈 */}
-        <View style={styles.view}>
-          <View
-            style={{ flexDirection: 'row', justifyContent: 'space-between' }}
-          >
-            <Text style={styles.title}>流派纷呈</Text>
-            <TouchableOpacity onPress={() => this.context.navigate('Opgroup')}>
-              <View style={{ flexDirection: 'row' }}>
-                <Text style={{ fontSize: pxToDp(15), color: 'grey' }}>
-                  查看更多
-                </Text>
-                <Ionicons name="chevron-forward" size={20} color="grey" />
-              </View>
-            </TouchableOpacity>
-          </View>
-        </View>
-        <TouchableOpacity onPress={() => this.context.navigate('Video')}>
-          <View style={styles.box}>
-            <Image
-              style={styles.image}
-              source={require('../../../res/genre/2.jpg')}
-            />
-            <View style={styles.botbox}>
-              <Text style={styles.text1}>越剧范派集锦</Text>
-              <View>
-                <Text style={styles.text2}></Text>
-                <View style={styles.smallbox}>
-                  <Text style={styles.text2}>225321观看 · 07-23</Text>
-                  <TouchableOpacity>
-                    <Ionicons name="ellipsis-vertical" size={20} color="grey" />
-                  </TouchableOpacity>
-                </View>
-              </View>
-            </View>
-          </View>
-        </TouchableOpacity>
       </ScrollView>
     );
   }

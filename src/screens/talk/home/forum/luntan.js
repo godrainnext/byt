@@ -27,6 +27,7 @@ import Ionicons from 'react-native-vector-icons/FontAwesome';
 import { useRef } from 'react';
 import { PureComponent } from 'react';
 import LottieView from 'lottie-react-native';
+import changeImgSize from '../../../../utils/changeImgSize';
 
 const Music = memo(function (props) {
   const video = useRef();
@@ -35,14 +36,29 @@ const Music = memo(function (props) {
       style={{ flex: 1, height: pxToDp(50), marginTop: pxToDp(10) }}
       imageStyle={{ borderRadius: pxToDp(8) }}
       source={{ uri: props.item.picture }}
-    >{props.status.isPlaying?(<View style={{ width: 70, overflow: 'hidden', justifyContent: "flex-end", alignItems: 'flex-end', height: '100%', left: 20, bottom: 15 }}>
-        <LottieView
-          style={{ height: pxToDp(20), alignSelf: 'flex-start', }}
-          source={require('../../../../../lottie/40716-musicsoundequalizer.json')}
-          autoPlay={true}
-          loop
-        /></View>):(<View></View>)
-      }
+    >
+      {props.status.isPlaying ? (
+        <View
+          style={{
+            width: 70,
+            overflow: 'hidden',
+            justifyContent: 'flex-end',
+            alignItems: 'flex-end',
+            height: '100%',
+            left: 20,
+            bottom: 15
+          }}
+        >
+          <LottieView
+            style={{ height: pxToDp(20), alignSelf: 'flex-start' }}
+            source={require('../../../../../lottie/40716-musicsoundequalizer.json')}
+            autoPlay={true}
+            loop
+          />
+        </View>
+      ) : (
+        <View></View>
+      )}
       <Video
         ref={video}
         source={{ uri: props.item.music }}
@@ -61,7 +77,6 @@ const Music = memo(function (props) {
           svgXmlData={props.status.isPlaying ? stopmusic : playmusic}
           width="30"
           height="30"
-
         />
       </TouchableOpacity>
     </ImageBackground>
@@ -243,7 +258,7 @@ class Index extends PureComponent {
                 </TouchableOpacity>
                 <View style={{ flexDirection: 'row', margin: pxToDp(10) }}>
                   <Image
-                    source={{ uri: item.user.avatar }}
+                    source={{ uri: changeImgSize(item.user.avatar) }}
                     style={{
                       width: pxToDp(60),
                       height: pxToDp(60),
@@ -253,7 +268,12 @@ class Index extends PureComponent {
                     }}
                   />
                   <TouchableOpacity
-                    onPress={() => this.context.navigate('Inluntan', item.id)}
+                    onPress={() =>
+                      this.context.navigate('Inluntan', {
+                        mid: item.id,
+                        uid: item.user.id
+                      })
+                    }
                   >
                     <View style={{ marginTop: pxToDp(10) }}>
                       <Text
@@ -286,7 +306,10 @@ class Index extends PureComponent {
                 >
                   <TouchableOpacity
                     onPress={() => {
-                      this.context.navigate('Inluntan', item.id);
+                      this.context.navigate('Inluntan', {
+                        mid: item.id,
+                        uid: item.user.id
+                      });
                     }}
                   >
                     <Text
@@ -333,7 +356,12 @@ class Index extends PureComponent {
                     </Text>
                   </TouchableOpacity>
                   <TouchableOpacity
-                    onPress={() => this.context.navigate('Inluntan', item.id)}
+                    onPress={() =>
+                      this.context.navigate('Inluntan', {
+                        mid: item.id,
+                        uid: item.user.id
+                      })
+                    }
                   >
                     <SvgUri svgXmlData={pinglun} width="20" height="20" />
                   </TouchableOpacity>
@@ -368,7 +396,7 @@ class Index extends PureComponent {
                 </TouchableOpacity>
                 <View style={{ flexDirection: 'row', margin: pxToDp(10) }}>
                   <Image
-                    source={{ uri: item.user.avatar }}
+                    source={{ uri: changeImgSize(item.user.avatar) }}
                     style={{
                       width: pxToDp(60),
                       height: pxToDp(60),
@@ -378,7 +406,12 @@ class Index extends PureComponent {
                     }}
                   />
                   <TouchableOpacity
-                    onPress={() => this.context.navigate('Inluntan', item.id)}
+                    onPress={() =>
+                      this.context.navigate('Inluntan', {
+                        mid: item.id,
+                        uid: item.user.id
+                      })
+                    }
                   >
                     <View style={{ marginTop: pxToDp(10) }}>
                       <Text
@@ -411,7 +444,10 @@ class Index extends PureComponent {
                 >
                   <TouchableOpacity
                     onPress={() => {
-                      this.context.navigate('Inluntan', item.id);
+                      this.context.navigate('Inluntan', {
+                        mid: item.id,
+                        uid: item.user.id
+                      });
                     }}
                   >
                     <Text
@@ -458,7 +494,12 @@ class Index extends PureComponent {
                     </Text>
                   </TouchableOpacity>
                   <TouchableOpacity
-                    onPress={() => this.context.navigate('Inluntan', item.id)}
+                    onPress={() =>
+                      this.context.navigate('Inluntan', {
+                        mid: item.id,
+                        uid: item.user.id
+                      })
+                    }
                   >
                     <SvgUri svgXmlData={pinglun} width="20" height="20" />
                   </TouchableOpacity>

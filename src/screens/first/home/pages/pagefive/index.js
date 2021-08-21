@@ -1,5 +1,12 @@
 import React, { PureComponent } from 'react';
-import { View, Text, TextInput, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import {
+  View,
+  Text,
+  TextInput,
+  Image,
+  StyleSheet,
+  TouchableOpacity
+} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import Icon1 from 'react-native-vector-icons/MaterialIcons';
 import Top from '@components/common/top';
@@ -17,7 +24,6 @@ class index extends PureComponent {
     commments: []
   };
   componentDidMount() {
-    console.log(12312);
     getMomentById(this.props.route.params).then((res) => {
       console.log(res);
       this.setState({ ...res });
@@ -26,7 +32,6 @@ class index extends PureComponent {
   render() {
     const arr1 = this.state.content.split('/img');
     const { images } = this.state;
-    console.log(arr1);
     return (
       <View style={{ backgroundColor: '#ecf6fc', flex: 1 }}>
         <ScrollView stickyHeaderIndices={[0]}>

@@ -4,12 +4,12 @@ import { getVideList } from '@service/home';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { pxToDp } from '@utils/styleKits';
 import { NavigationContext } from '@react-navigation/native';
+import changeImgSize from '@utils/changeImgSize';
 
 export default class Opera extends PureComponent {
   state = { arr: [] };
   componentDidMount() {
     getVideList(this.props.status).then((res) => {
-      console.log(res);
       this.setState({ arr: res });
     });
   }
@@ -22,7 +22,10 @@ export default class Opera extends PureComponent {
             onPress={() => this.context.navigate('Video', item.id)}
           >
             <View style={styles.box}>
-              <Image style={styles.image} source={{ uri: item.avatar }} />
+              <Image
+                style={styles.image}
+                source={{ uri: changeImgSize(item.avatar) }}
+              />
               <View style={styles.botbox}>
                 <Text style={styles.text1}>{item.title}</Text>
                 <View>
@@ -31,13 +34,6 @@ export default class Opera extends PureComponent {
                     <Text style={styles.text2}>
                       {item.watchNum}观看 · {item.createAt}
                     </Text>
-                    <TouchableOpacity>
-                      <Ionicons
-                        name="ellipsis-vertical"
-                        size={20}
-                        color="grey"
-                      />
-                    </TouchableOpacity>
                   </View>
                 </View>
               </View>

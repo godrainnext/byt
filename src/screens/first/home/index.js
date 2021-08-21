@@ -6,8 +6,7 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-  SafeAreaView,
-  ImageBackground, Easing
+  Dimensions
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { NavigationContext } from '@react-navigation/native';
@@ -19,6 +18,7 @@ import Hy from '@components/first/hy';
 import Legend from '@components/first/legend';
 import Actress from '@components/first/actress';
 import { connect } from 'react-redux';
+import Swiper from 'react-native-swiper';
 import { getUserInfoAction } from './store/actions';
 import RecommendCard from '../../../component/common/recommendcard';
 import Qiandao from '../../../component/common/qiandao';
@@ -35,6 +35,8 @@ import { Carousel } from '../../../component/common/teaset';
 import Animated from 'react-native-reanimated';
 import { TIME_OUT } from '../../../service/requset/config';
 let navHeight = 45
+
+const width =Dimensions.get('window').width
 class Index extends Component {
 
   static contextType = NavigationContext;
@@ -125,45 +127,56 @@ class Index extends Component {
           })
           this.setState({ y: event.nativeEvent.contentOffset.y })
         }}
-        renderFixedHeader={() => {
-          return (
-            <View
-              style={{
-                width: '100%',
-                height: 50,
-                backgroundColor: this.state.fadeAnim < 0.2 ? 'white' : 'white',
-                opacity: this.state.fadeAnim,
-                borderWidth:.3,
-                borderColor:'#ccc'
+        // renderFixedHeader={() => {
+        //   return (
+        //     <View
+        //       style={{
+        //         width: '100%',
+        //         height: 50,
+        //         backgroundColor: this.state.fadeAnim < 0.2 ? 'white' : '#ecf6fc',
+        //         opacity: this.state.fadeAnim,
+        //         borderWidth:.3,
+        //         borderColor:'#ccc'
                 
-              }}><Text
-              style={{color: this.state.fadeAnim < 0.2 ? 'white' : 'red',fontWeight:'bold',alignSelf:'center',fontSize:30}}>1111</Text>
-            </View>)
-        }}
-        // renderStickyHeader={() => <Top title="越台" />}
-        // stickyHeaderHeight={70}
-        parallaxHeaderHeight={250}
+        //       }}><Text
+        //       style={{color: this.state.fadeAnim < 0.2 ? 'white' : 'red',fontWeight:'bold',alignSelf:'center',fontSize:20}}>越台</Text>
+        //     </View>)
+        // }}
+         renderStickyHeader={() => <Top title="越台" />}
+         stickyHeaderHeight={50}
+        parallaxHeaderHeight={220}
         backgroundSpeed={10}
         renderBackground={() => (
-          <View>
-            <Image
-              source={{
-                uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic27.nipic.com%2F20130307%2F8984340_113532918000_2.jpg&refer=http%3A%2F%2Fpic27.nipic.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631857652&t=03b4f1cf6deeb6e50010fe5e59eb881d'
-              }}
-              style={{
-                width: pxToDp(450),
-                height: pxToDp(250)
-              }}
-            ></Image>
-            <View
-              style={{
-                position: 'absolute',
-                top: 0,
-                width: window.width,
-                backgroundColor: 'rgba(0,0,0,.4)',
-                height: pxToDp(250)
-              }}
-            />
+          <View >
+          <Swiper
+              removeClippedSubviews={false}
+              showsButtons={false}
+              loop={true}
+              autoplay={true}
+              showsPagination={false}
+              autoplayTimeout={3}  >
+              <View >
+                <Image
+                  style={{width:width,height:pxToDp(270)}}
+                  source={require('../../../res/19.jpg')}
+                  resizeMode='cover'
+                />
+              </View>
+              <View>
+                <Image
+               style={{width:width,height:pxToDp(270)}}
+                  source={require('../../../res/19-1.jpg')}
+                  resizeMode='cover'
+                />
+              </View>
+              <View>
+                <Image
+          style={{width:width,height:pxToDp(270)}}
+              resizeMode='cover'
+                  source={require('../../../res/19-2.jpg')}
+                />
+              </View>
+            </Swiper>
           </View>
 
 

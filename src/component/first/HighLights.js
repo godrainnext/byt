@@ -18,13 +18,14 @@ export default class HighLights extends Component {
     });
   }
   render() {
+    console.log(this.state.arr[0]);
     return (
       <View style={{ margin: pxToDp(8) }}>
         <View
           style={{
             flexDirection: 'row',
             justifyContent: 'space-between',
-            marginBottom:pxToDp(8)
+            marginBottom: pxToDp(8)
           }}
         >
           <Text
@@ -85,7 +86,7 @@ export default class HighLights extends Component {
                     right: 0,
                     borderTopRightRadius: pxToDp(8)
                   }}
-                  source={{ uri: changeImgSize(item.avatar, 'small') }}
+                  source={{ uri: changeImgSize(item.avatar) }}
                 />
                 {/* </TouchableOpacity>   */}
                 <View
@@ -93,23 +94,24 @@ export default class HighLights extends Component {
                     height: '70%',
                     width: '40%',
                     alignItems: 'center',
-                    borderBottomWidth:pxToDp(0.5),
+                    borderBottomWidth: pxToDp(0.5),
                     borderColor: '#ccc'
                   }}
                 >
                   <Text style={{ marginTop: pxToDp(10), fontWeight: 'bold' }}>
-                    2017.12
+                    {item.createAt.split('-')[0] +
+                      '-' +
+                      item.createAt.split('-')[1]}
                   </Text>
-                  <Text style={{ fontSize: pxToDp(24), fontWeight: 'bold' }}>15</Text>
+                  <Text style={{ fontSize: pxToDp(24), fontWeight: 'bold' }}>
+                    {item.createAt.split('-')[2].split('T')[0]}
+                  </Text>
                   <View
                     style={{
                       flexDirection: 'row',
                       justifyContent: 'space-evenly'
                     }}
-                  >
-                    <Text style={{ fontSize: pxToDp(16), width: pxToDp(16), marginRight: pxToDp(20) }}>丁酉年</Text>
-                    <Text style={{ fontSize: pxToDp(16), width: pxToDp(16) }}>十月廿八</Text>
-                  </View>
+                  ></View>
                 </View>
                 <View
                   style={{

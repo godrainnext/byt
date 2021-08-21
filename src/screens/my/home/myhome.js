@@ -25,13 +25,11 @@ import Dongtai from '../seetings/component/dontai';
 export default class hello extends Component {
   static contextType = NavigationContext;
   state = {
-    arr: [],
+   
     sctop: 0
   };
   componentDidMount() {
-    getVideList(0, 0, 5).then((res) => {
-      this.setState({ arr: res });
-    });
+ 
   }
 
   render() {
@@ -77,6 +75,10 @@ export default class hello extends Component {
             />
           </View>
           <View style={style.bottom}>
+          <View style={{flexDirection:'row',alignItems:'center',justifyContent:'center'}}>
+        <Image source={require('./3.png')} style={{width:pxToDp(50),height:pxToDp(50),}}/>
+        <Text style={{fontSize:pxToDp(20),color:'#468cd3'}}>我的动态</Text>
+        </View>
             <Dongtai userId={this.props.route.params} />
           </View>
         </View>
