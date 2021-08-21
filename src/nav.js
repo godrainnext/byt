@@ -10,7 +10,7 @@ const Stack = createStackNavigator();
 function Nav() {
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode="none" initialRouteName="Login">
+      <Stack.Navigator headerMode="none" initialRouteName="ToSing">
         <Stack.Screen name="NewTimeLine" component={Screens.NewTimeLine} />
 
         <Stack.Screen name="Tabbar" component={Tabbar} />
@@ -221,6 +221,7 @@ function Nav() {
         {/*剧本热度榜单 */}
         <Stack.Screen name="HotList" component={Screens.HotList} />
         <Stack.Screen name="Testtt" component={Screens.Testtt} />
+        <Stack.Screen name="ToSing" component={Screens.ToSing} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -13,12 +13,10 @@ export default class HighLights extends Component {
   state = { arr: [] };
   componentDidMount() {
     getVideList(0).then((res) => {
-      console.log(res);
       this.setState({ arr: res });
     });
   }
   render() {
-    console.log(this.state.arr[0]);
     return (
       <View style={{ margin: pxToDp(8) }}>
         <View

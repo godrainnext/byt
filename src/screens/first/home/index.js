@@ -121,7 +121,6 @@ class Index extends Component {
           // if(opacity > 5 || opacity < -5) { // 这里可以优化减少render， 1和0 滑快了会有些影响， 这里你可以看着给值， 当然也可以不优化
           //   return
           // }
-          console.log(opacity);
           this.setState({
             fadeAnim: opacity
           })
