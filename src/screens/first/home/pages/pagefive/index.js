@@ -1,5 +1,12 @@
 import React, { PureComponent } from 'react';
-import { View, Text, TextInput, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import {
+  View,
+  Text,
+  TextInput,
+  Image,
+  StyleSheet,
+  TouchableOpacity
+} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import Icon1 from 'react-native-vector-icons/MaterialIcons';
 import Top from '@components/common/top';

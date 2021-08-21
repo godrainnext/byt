@@ -84,6 +84,7 @@ class Index extends PureComponent {
         renderInner={this.renderInner}
         arr={[
           {
+            id: 1,
             avatar:
               'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp0.qhmsg.com%2Ft01c0bee555e7f14acf.jpg&refer=http%3A%2F%2Fp0.qhmsg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631928400&t=8fa3da0873ef4c8b3fbc9f9a83582446',
             createTime: '两天前',
@@ -91,6 +92,7 @@ class Index extends PureComponent {
             content: '每个人都有不一样的童年'
           },
           {
+            id: 2,
             avatar:
               'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp0.qhmsg.com%2Ft01c0bee555e7f14acf.jpg&refer=http%3A%2F%2Fp0.qhmsg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631928400&t=8fa3da0873ef4c8b3fbc9f9a83582446',
             createTime: '两天前',
