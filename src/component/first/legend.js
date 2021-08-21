@@ -15,17 +15,19 @@ export default class Legend extends PureComponent {
   render() {
     return (
       <View>
-        {this.state.arr.map((item, index) =>
-        (<TouchableOpacity onPress={() => this.context.navigate('School', item.id)} key={item.id}>
-          <GenerView
-            imguri={item.picurl}
-            name={item.title}
-            special={item.ezcontent}
-          />
-        </TouchableOpacity>)
-
-        )}
+        {this.state.arr.map((item, index) => (
+          <TouchableOpacity
+            onPress={() => this.context.navigate('School', item.id)}
+            key={item.id}
+          >
+            <GenerView
+              imguri={item.picurl}
+              name={item.title}
+              special={item.ezcontent}
+            />
+          </TouchableOpacity>
+        ))}
       </View>
-    )
+    );
   }
 }
