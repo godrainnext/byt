@@ -168,6 +168,13 @@ function Nav() {
         <Stack.Screen name="Drama4" component={Screens.Drama4} />
         <Stack.Screen name="Drama5" component={Screens.Drama5} />
         <Stack.Screen name="Drama6" component={Screens.Drama6} />
+        <Stack.Screen name="Drama7" component={Screens.Drama7} />
+        <Stack.Screen name="Drama8" component={Screens.Drama8} />
+        <Stack.Screen name="Drama9" component={Screens.Drama9} />
+        <Stack.Screen name="Drama10" component={Screens.Drama10} />
+        <Stack.Screen name="Drama11" component={Screens.Drama11} />
+        <Stack.Screen name="Drama12" component={Screens.Drama12} />
+        <Stack.Screen name="Drama13" component={Screens.Drama13} />
         {/**剧本库页面 */}
         <Stack.Screen name="Scriptlibrary" component={Screens.Scriptlibrary} />
         {/**名角个人页 */}

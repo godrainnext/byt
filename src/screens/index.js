@@ -72,6 +72,13 @@ export { default as Drama3 } from './play/act/drama3'; //剧本3 梁山伯与祝
 export { default as Drama4 } from './play/act/drama4'; //剧本4 红楼梦
 export { default as Drama5 } from './play/act/drama5'; //剧本5 碧玉簪
 export { default as Drama6 } from './play/act/drama6'; //剧本6 周仁哭坟
+export { default as Drama7 } from './play/act/drama7'; //剧本7 皇帝与村姑
+export { default as Drama8 } from './play/act/drama8'; //剧本8 柳永
+export { default as Drama9 } from './play/act/drama9'; //剧本9 蝴蝶梦
+export { default as Drama10 } from './play/act/drama10'; //剧本10 北地王
+export { default as Drama11 } from './play/act/drama11'; //剧本11 甄嬛
+export { default as Drama12 } from './play/act/drama12'; //剧本12 早春二月
+export { default as Drama13 } from './play/act/drama13'; //剧本13 家
 export { default as Scriptlibrary } from './play/scriptlibrary'; //剧本库
 export { default as VR } from './play/vr'; //越剧小镇VR
 export { default as relatedImg } from './Timeline/relatedImg'; //相关图片
@@ -110,13 +117,13 @@ export { default as Jubao } from './talk/home/forum/jubao' //举报页
 
 
 
-export { default as Test1 } from './test/test1' 
-export { default as Test2 } from './test/test2' 
-export { default as Test3 } from './test/test3' 
-export { default as Test4 } from './test/test4' 
-export { default as Test6 } from './test/test8' 
+export { default as Test1 } from './test/test1'
+export { default as Test2 } from './test/test2'
+export { default as Test3 } from './test/test3'
+export { default as Test4 } from './test/test4'
+export { default as Test6 } from './test/test8'
 
 export { default as WaterButton } from '../component/common/waterbutton'; //波纹按钮
 
 export { default as NewTimeLine } from './test/test5';
-export { default as Testtt} from '../testtt';
+export { default as Testtt } from '../testtt';

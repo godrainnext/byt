@@ -177,7 +177,7 @@ class Index extends Component {
           <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={{ marginBottom: pxToDp(8) }}>
             {/**推荐卡片 */}
             <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'center', marginLeft: pxToDp(8) }} onPress={this.toggleModal} >
-             <Image style={{height:pxToDp(40),width:pxToDp(40),borderRadius:pxToDp(20)}} source={require('../../../res/erhu.png')} />
+            <Ionicons name="layers-outline" size={32} color="#468CD3" />
               <Text style={{ fontSize: pxToDp(15), marginTop: pxToDp(5) }}>推荐</Text>
             </TouchableOpacity>
             <RecommendCard isModalVisible={this.state.isModalVisible} toggleModalProps={this.toggleModal} />
