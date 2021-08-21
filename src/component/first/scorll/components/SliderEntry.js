@@ -57,8 +57,8 @@ export default class SliderEntry extends PureComponent {
         >
           {title.toUpperCase()}
         </Text>
-        <View style={{marginLeft:pxToDp(250)}}>
-        <Svg width="32" height="32" svgXmlData={right} />
+        <View style={{marginLeft:pxToDp(250),marginTop:pxToDp(-46)}}>
+        <Svg width="38" height="38" svgXmlData={right} />
       </View>
     </View>
     ) : (
