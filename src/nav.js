@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Easing,Animated,} from 'react-native';
+import { Easing, Animated } from 'react-native';
 import Tabbar from './tabbar';
 import * as Screens from './screens';
 
@@ -202,8 +202,6 @@ function Nav() {
         <Stack.Screen name="Video" component={Screens.Video} />
         {/*举报页*/}
         <Stack.Screen name="Jubao" component={Screens.Jubao} />
-
-
 
         <Stack.Screen name="Test1" component={Screens.Test1} />
         <Stack.Screen name="Test2" component={Screens.Test2} />

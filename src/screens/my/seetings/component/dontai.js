@@ -26,8 +26,7 @@ class Index extends PureComponent {
   state = {
     contentArr: [],
     list: [
-      { title: '收藏' },
-      { title: '举报' },
+      { title: '分享' },
       {
         title: '取消',
         containerStyle: { backgroundColor: 'red' },

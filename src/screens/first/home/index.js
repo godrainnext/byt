@@ -7,7 +7,8 @@ import {
   ScrollView,
   TouchableOpacity,
   SafeAreaView,
-  ImageBackground, Easing
+  ImageBackground,
+  Easing
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { NavigationContext } from '@react-navigation/native';
@@ -32,11 +33,9 @@ import {
   tongpai
 } from '../../../component/common/iconSvg';
 import { Carousel } from '../../../component/common/teaset';
-import Animated from 'react-native-reanimated';
-import { TIME_OUT } from '../../../service/requset/config';
-let navHeight = 45
-class Index extends Component {
 
+let navHeight = 45;
+class Index extends Component {
   static contextType = NavigationContext;
   state = {
     arr: [],
@@ -105,25 +104,26 @@ class Index extends Component {
   }
   toggleModal = () => {
     this.setState({ isModalVisible: !this.state.isModalVisible });
-  }
+  };
   render() {
-
     return (
       <ParallaxScrollView
-
-        ref={(view) => { this.myScrollView = view }}
+        ref={(view) => {
+          this.myScrollView = view;
+        }}
         contentOffset={{ x: 0, y: 0 }}
         onScroll={(event) => {
-          let offsetY = event.nativeEvent.contentOffset.y 
-          let opacity = offsetY / navHeight+0.05
-          // if(opacity > 5 || opacity < -5) { // 这里可以优化减少render， 1和0 滑快了会有些影响， 这里你可以看着给值， 当然也可以不优化
-          //   return
+          let offsetY = event.nativeEvent.contentOffset.y;
+          let opacity = offsetY / navHeight + 0.05;
+          // if (opacity > 5 || opacity < -5) {
+          //   // 这里可以优化减少render， 1和0 滑快了会有些影响， 这里你可以看着给值， 当然也可以不优化
+          //   return;
           // }
-          console.log(opacity);
+          // console.log(opacity);
           this.setState({
             fadeAnim: opacity
-          })
-          this.setState({ y: event.nativeEvent.contentOffset.y })
+          });
+          this.setState({ y: event.nativeEvent.contentOffset.y });
         }}
         renderFixedHeader={() => {
           return (
@@ -133,12 +133,22 @@ class Index extends Component {
                 height: 50,
                 backgroundColor: this.state.fadeAnim < 0.2 ? 'white' : 'white',
                 opacity: this.state.fadeAnim,
-                borderWidth:.3,
-                borderColor:'#ccc'
-                
-              }}><Text
-              style={{color: this.state.fadeAnim < 0.2 ? 'white' : 'red',fontWeight:'bold',alignSelf:'center',fontSize:30}}>1111</Text>
-            </View>)
+                borderWidth: 0.3,
+                borderColor: '#ccc'
+              }}
+            >
+              <Text
+                style={{
+                  color: this.state.fadeAnim < 0.2 ? 'white' : 'red',
+                  fontWeight: 'bold',
+                  alignSelf: 'center',
+                  fontSize: 30
+                }}
+              >
+                百越庭
+              </Text>
+            </View>
+          );
         }}
         // renderStickyHeader={() => <Top title="越台" />}
         // stickyHeaderHeight={70}
@@ -165,43 +175,100 @@ class Index extends Component {
               }}
             />
           </View>
-
-
-
         )}
         //自定义头部内容
         renderForeground={() => <View style={{ Top: 200, left: 100 }}></View>}
         scrollableViewStyle={{ backgroundColor: '#fcfcfc' }}
       >
-        <View style={{ marginLeft: pxToDp(8), marginTop: pxToDp(16), marginRight: pxToDp(8), flex: 1 }}>
-          <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} style={{ marginBottom: pxToDp(8) }}>
+        <View
+          style={{
+            marginLeft: pxToDp(8),
+            marginTop: pxToDp(16),
+            marginRight: pxToDp(8),
+            flex: 1
+          }}
+        >
+          <ScrollView
+            horizontal={true}
+            showsHorizontalScrollIndicator={false}
+            style={{ marginBottom: pxToDp(8) }}
+          >
             {/**推荐卡片 */}
-            <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'center', marginLeft: pxToDp(8) }} onPress={this.toggleModal} >
+            <TouchableOpacity
+              style={{
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginLeft: pxToDp(8)
+              }}
+              onPress={this.toggleModal}
+            >
               <Ionicons name="layers-outline" size={32} color="#468CD3" />
-              <Text style={{ fontSize: pxToDp(15), marginTop: pxToDp(5) }}>推荐</Text>
+              <Text style={{ fontSize: pxToDp(15), marginTop: pxToDp(5) }}>
+                推荐
+              </Text>
             </TouchableOpacity>
-            <RecommendCard isModalVisible={this.state.isModalVisible} toggleModalProps={this.toggleModal} />
+            <RecommendCard
+              isModalVisible={this.state.isModalVisible}
+              toggleModalProps={this.toggleModal}
+            />
             {/**签到 */}
             <Qiandao />
             {/**剧本库 */}
-            <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'center', marginLeft: pxToDp(48) }} onPress={() => this.context.navigate('Scriptlibrary')}>
+            <TouchableOpacity
+              style={{
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginLeft: pxToDp(48)
+              }}
+              onPress={() => this.context.navigate('Scriptlibrary')}
+            >
               <Ionicons name="library-sharp" size={32} color="#468CD3" />
-              <Text style={{ fontSize: pxToDp(15), marginTop: pxToDp(5) }}>剧本</Text>
+              <Text style={{ fontSize: pxToDp(15), marginTop: pxToDp(5) }}>
+                剧本
+              </Text>
             </TouchableOpacity>
             {/**教程 */}
-            <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'center', marginLeft: pxToDp(48) }} onPress={() => this.context.navigate('Course')} >
+            <TouchableOpacity
+              style={{
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginLeft: pxToDp(48)
+              }}
+              onPress={() => this.context.navigate('Course')}
+            >
               <Ionicons name="md-color-wand" size={32} color="#468CD3" />
-              <Text style={{ fontSize: pxToDp(15), marginTop: pxToDp(5) }}>教程</Text>
+              <Text style={{ fontSize: pxToDp(15), marginTop: pxToDp(5) }}>
+                教程
+              </Text>
             </TouchableOpacity>
             {/**图谱 */}
-            <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'center', marginLeft: pxToDp(48) }} onPress={() => this.context.navigate('Timeline')}>
+            <TouchableOpacity
+              style={{
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginLeft: pxToDp(48)
+              }}
+              onPress={() => this.context.navigate('Timeline')}
+            >
               <Entypo name="colours" size={30} color="#468CD3" />
-              <Text style={{ fontSize: pxToDp(15), marginTop: pxToDp(5) }}>图谱</Text>
+              <Text style={{ fontSize: pxToDp(15), marginTop: pxToDp(5) }}>
+                图谱
+              </Text>
             </TouchableOpacity>
             {/**VR */}
-            <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'center', marginLeft: pxToDp(48), marginRight: pxToDp(10) }} onPress={() => this.context.navigate('VR')} >
+            <TouchableOpacity
+              style={{
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginLeft: pxToDp(48),
+                marginRight: pxToDp(10)
+              }}
+              onPress={() => this.context.navigate('VR')}
+            >
               <Ionicons name="earth-sharp" size={32} color="#468CD3" />
-              <Text style={{ fontSize: pxToDp(15), marginTop: pxToDp(5) }}>VR</Text>
+              <Text style={{ fontSize: pxToDp(15), marginTop: pxToDp(5) }}>
+                VR
+              </Text>
             </TouchableOpacity>
           </ScrollView>
           {/**精选唱段 */}
@@ -211,7 +278,7 @@ class Index extends Component {
             <View
               style={{
                 flexDirection: 'row',
-                justifyContent: 'space-between',
+                justifyContent: 'space-between'
               }}
             >
               <Text
@@ -287,7 +354,7 @@ class Index extends Component {
           <View
             style={{
               margin: pxToDp(8),
-              marginTop: pxToDp(24),
+              marginTop: pxToDp(24)
             }}
           >
             <View
@@ -325,7 +392,7 @@ class Index extends Component {
               flexDirection: 'row',
               justifyContent: 'space-between',
               alignItems: 'center',
-              marginRight:pxToDp(8)
+              marginRight: pxToDp(8)
             }}
           >
             <Text
@@ -410,7 +477,7 @@ class Index extends Component {
                 margin: pxToDp(8),
                 color: '#468CD3',
                 fontWeight: 'bold',
-                marginBottom:pxToDp(0)
+                marginBottom: pxToDp(0)
               }}
             >
               剧本推荐
@@ -448,15 +515,17 @@ class Index extends Component {
                       {item.context}
                     </Text>
                     <View
-                      style={{ flexDirection: 'row', alignItems: 'center', marginTop: pxToDp(5) }}
-                    >
-                    
-                    </View>
+                      style={{
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        marginTop: pxToDp(5)
+                      }}
+                    ></View>
                   </View>
                 </View>
                 <View style={styles.book}>
                   <Image style={styles.bookimage} source={{ uri: item.path }} />
-                  
+
                   <View
                     style={{
                       height: pxToDp(104),
@@ -465,7 +534,9 @@ class Index extends Component {
                       borderTopRightRadius: pxToDp(8),
                       borderBottomRightRadius: pxToDp(8)
                     }}
-                  ><Svg width="20" height="20" svgXmlData={star} /></View>
+                  >
+                    <Svg width="20" height="20" svgXmlData={star} />
+                  </View>
                 </View>
               </View>
             ))}
@@ -495,7 +566,7 @@ const styles = StyleSheet.create({
   bookbox: {
     height: pxToDp(130),
     marginLeft: pxToDp(8),
-    marginRight: pxToDp(8),
+    marginRight: pxToDp(8)
   },
   bookbotton: {
     height: pxToDp(110),
@@ -550,8 +621,8 @@ const styles = StyleSheet.create({
     height: pxToDp(130),
     marginLeft: pxToDp(8),
     marginRight: pxToDp(8),
-    marginTop:pxToDp(8)
-  },
+    marginTop: pxToDp(8)
+  }
 });
 
 export default connect(
