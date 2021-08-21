@@ -11,7 +11,7 @@ class index extends PureComponent {
       videoHeight: pxToDp(220),
       hidden: false
     };
-  }
+  } 
   onIt = () => {
     this.setState({
       videoHeight: pxToDp(800),
