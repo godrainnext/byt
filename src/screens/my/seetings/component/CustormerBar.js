@@ -48,73 +48,66 @@ class Index extends PureComponent {
         <Top icon1="arrow-back" title="个人中心" />
 
         <View>
-          <View style={{ justifyContent: 'center' }}>
-            <ImageBackground
+          <ImageBackground
+            style={{
+              height: pxToDp(320)
+            }}
+          >
+            <TouchableOpacity
               style={{
-                backgroundColor: 'black',
-                opacity: 0.5,
-                width: '100%',
-                height: pxToDp(320)
+                justifyContent: 'center',
+                marginTop: pxToDp(32)
               }}
-            />
-            <View>
-              <TouchableOpacity
+              TouchableOpacity={1}
+            >
+              <View
                 style={{
-                  position: 'absolute',
-                  top: pxToDp(-300),
-                  left: pxToDp(140)
-                }}
-                TouchableOpacity={1}
-              >
-                <View
-                  style={{
-                    backgroundColor: '#fff',
-                    borderRadius: 100,
-                    alignSelf: 'center'
-                  }}
-                >
-                  <Image
-                    source={{
-                      uri: this.props.avatar
-                        ? this.props.avatar
-                        : changeImgSize(avatar, 'small')
-                    }}
-                    style={{
-                      width: pxToDp(90),
-                      height: pxToDp(90),
-                      borderRadius: pxToDp(48),
-                      margin: pxToDp(3)
-                    }}
-                  />
-                </View>
-              </TouchableOpacity>
-              <Text
-                style={{
-                  fontSize: pxToDp(20),
-                  bottom: 190,
-                  fontWeight: 'bold',
-                  color: '#fff',
+                  backgroundColor: '#fff',
+                  borderRadius: pxToDp(100),
                   alignSelf: 'center'
                 }}
-                numberOfLines={1}
               >
-                {nickName}
-              </Text>
-            </View>
+                <Image
+                  source={{
+                    uri: this.props.avatar
+                      ? this.props.avatar
+                      : changeImgSize(avatar, 'small')
+                  }}
+                  style={{
+                    width: pxToDp(90),
+                    height: pxToDp(90),
+                    borderRadius: pxToDp(48),
+                    margin: pxToDp(3)
+                  }}
+                />
+              </View>
+            </TouchableOpacity>
+            <Text
+              style={{
+                fontSize: pxToDp(20),
+                fontWeight: 'bold',
+                color: '#fff',
+                alignSelf: 'center',
+                marginTop: pxToDp(8)
+              }}
+              numberOfLines={1}
+            >
+              {nickName}
+            </Text>
             <View
               style={{
                 flexDirection: 'row',
-                position: 'absolute',
-                top: pxToDp(160),
-                right: pxToDp(0)
+                alignItems: 'center',
+                justifyContent: 'center'
               }}
             >
-              <View style={{ marginRight: pxToDp(20), alignItems: 'center' }}>
+              <View style={{ marginRight: pxToDp(8) }}>
                 <Text
                   style={{
                     fontSize: pxToDp(18),
                     fontWeight: 'bold',
-                    color: '#fcfcfc'
+                    color: '#fcfcfc',
+                    alignSelf: 'center'
                   }}
                 >
                   {fansCount}
@@ -123,12 +116,13 @@ class Index extends PureComponent {
                   粉丝
                 </Text>
               </View>
-              <View style={{ marginRight: pxToDp(145), alignItems: 'center' }}>
+              <View style={{ marginLeft: pxToDp(8) }}>
                 <Text
                   style={{
                     fontSize: pxToDp(18),
                     fontWeight: 'bold',
-                    color: '#fcfcfc'
+                    color: '#fcfcfc',
+                    alignSelf: 'center'
                   }}
                 >
                   {followCount}
@@ -137,53 +131,53 @@ class Index extends PureComponent {
                   关注
                 </Text>
               </View>
-
-              <TouchableOpacity
-                style={{
-                  position: 'absolute',
-                  top: pxToDp(88),
-                  width: pxToDp(150),
-                  right: pxToDp(105),
-                  borderRadius: pxToDp(16),
-                  overflow: 'hidden'
-                }}
-              >
-                <Button
-                  title="编辑资料"
-                  onPress={() =>
-                    this.context.navigate('Ziliao', this.props.userInfo)
-                  }
-                  ViewComponent={LinearGradient}
-                  titleStyle={{
-                    color: '#fcfcfc',
-                    fontWeight: 'bold',
-                    fontSize: 20
-                  }}
-                  linearGradientProps={{
-                    colors: ['#fa9222', '#ffd501'],
-                    start: { x: 0, y: 0.5 },
-                    end: { x: 1, y: 0.5 }
-                  }}
-                />
-              </TouchableOpacity>
             </View>
-
             <View
               style={{
                 alignSelf: 'center',
-                bottom: pxToDp(130),
-
-                width: '80%'
+                width: '80%',
+                height: pxToDp(30)
               }}
             >
               <Text
-                style={{ color: '#fcfcfc', fontSize: 15, alignSelf: 'center' }}
+                style={{
+                  color: '#fcfcfc',
+                  fontSize: pxToDp(15),
+                  alignSelf: 'center',
+                  marginTop: pxToDp(4)
+                }}
                 numberOfLines={1}
               >
                 {ownSay}
               </Text>
             </View>
-          </View>
+            <TouchableOpacity
+              style={{
+                width: pxToDp(150),
+                borderRadius: pxToDp(16),
+                alignSelf: 'center',
+                overflow: 'hidden'
+              }}
+            >
+              <Button
+                title="编辑资料"
+                onPress={() =>
+                  this.context.navigate('Ziliao', this.props.userInfo)
+                }
+                ViewComponent={LinearGradient}
+                titleStyle={{
+                  color: '#fcfcfc',
+                  fontWeight: 'bold',
+                  fontSize: pxToDp(18)
+                }}
+                linearGradientProps={{
+                  colors: ['#fa9222', '#ffd501'],
+                  start: { x: 0, y: 0.5 },
+                  end: { x: 1, y: 0.5 }
+                }}
+              />
+            </TouchableOpacity>
+          </ImageBackground>
         </View>
       </View>
     );

@@ -187,13 +187,13 @@ class index extends PureComponent {
               height: '80%',
               backgroundColor: '#ddd',
               width: '75%',
-              marginLeft: pxToDp(20),
+              marginLeft: pxToDp(12),
               borderRadius: pxToDp(24),
               paddingLeft: pxToDp(10)
             }}
           />
           <TouchableOpacity>
-            <Text style={{ marginLeft: pxToDp(20) }}>发布</Text>
+            <Text style={{ marginLeft: pxToDp(12) }}>发布</Text>
           </TouchableOpacity>
         </View>
       </View>

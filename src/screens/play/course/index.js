@@ -26,7 +26,7 @@ class Index extends PureComponent {
   render() {
     return (
       <View style={{ backgroundColor: '#ecf6fc', flex: 1 }}>
-        <View style={{ marginLeft: pxToDp(10), marginRight: pxToDp(10) }}>
+        <View style={{ marginLeft: pxToDp(8), marginRight: pxToDp(8) }}>
           <Top icon1="arrow-back" title="教程" />
           <ScrollView style={{ marginBottom: pxToDp(50) }}>
             {/*视频 */}
@@ -42,21 +42,22 @@ class Index extends PureComponent {
                 style={{
                   width: pxToDp(355),
                   height: pxToDp(200),
-                  marginTop:pxToDp(10)
+                  marginTop: pxToDp(10)
                 }}
               />
             </View>
             <View
               style={{
+                width: '100%',
                 flexDirection: 'row',
-                justifyContent: 'center',
+                justifyContent: "space-between",
                 alignItems: 'center',
-                marginTop: pxToDp(10)
+                marginTop: pxToDp(16)
               }}
             >
               <TouchableOpacity onPress={() => this.context.navigate("Basic")}
                 style={{
-                  width: '48%',
+                  width: '49%',
                   height: pxToDp(80),
                   justifyContent: 'space-between',
                   flexDirection: 'row',
@@ -96,7 +97,7 @@ class Index extends PureComponent {
               </TouchableOpacity>
               <TouchableOpacity onPress={() => this.context.navigate("Master")}
                 style={{
-                  width: '48%',
+                  width: '49%',
                   height: pxToDp(80),
                   backgroundColor: 'rgba(255,255,255,0.5)',
                   borderRadius: pxToDp(8),
@@ -130,7 +131,7 @@ class Index extends PureComponent {
               </TouchableOpacity>
             </View>
             {/*轮播图 */}
-            <View style={{ margin: pxToDp(8), borderRadius: pxToDp(24) }}>
+            <View style={{ marginTop: pxToDp(16), width: '100%' }}>
               <SnapCarousel />
             </View>
             {/* 大图视频 */}
@@ -138,11 +139,11 @@ class Index extends PureComponent {
               style={{
                 height: pxToDp(220),
                 flexDirection: 'row',
-                justifyContent: 'center',
-                alignItems: 'center'
+                alignItems: 'center',
+                marginTop: pxToDp(16)
               }}
             >
-              <View style={{ width: '96%', height: '100%' }}>
+              <View style={{ width: '100%', height: '100%' }}>
                 <TouchableOpacity onPress={() => this.context.navigate()}>
                   <ImageBackground
                     style={{ width: '100%', height: pxToDp(220) }}
@@ -171,7 +172,7 @@ class Index extends PureComponent {
                         borderRadius: pxToDp(8)
                       }}
                     >
-                      <View style={{ margin: pxToDp(10) }}>
+                      <View style={{ margin: pxToDp(8) }}>
                         <View
                           style={{
                             flexDirection: 'row',
@@ -204,23 +205,24 @@ class Index extends PureComponent {
             {/*专栏 */}
             <View
               style={{
-                margin: pxToDp(8),
+                marginTop: pxToDp(16),
                 borderRadius: pxToDp(8),
                 height: pxToDp(210),
-                backgroundColor: 'rgba(255,255,255,0.5)'
+                backgroundColor: 'rgba(255,255,255,0.5)',
+                width: '100%'
               }}
             >
               <ImageBackground
                 style={{ width: '100%', height: pxToDp(140) }}
                 imageStyle={{
-                  borderTopLeftRadius: pxToDp(10),
-                  borderTopRightRadius: pxToDp(10)
+                  borderTopLeftRadius: pxToDp(8),
+                  borderTopRightRadius: pxToDp(8)
                 }}
                 source={{
                   uri: 'https://tse2-mm.cn.bing.net/th/id/OIP-C.yUcdUl1MMg1qEIH3eSR2tQHaEo?w=258&h=180&c=7&o=5&dpr=1.75&pid=1.7'
                 }}
               >
-                <View style={{ margin: pxToDp(10) }}>
+                <View style={{ margin: pxToDp(8) }}>
                   <View
                     style={{
                       flexDirection: 'row',
@@ -412,9 +414,9 @@ class Index extends PureComponent {
             {/* 轮播图 */}
             <View
               style={{
-                margin: pxToDp(8),
-                borderRadius: pxToDp(20),
-                height: pxToDp(110)
+                borderRadius: pxToDp(16),
+                height: pxToDp(110),
+                marginTop:pxToDp(16)
               }}
             >
               <Carousel control style={{ height: pxToDp(110) }}>
@@ -422,7 +424,7 @@ class Index extends PureComponent {
                   style={{
                     width: '100%',
                     height: pxToDp(100),
-                    borderRadius: pxToDp(24),
+                    borderRadius: pxToDp(16),
                     backgroundColor: 'rgba(255,255,255,0.5)',
                     justifyContent: 'space-around',
                     alignItems: 'center'
@@ -478,7 +480,7 @@ class Index extends PureComponent {
                   style={{
                     width: '100%',
                     height: pxToDp(100),
-                    borderRadius: pxToDp(24),
+                    borderRadius: pxToDp(16),
                     backgroundColor: 'rgba(255,255,255,0.5)',
                     justifyContent: 'space-around',
                     alignItems: 'center'
@@ -588,18 +590,17 @@ class Index extends PureComponent {
                 </View>
               </Carousel>
             </View>
-
             {/* 大图视频 */}
             <View
               style={{
                 height: pxToDp(220),
                 flexDirection: 'row',
-                justifyContent: 'center',
                 alignItems: 'center',
-                marginBottom: pxToDp(24)
+                marginTop: pxToDp(8),
+                marginBottom:pxToDp(30)
               }}
             >
-              <View style={{ width: '96%', height: '100%' }}>
+              <View style={{ width: '100%', height: '100%' }}>
                 <TouchableOpacity onPress={() => this.context.navigate()}>
                   <ImageBackground
                     style={{ width: '100%', height: pxToDp(220) }}
@@ -628,12 +629,12 @@ class Index extends PureComponent {
                         borderRadius: pxToDp(8)
                       }}
                     >
-                      <View style={{ margin: pxToDp(10) }}>
+                      <View style={{ margin: pxToDp(8) }}>
                         <View
                           style={{
                             flexDirection: 'row',
                             justifyContent: 'center',
-                            alignItems: 'center'
+                            alignItems: 'center',
                           }}
                         >
                           <Text style={{ fontSize: pxToDp(16), width: '96%' }}>

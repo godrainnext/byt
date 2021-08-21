@@ -45,7 +45,7 @@ class Index extends PureComponent {
               autoplay={true}
               showsPagination={false}
               autoplayTimeout={3}
-              style={{ marginTop: pxToDp(15) }}
+              style={{ marginTop: pxToDp(8) }}
             >
               <View style={styles.slide}>
                 <Image
@@ -71,21 +71,22 @@ class Index extends PureComponent {
           <View
             style={{
               height: pxToDp(20),
-              marginLeft: pxToDp(10),
-              marginBottom: pxToDp(15)
+              marginLeft: pxToDp(8),
+              marginBottom: pxToDp(8),
+              marginTop:pxToDp(-8)
             }}
           >
             <Text style={{ color: '#468CD3', fontSize: pxToDp(18), fontWeight: 'bold', position: 'absolute' }}>
               长袖轻舞，越音袅袅
             </Text>
           </View>
-          <View style={{margin:pxToDp(10),flexDirection:'row'}}>
+          <View style={{margin:pxToDp(8),flexDirection:'row'}}>
             {/*线下门票 */}
             <TouchableOpacity onPress={() => this.context.navigate('ticket')}>
               <Image style={styles.image3} source={require('../../../res/门票.jpg')} />
             </TouchableOpacity>
             {/*戏服租赁 */}
-            <View style={{height:pxToDp(170),justifyContent: 'space-between',marginLeft:pxToDp(15)}}>
+            <View style={{height:pxToDp(170),justifyContent: 'space-between',marginLeft:pxToDp(10)}}>
               <TouchableOpacity onPress={() => this.context.navigate('Zulin', 0)}>
                 <Image
                   style={styles.image4}
@@ -134,24 +135,23 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     height: pxToDp(200),
-    margin: pxToDp(10),
+    margin: pxToDp(8),
     borderRadius: pxToDp(8)
   },
   tcard: {
     flexDirection: 'row',
-    flexWrap: 'wrap',
-    width: pxToDp(420)
+    width:'100%',
+    justifyContent:'space-between'
   },
   ocard: {
     backgroundColor: 'white',
-    width: pxToDp(170),
+    width: pxToDp(174),
     borderRadius: pxToDp(8),
-    margin: pxToDp(10),
-    marginRight: pxToDp(5)
+    margin: pxToDp(8)
   },
   image: {
     height: pxToDp(170),
-    width: pxToDp(170),
+    width: pxToDp(174),
     borderTopLeftRadius: pxToDp(8),
     borderTopRightRadius: pxToDp(8)
   },
@@ -162,8 +162,7 @@ const styles = StyleSheet.create({
     marginBottom: pxToDp(10)
   },
   title: {
-    margin: pxToDp(10),
-    marginTop: pxToDp(-4),
+    margin: pxToDp(8),
     color: '#468CD3',
     fontSize: pxToDp(18),
     fontWeight: 'bold'
@@ -194,13 +193,13 @@ const styles = StyleSheet.create({
     marginTop: pxToDp(3)
   },
   image3: {
-    height: pxToDp(170),
-    width: pxToDp(170),
+    height: pxToDp(174),
+    width: pxToDp(174),
     borderRadius: pxToDp(8)
   },
   image4: {
     height: pxToDp(80),
-    width: pxToDp(170),
+    width: pxToDp(174),
     borderRadius: pxToDp(8),
     alignSelf: 'center'
   }

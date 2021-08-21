@@ -59,7 +59,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flexWrap: 'wrap'
   },
-
   tcard: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -70,13 +69,13 @@ const styles = StyleSheet.create({
     width: pxToDp(170),
     borderRadius: pxToDp(8),
     margin: pxToDp(10),
-    marginRight: pxToDp(5)
+    marginRight: pxToDp(8),
   },
   image: {
     height: pxToDp(170),
     width: pxToDp(170),
-    borderTopLeftRadius: pxToDp(10),
-    borderTopRightRadius: pxToDp(10)
+    borderTopLeftRadius: pxToDp(8),
+    borderTopRightRadius: pxToDp(8)
   },
   bottext: {
     flexDirection: 'row',

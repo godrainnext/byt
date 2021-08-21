@@ -5,6 +5,7 @@ import React, { PureComponent } from 'react';
 import { Text, View, StyleSheet, TouchableOpacity } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { NavigationContext } from '@react-navigation/native';
+import { pxToDp } from '../../../utils/styleKits';
 export default class HeaderHaveBackNoshare extends PureComponent {
   constructor(props) {
     super(props);
@@ -45,27 +46,27 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     backgroundColor: 'gray',
-    height: 100,
+    height: pxToDp(100),
     width: '100%',
     justifyContent: 'space-between'
   },
   back: {
     justifyContent: 'center',
-    marginLeft: 20
+    marginLeft: pxToDp(24)
   },
   share: {
     justifyContent: 'center',
-    marginRight: 10
+    marginRight: pxToDp(8)
   },
   textview: {
     alignItems: 'center'
   },
   textstyle: {
-    fontSize: 22,
+    fontSize: pxToDp(22),
     color: '#fff'
   },
   textstyle1: {
-    fontSize: 18,
+    fontSize: pxToDp(18),
     color: '#fff'
   }
 });

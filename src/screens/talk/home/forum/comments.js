@@ -37,14 +37,13 @@ class Index extends PureComponent {
   };
   reply = (id) => {
     this.props.inputRef.focus();
-    console.log(this.props.inputRef);
   };
-  _submit = async (id) => {
+  _submit = (id) => {
     if (!this.state.mycomment) {
       return alert('留言不能为空');
     }
 
-    await request
+    request
       .post({
         url: `comment/${id}/reply`,
         data: { content: this.state.mycomment }

@@ -67,7 +67,7 @@ carouselRef.current.snapToNext();
             <Carousel
                 ref={carouselRef}
                 inactiveSlideScale={0.9}
-                sliderWidth={pxToDp(330)}
+                sliderWidth={pxToDp(360)}
                 firstItem={0}
                 itemWidth={pxToDp(280)}
                 data={entries}
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     item: {
-        width: pxToDp(290),
+        width:'100%',
         height: pxToDp(240),
     },
     imageContainer: {

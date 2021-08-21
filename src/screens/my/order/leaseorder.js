@@ -254,7 +254,7 @@ class orders extends PureComponent {
             <View
               style={{
                 alignItems: 'flex-end',
-                marginRight: pxToDp(10),
+                marginRight: pxToDp(8),
                 justifyContent: 'space-between',
                 flexDirection: 'row',
                 marginTop: pxToDp(10),

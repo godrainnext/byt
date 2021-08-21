@@ -110,20 +110,20 @@ const styles = StyleSheet.create({
   box: {
     height: pxToDp(120),
     justifyContent: 'space-between',
-    marginLeft: pxToDp(10),
+    marginLeft: pxToDp(8),
     marginTop: pxToDp(20)
   },
   botbox: {
     backgroundColor: '#ecf6fc',
     marginTop: pxToDp(-10),
-    borderTopLeftRadius: pxToDp(10),
-    borderTopRightRadius: pxToDp(10)
+    borderTopLeftRadius: pxToDp(8),
+    borderTopRightRadius: pxToDp(8)
   },
   image: {
     height: pxToDp(130),
     width: pxToDp(170),
-    borderTopRightRadius: pxToDp(10),
-    borderTopLeftRadius: pxToDp(10)
+    borderTopRightRadius: pxToDp(8),
+    borderTopLeftRadius: pxToDp(8)
   },
   imagebox: {
     borderRadius: pxToDp(8),

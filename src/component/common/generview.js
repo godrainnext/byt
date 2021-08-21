@@ -28,8 +28,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: 'rgba(255,255,255,0.5)',
     height: pxToDp(110),
-    marginLeft: pxToDp(10),
-    marginRight: pxToDp(10),
+    marginLeft: pxToDp(8),
+    marginRight: pxToDp(8),
     marginBottom: pxToDp(5),
     marginBottom: pxToDp(5),
     borderRadius: pxToDp(8)

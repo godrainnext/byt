@@ -19,7 +19,7 @@ class Index extends PureComponent {
           {this.state.zzz.map((item, id) => (
             <View style={styles.box2}>
               <View style={{ width: pxToDp(220) }}>
-                <Text style={{ fontSize: pxToDp(16), marginTop: pxToDp(5) }}>
+                <Text style={{ fontSize: pxToDp(16), marginTop: pxToDp(8) }}>
                   全国越剧汇演之上海越剧院《双珠凤》，方亚芬徐标新主演
                 </Text>
               </View>
@@ -37,10 +37,10 @@ class Index extends PureComponent {
 export default Index;
 const styles = StyleSheet.create({
   box2: {
-    margin: pxToDp(10),
+    margin: pxToDp(8),
     flexDirection: 'row',
     borderBottomColor: 'grey',
-    borderBottomWidth: pxToDp(1),
+    borderBottomWidth: pxToDp(0.5),
     height: pxToDp(110)
   },
   image4: {

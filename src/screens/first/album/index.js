@@ -24,7 +24,7 @@ class Index extends PureComponent {
       <View style={{ backgroundColor: '#ecf6fc', flex: 1 }}>
         <Top icon1="arrow-back" />
         {/*头部信息 */}
-        <View style={{ marginLeft: pxToDp(10), marginRight: pxToDp(10) }}>
+        <View style={{ marginLeft: pxToDp(8), marginRight: pxToDp(8) }}>
           <View
             style={{
               flexDirection: 'row',

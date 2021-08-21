@@ -8,7 +8,7 @@ import {
   getRoleMomentById,
   getRolePicById
 } from '../../../service/home/actress';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 
 const TabView1 = memo(function (props) {
   const [videoList, setvideoList] = useState([1]);
@@ -17,14 +17,14 @@ const TabView1 = memo(function (props) {
     getRoleVideoById(props.id).then((res) => {
       setvideoList(res.videoList);
     });
-  }, [props.id]);
+  }, []);
 
   return (
     <ScrollView {...props}>
       <View>
         {videoList.map((item) => (
           <TouchableOpacity
-            style={{ margin: pxToDp(10) }}
+            style={{ margin: pxToDp(8) }}
             onPress={() => navigation.navigate('Video', item.id)}
           >
             <Image style={styles.image1} source={{ uri: item.avatar }} />
@@ -41,8 +41,7 @@ const TabView2 = memo(function (props) {
     getRolePicById(props.id).then((res) => {
       setpicList(res.picList);
     });
-  }, [props.id]);
-  console.log(picList);
+  }, []);
   return (
     <ScrollView {...props}>
       <View>
@@ -64,30 +63,34 @@ const TabView2 = memo(function (props) {
   );
 });
 const TabView3 = memo(function (props) {
+  const navigation = useNavigation();
+
   const [momentList, setmomentList] = useState([1]);
   useEffect(() => {
     getRoleMomentById(props.id).then((res) => {
       setmomentList(res.momentList);
     });
-  }, [props.id]);
+  }, []);
   return (
     <ScrollView {...props}>
-      <View>
-        {momentList.map((item) => (
-          <View style={styles.box} key={item.id}>
-            <Image style={styles.image3} source={{ uri: item.avatar }} />
-            <View
-              style={{
-                marginLeft: pxToDp(10),
-                marginTop: pxToDp(8),
-                width: pxToDp(280)
-              }}
-            >
-              <Text style={styles.text}>{item.title}</Text>
-            </View>
+      {momentList.map((item) => (
+        <TouchableOpacity
+          onPress={() => navigation.navigate('Pagefive', item.id)}
+          style={styles.box}
+          key={item.id}
+        >
+          <Image style={styles.image3} source={{ uri: item.avatar }} />
+          <View
+            style={{
+              marginLeft: pxToDp(10),
+              marginTop: pxToDp(8),
+              width: pxToDp(280)
+            }}
+          >
+            <Text style={styles.text}>{item.title}</Text>
           </View>
-        ))}
-      </View>
+        </TouchableOpacity>
+      ))}
     </ScrollView>
   );
 });

@@ -43,7 +43,7 @@ export default class index extends PureComponent {
         {
           id: '3',
           posters: require('../../../../res/ticket3.jpg'),
-          name: '【杭州】此情关分月 拾光谱新篇 ——杭州越剧院建院65周年“四季有越”2021年度巡演·杭州站',
+          name: '【杭州】此情关风月 拾光谱新篇 ——杭州越剧院建院65周年“四季有越”2021年度巡演·杭州站',
           type: '曲苑杂坛',
           date: '2021.10.04-10.05',
           place: '杭州|杭州剧院',

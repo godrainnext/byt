@@ -22,14 +22,14 @@ class Index extends PureComponent {
 }
 const styles = StyleSheet.create({
   box: {
-    margin: pxToDp(10),
+    margin: pxToDp(8),
     alignItems: 'center'
   },
   image: {
     height: pxToDp(90),
     width: pxToDp(90),
     borderRadius: pxToDp(48),
-    margin: pxToDp(10)
+    margin: pxToDp(8)
   },
   text1: {
     fontSize: pxToDp(17),

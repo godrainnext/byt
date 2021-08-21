@@ -1,22 +1,95 @@
-import React, { PureComponent, createRef } from 'react';
-import { View, Text, Image, StyleSheet, ScrollView, TouchableOpacity, ImageBackground, Modal, Alert } from 'react-native';
+import React, { Component, createRef, memo } from 'react';
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity,
+  ImageBackground,
+  Modal,
+  Alert
+} from 'react-native';
 import { pxToDp } from '@utils/styleKits';
-import { NavigationContext } from "@react-navigation/native";
+import { NavigationContext } from '@react-navigation/native';
 import SvgUri from 'react-native-svg-uri';
-import { BottomSheet, ListItem } from 'react-native-elements';
-import { } from 'react-native-elements/dist/list/ListItem';
-import { sandian } from '../../../../component/common/iconSvg'
+import { sandian } from '../../../../component/common/iconSvg';
 import { Audio } from 'expo-av';
-import { Video } from 'expo-av'
-import { playmusic, dianzan, zhuanfa, pinglun, stopmusic } from '../../../../component/common/iconSvg';
+import { Video } from 'expo-av';
+import {
+  playmusic,
+  dianzan,
+  zhuanfa,
+  pinglun,
+  stopmusic
+} from '../../../../component/common/iconSvg';
 import Ionicons from 'react-native-vector-icons/FontAwesome';
+import { useRef } from 'react';
+import { PureComponent } from 'react';
+
+const Music = memo(function (props) {
+  const video = useRef();
+  return (
+    <ImageBackground
+      style={{ flex: 1, height: pxToDp(150), marginTop: pxToDp(10) }}
+      source={{ uri: props.item.picture }}
+    >
+      <Video
+        ref={video}
+        source={{ uri: props.item.music }}
+        resizeMode="contain"
+        onPlaybackStatusUpdate={props.onPlaybackStatusUpdate}
+      />
+      <TouchableOpacity
+        style={{ position: 'absolute', bottom: 10, right: 10, opacity: 0.5 }}
+        onPress={() =>
+          props.status.isPlaying
+            ? video.current.pauseAsync()
+            : video.current.playAsync()
+        }
+      >
+        <SvgUri
+          svgXmlData={props.status.isPlaying ? stopmusic : playmusic}
+          width="30"
+          height="30"
+        />
+      </TouchableOpacity>
+    </ImageBackground>
+  );
+});
+const Article = memo((props) => {
+  return (
+    <ScrollView
+      style={{ height: pxToDp(120), marginTop: pxToDp(10) }}
+      horizontal={true}
+      showsHorizontalScrollIndicator={false}
+    >
+      {props.item.images?.map((item, index) => (
+        <Image
+          key={item}
+          style={{
+            width: pxToDp(155),
+            height: '100%',
+            borderRadius: pxToDp(10),
+            marginRight: pxToDp(10)
+          }}
+          source={{ uri: item }}
+        />
+      ))}
+    </ScrollView>
+  );
+});
 class Index extends PureComponent {
   state = {
     modalVisible: false,
-    status: {}
+    status: {},
+    count: 0
   };
   setModalVisible = (visible) => {
     this.setState({ modalVisible: visible });
+  };
+  onPlaybackStatusUpdate = (status) => {
+    this.setState({ status });
   };
   playSound = async () => {
     if (this.state.sound.length) {
@@ -27,16 +100,11 @@ class Index extends PureComponent {
         await sound.playAsync();
       }
       this.setState({ isplay: true });
-
-      console.log(this.state.sound);
     } else {
       for (const uri of this.state.URI) {
         const { sound } = await Audio.Sound.createAsync({ uri });
         this.setState({ sound: [...this.state.sound, sound] });
       }
-
-      console.log('Loading Sound');
-      console.log('Playing Sound');
       for (const sound of this.state.sound) {
         this.setState({ playingsong: sound });
         await sound.playAsync();
@@ -52,67 +120,17 @@ class Index extends PureComponent {
     await this.state.playingsong.pauseAsync();
     this.setState({ isplay: false });
   };
-  showMusic = (obj) => {
-    const video = createRef();
-    return (
-      <ImageBackground
-        key={obj.music}
-        style={{ flex: 1, height: pxToDp(150), marginTop: pxToDp(10) }}
-        source={{ uri: obj.picture }}
-      >
-        <Video
-          ref={video}
-          source={{ uri: obj.music }}
-          resizeMode="contain"
-          onPlaybackStatusUpdate={(status) => this.setState({ status })}
-        />
-        <TouchableOpacity
-          style={{ position: 'absolute', bottom: 10, right: 10, opacity: 0.5 }}
-          onPress={() =>
-            this.state.status.isPlaying
-              ? video.current.pauseAsync()
-              : video.current.playAsync()
-          }
-        >
-          <SvgUri
-            svgXmlData={this.state.status.isPlaying ? stopmusic : playmusic}
-            width="30"
-            height="30"
-          />
-        </TouchableOpacity>
-      </ImageBackground>
-    );
-  };
-  showArticle = (obj) => {
-    console.log(obj);
-    return (
-      <ScrollView
-        style={{ flex: 1, height: pxToDp(120), marginTop: pxToDp(10) }}
-        horizontal={true}
-        showsHorizontalScrollIndicator={false}
-      >
-        {obj.images?.map((item) => (
-          <Image
-            key={item}
-            style={{
-              width: pxToDp(155),
-              height: '100%',
-              borderRadius: pxToDp(8),
-              marginRight: pxToDp(10)
-            }}
-            source={{ uri: item }}
-          />
-        ))}
-      </ScrollView>
-    );
+
+  jubao = () => {
+    this.setModalVisible(!modalVisible);
+    this.context.navigate('Jubao');
   };
   static contextType = NavigationContext;
   render() {
+    const music = this.props.dongtai.filter((item) => item.label);
+    const actress = this.props.dongtai.filter((item) => !item.label);
+    console.log('render');
     const { modalVisible } = this.state;
-    const jubao = () => {
-      this.setModalVisible(!modalVisible);
-      this.context.navigate('Jubao');
-    };
     return (
       <View>
         <View style={styles.centeredView}>
@@ -150,7 +168,7 @@ class Index extends PureComponent {
                     </TouchableOpacity>
                     <TouchableOpacity
                       style={{ alignItems: 'center' }}
-                      onPress={jubao}
+                      onPress={this.jubao}
                     >
                       <Ionicons name="exclamation" size={25} color="#DC143C" />
                       <Text>举报</Text>
@@ -169,7 +187,7 @@ class Index extends PureComponent {
                       borderColor: 'black',
                       height: pxToDp(25),
                       width: pxToDp(200),
-                      borderRadius: pxToDp(16),
+                      borderRadius: pxToDp(12),
                       alignItems: 'center',
                       marginTop: pxToDp(20)
                     }}
@@ -190,7 +208,7 @@ class Index extends PureComponent {
               marginBottom: pxToDp(20)
             }}
           >
-            {this.props.dongtai.map((item, dtid) => (
+            {actress.map((item) => (
               <View
                 key={item.id}
                 style={{
@@ -198,7 +216,7 @@ class Index extends PureComponent {
                   borderWidth: 0,
                   marginBottom: pxToDp(20),
                   backgroundColor: 'white',
-                  borderRadius: pxToDp(24)
+                  borderRadius: pxToDp(20)
                 }}
               >
                 <TouchableOpacity
@@ -259,7 +277,6 @@ class Index extends PureComponent {
                   <TouchableOpacity
                     onPress={() => {
                       this.context.navigate('Inluntan', item.id);
-                      console.log(item);
                     }}
                   >
                     <Text
@@ -274,7 +291,11 @@ class Index extends PureComponent {
                     </Text>
                   </TouchableOpacity>
 
-                  {item.label ? this.showMusic(item) : this.showArticle(item)}
+                  <Article
+                    status={this.state.status}
+                    item={item}
+                    onPlaybackStatusUpdate={this.onPlaybackStatusUpdate}
+                  />
                 </View>
                 <View
                   style={{
@@ -283,7 +304,12 @@ class Index extends PureComponent {
                     marginBottom: pxToDp(10)
                   }}
                 >
-                  <TouchableOpacity style={{ flexDirection: 'row' }}>
+                  <TouchableOpacity
+                    style={{ flexDirection: 'row' }}
+                    onPress={() =>
+                      this.setState({ count: this.state.count + 1 })
+                    }
+                  >
                     <SvgUri svgXmlData={dianzan} width="20" height="20" />
                     <Text
                       style={{
@@ -292,6 +318,132 @@ class Index extends PureComponent {
                         left: pxToDp(30)
                       }}
                     >
+                      {this.state.count}
+                      {item.dz}
+                    </Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity
+                    onPress={() => this.context.navigate('Inluntan', item.id)}
+                  >
+                    <SvgUri svgXmlData={pinglun} width="20" height="20" />
+                  </TouchableOpacity>
+                  <TouchableOpacity>
+                    <SvgUri svgXmlData={zhuanfa} width="25" height="25" />
+                  </TouchableOpacity>
+                </View>
+              </View>
+            ))}
+            {music.map((item) => (
+              <View
+                key={item.id}
+                style={{
+                  elevation: 2,
+                  borderWidth: 0,
+                  marginBottom: pxToDp(20),
+                  backgroundColor: 'white',
+                  borderRadius: pxToDp(20)
+                }}
+              >
+                <TouchableOpacity
+                  style={{
+                    position: 'absolute',
+                    top: pxToDp(30),
+                    right: pxToDp(30)
+                  }}
+                  onPress={() => {
+                    this.setModalVisible(true);
+                  }}
+                >
+                  <SvgUri svgXmlData={sandian} width="20" height="20" />
+                </TouchableOpacity>
+                <View style={{ flexDirection: 'row', margin: pxToDp(10) }}>
+                  <Image
+                    source={{ uri: item.user.avatar }}
+                    style={{
+                      width: pxToDp(60),
+                      height: pxToDp(60),
+                      borderRadius: pxToDp(40),
+                      marginLeft: pxToDp(20),
+                      marginTop: pxToDp(10)
+                    }}
+                  />
+                  <TouchableOpacity
+                    onPress={() => this.context.navigate('Inluntan', item.id)}
+                  >
+                    <View style={{ marginTop: pxToDp(10) }}>
+                      <Text
+                        style={{
+                          fontSize: pxToDp(25),
+                          fontWeight: 'bold',
+                          paddingLeft: pxToDp(20)
+                        }}
+                      >
+                        {item.user.nickName}
+                      </Text>
+                      <Text
+                        style={{
+                          fontSize: pxToDp(15),
+                          paddingLeft: pxToDp(20),
+                          marginTop: pxToDp(5)
+                        }}
+                      >
+                        {item.createTime}
+                      </Text>
+                    </View>
+                  </TouchableOpacity>
+                </View>
+                <View
+                  style={{
+                    width: '90%',
+                    marginBottom: pxToDp(30),
+                    alignSelf: 'center'
+                  }}
+                >
+                  <TouchableOpacity
+                    onPress={() => {
+                      this.context.navigate('Inluntan', item.id);
+                    }}
+                  >
+                    <Text
+                      style={{
+                        fontSize: pxToDp(18),
+                        marginBottom: pxToDp(10),
+                        paddingLeft: pxToDp(8),
+                        marginTop: pxToDp(10)
+                      }}
+                    >
+                      {item.content}
+                    </Text>
+                  </TouchableOpacity>
+
+                  <Music
+                    status={this.state.status}
+                    item={item}
+                    onPlaybackStatusUpdate={this.onPlaybackStatusUpdate}
+                  />
+                </View>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    justifyContent: 'space-around',
+                    marginBottom: pxToDp(10)
+                  }}
+                >
+                  <TouchableOpacity
+                    style={{ flexDirection: 'row' }}
+                    onPress={() =>
+                      this.setState({ count: this.state.count + 1 })
+                    }
+                  >
+                    <SvgUri svgXmlData={dianzan} width="20" height="20" />
+                    <Text
+                      style={{
+                        position: 'absolute',
+                        bottom: pxToDp(5),
+                        left: pxToDp(30)
+                      }}
+                    >
+                      {this.state.count}
                       {item.dz}
                     </Text>
                   </TouchableOpacity>
@@ -318,13 +470,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: pxToDp(22)
+    marginTop: 22
   },
   modalView: {
-    margin: pxToDp(20),
+    margin: 20,
     backgroundColor: 'white',
-    borderRadius: pxToDp(24),
-    padding: pxToDp(35),
+    borderRadius: 20,
+    padding: 35,
     alignItems: 'center',
     shadowColor: '#000',
     shadowOffset: {
@@ -341,10 +493,9 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   modalText: {
-    marginBottom: pxToDp(15),
+    marginBottom: 15,
     textAlign: 'center'
   }
 });
-
 
 export default Index;

@@ -19,35 +19,21 @@ class Index extends PureComponent {
       {
         selected: 'first',
         title: '越台',
-        renderIcon: () => (
-          <Image
-            style={{ width: pxToDp(80), height: pxToDp(28) }}
-            source={require('./sb4.png')}
-          ></Image>
-        ),
+        renderIcon: () => <Image style={{ width: pxToDp(30), height: pxToDp(28) }} source={require("./sb11.png")}></Image>,
         renderSelectedIcon: () => (
-          <Image
-            style={{ width: pxToDp(100), height: pxToDp(28) }}
-            source={require('./sb4.png')}
-          ></Image>
+          <Image style={{ width: pxToDp(35), height: pxToDp(28) }} source={require("./sb11.png")}></Image>
         ),
         onPress: () => this.setState({ selectedTab: 'first' }),
-        component: <First />
+        component: <First />,
+
+
       },
       {
         selected: 'talk',
         title: '戏缘',
-        renderIcon: () => (
-          <Image
-            style={{ width: pxToDp(80), height: pxToDp(28) }}
-            source={require('./sb1.png')}
-          ></Image>
-        ),
+        renderIcon: () => <Image style={{ width: pxToDp(30), height: pxToDp(28) }} source={require("./sb22.png")}></Image>,
         renderSelectedIcon: () => (
-          <Image
-            style={{ width: pxToDp(100), height: pxToDp(28) }}
-            source={require('./sb1.png')}
-          ></Image>
+          <Image style={{ width: pxToDp(35), height: pxToDp(28) }} source={require("./sb22.png")}></Image>
         ),
         onPress: () => this.setState({ selectedTab: 'talk' }),
         component: <Talk />
@@ -126,63 +112,58 @@ class Index extends PureComponent {
 
       },
       {
-        selected: 'shop',
-        title: '越市',
-        renderIcon: () => <Image style={{ width: pxToDp(80), height: pxToDp(28) }} source={require("./sb2.png")}></Image>,
+  selected: 'shop',
+    title: '越市',
+      renderIcon: () => <Image style={{ width: pxToDp(30), height: pxToDp(30) }} source={require("./sb33.png")}></Image>,
         renderSelectedIcon: () => (
-          <Image
-            style={{ width: pxToDp(95), height: pxToDp(28) }}
-            source={require('./sb2.png')}
-          ></Image>
+          <Image style={{ width: pxToDp(35), height: pxToDp(28)}} source={require("./sb33.png")}></Image>
         ),
-        onPress: () => this.setState({ selectedTab: 'shop' }),
-        component: <Shop />
-      },
-      {
-        selected: 'my',
-        title: '戏痴',
-        renderIcon: () => (
-          <Image
-            style={{ width: pxToDp(80), height: pxToDp(28) }}
-            source={require('./sb3.png')}
-          ></Image>
-        ),
+          onPress: () => this.setState({ selectedTab: 'shop' }),
+            component: <Shop />
+},
+{
+  selected: 'my',
+    title: '戏痴',
+      renderIcon: () => <Image style={{ width: pxToDp(30), height: pxToDp(30) }} source={require("./sb44.png")}></Image>,
         renderSelectedIcon: () => (
-          <Image
-            style={{ width: pxToDp(95), height: pxToDp(28) }}
-            source={require('./sb3.png')}
-          ></Image>
+          <Image style={{ width: pxToDp(35), height: pxToDp(28) }} source={require("./sb44.png")}></Image>
         ),
         onPress: () => this.setState({ selectedTab: 'my' }),
         component: <My />
       }
     ]
   };
-  render() {
-    const { selectedTab, pages } = this.state;
-    return (
-      <TabNavigator style={{ backgroundColor: '#e2f4fe' }}>
-        {pages.map((v, i) => (
-          <TabNavigator.Item
-            key={v.title}
-            selected={selectedTab === v.selected}
-            title={v.title}
-            renderIcon={v.renderIcon}
-            renderSelectedIcon={v.renderSelectedIcon}
-            onPress={v.onPress}
-            selectedTitleStyle={{ color: '#468cd3' }}
-            tabStyle={{
-              height: pxToDp(51),
-              backgroundColor: '#ecf6fc',
-              justifyContent: 'center'
-            }}
-          >
-            {v.component}
-          </TabNavigator.Item>
-        ))}
-      </TabNavigator>
-    );
-  }
+render() {
+  const { selectedTab, pages } = this.state;
+  return (
+    <View style={{    backgroundColor:'#fff',flex:1}}>  
+    <TabNavigator style={{ backgroundColor: '#e2f4fe', }}>
+      {pages.map((v, i) => (
+      
+        <TabNavigator.Item
+          key={v.title}
+          selected={selectedTab === v.selected}
+          title={v.title}
+          renderIcon={v.renderIcon}
+          renderSelectedIcon={v.renderSelectedIcon}
+          onPress={v.onPress}
+          selectedTitleStyle={{ color: '#dc3023',height:30 ,fontSize:15,borderRadius:50}}
+          tabStyle={{
+
+            backgroundColor: '#ecf6fc',
+            justifyContent: 'center',
+            padding:10
+
+          }}
+        >
+          {v.component}
+        </TabNavigator.Item>
+
+      ))}
+    </TabNavigator>
+    </View>  
+  );
+}
 }
 const styles = StyleSheet.create({
   buttonContainer: {

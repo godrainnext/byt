@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
     height: pxToDp(120),
     width: pxToDp(170),
     borderRadius: pxToDp(24),
-    margin: pxToDp(10)
+    margin: pxToDp(8)
   },
   text1: {
     fontSize: pxToDp(15),

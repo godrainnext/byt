@@ -260,7 +260,7 @@ export default class MusicPlayer extends Component {
               </TouchableOpacity>
               {/**播放暂停 */}
               <TouchableOpacity
-                style={{ width: pxToDp(46), height: pxToDp(46), borderRadius: pxToDp(23), borderWidth: 1, borderColor: 'grey', justifyContent: 'center', alignItems: 'center' }}
+                style={{ width: pxToDp(46), height: pxToDp(46), borderRadius: pxToDp(24), borderWidth:pxToDp(0.5), borderColor: 'grey', justifyContent: 'center', alignItems: 'center' }}
                 onPress={() => this.play()}
               >
                 <Icon1 name={this.state.playIcon} size={pxToDp(20)} color='grey' />
@@ -341,11 +341,11 @@ const styles = StyleSheet.create({
     width: '87%',
     backgroundColor: 'white',
     borderRadius: pxToDp(8),
-    marginTop: pxToDp(20),
+    marginTop: pxToDp(24),
     marginLeft: pxToDp(40),
     elevation: 10,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
     shadowColor: 'black',  //  阴影颜色
-    shadowRadius: pxToDp(10),  //  圆
+    shadowRadius: pxToDp(8),  //  圆
   },
   title: {
     color: 'grey',
@@ -354,7 +354,7 @@ const styles = StyleSheet.create({
   subTitle: {
     color: 'grey',
     fontSize: pxToDp(13),
-    marginTop: pxToDp(5)
+    marginTop: pxToDp(8)
   },
   playerStyle: {
     position: 'absolute',
@@ -362,7 +362,7 @@ const styles = StyleSheet.create({
   },
   progressStyle: {
     flexDirection: 'row',
-    marginHorizontal: pxToDp(10),
+    marginHorizontal: pxToDp(8),
     alignItems: 'center',
     position: 'absolute',
     marginTop: pxToDp(320)
@@ -383,7 +383,7 @@ const styles = StyleSheet.create({
     borderRadius: pxToDp(8),
     alignSelf: 'center',
     position: 'absolute',
-    left: pxToDp(30),
+    left: pxToDp(32),
     marginTop: pxToDp(50),
     marginLeft: pxToDp(-55),
   },

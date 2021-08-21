@@ -13,7 +13,7 @@ function TabView1(props) {
   return (
     <ScrollView {...props}>
       <View>
-        <View style={{ margin: pxToDp(10) }}>
+        <View style={{ margin: pxToDp(8) }}>
           <Image
             style={styles.image1}
             source={require('../../../../res/performer/12.jpg')}

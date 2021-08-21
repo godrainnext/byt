@@ -30,8 +30,8 @@ class Index extends PureComponent {
                 <Top icon1="arrow-back" title="红楼梦" />
                 <ScrollView
                     style={{
-                        marginLeft: pxToDp(10),
-                        marginRight: pxToDp(10),
+                        marginLeft: pxToDp(8),
+                        marginRight: pxToDp(8),
                     }}
                 >
                     <Image
