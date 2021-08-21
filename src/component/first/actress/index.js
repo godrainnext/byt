@@ -10,6 +10,7 @@ import {
 import { pxToDp } from '@utils/styleKits';
 import { getRoleList } from '../../../service/home/actress';
 import { NavigationContext } from '@react-navigation/native';
+import changeImgSize from '@utils/changeImgSize';
 export default class index extends PureComponent {
   state = { roleList: [] };
   componentDidMount() {
@@ -64,7 +65,7 @@ export default class index extends PureComponent {
                       borderTopRightRadius: pxToDp(10)
                     }}
                     source={{
-                      uri: item.avatar
+                      uri: changeImgSize(item.avatar)
                     }}
                   />
                   <View

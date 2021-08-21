@@ -218,7 +218,12 @@ class App extends Component {
       name: this.state.image.type
     };
     fd.append('file', file);
-    if (this.state.roomName && this.state.token && this.state.channelName) {
+    if (
+      this.state.roomName &&
+      this.state.token &&
+      this.state.channelName &&
+      this.state.image
+    ) {
       const token = await request.post({
         url: `/stream/token/${this.state.channelName}`
       });

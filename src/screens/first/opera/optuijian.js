@@ -1,53 +1,59 @@
 import React, { PureComponent } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet, ScrollView, ImageBackground } from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  ScrollView,
+  ImageBackground
+} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { NavigationContext } from "@react-navigation/native";
-import { pxToDp } from '../../../utils/styleKits'
-
+import { NavigationContext } from '@react-navigation/native';
+import { pxToDp } from '../../../utils/styleKits';
+import { getVideList } from '@service/home';
 class Index extends PureComponent {
-    constructor(props) {
-        super(props);
-        this.state = {
-
-        }
-    }
-    static contextType = NavigationContext;
-    render() {
-        return (
-            <ScrollView style={{ backgroundColor: '#E2F4FE', flex: 1 ,marginBottom:pxToDp(10)}}>
-                <ImageBackground source={require('../../../res/8.jpg')} style={{ height: pxToDp(150) }}>
-                    <View style={styles.box}>
-                        <TouchableOpacity onPress={() => this.context.goBack()}>
-                            <Ionicons name="chevron-back" size={24} color="white" />
-                        </TouchableOpacity>
-                        <Text style={styles.text1}>经典推荐</Text>
-                    </View>
-                </ImageBackground>
-                <View style={styles.botbox}>
-                    <View style={styles.imagebox}>
-                        <ImageBackground source={require('../../../res/play/9.jpg')} style={styles.image}>
-                            <Text style={styles.text2}>越剧经典电影《情探》傅全香/陆锦花</Text>
-                        </ImageBackground>
-                    </View>
-                    <View style={styles.imagebox}>
-                        <ImageBackground source={require('../../../res/play/10.jpg')} style={styles.image}>
-                            <Text style={styles.text2}>精彩折子戏：越剧《红楼梦·宝玉哭灵》</Text>
-                        </ImageBackground>
-                    </View>
-                    <View style={styles.imagebox}>
-                        <ImageBackground source={require('../../../res/play/11.jpg')} style={styles.image}>
-                            <Text style={styles.text2}>《何文秀传奇》萧雅/华怡青主演</Text>
-                        </ImageBackground>
-                    </View>
-                    <View style={styles.imagebox}>
-                        <ImageBackground source={require('../../../res/play/12.jpg')} style={styles.image}>
-                            <Text style={styles.text2}>精彩越剧《屈原》叹人世黑白颠倒无是非</Text>
-                        </ImageBackground>
-                    </View>
-                </View>
-            </ScrollView>
-        );
-    }
+  state = { arr: [] };
+  componentDidMount() {
+    getVideList(this.props.route.params, 0, 100).then((res) => {
+      this.setState({ arr: res });
+    });
+  }
+  static contextType = NavigationContext;
+  render() {
+    return (
+      <ScrollView
+        style={{
+          backgroundColor: '#E2F4FE',
+          flex: 1,
+          marginBottom: pxToDp(10)
+        }}
+      >
+        <ImageBackground
+          source={require('../../../res/8.jpg')}
+          style={{ height: pxToDp(150) }}
+        >
+          <View style={styles.box}>
+            <TouchableOpacity onPress={() => this.context.goBack()}>
+              <Ionicons name="chevron-back" size={24} color="white" />
+            </TouchableOpacity>
+            <Text style={styles.text1}>经典推荐</Text>
+          </View>
+        </ImageBackground>
+        <View style={styles.botbox}>
+          {this.state.arr.map((item) => (
+            <View style={styles.imagebox}>
+              <ImageBackground
+                source={{ uri: item.avatar }}
+                style={styles.image}
+              >
+                <Text style={styles.text2}>{item.title}</Text>
+              </ImageBackground>
+            </View>
+          ))}
+        </View>
+      </ScrollView>
+    );
+  }
 }
 
 const styles = StyleSheet.create({

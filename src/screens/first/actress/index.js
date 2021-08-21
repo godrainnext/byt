@@ -22,15 +22,21 @@ const TabView1 = memo(function (props) {
   return (
     <ScrollView {...props}>
       <View>
-        {videoList.map((item) => (
-          <TouchableOpacity
-            style={{ margin: pxToDp(8) }}
-            onPress={() => navigation.navigate('Video', item.id)}
-          >
-            <Image style={styles.image1} source={{ uri: item.avatar }} />
-            <Text style={styles.text}>{item.title}</Text>
-          </TouchableOpacity>
-        ))}
+        {videoList ? (
+          videoList.map((item) => (
+            <TouchableOpacity
+              style={{ margin: pxToDp(8) }}
+              onPress={() => navigation.navigate('Video', item.id)}
+            >
+              <Image style={styles.image1} source={{ uri: item.avatar }} />
+              <Text style={styles.text}>{item.title}</Text>
+            </TouchableOpacity>
+          ))
+        ) : (
+          <View>
+            <Text>暂无视频</Text>
+          </View>
+        )}
       </View>
     </ScrollView>
   );

@@ -7,18 +7,19 @@ class Index extends PureComponent {
     arr: []
   };
   componentDidMount() {
-    console.log(this.props.arr);
     this.setState({ arr: [...this.props.arr] });
   }
 
   addComment = (content) => {
     const comment = {
+      id: Date.now(),
       avatar: this.props.userInfo.avatar,
       createTime: '刚刚',
       nickName: this.props.userInfo.nickName,
-      content
+      content,
+      count: 0
     };
-    console.log(comment);
+
     this.setState({ arr: [comment, ...this.state.arr] }, (state) => {
       console.log(state);
     });

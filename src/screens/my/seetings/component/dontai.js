@@ -20,14 +20,12 @@ import { BottomSheet, ListItem } from 'react-native-elements';
 import { getMomentListByUserId } from '../../../../service/moment';
 import { Audio } from 'expo-av';
 import { Video } from 'expo-av';
-import ParallaxScrollView from 'react-native-parallax-scroll-view';
 
 class Index extends PureComponent {
   state = {
     contentArr: [],
     list: [
-      { title: '收藏' },
-      { title: '举报' },
+      { title: '分享' },
       {
         title: '取消',
         containerStyle: { backgroundColor: 'red' },
@@ -140,8 +138,7 @@ class Index extends PureComponent {
 
   render() {
     return (
-      <View> 
-       
+      <View>
         <View
           style={{
             width: '98%',
@@ -155,7 +152,6 @@ class Index extends PureComponent {
             elevation: 3
           }}
         >
-         
           {this.state.contentArr ? (
             this.state.contentArr.map((item) => (
               <View key={item.momentId}>

@@ -46,7 +46,7 @@ class Comment extends PureComponent {
             {/* 评论区 */}
             <View style={{ marginBottom: pxToDp(120) }}>
               {this.props.arr.map((item) => (
-                <CommentItem item={item} />
+                <CommentItem item={item} key={item.id} />
               ))}
             </View>
           </ScrollView>
