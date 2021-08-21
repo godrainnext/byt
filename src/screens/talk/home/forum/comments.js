@@ -32,7 +32,12 @@ class Index extends PureComponent {
   };
   showRBsheet = async (id) => {
     await getCommentInnerById(id)
-      .then((res) => this.setState({ reply: [...res[0].recomment] }))
+      .then((res) => {
+        if (res[0].recomment) this.setState({ reply: [...res[0].recomment] });
+        else {
+          return;
+        }
+      })
       .then(() => this[`RBSheet${id}`].open());
   };
   reply = (id) => {
@@ -50,9 +55,9 @@ class Index extends PureComponent {
       })
       .then((res) => {
         this.setState({ mycomment: '' });
-        getCommentInnerById(id).then((res) =>
-          this.setState({ reply: [...res[0].recomment] })
-        );
+        getCommentInnerById(id).then((res) => {
+          this.setState({ reply: [...res[0].recomment] });
+        });
       });
   };
   render() {
@@ -325,8 +330,9 @@ class Index extends PureComponent {
                     <TextInput
                       placeholder="发一条友善的评论"
                       style={{
-                        height: '80%',
+                        height: '100%',
                         backgroundColor: '#fcfcfc',
+                        padding: pxToDp(5),
                         width: '75%',
                         marginLeft: pxToDp(20),
                         borderRadius: pxToDp(20),

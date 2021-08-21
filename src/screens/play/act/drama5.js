@@ -4,7 +4,8 @@ import Top from '../../../component/common/top'
 import { pxToDp } from "../../../utils/styleKits";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { NavigationContext } from '@react-navigation/native';
-
+import Svg from 'react-native-svg-uri';
+import { right } from '../../../component/common/iconSvg'
 class Index extends PureComponent {
     state = {
         dramalist: {
@@ -21,7 +22,7 @@ class Index extends PureComponent {
             text3: '该剧为上海越剧院保留剧目，是金采风代表作之一。其艺术样式为悲喜剧，既悲得催人泪下，又喜得令人捧腹。剧中以《三盖衣》《归宁》《送凤冠》三场戏最为经典，至今传唱不衰。',
             text4: '1962年拍摄电影时，特邀“越剧皇后”姚水娟出演李夫人一角，为姚水娟留下了唯一一份影像资料，更显弥足珍贵。',
             path1: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20181026%2F0b8155cf6e3045b8adb2eeba7f262ad6.jpeg&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631883284&t=26f935af9e9aa15c18f679a9fc1d7890',
-            path2:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fzj.people.com.cn%2Fmediafile%2F201105%2F16%2FF201105161650460546607207.jpg&refer=http%3A%2F%2Fzj.people.com.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631926228&t=05fd4a8b65674809d9debed0b95b24c3'
+            path2: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fzj.people.com.cn%2Fmediafile%2F201105%2F16%2FF201105161650460546607207.jpg&refer=http%3A%2F%2Fzj.people.com.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631926228&t=05fd4a8b65674809d9debed0b95b24c3'
         }
     };
     static contextType = NavigationContext;
@@ -39,7 +40,7 @@ class Index extends PureComponent {
                         style={{ height: pxToDp(178), borderRadius: pxToDp(8), width: '100%' }}
                         source={{ uri: this.state.dramalist.path1 }}
                     />
-                    <Text style={{ fontSize: pxToDp(24), fontWeight: 'bold', marginBottom: pxToDp(20),marginTop:pxToDp(10)}}>
+                    <Text style={{ fontSize: pxToDp(24), fontWeight: 'bold', marginBottom: pxToDp(20), marginTop: pxToDp(10) }}>
                         {this.state.dramalist.title}
                     </Text>
                     <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(10) }}>
@@ -87,25 +88,28 @@ class Index extends PureComponent {
                         </Text>
                     </View>
                     <View>
-            <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold', marginBottom: pxToDp(10) }} onPress={() => this.context.navigate('ScreenPlay')}>
-              剧本详情
-            </Text>
-            <TouchableOpacity style={{
-              marginBottom: pxToDp(80),
-              height: pxToDp(100),
-              width: '100%',
-              borderRadius: pxToDp(8),
-              //elevation: 5,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
-              //shadowColor: 'black',  //  阴影颜色
-              //shadowRadius: pxToDp(8),  //  圆角,
-              //shadowOffset: { width: 0, height: 0 },
-              // shadowOpacity: 1,
-            }}
-              onPress={() => this.context.navigate('Screenpaly7')}
-            >
-              <Image style={{ height: pxToDp(100), width: '100%', borderRadius: pxToDp(8) }} source={{ uri: this.state.dramalist.path2 }} />
-            </TouchableOpacity>
-          </View>
+                        <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold', marginBottom: pxToDp(10) }} onPress={() => this.context.navigate('ScreenPlay')}>
+                            剧本详情
+                        </Text>
+                        <TouchableOpacity style={{
+                            marginBottom: pxToDp(80),
+                            height: pxToDp(100),
+                            width: '100%',
+                            borderRadius: pxToDp(8),
+                            //elevation: 5,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                            //shadowColor: 'black',  //  阴影颜色
+                            //shadowRadius: pxToDp(8),  //  圆角,
+                            //shadowOffset: { width: 0, height: 0 },
+                            // shadowOpacity: 1,
+                        }}
+                            onPress={() => this.context.navigate('Screenpaly7')}
+                        >
+                            <Image style={{ height: pxToDp(100), width: '100%', borderRadius: pxToDp(8) }} source={{ uri: this.state.dramalist.path2 }} />
+                            <View style={{ marginTop: pxToDp(-60), marginLeft: pxToDp(300) }}>
+                                <Svg width="32" height="32" svgXmlData={right} />
+                            </View>
+                        </TouchableOpacity>
+                    </View>
                 </ScrollView>
             </View>
         );

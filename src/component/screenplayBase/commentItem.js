@@ -6,8 +6,12 @@ import { dianzan, inDianZan } from '../common/iconSvg';
 export default class commentItem extends PureComponent {
   state = { isClick: false, count: 0 };
   componentDidMount() {
-    const count = parseInt(Math.random() * 100);
-    this.setState({ count });
+    if (this.props.item.count === 0) {
+      return;
+    } else {
+      const count = parseInt(Math.random() * 100);
+      this.setState({ count });
+    }
   }
   dianzan = () => {
     if (this.state.isClick) {

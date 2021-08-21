@@ -64,7 +64,12 @@ class Index extends PureComponent {
                 style={{
                   backgroundColor: '#fff',
                   borderRadius: pxToDp(100),
-                  alignSelf: 'center'
+                  alignSelf: 'center',
+                  elevation: 10,
+                  shadowColor: 'black', //  阴影颜色
+                  shadowOffset: { width: 0, height: 0 }, // 阴影偏移
+                  shadowOpacity: 1, // 阴影不透明度
+                  shadowRadius: 10 //  圆角
                 }}
               >
                 <Image

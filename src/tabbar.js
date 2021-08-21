@@ -10,11 +10,32 @@ import { pxToDp } from './utils/styleKits';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import LottieView from "lottie-react-native";
 import Meun from './screens/test/test6';
+import { NavigationContext } from '@react-navigation/native';
+import Addmoment from './screens/talk/home/forum/addMoment';
+
 class Index extends PureComponent {
+  static contextType = NavigationContext;
+  kaiBo = () => {
+    this.Scrollable1.close();
+    this.context.navigate('KaiBo'), console.log(123);
+  };
+  kaiFang = () => {
+    this.Scrollable1.close();
+    this.context.navigate('KaiFang'), console.log(123);
+  };
+  // faComment = ()=>{
+  //   this.Scrollable1.close();
+  //   this.context.navigate('')
+  // }
+
+  changeVisible = () => {
+    this.setState({ isShow: !this.state.isShow });
+  };
   state = {
     selectedTab: 'first',
     isAuto: true,
     isLoop: false,
+    isShow: false,
     pages: [
       {
         selected: 'first',
@@ -81,19 +102,26 @@ class Index extends PureComponent {
                     shadowOpacity: 1,
                     shadowRadius: 10,
                   }}>
-                    <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }} >
+                    <TouchableOpacity onPress={this.kaiBo} style={{ justifyContent: 'center', alignItems: 'center' }} >
                       <View style={styles.textbox}></View>
                       <Text style={styles.text}>开直播</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }} >
+                    <TouchableOpacity onPress={this.kaiFang} style={{ justifyContent: 'center', alignItems: 'center' }} >
                       <View style={styles.textbox}></View>
                       <Text style={styles.text}>开房间</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }} >
+                    <TouchableOpacity onPress={this.changeVisible} style={{ justifyContent: 'center', alignItems: 'center' }} >
                       <View style={styles.textbox}></View>
                       <Text style={styles.text}>发动态</Text>
                     </TouchableOpacity>
                   </View>
+                </View>
+                <View>
+                  <Addmoment
+                    updateList={this.updateList}
+                    toggleModalProps={this.changeVisible}
+                    isModalVisible={this.state.isShow}
+                  />
                 </View>
                 <View style={{ width: pxToDp(24), height: pxToDp(24), backgroundColor: '#ecf6fc', transform: [{ rotate: '135deg' }], marginTop: pxToDp(-16), borderRadius: pxToDp(4) }}></View>
               </View>
@@ -112,19 +140,19 @@ class Index extends PureComponent {
 
       },
       {
-  selected: 'shop',
-    title: '越市',
-      renderIcon: () => <Image style={{ width: pxToDp(30), height: pxToDp(30) }} source={require("./sb33.png")}></Image>,
+        selected: 'shop',
+        title: '越市',
+        renderIcon: () => <Image style={{ width: pxToDp(30), height: pxToDp(30) }} source={require("./sb33.png")}></Image>,
         renderSelectedIcon: () => (
-          <Image style={{ width: pxToDp(35), height: pxToDp(28)}} source={require("./sb33.png")}></Image>
+          <Image style={{ width: pxToDp(35), height: pxToDp(28) }} source={require("./sb33.png")}></Image>
         ),
-          onPress: () => this.setState({ selectedTab: 'shop' }),
-            component: <Shop />
-},
-{
-  selected: 'my',
-    title: '戏痴',
-      renderIcon: () => <Image style={{ width: pxToDp(30), height: pxToDp(30) }} source={require("./sb44.png")}></Image>,
+        onPress: () => this.setState({ selectedTab: 'shop' }),
+        component: <Shop />
+      },
+      {
+        selected: 'my',
+        title: '戏痴',
+        renderIcon: () => <Image style={{ width: pxToDp(30), height: pxToDp(30) }} source={require("./sb44.png")}></Image>,
         renderSelectedIcon: () => (
           <Image style={{ width: pxToDp(35), height: pxToDp(28) }} source={require("./sb44.png")}></Image>
         ),
@@ -133,37 +161,37 @@ class Index extends PureComponent {
       }
     ]
   };
-render() {
-  const { selectedTab, pages } = this.state;
-  return (
-    <View style={{    backgroundColor:'#fff',flex:1}}>  
-    <TabNavigator style={{ backgroundColor: '#e2f4fe', }}>
-      {pages.map((v, i) => (
-      
-        <TabNavigator.Item
-          key={v.title}
-          selected={selectedTab === v.selected}
-          title={v.title}
-          renderIcon={v.renderIcon}
-          renderSelectedIcon={v.renderSelectedIcon}
-          onPress={v.onPress}
-          selectedTitleStyle={{ color: '#dc3023',height:30 ,fontSize:15,borderRadius:50}}
-          tabStyle={{
+  render() {
+    const { selectedTab, pages } = this.state;
+    return (
+      <View style={{ backgroundColor: '#fff', flex: 1 }}>
+        <TabNavigator style={{ backgroundColor: '#e2f4fe', }}>
+          {pages.map((v, i) => (
 
-            backgroundColor: '#ecf6fc',
-            justifyContent: 'center',
-            padding:10
+            <TabNavigator.Item
+              key={v.title}
+              selected={selectedTab === v.selected}
+              title={v.title}
+              renderIcon={v.renderIcon}
+              renderSelectedIcon={v.renderSelectedIcon}
+              onPress={v.onPress}
+              selectedTitleStyle={{ color: '#dc3023', height: 30, fontSize: 15, borderRadius: 50 }}
+              tabStyle={{
 
-          }}
-        >
-          {v.component}
-        </TabNavigator.Item>
+                backgroundColor: '#ecf6fc',
+                justifyContent: 'center',
+                padding: 10
 
-      ))}
-    </TabNavigator>
-    </View>  
-  );
-}
+              }}
+            >
+              {v.component}
+            </TabNavigator.Item>
+
+          ))}
+        </TabNavigator>
+      </View>
+    );
+  }
 }
 const styles = StyleSheet.create({
   buttonContainer: {

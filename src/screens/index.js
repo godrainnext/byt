@@ -4,7 +4,19 @@ export { default as PageTwo } from './first/home/pages/pagetwo'; //俯瞰百年�
 export { default as PageThree } from './first/home/pages/pagethree'; //名角风采页
 export { default as PageFour } from './first/home/pages/pagefour'; //精选唱段页
 export { default as Pagefive } from './first/home/pages/pagefive'; //俯瞰百年文章
-export { default as School } from './first/school'; //流派页
+export { default as School1 } from './first/school/yuanpai'; //流派页 袁派
+export { default as School2 } from './first/school/fanpai'; //流派页 范派
+export { default as School3 } from './first/school/yinpai'; //流派页 尹派
+export { default as School4 } from './first/school/fupai'; //流派页 傅派
+export { default as School5 } from './first/school/xupai'; //流派页 徐派
+export { default as School6 } from './first/school/qipai'; //流派页 戚派
+export { default as School7 } from './first/school/wangpai'; //流派页 戚派
+export { default as School8 } from './first/school/lupai'; //流派页 陆派
+export { default as School9 } from './first/school/bipai'; //流派页 毕派
+export { default as School10 } from './first/school/zhangpai1'; //流派页 张派
+export { default as School11 } from './first/school/lvpai'; //流派页 吕派
+export { default as School12 } from './first/school/jinpai'; //流派页 金派
+export { default as School13 } from './first/school/zhangpai2'; //流派页 张派
 export { default as Opera } from './first/opera/index'; //唱段的首页
 export { default as Optuijian } from './first/opera/optuijian'; //唱段推荐
 export { default as Opperson } from './first/opera/opperson'; //名角的唱段页面
@@ -72,6 +84,13 @@ export { default as Drama3 } from './play/act/drama3'; //剧本3 梁山伯与祝
 export { default as Drama4 } from './play/act/drama4'; //剧本4 红楼梦
 export { default as Drama5 } from './play/act/drama5'; //剧本5 碧玉簪
 export { default as Drama6 } from './play/act/drama6'; //剧本6 周仁哭坟
+export { default as Drama7 } from './play/act/drama7'; //剧本7 皇帝与村姑
+export { default as Drama8 } from './play/act/drama8'; //剧本8 柳永
+export { default as Drama9 } from './play/act/drama9'; //剧本9 蝴蝶梦
+export { default as Drama10 } from './play/act/drama10'; //剧本10 北地王
+export { default as Drama11 } from './play/act/drama11'; //剧本11 甄嬛
+export { default as Drama12 } from './play/act/drama12'; //剧本12 早春二月
+export { default as Drama13 } from './play/act/drama13'; //剧本13 家
 export { default as Scriptlibrary } from './play/scriptlibrary'; //剧本库
 export { default as VR } from './play/vr'; //越剧小镇VR
 export { default as relatedImg } from './Timeline/relatedImg'; //相关图片
@@ -110,13 +129,14 @@ export { default as Jubao } from './talk/home/forum/jubao' //举报页
 
 
 
-export { default as Test1 } from './test/test1' 
-export { default as Test2 } from './test/test2' 
-export { default as Test3 } from './test/test3' 
-export { default as Test4 } from './test/test4' 
-export { default as Test6 } from './test/test8' 
+export { default as Test1 } from './test/test1'
+export { default as Test2 } from './test/test2'
+export { default as Test3 } from './test/test3'
+export { default as Test4 } from './test/test4'
+export { default as Test6 } from './test/test8'
 
 export { default as WaterButton } from '../component/common/waterbutton'; //波纹按钮
 
 export { default as NewTimeLine } from './test/test5';
-export { default as Testtt} from '../testtt';
+export { default as Testtt } from '../testtt';
+export { default as ToSing } from './talk/home/sing';

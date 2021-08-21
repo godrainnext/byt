@@ -333,7 +333,7 @@ class shopdetails extends PureComponent {
                         width: pxToDp(50),
                         elevation: 5, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
                         shadowColor: 'black', //  阴影颜色
-                        shadowRadius: pxToDp(5) //  圆角
+                 //  圆角
                       }}
                     >
                       <Text

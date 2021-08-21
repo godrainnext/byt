@@ -13,7 +13,7 @@ import { NavigationContext } from '@react-navigation/native';
 import { FAB } from 'react-native-elements';
 import Top from '../../../component/common/top';
 import Svg from 'react-native-svg-uri';
-import { star, right } from '../../../component/common/iconSvg'
+import { star, right,enter} from '../../../component/common/iconSvg'
 
 class Index extends PureComponent {
   constructor(props) {
@@ -79,7 +79,7 @@ class Index extends PureComponent {
         <Top icon1="arrow-back" title="剧本中心" />
         <ScrollView style={{ flex: 1 }}>
           {/*剧本推荐 */}
-          <Text style={{fontSize: pxToDp(18),color: '#468CD3',fontWeight: 'bold',marginTop:pxToDp(12),marginLeft:pxToDp(8)}}>猜你喜欢</Text>
+          <Text style={{ fontSize: pxToDp(18), color: '#468CD3', fontWeight: 'bold', marginTop: pxToDp(12), marginLeft: pxToDp(8) }}>猜你喜欢</Text>
           {this.state.drama.map((item) => (
             <View style={styles.bookbox}>
               <View style={styles.bookbotton11}>
@@ -92,26 +92,27 @@ class Index extends PureComponent {
                   </View>
                   <Text stlye={{ fontSize: pxToDp(13) }} numberOfLines={2}>{item.context}</Text>
                   <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                    <Text>推荐指数</Text>
-                    <View style={{ flexDirection: 'row', marginLeft: pxToDp(5) }}>
-                      <Svg width="20" height="20" svgXmlData={star} />
-                      <Svg width="20" height="20" svgXmlData={star} />
-                      <Svg width="20" height="20" svgXmlData={star} />
-                      <Svg width="20" height="20" svgXmlData={star} />
-                    </View>
+
+
                   </View>
                 </View>
               </View>
               <View style={styles.book1}>
+                
                 <Image style={styles.bookimage1} source={{ uri: item.path }} />
-                <View style={{ height: pxToDp(104), width: pxToDp(4), backgroundColor: 'lightgrey', borderTopRightRadius: pxToDp(8),borderBottomRightRadius:pxToDp(8) }}>
+                
+                <View style={{ height: pxToDp(104), width: pxToDp(4), backgroundColor: 'lightgrey', borderTopRightRadius: pxToDp(8), borderBottomRightRadius: pxToDp(8) }}>
+                <View style={{ flexDirection: 'row' ,marginTop:pxToDp(20)}}>
+                      <Svg width="20" height="20" svgXmlData={star} />
+                    </View>
                 </View>
+                
               </View>
             </View>
           ))}
           {/*介绍 */}
           <View>
-          <Text style={{fontSize: pxToDp(18),color: '#468CD3',fontWeight: 'bold',marginTop:pxToDp(12),marginLeft:pxToDp(8)}}>他山之石</Text>
+            <Text style={{ fontSize: pxToDp(18), color: '#468CD3', fontWeight: 'bold', marginTop: pxToDp(12), marginLeft: pxToDp(8) }}>他山之石</Text>
             <ImageBackground style={styles.shujia1} source={require('../../../res/短书架.png')}>
               <ScrollView horizontal={true}>
                 {this.state.booksss.map((item) => (
@@ -120,7 +121,7 @@ class Index extends PureComponent {
                     <View style={styles.bookstext}>
                       <Text>{item.title}</Text>
                       <TouchableOpacity>
-                        <Svg width="30" height="30" svgXmlData={right} />
+                        <Svg width="20" height="20" svgXmlData={enter} />
                       </TouchableOpacity>
                     </View>
                   </View>
@@ -135,7 +136,7 @@ class Index extends PureComponent {
                     <View style={styles.bookstext}>
                       <Text>{item.title}</Text>
                       <TouchableOpacity>
-                        <Svg width="30" height="30" svgXmlData={right} />
+                        <Svg width="20" height="20" svgXmlData={enter} />
                       </TouchableOpacity>
                     </View>
                   </View>
@@ -150,7 +151,7 @@ class Index extends PureComponent {
                     <View style={styles.bookstext}>
                       <Text>{item.title}</Text>
                       <TouchableOpacity>
-                        <Svg width="30" height="30" svgXmlData={right} />
+                        <Svg width="20" height="20" svgXmlData={enter} />
                       </TouchableOpacity>
                     </View>
                   </View>
@@ -159,7 +160,7 @@ class Index extends PureComponent {
             </ImageBackground>
           </View>
           {/**书架 */}
-          <Text style={{fontSize: pxToDp(18),color: '#468CD3',fontWeight: 'bold',marginLeft:pxToDp(8),marginBottom:pxToDp(12)}}>永恒经典</Text>
+          <Text style={{ fontSize: pxToDp(18), color: '#468CD3', fontWeight: 'bold', marginLeft: pxToDp(8), marginBottom: pxToDp(12) }}>永恒经典</Text>
           <ImageBackground style={{ height: pxToDp(385), width: '100%' }} source={require('../../../res/书架.png')}>
             <ScrollView horizontal={true}>
               {this.state.data.map((item) => (
@@ -290,7 +291,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: pxToDp(80),
     justifyContent: 'space-between',
-    marginLeft: pxToDp(8)
+    marginLeft: pxToDp(8),
+    paddingTop:pxToDp(5)
   },
   bookbotton11: {
     height: pxToDp(100),
