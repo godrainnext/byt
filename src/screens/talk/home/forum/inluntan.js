@@ -91,7 +91,7 @@ class Index extends PureComponent {
               style={{
                 width: pxToDp(155),
                 height: pxToDp(150),
-                borderRadius: pxToDp(15),
+                borderRadius: pxToDp(16),
                 marginLeft: pxToDp(10),
                 marginTop: pxToDp(10),
                 marginBottom: pxToDp(10)
@@ -190,7 +190,7 @@ class Index extends PureComponent {
                 style={{
                   height: pxToDp(60),
                   width: pxToDp(60),
-                  borderRadius: pxToDp(60),
+                  borderRadius: pxToDp(64),
                   margin: pxToDp(8)
                 }}
               />
@@ -249,7 +249,7 @@ class Index extends PureComponent {
               backgroundColor: '#ddd',
               width: '75%',
               marginLeft: pxToDp(20),
-              borderRadius: pxToDp(20),
+              borderRadius: pxToDp(24),
               paddingLeft: pxToDp(10)
             }}
             onChangeText={(mycomment) => this.setState({ mycomment })}

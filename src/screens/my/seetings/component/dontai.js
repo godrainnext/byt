@@ -103,7 +103,7 @@ class Index extends PureComponent {
         {obj.images?.map((item, index) => (
           <Image
             key={index}
-            style={{ width: pxToDp(155), height: '100%', borderRadius: pxToDp(10), marginRight: pxToDp(10) }}
+            style={{ width: pxToDp(155), height: '100%', borderRadius: pxToDp(8), marginRight: pxToDp(10) }}
             source={{ uri: item }} />
         ))}
       </ScrollView>)
@@ -123,7 +123,7 @@ class Index extends PureComponent {
             marginTop: pxToDp(20),
             marginBottom: pxToDp(20),
             backgroundColor: '#fcfcfc',
-            borderRadius: pxToDp(10),
+            borderRadius: pxToDp(8),
             elevation: 3
            
           }}
@@ -163,7 +163,7 @@ class Index extends PureComponent {
                     alignItems: 'flex-end',
                     marginTop: pxToDp(10),
                     marginLeft: pxToDp(10),
-                    borderRadius: pxToDp(10)
+                    borderRadius: pxToDp(8)
                   }}
                 >
                   <Text style={{ fontSize: pxToDp(25), fontWeight: 'bold' }}>

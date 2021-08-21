@@ -43,12 +43,12 @@ const styles = StyleSheet.create({
   },
   text2: {
     fontSize: pxToDp(18),
-    fontWeight: 'bold',
+    fontWeight: 'bold'
   },
   image: {
     height: pxToDp(120),
     width: pxToDp(120),
-    borderRadius: pxToDp(10)
+    borderRadius: pxToDp(8)
   },
   text3: {
     fontSize: pxToDp(14),
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   actionButtonIcon: {
     fontSize: 20,
     height: 22,
-    color: 'white',
-  },
-})
+    color: 'white'
+  }
+});
 export default Index;

@@ -508,7 +508,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   carousel: {
-    borderRadius: pxToDp(20),
+    borderRadius: pxToDp(24),
     height: pxToDp(155),
     marginLeft: pxToDp(10),
     marginRight: pxToDp(10),

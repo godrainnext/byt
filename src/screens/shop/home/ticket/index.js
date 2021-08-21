@@ -161,7 +161,7 @@ export default class index extends PureComponent {
                         height: pxToDp(12),
                         backgroundColor: '#000',
                         margin: pxToDp(2),
-                        borderRadius: pxToDp(3),
+                        borderRadius: pxToDp(4),
                         opacity: 0.6
                       }}
                     >
@@ -199,7 +199,7 @@ export default class index extends PureComponent {
                         style={{
                           width: pxToDp(30),
                           height: pxToDp(15),
-                          borderRadius: pxToDp(15),
+                          borderRadius: pxToDp(16),
                           justifyContent: 'center',
                           alignItems: 'center'
                         }}

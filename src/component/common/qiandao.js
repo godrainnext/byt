@@ -176,66 +176,66 @@ class Index extends PureComponent {
     }
 }
 const styles = StyleSheet.create({
-    text: {
-        fontSize: pxToDp(13),
-        color: 'white'
+  text: {
+    fontSize: pxToDp(13),
+    color: 'white'
+  },
+  modalView: {
+    backgroundColor: 'white',
+    borderRadius: 16,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2
     },
-    modalView: {
-        backgroundColor: 'white',
-        borderRadius: 12,
-        alignItems: 'center',
-        shadowColor: '#000',
-        shadowOffset: {
-            width: 0,
-            height: 2
-        },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-        elevation: 5
-    },
-    openButton: {
-        backgroundColor: '#F194FF',
-        borderRadius: 5,
-        marginTop: pxToDp(35),
-        elevation: 12,
-        width: pxToDp(240),
-        height: pxToDp(30),
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    modalText1: {
-        marginBottom: pxToDp(15),
-        textAlign: 'center',
-        fontSize: pxToDp(15)
-    },
-    box: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        height: pxToDp(40),
-        width: pxToDp(30),
-        backgroundColor: '#f5f5f5',
-        borderRadius: pxToDp(10)
-    },
-    centeredView: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    modalText4: {
-        margin: pxToDp(25),
-        fontSize: pxToDp(15)
-    },
-    modalText5: {
-        fontSize: pxToDp(12)
-    },
-    button: {
-        backgroundColor: '#468cd3',
-        height: pxToDp(20),
-        width: pxToDp(50),
-        borderRadius: pxToDp(5),
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginBottom: pxToDp(10)
-    }
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5
+  },
+  openButton: {
+    backgroundColor: '#F194FF',
+    borderRadius: 4,
+    marginTop: pxToDp(35),
+    elevation: 12,
+    width: pxToDp(240),
+    height: pxToDp(30),
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  modalText1: {
+    marginBottom: pxToDp(15),
+    textAlign: 'center',
+    fontSize: pxToDp(15)
+  },
+  box: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: pxToDp(40),
+    width: pxToDp(30),
+    backgroundColor: '#f5f5f5',
+    borderRadius: pxToDp(8)
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  modalText4: {
+    margin: pxToDp(25),
+    fontSize: pxToDp(15)
+  },
+  modalText5: {
+    fontSize: pxToDp(12)
+  },
+  button: {
+    backgroundColor: '#468cd3',
+    height: pxToDp(20),
+    width: pxToDp(50),
+    borderRadius: pxToDp(4),
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: pxToDp(10)
+  }
 });
 export default Index;

@@ -143,7 +143,7 @@ const styles = StyleSheet.create({
   image: {
     height: pxToDp(120),
     width: pxToDp(120),
-    borderRadius: pxToDp(10)
+    borderRadius: pxToDp(8)
   },
   text3: {
     fontSize: pxToDp(14),

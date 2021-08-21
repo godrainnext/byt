@@ -110,7 +110,7 @@ class orderdetails extends PureComponent {
             justifyContent: 'center',
             backgroundColor: 'white',
             height: pxToDp(90),
-            borderRadius: pxToDp(10)
+            borderRadius: pxToDp(8)
           }}
         >
           <View
@@ -146,7 +146,7 @@ class orderdetails extends PureComponent {
             marginLeft: pxToDp(10),
             marginRight: pxToDp(10),
             bottom: pxToDp(10),
-            borderRadius: pxToDp(10)
+            borderRadius: pxToDp(8)
           }}
         >
           <View style={{ justifyContent: 'center', marginLeft: pxToDp(15) }}>
@@ -274,7 +274,7 @@ class orderdetails extends PureComponent {
                 left: pxToDp(10),
                 justifyContent: 'center',
                 alignItems: 'center',
-                borderRadius: pxToDp(25),
+                borderRadius: pxToDp(24),
                 marginRight: pxToDp(20),
                 width: pxToDp(80),
                 height: pxToDp(30)
@@ -286,7 +286,7 @@ class orderdetails extends PureComponent {
               onPress={this.showAlert.bind(this)}
               disabled={this.state.isshoushuo}
               style={{
-                borderRadius: pxToDp(35),
+                borderRadius: pxToDp(32),
                 marginRight: pxToDp(20),
                 width: pxToDp(130),
                 height: pxToDp(40),
@@ -377,7 +377,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingLeft: pxToDp(15),
     paddingRight: pxToDp(15),
-    borderRadius: pxToDp(5),
+    borderRadius: pxToDp(4),
     width: '100%',
     height: '100%',
     justifyContent: 'center',
@@ -437,7 +437,7 @@ const styles = StyleSheet.create({
   expressLeft: {
     width: pxToDp(10),
     height: pxToDp(10),
-    borderRadius: pxToDp(5),
+    borderRadius: pxToDp(4),
     backgroundColor: '#e0e0e0',
     position: 'relative',
     right: Dimensions.get('window').width + 4,

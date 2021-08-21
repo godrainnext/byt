@@ -70,7 +70,7 @@ class Index extends PureComponent {
                     justifyContent: 'center',
                     alignItems: 'flex-start'
                   }}
-                  imageStyle={{ borderRadius: pxToDp(10) }}
+                  imageStyle={{ borderRadius: pxToDp(8) }}
                   source={require('../../../res/31.jpg')}
                 >
                   <Text
@@ -99,7 +99,7 @@ class Index extends PureComponent {
                   width: '48%',
                   height: pxToDp(80),
                   backgroundColor: 'rgba(255,255,255,0.5)',
-                  borderRadius: pxToDp(10),
+                  borderRadius: pxToDp(8),
                   justifyContent: 'space-around',
                   flexDirection: 'row',
                   alignItems: 'center'
@@ -109,7 +109,7 @@ class Index extends PureComponent {
                   style={{
                     width: pxToDp(70),
                     height: pxToDp(70),
-                    borderRadius: pxToDp(10)
+                    borderRadius: pxToDp(8)
                   }}
                   source={require('../../../res/genre/5.jpg')}
                 ></Image>
@@ -130,7 +130,7 @@ class Index extends PureComponent {
               </TouchableOpacity>
             </View>
             {/*轮播图 */}
-            <View style={{ margin: pxToDp(8), borderRadius: pxToDp(20) }}>
+            <View style={{ margin: pxToDp(8), borderRadius: pxToDp(24) }}>
               <SnapCarousel />
             </View>
             {/* 大图视频 */}
@@ -146,7 +146,7 @@ class Index extends PureComponent {
                 <TouchableOpacity onPress={() => this.context.navigate()}>
                   <ImageBackground
                     style={{ width: '100%', height: pxToDp(220) }}
-                    imageStyle={{ borderRadius: pxToDp(10) }}
+                    imageStyle={{ borderRadius: pxToDp(8) }}
                     source={{
                       uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg1.doubanio.com%2Fpview%2Fevent_poster%2Fraw%2Fpublic%2Ff3283bd44eec487.jpg&refer=http%3A%2F%2Fimg1.doubanio.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631083362&t=f518e0105b6e4d70c8bd1515d98d8802'
                     }}
@@ -168,7 +168,7 @@ class Index extends PureComponent {
                         opacity: 0.8,
                         width: '100%',
                         height: '24%',
-                        borderRadius: pxToDp(10)
+                        borderRadius: pxToDp(8)
                       }}
                     >
                       <View style={{ margin: pxToDp(10) }}>
@@ -205,7 +205,7 @@ class Index extends PureComponent {
             <View
               style={{
                 margin: pxToDp(8),
-                borderRadius: pxToDp(10),
+                borderRadius: pxToDp(8),
                 height: pxToDp(210),
                 backgroundColor: 'rgba(255,255,255,0.5)'
               }}
@@ -253,7 +253,7 @@ class Index extends PureComponent {
                       style={{
                         width: '30%',
                         height: pxToDp(140),
-                        borderRadius: pxToDp(10)
+                        borderRadius: pxToDp(8)
                       }}
                     >
                       <ImageBackground
@@ -263,7 +263,7 @@ class Index extends PureComponent {
                           flexDirection: 'row',
                           alignItems: 'flex-end'
                         }}
-                        imageStyle={{ borderRadius: pxToDp(10) }}
+                        imageStyle={{ borderRadius: pxToDp(8) }}
                         source={{
                           uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fn.sinaimg.cn%2Fsinakd2020723s%2F660%2Fw400h260%2F20200723%2F77aa-iwtqvyk3596226.jpg&refer=http%3A%2F%2Fn.sinaimg.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631088242&t=8d11f82c9b8959e2ebe4a2f3d2da915c'
                         }}
@@ -302,7 +302,7 @@ class Index extends PureComponent {
                       style={{
                         width: '30%',
                         height: pxToDp(140),
-                        borderRadius: pxToDp(10)
+                        borderRadius: pxToDp(8)
                       }}
                     >
                       <ImageBackground
@@ -312,7 +312,7 @@ class Index extends PureComponent {
                           flexDirection: 'row',
                           alignItems: 'flex-end'
                         }}
-                        imageStyle={{ borderRadius: pxToDp(10) }}
+                        imageStyle={{ borderRadius: pxToDp(8) }}
                         source={{
                           uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fphotoblog%2F1805%2F12%2Fc4%2F86800294_1526116090750_mthumb.jpg&refer=http%3A%2F%2Fimg.pconline.com.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631088747&t=39a0a671e23c977056b8eb6f6cccbef6'
                         }}
@@ -351,7 +351,7 @@ class Index extends PureComponent {
                       style={{
                         width: '30%',
                         height: pxToDp(140),
-                        borderRadius: pxToDp(10)
+                        borderRadius: pxToDp(8)
                       }}
                     >
                       <TouchableOpacity
@@ -364,7 +364,7 @@ class Index extends PureComponent {
                             flexDirection: 'row',
                             alignItems: 'flex-end'
                           }}
-                          imageStyle={{ borderRadius: pxToDp(10) }}
+                          imageStyle={{ borderRadius: pxToDp(8) }}
                           source={{
                             uri: 'https://img0.baidu.com/it/u=2176866696,2026454484&fm=26&fmt=auto&gp=0.jpg'
                           }}
@@ -422,7 +422,7 @@ class Index extends PureComponent {
                   style={{
                     width: '100%',
                     height: pxToDp(100),
-                    borderRadius: pxToDp(20),
+                    borderRadius: pxToDp(24),
                     backgroundColor: 'rgba(255,255,255,0.5)',
                     justifyContent: 'space-around',
                     alignItems: 'center'
@@ -433,7 +433,7 @@ class Index extends PureComponent {
                       style={{
                         width: '38%',
                         height: pxToDp(92),
-                        borderRadius: pxToDp(10)
+                        borderRadius: pxToDp(8)
                       }}
                       source={{
                         uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fweb.sobeycloud.com%2Fksdst%2Fupload%2FImage%2Fmrtp%2Fa0596dd21f294618b100b491f36bc16a.jpg%3F1540781616319&refer=http%3A%2F%2Fweb.sobeycloud.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631089037&t=cb3d24dc288a31bba3d4470d346f6f38'
@@ -478,7 +478,7 @@ class Index extends PureComponent {
                   style={{
                     width: '100%',
                     height: pxToDp(100),
-                    borderRadius: pxToDp(20),
+                    borderRadius: pxToDp(24),
                     backgroundColor: 'rgba(255,255,255,0.5)',
                     justifyContent: 'space-around',
                     alignItems: 'center'
@@ -489,7 +489,7 @@ class Index extends PureComponent {
                       style={{
                         width: '38%',
                         height: pxToDp(92),
-                        borderRadius: pxToDp(10)
+                        borderRadius: pxToDp(8)
                       }}
                       source={{
                         uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.cyf98.cn%2Fupload%2Fimg%2FpYqLhIBIkNew3hfPpivZNpvyLpIHt-Vbq3t9GHIBEUdUUZvza39sNQXKes-XrzmsdbPVSBiXmcFgU1xuzFZ1U9V74nrGvfozWdtWFRwzrS3uttVBz4k2nW4.jpg&refer=http%3A%2F%2Fwww.cyf98.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631089220&t=7673d4718d8f83d49ba433be1f704414'
@@ -534,7 +534,7 @@ class Index extends PureComponent {
                   style={{
                     width: '100%',
                     height: pxToDp(100),
-                    borderRadius: pxToDp(20),
+                    borderRadius: pxToDp(24),
                     backgroundColor: 'rgba(255,255,255,0.5)',
                     justifyContent: 'space-around',
                     alignItems: 'center'
@@ -545,7 +545,7 @@ class Index extends PureComponent {
                       style={{
                         width: '38%',
                         height: pxToDp(92),
-                        borderRadius: pxToDp(10)
+                        borderRadius: pxToDp(8)
                       }}
                       source={{
                         uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fupfile.cuepa.cn%2Fnewspics%2F2016%2F02%2Fs_184c49bcb3de665e32b015a291c0725d11750.jpg&refer=http%3A%2F%2Fupfile.cuepa.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631089466&t=0622beb059cad15f78be53db35a89e9f'
@@ -603,7 +603,7 @@ class Index extends PureComponent {
                 <TouchableOpacity onPress={() => this.context.navigate()}>
                   <ImageBackground
                     style={{ width: '100%', height: pxToDp(220) }}
-                    imageStyle={{ borderRadius: pxToDp(10) }}
+                    imageStyle={{ borderRadius: pxToDp(8) }}
                     source={{
                       uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg1.doubanio.com%2Fpview%2Fevent_poster%2Fraw%2Fpublic%2Ff3283bd44eec487.jpg&refer=http%3A%2F%2Fimg1.doubanio.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631083362&t=f518e0105b6e4d70c8bd1515d98d8802'
                     }}
@@ -625,7 +625,7 @@ class Index extends PureComponent {
                         opacity: 0.8,
                         width: '100%',
                         height: '24%',
-                        borderRadius: pxToDp(10)
+                        borderRadius: pxToDp(8)
                       }}
                     >
                       <View style={{ margin: pxToDp(10) }}>

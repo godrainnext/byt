@@ -50,7 +50,7 @@ class index extends PureComponent {
                 <ImageBackground
                   style={{ width: 150, height: 150 }}
                   source={{ uri: item.uriFace }}
-                  imageStyle={{ borderRadius: pxToDp(20) }}
+                  imageStyle={{ borderRadius: pxToDp(24) }}
                 >
                   <View
                     style={{ justifyContent: 'center', alignItems: 'center' }}

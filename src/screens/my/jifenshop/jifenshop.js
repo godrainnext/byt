@@ -146,7 +146,7 @@ class Index extends PureComponent {
                 height: pxToDp(35),
                 width: pxToDp(90),
                 marginRight: pxToDp(13),
-                borderRadius: pxToDp(20),
+                borderRadius: pxToDp(24),
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'center'
@@ -210,14 +210,14 @@ const styles = StyleSheet.create({
   kidbox: {
     width: pxToDp(170),
     height: pxToDp(240),
-    borderRadius: pxToDp(10),
+    borderRadius: pxToDp(8),
     marginLeft: pxToDp(8),
     marginRight: pxToDp(8)
   },
   image: {
     height: pxToDp(170),
     width: pxToDp(170),
-    borderRadius: pxToDp(10)
+    borderRadius: pxToDp(8)
   },
   bottext: {
     flexDirection: 'row',

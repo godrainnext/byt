@@ -10,17 +10,26 @@ import { pxToDp } from './utils/styleKits';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import LottieView from "lottie-react-native";
 import Meun from './screens/test/test6';
-const isLoop=true,isAuto=true;
 class Index extends PureComponent {
   state = {
     selectedTab: 'first',
+    isAuto: true,
+    isLoop: false,
     pages: [
       {
         selected: 'first',
         title: '越台',
-        renderIcon: () => <Image style={{ width: pxToDp(80), height: pxToDp(28) }} source={require("./sb4.png")}></Image>,
+        renderIcon: () => (
+          <Image
+            style={{ width: pxToDp(80), height: pxToDp(28) }}
+            source={require('./sb4.png')}
+          ></Image>
+        ),
         renderSelectedIcon: () => (
-          <Image style={{ width: pxToDp(100), height: pxToDp(28) }} source={require("./sb4.png")}></Image>
+          <Image
+            style={{ width: pxToDp(100), height: pxToDp(28) }}
+            source={require('./sb4.png')}
+          ></Image>
         ),
         onPress: () => this.setState({ selectedTab: 'first' }),
         component: <First />
@@ -28,9 +37,17 @@ class Index extends PureComponent {
       {
         selected: 'talk',
         title: '戏缘',
-        renderIcon: () => <Image style={{ width: pxToDp(80), height: pxToDp(28) }} source={require("./sb1.png")}></Image>,
+        renderIcon: () => (
+          <Image
+            style={{ width: pxToDp(80), height: pxToDp(28) }}
+            source={require('./sb1.png')}
+          ></Image>
+        ),
         renderSelectedIcon: () => (
-          <Image style={{ width: pxToDp(100), height: pxToDp(28) }} source={require("./sb1.png")}></Image>
+          <Image
+            style={{ width: pxToDp(100), height: pxToDp(28) }}
+            source={require('./sb1.png')}
+          ></Image>
         ),
         onPress: () => this.setState({ selectedTab: 'talk' }),
         component: <Talk />
@@ -38,22 +55,20 @@ class Index extends PureComponent {
       {
         renderIcon: () =>
           <View>
-            <TouchableOpacity onPress={() => this.Scrollable1.open()}>
-              {/* <Image style={{ width: pxToDp(28), height: pxToDp(28), borderRadius: pxToDp(14) }} source={require("./res/商城.png")}></Image> */}
-              <LottieView
-                autoPlay={isAuto == undefined ? true : isAuto}
-                loop={isLoop == undefined ? true : isLoop}
-                style={{ width: pxToDp(70) ,marginBottom:pxToDp(35)}}
-                source={require('./lottie/lf30_editor_daidtw39.json')}
-              />
-            </TouchableOpacity>
+            {/* <Image style={{ width: pxToDp(28), height: pxToDp(28), borderRadius: pxToDp(14) }} source={require("./res/商城.png")}></Image> */}
+            <LottieView
+              autoPlay={this.state.isAuto}
+              loop={this.state.isLoop}
+              style={{ width: pxToDp(70), marginBottom: pxToDp(35) }}
+              source={require('./lottie/lf30_editor_daidtw39.json')}
+            />
             <RBSheet
               ref={(ref) => {
                 this.Scrollable1 = ref;
               }}
-              height={250}
+              height={272}
               width={375}
-              // closeOnDragDown
+              closeOnDragDown
               openDuration={600}
               animationType='fade'
               customStyles={{
@@ -73,36 +88,52 @@ class Index extends PureComponent {
                 alignItems: 'center',
               }}>
                 <View style={styles.gridContainer}>
-                  <View style={{ width: pxToDp(300), height: '100%', backgroundColor: '#eee', justifyContent: 'space-around', alignItems: 'center', borderRadius: pxToDp(16), flexDirection: 'row' }}>
-                    <TouchableOpacity style={styles.textbox}>
-                      <Text style={styles.text}>1</Text>
+                  <View style={{
+                    width: pxToDp(300), height: '100%', backgroundColor: '#ecf6fc', justifyContent: 'space-around', alignItems: 'center', borderRadius: pxToDp(16), flexDirection: 'row', elevation: 10,
+                    shadowColor: 'black',
+                    shadowOffset: { width: 0, height: 0 },
+                    shadowOpacity: 1,
+                    shadowRadius: 10,
+                  }}>
+                    <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }} >
+                      <View style={styles.textbox}></View>
+                      <Text style={styles.text}>开直播</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.textbox}>
-                      <Text style={styles.text}>2</Text>
+                    <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }} >
+                      <View style={styles.textbox}></View>
+                      <Text style={styles.text}>开房间</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.textbox}>
-                      <Text style={styles.text}>3</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.textbox}>
-                      <Text style={styles.text}>4</Text>
+                    <TouchableOpacity style={{ justifyContent: 'center', alignItems: 'center' }} >
+                      <View style={styles.textbox}></View>
+                      <Text style={styles.text}>发动态</Text>
                     </TouchableOpacity>
                   </View>
                 </View>
-                <View style={{ width: pxToDp(24), height: pxToDp(24), backgroundColor: '#eee', transform: [{ rotate: '135deg' }], marginTop: pxToDp(-16), borderRadius: pxToDp(4) }}></View>
+                <View style={{ width: pxToDp(24), height: pxToDp(24), backgroundColor: '#ecf6fc', transform: [{ rotate: '135deg' }], marginTop: pxToDp(-16), borderRadius: pxToDp(4) }}></View>
               </View>
             </RBSheet>
           </View>
         ,
         renderSelectedIcon: () => (
-          <Image style={{ width: pxToDp(28), height: pxToDp(28), borderRadius: pxToDp(14) }} source={require("./res/商城.png")}></Image>
+          <LottieView
+            autoPlay={true}
+            loop={true}
+            style={{ width: pxToDp(70), marginBottom: pxToDp(35) }}
+            source={require('./lottie/lf30_editor_daidtw39.json')}
+          />
         ),
+        onPress: () => this.Scrollable1.open(),
+
       },
       {
         selected: 'shop',
         title: '越市',
         renderIcon: () => <Image style={{ width: pxToDp(80), height: pxToDp(28) }} source={require("./sb2.png")}></Image>,
         renderSelectedIcon: () => (
-          <Image style={{ width: pxToDp(95), height: pxToDp(28) }} source={require("./sb2.png")}></Image>
+          <Image
+            style={{ width: pxToDp(95), height: pxToDp(28) }}
+            source={require('./sb2.png')}
+          ></Image>
         ),
         onPress: () => this.setState({ selectedTab: 'shop' }),
         component: <Shop />
@@ -110,9 +141,17 @@ class Index extends PureComponent {
       {
         selected: 'my',
         title: '戏痴',
-        renderIcon: () => <Image style={{ width: pxToDp(80), height: pxToDp(28) }} source={require("./sb3.png")}></Image>,
+        renderIcon: () => (
+          <Image
+            style={{ width: pxToDp(80), height: pxToDp(28) }}
+            source={require('./sb3.png')}
+          ></Image>
+        ),
         renderSelectedIcon: () => (
-          <Image style={{ width: pxToDp(95), height: pxToDp(28) }} source={require("./sb3.png")}></Image>
+          <Image
+            style={{ width: pxToDp(95), height: pxToDp(28) }}
+            source={require('./sb3.png')}
+          ></Image>
         ),
         onPress: () => this.setState({ selectedTab: 'my' }),
         component: <My />
@@ -141,7 +180,6 @@ class Index extends PureComponent {
             {v.component}
           </TabNavigator.Item>
         ))}
-
       </TabNavigator>
     );
   }
@@ -160,10 +198,11 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     borderRadius: pxToDp(20),
     zIndex: 9999,
+
   },
   text: {
     fontSize: pxToDp(13),
-    color: 'white'
+    color: 'black'
   },
   textbox: {
     height: pxToDp(40),
@@ -172,6 +211,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#468cd3',
     alignItems: 'center',
     justifyContent: 'center',
+    elevation: 8,
+    shadowColor: 'black',
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 1,
+    shadowRadius: 10,
   },
   image1: {
     height: pxToDp(160),

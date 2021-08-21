@@ -236,7 +236,7 @@ export default class App extends React.PureComponent {
                   width: 200,
                   height: 40,
                   borderWidth: 2,
-                  borderRadius: 10,
+                  borderRadius: 8,
                   fontSize: 15,
                   top: 4,
                   left: 20
@@ -283,7 +283,7 @@ var styles = StyleSheet.create({
     width: 50,
     height: 50,
     backgroundColor: '#fff',
-    borderRadius: 50,
+    borderRadius: 48,
     position: 'absolute',
     top: '50%',
     left: '50%',

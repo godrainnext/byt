@@ -64,72 +64,72 @@ class Index extends PureComponent {
 }
 
 const styles = StyleSheet.create({
-    view: {
-        backgroundColor: '#E2F4FE',
-        flex: 1
-    },
-    box: {
-        marginLeft: pxToDp(10),
-        marginRight: pxToDp(10),
-        marginBottom: pxToDp(10)
-    },
-    image1: {
-        width: pxToDp(355),
-        borderRadius: pxToDp(12),
-        height: pxToDp(170)
-    },
-    image2: {
-        height: pxToDp(70),
-        width: pxToDp(70),
-        margin: pxToDp(5),
-        alignItems:'center',
-        justifyContent:"center"
-    },
-    image22:{
-        height: pxToDp(70),
-        width: pxToDp(70),
-        borderRadius:pxToDp(10)
-    },
-    title: {
-        fontSize: pxToDp(18),
-        color: '#468CD3',
-        fontWeight: 'bold',
-        marginTop: pxToDp(10)
-    },
-    text: {
-        fontSize: pxToDp(15)
-    },
-    zhuanji: {
-        flexDirection: 'row',
-        width: '100%',
-        height: pxToDp(100),
-        borderRadius: pxToDp(10),
-        backgroundColor: 'rgba(255,255,255,0.5)',
-        marginTop: pxToDp(10)
-    },
-    image3: {
-        height: pxToDp(80),
-        width: pxToDp(80),
-        borderRadius: pxToDp(10),
-        margin: pxToDp(10)
-    },
-    zhuanjititle: {
-        fontSize: pxToDp(18),
-        fontWeight: 'bold',
-        color: 'black'
-    },
-    zhuanjitext: {
-        fontSize: pxToDp(15),
-        color: 'grey',
-        marginTop: pxToDp(10)
-    },
-    song: {
-        flexDirection: 'row',
-        width: '100%',
-        height: pxToDp(80),
-        borderRadius: pxToDp(10),
-        backgroundColor: 'rgba(255,255,255,0.5)',
-        marginTop: pxToDp(10)
-    }
-})
+  view: {
+    backgroundColor: '#E2F4FE',
+    flex: 1
+  },
+  box: {
+    marginLeft: pxToDp(10),
+    marginRight: pxToDp(10),
+    marginBottom: pxToDp(10)
+  },
+  image1: {
+    width: pxToDp(355),
+    borderRadius: pxToDp(16),
+    height: pxToDp(170)
+  },
+  image2: {
+    height: pxToDp(70),
+    width: pxToDp(70),
+    margin: pxToDp(5),
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  image22: {
+    height: pxToDp(70),
+    width: pxToDp(70),
+    borderRadius: pxToDp(8)
+  },
+  title: {
+    fontSize: pxToDp(18),
+    color: '#468CD3',
+    fontWeight: 'bold',
+    marginTop: pxToDp(10)
+  },
+  text: {
+    fontSize: pxToDp(15)
+  },
+  zhuanji: {
+    flexDirection: 'row',
+    width: '100%',
+    height: pxToDp(100),
+    borderRadius: pxToDp(8),
+    backgroundColor: 'rgba(255,255,255,0.5)',
+    marginTop: pxToDp(10)
+  },
+  image3: {
+    height: pxToDp(80),
+    width: pxToDp(80),
+    borderRadius: pxToDp(8),
+    margin: pxToDp(10)
+  },
+  zhuanjititle: {
+    fontSize: pxToDp(18),
+    fontWeight: 'bold',
+    color: 'black'
+  },
+  zhuanjitext: {
+    fontSize: pxToDp(15),
+    color: 'grey',
+    marginTop: pxToDp(10)
+  },
+  song: {
+    flexDirection: 'row',
+    width: '100%',
+    height: pxToDp(80),
+    borderRadius: pxToDp(8),
+    backgroundColor: 'rgba(255,255,255,0.5)',
+    marginTop: pxToDp(10)
+  }
+});
 export default Index;

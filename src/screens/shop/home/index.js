@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
   lunboimage: {
     height: '100%',
     width: '100%',
-    borderRadius: pxToDp(10),
+    borderRadius: pxToDp(8),
     marginBottom: pxToDp(10)
   },
   title: {

@@ -139,11 +139,11 @@ const styles = StyleSheet.create({
     color: 'white'
   },
   image: {
-    borderRadius: pxToDp(10),
+    borderRadius: pxToDp(8),
     justifyContent: 'space-between',
     height: pxToDp(200),
     width: pxToDp(355),
-    borderRadius: pxToDp(10),
+    borderRadius: pxToDp(8),
     margin: pxToDp(10)
   }
 });

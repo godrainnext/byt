@@ -80,7 +80,7 @@ export default class HeaderHaveBack extends PureComponent {
                       borderColor: 'black',
                       height: pxToDp(25),
                       width: pxToDp(200),
-                      borderRadius: pxToDp(12),
+                      borderRadius: pxToDp(16),
                       alignItems: 'center',
                       marginTop: pxToDp(20)
                     }}
@@ -157,10 +157,10 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   modalView: {
-    margin: 20,
+    margin: pxToDp(20),
     backgroundColor: 'white',
-    borderRadius: 20,
-    padding: 35,
+    borderRadius: pxToDp(24),
+    padding: pxToDp(35),
     alignItems: 'center',
     shadowColor: '#000',
     shadowOffset: {

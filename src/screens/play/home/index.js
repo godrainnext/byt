@@ -285,7 +285,7 @@ const styles = StyleSheet.create({
   textbox: {
     height: pxToDp(40),
     width: pxToDp(180),
-    borderRadius: pxToDp(30),
+    borderRadius: pxToDp(32),
     backgroundColor: '#468cd3',
     alignItems: 'center',
     justifyContent: 'center',
@@ -295,18 +295,18 @@ const styles = StyleSheet.create({
     height: pxToDp(160),
     width: pxToDp(160),
     margin: pxToDp(5),
-    borderRadius: pxToDp(10)
+    borderRadius: pxToDp(8)
   },
   image2: {
     height: pxToDp(75),
     width: pxToDp(175),
     margin: pxToDp(5),
-    borderRadius: pxToDp(10)
+    borderRadius: pxToDp(8)
   },
   textinputbox: {
     height: pxToDp(40),
     width: pxToDp(180),
-    borderRadius: pxToDp(30),
+    borderRadius: pxToDp(32),
     backgroundColor: 'white',
     marginTop: pxToDp(10),
     borderColor: 'grey',
@@ -314,7 +314,7 @@ const styles = StyleSheet.create({
   },
   modalView: {
     backgroundColor: 'white',
-    borderRadius: 12,
+    borderRadius: pxToDp(16),
     alignItems: 'center',
     shadowColor: '#000',
     shadowOffset: {
@@ -327,7 +327,7 @@ const styles = StyleSheet.create({
   },
   openButton: {
     backgroundColor: '#F194FF',
-    borderRadius: 5,
+    borderRadius: pxToDp(4),
     marginTop: pxToDp(35),
     elevation: 12,
     width: pxToDp(240),
@@ -351,7 +351,7 @@ const styles = StyleSheet.create({
     fontSize: pxToDp(15)
   },
   modalText3: {
-    marginTop: 5,
+    marginTop: pxToDp(5),
     textAlign: 'center',
     fontSize: pxToDp(13)
   },
@@ -361,13 +361,13 @@ const styles = StyleSheet.create({
     height: pxToDp(40),
     width: pxToDp(30),
     backgroundColor: '#f5f5f5',
-    borderRadius: pxToDp(10)
+    borderRadius: pxToDp(8)
   },
   centeredView: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 22
+    marginTop: pxToDp(22)
   },
   modalText4: {
     margin: pxToDp(25),
@@ -380,7 +380,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#468cd3',
     height: pxToDp(20),
     width: pxToDp(50),
-    borderRadius: pxToDp(5),
+    borderRadius: pxToDp(4),
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: pxToDp(10)

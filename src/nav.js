@@ -80,6 +80,8 @@ function Nav() {
         <Stack.Screen name="Signature" component={Screens.Singnature} />
         {/**订单确认页面*/}
         <Stack.Screen name="orderdetails" component={Screens.orderdetails} />
+        {/* 积分订单 */}
+        <Stack.Screen name="Jifenorder" component={Screens.Jifenorder} />
         {/**租赁订单确认*/}
         <Stack.Screen name="leasedetails" component={Screens.leasedetails} />
         {/**关注列表 */}

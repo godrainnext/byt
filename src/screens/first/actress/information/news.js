@@ -46,6 +46,6 @@ const styles = StyleSheet.create({
   image4: {
     width: pxToDp(135),
     height: pxToDp(90),
-    borderRadius: pxToDp(10)
+    borderRadius: pxToDp(8)
   }
 });

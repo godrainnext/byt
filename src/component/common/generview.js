@@ -24,29 +24,29 @@ class Index extends PureComponent {
     }
 }
 const styles = StyleSheet.create({
-    box: {
-        flexDirection: 'row',
-        backgroundColor: 'rgba(255,255,255,0.5)',
-        height: pxToDp(110),
-        marginLeft: pxToDp(10),
-        marginRight: pxToDp(10),
-        marginBottom: pxToDp(5),
-        marginBottom: pxToDp(5),
-        borderRadius: pxToDp(10)
-    },
-    image: {
-        height: pxToDp(90),
-        width: pxToDp(90),
-        borderRadius: pxToDp(7),
-        margin: pxToDp(10)
-    },
-    text1: {
-        fontSize: pxToDp(18),
-        fontWeight: 'bold'
-    },
-    text2: {
-        fontSize: pxToDp(12),
-        marginTop: pxToDp(10)
-    }
-})
+  box: {
+    flexDirection: 'row',
+    backgroundColor: 'rgba(255,255,255,0.5)',
+    height: pxToDp(110),
+    marginLeft: pxToDp(10),
+    marginRight: pxToDp(10),
+    marginBottom: pxToDp(5),
+    marginBottom: pxToDp(5),
+    borderRadius: pxToDp(8)
+  },
+  image: {
+    height: pxToDp(90),
+    width: pxToDp(90),
+    borderRadius: pxToDp(8),
+    margin: pxToDp(10)
+  },
+  text1: {
+    fontSize: pxToDp(18),
+    fontWeight: 'bold'
+  },
+  text2: {
+    fontSize: pxToDp(12),
+    marginTop: pxToDp(10)
+  }
+});
 export default Index;

@@ -57,11 +57,12 @@ class UserInner extends PureComponent {
     return (
       <View
         style={{
-          borderRadius: pxToDp(10),
+          borderRadius: pxToDp(8),
           backgroundColor: '#f0fcff',
           margin: pxToDp(10),
           height: pxToDp(140),
-          elevation:3,borderWidth:0
+          elevation: 3,
+          borderWidth: 0
         }}
       >
         <View style={{ flexDirection: 'row' }}>
@@ -70,7 +71,7 @@ class UserInner extends PureComponent {
               style={{
                 height: pxToDp(60),
                 width: pxToDp(60),
-                borderRadius: pxToDp(30),
+                borderRadius: pxToDp(32),
                 margin: pxToDp(10)
               }}
               source={{

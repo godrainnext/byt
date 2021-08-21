@@ -51,7 +51,7 @@ class history extends Component {
                 >
                   <ImageBackground
                     style={{ width: '100%', height: pxToDp(220) }}
-                    imageStyle={{ borderRadius: pxToDp(10) }}
+                    imageStyle={{ borderRadius: pxToDp(8) }}
                     source={{ uri: changeImgSize(item.picurl) }}
                   >
                     <View
@@ -67,7 +67,7 @@ class history extends Component {
                         opacity: 0.8,
                         width: '100%',
                         height: '36%',
-                        borderRadius: pxToDp(10)
+                        borderRadius: pxToDp(8)
                       }}
                     >
                       <View style={{ margin: pxToDp(10) }}>

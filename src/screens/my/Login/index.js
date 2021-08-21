@@ -147,7 +147,6 @@ class Login extends PureComponent {
       });
   };
   render() {
-
     UIManager.setLayoutAnimationEnabledExperimental &&
       UIManager.setLayoutAnimationEnabledExperimental(true);
     return (
@@ -212,7 +211,7 @@ class Login extends PureComponent {
 
         <View
           style={{
-            borderRadius: 20,
+            borderRadius: 24,
             height: this.state.loginbox,
             width: pxToDp(250),
             position: 'absolute',
@@ -249,9 +248,21 @@ class Login extends PureComponent {
             <Text>登录</Text>
           </TouchableOpacity>
           {/*第三方登录--------------------------------*/}
-          <View style={{ flexDirection: "row", marginTop: pxToDp(40), alignItems: 'center', alignSelf: 'center' }}>
+          <View
+            style={{
+              flexDirection: 'row',
+              marginTop: pxToDp(40),
+              alignItems: 'center',
+              alignSelf: 'center'
+            }}
+          >
             <TouchableOpacity>
-              <Ionicons name="qq" size={25} color="#87CEFA" style={{ marginRight: pxToDp(30) }} />
+              <Ionicons
+                name="qq"
+                size={25}
+                color="#87CEFA"
+                style={{ marginRight: pxToDp(30) }}
+              />
             </TouchableOpacity>
             <TouchableOpacity>
               <Ionicons name="wechat" size={25} color="#32CD32" />
@@ -260,7 +271,7 @@ class Login extends PureComponent {
         </View>
         <View
           style={{
-            borderRadius: 20,
+            borderRadius: 24,
             height: this.state.regbox,
             width: pxToDp(250),
             position: 'absolute',
@@ -319,7 +330,6 @@ class Login extends PureComponent {
       </ImageBackground>
     );
   }
-
 }
 const styles = StyleSheet.create({
   opcity1: {
@@ -355,7 +365,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: 'skyblue',
     left: pxToDp(75),
-    borderRadius: 20
+    borderRadius: 24
   },
   register: {
     position: 'absolute',

@@ -41,7 +41,7 @@ export default class IndexScreen extends React.PureComponent {
               height: pxToDp(180),
               width: pxToDp(120),
               backgroundColor: '#fff',
-              borderRadius: 3,
+              borderRadius: 4,
               overflow: 'hidden'
             }}
           >

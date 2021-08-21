@@ -55,7 +55,7 @@ class Index extends PureComponent {
           <UserInner />
           <View
             style={{
-              borderRadius: pxToDp(10),
+              borderRadius: pxToDp(8),
               backgroundColor: '#f0fcff',
               margin: pxToDp(10),
               height: pxToDp(140),

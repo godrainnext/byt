@@ -165,7 +165,7 @@ class Ziliao extends PureComponent {
             height: '75%',
             backgroundColor: '#fff',
             alignSelf: 'center',
-            borderRadius: 32,
+            borderRadius: pxToDp(32),
             marginTop: pxToDp(60),
             elevation: 10,
             shadowColor: 'black', //  阴影颜色
@@ -369,20 +369,17 @@ class Ziliao extends PureComponent {
               marginTop: pxToDp(50)
             }}
           >
-          
-              <Button
-                title="保     存"
-                onPress={this.saveUserInfo}
-                ViewComponent={LinearGradient}
-                titleStyle={{ color: '#fcfcfc' }}
-                linearGradientProps={{
-                  colors: ['#fa9222', '#ffd501'],
-                  start: { x: 0, y: 0.5 },
-                  end: { x: 1, y: 0.5 }
-                }}
-                onPress={this.saveUserInfo}
-              />
-          
+            <Button
+              title="保     存"
+              onPress={this.saveUserInfo}
+              ViewComponent={LinearGradient}
+              titleStyle={{ color: '#fcfcfc' }}
+              linearGradientProps={{
+                colors: ['#fa9222', '#ffd501'],
+                start: { x: 0, y: 0.5 },
+                end: { x: 1, y: 0.5 }
+              }}
+            />
           </View>
         </View>
       </View>
@@ -417,7 +414,7 @@ const s = StyleSheet.create({
     height: pxToDp(250),
     backgroundColor: '#e2f4fe',
     justifyContent: 'space-evenly',
-    borderRadius: pxToDp(30)
+    borderRadius: pxToDp(32)
   },
   modalTitle: {
     width: '70%',

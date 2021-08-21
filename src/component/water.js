@@ -313,7 +313,7 @@ const styles = StyleSheet.create({
   userPic: {
     height: 20,
     width: 20,
-    borderRadius: 10,
+    borderRadius: 8,
     marginRight: 10
   },
   userName: {

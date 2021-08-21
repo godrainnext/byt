@@ -64,7 +64,7 @@ class orderdetails extends PureComponent {
                 alignItems: 'center',
                 width: pxToDp(30),
                 height: pxToDp(30),
-                borderRadius: pxToDp(60),
+                borderRadius: pxToDp(64),
                 backgroundColor: 'white'
               }}
             >
@@ -107,7 +107,7 @@ class orderdetails extends PureComponent {
             backgroundColor: 'white',
             height: pxToDp(90),
             bottom: pxToDp(20),
-            borderRadius: pxToDp(10)
+            borderRadius: pxToDp(8)
           }}
         >
           <View
@@ -143,7 +143,7 @@ class orderdetails extends PureComponent {
               marginLeft: pxToDp(10),
               marginRight: pxToDp(10),
               bottom: pxToDp(10),
-              borderRadius: pxToDp(10)
+              borderRadius: pxToDp(8)
             }}
           >
             <View style={{ justifyContent: 'center', marginLeft: pxToDp(15) }}>
@@ -205,7 +205,7 @@ class orderdetails extends PureComponent {
             backgroundColor: 'white',
             marginLeft: pxToDp(10),
             marginRight: pxToDp(10),
-            borderRadius: pxToDp(10)
+            borderRadius: pxToDp(8)
           }}
         >
           <View style={{ marginLeft: pxToDp(15), marginTop: pxToDp(15) }}>
@@ -332,7 +332,7 @@ class orderdetails extends PureComponent {
                 left: pxToDp(10),
                 justifyContent: 'center',
                 alignItems: 'center',
-                borderRadius: pxToDp(25),
+                borderRadius: pxToDp(24),
                 marginRight: pxToDp(20),
                 width: pxToDp(80),
                 height: pxToDp(30)
@@ -344,7 +344,7 @@ class orderdetails extends PureComponent {
               cisabled={this.props.disabled}
               onPress={this.props.onPress}
               style={{
-                borderRadius: pxToDp(25),
+                borderRadius: pxToDp(24),
                 marginRight: pxToDp(20),
                 width: pxToDp(130),
                 height: pxToDp(40),
@@ -357,7 +357,7 @@ class orderdetails extends PureComponent {
                   flex: 1,
                   paddingLeft: pxToDp(15),
                   paddingRight: pxToDp(15),
-                  borderRadius: pxToDp(5),
+                  borderRadius: pxToDp(4),
                   width: '100%',
                   height: '100%',
                   justifyContent: 'center',
@@ -380,7 +380,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingLeft: pxToDp(15),
     paddingRight: pxToDp(15),
-    borderRadius: pxToDp(5),
+    borderRadius: pxToDp(4),
     width: '100%',
     height: '100%',
     justifyContent: 'center',

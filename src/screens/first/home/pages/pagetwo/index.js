@@ -519,7 +519,7 @@ export default class Example extends PureComponent {
             backgroundColor: '#468cd3',
             color: 'white',
             padding: 5,
-            borderRadius: 13
+            borderRadius: 16
           }}
           descriptionStyle={{ color: 'gray' }}
           options={{

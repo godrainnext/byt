@@ -18,6 +18,7 @@ export { default as Card } from './first/card/index'; //俯瞰百年卡片
 export { default as My } from './my/home/index'; //个人中心首页
 export { default as Login } from './my/Login'; //登录页面
 export { default as leasedetails } from './my/order/leasedetails'; //租赁页
+export { default as Jifenorder } from './my/order/jifenorder'; //积分订单
 export { default as Set } from './my/seetings/set'; //设置
 export { default as Tuisong } from './my/seetings/tuisong'; //推送页
 export { default as Women } from './my/seetings/women'; //关于我们页
@@ -113,7 +114,7 @@ export { default as Test1 } from './test/test1'
 export { default as Test2 } from './test/test2' 
 export { default as Test3 } from './test/test3' 
 export { default as Test4 } from './test/test4' 
-export { default as Test6 } from './test/test6' 
+export { default as Test6 } from './test/test8' 
 
 export { default as WaterButton } from '../component/common/waterbutton'; //波纹按钮
 
