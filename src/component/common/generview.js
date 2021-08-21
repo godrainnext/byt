@@ -30,8 +30,8 @@ const styles = StyleSheet.create({
     height: pxToDp(110),
     marginLeft: pxToDp(8),
     marginRight: pxToDp(8),
-    marginBottom: pxToDp(5),
-    marginBottom: pxToDp(5),
+    marginTop: pxToDp(8),
+    marginBottom: pxToDp(8),
     borderRadius: pxToDp(8)
   },
   image: {
