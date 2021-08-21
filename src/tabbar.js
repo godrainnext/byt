@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import TabNavigator from 'react-native-tab-navigator';
-import { Image, TouchableOpacity, View, StyleSheet, Text } from 'react-native'
+import { Image, TouchableOpacity, View, StyleSheet, Text } from 'react-native';
 import Svg from 'react-native-svg-uri';
 import First from './screens/first/home';
 import Talk from './screens/talk/home';
@@ -8,7 +8,7 @@ import Shop from './screens/shop/home';
 import My from './screens/my/home';
 import { pxToDp } from './utils/styleKits';
 import RBSheet from 'react-native-raw-bottom-sheet';
-import LottieView from "lottie-react-native";
+import LottieView from 'lottie-react-native';
 import Meun from './screens/test/test6';
 import { NavigationContext } from '@react-navigation/native';
 import Addmoment from './screens/talk/home/forum/addMoment';
@@ -40,27 +40,41 @@ class Index extends PureComponent {
       {
         selected: 'first',
         title: '越台',
-        renderIcon: () => <Image style={{ width: pxToDp(30), height: pxToDp(28) }} source={require("./sb11.png")}></Image>,
+        renderIcon: () => (
+          <Image
+            style={{ width: pxToDp(30), height: pxToDp(28) }}
+            source={require('./sb11.png')}
+          ></Image>
+        ),
         renderSelectedIcon: () => (
-          <Image style={{ width: pxToDp(35), height: pxToDp(28) }} source={require("./sb11.png")}></Image>
+          <Image
+            style={{ width: pxToDp(35), height: pxToDp(28) }}
+            source={require('./sb11.png')}
+          ></Image>
         ),
         onPress: () => this.setState({ selectedTab: 'first' }),
-        component: <First />,
-
-
+        component: <First />
       },
       {
         selected: 'talk',
         title: '戏缘',
-        renderIcon: () => <Image style={{ width: pxToDp(30), height: pxToDp(28) }} source={require("./sb22.png")}></Image>,
+        renderIcon: () => (
+          <Image
+            style={{ width: pxToDp(30), height: pxToDp(28) }}
+            source={require('./sb22.png')}
+          ></Image>
+        ),
         renderSelectedIcon: () => (
-          <Image style={{ width: pxToDp(35), height: pxToDp(28) }} source={require("./sb22.png")}></Image>
+          <Image
+            style={{ width: pxToDp(35), height: pxToDp(28) }}
+            source={require('./sb22.png')}
+          ></Image>
         ),
         onPress: () => this.setState({ selectedTab: 'talk' }),
         component: <Talk />
       },
       {
-        renderIcon: () =>
+        renderIcon: () => (
           <View>
             {/* <Image style={{ width: pxToDp(28), height: pxToDp(28), borderRadius: pxToDp(14) }} source={require("./res/商城.png")}></Image> */}
             <LottieView
@@ -77,40 +91,60 @@ class Index extends PureComponent {
               width={375}
               closeOnDragDown
               openDuration={600}
-              animationType='fade'
+              animationType="fade"
               customStyles={{
                 container: {
                   borderTopLeftRadius: 10,
                   borderTopRightRadius: 10,
                   backgroundColor: 'transparent',
                   justifyContent: 'center',
-                  alignItems: 'center',
+                  alignItems: 'center'
                 }
               }}
             >
-              <View style={{
-                height: pxToDp(72),
-                width: pxToDp(375),
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}>
+              <View
+                style={{
+                  height: pxToDp(72),
+                  width: pxToDp(375),
+                  justifyContent: 'center',
+                  alignItems: 'center'
+                }}
+              >
                 <View style={styles.gridContainer}>
-                  <View style={{
-                    width: pxToDp(300), height: '100%', backgroundColor: '#ecf6fc', justifyContent: 'space-around', alignItems: 'center', borderRadius: pxToDp(16), flexDirection: 'row', elevation: 10,
-                    shadowColor: 'black',
-                    shadowOffset: { width: 0, height: 0 },
-                    shadowOpacity: 1,
-                    shadowRadius: 10,
-                  }}>
-                    <TouchableOpacity onPress={this.kaiBo} style={{ justifyContent: 'center', alignItems: 'center' }} >
+                  <View
+                    style={{
+                      width: pxToDp(300),
+                      height: '100%',
+                      backgroundColor: '#ecf6fc',
+                      justifyContent: 'space-around',
+                      alignItems: 'center',
+                      borderRadius: pxToDp(16),
+                      flexDirection: 'row',
+                      elevation: 10,
+                      shadowColor: 'black',
+                      shadowOffset: { width: 0, height: 0 },
+                      shadowOpacity: 1,
+                      shadowRadius: 10
+                    }}
+                  >
+                    <TouchableOpacity
+                      onPress={this.kaiBo}
+                      style={{ justifyContent: 'center', alignItems: 'center' }}
+                    >
                       <View style={styles.textbox}></View>
                       <Text style={styles.text}>开直播</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={this.kaiFang} style={{ justifyContent: 'center', alignItems: 'center' }} >
+                    <TouchableOpacity
+                      onPress={this.kaiFang}
+                      style={{ justifyContent: 'center', alignItems: 'center' }}
+                    >
                       <View style={styles.textbox}></View>
                       <Text style={styles.text}>开房间</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={this.changeVisible} style={{ justifyContent: 'center', alignItems: 'center' }} >
+                    <TouchableOpacity
+                      onPress={this.changeVisible}
+                      style={{ justifyContent: 'center', alignItems: 'center' }}
+                    >
                       <View style={styles.textbox}></View>
                       <Text style={styles.text}>发动态</Text>
                     </TouchableOpacity>
@@ -123,11 +157,20 @@ class Index extends PureComponent {
                     isModalVisible={this.state.isShow}
                   />
                 </View>
-                <View style={{ width: pxToDp(24), height: pxToDp(24), backgroundColor: '#ecf6fc', transform: [{ rotate: '135deg' }], marginTop: pxToDp(-16), borderRadius: pxToDp(4) }}></View>
+                <View
+                  style={{
+                    width: pxToDp(24),
+                    height: pxToDp(24),
+                    backgroundColor: '#ecf6fc',
+                    transform: [{ rotate: '135deg' }],
+                    marginTop: pxToDp(-16),
+                    borderRadius: pxToDp(4)
+                  }}
+                ></View>
               </View>
             </RBSheet>
           </View>
-        ,
+        ),
         renderSelectedIcon: () => (
           <LottieView
             autoPlay={true}
@@ -136,15 +179,22 @@ class Index extends PureComponent {
             source={require('./lottie/lf30_editor_daidtw39.json')}
           />
         ),
-        onPress: () => this.Scrollable1.open(),
-
+        onPress: () => this.Scrollable1.open()
       },
       {
         selected: 'shop',
         title: '越市',
-        renderIcon: () => <Image style={{ width: pxToDp(30), height: pxToDp(30) }} source={require("./sb33.png")}></Image>,
+        renderIcon: () => (
+          <Image
+            style={{ width: pxToDp(30), height: pxToDp(30) }}
+            source={require('./sb33.png')}
+          ></Image>
+        ),
         renderSelectedIcon: () => (
-          <Image style={{ width: pxToDp(35), height: pxToDp(28) }} source={require("./sb33.png")}></Image>
+          <Image
+            style={{ width: pxToDp(35), height: pxToDp(28) }}
+            source={require('./sb33.png')}
+          ></Image>
         ),
         onPress: () => this.setState({ selectedTab: 'shop' }),
         component: <Shop />
@@ -152,9 +202,17 @@ class Index extends PureComponent {
       {
         selected: 'my',
         title: '戏痴',
-        renderIcon: () => <Image style={{ width: pxToDp(30), height: pxToDp(30) }} source={require("./sb44.png")}></Image>,
+        renderIcon: () => (
+          <Image
+            style={{ width: pxToDp(30), height: pxToDp(30) }}
+            source={require('./sb44.png')}
+          ></Image>
+        ),
         renderSelectedIcon: () => (
-          <Image style={{ width: pxToDp(35), height: pxToDp(28) }} source={require("./sb44.png")}></Image>
+          <Image
+            style={{ width: pxToDp(35), height: pxToDp(28) }}
+            source={require('./sb44.png')}
+          ></Image>
         ),
         onPress: () => this.setState({ selectedTab: 'my' }),
         component: <My />
@@ -165,9 +223,8 @@ class Index extends PureComponent {
     const { selectedTab, pages } = this.state;
     return (
       <View style={{ backgroundColor: '#fff', flex: 1 }}>
-        <TabNavigator style={{ backgroundColor: '#e2f4fe', }}>
+        <TabNavigator style={{ backgroundColor: '#e2f4fe' }}>
           {pages.map((v, i) => (
-
             <TabNavigator.Item
               key={v.title}
               selected={selectedTab === v.selected}
@@ -175,18 +232,20 @@ class Index extends PureComponent {
               renderIcon={v.renderIcon}
               renderSelectedIcon={v.renderSelectedIcon}
               onPress={v.onPress}
-              selectedTitleStyle={{ color: '#dc3023', height: 30, fontSize: 15, borderRadius: 50 }}
+              selectedTitleStyle={{
+                color: '#dc3023',
+                height: 30,
+                fontSize: 15,
+                borderRadius: 50
+              }}
               tabStyle={{
-
                 backgroundColor: '#ecf6fc',
                 justifyContent: 'center',
                 padding: 10
-
               }}
             >
               {v.component}
             </TabNavigator.Item>
-
           ))}
         </TabNavigator>
       </View>
@@ -206,8 +265,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: 'transparent',
     borderRadius: pxToDp(20),
-    zIndex: 9999,
-
+    zIndex: 9999
   },
   text: {
     fontSize: pxToDp(13),
@@ -224,7 +282,7 @@ const styles = StyleSheet.create({
     shadowColor: 'black',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 1,
-    shadowRadius: 10,
+    shadowRadius: 10
   },
   image1: {
     height: pxToDp(160),
@@ -334,8 +392,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center'
-  },
-
-
+  }
 });
 export default Index;

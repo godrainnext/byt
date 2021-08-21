@@ -7,18 +7,17 @@ import { pxToDp } from '@utils/styleKits';
 import changeImgSize from '@utils/changeImgSize';
 import { Button } from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
+import { PureComponent } from 'react';
 
-export default class HighLights extends Component {
+export default class HighLights extends PureComponent {
   static contextType = NavigationContext;
   state = { arr: [] };
   componentDidMount() {
     getVideList(0).then((res) => {
-      console.log(res);
       this.setState({ arr: res });
     });
   }
   render() {
-    console.log(this.state.arr[0]);
     return (
       <View style={{ margin: pxToDp(8) }}>
         <View
