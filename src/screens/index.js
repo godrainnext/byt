@@ -105,9 +105,18 @@ export { default as Screenpaly8 } from './talk/home/script/screenplay8'; //剧�
 export { default as Screenpaly9 } from './talk/home/script/screenplay9'; //剧本9页面
 
 export { default as SeeZhiBo } from './talk/zhiboye/gindex';
-export { default as Video } from '../component/videoplayer/index'; //视频页
-export { default as Jubao } from './talk/home/forum/jubao'; //举报页
+export { default as Video } from '../component/videoplayer/index'//视频页
+export { default as Jubao } from './talk/home/forum/jubao' //举报页
+
+
+
+export { default as Test1 } from './test/test1' 
+export { default as Test2 } from './test/test2' 
+export { default as Test3 } from './test/test3' 
+export { default as Test4 } from './test/test4' 
+export { default as Test6 } from './test/test8' 
+
 export { default as WaterButton } from '../component/common/waterbutton'; //波纹按钮
 
 export { default as NewTimeLine } from './test/test5';
-export { default as Testtt } from '../testtt';
+export { default as Testtt} from '../testtt';

@@ -202,6 +202,15 @@ function Nav() {
         <Stack.Screen name="Video" component={Screens.Video} />
         {/*举报页*/}
         <Stack.Screen name="Jubao" component={Screens.Jubao} />
+
+
+
+        <Stack.Screen name="Test1" component={Screens.Test1} />
+        <Stack.Screen name="Test2" component={Screens.Test2} />
+        <Stack.Screen name="Test3" component={Screens.Test3} />
+        <Stack.Screen name="Test4" component={Screens.Test4} />
+        <Stack.Screen name="Test6" component={Screens.Test6} />
+
         {/**波纹按钮 */}
         <Stack.Screen name="WaterButton" component={Screens.WaterButton} />
         {/*剧本热度榜单 */}

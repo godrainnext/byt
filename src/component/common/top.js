@@ -27,7 +27,7 @@ export default class HeaderHaveBack extends PureComponent {
       >
         <View
           style={{
-            marginTop: pxToDp(30),
+            marginTop: pxToDp(16),
             justifyContent: 'space-between',
             flexDirection: 'row'
           }}
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     width: screenWidth,
     flexDirection: 'row',
     // backgroundColor: '#e0f3fe',
-    height: 70
+    height: pxToDp(56)
   },
   icon1: {
     width: pxToDp(45),
