@@ -266,7 +266,10 @@ class index extends Component {
                             justifyContent: 'center',
                             alignItems: 'center'
                           }}
-                          onPress={() => this.context.navigate('Pagefive', 69)}
+                          onPress={() => {
+                            toggleModalProps()
+                            this.context.navigate('Pagefive', 69)
+                          }}
                         >
                           <Image
                             style={{
