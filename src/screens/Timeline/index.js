@@ -115,7 +115,7 @@ export default class index extends PureComponent {
                     imageStyle={{
                       borderRadius: pxToDp(48)
                     }}
-                    source={require('../../res/genre/t3.png')}
+                    source={require('../../res/genre/t8.jpg')}
                   ></ImageBackground>
                   <View
                     style={{
@@ -128,7 +128,7 @@ export default class index extends PureComponent {
                         fontWeight: 'bold'
                       }}
                     >
-                      白玉梅
+                      京剧
                     </Text>
                   </View>
                 </TouchableOpacity>
@@ -143,7 +143,7 @@ export default class index extends PureComponent {
                     imageStyle={{
                       borderRadius: pxToDp(48)
                     }}
-                    source={require('../../res/genre/t4.jpg')}
+                    source={require('../../res/genre/t9.jpg')}
                   ></ImageBackground>
                   <View
                     style={{
@@ -156,7 +156,7 @@ export default class index extends PureComponent {
                         fontWeight: 'bold'
                       }}
                     >
-                      徐天红
+                      昆曲
                     </Text>
                   </View>
                 </TouchableOpacity>
@@ -272,7 +272,7 @@ export default class index extends PureComponent {
                     imageStyle={{
                       borderRadius: pxToDp(48)
                     }}
-                    source={require('../../res/genre/t8.jpg')}
+                    source={require('../../res/genre/t3.png')}
                   ></ImageBackground>
                   <View
                     style={{
@@ -285,7 +285,7 @@ export default class index extends PureComponent {
                         fontWeight: 'bold'
                       }}
                     >
-                      京剧
+                      白玉梅
                     </Text>
                   </View>
                 </TouchableOpacity>
@@ -300,7 +300,7 @@ export default class index extends PureComponent {
                     imageStyle={{
                       borderRadius: pxToDp(48)
                     }}
-                    source={require('../../res/genre/t9.jpg')}
+                    source={require('../../res/genre/t4.jpg')}
                   ></ImageBackground>
                   <View
                     style={{
@@ -313,7 +313,7 @@ export default class index extends PureComponent {
                         fontWeight: 'bold'
                       }}
                     >
-                      昆曲
+                      徐天红
                     </Text>
                   </View>
                 </TouchableOpacity>
