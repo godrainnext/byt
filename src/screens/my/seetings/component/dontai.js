@@ -140,7 +140,8 @@ class Index extends PureComponent {
 
   render() {
     return (
-      <View>
+      <View> 
+       
         <View
           style={{
             width: '98%',
@@ -154,6 +155,7 @@ class Index extends PureComponent {
             elevation: 3
           }}
         >
+         
           {this.state.contentArr ? (
             this.state.contentArr.map((item) => (
               <View key={item.momentId}>
