@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Easing, Animated } from 'react-native';
+import { Easing,Animated,} from 'react-native';
 import Tabbar from './tabbar';
 import * as Screens from './screens';
 
@@ -10,7 +10,7 @@ const Stack = createStackNavigator();
 function Nav() {
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode="none" initialRouteName="Tabbar">
+      <Stack.Navigator headerMode="none" initialRouteName="Login">
         <Stack.Screen name="NewTimeLine" component={Screens.NewTimeLine} />
 
         <Stack.Screen name="Tabbar" component={Tabbar} />
