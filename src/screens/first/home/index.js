@@ -7,7 +7,7 @@ import {
   ScrollView,
   TouchableOpacity,
   SafeAreaView,
-  ImageBackground
+  ImageBackground, Easing
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { NavigationContext } from '@react-navigation/native';
@@ -32,12 +32,18 @@ import {
   tongpai
 } from '../../../component/common/iconSvg';
 import { Carousel } from '../../../component/common/teaset';
+import Animated from 'react-native-reanimated';
+import { TIME_OUT } from '../../../service/requset/config';
+let navHeight = 45
 class Index extends Component {
 
   static contextType = NavigationContext;
   state = {
     arr: [],
     isModalVisible: false,
+    fadeAnim: 0.05,
+    color: 0,
+    y: 0,
     book: [
       {
         id: '1',
@@ -101,14 +107,45 @@ class Index extends Component {
     this.setState({ isModalVisible: !this.state.isModalVisible });
   }
   render() {
+
     return (
       <ParallaxScrollView
-        renderStickyHeader={() => <Top title="越台" />}
-        stickyHeaderHeight={70}
-        parallaxHeaderHeight={200}
+
+        ref={(view) => { this.myScrollView = view }}
+        contentOffset={{ x: 0, y: 0 }}
+        onScroll={(event) => {
+          let offsetY = event.nativeEvent.contentOffset.y 
+          let opacity = offsetY / navHeight+0.05
+          // if(opacity > 5 || opacity < -5) { // 这里可以优化减少render， 1和0 滑快了会有些影响， 这里你可以看着给值， 当然也可以不优化
+          //   return
+          // }
+          console.log(opacity);
+          this.setState({
+            fadeAnim: opacity
+          })
+          this.setState({ y: event.nativeEvent.contentOffset.y })
+        }}
+        renderFixedHeader={() => {
+          return (
+            <View
+              style={{
+                width: '100%',
+                height: 50,
+                backgroundColor: this.state.fadeAnim < 0.2 ? 'white' : 'white',
+                opacity: this.state.fadeAnim,
+                borderWidth:.3,
+                borderColor:'#ccc'
+                
+              }}><Text
+              style={{color: this.state.fadeAnim < 0.2 ? 'white' : 'red',fontWeight:'bold',alignSelf:'center',fontSize:30}}>1111</Text>
+            </View>)
+        }}
+        // renderStickyHeader={() => <Top title="越台" />}
+        // stickyHeaderHeight={70}
+        parallaxHeaderHeight={250}
         backgroundSpeed={10}
         renderBackground={() => (
-          <View key="background">
+          <View>
             <Image
               source={{
                 uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic27.nipic.com%2F20130307%2F8984340_113532918000_2.jpg&refer=http%3A%2F%2Fpic27.nipic.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631857652&t=03b4f1cf6deeb6e50010fe5e59eb881d'
@@ -128,6 +165,9 @@ class Index extends Component {
               }}
             />
           </View>
+
+
+
         )}
         //自定义头部内容
         renderForeground={() => <View style={{ Top: 200, left: 100 }}></View>}
@@ -410,21 +450,13 @@ class Index extends Component {
                     <View
                       style={{ flexDirection: 'row', alignItems: 'center', marginTop: pxToDp(5) }}
                     >
-                      <Text>推荐指数</Text>
-                      <View
-                        style={{ flexDirection: 'row', marginLeft: pxToDp(8) }}
-                      >
-                        <Svg width="20" height="20" svgXmlData={star} />
-                        <Svg width="20" height="20" svgXmlData={star} />
-                        <Svg width="20" height="20" svgXmlData={star} />
-                        <Svg width="20" height="20" svgXmlData={star} />
-                        <Svg width="20" height="20" svgXmlData={star} />
-                      </View>
+                    
                     </View>
                   </View>
                 </View>
                 <View style={styles.book}>
                   <Image style={styles.bookimage} source={{ uri: item.path }} />
+                  
                   <View
                     style={{
                       height: pxToDp(104),
@@ -433,7 +465,7 @@ class Index extends Component {
                       borderTopRightRadius: pxToDp(8),
                       borderBottomRightRadius: pxToDp(8)
                     }}
-                  ></View>
+                  ><Svg width="20" height="20" svgXmlData={star} /></View>
                 </View>
               </View>
             ))}

@@ -3,13 +3,12 @@ import { View, Dimensions, StyleSheet, } from 'react-native';
 import { WebView } from 'react-native-webview';
 import { NavigationContext } from '@react-navigation/native';
 import { pxToDp } from '../../utils/styleKits';
-import Top from '../../component/common/top';
 const dimensions = {
   width: Dimensions.get('window').width,
   height: Dimensions.get('window').height
 };
 const HTML = `
-<!DOCTYPEhtml>\n
+<!DOCTYPEhtml>\n 
 <html>
 	<head>
 		<meta charset="UTF-8">
@@ -35,18 +34,15 @@ export default class App extends Component {
 
   render() {
     return (
-      <View style={{ height: '100%' }}>
-        <Top title="时间线" icon1="arrow-back" />
+      <View style={{ height: pxToDp(200) }}>
         <WebView
           style={{
             width: '100%',
             height: '100%',
-            top: pxToDp(-40),
-            left: pxToDp(-10),
-            backgroundColor: 'transparent'
+            backgroundColor: 'red',
           }}
           source={{
-            uri: 'file:///android_asset/static.bundle/timeLine.html'
+            uri: 'file:///android_asset/static.bundle/menu.html'
           }}
           originWhitelist={['*']}
           javaScriptEnabled={true} //是否开启js

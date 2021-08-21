@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>HTML5拖拽互动修改页面元素颜色特效</title>
+
+	<link rel="stylesheet" href="https://www.jq22.com/jquery/font-awesome.4.6.0.css">
+	<link rel="stylesheet" type="text/css" href="css/demo.css" />
+	<script src="js/modernizr.custom.js"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="content">
+			<div class="mockup-browser">
+				<section class="mockup-section paint-area">
+					<div class="mockup-content mockup-grid">
+						<div class="mockup-grid__item mockup-width--half">
+							<h1 class="mockup-heading mockup-heading--large paint-area paint-area--text">We help tell your brand's story <span class="mockup-heading__subline">The most efficient toolset for businesses</span></h3>
+							<button class="mockup-button paint-area"><span>Discover more</span> <i class="fa fa-chevron-right"></i></button>
+						</div>
+					</div><!-- /mockup-grid -->
+				</section>
+			</div><!-- /mockup-browser -->
+		</div><!-- /content -->
+		<div class="customizer">
+			<ul class="color-tool">
+				<li class="color-1"><div class="drag-element" data-color="#333"><div class="drop color-1"></div><i class="drop-helper-1 color-1"></i><i class="drop-helper-2 color-1"></i><i class="drop-helper-3 color-1"></i><i class="drop-helper-4 color-1"></i></div></li>
+				<li class="color-2"><div class="drag-element" data-color="#f0f0f0"><div class="drop color-2"></div><i class="drop-helper-1 color-2"></i><i class="drop-helper-2 color-2"></i><i class="drop-helper-3 color-2"></i><i class="drop-helper-4 color-2"></i></div></li>
+				<li class="color-3"><div class="drag-element" data-color="#c0c3d5"><div class="drop color-3"></div><i class="drop-helper-1 color-3"></i><i class="drop-helper-2 color-3"></i><i class="drop-helper-3 color-3"></i><i class="drop-helper-4 color-3"></i></div></li>
+				<li class="color-4"><div class="drag-element" data-color="#5FA1E0"><div class="drop color-4"></div><i class="drop-helper-1 color-4"></i><i class="drop-helper-2 color-4"></i><i class="drop-helper-3 color-4"></i><i class="drop-helper-4 color-4"></i></div></li>
+				<li class="color-5"><div class="drag-element" data-color="#C1D5C0"><div class="drop color-5"></div><i class="drop-helper-1 color-5"></i><i class="drop-helper-2 color-5"></i><i class="drop-helper-3 color-5"></i><i class="drop-helper-4 color-5"></i></div></li>
+				<li class="color-6"><div class="drag-element" data-color="#47AE73"><div class="drop color-6"></div><i class="drop-helper-1 color-6"></i><i class="drop-helper-2 color-6"></i><i class="drop-helper-3 color-6"></i><i class="drop-helper-4 color-6"></i></div></li>
+				<li class="color-7"><div class="drag-element" data-color="#EAE7C4"><div class="drop color-7"></div><i class="drop-helper-1 color-7"></i><i class="drop-helper-2 color-7"></i><i class="drop-helper-3 color-7"></i><i class="drop-helper-4 color-7"></i></div></li>
+				<li class="color-8"><div class="drag-element" data-color="#FB6964"><div class="drop color-8"></div><i class="drop-helper-1 color-8"></i><i class="drop-helper-2 color-8"></i><i class="drop-helper-3 color-8"></i><i class="drop-helper-4 color-8"></i></div></li>
+				<li><button class="reset-button" title="Reser colors">Reset colors</button></li>
+			</ul>
+		</div>
+		
+		<div class="info-wrap">
+			<div class="info">
+				<h3>Interactive Coloring Concept</h3>
+				<p><img src="img/drag.svg" alt="drag icon"/>从左边的工具栏中拖动任意颜色到一个区域或文本上面。有蓝色边框的元素表明是可以拖放改变颜色的元素。</p>
+				<p><img src="img/time.svg" alt="drag icon"/>在移动手机上，要等到颜色水滴出现才能开始拖动。</p>
+				<button class="info-close">明白了!</button>
+			</div>
+		</div>
+	</div><!-- /container -->
+	
+	<script src="js/classie.js"></script>
+	<script src="js/interact-1.2.4.min.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>

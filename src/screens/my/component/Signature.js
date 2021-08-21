@@ -7,6 +7,7 @@ import { Input } from 'react-native-elements';
 import { NavigationContext } from '@react-navigation/native';
 import { pxToDp } from '../../../utils/styleKits';
 import Top from '@components/common/top';
+
 export default class Signature extends PureComponent {
   static contextType = NavigationContext;
   constructor(props) {

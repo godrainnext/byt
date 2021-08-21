@@ -10,7 +10,7 @@ import { NavigationContext } from '@react-navigation/native';
 import axios from 'axios';
 import PulseLoader from 'react-native-pulse-loader';
 import Top from '@components/common/top';
- 
+
 const dimensions = {
   width: Dimensions.get('window').width,
   height: Dimensions.get('window').height,
@@ -356,7 +356,11 @@ export default class App extends Component {
             </TouchableOpacity>
           </View>
         </View> */}
-
+        <TouchableOpacity onPress={this.closeCall} style={{ backgroundColor: 'rgba(0,0,0,0.4)', height: pxToDp(24), width: pxToDp(24), flexDirection: 'row', justifyContent: 'center', alignItems: 'center', borderRadius: pxToDp(24), padding: pxToDp(4) }}>
+          <View style={{ height: pxToDp(20), width: pxToDp(20), justifyContent: 'center', alignItems: 'center' }}>
+            <Text style={{ color: 'white', fontSize: 16, fontWeight: 'bold' }}>X</Text>
+          </View>
+        </TouchableOpacity>
         <View style={{ height: pxToDp(412), }}>
           <WebView
             style={{ width: '100%', height: pxToDp(320), backgroundColor: 'transparent', }}

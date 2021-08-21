@@ -59,18 +59,10 @@ export default class hello extends Component {
               }}
               style={{
                 width: '100%',
-                height: 400
-              }}
-            ></Image>
-            <View
-              style={{
-                position: 'absolute',
-                top: 0,
-                width: window.width,
-                backgroundColor: 'rgba(0,0,0,.4)',
-                height: 300
-              }}
-            />
+                height: 400,
+              }}>
+            </Image>
+           
           </View>
         )}
         //自定义头部内容
