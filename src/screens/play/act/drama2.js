@@ -4,7 +4,8 @@ import Top from '../../../component/common/top'
 import { pxToDp } from "../../../utils/styleKits";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { NavigationContext } from '@react-navigation/native';
-
+import Svg from 'react-native-svg-uri';
+import { right } from '../../../component/common/iconSvg'
 class Index extends PureComponent {
   state = {
     dramalist: {
@@ -100,6 +101,9 @@ class Index extends PureComponent {
               onPress={() => this.context.navigate('Screenpaly4')}
             >
               <Image style={{ height: pxToDp(100), width: '100%', borderRadius: pxToDp(8) }} source={{ uri: this.state.dramalist.path2 }} />
+              <View style={{marginTop:pxToDp(-60),marginLeft:pxToDp(300)}}>
+                <Svg width="32" height="32" svgXmlData={right} />
+              </View>
             </TouchableOpacity>
           </View>
         </ScrollView>

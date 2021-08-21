@@ -4,7 +4,8 @@ import Top from '../../../component/common/top'
 import { pxToDp } from "../../../utils/styleKits";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { NavigationContext } from '@react-navigation/native';
-
+import Svg from 'react-native-svg-uri';
+import { right } from '../../../component/common/iconSvg'
 class Index extends PureComponent {
     state = {
         dramalist: {
@@ -20,7 +21,7 @@ class Index extends PureComponent {
             text3: '《蝴蝶梦》取材于明代冯梦龙“三言二拍”中“庄周试妻”的故事。这部电影采用数字虚拟合成技术，把戏曲艺术与水墨画结合在一起，记录在大银幕上，既节约成本，又可以为戏曲艺术电影开辟一条新的拍摄路径。',
             text4: '这部戏被誉为是中国越剧的一个里程碑式的作品。影片制片人是曾经担任中央电视台戏曲频道主持人的韦翔东，影片主演王志萍和郑国凤是当今越剧界王文娟、徐玉兰两位大师的顶尖传人。',
             path1: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fi2.hdslb.com%2Fbfs%2Farchive%2Fab086b0965b5001548cb29bc6b5d35375e5c2c3e.jpg&refer=http%3A%2F%2Fi2.hdslb.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632100517&t=94958bffbfd453bab61ed549bf650fcf',
-            path2: 'https://img1.baidu.com/it/u=3851151603,3392877020&fm=26&fmt=auto&gp=0.jpg'
+            path2: 'https://img0.baidu.com/it/u=856597818,4242309343&fm=26&fmt=auto&gp=0.jpg'
         }
     };
     static contextType = NavigationContext;
@@ -100,6 +101,9 @@ class Index extends PureComponent {
                             onPress={() => this.context.navigate('Screenpaly')}
                         >
                             <Image style={{ height: pxToDp(100), width: '100%', borderRadius: pxToDp(8) }} source={{ uri: this.state.dramalist.path2 }} />
+                            <View style={{ marginTop: pxToDp(-60), marginLeft: pxToDp(300) }}>
+                                <Svg width="32" height="32" svgXmlData={right} />
+                            </View>
                         </TouchableOpacity>
                     </View>
                 </ScrollView>

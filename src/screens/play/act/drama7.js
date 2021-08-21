@@ -4,7 +4,8 @@ import Top from '../../../component/common/top'
 import { pxToDp } from "../../../utils/styleKits";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { NavigationContext } from '@react-navigation/native';
-
+import Svg from 'react-native-svg-uri';
+import { right } from '../../../component/common/iconSvg'
 class Index extends PureComponent {
     state = {
         dramalist: {
@@ -17,7 +18,7 @@ class Index extends PureComponent {
             text1: '改编自《康王告状》，上海越剧院红楼剧团曾上演。',
             text2: '剧本经苏鄂生整理，摄成舞台艺术片，徐玉兰、王文娟主演，上海音像出版社出版发行。',
             path1: 'https://tse4-mm.cn.bing.net/th/id/OIP-C.3uYlccOS7MjJeNKceXoUyAHaHa?pid=ImgDet&rs=1',
-            path2:'https://wenhui.whb.cn/u/cms/www/201905/262039340whi.jpg'
+            path2: 'https://wenhui.whb.cn/u/cms/www/201905/262039340whi.jpg'
         }
     };
     static contextType = NavigationContext;
@@ -35,7 +36,7 @@ class Index extends PureComponent {
                         style={{ height: pxToDp(178), borderRadius: pxToDp(8), width: '100%' }}
                         source={{ uri: this.state.dramalist.path1 }}
                     />
-                    <Text style={{ fontSize: pxToDp(24), fontWeight: 'bold', marginBottom: pxToDp(20),marginTop:pxToDp(10) }}>
+                    <Text style={{ fontSize: pxToDp(24), fontWeight: 'bold', marginBottom: pxToDp(20), marginTop: pxToDp(10) }}>
                         {this.state.dramalist.title}
                     </Text>
                     <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(10) }}>
@@ -71,25 +72,28 @@ class Index extends PureComponent {
                         </Text>
                     </View>
                     <View>
-            <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold', marginBottom: pxToDp(10) }} onPress={() => this.context.navigate('ScreenPlay')}>
-              剧本详情
-            </Text>
-            <TouchableOpacity style={{
-              marginBottom: pxToDp(80),
-              height: pxToDp(100),
-              width: '100%',
-              borderRadius: pxToDp(8),
-              //elevation: 5,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
-              //shadowColor: 'black',  //  阴影颜色
-              //shadowRadius: pxToDp(8),  //  圆角,
-              //shadowOffset: { width: 0, height: 0 },
-              // shadowOpacity: 1,
-            }}
-              onPress={() => this.context.navigate('Screenpaly')}
-            >
-              <Image style={{ height: pxToDp(100), width: '100%', borderRadius: pxToDp(8) }} source={{ uri: this.state.dramalist.path2 }} />
-            </TouchableOpacity>
-          </View>
+                        <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold', marginBottom: pxToDp(10) }} onPress={() => this.context.navigate('ScreenPlay')}>
+                            剧本详情
+                        </Text>
+                        <TouchableOpacity style={{
+                            marginBottom: pxToDp(80),
+                            height: pxToDp(100),
+                            width: '100%',
+                            borderRadius: pxToDp(8),
+                            //elevation: 5,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                            //shadowColor: 'black',  //  阴影颜色
+                            //shadowRadius: pxToDp(8),  //  圆角,
+                            //shadowOffset: { width: 0, height: 0 },
+                            // shadowOpacity: 1,
+                        }}
+                            onPress={() => this.context.navigate('Screenpaly')}
+                        >
+                            <Image style={{ height: pxToDp(100), width: '100%', borderRadius: pxToDp(8) }} source={{ uri: this.state.dramalist.path2 }} />
+                            <View style={{ marginTop: pxToDp(-60), marginLeft: pxToDp(300) }}>
+                                <Svg width="32" height="32" svgXmlData={right} />
+                            </View>
+                        </TouchableOpacity>
+                    </View>
                 </ScrollView>
             </View>
         );

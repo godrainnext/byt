@@ -4,7 +4,8 @@ import Top from '../../../component/common/top'
 import { pxToDp } from "../../../utils/styleKits";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { NavigationContext } from '@react-navigation/native';
-
+import Svg from 'react-native-svg-uri';
+import { right } from '../../../component/common/iconSvg'
 class Index extends PureComponent {
     state = {
         dramalist: {
@@ -19,14 +20,14 @@ class Index extends PureComponent {
             text2: '越剧《家》由上海越剧院一团(男女合演团)演出。著名尹(桂芳)派小生赵志刚(饰演觉新)与王(文娟)派传人单仰萍(饰演梅芬)、吕(瑞英)派传人孙智君(饰演瑞珏)、陆(锦花)派传人许杰(饰演觉慧)、剧院新秀陈湜(饰鸣凤)等优秀演员成功塑造了个性化的角色，从内心深处揭示人物性格、情感与思想，从而形成激烈的戏剧冲突与心灵对碰，使观众受到强烈震撼。',
             text3: '导演杨小青注重发挥越剧写意抒情的特色，强化了男女合演的特点，展现了流派唱腔的魅力，凸现了越剧诗化的美感，在梅林、荷塘、喜堂等精心营造的唯美艺术氛围中，缠绵悱恻的唱腔给观众以酣畅淋漓的听觉享受。没有明确的幕序场次，没有华丽的舞台布景，没有花哨的歌舞陪衬，导演杨小青充分运用了戏曲表演上虚拟写意的手法，在演员的形体表现上下功夫，营造了一个空灵幻妙的空间。舞台除了梅林和屋内为实景，其余大多无实物，隐约的屋檐，平坦的转台使时空转换自由广阔，表演空间收放自如。',
             path1: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fupfile.cuepa.cn%2Fnewspic%2F729924%2Fs_e03cd33ea1c27c9f4b29cb54a892eca1470688.jpg&refer=http%3A%2F%2Fupfile.cuepa.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632102134&t=531de26965b871545a793053f7c0a958',
-            path2: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fart.china.cn%2Fdance%2Fimages%2Fattachement%2Fjpg%2Fsite8%2F20140304%2F002564bb2e1f147faf9008.jpg&refer=http%3A%2F%2Fart.china.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632102150&t=23ab4a9a33bea44e9da379f3aff46e26'
+            path2: 'https://bkimg.cdn.bcebos.com/pic/203fb80e7bec54e709ab6e9ab9389b504ec26aea?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U4MA==,g_7,xp_5,yp_5/format,f_auto'
         }
     };
     static contextType = NavigationContext;
     render() {
         return (
             <View style={{ backgroundColor: '#E2F4FE' }}>
-                <Top icon1="arrow-back" title="早春二月" />
+                <Top icon1="arrow-back" title="家" />
                 <ScrollView
                     style={{
                         marginLeft: pxToDp(8),
@@ -93,6 +94,9 @@ class Index extends PureComponent {
                             onPress={() => this.context.navigate('Screenpaly')}
                         >
                             <Image style={{ height: pxToDp(100), width: '100%', borderRadius: pxToDp(8) }} source={{ uri: this.state.dramalist.path2 }} />
+                            <View style={{ marginTop: pxToDp(-60), marginLeft: pxToDp(300) }}>
+                                <Svg width="32" height="32" svgXmlData={right} />
+                            </View>
                         </TouchableOpacity>
                     </View>
                 </ScrollView>

@@ -4,7 +4,8 @@ import Top from '../../../component/common/top'
 import { pxToDp } from "../../../utils/styleKits";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { NavigationContext } from '@react-navigation/native';
-
+import Svg from 'react-native-svg-uri';
+import { right } from '../../../component/common/iconSvg'
 class Index extends PureComponent {
     state = {
         dramalist: {
@@ -17,7 +18,7 @@ class Index extends PureComponent {
             text1: '《周仁哭坟》越剧折子戏，选材自京剧《周仁献嫂》。由朱福侠编导。《周仁哭坟》一折专为《吴凤花越剧舞台艺术风采》专场表演而编写排演，集中演绎周仁在其妻坟前哭诉冤屈的情绪。',
             text2: '2019年4月24日，蔡浙飞演出的《周仁哭坟》入选第七届中国戏剧奖·梅花表演奖（第29届中国戏剧梅花奖）戏曲类获奖公示名单。',
             path1: 'https://img2.baidu.com/it/u=3264834321,2161118406&fm=26&fmt=auto&gp=0.jpg',
-            path2:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fstc-new.8531.cn%2Fassets%2F20190530%2F1559174521113_5cef1d79159bb8144ed90266.png&refer=http%3A%2F%2Fstc-new.8531.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631926163&t=0f7eb5e01a1e7801be30ec9976adf7f2'
+            path2: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fstc-new.8531.cn%2Fassets%2F20190530%2F1559174521113_5cef1d79159bb8144ed90266.png&refer=http%3A%2F%2Fstc-new.8531.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631926163&t=0f7eb5e01a1e7801be30ec9976adf7f2'
         }
     };
     static contextType = NavigationContext;
@@ -35,7 +36,7 @@ class Index extends PureComponent {
                         style={{ height: pxToDp(178), borderRadius: pxToDp(8), width: '100%' }}
                         source={{ uri: this.state.dramalist.path1 }}
                     />
-                    <Text style={{ fontSize: pxToDp(24), fontWeight: 'bold', marginBottom: pxToDp(20),marginTop:pxToDp(10) }}>
+                    <Text style={{ fontSize: pxToDp(24), fontWeight: 'bold', marginBottom: pxToDp(20), marginTop: pxToDp(10) }}>
                         {this.state.dramalist.title}
                     </Text>
                     <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(10) }}>
@@ -71,25 +72,28 @@ class Index extends PureComponent {
                         </Text>
                     </View>
                     <View>
-            <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold', marginBottom: pxToDp(10) }} onPress={() => this.context.navigate('ScreenPlay')}>
-              剧本详情
-            </Text>
-            <TouchableOpacity style={{
-              marginBottom: pxToDp(80),
-              height: pxToDp(100),
-              width: '100%',
-              borderRadius: pxToDp(8),
-              //elevation: 5,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
-              //shadowColor: 'black',  //  阴影颜色
-              //shadowRadius: pxToDp(8),  //  圆角,
-              //shadowOffset: { width: 0, height: 0 },
-              // shadowOpacity: 1,
-            }}
-              onPress={() => this.context.navigate('Screenpaly')}
-            >
-              <Image style={{ height: pxToDp(100), width: '100%', borderRadius: pxToDp(8) }} source={{ uri: this.state.dramalist.path2 }} />
-            </TouchableOpacity>
-          </View>
+                        <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold', marginBottom: pxToDp(10) }} onPress={() => this.context.navigate('ScreenPlay')}>
+                            剧本详情
+                        </Text>
+                        <TouchableOpacity style={{
+                            marginBottom: pxToDp(80),
+                            height: pxToDp(100),
+                            width: '100%',
+                            borderRadius: pxToDp(8),
+                            //elevation: 5,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                            //shadowColor: 'black',  //  阴影颜色
+                            //shadowRadius: pxToDp(8),  //  圆角,
+                            //shadowOffset: { width: 0, height: 0 },
+                            // shadowOpacity: 1,
+                        }}
+                            onPress={() => this.context.navigate('Screenpaly')}
+                        >
+                            <Image style={{ height: pxToDp(100), width: '100%', borderRadius: pxToDp(8) }} source={{ uri: this.state.dramalist.path2 }} />
+                            <View style={{ marginTop: pxToDp(-60), marginLeft: pxToDp(300) }}>
+                                <Svg width="32" height="32" svgXmlData={right} />
+                            </View>
+                        </TouchableOpacity>
+                    </View>
                 </ScrollView>
             </View>
         );

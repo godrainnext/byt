@@ -59,7 +59,7 @@ class Comment extends PureComponent {
               alignItems: 'center',
               flexDirection: 'row',
               position: 'absolute',
-              bottom:pxToDp(56)
+              bottom:pxToDp(54)
             }}
           >
             <TextInput

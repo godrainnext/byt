@@ -4,7 +4,8 @@ import Top from '../../../component/common/top'
 import { pxToDp } from "../../../utils/styleKits";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { NavigationContext } from '@react-navigation/native';
-
+import Svg from 'react-native-svg-uri';
+import { right } from '../../../component/common/iconSvg'
 class Index extends PureComponent {
     state = {
         dramalist: {
@@ -19,7 +20,7 @@ class Index extends PureComponent {
             text2: '早在半个多月前，北京各媒体就已纷纷将上海越剧再次晋京演出作为重要文化新闻，以醒目的版面和时段向首都观众介绍，《早春二月》的票很快销售一空。临近昨晚开演前几分钟，记者匆匆赶到剧场时，竟先后被十多个等退票的“越剧迷”拦住，询问有没有多余的戏票,而走进剧院，全场已是座无虚席。',
             text3: '这台改编自柔石小说《二月》，由男女合演，被专家和观众一起公认为“越剧现代戏的成功之作”，表现了“五四”过后的大革命前夜，城乡青年知识分子普遍的心理彷徨和当时中国社会的凄凉。许杰、方亚芬、张永梅、张伟忠、徐标新等首都观众平时难得一见的名家名角的大段唱腔和一串串优美的舞台动作，赢得全场阵阵掌声。演出结束后，演员们一再谢幕，观众们仍久久站立鼓掌，不肯离去。',
             path1: 'http://5b0988e595225.cdn.sohucs.com/images/20200115/a4f3107f50264554a0c3b6e677004958.jpeg',
-            path2: 'http://5b0988e595225.cdn.sohucs.com/images/20200115/0bf07f8f8f7f48c180983fff4489fd84.jpeg'
+            path2: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Finews.gtimg.com%2Fnewsapp_match%2F0%2F11201662577%2F0.jpg&refer=http%3A%2F%2Finews.gtimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632111621&t=3e7131e501e792769782f7a5acf9ee79'
         }
     };
     static contextType = NavigationContext;
@@ -93,6 +94,9 @@ class Index extends PureComponent {
                             onPress={() => this.context.navigate('Screenpaly')}
                         >
                             <Image style={{ height: pxToDp(100), width: '100%', borderRadius: pxToDp(8) }} source={{ uri: this.state.dramalist.path2 }} />
+                            <View style={{ marginTop: pxToDp(-60), marginLeft: pxToDp(300) }}>
+                                <Svg width="32" height="32" svgXmlData={right} />
+                            </View>
                         </TouchableOpacity>
                     </View>
                 </ScrollView>

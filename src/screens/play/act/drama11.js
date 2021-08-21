@@ -4,7 +4,8 @@ import Top from '../../../component/common/top'
 import { pxToDp } from "../../../utils/styleKits";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { NavigationContext } from '@react-navigation/native';
-
+import Svg from 'react-native-svg-uri';
+import { right } from '../../../component/common/iconSvg'
 class Index extends PureComponent {
     state = {
         dramalist: {
@@ -19,7 +20,7 @@ class Index extends PureComponent {
             text3: '《甄嬛》虽然剧情不同以往的才子佳人戏，但在舞台表现手法基本是遵循上越一贯的越剧风格的，因此老少通吃，喜闻乐见。温太医见到初恋情人眉庄，紧张到老是擦汗，就引发现场一片笑声。业内人士则认为，越剧的新剧目本身就不多，而传统剧目难免会让人审美疲劳。向热门影视剧借力无疑是让新剧目打开市场最快捷的方法。',
             text4: '上下本《甄嬛》2014年获得了第三届中国越剧艺术节“优秀剧目奖”。2015年驻场天蟾逸夫舞台，连演20场，引起了市场轰动。据统计，首演至今，《甄嬛》演出场次多达70余场，为原创戏曲剧目所少有。首都的越迷们，正拭目以待。',
             path1: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg1.cache.netease.com%2Fcatchpic%2FB%2FBE%2FBEAF9013BDDEECB7D60E709FD8B0F393.jpg&refer=http%3A%2F%2Fimg1.cache.netease.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632101473&t=707d9385711061e4a4df8c8a970fb41c',
-            path2: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.peaceticket.com%2Fimg%2Fstatic%2F44%2F44f5f200bd51ee9655cb01d62962fa33.jpg&refer=http%3A%2F%2Fwww.peaceticket.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632101455&t=a270823dc65463cc9a3f1f456e6e0f59'
+            path2: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp5.itc.cn%2Fq_70%2Fimages03%2F20201124%2Fe9ede02bd37e40bc926a9f4fbe285420.png&refer=http%3A%2F%2Fp5.itc.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632111572&t=44c47d220cdf7255c4cccd7cf24315de'
         }
     };
     static contextType = NavigationContext;
@@ -96,6 +97,9 @@ class Index extends PureComponent {
                             onPress={() => this.context.navigate('Screenpaly')}
                         >
                             <Image style={{ height: pxToDp(100), width: '100%', borderRadius: pxToDp(8) }} source={{ uri: this.state.dramalist.path2 }} />
+                            <View style={{ marginTop: pxToDp(-60), marginLeft: pxToDp(300) }}>
+                                <Svg width="32" height="32" svgXmlData={right} />
+                            </View>
                         </TouchableOpacity>
                     </View>
                 </ScrollView>

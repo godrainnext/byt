@@ -4,7 +4,8 @@ import Top from '../../../component/common/top'
 import { pxToDp } from "../../../utils/styleKits";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { NavigationContext } from '@react-navigation/native';
-
+import Svg from 'react-native-svg-uri';
+import { right } from '../../../component/common/iconSvg'
 class Index extends PureComponent {
     state = {
         dramalist: {
@@ -19,7 +20,7 @@ class Index extends PureComponent {
             text2: '越剧《柳永》是福建著名剧作家王仁杰为王君安量身创作的一部戏。柳永是北宋著名词人，婉约派最具代表性的人物，崇安（今福建武夷山）人，其词多描绘城市风光和歌妓生活,在当时流传极其广泛，人称“凡有井水饮处，皆能歌柳词”。越剧《柳永》撷取了柳永一生的几个重要片断，彰显其文学成就。',
             text3: '芳华越剧团这次为《柳永》配备的创作队伍堪称国家级，与越剧大师尹桂芳生前长期合作的上海音乐学院连波教授担任唱腔设计，中国舞台美术学会副会长、中央戏剧学院教授刘杏林担任舞美设计，中央戏剧学院硕士生导师胡耀辉担任灯光设计。',
             path1: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.pconline.com.cn%2Fimages%2Fupload%2Fupc%2Ftx%2Fphotoblog%2F1310%2F13%2Fc4%2F27438803_27438803_1381656050044_mthumb.jpg&refer=http%3A%2F%2Fimg.pconline.com.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632100400&t=d0f2a390628f6a7082bd4b8b7460e864',
-            path2: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg1001.pocoimg.cn%2Fimage%2Fpoco%2Fworks%2F90%2F2013%2F0830%2F21%2F64538678201308302117502196233708479_022_64538678.jpg&refer=http%3A%2F%2Fimg1001.pocoimg.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632100438&t=1ae75dac2e8f4867c39259dd905e37c6'
+            path2: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg1001.pocoimg.cn%2Fimage%2Fpoco%2Fworks%2F24%2F2013%2F0830%2F21%2F64538678201308302117502196233708479_019_64538678.jpg&refer=http%3A%2F%2Fimg1001.pocoimg.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632106758&t=9449c470539ff45db1bf9d4f32815b7a'
         }
     };
     static contextType = NavigationContext;
@@ -96,6 +97,9 @@ class Index extends PureComponent {
                             onPress={() => this.context.navigate('Screenpaly')}
                         >
                             <Image style={{ height: pxToDp(100), width: '100%', borderRadius: pxToDp(8) }} source={{ uri: this.state.dramalist.path2 }} />
+                            <View style={{ marginTop: pxToDp(-60), marginLeft: pxToDp(300) }}>
+                                <Svg width="32" height="32" svgXmlData={right} />
+                            </View>
                         </TouchableOpacity>
                     </View>
                 </ScrollView>
