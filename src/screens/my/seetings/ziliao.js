@@ -149,9 +149,8 @@ class Ziliao extends PureComponent {
   };
   render() {
     const dateNow = new Date();
-    const currentDate = `${dateNow.getFullYear()}-${
-      dateNow.getMonth() + 1
-    }-${dateNow.getDate()}`;
+    const currentDate = `${dateNow.getFullYear()}-${dateNow.getMonth() + 1
+      }-${dateNow.getDate()}`;
     const { birthday } = this.state;
     return (
       <View style={{ flex: 1, backgroundColor: this.state.backgroundColor }}>
@@ -180,7 +179,7 @@ class Ziliao extends PureComponent {
               style={{
                 position: 'absolute',
                 left: pxToDp(100),
-                top: pxToDp(-60)
+                top: pxToDp(-60),
               }}
             >
               <View
@@ -188,11 +187,11 @@ class Ziliao extends PureComponent {
                   borderWidth: 5,
                   borderRadius: 100,
                   padding: 6,
-                  borderColor: this.state.backgroundColor
+                  borderColor: this.state.backgroundColor,
                 }}
               >
                 <Avatar
-                  avatarStyle={{ alignSelf: 'center' }}
+                  avatarStyle={{ alignSelf: 'center', }}
                   size={120}
                   rounded
                   title="CR"
@@ -288,13 +287,13 @@ class Ziliao extends PureComponent {
           <View
             style={
               (s.basic,
-              [
-                {
-                  flexDirection: 'row',
-                  marginLeft: pxToDp(20),
-                  marginTop: pxToDp(20)
-                }
-              ])
+                [
+                  {
+                    flexDirection: 'row',
+                    marginLeft: pxToDp(20),
+                    marginTop: pxToDp(20)
+                  }
+                ])
             }
           >
             <Image
