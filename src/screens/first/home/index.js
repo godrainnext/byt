@@ -13,7 +13,7 @@ import {
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { NavigationContext } from '@react-navigation/native';
 import { pxToDp } from '@utils/styleKits';
-import Top from '@components/common/top';
+
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 import HighLights from '@components/first/HighLights';
 import Hy from '@components/first/hy';

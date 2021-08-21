@@ -228,14 +228,12 @@ export default class App extends Component {
       {this._renderVideos()}
     </View> : (
       <View style={styles.max}>
+        <Top icon1="arrow-back" title="开房" />
         <View style={styles.max}>
           <View>
             <View style={{ marginTop: 4 }}>
               <View style={{ justifyContent: 'center', alignItems: 'center', height: pxToDp(32), marginBottom: pxToDp(8) }}>
-                <View style={{ margin: pxToDp(4), height: pxToDp(32), justifyContent: 'center', alignItems: 'center' }}>
-                  <Text style={{ fontSize: pxToDp(20) }}>开房</Text>
-                </View>
-                <Text style={{ color: '#50935E' }}>请您如实准确填写本人信息，否则将认证失败</Text>
+                <Text style={{ color: '#50935E' }}>输入房间号，让小伙伴更快速找到您</Text>
               </View>
               <Input
                 placeholder="请输入房间名"
@@ -422,6 +420,7 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   max: {
     flex: 1,
+    backgroundColor:'#ecf6fc'
   },
   buttonHolder: {
     height: pxToDp(100),

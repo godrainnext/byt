@@ -24,7 +24,6 @@ class index extends PureComponent {
     commments: []
   };
   componentDidMount() {
-    console.log(12312);
     getMomentById(this.props.route.params).then((res) => {
       console.log(res);
       this.setState({ ...res });
@@ -33,7 +32,6 @@ class index extends PureComponent {
   render() {
     const arr1 = this.state.content.split('/img');
     const { images } = this.state;
-    console.log(arr1);
     return (
       <View style={{ backgroundColor: '#ecf6fc', flex: 1 }}>
         <ScrollView stickyHeaderIndices={[0]}>

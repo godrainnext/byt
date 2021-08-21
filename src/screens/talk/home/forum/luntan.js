@@ -26,14 +26,39 @@ import {
 import Ionicons from 'react-native-vector-icons/FontAwesome';
 import { useRef } from 'react';
 import { PureComponent } from 'react';
+import LottieView from 'lottie-react-native';
+import changeImgSize from '../../../../utils/changeImgSize';
 
 const Music = memo(function (props) {
   const video = useRef();
   return (
     <ImageBackground
-      style={{ flex: 1, height: pxToDp(150), marginTop: pxToDp(10) }}
+      style={{ flex: 1, height: pxToDp(50), marginTop: pxToDp(10) }}
+      imageStyle={{ borderRadius: pxToDp(8) }}
       source={{ uri: props.item.picture }}
     >
+      {props.status.isPlaying ? (
+        <View
+          style={{
+            width: 70,
+            overflow: 'hidden',
+            justifyContent: 'flex-end',
+            alignItems: 'flex-end',
+            height: '100%',
+            left: 20,
+            bottom: 15
+          }}
+        >
+          <LottieView
+            style={{ height: pxToDp(20), alignSelf: 'flex-start' }}
+            source={require('../../../../../lottie/40716-musicsoundequalizer.json')}
+            autoPlay={true}
+            loop
+          />
+        </View>
+      ) : (
+        <View></View>
+      )}
       <Video
         ref={video}
         source={{ uri: props.item.music }}
@@ -41,7 +66,7 @@ const Music = memo(function (props) {
         onPlaybackStatusUpdate={props.onPlaybackStatusUpdate}
       />
       <TouchableOpacity
-        style={{ position: 'absolute', bottom: 10, right: 10, opacity: 0.5 }}
+        style={{ position: 'absolute', bottom: 10, right: 15, opacity: 0.5 }}
         onPress={() =>
           props.status.isPlaying
             ? video.current.pauseAsync()
@@ -233,7 +258,7 @@ class Index extends PureComponent {
                 </TouchableOpacity>
                 <View style={{ flexDirection: 'row', margin: pxToDp(10) }}>
                   <Image
-                    source={{ uri: item.user.avatar }}
+                    source={{ uri: changeImgSize(item.user.avatar) }}
                     style={{
                       width: pxToDp(60),
                       height: pxToDp(60),
@@ -371,7 +396,7 @@ class Index extends PureComponent {
                 </TouchableOpacity>
                 <View style={{ flexDirection: 'row', margin: pxToDp(10) }}>
                   <Image
-                    source={{ uri: item.user.avatar }}
+                    source={{ uri: changeImgSize(item.user.avatar) }}
                     style={{
                       width: pxToDp(60),
                       height: pxToDp(60),

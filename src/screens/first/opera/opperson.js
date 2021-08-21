@@ -12,6 +12,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { NavigationContext } from '@react-navigation/native';
 import { pxToDp } from '../../../utils/styleKits';
 import { getVideList } from '@service/home';
+import changeImgSize from '../../../utils/changeImgSize';
 class Index extends PureComponent {
   state = { arr: [] };
   componentDidMount() {
@@ -48,7 +49,10 @@ class Index extends PureComponent {
                 style={styles.imagebox}
                 key={item.id}
               >
-                <Image source={{ uri: item.avatar }} style={styles.image} />
+                <Image
+                  source={{ uri: changeImgSize(item.avatar) }}
+                  style={styles.image}
+                />
                 <Text style={styles.text2}>{item.title}</Text>
                 <Text style={styles.text3}>{item.watchNum}观看</Text>
               </TouchableOpacity>
