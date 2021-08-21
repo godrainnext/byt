@@ -179,7 +179,7 @@ class Ziliao extends PureComponent {
               style={{
                 position: 'absolute',
                 left: pxToDp(100),
-                top: pxToDp(-60)
+                top: pxToDp(-60),
               }}
             >
               <View
@@ -187,11 +187,11 @@ class Ziliao extends PureComponent {
                   borderWidth: 5,
                   borderRadius: 100,
                   padding: 6,
-                  borderColor: this.state.backgroundColor
+                  borderColor: this.state.backgroundColor,
                 }}
               >
                 <Avatar
-                  avatarStyle={{ alignSelf: 'center' }}
+                  avatarStyle={{ alignSelf: 'center', }}
                   size={120}
                   rounded
                   title="CR"
