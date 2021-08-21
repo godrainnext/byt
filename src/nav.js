@@ -184,7 +184,19 @@ function Nav() {
         {/**歌曲播放界面 */}
         <Stack.Screen name="MusicPlayer" component={Screens.MusicPlayer} />
         {/*流派页 */}
-        <Stack.Screen name="School" component={Screens.School} />
+        <Stack.Screen name="School1" component={Screens.School1} />
+        <Stack.Screen name="School2" component={Screens.School2} />
+        <Stack.Screen name="School3" component={Screens.School3} />
+        <Stack.Screen name="School4" component={Screens.School4} />
+        <Stack.Screen name="School5" component={Screens.School5} />
+        <Stack.Screen name="School6" component={Screens.School6} />
+        <Stack.Screen name="School7" component={Screens.School7} />
+        <Stack.Screen name="School8" component={Screens.School8} />
+        <Stack.Screen name="School9" component={Screens.School9} />
+        <Stack.Screen name="School10" component={Screens.School10} />
+        <Stack.Screen name="School11" component={Screens.School11} />
+        <Stack.Screen name="School12" component={Screens.School12} />
+        <Stack.Screen name="School13" component={Screens.School13} />
         {/* 剧本1详情 */}
         <Stack.Screen name="Screenpaly" component={Screens.Screenpaly} />
         {/* 剧本2详情 */}
@@ -221,6 +233,7 @@ function Nav() {
         {/*剧本热度榜单 */}
         <Stack.Screen name="HotList" component={Screens.HotList} />
         <Stack.Screen name="Testtt" component={Screens.Testtt} />
+        <Stack.Screen name="ToSing" component={Screens.ToSing} />
       </Stack.Navigator>
     </NavigationContainer>
   );

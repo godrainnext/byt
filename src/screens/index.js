@@ -4,7 +4,19 @@ export { default as PageTwo } from './first/home/pages/pagetwo'; //俯瞰百年�
 export { default as PageThree } from './first/home/pages/pagethree'; //名角风采页
 export { default as PageFour } from './first/home/pages/pagefour'; //精选唱段页
 export { default as Pagefive } from './first/home/pages/pagefive'; //俯瞰百年文章
-export { default as School } from './first/school'; //流派页
+export { default as School1 } from './first/school/yuanpai'; //流派页 袁派
+export { default as School2 } from './first/school/fanpai'; //流派页 范派
+export { default as School3 } from './first/school/yinpai'; //流派页 尹派
+export { default as School4 } from './first/school/fupai'; //流派页 傅派
+export { default as School5 } from './first/school/xupai'; //流派页 徐派
+export { default as School6 } from './first/school/qipai'; //流派页 戚派
+export { default as School7 } from './first/school/wangpai'; //流派页 戚派
+export { default as School8 } from './first/school/lupai'; //流派页 陆派
+export { default as School9 } from './first/school/bipai'; //流派页 毕派
+export { default as School10 } from './first/school/zhangpai1'; //流派页 张派
+export { default as School11 } from './first/school/lvpai'; //流派页 吕派
+export { default as School12 } from './first/school/jinpai'; //流派页 金派
+export { default as School13 } from './first/school/zhangpai2'; //流派页 张派
 export { default as Opera } from './first/opera/index'; //唱段的首页
 export { default as Optuijian } from './first/opera/optuijian'; //唱段推荐
 export { default as Opperson } from './first/opera/opperson'; //名角的唱段页面
@@ -127,3 +139,4 @@ export { default as WaterButton } from '../component/common/waterbutton'; //波�
 
 export { default as NewTimeLine } from './test/test5';
 export { default as Testtt } from '../testtt';
+export { default as ToSing } from './talk/home/sing';

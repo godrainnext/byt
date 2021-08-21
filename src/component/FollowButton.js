@@ -31,6 +31,7 @@ export default memo(function FollowButton(props) {
       titleStyle={{ color: isFollow ? '#fff' : 'pink' }}
       title={isFollow ? '取消关注' : '关注'}
       onPress={() => addFollows(props.userId)}
+      
     />
   );
 });
