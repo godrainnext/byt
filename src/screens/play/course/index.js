@@ -27,7 +27,7 @@ class Index extends PureComponent {
     return (
       <View style={{ backgroundColor: '#ecf6fc', flex: 1 }}>
         <View style={{ marginLeft: pxToDp(8), marginRight: pxToDp(8) }}>
-          <Top icon1="arrow-back" title="教程" />
+          <Top icon1="arrow-back" title="教学" />
           <ScrollView style={{ marginBottom: pxToDp(50) }}>
             {/*视频 */}
             <View style={{ flex: 1 }}>

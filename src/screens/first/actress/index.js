@@ -79,7 +79,7 @@ const TabView3 = memo(function (props) {
   }, []);
   return (
     <ScrollView {...props}>
-      {momentList.map((item) => (
+      {momentList?momentList.map((item) => (
         <TouchableOpacity
           onPress={() => navigation.navigate('Pagefive', item.id)}
           style={styles.box}
@@ -96,7 +96,7 @@ const TabView3 = memo(function (props) {
             <Text style={styles.text}>{item.title}</Text>
           </View>
         </TouchableOpacity>
-      ))}
+      )):<View/>}
     </ScrollView>
   );
 });
@@ -181,8 +181,7 @@ export default memo(function Example(props) {
       >
         <TabView1 tabLabel="视频" id={props.route.params.id} />
         <TabView2 tabLabel="图片" id={props.route.params.id} />
-        <TabView3 tabLabel="新闻" id={props.route.params.id} />
-        <TabView4 tabLabel="唱段" id={props.route.params.id} />
+        <TabView4 tabLabel="新闻" id={props.route.params.id} />
       </ScrollTabView>
     </View>
   );
