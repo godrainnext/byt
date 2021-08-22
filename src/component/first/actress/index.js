@@ -15,7 +15,9 @@ export default class index extends PureComponent {
   state = { roleList: [] };
   componentDidMount() {
     getRoleList().then((roleList) => {
+
       this.setState({ roleList });
+      console.log(this.state.roleList);
     });
   }
   static contextType = NavigationContext;
@@ -43,9 +45,10 @@ export default class index extends PureComponent {
             uri: 'https://img0.baidu.com/it/u=2584689132,3841583287&fm=26&fmt=auto&gp=0.jpg'
           }}
         >
-          <View style={{ margin: pxToDp(10) }}>
+          <View >
             <View style={{ marginTop: pxToDp(75) }}></View>
-            <ScrollView horizontal={true} style={{ marginTop: pxToDp(45) }}>
+            <ScrollView horizontal={true} style={{ marginTop: pxToDp(45) }}
+            showsHorizontalScrollIndicator={false}>
               {this.state.roleList.map((item) => (
                 <TouchableOpacity
                   onPress={() => this.context.navigate('Actress', item)}

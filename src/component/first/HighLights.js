@@ -18,7 +18,7 @@ export default class HighLights extends Component {
   }
   render() {
     return (
-      <View style={{ margin: pxToDp(8) }}>
+      <View >
         <View
           style={{
             flexDirection: 'row',
