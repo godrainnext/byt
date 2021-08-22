@@ -26,7 +26,7 @@ class Index extends PureComponent {
   static contextType = NavigationContext;
   render() {
     return (
-      <View>
+      <View style={{ flex: 1 }}>
         <Top icon1="arrow-back" title="周边商城" />
         <ScrollView style={styles.scrollview}>
           <View style={styles.tcard}>
@@ -51,8 +51,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     flexDirection: 'row',
     flexWrap: 'wrap',
-    marginBottom: pxToDp(80),
-    height: '100%'
+    flex: 1
   },
   tcard: {
     flexDirection: 'row',
