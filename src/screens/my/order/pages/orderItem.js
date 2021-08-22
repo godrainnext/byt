@@ -1,10 +1,17 @@
 import React, { PureComponent } from 'react';
 import { View, Text, Image, TouchableOpacity, ScrollView } from 'react-native';
+import { changeOriderStatus } from '../../../../service/mine';
 import { pxToDp } from '../../../../utils/styleKits';
-
+import { getUserOriderListAction } from '../../../first/home/store/actions';
+import { connect } from 'react-redux';
 class Index extends PureComponent {
+  changeStatus(id, status) {
+    console.log(status);
+    changeOriderStatus(id, status).then(() => {
+      this.props.getUserOriderListAction();
+    });
+  }
   render() {
-    console.log(this.props.page);
     return this.props.page.map((item) => (
       <View
         key={item.oriderId}
@@ -71,6 +78,7 @@ class Index extends PureComponent {
           }}
         >
           <TouchableOpacity
+            onPress={() => this.changeStatus(item.oriderId, item.status + 1)}
             style={{
               borderColor: 'grey',
               borderWidth: pxToDp(1),
@@ -95,4 +103,4 @@ class Index extends PureComponent {
     ));
   }
 }
-export default Index;
+export default connect(() => ({}), { getUserOriderListAction })(Index);
