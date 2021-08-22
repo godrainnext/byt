@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ImageFade from './imgaefade'
 import {
   View,
   Text,
@@ -32,7 +33,8 @@ import {
   tongpai
 } from '../../../component/common/iconSvg';
 import { Carousel } from '../../../component/common/teaset';
-
+import Animated from 'react-native-reanimated';
+import { TIME_OUT } from '../../../service/requset/config';
 let navHeight = 45;
 
 const width = Dimensions.get('window').width;
@@ -124,44 +126,34 @@ class Index extends Component {
           });
           this.setState({ y: event.nativeEvent.contentOffset.y });
         }}
+        // renderFixedHeader={() => {
+        //   return (
+        //     <View
+        //       style={{
+        //         width: '100%',
+        //         height: 50,
+        //         backgroundColor: this.state.fadeAnim < 0.2 ? 'white' : '#ecf6fc',
+        //         opacity: this.state.fadeAnim,
+        //         borderWidth:.3,
+        //         borderColor:'#ccc'
+
+        //       }}><Text
+        //       style={{color: this.state.fadeAnim < 0.2 ? 'white' : 'red',fontWeight:'bold',alignSelf:'center',fontSize:20}}>越台</Text>
+        //     </View>)
+        // }}
         renderStickyHeader={() => <Top title="越台" />}
         stickyHeaderHeight={50}
         parallaxHeaderHeight={220}
         backgroundSpeed={10}
         renderBackground={() => (
-          <View>
-            <Swiper
-              removeClippedSubviews={false}
-              showsButtons={false}
-              loop={true}
-              autoplay={true}
-              showsPagination={false}
-              autoplayTimeout={3}
-            >
-              <View>
-                <Image
-                  style={{ width: width, height: pxToDp(270) }}
-                  source={require('../../../res/19.jpg')}
-                  resizeMode="cover"
-                />
-              </View>
-              <View>
-                <Image
-                  style={{ width: width, height: pxToDp(270) }}
-                  source={require('../../../res/19-1.jpg')}
-                  resizeMode="cover"
-                />
-              </View>
-              <View>
-                <Image
-                  style={{ width: width, height: pxToDp(270) }}
-                  resizeMode="cover"
-                  source={require('../../../res/19-2.jpg')}
-                />
-              </View>
-            </Swiper>
-          </View>
-        )}
+          <ImageFade
+            ref="ImageFade"
+            duration={800}
+            delay={3000}
+            style={{ width: "100%", height: pxToDp(200) }}>
+            <Image style={{ width: "100%", height: pxToDp(200), borderRadius: pxToDp(20) }} source={require("../../../res/homeswiper1.jpg")} />
+            <Image style={{ width: "100%", height: pxToDp(200), borderRadius: pxToDp(20) }} source={require("../../../res/homeswiper2.jpg")} />
+          </ImageFade>)}
         //自定义头部内容
         renderForeground={() => <View style={{ Top: 200, left: 100 }}></View>}
         scrollableViewStyle={{ backgroundColor: '#fcfcfc' }}

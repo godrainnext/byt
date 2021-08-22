@@ -302,8 +302,6 @@ const styles = StyleSheet.create({
     borderRadius: pxToDp(30),
     backgroundColor: 'white',
     marginTop: pxToDp(10),
-    borderColor: 'grey',
-    borderWidth: pxToDp(1)
   },
   modalView: {
     backgroundColor: 'white',
