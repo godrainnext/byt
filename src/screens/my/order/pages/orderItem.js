@@ -9,8 +9,8 @@ class Index extends PureComponent {
       <View
         key={item.oriderId}
         style={{
-          height: pxToDp(230),
-          margin: pxToDp(16),
+          height: pxToDp(260),
+          margin: pxToDp(8),
           padding: pxToDp(8),
           borderRadius: pxToDp(8),
           backgroundColor: '#fff',
@@ -69,20 +69,19 @@ class Index extends PureComponent {
               style={{
                 flexDirection: 'row',
                 justifyContent: 'flex-end',
-                marginRight: pxToDp(8)
               }}
             >
               <Text
                 style={{
-                  fontSize: pxToDp(18),
-                  marginRight: pxToDp(4)
+                  fontSize: pxToDp(14),
+                  marginRight: pxToDp(8)
                 }}
               >
                 ￥{item.price}
               </Text>
               <Text
                 style={{
-                  fontSize: pxToDp(14),
+                  fontSize: pxToDp(13),
                   alignSelf: 'flex-end'
                 }}
               >
@@ -92,22 +91,33 @@ class Index extends PureComponent {
           </View>
         </View>
         {/* 底部 */}
-        <View style={{ flexDirection: 'row', justifyContent: 'flex-end' }}>
-          <Text style={{ fontSize: pxToDp(15) }}>
+        <View style={{ alignSelf: 'flex-end' }}>
+          <Text style={{ fontSize: pxToDp(14), alignSelf: 'flex-end' }}>
             总价￥{item.price * item.count}
           </Text>
-          <Text style={{ fontSize: pxToDp(15), fontWeight: 'bold' }}>
+          <Text
+            style={{
+              fontSize: pxToDp(19),
+              fontWeight: 'bold',
+              marginTop: pxToDp(4)
+            }}
+          >
             {' '}
             实付款￥{item.price * item.count}
           </Text>
         </View>
         <View
           style={{
-            justifyContent: 'flex-end',
+            justifyContent: 'space-between',
             flexDirection: 'row',
-            marginTop: pxToDp(10)
+            marginTop: pxToDp(10),
+            height: pxToDp(32),
+            alignItems: 'center'
           }}
         >
+          <Text style={{ marginLeft: pxToDp(8), fontSize: pxToDp(15) }}>
+            {item.createAt}
+          </Text>
           <TouchableOpacity
             style={{
               borderColor: 'grey',
@@ -117,7 +127,6 @@ class Index extends PureComponent {
               borderRadius: pxToDp(8),
               alignItems: 'center',
               justifyContent: 'center',
-              marginRight: pxToDp(8)
             }}
           >
             <Text style={{ fontSize: pxToDp(15) }}>
