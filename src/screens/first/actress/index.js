@@ -183,7 +183,7 @@ export default memo(function Example(props) {
       >
         <TabView1 tabLabel="视频" id={props.route.params.id} />
         <TabView2 tabLabel="图片" id={props.route.params.id} />
-        <TabView3 tabLabel="新闻" id={props.route.params.id} />
+        <TabView4 tabLabel="新闻" id={props.route.params.id} />
       </ScrollTabView>
     </View>
   );
