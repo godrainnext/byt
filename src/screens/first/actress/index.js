@@ -24,13 +24,15 @@ const TabView1 = memo(function (props) {
       <View>
         {videoList ? (
           videoList.map((item) => (
-            <TouchableOpacity
-              style={{ margin: pxToDp(8) }}
-              onPress={() => navigation.navigate('Video', item.id)}
-            >
-              <Image style={styles.image1} source={{ uri: item.avatar }} />
+            <View>
+              <TouchableOpacity
+                style={{ margin: pxToDp(8), alignItems: 'center' }}
+                onPress={() => navigation.navigate('Video', item.id)}
+              >
+                <Image style={styles.image1} source={{ uri: item.avatar }} />
+              </TouchableOpacity>
               <Text style={styles.text}>{item.title}</Text>
-            </TouchableOpacity>
+            </View>
           ))
         ) : (
           <View>
@@ -79,7 +81,7 @@ const TabView3 = memo(function (props) {
   }, []);
   return (
     <ScrollView {...props}>
-      {momentList?momentList.map((item) => (
+      {momentList.map((item) => (
         <TouchableOpacity
           onPress={() => navigation.navigate('Pagefive', item.id)}
           style={styles.box}
@@ -96,7 +98,7 @@ const TabView3 = memo(function (props) {
             <Text style={styles.text}>{item.title}</Text>
           </View>
         </TouchableOpacity>
-      )):<View/>}
+      ))}
     </ScrollView>
   );
 });
@@ -163,10 +165,10 @@ export default memo(function Example(props) {
               marginLeft: pxToDp(20)
             }}
           >
-            <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold' }}>
+            <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold' }}>
               {item.name}
             </Text>
-            <Text style={{ fontSize: pxToDp(14) }} numberOfLines={8}>{item.content}</Text>
+            <Text style={{ fontSize: pxToDp(15) }}>{item.content}</Text>
           </View>
         </View>
       </View>
@@ -193,8 +195,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#e2f4fe'
   },
   image1: {
-    height: pxToDp(170),
-    width: pxToDp(355),
+    height: pxToDp(300),
+    width: pxToDp(250),
     borderRadius: pxToDp(8)
   },
   image2: {
@@ -216,7 +218,8 @@ const styles = StyleSheet.create({
     borderRadius: pxToDp(40)
   },
   text: {
-    fontSize: pxToDp(18)
+    fontSize: pxToDp(18),
+    margin: pxToDp(8)
   },
   box2: {
     margin: pxToDp(10),

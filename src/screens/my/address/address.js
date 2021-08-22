@@ -59,7 +59,7 @@ class SwiperListItem extends PureComponent {
             backgroundColor: '#f0bb51',
             width: '100%',
             height: pxToDp(50),
-            borderBottomLeftRadius: pxToDp(8),
+            borderTopLeftRadius: pxToDp(8),
             borderTopRightRadius: pxToDp(8)
           }}
         >
