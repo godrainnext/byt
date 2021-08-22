@@ -12,6 +12,7 @@ export const changeUserInfo = (payload) => ({
 });
 export const getUserInfoAction = () => (dispatch) => {
   getUserInfo().then((res) => {
+    console.log(res);
     dispatch(changeUserInfo(res));
   });
 };

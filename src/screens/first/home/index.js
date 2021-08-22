@@ -32,8 +32,7 @@ import {
   tongpai
 } from '../../../component/common/iconSvg';
 import { Carousel } from '../../../component/common/teaset';
-import Animated from 'react-native-reanimated';
-import { TIME_OUT } from '../../../service/requset/config';
+
 let navHeight = 45;
 
 const width = Dimensions.get('window').width;
@@ -125,21 +124,6 @@ class Index extends Component {
           });
           this.setState({ y: event.nativeEvent.contentOffset.y });
         }}
-        // renderFixedHeader={() => {
-        //   return (
-        //     <View
-        //       style={{
-        //         width: '100%',
-        //         height: 50,
-        //         backgroundColor: this.state.fadeAnim < 0.2 ? 'white' : '#ecf6fc',
-        //         opacity: this.state.fadeAnim,
-        //         borderWidth:.3,
-        //         borderColor:'#ccc'
-
-        //       }}><Text
-        //       style={{color: this.state.fadeAnim < 0.2 ? 'white' : 'red',fontWeight:'bold',alignSelf:'center',fontSize:20}}>越台</Text>
-        //     </View>)
-        // }}
         renderStickyHeader={() => <Top title="越台" />}
         stickyHeaderHeight={50}
         parallaxHeaderHeight={220}
