@@ -8,7 +8,8 @@ import {
   TouchableOpacity,
   ScrollView,
   StyleSheet,
-  ToastAndroid
+  ToastAndroid,
+  DeviceEventEmitter
 } from 'react-native';
 import Top from '../../../component/common/top';
 import { pxToDp } from '@utils/styleKits';
@@ -17,7 +18,8 @@ import { NavigationContext } from '@react-navigation/native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Address from '../../../component/my/address';
 import { addOrider } from '../../../service/shop';
-
+import { connect } from 'react-redux';
+import { getUserOriderListAction } from '../../first/home/store/actions';
 class orders extends PureComponent {
   constructor(props) {
     super(props);
@@ -114,12 +116,14 @@ class orders extends PureComponent {
         img,
         create_time
       };
-      addOrider(data).then((res) =>
-        this.context.navigate('paySuccess', {
-          ...data,
-          address: this.state.defaultAddress
-        })
-      );
+      addOrider(data)
+        .then((res) => this.props.getUserOriderListAction())
+        .then((ress) =>
+          this.context.navigate('paySuccess', {
+            ...data,
+            address: this.state.defaultAddress
+          })
+        );
     } else {
       ToastAndroid.show('请选择支付方式', ToastAndroid.SHORT);
     }
@@ -328,15 +332,6 @@ class orders extends PureComponent {
               overflow: 'hidden'
             }}
           >
-            {/* <LinearGradient
-            start={{x: 0, y: 0}}
-            end={{x: 1, y: 0}}
-            colors={['#55B3F0', '#537ED7']}
-            style={styles.linearGradient}>
-            <Text style={{...styles.buttonText, ...this.props.textStyle}}>
-              提交订单
-            </Text>
-          </LinearGradient> */}
             <View
               style={{
                 flex: 1,
@@ -439,4 +434,4 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent'
   }
 });
-export default orders;
+export default connect(() => ({}, { getUserOriderListAction }))(orders);
