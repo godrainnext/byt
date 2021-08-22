@@ -107,7 +107,7 @@ export default class relatedBook extends PureComponent {
                     </View>
                     <View style={{ marginLeft: pxToDp(10) }}>
                       <Text style={styles.text2}>{item.name}</Text>
-                      <Text style={styles.text3} numberOfLines={3}>
+                      <Text style={styles.text3} numberOfLines={4}>
                         {item.Details}
                       </Text>
                     </View>
@@ -137,16 +137,16 @@ const styles = StyleSheet.create({
   },
   text2: {
     marginTop: pxToDp(10),
-    fontSize: pxToDp(18),
+    fontSize: pxToDp(15),
     fontWeight: 'bold'
   },
   image: {
     height: pxToDp(120),
-    width: pxToDp(120),
+    width: pxToDp(100),
     borderRadius: pxToDp(8)
   },
   text3: {
-    fontSize: pxToDp(14),
+    fontSize: pxToDp(13),
     marginTop: pxToDp(5),
     width: pxToDp(220)
   },

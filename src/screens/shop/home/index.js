@@ -35,7 +35,9 @@ class Index extends PureComponent {
     return (
       <View>
         <Top title="越市" />
-        <ScrollView style={{ marginBottom: pxToDp(70) }}>
+        <ScrollView 
+         showsVerticalScrollIndicator={false}
+        style={{ marginBottom: pxToDp(70) }}>
           {/*轮播 */}
           <View style={{ height: pxToDp(240) }}>
             <Swiper

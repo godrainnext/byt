@@ -1,12 +1,5 @@
 import React, { PureComponent, createRef } from 'react';
-import {
-  Platform,
-  StyleSheet,
-  Text,
-  View,
-  Dimensions,
-  Image
-} from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image } from 'react-native';
 import Page from './page';
 import { Modalize } from 'react-native-modalize';
 import EZSwiper from 'react-native-ezswiper';

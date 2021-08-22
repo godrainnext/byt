@@ -4,7 +4,8 @@ import {
     Text,
     TouchableOpacity,
     StyleSheet,
-    Modal
+    Modal,
+    Image
 } from 'react-native';
 import { pxToDp } from '@utils/styleKits';
 import { NavigationContext } from '@react-navigation/native';
@@ -73,32 +74,6 @@ class Index extends PureComponent {
                     <Modal
                         animationType="slide"
                         transparent={true}
-                        visible={modalVisibles}
-                        onRequestClose={() => {
-                            Alert.alert('Modal has been closed.');
-                            this.setModalVisible(!modalVisibles);
-                        }}
-                    >
-                        <View style={styles.centeredView}>
-                            <View style={styles.modalView}>
-                                <Text style={styles.modalText4}>
-                                   今日已签到~
-                                </Text>
-                                <TouchableOpacity
-                                    onPress={() => {
-                                        this.setModalVisibles(!modalVisibles);
-                                    }}
-                                >
-                                    <View style={styles.button}>
-                                        <Text style={styles.modalText5}>确认</Text>
-                                    </View>
-                                </TouchableOpacity>
-                            </View>
-                        </View>
-                    </Modal>
-                    <Modal
-                        animationType="slide"
-                        transparent={true}
                         visible={modalVisible}
                         onRequestClose={() => {
                             Alert.alert('Modal has been closed.');
@@ -107,7 +82,7 @@ class Index extends PureComponent {
                     >
                         <View style={styles.centeredView}>
                             <View style={styles.modalView}>
-                                <View style={{ marginLeft: pxToDp(330) }}>
+                                <View style={{ marginLeft: pxToDp(330), marginTop: pxToDp(10) }}>
                                     <TouchableOpacity
                                         onPress={() => {
                                             this.setModalVisible(!modalVisible);
@@ -121,9 +96,9 @@ class Index extends PureComponent {
                                     </TouchableOpacity>
                                 </View>
                                 <Text style={styles.modalText1}>-每日签到-</Text>
-                                <View style={{ flexDirection: 'row', width: pxToDp(334) }}>
+                                <View style={{ flexDirection: 'row', width: pxToDp(335) }}>
                                     {this.state.jifen.map((item, index) => (
-                                        <Text style={{ marginRight: pxToDp(31), color: 'grey' }}>
+                                        <Text style={{ marginRight: pxToDp(32.7), color: 'grey' }}>
                                             {item}
                                         </Text>
                                     ))}
@@ -155,21 +130,25 @@ class Index extends PureComponent {
                                         {this.state.isclick ? '已签到' : '签到'}
                                     </Text>
                                 </TouchableOpacity>
-                                <View style={{ marginBottom: pxToDp(20) }}>
-                                    <Text style={styles.modalText2}>-签到说明-</Text>
-                                    <Text style={styles.modalText3}>
-                                        每日签到一次，连续签到奖励更多
-                                    </Text>
+                                <View style={{ flexDirection: 'row',alignItems:'center',justifyContent:'space-around',marginTop:pxToDp(35)}}>
+                                    <Image style={{ width: pxToDp(80), height: pxToDp(160) }} source={require('../../res/sucai/9.jpg')} />
+                                    <View>
+                                        <Text style={styles.modalText2}>-签到说明-</Text>
+                                        <Text style={styles.modalText3}>
+                                            每日签到一次，连续签到奖励更多
+                                        </Text>
+                                    </View>
+                                    <Image style={{ width: pxToDp(80), height: pxToDp(160) }} source={require('../../res/sucai/11.jpg')} />
                                 </View>
                             </View>
                         </View>
                     </Modal>
                 </View>
-                <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'center',marginLeft:pxToDp(50) }} onPress={() => {
+                <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'center', marginLeft: pxToDp(50) }} onPress={() => {
                     this.setModalVisible(true);
                 }}>
                     <Ionicons name="today-sharp" size={32} color="#468CD3" />
-                    <Text style={{ fontSize: pxToDp(15),marginTop:pxToDp(5)}}>签到</Text>
+                    <Text style={{ fontSize: pxToDp(15), marginTop: pxToDp(5) }}>签到</Text>
                 </TouchableOpacity>
             </View>
         );
@@ -182,7 +161,7 @@ const styles = StyleSheet.create({
     },
     modalView: {
         backgroundColor: 'white',
-        borderRadius: 12,
+        borderRadius: pxToDp(8),
         alignItems: 'center',
         shadowColor: '#000',
         shadowOffset: {
@@ -204,7 +183,12 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     modalText1: {
-        marginBottom: pxToDp(15),
+        textAlign: 'center',
+        fontSize: pxToDp(17),
+        marginBottom:pxToDp(35)
+    },
+    modalText2: {
+        marginTop: pxToDp(15),
         textAlign: 'center',
         fontSize: pxToDp(15)
     },

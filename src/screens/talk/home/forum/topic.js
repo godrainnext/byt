@@ -111,7 +111,7 @@ export default class topic extends Component {
             style={{
               height: pxToDp(40),
               margin: pxToDp(8),
-              backgroundColor: 'orange',
+              backgroundColor: 'white',
               flexDirection: 'row',
               alignItems: 'center'
               //    borderRadius: pxToDp(16)

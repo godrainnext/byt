@@ -9,25 +9,24 @@ import { right } from '../../../component/common/iconSvg'
 class Index extends PureComponent {
     state = {
         dramalist: {
-            title: '早春二月',
-            author: '暂无',
-            year: '暂无',
-            int1: '上世纪20年代，大革命爆发前夕，青年知识分子肖涧秋在杭州葛岭的湖边写生，初识女学生陶岚。两年后，历尽沧桑的肖涧秋应同学陶幕侃之邀到芙蓉镇中学任教，在船上遇见了留洋归来的阔少爷钱正兴与故去同学的遗孀文嫂。陶幕侃在家中设宴款待涧秋，让涧秋与陶岚再次相见。同时，钱正兴对陶岚也是一见钟情。肖涧秋出于同情经常照顾文嫂及两个孩子，这让文嫂对肖涧秋产生了爱慕之情。钱正兴正式向陶家求婚。被陶岚断然拒绝。钱正兴因得不到陶岚而对肖涧秋产生更加强烈的嫉恨，不仅在学校里处处与肖作对，而且在镇上到处散发传单，诽谤肖涧秋与文嫂的关系，甚至诬告他参与赤色活动，将他关进县监狱。 ',
-            int2: '为了救肖涧秋，陶岚答应了钱正兴的求婚，而文嫂也答应一直追求她的商人吴子豪的求婚。涧秋出狱了，但文嫂已经搬家，陶岚也和钱正兴去了上海。 ',
-            int3: '几经周折，肖涧秋终于找到了文嫂，他决定照顾文嫂一辈子，而文嫂却从肖涧秋的表情里看到他爱的其实是陶岚。夕阳中，文嫂在河边洗衣服，涧秋带着采莲在河边吹泡泡，等他们回到河边，只见筐里放着整齐的衣服，却不见文嫂。肖涧秋大病一场，他决定带着采莲离开芙蓉镇。临行前，他来到文嫂的墓前辞行，遇见吴子豪，吴对他说出文嫂对他的牺牲，这让肖涧秋万分内疚。 ',
-            int4: '赶回芙蓉镇的陶岚悲痛欲绝，他一定要找到肖涧秋。陶岚辗转各地，几经艰难。在上海的一个广场上。人们正在集会游行。俯瞰下去，各色各样的伞组成不同的色块，这当中，相邻的两朵红伞分外显眼。陶岚一副修女打扮依然打着那把红伞，涧秋下意识的茫然四顾，但谁也没有看见谁……',
-            text1: '北京长安大戏院的舞台上，飞飞扬扬的雪花飘洒在江南小镇和盛开的迎春花上，委婉悲怆、朴实流畅的越剧唱腔随之在戏院里响起。上海越剧院新编现代题材剧《早春二月》，拉开了“纪念越剧百年上海越剧北京演出周”的大幕。',
-            text2: '早在半个多月前，北京各媒体就已纷纷将上海越剧再次晋京演出作为重要文化新闻，以醒目的版面和时段向首都观众介绍，《早春二月》的票很快销售一空。临近昨晚开演前几分钟，记者匆匆赶到剧场时，竟先后被十多个等退票的“越剧迷”拦住，询问有没有多余的戏票,而走进剧院，全场已是座无虚席。',
-            text3: '这台改编自柔石小说《二月》，由男女合演，被专家和观众一起公认为“越剧现代戏的成功之作”，表现了“五四”过后的大革命前夜，城乡青年知识分子普遍的心理彷徨和当时中国社会的凄凉。许杰、方亚芬、张永梅、张伟忠、徐标新等首都观众平时难得一见的名家名角的大段唱腔和一串串优美的舞台动作，赢得全场阵阵掌声。演出结束后，演员们一再谢幕，观众们仍久久站立鼓掌，不肯离去。',
-            path1: 'http://5b0988e595225.cdn.sohucs.com/images/20200115/a4f3107f50264554a0c3b6e677004958.jpeg',
-            path2: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Finews.gtimg.com%2Fnewsapp_match%2F0%2F11201662577%2F0.jpg&refer=http%3A%2F%2Finews.gtimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632111621&t=3e7131e501e792769782f7a5acf9ee79'
+            title: '庵堂认母',
+            author: '陈静改编',
+            year: '1954年',
+            int1: '尼姑王志贞和申贵升相爱，于庵堂内生下一子，因碍于佛门清规，只得遗弃路旁，为徐家拾养，取名元宰。',
+            int2: '16年后，徐已为解元，得知此情，遂往庵堂寻母。两人相遇，经暗喻试探，母已知为其亲子，却不敢认，惊恐逃入云房，在申画像前哭诉。',
+            int3: '徐追入见画像题词，对照所带血书字迹，更断定生母无疑，遂跪地哀求，志贞不顾佛门清规，抛弃佛帚，元宰宁弃荣华富贵，摘下头冠，母子终于相认。',
+            text1: '《庵堂认母》改编本由浙江越剧团首演，导演陈静、姚传芗，作曲卢炳容，舞美设计裘云飞。金宝花饰徐元宰，薛莺饰王志贞。1954年先后参加浙江省与华东区戏曲观摩演出，均获剧本奖。上海唱片公司录制唱片。',
+            text2: '1955年由姚水娟饰王志贞，何贤芬饰徐元宰，以男女合演形式重排后赴上海演出，影响颇大。',
+            text3: '剧本编入《华东戏曲会演剧本选集》，浙江人民出版社出版。1955年江苏锡剧团移植演出，同年由上海电影制片公司拍成舞台艺术纪录片。',
+            path1: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg1.wenhuayun.cn%2F00%2F201809%2FImg%2FImg5b692468237a43e495e94bf5751f7a59_750_500.jpg&refer=http%3A%2F%2Fimg1.wenhuayun.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632205546&t=937c8eb866ada9f2f4c261f32e6b51f4',
+            path2: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fcdnimg103.lizhi.fm%2Faudio_cover%2F2018%2F06%2F14%2F2675237445000798727_320x320.jpg&refer=http%3A%2F%2Fcdnimg103.lizhi.fm&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632205751&t=a059c5eb26655bc153281aaac598cba2'
         }
     };
     static contextType = NavigationContext;
     render() {
         return (
             <View style={{ backgroundColor: '#E2F4FE' }}>
-                <Top icon1="arrow-back" title="早春二月" />
+                <Top icon1="arrow-back" title="庵堂认母" />
                 <ScrollView
                     style={{
                         marginLeft: pxToDp(8),
@@ -61,9 +60,6 @@ class Index extends PureComponent {
                         <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(10) }}>
                             &emsp;&emsp;{this.state.dramalist.int3}
                         </Text>
-                        <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(10) }}>
-                            &emsp;&emsp;{this.state.dramalist.int4}
-                        </Text>
                     </View>
                     <View style={{ marginTop: pxToDp(10) }}>
                         <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold', marginBottom: pxToDp(20) }}>
@@ -94,7 +90,7 @@ class Index extends PureComponent {
                             //shadowOffset: { width: 0, height: 0 },
                             // shadowOpacity: 1,
                         }}
-                            onPress={() => this.context.navigate('Screenpaly')}
+                            onPress={() => this.context.navigate('Screenpaly2')}
                         >
                             <Image style={{ height: pxToDp(100), width: '100%', borderRadius: pxToDp(8) }} source={{ uri: this.state.dramalist.path2 }} />
                             <View style={{ marginTop: pxToDp(-60), marginLeft: pxToDp(300) }}>
