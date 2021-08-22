@@ -22,7 +22,7 @@ export default class index extends PureComponent {
           name: '【杭州】【鼓楼剧场】钱塘戏社越剧专场-周日',
           type: '曲苑杂坛',
           date: '2021.08.15-10.01',
-          place: '杭州|鼓楼剧场',
+          place: '杭州 鼓楼剧场',
           detail: '中山南路501号鼓楼城墙二楼',
           choose: '可选座',
           price: '30.00',
@@ -34,7 +34,7 @@ export default class index extends PureComponent {
           name: '【杭州】越剧六代同台《梁山伯与祝英台》',
           type: '曲苑杂坛',
           date: '2021.10.08周五 19:30',
-          place: '杭州|杭州剧院',
+          place: '杭州 杭州剧院',
           detail: '武林广场29号',
           choose: '可选座',
           price: '100.00',
@@ -46,7 +46,7 @@ export default class index extends PureComponent {
           name: '【杭州】此情关风月 拾光谱新篇 ——杭州越剧院建院65周年“四季有越”2021年度巡演·杭州站',
           type: '曲苑杂坛',
           date: '2021.10.04-10.05',
-          place: '杭州|杭州剧院',
+          place: '杭州 杭州剧院',
           detail: '武林广场29号',
           choose: '可选座',
           price: '80.00',
@@ -58,7 +58,7 @@ export default class index extends PureComponent {
           name: '【杭州】浙江小百花越剧院（浙江小百花越剧团）·越剧新版《梁祝》',
           type: '曲苑杂坛',
           date: '2021.10.16周六19:00',
-          place: '杭州|杭州临平大剧院',
+          place: '杭州 杭州临平大剧院',
           detail: '望梅路与汀兰街交叉口南100米',
           choose: '',
           price: '180.00',
@@ -70,7 +70,7 @@ export default class index extends PureComponent {
           name: '【杭州】浙江小百花越剧院（浙江小百花越剧团）·经典越剧《五女拜寿》',
           type: '曲苑杂坛',
           date: '2021.10.17周日19::00',
-          place: '杭州|杭州临平大剧院',
+          place: '杭州 杭州临平大剧院',
           detail: '望梅路与汀兰街交叉口南100米',
           choose: '',
           price: '180.00',
@@ -82,7 +82,7 @@ export default class index extends PureComponent {
           type: '曲苑杂坛',
           name: '【嘉兴】越剧《双轿接亲》',
           date: '2021.10.10周日13:00',
-          place: '嘉兴|海盐县大剧院',
+          place: '嘉兴 海盐县大剧院',
           detail: '新桥北路170号',
           choose: '可选座',
           price: '50.00',
@@ -106,7 +106,7 @@ export default class index extends PureComponent {
         </View>
         <ScrollView
           showsVerticalScrollIndicator={false}
-          style={{ flex: 1, margin: pxToDp(20), marginTop: pxToDp(10) }}
+          style={{ flex: 1, margin: pxToDp(16), marginTop: pxToDp(10) }}
         >
           {/* 演出盒子 */}
           <View style={styles.message}>
@@ -179,15 +179,15 @@ export default class index extends PureComponent {
                   >
                     <View>
                       <Text
-                        style={{ fontSize: pxToDp(16), fontWeight: 'bold' }}
+                        style={{ fontSize: pxToDp(15), fontWeight: 'bold' }}
                         numberOfLines={2}
                       >
                         {item.name}
                       </Text>
                     </View>
                     <View>
-                      <Text>{item.date}</Text>
-                      <Text>{item.place}</Text>
+                      <Text style={{fontSize:pxToDp(13)}}>{item.date}</Text>
+                      <Text style={{fontSize:pxToDp(13)}}>{item.place}</Text>
                     </View>
                     <View
                       style={{
@@ -197,20 +197,20 @@ export default class index extends PureComponent {
                     >
                       <View
                         style={{
-                          width: pxToDp(30),
-                          height: pxToDp(15),
+                          width: pxToDp(40),
+                          height: pxToDp(20),
                           borderRadius: pxToDp(16),
                           justifyContent: 'center',
                           alignItems: 'center'
                         }}
                       >
-                        <Text style={{ fontSize: pxToDp(8) }}>
+                        <Text style={{ fontSize: pxToDp(13) }}>
                           {item.choose}
                         </Text>
                       </View>
                       <View style={{ flexDirection: 'row' }}>
-                        <Text style={{ color: 'red' }}>￥{item.price}</Text>
-                        <Text>起</Text>
+                        <Text style={{ color: 'red',fontSize:pxToDp(13)}}>￥{item.price}</Text>
+                        <Text style={{ fontSize: pxToDp(13) }}>起</Text>
                       </View>
                     </View>
                   </View>
