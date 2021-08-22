@@ -69,7 +69,7 @@ class Index extends PureComponent {
                 flexDirection: 'row',
                 justifyContent: 'space-between',
                 margin: pxToDp(10),
-                alignItems:'center'
+                alignItems: 'center'
               }}
             >
               <View>

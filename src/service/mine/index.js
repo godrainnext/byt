@@ -12,3 +12,7 @@ export const getUserInfoById = (id) =>
 
 export const apply = (fd) =>
   request.post({ url: `/user/applySteam`, data: fd });
+export const changeOriderStatus = (id, status) =>
+  request.patch({ url: `/user/orider/${id}?status=${status}` });
+export const deleteOrider = (id) =>
+  request.delete({ url: `/user/orider/${id}` });

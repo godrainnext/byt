@@ -4,7 +4,6 @@ import CustormerBar from './components/CustormerBar';
 import Orderone from './pages/orderone';
 import { useRoute } from '@react-navigation/native';
 import { shallowEqual, useSelector } from 'react-redux';
-import { OrderFour, OrderThree, OrderTwo } from '../..';
 
 export default (props) => {
   const { orider } = useSelector(
@@ -17,7 +16,6 @@ export default (props) => {
   const needPay = orider.filter((item) => item.status === 0);
   const needReceipt = orider.filter((item) => item.status === 1);
   const needComment = orider.filter((item) => item.status === 2);
-  console.log(route.params);
   return (
     <ScrollableTabView
       initialPage={route.params}
