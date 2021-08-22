@@ -22,20 +22,23 @@ export default class page extends PureComponent {
       <ScrollView>
         <View
           style={{
-            backgroundColor: 'green',
-            width: '95%',
-            height: '100%',
-            margin: 10,
-            borderRadius: 8
+            backgroundColor:"#fff",
+            margin:pxToDp(8),
+            borderRadius: pxToDp(8),
+            elevation: 4,
+            shadowColor: 'black',  //  阴影颜色
+            shadowOffset: { width: 0, height: 0 },  // 阴影偏移
+            shadowOpacity: 1,  // 阴影不透明度
+            shadowRadius: 10,  //  圆角
           }}
         >
-          <Text style={styles.big}>{this.props.pagedata.title}</Text>
-          <View style={{ flexDirection: 'row', paddingLeft: 20 }}>
+          <Text style={styles.big}>{this.props.pagedata.name}</Text>
+          <View style={{ flexDirection: 'row', paddingLeft: pxToDp(20) }}>
             <Text>{this.props.pagedata.local}</Text>
-            <Text style={{ paddingLeft: 20 }}>{this.props.pagedata.title}</Text>
+            <Text style={{ paddingLeft: pxToDp(20) }}>{this.props.pagedata.year2}</Text>
           </View>
           <View>
-            <Text style={{ padding: 20 }}>{this.props.pagedata.introduce}</Text>
+            <Text style={{ padding: pxToDp(20) }}>{this.props.pagedata.introduce}</Text>
           </View>
           <View style={{ flex: 1 }}>
             {this.props.pagedata.img.map((item, id) => (
@@ -45,28 +48,12 @@ export default class page extends PureComponent {
                   source={{ uri: item }}
                   style={{
                     width: '90%',
-                    height: 300,
+                    height: pxToDp(300),
                     alignSelf: 'center',
-                    marginBottom: 10,
-                    borderRadius: 8
+                    marginBottom: pxToDp(10),
+                    borderRadius: pxToDp(8)
                   }}
                 />
-              </View>
-            ))}
-          </View>
-          <View>
-            <Text style={styles.big}>在这附近</Text>
-            {this.props.pagedata.nearby.map((item, id) => (
-              <View key={id} style={{ paddingLeft: 20, marginBottom: 20 }}>
-                <Text style={{ color: '#fff', fontWeight: 'bold' }}>
-                  [{item.location}]
-                </Text>
-                <Text style={{ color: '#fff', fontWeight: 'bold' }}>
-                  {item.event}
-                </Text>
-                <Text style={{ color: '#fff', fontWeight: 'bold' }}>
-                  {item.time}
-                </Text>
               </View>
             ))}
           </View>
@@ -90,8 +77,8 @@ const styles = StyleSheet.create({
     // backgroundColor: 'red',
     width: '100%',
     height: '100%',
-    borderWidth: 5,
-    borderRadius: 24
+    borderWidth: pxToDp(5),
+    borderRadius: pxToDp(24)
   },
 
   image: {
@@ -100,14 +87,14 @@ const styles = StyleSheet.create({
     // zIndex:3,
   },
   big: {
-    fontSize: 25,
+    fontSize: pxToDp(25),
     fontWeight: '700',
-    color: 'white',
-    margin: 20,
-    marginBottom: 10
+    color: '#000',
+    margin: pxToDp(20),
+    marginBottom: pxToDp(10)
   },
   mid: {
-    fontSize: 15,
+    fontSize: pxToDp(15),
     fontWeight: '400',
     color: 'white'
   }

@@ -199,18 +199,19 @@ class Index extends Component {
             />
             {/**签到 */}
             <Qiandao />
-            {/**剧本库 */}
+            {/**VR */}
             <TouchableOpacity
               style={{
                 alignItems: 'center',
                 justifyContent: 'center',
-                marginLeft: pxToDp(48)
+                marginLeft: pxToDp(48),
+                marginRight: pxToDp(10)
               }}
-              onPress={() => this.context.navigate('Scriptlibrary')}
+              onPress={() => this.context.navigate('VR')}
             >
-              <Ionicons name="library-sharp" size={32} color="#468CD3" />
+              <Ionicons name="earth-sharp" size={32} color="#468CD3" />
               <Text style={{ fontSize: pxToDp(15), marginTop: pxToDp(5) }}>
-                剧本
+                VR
               </Text>
             </TouchableOpacity>
             {/**教程 */}
@@ -224,7 +225,7 @@ class Index extends Component {
             >
               <Ionicons name="md-color-wand" size={32} color="#468CD3" />
               <Text style={{ fontSize: pxToDp(15), marginTop: pxToDp(5) }}>
-                教程
+                教学
               </Text>
             </TouchableOpacity>
             {/**图谱 */}
@@ -241,19 +242,18 @@ class Index extends Component {
                 图谱
               </Text>
             </TouchableOpacity>
-            {/**VR */}
+            {/**剧本库 */}
             <TouchableOpacity
               style={{
                 alignItems: 'center',
                 justifyContent: 'center',
-                marginLeft: pxToDp(48),
-                marginRight: pxToDp(10)
+                marginLeft: pxToDp(48)
               }}
-              onPress={() => this.context.navigate('VR')}
+              onPress={() => this.context.navigate('Scriptlibrary')}
             >
-              <Ionicons name="earth-sharp" size={32} color="#468CD3" />
+              <Ionicons name="library-sharp" size={32} color="#468CD3" />
               <Text style={{ fontSize: pxToDp(15), marginTop: pxToDp(5) }}>
-                VR
+                剧本
               </Text>
             </TouchableOpacity>
           </ScrollView>
@@ -288,7 +288,7 @@ class Index extends Component {
             {/* 俯瞰百年轮播图 */}
             <Hy />
           </View>
-          {/*流派故事 */}
+          {/*流派传奇 */}
           <View
             style={{
               margin: pxToDp(8)
