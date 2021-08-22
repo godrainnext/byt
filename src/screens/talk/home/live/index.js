@@ -44,7 +44,7 @@ class Index extends Component {
   }
   render() {
     return (
-      <View style={{ flex: 1, backgroundColor: '#ecf6fc' }}>
+      <View style={{ flex: 1, backgroundColor: 'white' }}>
         <ScrollView>
           {this.state.arr.map((item) => (
             <View key={item.id}>
@@ -115,18 +115,6 @@ class Index extends Component {
             </View>
           ))}
         </ScrollView>
-        <FAB
-          size="large"
-          placement="right"
-          color="#B0C4DE"
-          onPress={() => this.context.navigate('KaiBo')}
-          icon={
-            <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-              <SvgUri svgXmlData={live} width="32" height="32" />
-            </View>
-          }
-        />
-        {/* <FAB size="large" placement="right" color="red" onPress={() => this.context.navigate("KaiFang")} /> */}
       </View>
     );
   }
