@@ -167,32 +167,33 @@ class NewAddress extends PureComponent {
             </View>
           </View>
         </View>
-        <View
+        <TouchableOpacity
           style={{
             backgroundColor: '#ecf6fc',
             width: pxToDp(300),
             height: pxToDp(50),
             marginTop: pxToDp(10),
             borderRadius: pxToDp(48),
-            alignSelf: 'center'
+            alignSelf: 'center',
+            elevation: 4,
+            shadowColor: 'black', //  阴影颜色
+            shadowOffset: { width: 0, height: 0 }, // 阴影偏移
+            shadowOpacity: 1, // 阴影不透明度
+            shadowRadius: 10 //  圆角
           }}
+          onPress={this.saveAddress}
         >
-          <TouchableOpacity
-            style={{ width: '100%', height: '100%' }}
-            onPress={this.saveAddress}
+          <Text
+            style={{
+              alignSelf: 'center',
+              top: pxToDp(15),
+              fontSize: pxToDp(18),
+              color: '#000'
+            }}
           >
-            <Text
-              style={{
-                alignSelf: 'center',
-                top: pxToDp(15),
-                fontSize: pxToDp(18),
-                color: '#000'
-              }}
-            >
-              保存
-            </Text>
-          </TouchableOpacity>
-        </View>
+            保存
+          </Text>
+        </TouchableOpacity>
       </View>
     );
   }
