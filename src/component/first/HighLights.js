@@ -30,7 +30,7 @@ export default class HighLights extends PureComponent {
           <Text
             style={{
               fontSize: pxToDp(18),
-              color: '#468CD3',
+              color: '#333333',
               fontWeight: 'bold'
             }}
           >
@@ -38,10 +38,10 @@ export default class HighLights extends PureComponent {
           </Text>
           <TouchableOpacity onPress={() => this.context.navigate('Opera')}>
             <View style={{ flexDirection: 'row' }}>
-              <Text style={{ fontSize: pxToDp(15), color: 'grey' }}>
+              <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
                 查看更多
               </Text>
-              <Ionicons name="chevron-forward" size={20} color="grey" />
+              <Ionicons name="chevron-forward" size={24} color="#666666" />
             </View>
           </TouchableOpacity>
         </View>

@@ -24,10 +24,10 @@ export default class Legend extends PureComponent {
             }}
           />
           <View style={{ justifyContent: 'center', width: pxToDp(240) }}>
-            <Text style={{ fontSize: pxToDp(15), fontWeight: 'bold' }}>
+          <Text style={{ fontSize: pxToDp(16), fontWeight: 'bold',color:'#666666' }}>
               袁派
             </Text>
-            <Text style={{ fontSize: pxToDp(13), flexWrap: 'wrap' }}>
+            <Text style={{ fontSize: pxToDp(14), flexWrap: 'wrap',color:'#999999' }}>
               袁派唱腔的特点是质朴平易，委婉细腻，深沉含蓄，韵味醇厚。
             </Text>
           </View>
@@ -48,10 +48,10 @@ export default class Legend extends PureComponent {
             }}
           />
           <View style={{ justifyContent: 'center', width: pxToDp(240) }}>
-            <Text style={{ fontSize: pxToDp(15), fontWeight: 'bold' }}>
+          <Text style={{ fontSize: pxToDp(16), fontWeight: 'bold',color:'#666666' }}>
               范派
             </Text>
-            <Text style={{ fontSize: pxToDp(13), flexWrap: 'wrap' }}>
+            <Text style={{ fontSize: pxToDp(14), flexWrap: 'wrap',color:'#999999' }}>
               范瑞娟中低音厚实，高音响亮有力，唱腔凝重大方，富有阳刚之美。
             </Text>
           </View>
@@ -72,10 +72,10 @@ export default class Legend extends PureComponent {
             }}
           />
           <View style={{ justifyContent: 'center', width: pxToDp(240) }}>
-            <Text style={{ fontSize: pxToDp(15), fontWeight: 'bold' }}>
+            <Text style={{ fontSize: pxToDp(16), fontWeight: 'bold',color:'#666666' }}>
               尹派
             </Text>
-            <Text style={{ fontSize: pxToDp(13), flexWrap: 'wrap' }}>
+            <Text style={{ fontSize: pxToDp(14), flexWrap: 'wrap',color:'#999999' }}>
               尹派的特点是委婉缠绵，洒脱深沉，纯朴隽永，清新舒展，是一种典型的以柔为主、柔中寓刚的风格。
             </Text>
           </View>

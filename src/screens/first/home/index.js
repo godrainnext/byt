@@ -190,7 +190,7 @@ class Index extends Component {
               onPress={this.toggleModal}
             >
               <Ionicons name="layers-outline" size={32} color="#468CD3" />
-              <Text style={{ fontSize: pxToDp(15), marginTop: pxToDp(5) }}>
+              <Text style={{ fontSize: pxToDp(16), marginTop: pxToDp(5),color:'#666666'}}>
                 推荐
               </Text>
             </TouchableOpacity>
@@ -211,7 +211,7 @@ class Index extends Component {
               onPress={() => this.context.navigate('VR')}
             >
               <Ionicons name="earth-sharp" size={32} color="#468CD3" />
-              <Text style={{ fontSize: pxToDp(15), marginTop: pxToDp(5) }}>
+              <Text style={{ fontSize: pxToDp(16), marginTop: pxToDp(5),color:'#666666'}}>
                 VR
               </Text>
             </TouchableOpacity>
@@ -225,7 +225,7 @@ class Index extends Component {
               onPress={() => this.context.navigate('Course')}
             >
               <Ionicons name="md-color-wand" size={32} color="#468CD3" />
-              <Text style={{ fontSize: pxToDp(15), marginTop: pxToDp(5) }}>
+              <Text style={{ fontSize: pxToDp(16), marginTop: pxToDp(5),color:'#666666'}}>
                 教学
               </Text>
             </TouchableOpacity>
@@ -239,7 +239,7 @@ class Index extends Component {
               onPress={() => this.context.navigate('Timeline')}
             >
               <Entypo name="colours" size={30} color="#468CD3" />
-              <Text style={{ fontSize: pxToDp(15), marginTop: pxToDp(5) }}>
+              <Text style={{ fontSize: pxToDp(16), marginTop: pxToDp(5),color:'#666666'}}>
                 图谱
               </Text>
             </TouchableOpacity>
@@ -253,7 +253,7 @@ class Index extends Component {
               onPress={() => this.context.navigate('Scriptlibrary')}
             >
               <Ionicons name="library-sharp" size={32} color="#468CD3" />
-              <Text style={{ fontSize: pxToDp(15), marginTop: pxToDp(5) }}>
+              <Text style={{ fontSize: pxToDp(16), marginTop: pxToDp(5),color:'#666666'}}>
                 剧本
               </Text>
             </TouchableOpacity>
@@ -271,7 +271,7 @@ class Index extends Component {
               <Text
                 style={{
                   fontSize: pxToDp(18),
-                  color: '#468CD3',
+                  color: '#333333',
                   fontWeight: 'bold'
                 }}
               >
@@ -279,10 +279,10 @@ class Index extends Component {
               </Text>
               <TouchableOpacity onPress={() => this.context.navigate('Card')}>
                 <View style={{ flexDirection: 'row' }}>
-                  <Text style={{ fontSize: pxToDp(15), color: 'grey' }}>
+                  <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
                     查看更多
                   </Text>
-                  <Ionicons name="chevron-forward" size={20} color="grey" />
+                  <Ionicons name="chevron-forward" size={24} color="#666666" />
                 </View>
               </TouchableOpacity>
             </View>
@@ -306,7 +306,7 @@ class Index extends Component {
               <Text
                 style={{
                   fontSize: pxToDp(18),
-                  color: '#468CD3',
+                  color: '#333333',
                   fontWeight: 'bold'
                 }}
               >
@@ -316,10 +316,10 @@ class Index extends Component {
                 onPress={() => this.context.navigate('PageOne', 2)}
               >
                 <View style={{ flexDirection: 'row' }}>
-                  <Text style={{ fontSize: pxToDp(15), color: 'grey' }}>
+                  <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
                     查看更多
                   </Text>
-                  <Ionicons name="chevron-forward" size={20} color="grey" />
+                  <Ionicons name="chevron-forward" size={24} color="#666666" />
                 </View>
               </TouchableOpacity>
             </View>
@@ -354,7 +354,7 @@ class Index extends Component {
               <Text
                 style={{
                   fontSize: pxToDp(18),
-                  color: '#468CD3',
+                  color: '#333333',
                   fontWeight: 'bold'
                 }}
               >
@@ -364,10 +364,10 @@ class Index extends Component {
                 onPress={() => this.context.navigate('PageThree', 2)}
               >
                 <View style={{ flexDirection: 'row' }}>
-                  <Text style={{ fontSize: pxToDp(15), color: 'grey' }}>
+                  <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
                     查看更多
                   </Text>
-                  <Ionicons name="chevron-forward" size={20} color="grey" />
+                  <Ionicons name="chevron-forward" size={24} color="#666666" />
                 </View>
               </TouchableOpacity>
             </View>
@@ -386,7 +386,7 @@ class Index extends Component {
               style={{
                 fontSize: pxToDp(18),
                 margin: pxToDp(8),
-                color: '#468CD3',
+                color: '#333333',
                 fontWeight: 'bold'
               }}
             >
@@ -396,14 +396,14 @@ class Index extends Component {
               style={{ flexDirection: 'row' }}
               onPress={() => this.context.navigate('HotList')}
             >
-              <Text style={{ fontSize: pxToDp(15), color: 'grey' }}>
+              <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
                 查看更多
               </Text>
-              <Ionicons name="chevron-forward" size={20} color="grey" />
+              <Ionicons name="chevron-forward" size={24} color="#666666" />
             </TouchableOpacity>
           </View>
           <View style={styles.carousel}>
-            <Carousel control style={{ height: pxToDp(155) }}>
+            <Carousel control={false} style={{ height: pxToDp(155) }}>
               {this.state.books.map((item) => (
                 <TouchableOpacity
                   style={styles.bookbox}
@@ -462,7 +462,7 @@ class Index extends Component {
               style={{
                 fontSize: pxToDp(18),
                 margin: pxToDp(8),
-                color: '#468CD3',
+                color: '#333333',
                 fontWeight: 'bold',
                 marginBottom: pxToDp(0)
               }}
@@ -473,10 +473,10 @@ class Index extends Component {
               style={{ flexDirection: 'row' }}
               onPress={() => this.context.navigate('Scriptlibrary')}
             >
-              <Text style={{ fontSize: pxToDp(15), color: 'grey' }}>
+              <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
                 查看更多
               </Text>
-              <Ionicons name="chevron-forward" size={20} color="grey" />
+              <Ionicons name="chevron-forward" size={24} color="#666666" />
             </TouchableOpacity>
           </View>
           <View style={{ marginBottom: pxToDp(20) }}>
