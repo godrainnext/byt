@@ -32,8 +32,7 @@ import {
   tongpai
 } from '../../../component/common/iconSvg';
 import { Carousel } from '../../../component/common/teaset';
-import Animated from 'react-native-reanimated';
-import { TIME_OUT } from '../../../service/requset/config';
+
 let navHeight = 45;
 
 const width = Dimensions.get('window').width;
@@ -125,21 +124,6 @@ class Index extends Component {
           });
           this.setState({ y: event.nativeEvent.contentOffset.y });
         }}
-        // renderFixedHeader={() => {
-        //   return (
-        //     <View
-        //       style={{
-        //         width: '100%',
-        //         height: 50,
-        //         backgroundColor: this.state.fadeAnim < 0.2 ? 'white' : '#ecf6fc',
-        //         opacity: this.state.fadeAnim,
-        //         borderWidth:.3,
-        //         borderColor:'#ccc'
-
-        //       }}><Text
-        //       style={{color: this.state.fadeAnim < 0.2 ? 'white' : 'red',fontWeight:'bold',alignSelf:'center',fontSize:20}}>越台</Text>
-        //     </View>)
-        // }}
         renderStickyHeader={() => <Top title="越台" />}
         stickyHeaderHeight={50}
         parallaxHeaderHeight={220}
@@ -215,18 +199,19 @@ class Index extends Component {
             />
             {/**签到 */}
             <Qiandao />
-            {/**剧本库 */}
+            {/**VR */}
             <TouchableOpacity
               style={{
                 alignItems: 'center',
                 justifyContent: 'center',
-                marginLeft: pxToDp(48)
+                marginLeft: pxToDp(48),
+                marginRight: pxToDp(10)
               }}
-              onPress={() => this.context.navigate('Scriptlibrary')}
+              onPress={() => this.context.navigate('VR')}
             >
-              <Ionicons name="library-sharp" size={32} color="#468CD3" />
+              <Ionicons name="earth-sharp" size={32} color="#468CD3" />
               <Text style={{ fontSize: pxToDp(15), marginTop: pxToDp(5) }}>
-                剧本
+                VR
               </Text>
             </TouchableOpacity>
             {/**教程 */}
@@ -240,7 +225,7 @@ class Index extends Component {
             >
               <Ionicons name="md-color-wand" size={32} color="#468CD3" />
               <Text style={{ fontSize: pxToDp(15), marginTop: pxToDp(5) }}>
-                教程
+                教学
               </Text>
             </TouchableOpacity>
             {/**图谱 */}
@@ -257,19 +242,18 @@ class Index extends Component {
                 图谱
               </Text>
             </TouchableOpacity>
-            {/**VR */}
+            {/**剧本库 */}
             <TouchableOpacity
               style={{
                 alignItems: 'center',
                 justifyContent: 'center',
-                marginLeft: pxToDp(48),
-                marginRight: pxToDp(10)
+                marginLeft: pxToDp(48)
               }}
-              onPress={() => this.context.navigate('VR')}
+              onPress={() => this.context.navigate('Scriptlibrary')}
             >
-              <Ionicons name="earth-sharp" size={32} color="#468CD3" />
+              <Ionicons name="library-sharp" size={32} color="#468CD3" />
               <Text style={{ fontSize: pxToDp(15), marginTop: pxToDp(5) }}>
-                VR
+                剧本
               </Text>
             </TouchableOpacity>
           </ScrollView>
@@ -431,7 +415,7 @@ class Index extends Component {
                       <View style={styles.bookinf1}>
                         <View>
                           <Text
-                            style={{ fontSize: pxToDp(17), fontWeight: 'bold' }}
+                            style={{ fontSize: pxToDp(15), fontWeight: 'bold' }}
                           >
                             {item.title}
                           </Text>
@@ -440,7 +424,7 @@ class Index extends Component {
                           <Svg width="32" height="32" svgXmlData={item.icon} />
                         </View>
                       </View>
-                      <Text style={{ fontSize: pxToDp(14) }} numberOfLines={3}>
+                      <Text style={{ fontSize: pxToDp(13) }} numberOfLines={3}>
                         {item.context}
                       </Text>
                     </View>
@@ -503,7 +487,7 @@ class Index extends Component {
                   >
                     <View style={styles.bookinf}>
                       <Text
-                        style={{ fontSize: pxToDp(17), fontWeight: 'bold' }}
+                        style={{ fontSize: pxToDp(15), fontWeight: 'bold' }}
                       >
                         {item.title}
                       </Text>
@@ -513,7 +497,7 @@ class Index extends Component {
                         <Svg width="32" height="32" svgXmlData={right} />
                       </TouchableOpacity>
                     </View>
-                    <Text stlye={{ fontSize: pxToDp(13) }} numberOfLines={2}>
+                    <Text stlye={{ fontSize: pxToDp(13) }} numberOfLines={3}>
                       {item.context}
                     </Text>
                     <View

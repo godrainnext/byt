@@ -145,11 +145,6 @@ class Index extends PureComponent {
     await this.state.playingsong.pauseAsync();
     this.setState({ isplay: false });
   };
-
-  jubao = () => {
-    this.setModalVisible(!modalVisible);
-    this.context.navigate('Jubao');
-  };
   static contextType = NavigationContext;
   render() {
     const music = this.props.dongtai.filter((item) => item.label);
@@ -193,7 +188,10 @@ class Index extends PureComponent {
                     </TouchableOpacity>
                     <TouchableOpacity
                       style={{ alignItems: 'center' }}
-                      onPress={this.jubao}
+                      onPress={() => {
+                        this.setModalVisible(!modalVisible);
+                        this.context.navigate('Jubao')
+                      }}
                     >
                       <Ionicons name="exclamation" size={25} color="#DC143C" />
                       <Text>举报</Text>

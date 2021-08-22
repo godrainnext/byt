@@ -109,7 +109,7 @@ class Index extends PureComponent {
                 <Svg width="32" height="32" svgXmlData={jinpai} />
               </View>
               <Text
-                style={{ fontSize: pxToDp(14), marginLeft: pxToDp(10) }}
+                style={{ fontSize: pxToDp(13), marginLeft: pxToDp(10) }}
                 numberOfLines={3}
               >
                 新版越剧《红楼梦》创作于1999年，首演于同年8月。它从调整戏剧结构入手，别样营造大悲大喜、大实大虚的舞台意境，并提高舞美空间层次，丰富音乐形象，整合流派表演，精缩演出时间，实现了一次富有创意的新编。
@@ -137,7 +137,7 @@ class Index extends PureComponent {
                 <Svg width="32" height="32" svgXmlData={yinpai} />
               </View>
               <Text
-                style={{ fontSize: pxToDp(14), marginLeft: pxToDp(10) }}
+                style={{ fontSize: pxToDp(13), marginLeft: pxToDp(10) }}
                 numberOfLines={3}
               >
                 《碧玉簪》讲述了王玉林得尚书李廷甫赏识，获许配廷甫女秀英为妻。秀英的表兄顾文友因妒生恨，骗取秀英的碧玉簪放进伪造情书里，诬陷秀英与他有染。最终玉林送凤冠请罪，夫妇冰释前嫌。
@@ -163,7 +163,7 @@ class Index extends PureComponent {
                 <Svg width="32" height="32" svgXmlData={tongpai} />
               </View>
               <Text
-                style={{ fontSize: pxToDp(14), marginLeft: pxToDp(10) }}
+                style={{ fontSize: pxToDp(13), marginLeft: pxToDp(10) }}
                 numberOfLines={3}
               >
                 《周仁哭坟》越剧折子戏，选材自京剧《周仁献嫂》。由朱福侠编导。《周仁哭坟》一折专为《吴凤花越剧舞台艺术风采》专场表演而编写排演，集中演绎周仁在其妻坟前哭诉冤屈的情绪。
@@ -188,7 +188,7 @@ class Index extends PureComponent {
                   <Text style={{ fontSize: pxToDp(16) }}>{item.id}</Text>
                 </View>
                 <Text
-                  style={{ fontSize: pxToDp(14), marginLeft: pxToDp(10) }}
+                  style={{ fontSize: pxToDp(13), marginLeft: pxToDp(10) }}
                   numberOfLines={3}
                 >
                   {item.context}
@@ -252,7 +252,7 @@ const styles = StyleSheet.create({
     marginLeft: pxToDp(10)
   },
   booktitle3: {
-    fontSize: pxToDp(16),
+    fontSize: pxToDp(15),
     fontWeight: 'bold'
   }
 });

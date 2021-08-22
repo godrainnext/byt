@@ -53,7 +53,7 @@ class UserInner extends PureComponent {
   }
   render() {
     const { nickName, avatar, id } = this.props.userInfo;
-    const { fansCount, followCount } = this.state;
+    const { fansCount = 0, followCount = 0 } = this.state;
     return (
       <View
         style={{
@@ -74,11 +74,15 @@ class UserInner extends PureComponent {
                 borderRadius: pxToDp(32),
                 margin: pxToDp(8)
               }}
-              source={{
-                uri: this.props.avatar
-                  ? this.props.avatar
-                  : changeImgSize(avatar, 'small')
-              }}
+              source={
+                this.props.avatar
+                  ? {
+                      uri: this.props.avatar
+                    }
+                  : avatar
+                  ? { uri: changeImgSize(avatar, 'small') }
+                  : require('../../res/initAvatar.jpeg')
+              }
             ></Image>
           </TouchableOpacity>
           <View
@@ -97,7 +101,7 @@ class UserInner extends PureComponent {
                   fontWeight: 'bold'
                 }}
               >
-                {nickName}
+                {nickName ? nickName : '新用户8888'}
               </Text>
             </View>
           </View>

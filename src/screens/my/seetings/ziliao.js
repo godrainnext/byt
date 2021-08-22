@@ -149,8 +149,9 @@ class Ziliao extends PureComponent {
   };
   render() {
     const dateNow = new Date();
-    const currentDate = `${dateNow.getFullYear()}-${dateNow.getMonth() + 1
-      }-${dateNow.getDate()}`;
+    const currentDate = `${dateNow.getFullYear()}-${
+      dateNow.getMonth() + 1
+    }-${dateNow.getDate()}`;
     const { birthday } = this.state;
     return (
       <View style={{ flex: 1, backgroundColor: this.state.backgroundColor }}>
@@ -179,7 +180,7 @@ class Ziliao extends PureComponent {
               style={{
                 position: 'absolute',
                 left: pxToDp(100),
-                top: pxToDp(-60),
+                top: pxToDp(-60)
               }}
             >
               <View
@@ -187,20 +188,20 @@ class Ziliao extends PureComponent {
                   borderWidth: 5,
                   borderRadius: 100,
                   padding: 6,
-                  borderColor: this.state.backgroundColor,
+                  borderColor: this.state.backgroundColor
                 }}
               >
                 <Avatar
-                  avatarStyle={{ alignSelf: 'center', }}
+                  avatarStyle={{ alignSelf: 'center' }}
                   size={120}
                   rounded
                   title="CR"
                   onPress={() => this._changeModal()}
                   activeOpacity={0.7}
                   source={{
-                    uri: this.props.avatar
-                      ? this.props.avatar
-                      : changeImgSize(this.state.avatar, 'small')
+                    uri: this.state.avatar
+                      ? changeImgSize(this.state.avatar, 'small')
+                      : 'http://c-ssl.duitang.com/uploads/item/201205/04/20120504234528_UAfcM.jpeg'
                   }}
                 />
               </View>
@@ -287,13 +288,13 @@ class Ziliao extends PureComponent {
           <View
             style={
               (s.basic,
-                [
-                  {
-                    flexDirection: 'row',
-                    marginLeft: pxToDp(20),
-                    marginTop: pxToDp(20)
-                  }
-                ])
+              [
+                {
+                  flexDirection: 'row',
+                  marginLeft: pxToDp(20),
+                  marginTop: pxToDp(20)
+                }
+              ])
             }
           >
             <Image
@@ -332,7 +333,7 @@ class Ziliao extends PureComponent {
                 style={{ width: 300 }}
                 androidMode="spinner"
                 placeholder="设置生日"
-                date={birthday.split(' ').shift()}
+                date={birthday?.split(' ').shift()}
                 minDate="1900-01-01"
                 maxDate={currentDate}
                 confirmBtnText="确定"
@@ -351,7 +352,6 @@ class Ziliao extends PureComponent {
                   }
                 }}
                 onDateChange={(birthday) => {
-                  console.log(birthday);
                   this.setState({ birthday });
                 }}
               />
