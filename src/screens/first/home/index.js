@@ -112,6 +112,7 @@ class Index extends Component {
         ref={(view) => {
           this.myScrollView = view;
         }}
+        showsVerticalScrollIndicator={false}
         contentOffset={{ x: 0, y: 0 }}
         onScroll={(event) => {
           let offsetY = event.nativeEvent.contentOffset.y;
