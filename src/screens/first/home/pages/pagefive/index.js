@@ -37,7 +37,7 @@ class index extends PureComponent {
         <ScrollView stickyHeaderIndices={[0]}>
           <Top icon1="arrow-back" title="越文" />
           <View style={{ marginLeft: pxToDp(10), marginRight: pxToDp(10) }}>
-            <View style={{ alignItems: 'center' }}>
+            <View style={{ alignItems: 'center',marginBottom:pxToDp(10),marginTop:pxToDp(10)}}>
               <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold' }}>
                 {/* 谁翻乐府旧谣?title */}
                 {this.state.title}

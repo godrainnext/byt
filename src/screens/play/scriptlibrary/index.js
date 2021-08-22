@@ -38,7 +38,7 @@ class Index extends PureComponent {
           path: 'https://tse2-mm.cn.bing.net/th/id/OIP-C.6kzqtoOCPHzarIgxfrhCrgHaJE?pid=ImgDet&rs=1'
         },
         {
-          id: '3', title: '碧玉簪', context: '吏部尚书李廷甫赏识王玉林文才出众，将爱女秀英许配给他为妻，新婚之夜，王玉林拾得情书一封，内附碧玉簪，怀疑秀英有苟且之事，愤然离开洞房，从此冷落秀英。秀英为求夫妻和睦，忍受委屈，仍然对丈夫体贴温存，关怀备至。而玉林百般凌辱，秀英因不知原委，痛楚万分。及至李廷甫赶到王家评理，查清系受人诬陷，玉林悔恨不已。王玉林赶考得中状元，请来凤冠霞帔向秀英赔礼，秀英想起前情，满腹怨情，不愿接受凤冠，并对王玉林数落责备，尽情倾诉。在王玉林诚恳认错和婆婆等劝慰下，李秀英尽释前嫌，夫妻重归于好。',
+          id: '3', title: '庵堂认母', context: '《庵堂认母》源自越剧传统剧目《玉蜻蜓》，由陈静于1954年根据《玉蜻蜓》中“游庵认母”一折改编。《庵堂认母》作为《玉蜻蜓》剧中的核心场次，人物矛盾集中突出，唱做并重，情节亦相对独立，常作单折演出。',
           path: 'https://tse1-mm.cn.bing.net/th/id/R-C.eaeaa96c3952c5c64e57225e5ce99e98?rik=Ct5p4V3tRKnLjQ&riu=http%3a%2f%2fi2.hdslb.com%2fbfs%2farchive%2f0c0b90d3613f192817f7db34663b46d3d635646f.jpg&ehk=qB%2fiB6EuQwj68FrVrcwQRlCLo29ZSEo6dGf5sKfKo4A%3d&risl=&pid=ImgRaw&r=0'
         },
         {

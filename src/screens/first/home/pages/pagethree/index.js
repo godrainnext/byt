@@ -1,47 +1,65 @@
 import React, { PureComponent } from 'react';
-import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, Image } from 'react-native';
 import { pxToDp } from '../../../../../utils/styleKits';
 import ActressView from '../../../../../component/common/actressview';
 import Top from '../../../../../component/common/top';
 import { NavigationContext } from '@react-navigation/native';
+import changeImgSize from '@utils/changeImgSize';
+import { getRoleList } from '../../../../../service/home/actress';
 class Index extends PureComponent {
+  state = { roleList: [] };
+  componentDidMount() {
+    getRoleList().then((roleList) => {
+      this.setState({ roleList });
+    });
+  }
   static contextType = NavigationContext;
-  state = {
-    actor: [
-      { id: 1, name: '方亚芬', imguri: '' },
-      { id: 2, name: '方亚芬', imguri: '' },
-      { id: 3, name: '方亚芬', imguri: '' },
-      { id: 4, name: '方亚芬', imguri: '' }
-    ]
-  };
   render() {
     console.log(this.props.route);
     return (
       <View style={{ backgroundColor: '#E2F4FE', flex: 1 }}>
         <Top icon1="arrow-back" title="名角风采" />
-        <ScrollView>
-          <View>
-            <View
+        <ScrollView style={{ marginRight: pxToDp(8), marginLeft: pxToDp(8) }}>
+          {this.state.roleList.map((item) => (
+            <TouchableOpacity
+              onPress={() => this.context.navigate('Actress', item)}
+              key={item.id}
               style={{
+                width: '100%',
+                height: pxToDp(130),
+                borderRadius: pxToDp(8),
                 flexDirection: 'row',
-                justifyContent: 'space-around',
-                flexWrap: 'wrap',
-                width: pxToDp(380)
+                marginTop: pxToDp(10),
+                backgroundColor: 'white',
               }}
             >
-              {this.state.actor.map((item, id) => (
-                <TouchableOpacity
-                  onPress={() => this.context.navigate('Actress')}
-                >
-                  <ActressView
-                    key={id}
-                    picture={{ uri: item.imguri }}
-                    name={item.name}
-                  />
-                </TouchableOpacity>
-              ))}
-            </View>
-          </View>
+                <Image
+                  style={{
+                    width: pxToDp(90),
+                    height: pxToDp(110),
+                    borderRadius: pxToDp(8),
+                    marginLeft:pxToDp(10),
+                    marginTop:pxToDp(10)
+                  }}
+                  source={{
+                    uri: changeImgSize(item.avatar)
+                  }}
+                />
+              <View
+                style={{
+                  width: pxToDp(240),
+                  height:pxToDp(130),
+                  marginLeft: pxToDp(10),
+                  marginTop:pxToDp(10)
+                }}
+              >
+                <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold' }}>
+                  {item.name}
+                </Text>
+                <Text style={{ fontSize: pxToDp(14) }} numberOfLines={4}>{item.content}</Text>
+              </View>
+            </TouchableOpacity>
+          ))}
         </ScrollView>
       </View>
     );

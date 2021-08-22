@@ -24,13 +24,15 @@ const TabView1 = memo(function (props) {
       <View>
         {videoList ? (
           videoList.map((item) => (
-            <TouchableOpacity
-              style={{ margin: pxToDp(8) }}
-              onPress={() => navigation.navigate('Video', item.id)}
-            >
-              <Image style={styles.image1} source={{ uri: item.avatar }} />
+            <View>
+              <TouchableOpacity
+                style={{ margin: pxToDp(8), alignItems: 'center' }}
+                onPress={() => navigation.navigate('Video', item.id)}
+              >
+                <Image style={styles.image1} source={{ uri: item.avatar }} />
+              </TouchableOpacity>
               <Text style={styles.text}>{item.title}</Text>
-            </TouchableOpacity>
+            </View>
           ))
         ) : (
           <View>
@@ -157,8 +159,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#e2f4fe'
   },
   image1: {
-    height: pxToDp(170),
-    width: pxToDp(355),
+    height: pxToDp(300),
+    width: pxToDp(250),
     borderRadius: pxToDp(8)
   },
   image2: {
@@ -180,7 +182,8 @@ const styles = StyleSheet.create({
     borderRadius: pxToDp(40)
   },
   text: {
-    fontSize: pxToDp(18)
+    fontSize: pxToDp(18),
+    margin: pxToDp(8)
   },
   box2: {
     margin: pxToDp(10),

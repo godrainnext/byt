@@ -61,8 +61,8 @@ export default class index extends PureComponent {
                     style={{
                       width: pxToDp(100),
                       height: pxToDp(140),
-                      borderTopLeftRadius: pxToDp(10),
-                      borderTopRightRadius: pxToDp(10)
+                      borderTopLeftRadius: pxToDp(8),
+                      borderTopRightRadius: pxToDp(8)
                     }}
                     source={{
                       uri: changeImgSize(item.avatar)

@@ -356,7 +356,7 @@ const styles = StyleSheet.create({
     width: pxToDp(120),
     height: pxToDp(50),
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   loginbtn: {
     width: pxToDp(100),
@@ -375,7 +375,7 @@ const styles = StyleSheet.create({
     width: pxToDp(120),
     height: pxToDp(50),
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   }
 });
 

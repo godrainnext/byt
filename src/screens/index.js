@@ -91,6 +91,10 @@ export { default as Drama10 } from './play/act/drama10'; //剧本10 北地王
 export { default as Drama11 } from './play/act/drama11'; //剧本11 甄嬛
 export { default as Drama12 } from './play/act/drama12'; //剧本12 早春二月
 export { default as Drama13 } from './play/act/drama13'; //剧本13 家
+export { default as Drama14 } from './play/act/drama14'; //剧本14 庵堂认母
+export { default as Drama15 } from './play/act/drama15'; //剧本15 王老虎抢亲
+export { default as Drama16 } from './play/act/drama16'; //剧本16 柳毅传书
+export { default as Drama17 } from './play/act/drama17'; //剧本17 山河恋
 export { default as Scriptlibrary } from './play/scriptlibrary'; //剧本库
 export { default as VR } from './play/vr'; //越剧小镇VR
 export { default as relatedImg } from './Timeline/relatedImg'; //相关图片

@@ -9,25 +9,25 @@ import { right } from '../../../component/common/iconSvg'
 class Index extends PureComponent {
     state = {
         dramalist: {
-            title: '早春二月',
-            author: '暂无',
+            title: '王老虎抢亲',
+            author: '《弹词》',
             year: '暂无',
-            int1: '上世纪20年代，大革命爆发前夕，青年知识分子肖涧秋在杭州葛岭的湖边写生，初识女学生陶岚。两年后，历尽沧桑的肖涧秋应同学陶幕侃之邀到芙蓉镇中学任教，在船上遇见了留洋归来的阔少爷钱正兴与故去同学的遗孀文嫂。陶幕侃在家中设宴款待涧秋，让涧秋与陶岚再次相见。同时，钱正兴对陶岚也是一见钟情。肖涧秋出于同情经常照顾文嫂及两个孩子，这让文嫂对肖涧秋产生了爱慕之情。钱正兴正式向陶家求婚。被陶岚断然拒绝。钱正兴因得不到陶岚而对肖涧秋产生更加强烈的嫉恨，不仅在学校里处处与肖作对，而且在镇上到处散发传单，诽谤肖涧秋与文嫂的关系，甚至诬告他参与赤色活动，将他关进县监狱。 ',
-            int2: '为了救肖涧秋，陶岚答应了钱正兴的求婚，而文嫂也答应一直追求她的商人吴子豪的求婚。涧秋出狱了，但文嫂已经搬家，陶岚也和钱正兴去了上海。 ',
-            int3: '几经周折，肖涧秋终于找到了文嫂，他决定照顾文嫂一辈子，而文嫂却从肖涧秋的表情里看到他爱的其实是陶岚。夕阳中，文嫂在河边洗衣服，涧秋带着采莲在河边吹泡泡，等他们回到河边，只见筐里放着整齐的衣服，却不见文嫂。肖涧秋大病一场，他决定带着采莲离开芙蓉镇。临行前，他来到文嫂的墓前辞行，遇见吴子豪，吴对他说出文嫂对他的牺牲，这让肖涧秋万分内疚。 ',
-            int4: '赶回芙蓉镇的陶岚悲痛欲绝，他一定要找到肖涧秋。陶岚辗转各地，几经艰难。在上海的一个广场上。人们正在集会游行。俯瞰下去，各色各样的伞组成不同的色块，这当中，相邻的两朵红伞分外显眼。陶岚一副修女打扮依然打着那把红伞，涧秋下意识的茫然四顾，但谁也没有看见谁……',
-            text1: '北京长安大戏院的舞台上，飞飞扬扬的雪花飘洒在江南小镇和盛开的迎春花上，委婉悲怆、朴实流畅的越剧唱腔随之在戏院里响起。上海越剧院新编现代题材剧《早春二月》，拉开了“纪念越剧百年上海越剧北京演出周”的大幕。',
-            text2: '早在半个多月前，北京各媒体就已纷纷将上海越剧再次晋京演出作为重要文化新闻，以醒目的版面和时段向首都观众介绍，《早春二月》的票很快销售一空。临近昨晚开演前几分钟，记者匆匆赶到剧场时，竟先后被十多个等退票的“越剧迷”拦住，询问有没有多余的戏票,而走进剧院，全场已是座无虚席。',
-            text3: '这台改编自柔石小说《二月》，由男女合演，被专家和观众一起公认为“越剧现代戏的成功之作”，表现了“五四”过后的大革命前夜，城乡青年知识分子普遍的心理彷徨和当时中国社会的凄凉。许杰、方亚芬、张永梅、张伟忠、徐标新等首都观众平时难得一见的名家名角的大段唱腔和一串串优美的舞台动作，赢得全场阵阵掌声。演出结束后，演员们一再谢幕，观众们仍久久站立鼓掌，不肯离去。',
-            path1: 'http://5b0988e595225.cdn.sohucs.com/images/20200115/a4f3107f50264554a0c3b6e677004958.jpeg',
-            path2: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Finews.gtimg.com%2Fnewsapp_match%2F0%2F11201662577%2F0.jpg&refer=http%3A%2F%2Finews.gtimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632111621&t=3e7131e501e792769782f7a5acf9ee79'
+            int1: '江南才子——周文宾爱慕兵部尚书之女王秀英，托人去说媒，遭王老夫人拒绝。老友祝枝山为解周文宾忧愁，让他在元宵节灯会上男扮女装来游玩、嬉戏。',
+            int2: '王秀英的哥哥王天豹外号“王老虎”，平时倚仗权势，作恶多端，趁灯会之际抢劫良家妇女。把一个美丽的“女子”抢回家中，强迫当晚成亲，这个女子不答应，于是王天豹就把他送到妹妹房中去过夜，谁知这个女子竟是周文宾男扮女装而成。',
+            int3: '结果，王秀英与周文宾一夜相互倾诉爱慕之情，对天盟誓，结为夫妻。王老虎一觉醒来，看到自己抢来的“新娘”成了妹妹的新郎，辛辛苦苦准备的喜宴也变成了妹妹的送亲宴，新郎变大舅，成全一对有情人。',
+            text1: '该剧故事源于弹词《三笑》，越剧男班时期即有演出。新编本突出了王老虎因抢亲所造成的一连串被动可笑的情节，讽刺和抨击了他的丑恶行为。其中“错认”、“戏豹”、“寄闺”、“赔妹”等场，具有强烈的喜剧效果。',
+            text2: '1958年2月1日，由合作越剧团首演于瑞金剧场。李卓云导演，毕春芳饰周文宾、戚雅仙饰王秀英、潘笑笑饰王天豹、陈金莲饰祝枝山。演出受到观众欢迎，成为剧团保留剧目。',
+            text3: '1961年该剧被收入《中国地方戏曲集成·上海卷》。1962年由香港长城电影公司拍摄成戏曲艺术片。同年，中央新闻电影制片厂拍摄成新闻纪录片。据不完全统计，全国有30多个越剧团排演该剧，北京曲剧团曾移植演出。',
+            text4: '1982年、1987年，中国唱片公司灌制了毕春芳、戚雅仙等演唱的唱片。',
+            path1: 'https://img0.baidu.com/it/u=537626629,2516311535&fm=26&fmt=auto&gp=0.jpg',
+            path2: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fs9.sinaimg.cn%2Fbmiddle%2F5e301ec1g65c625235f68&refer=http%3A%2F%2Fs9.sinaimg.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632206452&t=5240d586f2186cfac42bda11caaf838a'
         }
     };
     static contextType = NavigationContext;
     render() {
         return (
             <View style={{ backgroundColor: '#E2F4FE' }}>
-                <Top icon1="arrow-back" title="早春二月" />
+                <Top icon1="arrow-back" title="王老虎抢亲" />
                 <ScrollView
                     style={{
                         marginLeft: pxToDp(8),
@@ -42,7 +42,7 @@ class Index extends PureComponent {
                         {this.state.dramalist.title}
                     </Text>
                     <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(10) }}>
-                        &emsp;&emsp;作者：{this.state.dramalist.author}  创作年代:  {this.state.dramalist.year}
+                        &emsp;&emsp;来源：{this.state.dramalist.author}  创作年代:  {this.state.dramalist.year}
                     </Text>
                     <View
                         style={{
@@ -61,9 +61,6 @@ class Index extends PureComponent {
                         <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(10) }}>
                             &emsp;&emsp;{this.state.dramalist.int3}
                         </Text>
-                        <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(10) }}>
-                            &emsp;&emsp;{this.state.dramalist.int4}
-                        </Text>
                     </View>
                     <View style={{ marginTop: pxToDp(10) }}>
                         <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold', marginBottom: pxToDp(20) }}>
@@ -77,6 +74,9 @@ class Index extends PureComponent {
                         </Text>
                         <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(20) }}>
                             &emsp;&emsp;{this.state.dramalist.text3}
+                        </Text>
+                        <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(20) }}>
+                            &emsp;&emsp;{this.state.dramalist.text4}
                         </Text>
                     </View>
                     <View>
@@ -94,7 +94,7 @@ class Index extends PureComponent {
                             //shadowOffset: { width: 0, height: 0 },
                             // shadowOpacity: 1,
                         }}
-                            onPress={() => this.context.navigate('Screenpaly')}
+                            onPress={() => this.context.navigate('Screenpaly5')}
                         >
                             <Image style={{ height: pxToDp(100), width: '100%', borderRadius: pxToDp(8) }} source={{ uri: this.state.dramalist.path2 }} />
                             <View style={{ marginTop: pxToDp(-60), marginLeft: pxToDp(300) }}>

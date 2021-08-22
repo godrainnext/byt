@@ -61,6 +61,9 @@ class Index extends PureComponent {
                         <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(10) }}>
                             &emsp;&emsp;{this.state.dramalist.int3}
                         </Text>
+                        <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(10) }}>
+                            &emsp;&emsp;{this.state.dramalist.int4}
+                        </Text>
                     </View>
                     <View style={{ marginTop: pxToDp(10) }}>
                         <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold', marginBottom: pxToDp(20) }}>
