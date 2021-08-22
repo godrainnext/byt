@@ -20,7 +20,7 @@ class Index extends PureComponent {
             text3: '1956年赴京汇报演出。剧本于1959年收入《中国地方戏曲集成·江苏省卷》。',
             text4: '1961年计大为、叶至诚改编为戏曲电影本，由长春电影制片厂摄制成彩色戏曲片。',
             path1: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fi3.bbs.fd.zol-img.com.cn%2Ft_s1200x5000%2Fg1%2FM04%2F04%2F03%2FCg-4jVMi2fSIFRb7AAi6FyW6nLoAALQlgJ4K9gACLov423.jpg&refer=http%3A%2F%2Fi3.bbs.fd.zol-img.com.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632206702&t=e707e61becf73bb6f505a3958ca2936c',
-            path2: 'https://img0.baidu.com/it/u=2781348376,958089158&fm=26&fmt=auto&gp=0.jpg'
+            path2: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimages.epailive.com%2Fupload%2Fepailive%2F10584%2F14838%2F2050l.jpg&refer=http%3A%2F%2Fimages.epailive.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632208687&t=f4509e130cb9ba4914b3110722ec79c1'
         }
     };
     static contextType = NavigationContext;
