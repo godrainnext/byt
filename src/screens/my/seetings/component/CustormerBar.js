@@ -37,8 +37,15 @@ class Index extends PureComponent {
   }
   render() {
     //console.log(this.props);
-    const { fansCount, followCount, nickName, avatar, ownSay, sex, birthday } =
-      this.props.userInfo;
+    const {
+      fansCount = 0,
+      followCount = 0,
+      nickName = '新用户888',
+      avatar = 'http://c-ssl.duitang.com/uploads/item/201205/04/20120504234528_UAfcM.jpeg',
+      ownSay,
+      sex,
+      birthday
+    } = this.props.userInfo;
 
     //goToPag 函数 负责跳转页面
     //tabs 标题数组
@@ -73,11 +80,15 @@ class Index extends PureComponent {
                 }}
               >
                 <Image
-                  source={{
-                    uri: this.props.avatar
-                      ? this.props.avatar
-                      : changeImgSize(avatar, 'small')
-                  }}
+                  source={
+                    this.props.avatar
+                      ? {
+                          uri: this.props.avatar
+                        }
+                      : avatar
+                      ? { uri: changeImgSize(avatar, 'small') }
+                      : require('../../../../res/initAvatar.jpeg')
+                  }
                   style={{
                     width: pxToDp(90),
                     height: pxToDp(90),
@@ -97,7 +108,7 @@ class Index extends PureComponent {
               }}
               numberOfLines={1}
             >
-              {nickName}
+              {nickName ? nickName : '新用户8888'}
             </Text>
             <View
               style={{

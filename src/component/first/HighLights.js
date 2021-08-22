@@ -52,7 +52,7 @@ export default class HighLights extends PureComponent {
           }}
           showsHorizontalScrollIndicator={false}
         >
-          {this.state.arr.map((item, index) => (
+          {this.state.arr?.map((item, index) => (
             <View
               style={{
                 flexDirection: 'row',
