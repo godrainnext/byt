@@ -132,7 +132,7 @@ class index extends PureComponent {
                 marginTop: pxToDp(16)
               }}
             >
-              <Text style={{ fontSize: pxToDp(16) }}>暂无更多</Text>
+              <Text style={{ fontSize: pxToDp(14),color:'grey'}}>—暂无更多—</Text>
             </View>
           </View>
         </View>

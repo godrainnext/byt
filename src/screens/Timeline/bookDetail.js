@@ -23,9 +23,10 @@ export default class bookDetail extends Component {
         >
           <Image
             style={{
-              width: pxToDp(120),
-              height: pxToDp(130),
+              width: pxToDp(100),
+              height: pxToDp(120),
               margin: pxToDp(10),
+              borderRadius:pxToDp(8),
               backgroundColor: '#ecf6fc'
             }}
             source={require('../../res/play/1.jpg')}

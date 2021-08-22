@@ -163,10 +163,10 @@ export default memo(function Example(props) {
               marginLeft: pxToDp(20)
             }}
           >
-            <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold' }}>
+            <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold' }}>
               {item.name}
             </Text>
-            <Text style={{ fontSize: pxToDp(15) }}>{item.content}</Text>
+            <Text style={{ fontSize: pxToDp(14) }} numberOfLines={8}>{item.content}</Text>
           </View>
         </View>
       </View>

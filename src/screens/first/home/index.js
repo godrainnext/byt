@@ -431,7 +431,7 @@ class Index extends Component {
                       <View style={styles.bookinf1}>
                         <View>
                           <Text
-                            style={{ fontSize: pxToDp(17), fontWeight: 'bold' }}
+                            style={{ fontSize: pxToDp(15), fontWeight: 'bold' }}
                           >
                             {item.title}
                           </Text>
@@ -440,7 +440,7 @@ class Index extends Component {
                           <Svg width="32" height="32" svgXmlData={item.icon} />
                         </View>
                       </View>
-                      <Text style={{ fontSize: pxToDp(14) }} numberOfLines={3}>
+                      <Text style={{ fontSize: pxToDp(13) }} numberOfLines={3}>
                         {item.context}
                       </Text>
                     </View>
@@ -503,7 +503,7 @@ class Index extends Component {
                   >
                     <View style={styles.bookinf}>
                       <Text
-                        style={{ fontSize: pxToDp(17), fontWeight: 'bold' }}
+                        style={{ fontSize: pxToDp(15), fontWeight: 'bold' }}
                       >
                         {item.title}
                       </Text>
@@ -513,7 +513,7 @@ class Index extends Component {
                         <Svg width="32" height="32" svgXmlData={right} />
                       </TouchableOpacity>
                     </View>
-                    <Text stlye={{ fontSize: pxToDp(13) }} numberOfLines={2}>
+                    <Text stlye={{ fontSize: pxToDp(13) }} numberOfLines={3}>
                       {item.context}
                     </Text>
                     <View
