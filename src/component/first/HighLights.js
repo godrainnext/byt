@@ -7,8 +7,9 @@ import { pxToDp } from '@utils/styleKits';
 import changeImgSize from '@utils/changeImgSize';
 import { Button } from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
+import { PureComponent } from 'react';
 
-export default class HighLights extends Component {
+export default class HighLights extends PureComponent {
   static contextType = NavigationContext;
   state = { arr: [] };
   componentDidMount() {
@@ -51,7 +52,7 @@ export default class HighLights extends Component {
           }}
           showsHorizontalScrollIndicator={false}
         >
-          {this.state.arr.map((item, index) => (
+          {this.state.arr?.map((item, index) => (
             <View
               style={{
                 flexDirection: 'row',

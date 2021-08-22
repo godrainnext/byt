@@ -25,12 +25,9 @@ import Dongtai from '../seetings/component/dontai';
 export default class hello extends Component {
   static contextType = NavigationContext;
   state = {
-   
     sctop: 0
   };
-  componentDidMount() {
- 
-  }
+  componentDidMount() {}
 
   render() {
     const { userinfo } = this.state;
@@ -43,7 +40,6 @@ export default class hello extends Component {
               event.nativeEvent.contentOffset.y / 3
           });
         }}
-        renderStickyHeader={() => <Top icon1="arrow-back" title="个人中心" />}
         stickyHeaderHeight={40}
         parallaxHeaderHeight={380}
         navBarColor="#fa9222"
@@ -57,10 +53,9 @@ export default class hello extends Component {
               }}
               style={{
                 width: '100%',
-                height: 400,
-              }}>
-            </Image>
-           
+                height: 400
+              }}
+            ></Image>
           </View>
         )}
         //自定义头部内容
@@ -75,10 +70,21 @@ export default class hello extends Component {
             />
           </View>
           <View style={style.bottom}>
-          <View style={{flexDirection:'row',alignItems:'center',justifyContent:'center'}}>
-        <Image source={require('./3.png')} style={{width:pxToDp(50),height:pxToDp(50),}}/>
-        <Text style={{fontSize:pxToDp(20),color:'#468cd3'}}>我的动态</Text>
-        </View>
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}
+            >
+              <Image
+                source={require('./3.png')}
+                style={{ width: pxToDp(50), height: pxToDp(50) }}
+              />
+              <Text style={{ fontSize: pxToDp(20), color: '#468cd3' }}>
+                我的动态
+              </Text>
+            </View>
             <Dongtai userId={this.props.route.params} />
           </View>
         </View>
@@ -98,7 +104,7 @@ const style = StyleSheet.create({
     position: 'absolute'
   },
   bottom: {
-    marginTop: pxToDp(20),
+    marginTop: pxToDp(8),
     justifyContent: 'center',
     zIndex: 1
   }

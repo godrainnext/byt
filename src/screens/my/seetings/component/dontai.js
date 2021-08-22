@@ -39,7 +39,6 @@ class Index extends PureComponent {
   componentDidMount() {
     getMomentListByUserId(this.props.userId).then((res) => {
       this.setState({ contentArr: res.contentArr });
-      console.log(res);
     });
   }
   playSound = async () => {
@@ -138,113 +137,111 @@ class Index extends PureComponent {
 
   render() {
     return (
-      <View>
-        <View
-          style={{
-            width: '98%',
-            alignSelf: 'center',
-            marginLeft: pxToDp(10),
-            marginRight: pxToDp(10),
-            marginTop: pxToDp(20),
-            marginBottom: pxToDp(20),
-            backgroundColor: 'rgba(255,255,255,0.5)',
-            borderRadius: pxToDp(10),
-            elevation: 3
-          }}
-        >
-          {this.state.contentArr ? (
-            this.state.contentArr.map((item) => (
-              <View key={item.momentId}>
-                <BottomSheet
-                  isVisible={this.state.isShow}
-                  containerStyle={{
-                    backgroundColor: 'rgba(0.5, 0.25, 0, 0.2)'
-                  }}
-                >
-                  {this.state.list.map((l, i) => (
-                    <ListItem
-                      key={i}
-                      containerStyle={l.containerStyle}
-                      onPress={l.onPress}
-                    >
-                      <ListItem.Content>
-                        <ListItem.Title style={l.titleStyle}>
-                          {l.title}
-                        </ListItem.Title>
-                      </ListItem.Content>
-                    </ListItem>
-                  ))}
-                </BottomSheet>
-                <TouchableOpacity
-                  style={{ position: 'absolute', top: 10, right: 20 }}
-                  onPress={() => this.setState({ isShow: true })}
-                >
-                  <SvgUri svgXmlData={sandian} width="20" height="20" />
-                </TouchableOpacity>
+      <View
+        style={{
+          width: '98%',
+          alignSelf: 'center',
+          marginLeft: pxToDp(10),
+          marginRight: pxToDp(10),
+          marginTop: pxToDp(8),
+          marginBottom: pxToDp(20),
+          backgroundColor: 'rgba(255,255,255,0.5)',
+          borderRadius: pxToDp(10),
+          elevation: 3
+        }}
+      >
+        {this.state.contentArr ? (
+          this.state.contentArr.map((item) => (
+            <View key={item.momentId}>
+              <BottomSheet
+                isVisible={this.state.isShow}
+                containerStyle={{
+                  backgroundColor: 'rgba(0.5, 0.25, 0, 0.2)'
+                }}
+              >
+                {this.state.list.map((l, i) => (
+                  <ListItem
+                    key={i}
+                    containerStyle={l.containerStyle}
+                    onPress={l.onPress}
+                  >
+                    <ListItem.Content>
+                      <ListItem.Title style={l.titleStyle}>
+                        {l.title}
+                      </ListItem.Title>
+                    </ListItem.Content>
+                  </ListItem>
+                ))}
+              </BottomSheet>
+              <TouchableOpacity
+                style={{ position: 'absolute', top: 10, right: 20 }}
+                onPress={() => this.setState({ isShow: true })}
+              >
+                <SvgUri svgXmlData={sandian} width="20" height="20" />
+              </TouchableOpacity>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'flex-end',
+                  marginTop: pxToDp(10),
+                  marginLeft: pxToDp(10),
+                  borderRadius: pxToDp(8)
+                }}
+              >
+                <Text style={{ fontSize: pxToDp(25), fontWeight: 'bold' }}>
+                  {item.createAt.substr(6, 5)}
+                </Text>
+                <Text style={{ fontSize: 17, paddingLeft: 5 }}>
+                  {item.createAt.substr(0, 4)}
+                </Text>
+              </View>
+              <View
+                style={{
+                  elevation: 2,
+                  borderWidth: 0,
+                  backgroundColor: 'rgba(255,255,255,0.5)',
+                  borderBottomLeftRadius: pxToDp(10),
+                  borderBottomRightRadius: pxToDp(10)
+                }}
+              >
                 <View
                   style={{
+                    marginLeft: pxToDp(30),
                     flexDirection: 'row',
-                    alignItems: 'flex-end',
-                    marginTop: pxToDp(10),
-                    marginLeft: pxToDp(10),
-                    borderRadius: pxToDp(8)
+                    alignItems: 'flex-end'
                   }}
-                >
-                  <Text style={{ fontSize: pxToDp(25), fontWeight: 'bold' }}>
-                    {item.createAt.substr(6, 5)}
-                  </Text>
-                  <Text style={{ fontSize: 17, paddingLeft: 5 }}>
-                    {item.createAt.substr(0, 4)}
-                  </Text>
-                </View>
+                ></View>
+                <View
+                  style={{ flexDirection: 'row', margin: pxToDp(10) }}
+                ></View>
                 <View
                   style={{
-                    elevation: 2,
-                    borderWidth: 0,
-                    backgroundColor: 'rgba(255,255,255,0.5)',
-                    borderBottomLeftRadius: pxToDp(10),
-                    borderBottomRightRadius: pxToDp(10)
+                    width: '90%',
+                    marginBottom: pxToDp(30),
+                    alignSelf: 'center'
                   }}
                 >
-                  <View
+                  <Text
                     style={{
-                      marginLeft: pxToDp(30),
-                      flexDirection: 'row',
-                      alignItems: 'flex-end'
-                    }}
-                  ></View>
-                  <View
-                    style={{ flexDirection: 'row', margin: pxToDp(10) }}
-                  ></View>
-                  <View
-                    style={{
-                      width: '90%',
-                      marginBottom: pxToDp(30),
-                      alignSelf: 'center'
+                      fontSize: pxToDp(18),
+                      marginBottom: pxToDp(10),
+                      paddingLeft: pxToDp(8),
+                      marginTop: pxToDp(10)
                     }}
                   >
-                    <Text
-                      style={{
-                        fontSize: pxToDp(18),
-                        marginBottom: pxToDp(10),
-                        paddingLeft: pxToDp(8),
-                        marginTop: pxToDp(10)
-                      }}
-                    >
-                      {item.content}
-                    </Text>
+                    {item.content}
+                  </Text>
 
-                    {item.label ? this.showMusic(item) : this.showArticle(item)}
-                  </View>
+                  {item.label ? this.showMusic(item) : this.showArticle(item)}
                 </View>
               </View>
-            ))
-          ) : (
-            <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-              <Text>暂无发表文章</Text>
             </View>
-          )}
-        </View>
+          ))
+        ) : (
+          <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+            <Text>暂无发表文章</Text>
+          </View>
+        )}
       </View>
     );
   }
