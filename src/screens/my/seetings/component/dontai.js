@@ -188,10 +188,10 @@ class Index extends PureComponent {
                   borderRadius: pxToDp(8)
                 }}
               >
-                <Text style={{ fontSize: pxToDp(25), fontWeight: 'bold' }}>
+                <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold',color:'#333333' }}>
                   {item.createAt.substr(6, 5)}
                 </Text>
-                <Text style={{ fontSize: 17, paddingLeft: 5 }}>
+                <Text style={{ fontSize:pxToDp(18), paddingLeft: 5,color:'#333333' }}>
                   {item.createAt.substr(0, 4)}
                 </Text>
               </View>
@@ -226,12 +226,12 @@ class Index extends PureComponent {
                       fontSize: pxToDp(18),
                       marginBottom: pxToDp(10),
                       paddingLeft: pxToDp(8),
-                      marginTop: pxToDp(10)
+                      marginTop: pxToDp(10),
+                      color:'#333333'
                     }}
                   >
                     {item.content}
                   </Text>
-
                   {item.label ? this.showMusic(item) : this.showArticle(item)}
                 </View>
               </View>

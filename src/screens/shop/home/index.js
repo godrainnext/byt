@@ -35,9 +35,9 @@ class Index extends PureComponent {
     return (
       <View>
         <Top title="越市" />
-        <ScrollView 
-         showsVerticalScrollIndicator={false}
-        style={{ marginBottom: pxToDp(70) }}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          style={{ marginBottom: pxToDp(70) }}>
           {/*轮播 */}
           <View style={{ height: pxToDp(240) }}>
             <Swiper
@@ -75,20 +75,20 @@ class Index extends PureComponent {
               height: pxToDp(20),
               marginLeft: pxToDp(8),
               marginBottom: pxToDp(8),
-              marginTop:pxToDp(-8)
+              marginTop: pxToDp(-8)
             }}
           >
             <Text style={{ color: '#468CD3', fontSize: pxToDp(18), fontWeight: 'bold', position: 'absolute' }}>
               长袖轻舞，越音袅袅
             </Text>
           </View>
-          <View style={{margin:pxToDp(8),flexDirection:'row'}}>
+          <View style={{ margin: pxToDp(8), flexDirection: 'row' }}>
             {/*线下门票 */}
             <TouchableOpacity onPress={() => this.context.navigate('ticket')}>
               <Image style={styles.image3} source={require('../../../res/门票.jpg')} />
             </TouchableOpacity>
             {/*戏服租赁 */}
-            <View style={{height:pxToDp(170),justifyContent: 'space-between',marginLeft:pxToDp(10)}}>
+            <View style={{ height: pxToDp(170), justifyContent: 'space-between', marginLeft: pxToDp(10) }}>
               <TouchableOpacity onPress={() => this.context.navigate('Zulin', 0)}>
                 <Image
                   style={styles.image4}
@@ -142,8 +142,8 @@ const styles = StyleSheet.create({
   },
   tcard: {
     flexDirection: 'row',
-    width:'100%',
-    justifyContent:'space-between'
+    width: '100%',
+    justifyContent: 'space-between'
   },
   ocard: {
     backgroundColor: 'white',

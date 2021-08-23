@@ -5,17 +5,14 @@ import {
   View,
   Text,
   Image,
-  Button,
   StyleSheet,
   TouchableHighlight,
-  ImageBackground,
   TouchableOpacity,
   Dimensions
 } from 'react-native';
 import { pxToDp } from '../../../../utils/styleKits';
 import { Input } from 'react-native-elements/dist/input/Input';
 import { launchImageLibrary } from 'react-native-image-picker';
-import ImagePicker from 'react-native-image-crop-picker';
 import { NavigationContext } from '@react-navigation/native';
 import Top from '../../../../component/common/top';
 import { CheckBox } from 'react-native-elements';
@@ -110,8 +107,6 @@ class index extends Component {
           style={{
             flex: 1,
             backgroundColor: '#eee',
-            borderRadius: pxToDp(24),
-            padding: pxToDp(10)
           }}
         >
           <ScrollView showsVerticalScrollIndicator={false}>
@@ -120,24 +115,24 @@ class index extends Component {
               style={{
                 justifyContent: 'center',
                 alignItems: 'center',
-                height: pxToDp(40)
+                marginTop: pxToDp(16)
               }}
             >
-              <Text style={{ fontSize: pxToDp(22), fontWeight: 'bold' }}>
+              <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold', color: '#000000' }}>
                 个人信息验证
               </Text>
             </View>
             <View>
-              <View style={{ marginTop: 4 }}>
+              <View>
                 <View style={{ marginBottom: pxToDp(16) }}>
                   <View
                     style={{
                       justifyContent: 'center',
                       alignItems: 'center',
-                      height: pxToDp(24)
+                      marginTop: pxToDp(8)
                     }}
                   >
-                    <Text style={{ color: '#f0bb51' }}>
+                    <Text style={{ color: '#f0bb51', fontSize: pxToDp(12) }}>
                       请您如实准确填写本人信息，否则将认证失败
                     </Text>
                   </View>
@@ -146,29 +141,34 @@ class index extends Component {
                       s.basicstyle,
                       {
                         backgroundColor: 'white',
-                        margin: pxToDp(4),
+                        margin: pxToDp(8),
                         borderRadius: pxToDp(8)
                       }
                     ]}
                   >
                     <Input
                       placeholder="请输入真实姓名"
+                      inputStyle={{ fontSize: pxToDp(14) }}
+                      style={{ marginTop: pxToDp(8) }}
+                      placeholderTextColor='#999999'
                       onChangeText={(value) =>
                         this.setState({ username: value })
                       }
                       value={this.state.username}
                       leftIcon={
-                        <Text style={{ fontSize: pxToDp(16) }}>*真实姓名</Text>
+                        <Text style={{ fontSize: pxToDp(16), color: '#333333', marginTop: pxToDp(4) }}>*真实姓名</Text>
                       }
                     />
                     <Input
                       placeholder="请输入身份证号码"
+                      inputStyle={{ fontSize: pxToDp(14) }}
                       value={this.state.fayan}
+                      placeholderTextColor='#999999'
                       onChangeText={(value) => this.setState({ fayan: value })}
                       maxLength={18}
                       keyboardType="number-pad"
                       leftIcon={
-                        <Text style={{ fontSize: pxToDp(16) }}>*身份证号</Text>
+                        <Text style={{ fontSize: pxToDp(16), color: '#333333', marginBottom: pxToDp(4) }}>*身份证号</Text>
                       }
                     />
                   </View>
@@ -181,15 +181,16 @@ class index extends Component {
                       backgroundColor: 'white',
                       margin: pxToDp(8),
                       borderRadius: pxToDp(8),
-                      height: pxToDp(400)
+                      height: pxToDp(400),
+                      marginTop: pxToDp(-8)
                     }
                   ]}
                 >
                   <TouchableOpacity
                     onPress={() => this._changeModal()}
-                    style={{ alignItems: 'center' }}
+                    style={{ alignItems: 'center', marginTop: pxToDp(8) }}
                   >
-                    <Text style={{ fontSize: pxToDp(22), fontWeight: 'bold' }}>
+                    <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold', color: '#000000' }}>
                       身份证人像面照片
                     </Text>
                     <View
@@ -209,9 +210,10 @@ class index extends Component {
                     </View>
                     <Text
                       style={{
-                        color: 'gray',
+                        color: '#666666',
                         marginTop: pxToDp(-8),
-                        marginBottom: pxToDp(8)
+                        marginBottom: pxToDp(8),
+                        fontSize: pxToDp(12)
                       }}
                     >
                       请上传身份证人像面照片
@@ -221,7 +223,7 @@ class index extends Component {
                     onPress={() => this._changeModal()}
                     style={{ alignItems: 'center' }}
                   >
-                    <Text style={{ fontSize: pxToDp(22), fontWeight: 'bold' }}>
+                    <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold', color: '#000000' }}>
                       身份证国徽面照片
                     </Text>
                     <View
@@ -241,9 +243,10 @@ class index extends Component {
                     </View>
                     <Text
                       style={{
-                        color: 'gray',
+                        color: '#666666',
                         marginTop: pxToDp(-8),
-                        marginBottom: pxToDp(8)
+                        marginBottom: pxToDp(8),
+                        fontSize: pxToDp(12)
                       }}
                     >
                       请上传身份证国徽面照片
@@ -287,7 +290,7 @@ class index extends Component {
                     marginBottom: pxToDp(8)
                   }}
                 >
-                  <Text style={{ color: 'gray' }}>
+                  <Text style={{ color: '#999999', fontSize: pxToDp(12) }}>
                     根据相关政策法规要求，开通百越庭直播间需要进行实名认证。实名认证不涉及金钱账户，信息严格保密。
                   </Text>
                   <CheckBox
@@ -381,7 +384,8 @@ const s = StyleSheet.create({
   },
   modalTitle: {
     width: '70%',
-    fontSize: pxToDp(25),
+    fontSize: pxToDp(20),
+    color: '#000000',
     alignSelf: 'center',
     textAlign: 'center',
     borderBottomWidth: 1.1,
@@ -389,6 +393,7 @@ const s = StyleSheet.create({
   },
   modalItem: {
     fontSize: pxToDp(18),
+    color: '#666666',
     alignSelf: 'center'
   },
   basicstyle: {

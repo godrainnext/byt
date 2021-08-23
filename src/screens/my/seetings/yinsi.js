@@ -20,13 +20,12 @@ class Index extends PureComponent {
         <View
           style={{
             backgroundColor: '#fff',
-            marginTop: pxToDp(16),
             borderRadius: pxToDp(8),
-            margin: pxToDp(16)
+            margin: pxToDp(8)
           }}
         >
           <View style={styles.kidbox2}>
-            <Text style={{ fontSize: pxToDp(16) }}>公开我的粉丝</Text>
+            <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>公开我的粉丝</Text>
             <Switch
               //动态改变value
               value={this.state.value1}
@@ -37,7 +36,7 @@ class Index extends PureComponent {
             />
           </View>
           <View style={styles.kidbox2}>
-            <Text style={{ fontSize: pxToDp(16) }}>公开我的关注</Text>
+            <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>公开我的关注</Text>
             <Switch
               //动态改变value
               value={this.state.value2}
@@ -48,7 +47,7 @@ class Index extends PureComponent {
             />
           </View>
           <View style={styles.kidbox2}>
-            <Text style={{ fontSize: pxToDp(16) }}>公开我的动态</Text>
+            <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>公开我的动态</Text>
             <Switch
               //动态改变value
               value={this.state.value3}
@@ -59,7 +58,7 @@ class Index extends PureComponent {
             />
           </View>
           <View style={styles.kidbox2}>
-            <Text style={{ fontSize: pxToDp(16) }}>公开我的收藏</Text>
+            <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>公开我的收藏</Text>
             <Switch
               //动态改变value
               value={this.state.value4}
@@ -78,9 +77,8 @@ const styles = StyleSheet.create({
   kidbox2: {
     marginLeft: pxToDp(16),
     marginTop: pxToDp(4),
+    marginBottom:pxToDp(4),
     marginRight: pxToDp(16),
-    borderBottomWidth: pxToDp(0.8),
-    borderColor: '#ddd',
     height: pxToDp(40),
     alignItems: 'center',
     justifyContent: 'space-between',

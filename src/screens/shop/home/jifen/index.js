@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Text, View, Image, TouchableOpacity, StyleSheet } from 'react-native';
+import { Text, View, Image, TouchableOpacity, StyleSheet, ImageBackground } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import Top from '../../../../component/common/top';
 import { pxToDp } from '../../../../utils/styleKits';
@@ -38,75 +38,69 @@ export default class index extends PureComponent {
       detail
     } = this.props.route.params;
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1,backgroundColor:'white'}}>
         <Top title="积分兑换" icon1="arrow-back" />
         <ScrollView
           style={{
             flex: 1,
+            backgroundColor:'white',
             paddingBottom: pxToDp(50)
           }}
         >
           <View>
-            <Image
+            <ImageBackground
               source={img}
               style={{ height: pxToDp(375), width: pxToDp(375) }}
             />
-            <View
-              style={{
-                margin: pxToDp(15),
-                flexDirection: 'row'
-              }}
-            >
-              <View style={styles.box}>
+            <View style={styles.botbox}>
+              <View
+                style={{
+                  margin: pxToDp(8),
+                  flexDirection: 'row',
+                }}
+              >
                 <Text
-                  style={{ color: '#468cd3', fontSize: pxToDp(16) }}
+                  style={{ color: '#468cd3', fontSize: pxToDp(18), fontWeight: 'bold' }}
                   numberOfLines={2}
                 >
                   百越庭
                 </Text>
-              </View>
-              <View
-                style={{
-                  height: pxToDp(30),
-                  justifyContent: 'center'
-                }}
-              >
-                <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold' }}>
+                <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold', marginLeft: pxToDp(5) }}>
                   {name}
                 </Text>
               </View>
+              <View style={{ marginLeft: pxToDp(8), flexDirection: 'row'}}>
+                <Text style={{ fontSize: pxToDp(18), color: '#333333' }}>{value}</Text>
+                <Text style={{ fontSize: pxToDp(16), alignSelf: 'flex-end', color: '#333333' }}>
+                  积分
+                </Text>
+              </View>
             </View>
-            <View style={{ marginLeft: pxToDp(15), flexDirection: 'row' }}>
-              <Text style={{ fontSize: pxToDp(25) }}>{value}</Text>
-              <Text style={{ fontSize: pxToDp(16), alignSelf: 'flex-end' }}>
-                积分
+            <View style={{ margin: pxToDp(8)}}>
+              <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold', color: '#000000' }}>
+                商品详情
               </Text>
+              <View
+                style={{ height: pxToDp(200), justifyContent: 'space-around' }}
+              >
+                <Text style={{ fontSize: pxToDp(16), color: '#333333' }}>价值：{price}</Text>
+                <Text style={{ fontSize: pxToDp(16), color: '#333333' }}>色彩：{color}</Text>
+                <Text style={{ fontSize: pxToDp(16), color: '#333333' }}>材质：{material}</Text>
+                <Text style={{ fontSize: pxToDp(16), color: '#333333' }}>尺寸：{size}</Text>
+                <Text style={{ fontSize: pxToDp(16), color: '#333333' }}>规格：{specs}</Text>
+                <Text style={{ fontSize: pxToDp(16), color: '#333333' }}>工艺：{made}</Text>
+              </View>
+              <Text
+                style={{
+                  fontSize: pxToDp(18),
+                  fontWeight: 'bold',
+                  marginTop: pxToDp(8)
+                }}
+              >
+                具体介绍
+              </Text>
+              <Text style={{ marginTop: pxToDp(8), color: '#333333', fontSize: pxToDp(16) }}>{detail}</Text>
             </View>
-          </View>
-          <View style={{ margin: pxToDp(10) }}>
-            <Text style={{ fontSize: pxToDp(16), fontWeight: 'bold' }}>
-              商品详情
-            </Text>
-            <View
-              style={{ height: pxToDp(200), justifyContent: 'space-around' }}
-            >
-              <Text>价值：{price}</Text>
-              <Text>色彩：{color}</Text>
-              <Text>材质：{material}</Text>
-              <Text>尺寸：{size}</Text>
-              <Text>规格：{specs}</Text>
-              <Text>工艺：{made}</Text>
-            </View>
-            <Text
-              style={{
-                fontSize: pxToDp(16),
-                fontWeight: 'bold',
-                marginTop: pxToDp(8)
-              }}
-            >
-              具体介绍
-            </Text>
-            <Text style={{ marginTop: pxToDp(8) }}>{detail}</Text>
           </View>
         </ScrollView>
         <TouchableOpacity onPress={this.goCreateOrder}>
@@ -119,13 +113,6 @@ export default class index extends PureComponent {
   }
 }
 const styles = StyleSheet.create({
-  box: {
-    backgroundColor: '#ecf6fc',
-    height: pxToDp(30),
-    marginRight: pxToDp(10),
-    borderRadius: pxToDp(16),
-    justifyContent: 'center'
-  },
   button: {
     height: pxToDp(40),
     backgroundColor: '#468cd3',
@@ -135,5 +122,11 @@ const styles = StyleSheet.create({
     borderRadius: pxToDp(24),
     justifyContent: 'center',
     alignItems: 'center'
-  }
+  },
+  botbox: {
+    backgroundColor: 'white',
+    marginTop: pxToDp(-10),
+    borderTopLeftRadius: pxToDp(8),
+    borderTopRightRadius: pxToDp(8)
+  },
 });

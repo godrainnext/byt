@@ -98,6 +98,7 @@ class UserInner extends PureComponent {
                 style={{
                   margin: pxToDp(8),
                   fontSize: pxToDp(20),
+                  color:'#333333',
                   fontWeight: 'bold'
                 }}
               >
@@ -117,12 +118,13 @@ class UserInner extends PureComponent {
                 style={{
                   fontSize: pxToDp(18),
                   fontWeight: 'bold',
+                  color:'#333333',
                   alignSelf: 'center'
                 }}
               >
                 2
               </Text>
-              <Text style={{ fontSize: pxToDp(15), color: 'gray' }}>点赞</Text>
+              <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>点赞</Text>
             </TouchableOpacity>
           </View>
           <View>
@@ -135,12 +137,13 @@ class UserInner extends PureComponent {
                 style={{
                   fontSize: pxToDp(18),
                   fontWeight: 'bold',
+                  color:'#333333',
                   alignSelf: 'center'
                 }}
               >
                 5
               </Text>
-              <Text style={{ fontSize: pxToDp(15), color: 'gray' }}>收藏</Text>
+              <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>收藏</Text>
             </TouchableOpacity>
           </View>
           <View>
@@ -153,12 +156,13 @@ class UserInner extends PureComponent {
                 style={{
                   fontSize: pxToDp(18),
                   fontWeight: 'bold',
+                  color:'#333333',
                   alignSelf: 'center'
                 }}
               >
                 {followCount}
               </Text>
-              <Text style={{ fontSize: pxToDp(15), color: 'gray' }}>关注</Text>
+              <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>关注</Text>
             </TouchableOpacity>
           </View>
           <View>
@@ -170,13 +174,14 @@ class UserInner extends PureComponent {
               <Text
                 style={{
                   fontSize: pxToDp(18),
+                  color:'#333333',
                   fontWeight: 'bold',
                   alignSelf: 'center'
                 }}
               >
                 {fansCount}
               </Text>
-              <Text style={{ fontSize: pxToDp(15), color: 'gray' }}>粉丝</Text>
+              <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>粉丝</Text>
             </TouchableOpacity>
           </View>
         </View>
