@@ -52,7 +52,6 @@ class Index extends PureComponent {
     return (
       <View style={{ flexDirection: 'column' }}>
         <Top icon1="arrow-back" title="个人中心" />
-
         <View>
           <ImageBackground
             style={{
@@ -99,7 +98,7 @@ class Index extends PureComponent {
             </TouchableOpacity>
             <Text
               style={{
-                fontSize: pxToDp(20),
+                fontSize: pxToDp(18),
                 fontWeight: 'bold',
                 color: '#333333',
                 alignSelf: 'center',

@@ -130,7 +130,7 @@ export default class hello extends Component {
                             source={{ uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Finews.gtimg.com%2Fnewsapp_match%2F0%2F9964797201%2F0.jpg&refer=http%3A%2F%2Finews.gtimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632126834&t=6f83c03046ff8f1731e50f76fcab6680' }} />
                         <View style={{ marginLeft: pxToDp(16), justifyContent: 'center' }}>
                             <Text style={styles.text1}>石斑的歌房</Text>
-                            <Text style={styles.text3}>私人房间</Text>
+                            <Text style={styles.text2}>私人房间</Text>
                         </View>
                     </View>
                 </LinearGradient>
@@ -151,7 +151,7 @@ export default class hello extends Component {
                             source={{ uri: 'https://www.zhongguofeng.com/uploads/allimg/170621/8-1F621153120.jpg' }} />
                         <View style={{ marginLeft: pxToDp(16), justifyContent: 'center' }}>
                             <Text style={styles.text1}>2222的歌房</Text>
-                            <Text style={styles.text3}>公开房间</Text>
+                            <Text style={styles.text2}>公开房间</Text>
                         </View>
                     </View>
                 </LinearGradient>
@@ -182,11 +182,12 @@ const styles = StyleSheet.create({
     },
     text1: {
         fontSize: pxToDp(18),
+        color:'#000000',
         fontWeight: 'bold',
     },
     text2: {
-        fontSize: pxToDp(13),
-        color: 'black',
+        fontSize: pxToDp(14),
+        color:'#666666',
     },
     linear: {
         marginRight: pxToDp(8),
@@ -199,11 +200,6 @@ const styles = StyleSheet.create({
         width: pxToDp(100),
         height: pxToDp(100),
         borderRadius: pxToDp(8)
-    },
-    text3: {
-        fontSize: pxToDp(13),
-        color: 'black',
-        marginTop: pxToDp(8)
     },
     text: {
         fontSize: pxToDp(13),

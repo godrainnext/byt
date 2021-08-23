@@ -96,7 +96,7 @@ class UserInner extends PureComponent {
               <Text
                 style={{
                   margin: pxToDp(8),
-                  fontSize: pxToDp(20),
+                  fontSize: pxToDp(18),
                   color:'#333333',
                   fontWeight: 'bold'
                 }}

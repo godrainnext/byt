@@ -180,7 +180,7 @@ class Index extends PureComponent {
                   borderRadius: pxToDp(8)
                 }}
               >
-                <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold',color:'#333333' }}>
+                <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold',color:'#000000' }}>
                   {item.createAt.substr(6, 5)}
                 </Text>
                 <Text style={{ fontSize:pxToDp(18), paddingLeft: 5,color:'#333333' }}>

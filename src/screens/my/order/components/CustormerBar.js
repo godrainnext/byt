@@ -14,7 +14,7 @@ class Index extends PureComponent {
             flexDirection: 'row',
             justifyContent: 'space-around',
             backgroundColor: '#E2F4FE',
-            height:pxToDp(40)
+            height:pxToDp(50)
           }}
         >
           {tabs.map((v, i) => (

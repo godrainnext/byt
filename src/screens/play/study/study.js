@@ -20,7 +20,7 @@ class Index extends PureComponent {
                 {
                     id: 2,
                     title: '梁祝',
-                    content: "历尽磨难真情在， 天长地久不分开。",
+                    content: "历尽磨难真情在， 天长地久不分开",
                     listener: "22546人听过",
                     image: "https://img2.baidu.com/it/u=207643023,600080192&fm=26&fmt=auto&gp=0.jpg"
                 },
@@ -58,27 +58,29 @@ class Index extends PureComponent {
     static contextType = NavigationContext;
     render() {
         return (
-            <View style={{ backgroundColor: '#E2F4FE' }}>
+            <View style={{ backgroundColor: '#E2F4FE', flex: 1 }}>
                 <Top icon1='arrow-back' title="单人练唱" />
-                <View style={{ flexDirection: "row", marginLeft: pxToDp(8), marginRight: pxToDp(10), marginTop: pxToDp(10), marginBottom: pxToDp(5), backgroundColor: "white", height: pxToDp(35), alignItems: "center", borderRadius: pxToDp(16) }}>
-                    <Text style={{ marginLeft: pxToDp(20), fontWeight: "bold" }}>搜索</Text>
-                    <TextInput style={{ marginLeft: pxToDp(5), width: pxToDp(290) }}
-                        placeholder="" />
-                </View>
-                <ScrollView >
-                    {this.state.products.map((item, index) => (
-                        <TouchableOpacity onPress={() => this.context.navigate("Details")}>
-                            <View style={styles.box}>
-                                <Image style={styles.image} source={{ uri: item.image }}></Image>
-                                <View>
-                                    <Text style={styles.text1}>{item.title}</Text>
-                                    <Text style={styles.text2}>{item.content}</Text>
-                                    <Text style={styles.text3}>{item.listener}</Text>
+                <View style={{padding:pxToDp(16),paddingBottom:1,flex:1}}>
+                    <View style={{ flexDirection: "row", backgroundColor: "white", height: pxToDp(35), alignItems: "center", borderRadius: pxToDp(16) }}>
+                        <Text style={{ marginLeft: pxToDp(20),fontSize:pxToDp(14)}}>搜索</Text>
+                        <TextInput style={{ marginLeft: pxToDp(5), width: pxToDp(290) }}
+                            placeholder="" />
+                    </View>
+                    <ScrollView >
+                        {this.state.products.map((item, index) => (
+                            <TouchableOpacity onPress={() => this.context.navigate("Details")}>
+                                <View style={styles.box}>
+                                    <Image style={styles.image} source={{ uri: item.image }}></Image>
+                                    <View>
+                                        <Text style={styles.text1}>{item.title}</Text>
+                                        <Text style={styles.text2}>{item.content}</Text>
+                                        <Text style={styles.text3}>{item.listener}</Text>
+                                    </View>
                                 </View>
-                            </View>
-                        </TouchableOpacity>
-                    ))}
-                </ScrollView>
+                            </TouchableOpacity>
+                        ))}
+                    </ScrollView>
+                </View>
             </View>
         );
     }
@@ -89,36 +91,38 @@ const styles = StyleSheet.create({
     box: {
         flexDirection: 'row',
         height: pxToDp(120),
-        marginLeft: pxToDp(8),
-        marginRight: pxToDp(8),
-        marginTop: pxToDp(8),
+        marginTop:pxToDp(8),
+        marginLeft:pxToDp(6),
+        marginRight:pxToDp(6),
         borderRadius: pxToDp(8),
         backgroundColor: "white",
         alignItems: "center",
-        elevation: 10,
+        elevation: 8,
         shadowColor: 'black',
         shadowOffset: { width: 0, height: 0 },
         shadowOpacity: 1,
         shadowRadius: 10,
     },
     image: {
-        height: pxToDp(80),
-        width: pxToDp(80),
-        marginLeft: pxToDp(15)
+        height: pxToDp(100),
+        width: pxToDp(90),
+        marginLeft: pxToDp(15),
+        borderRadius:pxToDp(8)
     },
     text1: {
-        fontSize: pxToDp(14),
+        fontSize: pxToDp(16),
         color: '#000000',
+        fontWeight:'bold',
         marginLeft: pxToDp(8)
     },
     text2: {
         fontSize: pxToDp(14),
-        color: '#696969',
+        color: '#333333',
         marginLeft: pxToDp(8)
     },
     text3: {
-        fontSize: pxToDp(11),
-        color: '#808080',
+        fontSize: pxToDp(13),
+        color: '#333333',
         marginTop: pxToDp(25),
         marginLeft: pxToDp(8)
     }
