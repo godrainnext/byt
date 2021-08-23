@@ -186,8 +186,6 @@ class shopdetails extends PureComponent {
 
   render() {
     const { count, tabs, activeTab, activeSizeTab } = this.state;
-    console.log(activeTab);
-    console.log(activeSizeTab);
     return (
       <View style={{ flex: 1, backgroundColor: '#ecf6fc' }}>
         {/* 顶部导航 */}

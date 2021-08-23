@@ -20,7 +20,6 @@ class UserInner extends PureComponent {
   static contextType = NavigationContext;
   componentDidMount() {
     this.addFollow = DeviceEventEmitter.addListener('addFollow', () => {
-      console.log(1234);
       getUserFans().then((res) => {
         this.setState({ fansCount: res.fansCount });
       });

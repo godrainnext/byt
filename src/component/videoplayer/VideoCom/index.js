@@ -24,7 +24,6 @@ class index extends PureComponent {
   state = { comment: [] };
   componentDidMount() {
     getVideoCommentById(this.props.videoId).then((res) => {
-      console.log(res);
       this.setState({ comment: res });
     });
   }
@@ -34,7 +33,6 @@ class index extends PureComponent {
       .then(() => this[`RBSheet${id}`].open());
   };
   render() {
-    console.log(this.state.comment);
     return (
       <View>
         {this.state.comment.length ? (

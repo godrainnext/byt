@@ -38,7 +38,6 @@ class Index extends Component {
   static contextType = NavigationContext;
   componentDidMount() {
     getStreamList().then((res) => {
-      console.log(res);
       this.setState({ arr: res });
     });
   }

@@ -27,7 +27,6 @@ class index extends PureComponent {
   };
   render() {
     const { videoHeight } = this.state;
-    console.log(this.props.videoInfo);
     return (
       <View>
         <StatusBar hidden={this.state.hidden}></StatusBar>

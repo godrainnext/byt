@@ -27,9 +27,6 @@ class SwpierItem extends PureComponent {
   // };
   deleteItem = () => {
     this.props.deleteAddressAction(this.props.item);
-    console.log(this.props.item);
-    console.log(this.props.item.id);
-    deleteAddress(this.props.item.id).then((res) => console.log('删除成功'));
   };
   render() {
     return (

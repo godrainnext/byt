@@ -96,7 +96,6 @@ class index extends Component {
       multiple: true,
       maxFiles: 9
     }).then((image) => {
-      console.log('imag', image);
       this.setState({
         arr: image
       });
@@ -150,9 +149,6 @@ class index extends Component {
           headers: { 'Content-Type': 'application/json' }
         }
       )
-      .then(function (response) {
-        console.log('response: ', response);
-      })
       .catch((err) => console.log(err));
 
     this.handleEditingEnd();
@@ -182,7 +178,6 @@ class index extends Component {
       this.setState({
         records: json.data
       });
-      console.log(json.data);
     });
   };
 
@@ -333,9 +328,6 @@ class index extends Component {
                     this.setState({
                       currentIndex: this.state.currentIndex + 1
                     });
-                  }}
-                  onSwipedAll={() => {
-                    console.log('onSwipedAll');
                   }}
                   // cardIndex={0}
                   cardIndex={currentIndex}

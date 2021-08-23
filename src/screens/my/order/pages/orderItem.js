@@ -4,7 +4,6 @@ import { pxToDp } from '../../../../utils/styleKits';
 
 class Index extends PureComponent {
   render() {
-    console.log(this.props.page);
     return this.props.page.map((item) => (
       <View
         key={item.oriderId}
@@ -68,7 +67,7 @@ class Index extends PureComponent {
             <View
               style={{
                 flexDirection: 'row',
-                justifyContent: 'flex-end',
+                justifyContent: 'flex-end'
               }}
             >
               <Text
@@ -126,7 +125,7 @@ class Index extends PureComponent {
               width: pxToDp(70),
               borderRadius: pxToDp(8),
               alignItems: 'center',
-              justifyContent: 'center',
+              justifyContent: 'center'
             }}
           >
             <Text style={{ fontSize: pxToDp(15) }}>

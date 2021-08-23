@@ -17,7 +17,6 @@ export default (props) => {
   const needPay = orider.filter((item) => item.status === 0);
   const needReceipt = orider.filter((item) => item.status === 1);
   const needComment = orider.filter((item) => item.status === 2);
-  console.log(route.params);
   return (
     <ScrollableTabView
       initialPage={route.params}

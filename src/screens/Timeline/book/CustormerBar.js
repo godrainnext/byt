@@ -4,7 +4,6 @@ import { pxToDp } from '@utils/styleKits';
 import Top from '../../../component/common/top';
 class Index extends PureComponent {
   render() {
-    console.log(this.props);
     const { goToPage, tabs, activeTab } = this.props;
     return (
       <View>

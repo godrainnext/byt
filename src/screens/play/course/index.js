@@ -28,7 +28,7 @@ class Index extends PureComponent {
       <View style={{ backgroundColor: '#ecf6fc', flex: 1 }}>
         <View style={{ marginLeft: pxToDp(8), marginRight: pxToDp(8) }}>
           <Top icon1="arrow-back" title="教学" />
-          <ScrollView style={{ marginBottom: pxToDp(50) }}>
+          <ScrollView style={{ marginBottom: pxToDp(32) }}>
             {/*视频 */}
             <View style={{ flex: 1 }}>
               <Video
@@ -50,12 +50,13 @@ class Index extends PureComponent {
               style={{
                 width: '100%',
                 flexDirection: 'row',
-                justifyContent: "space-between",
+                justifyContent: 'space-between',
                 alignItems: 'center',
                 marginTop: pxToDp(16)
               }}
             >
-              <TouchableOpacity onPress={() => this.context.navigate("Basic")}
+              <TouchableOpacity
+                onPress={() => this.context.navigate('Basic')}
                 style={{
                   width: '49%',
                   height: pxToDp(80),
@@ -95,7 +96,8 @@ class Index extends PureComponent {
                   </Text>
                 </ImageBackground>
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => this.context.navigate("Master")}
+              <TouchableOpacity
+                onPress={() => this.context.navigate('Master')}
                 style={{
                   width: '49%',
                   height: pxToDp(80),
@@ -416,7 +418,7 @@ class Index extends PureComponent {
               style={{
                 borderRadius: pxToDp(16),
                 height: pxToDp(110),
-                marginTop:pxToDp(16)
+                marginTop: pxToDp(16)
               }}
             >
               <Carousel control style={{ height: pxToDp(110) }}>
@@ -597,7 +599,7 @@ class Index extends PureComponent {
                 flexDirection: 'row',
                 alignItems: 'center',
                 marginTop: pxToDp(8),
-                marginBottom:pxToDp(30)
+                marginBottom: pxToDp(30)
               }}
             >
               <View style={{ width: '100%', height: '100%' }}>
@@ -634,7 +636,7 @@ class Index extends PureComponent {
                           style={{
                             flexDirection: 'row',
                             justifyContent: 'center',
-                            alignItems: 'center',
+                            alignItems: 'center'
                           }}
                         >
                           <Text style={{ fontSize: pxToDp(16), width: '96%' }}>

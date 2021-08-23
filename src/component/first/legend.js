@@ -14,8 +14,8 @@ export default class Legend extends PureComponent {
         >
           <Image
             style={{
-              height: pxToDp(100),
-              width: pxToDp(100),
+              height: pxToDp(110),
+              width: pxToDp(90),
               borderRadius: pxToDp(8),
               margin: pxToDp(8)
             }}
@@ -27,7 +27,10 @@ export default class Legend extends PureComponent {
             <Text style={{ fontSize: pxToDp(15), fontWeight: 'bold' }}>
               袁派
             </Text>
-            <Text style={{ fontSize: pxToDp(13), flexWrap: 'wrap' }}>
+            <Text
+              style={{ fontSize: pxToDp(13), flexWrap: 'wrap' }}
+              numberOfLines={2}
+            >
               袁派唱腔的特点是质朴平易，委婉细腻，深沉含蓄，韵味醇厚。
             </Text>
           </View>
@@ -38,10 +41,11 @@ export default class Legend extends PureComponent {
         >
           <Image
             style={{
-              height: pxToDp(100),
-              width: pxToDp(100),
+              height: pxToDp(110),
+              width: pxToDp(90),
               borderRadius: pxToDp(8),
-              margin: pxToDp(8)
+              marginLeft: pxToDp(8),
+              marginRight: pxToDp(8)
             }}
             source={{
               uri: 'https://ss0.baidu.com/94o3dSag_xI4khGko9WTAnF6hhy/baike/s%3D220/sign=9ebe18840f2442a7aa0efaa7e142ad95/a08b87d6277f9e2f07e73f0f1f30e924b999f3e2.jpg'
@@ -51,7 +55,10 @@ export default class Legend extends PureComponent {
             <Text style={{ fontSize: pxToDp(15), fontWeight: 'bold' }}>
               范派
             </Text>
-            <Text style={{ fontSize: pxToDp(13), flexWrap: 'wrap' }}>
+            <Text
+              style={{ fontSize: pxToDp(13), flexWrap: 'wrap' }}
+              numberOfLines={2}
+            >
               范瑞娟中低音厚实，高音响亮有力，唱腔凝重大方，富有阳刚之美。
             </Text>
           </View>
@@ -62,8 +69,8 @@ export default class Legend extends PureComponent {
         >
           <Image
             style={{
-              height: pxToDp(100),
-              width: pxToDp(100),
+              height: pxToDp(110),
+              width: pxToDp(90),
               borderRadius: pxToDp(8),
               margin: pxToDp(8)
             }}
@@ -75,7 +82,10 @@ export default class Legend extends PureComponent {
             <Text style={{ fontSize: pxToDp(15), fontWeight: 'bold' }}>
               尹派
             </Text>
-            <Text style={{ fontSize: pxToDp(13), flexWrap: 'wrap' }}>
+            <Text
+              style={{ fontSize: pxToDp(13), flexWrap: 'wrap' }}
+              numberOfLines={2}
+            >
               尹派的特点是委婉缠绵，洒脱深沉，纯朴隽永，清新舒展，是一种典型的以柔为主、柔中寓刚的风格。
             </Text>
           </View>

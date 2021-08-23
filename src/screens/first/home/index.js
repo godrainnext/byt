@@ -126,7 +126,7 @@ class Index extends Component {
           this.setState({ y: event.nativeEvent.contentOffset.y });
         }}
         renderStickyHeader={() => <Top title="越台" />}
-        stickyHeaderHeight={50}
+        stickyHeaderHeight={pxToDp(50)}
         parallaxHeaderHeight={220}
         backgroundSpeed={10}
         renderBackground={() => (
@@ -169,23 +169,16 @@ class Index extends Component {
       >
         <View
           style={{
-            marginLeft: pxToDp(8),
-            marginTop: pxToDp(16),
-            marginRight: pxToDp(8),
+            padding: pxToDp(16),
             flex: 1
           }}
         >
-          <ScrollView
-            horizontal={true}
-            showsHorizontalScrollIndicator={false}
-            style={{ marginBottom: pxToDp(8) }}
-          >
+          <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
             {/**推荐卡片 */}
             <TouchableOpacity
               style={{
                 alignItems: 'center',
-                justifyContent: 'center',
-                marginLeft: pxToDp(8)
+                justifyContent: 'center'
               }}
               onPress={this.toggleModal}
             >
@@ -205,8 +198,7 @@ class Index extends Component {
               style={{
                 alignItems: 'center',
                 justifyContent: 'center',
-                marginLeft: pxToDp(48),
-                marginRight: pxToDp(10)
+                marginLeft: pxToDp(48)
               }}
               onPress={() => this.context.navigate('VR')}
             >
@@ -261,7 +253,7 @@ class Index extends Component {
           {/**精选唱段 */}
           <HighLights />
           {/*俯瞰百年 */}
-          <View style={{ margin: pxToDp(8) }}>
+          <View style={{ marginTop: pxToDp(8), height: pxToDp(263) }}>
             <View
               style={{
                 flexDirection: 'row',
@@ -290,17 +282,12 @@ class Index extends Component {
             <Hy />
           </View>
           {/*流派传奇 */}
-          <View
-            style={{
-              margin: pxToDp(8)
-              //    marginTop: pxToDp(0),
-            }}
-          >
+          <View style={{ marginTop: pxToDp(16) }}>
             <View
               style={{
                 flexDirection: 'row',
                 justifyContent: 'space-between',
-                marginBottom: pxToDp(8)
+                marginBottom: pxToDp(16)
               }}
             >
               <Text
@@ -323,25 +310,24 @@ class Index extends Component {
                 </View>
               </TouchableOpacity>
             </View>
-          </View>
-          <View
-            style={{
-              backgroundColor: 'white',
-              borderRadius: pxToDp(8),
-              elevation: 10,
-              shadowColor: 'black', //  阴影颜色
-              shadowOffset: { width: 0, height: 0 }, // 阴影偏移
-              shadowOpacity: 1, // 阴影不透明度
-              shadowRadius: 10 //  圆角
-            }}
-          >
-            <Legend />
+            <View
+              style={{
+                backgroundColor: 'white',
+                borderRadius: pxToDp(8),
+                elevation: 8,
+                shadowColor: 'black', //  阴影颜色
+                shadowOffset: { width: 0, height: 0 }, // 阴影偏移
+                shadowOpacity: 1, // 阴影不透明度
+                shadowRadius: 10 //  圆角
+              }}
+            >
+              <Legend />
+            </View>
           </View>
           {/*梨园子弟 */}
           <View
             style={{
-              margin: pxToDp(8),
-              marginTop: pxToDp(24)
+              marginTop: pxToDp(16)
             }}
           >
             <View
@@ -379,13 +365,11 @@ class Index extends Component {
               flexDirection: 'row',
               justifyContent: 'space-between',
               alignItems: 'center',
-              marginRight: pxToDp(8)
             }}
           >
             <Text
               style={{
                 fontSize: pxToDp(18),
-                margin: pxToDp(8),
                 color: '#468CD3',
                 fontWeight: 'bold'
               }}
@@ -411,7 +395,7 @@ class Index extends Component {
                 >
                   <View style={styles.bookbotton}>
                     <View
-                      style={{ marginLeft: pxToDp(130), marginTop: pxToDp(10) }}
+                      style={{ marginLeft: pxToDp(130), marginTop: pxToDp(8) }}
                     >
                       <View style={styles.bookinf1}>
                         <View>
@@ -453,33 +437,31 @@ class Index extends Component {
           <View
             style={{
               flexDirection: 'row',
-              width: pxToDp(350),
               justifyContent: 'space-between',
-              alignItems: 'center'
+              marginTop: pxToDp(4),
             }}
           >
             <Text
               style={{
                 fontSize: pxToDp(18),
-                margin: pxToDp(8),
                 color: '#468CD3',
-                fontWeight: 'bold',
-                marginBottom: pxToDp(0)
+                fontWeight: 'bold'
               }}
             >
               剧本推荐
             </Text>
             <TouchableOpacity
-              style={{ flexDirection: 'row' }}
               onPress={() => this.context.navigate('Scriptlibrary')}
             >
-              <Text style={{ fontSize: pxToDp(15), color: 'grey' }}>
-                查看更多
-              </Text>
-              <Ionicons name="chevron-forward" size={20} color="grey" />
+              <View style={{ flexDirection: 'row' }}>
+                <Text style={{ fontSize: pxToDp(15), color: 'grey' }}>
+                  查看更多
+                </Text>
+                <Ionicons name="chevron-forward" size={20} color="grey" />
+              </View>
             </TouchableOpacity>
           </View>
-          <View style={{ marginBottom: pxToDp(20) }}>
+          <View style={{ marginBottom: pxToDp(20), marginTop: pxToDp(-8) }}>
             {this.state.book.map((item) => (
               <View style={styles.bookbox1}>
                 <View style={styles.bookbotton}>
@@ -599,16 +581,12 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between'
   },
   carousel: {
-    borderRadius: pxToDp(24),
-    height: pxToDp(155),
-    marginLeft: pxToDp(8),
-    marginRight: pxToDp(8)
+    borderRadius: pxToDp(8),
+    marginTop: pxToDp(8),
   },
   bookbox1: {
     height: pxToDp(130),
-    marginLeft: pxToDp(8),
-    marginRight: pxToDp(8),
-    marginTop: pxToDp(8)
+    marginTop: pxToDp(16)
   }
 });
 

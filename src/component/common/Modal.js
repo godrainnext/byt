@@ -11,7 +11,6 @@ export default class ModalT extends PureComponent {
 
   render() {
     const { isModalVisible, toggleModalProps, item } = this.props;
-    // console.log(arr);
     return (
       <Modal
         testID={'modal'}
@@ -47,9 +46,6 @@ export default class ModalT extends PureComponent {
                 flipVertical={false}
                 flip={false}
                 clickable={true}
-                onFlipEnd={(isFlipEnd) => {
-                  console.log('isFlipEnd', isFlipEnd);
-                }}
               >
                 {/* Face Side */}
                 <View style={[styles.face]}></View>

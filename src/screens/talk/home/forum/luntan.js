@@ -118,8 +118,6 @@ class Index extends PureComponent {
   };
   playSound = async () => {
     if (this.state.sound.length) {
-      console.log('Loading Sound');
-      console.log('Playing Sound');
       for (const sound of this.state.sound) {
         this.setState({ playingsong: sound });
         await sound.playAsync();
@@ -140,7 +138,6 @@ class Index extends PureComponent {
   };
 
   pauseSound = async () => {
-    console.log('Stopping Sound');
     // this.setState({sound:undefined})
     await this.state.playingsong.pauseAsync();
     this.setState({ isplay: false });
@@ -149,7 +146,6 @@ class Index extends PureComponent {
   render() {
     const music = this.props.dongtai.filter((item) => item.label);
     const actress = this.props.dongtai.filter((item) => !item.label);
-    console.log('render');
     const { modalVisible } = this.state;
     return (
       <View>

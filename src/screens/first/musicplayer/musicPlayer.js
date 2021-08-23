@@ -91,9 +91,7 @@ export default class MusicPlayer extends Component {
   }
 
   componentDidMount() {
-    this.spin()
-    // console.log(mockData);
-    // console.log(this.props.route.params);
+    this.spin();
     this.setState({ musicInfo: mockData.list.find(item => item.id === this.props.route.params) })
     // fetch(musicListUrl, {
     //   method: 'GET',

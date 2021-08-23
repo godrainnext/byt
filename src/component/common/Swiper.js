@@ -13,7 +13,6 @@ const MyCarousel = memo((props) => {
   };
 
   useEffect(() => {
-    console.log(props);
     setEntries([...props.shopbanner]);
   }, [props]);
 

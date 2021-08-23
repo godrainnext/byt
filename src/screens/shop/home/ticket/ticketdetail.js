@@ -21,7 +21,8 @@ export default class ticketdetail extends PureComponent {
       data: [
         {
           id: '1',
-          avatar: 'https://img2.baidu.com/it/u=843228596,800896251&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=500',
+          avatar:
+            'https://img2.baidu.com/it/u=843228596,800896251&fm=253&fmt=auto&app=120&f=JPEG?w=500&h=500',
           name: '电话亭溺亡',
           detail:
             '之前没有预先了解过剧情，初以为情探是前几场情深意切时的试探，未曾想原来带着这么深重的悲剧色彩，探是心灰意冷下的最后一次试探，是给王朗的最后一次机会，也是给自己的最后一次机会，不愿信自己遇人不淑识人不善一片真情错付，是“唯愿他天良善性未尽抛”，于是便有理由放过王朗也放过自己。演员功底都很不错，情绪感染力也很强，悲情高涨初看见身旁一位奶奶几度擦泪。王朗最后伏罪倒地身亡钝声一响，演员的后脑实实在在砸落地板上，满场惊呼，不禁叹服其敬业！',
@@ -35,7 +36,8 @@ export default class ticketdetail extends PureComponent {
         },
         {
           id: '2',
-          avatar: 'https://img2.baidu.com/it/u=1244239780,4153872155&fm=26&fmt=auto&gp=0.jpg',
+          avatar:
+            'https://img2.baidu.com/it/u=1244239780,4153872155&fm=26&fmt=auto&gp=0.jpg',
           name: '大枫Fun',
           detail:
             '《何文秀》这部剧曲折动人、大快人心，王兰英的温婉坚贞，何文秀的智慧，张堂的心狠手辣，杨妈妈的口快心直、哭戏动情，打斗激烈，还有俏皮活泼的“报菜名”、群戏“算命”背后是三年的冤屈和与爱妻分离的凄苦。执月公主的妩媚，老冯的稳稳台风，小太子的信手拈来，妈妈的轻松写意，几位演员精彩的表演把剧情演绎得一气呵成，实在是钱塘戏社的最高水准！将近三个小时的演出，可以从好人有好报、破镜可重圆的剧情中窥探到那个时代的人的淳朴愿望，这是传统戏曲普遍的可爱之处，它让你相信“真善美”并非虚言，而是每个善良的人都可以拥有的品质和馈赠。再次强调，执月公主的扮相和声音甜到极致，冯楚涵的英俊晴朗，以至于“冤魂”前我一直觉得自己在看一对私奔的小情侣，真是一对不可多得的舞台搭档。',
@@ -49,7 +51,8 @@ export default class ticketdetail extends PureComponent {
         },
         {
           id: '3',
-          avatar: 'https://img2.baidu.com/it/u=2421505363,3507499484&fm=26&fmt=auto&gp=0.jpg',
+          avatar:
+            'https://img2.baidu.com/it/u=2421505363,3507499484&fm=26&fmt=auto&gp=0.jpg',
           name: 'jeanaioliya',
           detail:
             '演员功底真的好，最后还有一个僵尸摔，这是我万万没有想到的。重点是这么个票价，全本的情探真的值得。期待接下来还有全本的戏。',
@@ -65,7 +68,6 @@ export default class ticketdetail extends PureComponent {
     };
   }
   render() {
-    console.log('day', this.props.route.params);
     return (
       <View style={{ backgroundColor: '#ecf6fc', flex: 1 }}>
         <Top icon1="arrow-back" title="门票详情" />
@@ -112,7 +114,9 @@ export default class ticketdetail extends PureComponent {
             </View>
             {/* 时间 */}
             <View style={styles.centerbox1}>
-              <Text style={{ fontSize: pxToDp(15) }}>{this.props.route.params.date}</Text>
+              <Text style={{ fontSize: pxToDp(15) }}>
+                {this.props.route.params.date}
+              </Text>
               <Text style={{ color: '#aaa' }}>
                 {this.props.route.params.time}
               </Text>
@@ -120,7 +124,9 @@ export default class ticketdetail extends PureComponent {
             {/* 地点 */}
             <View style={styles.centerbox2}>
               <View>
-                <Text style={{ fontSize: pxToDp(15) }}>{this.props.route.params.place}</Text>
+                <Text style={{ fontSize: pxToDp(15) }}>
+                  {this.props.route.params.place}
+                </Text>
                 <Text style={{ color: '#aaa' }}>
                   {this.props.route.params.detail}
                 </Text>
@@ -171,7 +177,13 @@ export default class ticketdetail extends PureComponent {
                   <Text style={{ fontSize: pxToDp(25), color: '#468cd3' }}>
                     8.9
                   </Text>
-                  <Text style={{ alignSelf: 'flex-end', color: '#468cd3', fontSize: pxToDp(13) }}>
+                  <Text
+                    style={{
+                      alignSelf: 'flex-end',
+                      color: '#468cd3',
+                      fontSize: pxToDp(13)
+                    }}
+                  >
                     推荐
                   </Text>
                 </View>
@@ -243,7 +255,7 @@ export default class ticketdetail extends PureComponent {
             <View
               style={{
                 flexDirection: 'row',
-                alignItems: 'center',
+                alignItems: 'center'
               }}
             >
               <Text style={{ fontSize: pxToDp(18) }}>详情</Text>
@@ -286,7 +298,13 @@ export default class ticketdetail extends PureComponent {
                   borderRadius: pxToDp(8)
                 }}
               />
-              <Text style={{ marginBottom: pxToDp(15), fontSize: pxToDp(13), marginTop: pxToDp(15) }}>
+              <Text
+                style={{
+                  marginBottom: pxToDp(15),
+                  fontSize: pxToDp(13),
+                  marginTop: pxToDp(15)
+                }}
+              >
                 越剧，作为我们江南特有的剧种，有着百年的历史，多以“才子佳人”为题材，唱腔温婉，情感细腻。是我国的第二大剧种，流传于全世界。
                 {'\n'}
                 2020年10月开场以来，几乎场场满座，也为杭州这座旅游文化名城增添了几分戏剧色彩。
@@ -333,7 +351,15 @@ export default class ticketdetail extends PureComponent {
                       borderRadius: pxToDp(15)
                     }}
                   />
-                  <Text style={{ fontWeight: 'bold', marginLeft: pxToDp(10),fontSize:pxToDp(13)}}>{item.name}</Text>
+                  <Text
+                    style={{
+                      fontWeight: 'bold',
+                      marginLeft: pxToDp(10),
+                      fontSize: pxToDp(13)
+                    }}
+                  >
+                    {item.name}
+                  </Text>
                 </View>
 
                 <View
@@ -344,7 +370,9 @@ export default class ticketdetail extends PureComponent {
                 >
                   {/* 评论盒子 */}
                   <View>
-                    <Text numberOfLines={5} style={{ fontSize: pxToDp(13) }}>{item.detail}</Text>
+                    <Text numberOfLines={5} style={{ fontSize: pxToDp(13) }}>
+                      {item.detail}
+                    </Text>
                   </View>
                   {/* 评论图片盒子 */}
                   <View style={{ flexDirection: 'row' }}>
@@ -354,8 +382,8 @@ export default class ticketdetail extends PureComponent {
                         width: pxToDp(100),
                         height: pxToDp(100),
                         marginLeft: pxToDp(3),
-                        borderRadius:pxToDp(8),
-                        marginTop:pxToDp(10)
+                        borderRadius: pxToDp(8),
+                        marginTop: pxToDp(10)
                       }}
                     />
                     <Image
@@ -364,8 +392,8 @@ export default class ticketdetail extends PureComponent {
                         width: pxToDp(100),
                         height: pxToDp(100),
                         marginLeft: pxToDp(3),
-                        borderRadius:pxToDp(8),
-                        marginTop:pxToDp(10)
+                        borderRadius: pxToDp(8),
+                        marginTop: pxToDp(10)
                       }}
                     />
                     <Image
@@ -374,8 +402,8 @@ export default class ticketdetail extends PureComponent {
                         width: pxToDp(100),
                         height: pxToDp(100),
                         marginLeft: pxToDp(3),
-                        borderRadius:pxToDp(8),
-                        marginTop:pxToDp(10)
+                        borderRadius: pxToDp(8),
+                        marginTop: pxToDp(10)
                       }}
                     />
                   </View>
@@ -385,20 +413,30 @@ export default class ticketdetail extends PureComponent {
                       flexDirection: 'row',
                       marginTop: pxToDp(10),
                       marginBottom: pxToDp(10),
-                      justifyContent:'space-between'
+                      justifyContent: 'space-between'
                     }}
                   >
-                    <Text style={{fontSize: pxToDp(13) }}>{item.date}</Text>
-                    <View style={{ marginLeft: pxToDp(150),flexDirection:'row'}}>
+                    <Text style={{ fontSize: pxToDp(13) }}>{item.date}</Text>
+                    <View
+                      style={{ marginLeft: pxToDp(150), flexDirection: 'row' }}
+                    >
                       <SvgUri svgXmlData={pinglun} width="20" height="20" />
                       <Text
-                        style={{ marginLeft: pxToDp(4), marginRight: pxToDp(20),fontSize:pxToDp(13) }}
+                        style={{
+                          marginLeft: pxToDp(4),
+                          marginRight: pxToDp(20),
+                          fontSize: pxToDp(13)
+                        }}
                       >
                         {item.reply}
                       </Text>
                       <SvgUri svgXmlData={dianzan} width="20" height="20" />
                       <Text
-                        style={{ marginLeft: pxToDp(4), marginRight: pxToDp(20),fontSize:pxToDp(13)}}
+                        style={{
+                          marginLeft: pxToDp(4),
+                          marginRight: pxToDp(20),
+                          fontSize: pxToDp(13)
+                        }}
                       >
                         {item.like}
                       </Text>

@@ -24,7 +24,6 @@ export default class index extends PureComponent {
     );
   };
   render() {
-    console.log('day', this.props.route.params);
     const {
       color,
       img,
