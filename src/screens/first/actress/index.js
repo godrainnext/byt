@@ -81,66 +81,28 @@ const TabView3 = memo(function (props) {
   }, []);
   return (
     <ScrollView {...props}>
-      {momentList.map((item) => (
-        <TouchableOpacity
-          onPress={() => navigation.navigate('Pagefive', item.id)}
-          style={styles.box}
-          key={item.id}
-        >
-          <Image style={styles.image3} source={{ uri: item.avatar }} />
-          <View
-            style={{
-              marginLeft: pxToDp(10),
-              marginTop: pxToDp(8),
-              width: pxToDp(280)
-            }}
+      {momentList ? (
+        momentList.map((item) => (
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Pagefive', item.id)}
+            style={styles.box}
+            key={item.id}
           >
-            <Text style={styles.text}>{item.title}</Text>
-          </View>
-        </TouchableOpacity>
-      ))}
-    </ScrollView>
-  );
-});
-
-const TabView4 = memo(function (props) {
-  return (
-    <ScrollView {...props}>
-      <View>
-        <View style={styles.box2}>
-          <View style={{ width: pxToDp(220) }}>
-            <Text style={{ fontSize: pxToDp(16), marginTop: pxToDp(5) }}>
-              全国越剧汇演之上海越剧院《双珠凤》，方亚芬徐标新主演
-            </Text>
-          </View>
-          <Image
-            style={styles.image4}
-            source={require('../../../res/15.jpg')}
-          />
-        </View>
-        <View style={styles.box2}>
-          <View style={{ width: pxToDp(220) }}>
-            <Text style={{ fontSize: pxToDp(16), marginTop: pxToDp(5) }}>
-              方亚芬将领衔上海越剧院全本大戏《红楼梦》《梁祝》来京演出
-            </Text>
-          </View>
-          <Image
-            style={styles.image4}
-            source={require('../../../res/11.jpg')}
-          />
-        </View>
-        <View style={styles.box2}>
-          <View style={{ width: pxToDp(220) }}>
-            <Text style={{ fontSize: pxToDp(16), marginTop: pxToDp(5) }}>
-              越剧《早春二月》下周全新亮相，许杰方亚芬借排练带新人
-            </Text>
-          </View>
-          <Image
-            style={styles.image4}
-            source={require('../../../res/14.jpg')}
-          />
-        </View>
-      </View>
+            <Image style={styles.image3} source={{ uri: item.avatar }} />
+            <View
+              style={{
+                marginLeft: pxToDp(10),
+                marginTop: pxToDp(8),
+                width: pxToDp(280)
+              }}
+            >
+              <Text style={styles.text}>{item.title}</Text>
+            </View>
+          </TouchableOpacity>
+        ))
+      ) : (
+        <View />
+      )}
     </ScrollView>
   );
 });
@@ -162,7 +124,9 @@ export default memo(function Example(props) {
             style={{
               width: pxToDp(180),
               justifyContent: 'center',
-              marginLeft: pxToDp(20)
+              alignSelf: 'flex-start',
+              marginLeft: pxToDp(20),
+              top: pxToDp(20)
             }}
           >
             <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold' }}>
@@ -183,7 +147,7 @@ export default memo(function Example(props) {
       >
         <TabView1 tabLabel="视频" id={props.route.params.id} />
         <TabView2 tabLabel="图片" id={props.route.params.id} />
-        <TabView4 tabLabel="新闻" id={props.route.params.id} />
+        <TabView3 tabLabel="新闻" id={props.route.params.id} />
       </ScrollTabView>
     </View>
   );

@@ -18,6 +18,7 @@ export const getUserInfoAction = () => (dispatch) => {
 export const getUserOriderListAction = () => (dispatch, getstate) => {
   getUserOriderList().then((res) => {
     if (res.oriderList) {
+      console.log(res.oriderList);
       dispatch(changeOrder(res.oriderList));
     } else {
       dispatch(changeOrder([]));

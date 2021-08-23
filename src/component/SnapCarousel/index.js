@@ -51,7 +51,7 @@ carouselRef.current.snapToNext();
                     parallaxFactor={0.4}
                     {...parallaxProps}
                 />
-                <Text style={{ height: pxToDp(40), fontSize: pxToDp(16) }} numberOfLines={1}>
+                <Text style={{  fontSize: pxToDp(16),color:'#333333',marginLeft:pxToDp(8)}} numberOfLines={1}>
                     {item.title}
                 </Text>
 

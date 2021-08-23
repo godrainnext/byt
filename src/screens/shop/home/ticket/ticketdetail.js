@@ -12,7 +12,7 @@ import { pxToDp } from '../../../../utils/styleKits';
 import SvgUri from 'react-native-svg-uri';
 import { location } from '../../../../component/common/iconSvg';
 import { MarqueeHorizontal, MarqueeVertical } from 'react-native-marquee-ab';
-import { dianzan, pinglun } from '../../../../component/common/iconSvg'
+import { dianzan, pinglun } from '../../../../component/common/iconSvg';
 
 export default class ticketdetail extends PureComponent {
   constructor(props) {
@@ -93,20 +93,24 @@ export default class ticketdetail extends PureComponent {
               <View
                 style={{
                   margin: pxToDp(8),
-                  width: pxToDp(242),
+                  width: pxToDp(240),
                   justifyContent: 'space-between'
                 }}
               >
                 <View>
                   <Text
-                    style={{ fontSize: pxToDp(15), fontWeight: 'bold' }}
+                    style={{
+                      fontSize: pxToDp(16),
+                      fontWeight: 'bold',
+                      color: '#000000'
+                    }}
                     numberOfLines={2}
                   >
                     {this.props.route.params.name}
                   </Text>
                 </View>
                 <View>
-                  <Text style={{ color: 'red', fontSize: pxToDp(13) }}>
+                  <Text style={{ color: '#f0bb51', fontSize: pxToDp(14) }}>
                     ￥{this.props.route.params.price}
                   </Text>
                 </View>
@@ -114,26 +118,26 @@ export default class ticketdetail extends PureComponent {
             </View>
             {/* 时间 */}
             <View style={styles.centerbox1}>
-              <Text style={{ fontSize: pxToDp(15) }}>
+              <Text style={{ fontSize: pxToDp(16), color: '#333333' }}>
                 {this.props.route.params.date}
               </Text>
-              <Text style={{ color: '#aaa' }}>
+              <Text style={{ color: '#999999', fontSize: pxToDp(12) }}>
                 {this.props.route.params.time}
               </Text>
             </View>
             {/* 地点 */}
             <View style={styles.centerbox2}>
               <View>
-                <Text style={{ fontSize: pxToDp(15) }}>
+                <Text style={{ fontSize: pxToDp(16), color: '#333333' }}>
                   {this.props.route.params.place}
                 </Text>
-                <Text style={{ color: '#aaa' }}>
+                <Text style={{ color: '#999999', fontSize: pxToDp(12) }}>
                   {this.props.route.params.detail}
                 </Text>
               </View>
               <View style={{ alignItems: 'center' }}>
-                <SvgUri svgXmlData={location} width="20" height="20" />
-                <Text style={{ fontSize: pxToDp(12), color: '#aaa' }}>
+                <SvgUri svgXmlData={location} width="22" height="22" />
+                <Text style={{ fontSize: pxToDp(12), color: '#999999' }}>
                   9.1km
                 </Text>
               </View>
@@ -155,46 +159,41 @@ export default class ticketdetail extends PureComponent {
                   justifyContent: 'space-between'
                 }}
               >
-                <View
+                <Text
                   style={{
-                    height: pxToDp(30),
-                    backgroundColor: '#468cd3',
-                    borderBottomRightRadius: pxToDp(30),
-                    justifyContent: 'center',
-                    alignItems: 'center'
+                    fontSize: pxToDp(18),
+                    color: '#000000',
+                    fontWeight: 'bold'
                   }}
                 >
-                  <Text style={{ fontSize: pxToDp(15), fontWeight: 'bold' }}>
-                    观众评分
-                  </Text>
-                </View>
+                  观众评分
+                </Text>
                 <View
                   style={{
                     flexDirection: 'row',
-                    justifyContent: 'center'
+                    justifyContent: 'center',
+                    marginBottom: pxToDp(40)
                   }}
                 >
-                  <Text style={{ fontSize: pxToDp(25), color: '#468cd3' }}>
+                  <Text style={{ fontSize: pxToDp(24), color: '#468cd3' }}>
                     8.9
                   </Text>
                   <Text
                     style={{
                       alignSelf: 'flex-end',
                       color: '#468cd3',
-                      fontSize: pxToDp(13)
+                      fontSize: pxToDp(14)
                     }}
                   >
                     推荐
                   </Text>
                 </View>
-                <View style={{ alignItems: 'center', marginBottom: pxToDp(5) }}>
-                  <Text style={{ fontSize: pxToDp(13) }}>349人想看</Text>
-                </View>
               </View>
               {/* 右评论 */}
               <View
                 style={{
-                  width: pxToDp(248)
+                  width: pxToDp(248),
+                  marginTop: pxToDp(30)
                 }}
               >
                 <MarqueeVertical
@@ -217,25 +216,11 @@ export default class ticketdetail extends PureComponent {
                   direction={'up'}
                   numberOfLines={2}
                   bgContainerStyle={{ backgroundColor: '#ecf6fc' }}
-                  textStyle={{ fontSize: 16, color: '#000' }}
+                  textStyle={{ fontSize: pxToDp(16), color: '#333333' }}
                   onTextClick={(item) => {
                     alert('' + JSON.stringify(item));
                   }}
                 />
-                <View
-                  style={{
-                    height: pxToDp(30),
-                    flexDirection: 'row',
-                    alignItems: 'center'
-                  }}
-                >
-                  <View style={styles.smallbox}>
-                    <Text style={styles.smalltextbox}>很好看</Text>
-                  </View>
-                  <View style={styles.smallbox}>
-                    <Text style={styles.smalltextbox}>演员很专业</Text>
-                  </View>
-                </View>
               </View>
             </View>
           </View>
@@ -258,9 +243,13 @@ export default class ticketdetail extends PureComponent {
                 alignItems: 'center'
               }}
             >
-              <Text style={{ fontSize: pxToDp(18) }}>详情</Text>
-              <Text style={{ fontSize: pxToDp(18) }}>/</Text>
-              <Text style={{ fontSize: pxToDp(18) }}>评价</Text>
+              <Text style={{ fontSize: pxToDp(18), color: '#333333' }}>
+                详情
+              </Text>
+              <Text style={{ fontSize: pxToDp(18), color: '#333333' }}>/</Text>
+              <Text style={{ fontSize: pxToDp(18), color: '#333333' }}>
+                评价
+              </Text>
             </View>
           </View>
           <View>
@@ -269,13 +258,14 @@ export default class ticketdetail extends PureComponent {
               <Text
                 style={{
                   fontSize: pxToDp(18),
+                  color: '#000000',
                   fontWeight: 'bold',
                   marginBottom: pxToDp(10)
                 }}
               >
                 温馨提示
               </Text>
-              <Text style={{ fontSize: pxToDp(13) }}>
+              <Text style={{ fontSize: pxToDp(16), color: '#333333' }}>
                 您知悉，因各地疫情情况，演出地或您所在地疫情防控政策可能影响您的出行安排或演出的入场验证要求。若演出受不可抗力影响延期或取消导致退票的，本App仅支持退回票款，其他因观演发生的费用需由您自行承担。
               </Text>
             </View>
@@ -284,6 +274,7 @@ export default class ticketdetail extends PureComponent {
               <Text
                 style={{
                   fontSize: pxToDp(18),
+                  color: '#000000',
                   fontWeight: 'bold'
                 }}
               >
@@ -301,7 +292,8 @@ export default class ticketdetail extends PureComponent {
               <Text
                 style={{
                   marginBottom: pxToDp(15),
-                  fontSize: pxToDp(13),
+                  fontSize: pxToDp(16),
+                  color: '#333333',
                   marginTop: pxToDp(15)
                 }}
               >
@@ -327,6 +319,7 @@ export default class ticketdetail extends PureComponent {
               <Text
                 style={{
                   fontSize: pxToDp(18),
+                  color: '#000000',
                   fontWeight: 'bold',
                   marginLeft: pxToDp(8)
                 }}
@@ -355,7 +348,8 @@ export default class ticketdetail extends PureComponent {
                     style={{
                       fontWeight: 'bold',
                       marginLeft: pxToDp(10),
-                      fontSize: pxToDp(13)
+                      fontSize: pxToDp(16),
+                      color: '#333333'
                     }}
                   >
                     {item.name}
@@ -370,7 +364,10 @@ export default class ticketdetail extends PureComponent {
                 >
                   {/* 评论盒子 */}
                   <View>
-                    <Text numberOfLines={5} style={{ fontSize: pxToDp(13) }}>
+                    <Text
+                      numberOfLines={5}
+                      style={{ fontSize: pxToDp(14), color: '#666666' }}
+                    >
                       {item.detail}
                     </Text>
                   </View>
@@ -416,7 +413,9 @@ export default class ticketdetail extends PureComponent {
                       justifyContent: 'space-between'
                     }}
                   >
-                    <Text style={{ fontSize: pxToDp(13) }}>{item.date}</Text>
+                    <Text style={{ fontSize: pxToDp(14), color: '#666666' }}>
+                      {item.date}
+                    </Text>
                     <View
                       style={{ marginLeft: pxToDp(150), flexDirection: 'row' }}
                     >
@@ -425,7 +424,8 @@ export default class ticketdetail extends PureComponent {
                         style={{
                           marginLeft: pxToDp(4),
                           marginRight: pxToDp(20),
-                          fontSize: pxToDp(13)
+                          fontSize: pxToDp(14),
+                          color: '#666666'
                         }}
                       >
                         {item.reply}
@@ -435,7 +435,8 @@ export default class ticketdetail extends PureComponent {
                         style={{
                           marginLeft: pxToDp(4),
                           marginRight: pxToDp(20),
-                          fontSize: pxToDp(13)
+                          fontSize: pxToDp(14),
+                          color: '#666666'
                         }}
                       >
                         {item.like}
@@ -465,9 +466,7 @@ const styles = StyleSheet.create({
     height: pxToDp(50),
     marginLeft: pxToDp(8),
     marginRight: pxToDp(8),
-    justifyContent: 'center',
-    borderBottomWidth: pxToDp(1.1),
-    borderBottomColor: '#aaa'
+    justifyContent: 'center'
   },
   centerbox2: {
     height: pxToDp(50),
@@ -475,8 +474,6 @@ const styles = StyleSheet.create({
     marginRight: pxToDp(8),
     justifyContent: 'space-between',
     alignItems: 'center',
-    borderBottomWidth: pxToDp(1.1),
-    borderBottomColor: '#aaa',
     flexDirection: 'row'
   },
   smallbox: {
@@ -487,7 +484,7 @@ const styles = StyleSheet.create({
     marginRight: pxToDp(15)
   },
   smalltextbox: {
-    fontSize: pxToDp(13),
+    fontSize: pxToDp(14),
     color: '#468cd3'
   },
   mainbox: {

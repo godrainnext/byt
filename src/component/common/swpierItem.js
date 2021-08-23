@@ -53,19 +53,20 @@ class SwpierItem extends PureComponent {
               </View>
             </View>
 
-            <View style={{ backgroundColor: '#fff', height: 120, widht: 500 }}>
+            <View style={{ backgroundColor: '#fff', height: 120, width: 500,justifyContent:'space-between'}}>
               <View
                 style={{ width: 200, flexDirection: 'row', marginRight: 225 }}
               >
                 {/* 姓名 */}
                 <Text
                   style={{
-                    fontSize: 20,
+                    fontSize:pxToDp(18),
                     position: 'absolute',
                     left: 30,
                     top: 10,
                     fontWeight: 'bold',
-                    opacity: 0.8
+                    opacity: 0.8,
+                    color:'#000000'
                   }}
                 >
                   {this.props.item.name}
@@ -73,13 +74,14 @@ class SwpierItem extends PureComponent {
                 {/* 电话号码 */}
                 <Text
                   style={{
-                    fontSize: 15,
+                    fontSize:pxToDp(16),
                     position: 'absolute',
                     left: 150,
                     top: 15,
                     width: 120,
                     fontWeight: 'bold',
-                    opacity: 0.8
+                    opacity: 0.8,
+                    color:'#000000'
                   }}
                 >
                   {this.props.item.phoneNum}
@@ -95,7 +97,7 @@ class SwpierItem extends PureComponent {
                 }}
               >
                 <Text
-                  style={{ color: 'gray', fontWeight: 'bold', opacity: 0.5 }}
+                  style={{ color: '#666666', fontWeight: 'bold', opacity: 0.5,fontSize:pxToDp(12) }}
                   numberOfLines={1}
                 >
                   {this.props.address}
@@ -110,7 +112,7 @@ class SwpierItem extends PureComponent {
                     height: 23,
                     borderWidth: 0.5,
                     borderRadius: 32,
-                    borderColor: 'gray'
+                    borderColor: '#666666'
                   }}
                 >
                   <SvgUri
@@ -120,7 +122,7 @@ class SwpierItem extends PureComponent {
                     style={{ right: 2, bottom: 2 }}
                   />
                 </TouchableOpacity>
-                <Text style={{ left: 35, bottom: 20, opacity: 0.5 }}>
+                <Text style={{ left: 35, bottom: 20, opacity: 0.5,fontSize:pxToDp(12),color:'#666666'}}>
                   默认地址
                 </Text>
               </View>

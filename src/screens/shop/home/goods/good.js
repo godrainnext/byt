@@ -154,7 +154,7 @@ class shopdetails extends PureComponent {
     return (
       <View style={{ flex: 1, backgroundColor: '#ecf6fc' }}>
         {/* 顶部导航 */}
-        <Top icon1="arrow-back" title="猜你喜欢" />
+        <Top icon1="arrow-back"/>
         <Loading color="#468cd3" />
         <ScrollView
           style={{
@@ -169,7 +169,7 @@ class shopdetails extends PureComponent {
 
           {/* 品名 价格 */}
           <View style={{ alignItems: 'center', marginTop: pxToDp(20) }}>
-            <Text style={{ fontSize: pxToDp(22), fontWeight: 'bold' }}>
+            <Text style={{ fontSize: pxToDp(20),color:'#000000',fontWeight: 'bold' }}>
               {this.state.shop.title}
             </Text>
             <View
@@ -179,7 +179,7 @@ class shopdetails extends PureComponent {
                 alignItems: 'flex-end'
               }}
             >
-              <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold' }}>
+              <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold',color:'#000000' }}>
                 ￥
                 {parseInt(
                   this.state.shop.price ? this.state.shop.price * 0.8 : 0
@@ -187,7 +187,8 @@ class shopdetails extends PureComponent {
               </Text>
               <Text
                 style={{
-                  fontSize: pxToDp(12),
+                  fontSize: pxToDp(14),
+                  color:'#000000',
                   textDecorationLine: 'line-through',
                   marginLeft: pxToDp(10)
                 }}
@@ -206,7 +207,7 @@ class shopdetails extends PureComponent {
               marginTop: pxToDp(15)
             }}
           >
-            <Text>{this.state.shop.inner}</Text>
+            <Text style={{fontSize:pxToDp(16),color:'#333333'}}>{this.state.shop.inner}</Text>
           </View>
 
           {/* 商品详情 */}

@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent } from 'react';
 import {
   View,
   Text,
@@ -50,17 +50,17 @@ class Index extends PureComponent {
         >
           <Image
             style={{
-                height: pxToDp(180),
-                borderRadius: pxToDp(8)
+              height: pxToDp(180),
+              borderRadius: pxToDp(8)
             }}
             source={{ uri: this.state.dramalist.path1 }}
           />
           <Text
             style={{
-                fontSize: pxToDp(18),
-                color: '#000',
-                fontWeight: 'bold',
-                marginTop: pxToDp(8)
+              fontSize: pxToDp(18),
+              color: '#000',
+              fontWeight: 'bold',
+              marginTop: pxToDp(8)
             }}
           >
             {this.state.dramalist.title}

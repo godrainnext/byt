@@ -13,7 +13,8 @@ class Index extends PureComponent {
           style={{
             flexDirection: 'row',
             justifyContent: 'space-around',
-            backgroundColor: '#E2F4FE'
+            backgroundColor: '#E2F4FE',
+            height:pxToDp(40)
           }}
         >
           {tabs.map((v, i) => (
@@ -29,7 +30,7 @@ class Index extends PureComponent {
               <Text
                 style={{
                   color: activeTab === i ? 'black' : 'grey',
-                  fontSize: activeTab === i ? pxToDp(20) : pxToDp(15)
+                  fontSize: activeTab === i ? pxToDp(18) : pxToDp(16)
                 }}
               >
                 {v}

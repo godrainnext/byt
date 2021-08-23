@@ -4,7 +4,6 @@ import CustormerBar from './components/CustormerBar';
 import Orderone from './pages/orderone';
 import { useRoute } from '@react-navigation/native';
 import { shallowEqual, useSelector } from 'react-redux';
-import { OrderFour, OrderThree, OrderTwo } from '../..';
 
 export default (props) => {
   const { orider } = useSelector(

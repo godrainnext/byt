@@ -3,7 +3,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import { Switch } from 'react-native-elements';
 import { pxToDp } from '../../../utils/styleKits';
 import Top from '../../../component/common/top';
-import AntDesign from 'react-native-vector-icons/AntDesign';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 class Index extends PureComponent {
   constructor(props) {
@@ -27,7 +27,7 @@ class Index extends PureComponent {
         <Top icon1="arrow-back" title="消息通知与推送" />
         <View
           style={{
-            margin: pxToDp(15),
+            margin: pxToDp(8),
             height: pxToDp(300)
           }}
         >
@@ -45,9 +45,10 @@ class Index extends PureComponent {
           </View>
           <Text
             style={{
-              marginLeft: pxToDp(4),
-              marginTop: pxToDp(4),
-              color: '#666'
+              marginLeft: pxToDp(5),
+              marginTop: pxToDp(8),
+              color: '#666666',
+              fontSize: pxToDp(12)
             }}
           >
             关闭之后您可能遗漏新消息
@@ -55,21 +56,26 @@ class Index extends PureComponent {
           <View
             style={{
               backgroundColor: '#fff',
-              marginTop: pxToDp(16),
-              borderRadius: pxToDp(8)
+              marginTop: pxToDp(8),
+              borderRadius: pxToDp(8),
+              elevation: 8, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+              shadowColor: 'black', //  阴影颜色
+              shadowOffset: { width: 0, height: 0 }, // 阴影偏移
+              shadowOpacity: 0.5, // 阴影不透明度
+              shadowRadius: pxToDp(16),
             }}
           >
             <View style={styles.kidbox2}>
-              <Text style={{ fontSize: pxToDp(16) }}>声音</Text>
-              <AntDesign name="right" size={pxToDp(16)} color="#666" />
+              <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>声音</Text>
+              <Ionicons name="chevron-forward" size={24} color="#666666" style={{ marginRight: pxToDp(8) }} />
             </View>
             <View style={styles.kidbox2}>
-              <Text style={{ fontSize: pxToDp(16) }}>振动</Text>
-              <AntDesign name="right" size={pxToDp(16)} color="#666" />
+              <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>振动</Text>
+              <Ionicons name="chevron-forward" size={24} color="#666666" style={{ marginRight: pxToDp(8) }} />
             </View>
 
             <View style={styles.kidbox2}>
-              <Text style={{ fontSize: pxToDp(16) }}>通知显示消息内容</Text>
+              <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>通知显示消息内容</Text>
               <Switch
                 //动态改变value
                 value={this.state.value2}
@@ -80,7 +86,7 @@ class Index extends PureComponent {
               />
             </View>
             <View style={styles.kidbox2}>
-              <Text style={{ fontSize: pxToDp(16) }}>锁屏显示消息弹框</Text>
+              <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>锁屏显示消息弹框</Text>
               <Switch
                 //动态改变value
                 value={this.state.value3}
@@ -91,7 +97,7 @@ class Index extends PureComponent {
               />
             </View>
             <View style={styles.kidbox2}>
-              <Text style={{ fontSize: pxToDp(16) }}>通知时指示灯闪烁</Text>
+              <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>通知时指示灯闪烁</Text>
               <Switch
                 //动态改变value
                 value={this.state.value4}
@@ -102,7 +108,7 @@ class Index extends PureComponent {
               />
             </View>
             <View style={styles.kidbox2}>
-              <Text style={{ fontSize: pxToDp(16) }}>
+              <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>
                 通知图标显示未读消息数
               </Text>
               <Switch
@@ -115,7 +121,7 @@ class Index extends PureComponent {
               />
             </View>
             <View style={styles.kidbox2}>
-              <Text style={{ fontSize: pxToDp(16) }}>回复</Text>
+              <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>回复</Text>
               <Switch
                 //动态改变value
                 value={this.state.value6}
@@ -126,7 +132,7 @@ class Index extends PureComponent {
               />
             </View>
             <View style={styles.kidbox2}>
-              <Text style={{ fontSize: pxToDp(16) }}>@我</Text>
+              <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>@我</Text>
               <Switch
                 //动态改变value
                 value={this.state.value7}
@@ -137,7 +143,7 @@ class Index extends PureComponent {
               />
             </View>
             <View style={styles.kidbox2}>
-              <Text style={{ fontSize: pxToDp(16) }}>点赞</Text>
+              <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>点赞</Text>
               <Switch
                 //动态改变value
                 value={this.state.value8}
@@ -148,7 +154,7 @@ class Index extends PureComponent {
               />
             </View>
             <View style={styles.kidbox2}>
-              <Text style={{ fontSize: pxToDp(16) }}>新粉丝</Text>
+              <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>新粉丝</Text>
               <Switch
                 //动态改变value
                 value={this.state.value9}
@@ -159,7 +165,7 @@ class Index extends PureComponent {
               />
             </View>
             <View style={[styles.kidbox2, { borderBottomWidth: 0 }]}>
-              <Text style={{ fontSize: pxToDp(16) }}>聊天信息</Text>
+              <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>聊天信息</Text>
               <Switch
                 //动态改变value
                 value={this.state.value10}
@@ -181,7 +187,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    height: pxToDp(40),
+    height: pxToDp(50),
     borderRadius: pxToDp(8),
     elevation: 8, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
     shadowColor: 'black', //  阴影颜色
@@ -192,20 +198,19 @@ const styles = StyleSheet.create({
   },
   kidbox1: {
     fontSize: pxToDp(18),
-    color: '#16161e',
+    color: '#333333',
     marginLeft: pxToDp(16),
-    marginRight: pxToDp(16)
+    marginRight: pxToDp(16),
   },
   kidbox2: {
     marginLeft: pxToDp(16),
     marginTop: pxToDp(4),
+    marginBottom: pxToDp(4),
     marginRight: pxToDp(16),
-    borderBottomWidth: pxToDp(0.8),
-    borderColor: '#ddd',
     height: pxToDp(40),
     alignItems: 'center',
     justifyContent: 'space-between',
-    flexDirection: 'row'
+    flexDirection: 'row',
   }
 });
 export default Index;

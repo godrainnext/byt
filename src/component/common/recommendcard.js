@@ -217,8 +217,7 @@ class index extends Component {
         <View
           style={{
             flex: 1,
-            backgroundColor: 'transparent',
-            borderRadius: 24,
+            borderRadius: pxToDp(16),
             padding: 10,
             marginTop: pxToDp(80)
           }}
@@ -245,7 +244,7 @@ class index extends Component {
                   borderColor: 'white',
                   borderWidth: pxToDp(1),
                   height: pxToDp(70),
-                  marginRight: pxToDp(46)
+                  marginRight: pxToDp(46),
                 }}
               ></View>
             </View>
@@ -259,7 +258,7 @@ class index extends Component {
                         <TouchableOpacity
                           style={{
                             justifyContent: 'center',
-                            alignItems: 'center'
+                            alignItems: 'center',
                           }}
                           onPress={() => {
                             toggleModalProps()
@@ -268,9 +267,10 @@ class index extends Component {
                         >
                           <Image
                             style={{
-                              width: '96%',
+                              width: pxToDp(270),
+                              marginTop: pxToDp(-15),
                               height: pxToDp(160),
-                              borderRadius: pxToDp(24)
+                              borderRadius: pxToDp(16)
                             }}
                             source={{ uri: cards[currentIndex].uri }}
                           ></Image>
@@ -278,15 +278,13 @@ class index extends Component {
                           {/* 标题名 */}
                           <View
                             style={{
-                              width: 200,
-                              height: 58,
-                              justifyContent: 'center',
-                              alignItems: 'center'
+                              width: pxToDp(200),
+                              marginTop:pxToDp(15)
                             }}
                           >
                             <Text
                               style={{
-                                fontSize: 28,
+                                fontSize: pxToDp(18),
                                 fontWeight: 'bold',
                                 textAlign: 'center'
                               }}
@@ -297,26 +295,12 @@ class index extends Component {
                           {/* 主题内容 */}
                           <View
                             style={{
-                              width: 300,
-                              height: 50,
-                              justifyContent: 'center',
-                              alignItems: 'center'
+                              width: pxToDp(300),
+                              marginTop:pxToDp(15)
                             }}
                           >
-                            <Text style={{ fontSize: 16, textAlign: 'center' }}>
+                            <Text style={{ fontSize: pxToDp(16), textAlign: 'center' }}>
                               {cards[currentIndex].context}
-                            </Text>
-                          </View>
-                          {/* 分割线 */}
-                          <View>
-                            <Text
-                              style={{
-                                textAlign: 'center',
-                                color: '#F0bb51',
-                                fontWeight: 'bold'
-                              }}
-                            >
-                              _________________
                             </Text>
                           </View>
                         </TouchableOpacity>
@@ -352,13 +336,13 @@ const styles = StyleSheet.create({
   },
   card: {
     // flex: 1,
-    borderRadius: 16,
-    borderWidth: 2,
+    borderRadius: pxToDp(16),
+    borderWidth: 0,
     borderColor: '#E8E8E8',
     justifyContent: 'center',
     backgroundColor: 'white',
-    height: pxToDp(320),
-    width: pxToDp(320),
+    height: pxToDp(310),
+    width: pxToDp(310),
     right: pxToDp(24),
     elevation: 10,
     shadowColor: 'black',

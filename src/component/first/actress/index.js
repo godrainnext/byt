@@ -45,7 +45,7 @@ export default class index extends PureComponent {
         >
           <View style={{ margin: pxToDp(10) }}>
             <View style={{ marginTop: pxToDp(75) }}></View>
-            <ScrollView horizontal={true} style={{ marginTop: pxToDp(45) }}>
+            <ScrollView showsHorizontalScrollIndicator = {false} horizontal={true} style={{ marginTop: pxToDp(45) }}>
               {this.state.roleList.map((item) => (
                 <TouchableOpacity
                   onPress={() => this.context.navigate('Actress', item)}
