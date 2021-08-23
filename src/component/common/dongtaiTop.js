@@ -133,11 +133,12 @@ const styles = StyleSheet.create({
   icon1: {
     width: pxToDp(45),
     height: '100%',
-    left: 5,
+    left: pxToDp(16),
     justifyContent: 'center'
   },
   icon2: {
     width: pxToDp(40),
+    right: pxToDp(16),
     height: '100%',
     justifyContent: 'center'
   },

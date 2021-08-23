@@ -157,16 +157,15 @@ class Index extends PureComponent {
         <ScrollView
           showsVerticalScrollIndicator={false}
           style={{
-            margin: pxToDp(8),
-            marginBottom: pxToDp(48),
-            backgroundColor: '#f6fbfe',
-            borderTopRightRadius: pxToDp(16),
-            borderTopLeftRadius: pxToDp(16)
+            padding:pxToDp(16),
+            paddingBottom:0,
           }}
         >
           <View
             style={{
-              backgroundColor: '#fff',
+              backgroundColor: 'white',
+              width:'100%',
+              alignSelf:'center',
               paddingBottom: pxToDp(20),
               borderRadius: pxToDp(16),
               elevation: 8,
@@ -201,19 +200,19 @@ class Index extends PureComponent {
                 }}
               >
                 {/* 昵称 */}
-                <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold' }}>
+                <Text style={{ fontSize: pxToDp(18), color:'#000000',fontWeight: 'bold' }}>
                   {user?.nickName}
                 </Text>
                 {/* 发布时间 */}
-                <Text style={{ color: 'gray' }}>{createTime}</Text>
+                <Text style={{ color: '#333333',fontSize:pxToDp(16) }}>{createTime}</Text>
               </View>
               {/* 关注 */}
-              <View style={{ marginTop: pxToDp(16), marginRight: pxToDp(8) }}>
+              <View>
                 <FollowButton userId={this.props.route.params.uid} />
               </View>
             </View>
             <View style={{ margin: pxToDp(8) }}>
-              <Text style={{ fontSize: pxToDp(18) }}>{content}</Text>
+              <Text style={{ fontSize: pxToDp(18),color:'#333333' }}>{content}</Text>
             </View>
             {label ? this.showMusic() : this.showArticle()}
           </View>
@@ -223,13 +222,15 @@ class Index extends PureComponent {
               marginTop: pxToDp(16)
             }}
           >
-            <Text style={{ fontSize: pxToDp(18), margin: pxToDp(8) }}>
+            <Text style={{ fontSize: pxToDp(18),color:'#000000',margin: pxToDp(8) }}>
               评论
             </Text>
+            <View style={{marginBottom:pxToDp(80)}}>
             <Comments
               inputRef={this.inputRef}
               comments={comments ? comments : []}
             />
+            </View>
           </View>
         </ScrollView>
         <View
@@ -247,7 +248,7 @@ class Index extends PureComponent {
             placeholder="发一条友善的评论"
             style={{
               height: '80%',
-              backgroundColor: '#ddd',
+              backgroundColor: '#fcfcfc',
               width: '75%',
               marginLeft: pxToDp(20),
               borderRadius: pxToDp(24),

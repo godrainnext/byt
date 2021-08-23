@@ -1,14 +1,17 @@
 import React, { PureComponent } from 'react';
-import { Platform,ImageBackground, ScrollView, Text, TouchableOpacity, View, PermissionsAndroid, Image, Dimensions, StyleSheet } from 'react-native';
+import { Platform, ImageBackground, ScrollView, Text, TouchableOpacity, View, PermissionsAndroid, Image, Dimensions, StyleSheet } from 'react-native';
 import { Input } from 'react-native-elements';
-import RtcEngine, { RtcLocalView, RtcRemoteView, VideoRenderMode, ChannelProfile, ClientRole, } from 'react-native-agora'
+import RtcEngine, { ChannelProfile, ClientRole, } from 'react-native-agora'
 import { WebView } from 'react-native-webview';
 import { MarqueeHorizontal, MarqueeVertical } from 'react-native-marquee-ab';
 import { pxToDp } from '@utils/styleKits';
 import LottieView from 'lottie-react-native';
 import { NavigationContext } from '@react-navigation/native';
-import axios from 'axios';
+import Swiper from 'react-native-swiper';
 import Top from '@components/common/top';
+import { playmusic } from '../../../../component/common/iconSvg';
+import SvgUri from 'react-native-svg-uri';
+import VideoPlayScreen from '../../../../component/videoplayer/VideoPlayScreen';
 
 const dimensions = {
     width: Dimensions.get('window').width,
@@ -49,21 +52,6 @@ const HTML = `
 </html>
 
 `;
-// interface Props { }
-
-/**
- * @property peerIds Array for storing connected peers
- * @property appId
- * @property channelName Channel Name for the current session
- * @property joinSucceed State variable for storing success
- */
-// interface State {
-//   appId: string;
-//   token: string;
-//   channelName: string;
-//   joinSucceed: boolean;
-//   peerIds: number[];
-// }
 export default class App extends PureComponent {
     //   _engine?: RtcEngine;
     static contextType = NavigationContext;
@@ -76,14 +64,51 @@ export default class App extends PureComponent {
             appId: '29792ec3eded410facd609fb7ad76fef',
             // token: '00629792ec3eded410facd609fb7ad76fefIAAbKUcPA8ZKD6c3OvRQ3dLsbHqp9OSHU+zfE7bUrcatNkgDg6MAAAAAEACcjToMxfsZYQEAAQDE+xlh',
             // channelName: 'ABC',
+            video:'https://vd2.bdstatic.com/mda-mhbca33iv088wenq/sc/cae_h264_clips/1628759838989718911/mda-mhbca33iv088wenq.mp4?auth_key=1629005864-0-0-3f7612077d2e27b51901b7db690fd9ce&bcevod_channel=searchbox_feed&pd=1&pt=3&abtest=',
+
             channelName: '',
             joinSucceed: false,//默认进入直播
             peerIds: [],
             roomName: '',
             roomImg: '',
             arr: [],
-
-
+            showSong:true,
+            data1: [
+                { id: '1', title: '梁祝 十八相送', autor: '吴凤花 单仰萍' },
+                { id: '2', title: '何文秀 哭牌算命', autor: '王君安 李敏' },
+                { id: '3', title: '沉香扇', autor: '丁赛君 王文娟' },
+                { id: '4', title: '春香传', autor: ' 王文娟 徐玉兰' },
+                { id: '5', title: '孔雀东南飞', autor: '陈颖 吴凤花' },
+                { id: '6', title: '打金枝', autor: '吴凤花 吴素英' },
+                { id: '7', title: '宋弘传奇 和诗', autor: '王君安' },
+                { id: '8', title: '杜十娘 沉宝', autor: '陈飞 吴凤花' },
+                { id: '9', title: '吴王悲歌 刺王', autor: '吴凤花 董鉴鸿' },
+                { id: '10', title: '双烈记 夸夫', autor: '吴凤花 方亚芬' },
+            ],
+            data2: [
+                { id: '1', title: '梁祝 楼台会', autor: '章瑞虹 方亚芬' },
+                { id: '2', title: '何文秀 算命', autor: '赵志刚 方亚芬' },
+                { id: '3', title: '祥林嫂 洞房', autor: '方亚芬 许杰' },
+                { id: '4', title: '白蛇传 合钵', autor: '戚雅仙 毕春芳' },
+                { id: '5', title: '沉香扇 书房会', autor: '毕春芳 王文娟' },
+                { id: '6', title: '玉蜻蜓 认子', autor: '戚雅仙 毕春芳' },
+                { id: '7', title: '盘夫索夫', autor: '陆锦花 金采风' },
+                { id: '8', title: '红楼梦 调包计', autor: '金采风 周宝奎' },
+                { id: '9', title: '劈山救母', autor: '连玉澜 张国华' },
+                { id: '10', title: '红花曲', autor: '金采风' },
+            ],
+            data3: [
+                { id: '1', title: '宝莲灯 对月思家', autor: '吴凤花' },
+                { id: '2', title: '孔雀东南飞 殉情', autor: '傅全香 范瑞娟' },
+                { id: '3', title: '一缕麻', autor: '徐铭' },
+                { id: '4', title: '红楼梦 试玉', autor: '郑国凤 盛舒扬' },
+                { id: '5', title: '李娃传 剔目', autor: '盛舒扬 王舒雯' },
+                { id: '6', title: '千里送京娘', autor: '盛舒扬 王柔桑' },
+                { id: '7', title: '十八相送', autor: '钱惠丽 单仰萍' },
+                { id: '8', title: '紫玉钗 洞房', autor: '钱惠丽 单仰萍' },
+                { id: '9', title: '家 幻觉', autor: '赵志刚 孙智君' },
+                { id: '10', title: '春香传 心歌', autor: '王文娟' },
+            ],
         };
         if (Platform.OS === 'android') {
             // Request required permissions from Android
@@ -226,6 +251,68 @@ export default class App extends PureComponent {
         )
     }
 
+
+    //渲染歌单页面
+    renderSong = () => {
+        const { showSong } = this.state;
+        return <Swiper
+            removeClippedSubviews={false}
+            showsButtons={false}
+            showsPagination={true}
+            loop={false}
+            autoplay={false}
+            paginationStyle={{ bottom: pxToDp(-15) }} //dot的位置
+        >
+            <View>
+                <ScrollView showsVerticalScrollIndicator={false}>
+                    {this.state.data1.map((item) => (
+                        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: pxToDp(10), alignItems: 'center' }}>
+                            <View>
+                                <Text style={{ fontSize: pxToDp(16), fontWeight: 'bold', color: '#333333' }}>{item.title}</Text>
+                                <Text style={{ fontSize: pxToDp(14), color: '#999999' }}>{item.autor}</Text>
+                            </View>
+                            <TouchableOpacity onPress={()=>this.setState({showSong:false})}>
+                                <SvgUri svgXmlData={playmusic} width="30" height="30" />
+                            </TouchableOpacity>
+                        </View>))}
+                </ScrollView>
+            </View>
+            <View>
+                <ScrollView>
+                    {this.state.data2.map((item) => (
+                        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: pxToDp(10), alignItems: 'center' }}>
+                            <View>
+                                <Text style={{ fontSize: pxToDp(16), fontWeight: 'bold', color: '#333333' }}>{item.title}</Text>
+                                <Text style={{ fontSize: pxToDp(14), color: '#999999' }}>{item.autor}</Text>
+                            </View>
+                            <TouchableOpacity>
+                                <SvgUri svgXmlData={playmusic} width="30" height="30" />
+                            </TouchableOpacity>
+                        </View>))}
+                </ScrollView>
+            </View>
+            <View>
+                <ScrollView>
+                    {this.state.data3.map((item) => (
+                        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: pxToDp(10), alignItems: 'center' }}>
+                            <View>
+                                <Text style={{ fontSize: pxToDp(16), fontWeight: 'bold', color: '#333333' }}>{item.title}</Text>
+                                <Text style={{ fontSize: pxToDp(14), color: '#999999' }}>{item.autor}</Text>
+                            </View>
+                            <TouchableOpacity>
+                                <SvgUri svgXmlData={playmusic} width="30" height="30" />
+                            </TouchableOpacity>
+                        </View>))}
+                </ScrollView>
+            </View>
+        </Swiper>
+    }
+    //渲染视频页面
+    renderVideo = () => {
+       return ( <View style={{height:'100%',width:'100%',alignSelf:'center'}}>
+        <VideoPlayScreen videoInfo={{video:this.state.video}} />
+    </View>)
+    }
     render() {
         const { roomName, channelName, roomImg, joinSucceed } = this.state;
         return (
@@ -241,105 +328,21 @@ export default class App extends PureComponent {
         console.log(peerIds);
         return (
             <ImageBackground style={{ width: '100%', height: '100%' }} source={{ uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic.vjshi.com%2F2015-07-03%2F1435906279772_102%2F00002.jpg%3Fx-oss-process%3Dstyle%2Fwatermark&refer=http%3A%2F%2Fpic.vjshi.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631528779&t=9aa6e3fc4a10ebf05c0ad6f581c2c98e' }}>
-
                 <View style={styles.fullView}>
-                    {/* <View style={{ flex:1}}>
-                    {peerIds.map((value) => {
-                        return (
-                            <RtcRemoteView.SurfaceView
-                                style={styles.remote}
-                                uid={value}
-                                channelId={this.state.channelName}
-                                renderMode={VideoRenderMode.Hidden}
-                                zOrderMediaOverlay={true}
-                            />
-                        );
-                    })}
-                </View> */}
-
-                    {/* <RtcLocalView.SurfaceView
-                    style={styles.max}
-                    // channelId={this.props.route.params.channelName}
-                    channelId={this.props.route.params.channelName}
-                    renderMode={VideoRenderMode.Hidden}
-                /> */}
                     {this._renderRemoteVideos()}
                 </View>
             </ImageBackground>
         );
     };
-
     _renderRemoteVideos = () => {
-        const { peerIds } = this.state;
+        const { peerIds, showSong } = this.state;
         return (
             <View
                 style={styles.remoteContainer}
-            // contentContainerStyle={{ paddingHorizontal: 2.5 }}
-            // horizontal={true}
             >
                 <Top title='小剧场' icon1="arrow-back" />
-
-                {/* 
-                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                    <View style={{ backgroundColor: 'rgba(0,0,0,0.4)', height: pxToDp(50), width: pxToDp(190), flexDirection: 'row', justifyContent: 'center', alignItems: 'center', borderRadius: pxToDp(24), padding: pxToDp(4) }}>
-                        <View style={{ marginRight: pxToDp(8) }}>
-                            <Image style={{ width: pxToDp(45), height: pxToDp(45), backgroundColor: 'gray', borderRadius: pxToDp(30) }} source={{ uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fa4.att.hudong.com%2F40%2F67%2F01300000375382124123679222720.jpg&refer=http%3A%2F%2Fa4.att.hudong.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1630999562&t=6c0560e4b4201a4592ec342b0fa58f50' }}></Image>
-                        </View>
-                        <View>
-                            <MarqueeHorizontal
-                                textList={[
-                                    { label: '1', value: this.props.route.params.roomName },
-                                    { label: '2', value: this.props.route.params.roomName },
-                                    { label: '3', value: this.props.route.params.roomName },
-                                ]}
-                                speed={20}
-                                width={80}
-                                height={30}
-                                direction={'left'}
-                                reverse={false}
-                                bgContainerStyle={{ backgroundColor: 'transparent' }}
-                                textStyle={{ fontSize: 16, color: 'white' }}
-                                onTextClick={(item) => {
-                                    alert('' + JSON.stringify(item));
-                                }}
-                            />
-                            <Text style={{ color: 'white', fontSize: 16 }}>猪倌不养猪</Text>
-                        </View>
-                        <TouchableOpacity style={{ borderRadius: pxToDp(30), backgroundColor: 'orange', marginLeft: pxToDp(8), justifyContent: 'center', alignItems: 'center', height: pxToDp(26) }}>
-                            <View style={{ padding: pxToDp(2), width: pxToDp(40), justifyContent: 'center', alignItems: 'center' }}>
-                                <Text style={{ color: 'white', fontSize: 12 }}>关注</Text>
-                            </View>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginLeft: pxToDp(16) }} >
-                        <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginRight: pxToDp(8) }}>
-                            <LottieView style={{ width: pxToDp(70), marginLeft: pxToDp(16) }} source={require('../../../../lottie/16773-fire.json')} autoPlay loop />
-                            <Text>40热度</Text>
-                        </View>
-                        <TouchableOpacity onPress={this.closeCall} style={{ backgroundColor: 'rgba(0,0,0,0.4)', height: pxToDp(24), width: pxToDp(24), flexDirection: 'row', justifyContent: 'center', alignItems: 'center', borderRadius: pxToDp(24), padding: pxToDp(4) }}>
-                            <View style={{ height: pxToDp(20), width: pxToDp(20), justifyContent: 'center', alignItems: 'center' }}>
-                                <Text style={{ color: 'white', fontSize: 16, fontWeight: 'bold' }}>X</Text>
-                            </View>
-                        </TouchableOpacity>
-                    </View>
-                </View> */}
-                {/* <WebView
-                    style={{ width: pxToDp(350), height: pxToDp(400), backgroundColor: 'transparent', marginTop: pxToDp(320) }}
-                    // source={{ html: HTML }}
-                    source={{ uri: "file:///android_asset/static.bundle/index.html" }}
-                    originWhitelist={['*']}
-                    // source={{ html:this.props.html,baseUrl:'file:///android_asset/web/'}}
-                    // source={{ html:this.props.html,baseUrl:'http://127.0.0.1:5500/src/page/test/index.html'}}
-                    javaScriptEnabled={true}//是否开启js
-                    domStorageEnabled={true}//是否开启存储
-                    scalesPageToFit={false}//用户是否可以改变页面
-                    scrollEnabled={false}
-                    // injectedJavaScript={`	`}
-                    onMessage={event => { '接收h5页面传过来的消息' }}
-                /> */}
-
                 <View style={{ height: pxToDp(412), }}>
-                    <WebView
+                    {/* <WebView
                         style={{ width: '100%', height: pxToDp(320), backgroundColor: 'transparent', }}
                         // source={{ html: HTML }}
                         source={{ uri: "file:///android_asset/static.bundle/music.html" }}
@@ -352,13 +355,13 @@ export default class App extends PureComponent {
                         scrollEnabled={false}
                         // injectedJavaScript={`	`}
                         onMessage={event => { '接收h5页面传过来的消息' }}
-                    />
-                    <View style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center' }}>
+                    /> */}
+                    <View style={{ height: pxToDp(280), padding: pxToDp(16),backgroundColor:'white',borderRadius:pxToDp(16) }}>
+                        {showSong ? this.renderSong() : this.renderVideo()}
+                    </View>
+                    <View style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center',marginTop:pxToDp(10) }}>
                         <View style={{ justifyContent: 'center', alignItems: 'center' }}>
                             <Image style={{ width: pxToDp(65), height: pxToDp(65), borderRadius: pxToDp(24) }} source={{ uri: 'https://pics2.baidu.com/feed/bd315c6034a85edf1a928e0e0da87425dc547587.jpeg?token=119b3f2abe0889ed0753ea8c3e8b288d' }}></Image>
-                            {/* <PulseLoader
-                avatar={'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fn.sinaimg.cn%2Fsinacn20109%2F760%2Fw400h360%2F20191211%2Fa8b3-iknhexi8274828.jpg&refer=http%3A%2F%2Fn.sinaimg.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631579838&t=ee8f687abcaebebad05066b5a419cc3e'}
-              /> */}
                             <Text style={{ fontSize: pxToDp(16) }}>野原新之助</Text>
                         </View>
                         <TouchableOpacity style={{ width: pxToDp(80), height: pxToDp(40), borderRadius: pxToDp(32), backgroundColor: '#468cd3', justifyContent: 'center', alignItems: 'center' }}>
@@ -367,9 +370,6 @@ export default class App extends PureComponent {
                             </Text>
                         </TouchableOpacity>
                         <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-                            {/* <PulseLoader
-                avatar={'https://img0.baidu.com/it/u=4203889072,870375471&fm=26&fmt=auto&gp=0.jpg'}
-              /> */}
                             <Image style={{ width: pxToDp(65), height: pxToDp(65), borderRadius: pxToDp(24) }} source={{ uri: 'https://img0.baidu.com/it/u=4203889072,870375471&fm=26&fmt=auto&gp=0.jpg' }}></Image>
                             <Text style={{ fontSize: pxToDp(16) }}>蜡笔小新</Text>
                         </View>

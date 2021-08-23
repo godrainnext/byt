@@ -3,13 +3,10 @@ import {
   View,
   Text,
   Image,
-  TextInput,
   StyleSheet,
   ScrollView,
   TouchableOpacity,
   ImageBackground,
-  Modal,
-  DeviceEventEmitter,
   Dimensions
 } from 'react-native';
 import { pxToDp } from '@utils/styleKits';
@@ -17,8 +14,6 @@ import Tiebar from './luntan';
 import { NavigationContext } from '@react-navigation/native';
 import { getMomentListByStatus } from '@service/moment';
 import Addmoment from './addMoment';
-import SvgUri from 'react-native-svg-uri';
-import { daohang } from '../../../../component/common/iconSvg';
 import EZSwiper from 'react-native-ezswiper';
 const images = [
   {
@@ -160,7 +155,7 @@ class Index extends PureComponent {
             <Text
               style={{
                 fontSize: pxToDp(18),
-                color: '#468CD3',
+                color: '#000000',
                 fontWeight: 'bold',
                 marginTop: pxToDp(8),
                 marginLeft: pxToDp(8)
@@ -198,7 +193,7 @@ class Index extends PureComponent {
                       }}
                       imageStyle={{ borderRadius: pxToDp(8) }}
                     >
-                      <Text style={{ fontSize: pxToDp(20), color: 'black' }}>
+                      <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>
                         {item.text}
                       </Text>
                     </ImageBackground>

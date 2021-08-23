@@ -3,17 +3,12 @@ import {
   View,
   Text,
   Image,
-  StyleSheet,
   ScrollView,
   TouchableOpacity,
   Dimensions,
   TextInput,
-  KeyboardAvoidingView,
-  TouchableWithoutFeedback,
-  Keyboard
 } from 'react-native';
 import { pxToDp } from '@utils/styleKits';
-import { NavigationContext } from '@react-navigation/native';
 import SvgUri from 'react-native-svg-uri';
 import {
   dianzan,
@@ -23,6 +18,7 @@ import {
 } from '../../../../component/common/iconSvg';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import { getCommentInnerById } from '@service/moment';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import request from '@service/index';
 class Index extends PureComponent {
   state = {
@@ -73,18 +69,18 @@ class Index extends PureComponent {
       <View>
         {newComments.length ? (
           newComments.map((item) => (
-            <View key={item.id} style={{ backgroundColor: '#f6fbfe' }}>
+            <View key={item.id}>
               <View style={{ flexDirection: 'row' }}>
                 <Image
                   source={{ uri: item.user.avatarUrl }}
                   style={{
-                    width: pxToDp(50),
-                    height: pxToDp(50),
-                    margin: pxToDp(15),
-                    borderRadius: pxToDp(40)
+                    width: pxToDp(40),
+                    height: pxToDp(40),
+                    margin: pxToDp(8),
+                    borderRadius: pxToDp(20)
                   }}
                 />
-                <Text style={{ marginTop: pxToDp(20) }}>
+                <Text style={{ marginTop: pxToDp(16), fontSize: pxToDp(14), color: '#333333', fontWeight: 'bold' }}>
                   {item.user.nickName}
                 </Text>
                 <TouchableOpacity
@@ -96,12 +92,12 @@ class Index extends PureComponent {
                   <SvgUri svgXmlData={sandian} width="20" height="20" />
                 </TouchableOpacity>
               </View>
-              <View style={{ marginLeft: 80 }}>
+              <View style={{ marginLeft: pxToDp(60) }}>
                 <Text
                   style={{
-                    marginBottom: pxToDp(10),
-                    bottom: pxToDp(20),
-                    fontSize: pxToDp(16),
+                    bottom: pxToDp(15),
+                    fontSize: pxToDp(14),
+                    color: '#333333',
                     width: '90%'
                   }}
                 >
@@ -110,9 +106,9 @@ class Index extends PureComponent {
                 <Text
                   style={{
                     marginBottom: pxToDp(10),
-                    color: 'gray',
-                    fontSize: pxToDp(13),
-                    marginTop: pxToDp(-15)
+                    color: '#666666',
+                    fontSize: pxToDp(14),
+                    marginTop: pxToDp(-10)
                   }}
                 >
                   {item.createTime}
@@ -122,7 +118,7 @@ class Index extends PureComponent {
                     flexDirection: 'row',
                     position: 'absolute',
                     right: 20,
-                    bottom: 10
+                    bottom: 15
                   }}
                 >
                   <TouchableOpacity>
@@ -139,88 +135,28 @@ class Index extends PureComponent {
                 </View>
               </View>
               {item.reply.content ? (
-                <View style={{ backgroundColor: '#f6fbfe' }}>
-                  <View
-                    style={{ flexDirection: 'row', marginLeft: pxToDp(35) }}
-                  >
-                    <Image
-                      source={{ uri: item.reply.avatar }}
-                      style={{
-                        width: pxToDp(40),
-                        height: pxToDp(40),
-                        margin: pxToDp(15),
-                        borderRadius: pxToDp(40)
-                      }}
-                    />
-                    <Text style={{ marginTop: pxToDp(20) }}>
-                      {item.reply.nickName}
+                <View style={{ marginLeft: pxToDp(60), marginTop: pxToDp(-8) }}>
+                  <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    <Text style={{ marginTop: pxToDp(15), fontSize: pxToDp(14), color: '#333333', fontWeight: 'bold' }}>
+                      {item.reply.nickName}:
                     </Text>
-                  </View>
-                  <View style={{ marginLeft: 100 }}>
-                    <View style={{ flexDirection: 'row' }}>
-                      <Text
-                        style={{
-                          bottom: pxToDp(10),
-                          fontSize: pxToDp(16)
-                        }}
-                      >
-                        回复{item.user.nickName}:
-                      </Text>
-                      <Text
-                        style={{
-                          bottom: pxToDp(10),
-                          fontSize: pxToDp(16),
-                          width: '90%'
-                        }}
-                      >
-                        {item.reply.content}
-                      </Text>
-                    </View>
-
-                    <View
-                      style={{
-                        flexDirection: 'row',
-                        marginBottom: pxToDp(25)
-                      }}
-                    >
-                      <SvgUri
-                        svgXmlData={dianzan}
-                        width="15"
-                        height="15"
-                        style={{ marginRight: 20 }}
-                      />
-                      <TouchableOpacity
-                        onPress={() => this.showRBsheet(item.id)}
-                      >
-                        <SvgUri svgXmlData={pinglun} width="15" height="15" />
-                      </TouchableOpacity>
-                    </View>
-
                     <Text
                       style={{
-                        marginBottom: pxToDp(10),
-                        color: 'gray',
-                        fontSize: pxToDp(13),
-                        marginTop: pxToDp(-15)
-                      }}
-                    >
-                      {item.reply.createAt}
+                        fontSize: pxToDp(14),
+                        marginTop: pxToDp(15),
+                        color: '#333333',
+                        width: '90%'
+                      }}>
+                      {item.reply.content}
                     </Text>
+                  </View>
+                  <View style={{ marginTop: pxToDp(10) }}>
                     <TouchableOpacity onPress={() => this.showRBsheet(item.id)}>
-                      <View style={{ flexDirection: 'row' }}>
-                        <Text style={{ fontSize: 12, color: 'gray' }}>
+                      <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                        <Text style={{ fontSize: pxToDp(12), color: '#666666' }}>
                           全部回复
                         </Text>
-                        <SvgUri
-                          svgXmlData={allcomment}
-                          width="12"
-                          height="12"
-                          style={{
-                            marginBottom: 5,
-                            paddingLeft: 10,
-                            paddingTop: 3
-                          }}
-                        />
+                        <Ionicons name="chevron-forward" size={16} color="#666666" />
                       </View>
                     </TouchableOpacity>
                   </View>
@@ -250,11 +186,11 @@ class Index extends PureComponent {
                             style={{
                               width: pxToDp(40),
                               height: pxToDp(40),
-                              margin: pxToDp(15),
-                              borderRadius: pxToDp(40)
+                              margin: pxToDp(8),
+                              borderRadius: pxToDp(20)
                             }}
                           />
-                          <Text style={{ marginTop: pxToDp(20) }}>
+                          <Text style={{ marginTop: pxToDp(16), fontSize: pxToDp(14), color: '#333333', fontWeight: 'bold' }}>
                             {items.nickName}
                           </Text>
                         </View>
@@ -264,7 +200,8 @@ class Index extends PureComponent {
                               style={{
                                 marginBottom: pxToDp(10),
                                 bottom: pxToDp(20),
-                                fontSize: pxToDp(16)
+                                fontSize: pxToDp(14),
+                                color: '#333333'
                               }}
                             >
                               回复{item.user.nickName}:
@@ -273,43 +210,47 @@ class Index extends PureComponent {
                               style={{
                                 marginBottom: pxToDp(10),
                                 bottom: pxToDp(20),
-                                fontSize: pxToDp(16),
+                                fontSize: pxToDp(14),
+                                color: '#333333',
                                 width: '90%'
                               }}
                             >
                               {items.content}
                             </Text>
                           </View>
-                          <Text
-                            style={{
-                              marginBottom: pxToDp(10),
-                              color: 'gray',
-                              fontSize: pxToDp(13),
-                              marginTop: pxToDp(-15)
-                            }}
-                          >
-                            {items.createAt}
-                          </Text>
-                          <View
-                            style={{
-                              flexDirection: 'row',
-                              position: 'absolute',
-                              right: pxToDp(20),
-                              bottom: pxToDp(10),
-                              backgroundColor: '#fff'
-                            }}
-                          >
-                            <SvgUri
-                              svgXmlData={dianzan}
-                              width="20"
-                              height="20"
-                              style={{ marginRight: pxToDp(20) }}
-                            />
-                            <SvgUri
-                              svgXmlData={pinglun}
-                              width="20"
-                              height="20"
-                            />
+                          <View style={{marginTop:pxToDp(-10)}}>
+                            <Text
+                              style={{
+                                marginBottom: pxToDp(10),
+                                color: 'gray',
+                                fontSize: pxToDp(14),
+                                color: '#666666',
+                                marginTop: pxToDp(-15)
+                              }}
+                            >
+                              {items.createAt}
+                            </Text>
+                            <View
+                              style={{
+                                flexDirection: 'row',
+                                position: 'absolute',
+                                right: pxToDp(20),
+                                bottom:15,
+                                backgroundColor: '#fff'
+                              }}
+                            >
+                              <SvgUri
+                                svgXmlData={dianzan}
+                                width="20"
+                                height="20"
+                                style={{ marginRight: pxToDp(20) }}
+                              />
+                              <SvgUri
+                                svgXmlData={pinglun}
+                                width="20"
+                                height="20"
+                              />
+                            </View>
                           </View>
                         </View>
                       </View>
@@ -318,7 +259,7 @@ class Index extends PureComponent {
 
                   <View
                     style={{
-                      backgroundColor: '#e2f4fe',
+                      backgroundColor: 'white',
                       height: 40,
                       width: Dimensions.get('window').width,
                       alignItems: 'center',
