@@ -36,7 +36,7 @@ function Nav() {
         <Stack.Screen name="PageFour" component={Screens.PageFour} />
         {/* 俯瞰百年文章 */}
         <Stack.Screen name="Pagefive" component={Screens.Pagefive} />
-        {/*我的 */}
+        {/*我的 */}{/**已改字体大小和颜色 */}
         <Stack.Screen name="My" component={Screens.My} />
 
         {/*设置 */}
