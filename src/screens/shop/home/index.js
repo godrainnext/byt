@@ -78,7 +78,7 @@ class Index extends PureComponent {
               marginTop: pxToDp(-8)
             }}
           >
-            <Text style={{ color: '#468CD3', fontSize: pxToDp(18), fontWeight: 'bold', position: 'absolute' }}>
+            <Text style={{ color: '#000000', fontSize: pxToDp(18), fontWeight: 'bold', position: 'absolute' }}>
               长袖轻舞，越音袅袅
             </Text>
           </View>
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
   },
   title: {
     margin: pxToDp(8),
-    color: '#468CD3',
+    color: '#000000',
     fontSize: pxToDp(18),
     fontWeight: 'bold'
   },
