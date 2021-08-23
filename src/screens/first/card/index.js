@@ -18,10 +18,12 @@ class history extends Component {
   state = { HYlist: [] };
   componentDidMount() {
     getListByStatus(1, 0, 20).then((res) => {
+      console.log(res);
       this.setState({ HYlist: res });
     });
   }
   render() {
+    ;
     return (
       <View style={{ backgroundColor: '#ecf6fc',padding:pxToDp(16) }}>
         <Top icon1="arrow-back" />
@@ -50,7 +52,7 @@ class history extends Component {
                   <ImageBackground
                     style={{ width: '100%', height: pxToDp(220) }}
                     imageStyle={{ borderRadius: pxToDp(8) }}
-                    source={{ uri: changeImgSize(item.picurl) }}
+                    source={{ uri: item.picurl }}
                   >
                     <View
                       style={{
