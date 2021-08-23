@@ -29,7 +29,8 @@ class Index extends PureComponent {
         return (
             <View style={styles.view}>
                 <Top icon1="arrow-back" title="范派" />
-                <ScrollView style={styles.box}>
+                <ScrollView style={styles.box}
+                    showsVerticalScrollIndicator={false}>
                     {/*流派图片 */}
                     <Image style={styles.image1} source={{ uri: this.state.schoolstate.image1 }} />
                     {/*流派信息 */}
@@ -47,7 +48,7 @@ class Index extends PureComponent {
                     <Text style={styles.text1}>&emsp;&emsp;{this.state.schoolstate.art}</Text>
                     {/*流派专辑 */}
                     <TouchableOpacity style={styles.zhuanji} onPress={() => this.context.navigate('Album')}>
-                        <Image style={styles.image3} source={{ uri: this.state.schoolstate.image2}} />
+                        <Image style={styles.image3} source={{ uri: this.state.schoolstate.image2 }} />
                         <View style={{ width: pxToDp(220), justifyContent: 'center' }}>
                             <Text style={styles.zhuanjititle}>{this.state.schoolstate.title}</Text>
                             <Text style={styles.zhuanjitext} numberOfLines={1}>{this.state.schoolstate.ad}</Text>
@@ -65,12 +66,13 @@ const styles = StyleSheet.create({
         flex: 1
     },
     box: {
-        marginLeft: pxToDp(8),
-        marginRight: pxToDp(8),
-        marginBottom: pxToDp(8)
+        marginLeft: pxToDp(20),
+        marginRight: pxToDp(20),
+        marginBottom: pxToDp(8),
+
     },
     image1: {
-        width: pxToDp(355),
+        width: pxToDp(335),
         borderRadius: pxToDp(8),
         height: pxToDp(170)
     },
@@ -93,12 +95,16 @@ const styles = StyleSheet.create({
         marginTop: pxToDp(10)
     },
     text1: {
-        fontSize: pxToDp(17),
-        marginTop: pxToDp(10)
+        fontSize: pxToDp(14),
+        lineHeight: pxToDp(22),
+        marginTop: pxToDp(10),
+        color: '#666666'
     },
     text2: {
-        fontSize: pxToDp(17),
-        marginTop: pxToDp(15)
+        fontSize: pxToDp(14),
+        lineHeight: pxToDp(22),
+        marginTop: pxToDp(10),
+        color: '#666666'
     },
     zhuanji: {
         flexDirection: 'row',

@@ -15,7 +15,7 @@ class Index extends PureComponent {
             image2: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.tianya999.com%2Fuploads%2Fallimg%2F170420%2F2295-1F420101P1.jpg&refer=http%3A%2F%2Fwww.tianya999.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632117526&t=96d0a6189eac11989fbcece70bb97afc',
             history1: '徐玉兰，浙江新登人，杰出的越剧表演艺术家，国家级非物质文化遗产项目“越剧”代表性传承人。其表演富有激情，善于塑造人物形象，具有俊逸潇洒、神采夺人的艺术魅力。',
             history2: '1933年，为方便徐玉兰学戏，由其祖母出资，她的父亲徐官生和同学陆国英组织女子戏班“东安舞台”，徐玉兰遂入科班学艺，初学花旦，后习文武老生，文戏师傅是俞传海，武戏师傅是徽班文武老生袁世昌。她的开蒙戏是越剧《梅龙镇》，在剧中扮正德皇帝。',
-            history3:'1953年2月18日，赴旅顺、大连鞍钢等地慰问演出。4月24日，赴朝鲜前线慰问演出，演出剧目《梁祝》《西厢记》等，并参加中国人民志愿军停战谈判代表团政治部文工队，为中朝部队进行慰问演出并做“战俘”服务工作。12月，获朝鲜民主主义共和国三级国旗勋章和志愿军司令部授予的二等功。',
+            history3: '1953年2月18日，赴旅顺、大连鞍钢等地慰问演出。4月24日，赴朝鲜前线慰问演出，演出剧目《梁祝》《西厢记》等，并参加中国人民志愿军停战谈判代表团政治部文工队，为中朝部队进行慰问演出并做“战俘”服务工作。12月，获朝鲜民主主义共和国三级国旗勋章和志愿军司令部授予的二等功。',
             school1: '1941年8月29日（农历七月初七），与旦角演员赵瑞花合作演出剧目《天河记》《孟丽君》，这是她首次以小生身份亮相。12月19日，在上海老闸戏院挂牌头肩小生，与施银花搭档演出传统戏《盘夫索夫》，在剧中饰演曾荣。自此以后，她正式改演小生行当。',
             school2: '1946年1月，在天宫剧场，与筱丹桂合演《痴儿怨女》《大劈棺》《蝴蝶梦》《元元红》等剧目。8月，在国泰大戏院主演喜剧《是我错》，在剧中扮演知错肯改的赵文骏。《是我错》的上演标志着越剧小生行当中的流派“徐派”成型。',
             development1: '1952年7月25日，率玉兰剧团参军，成为中央军委总政治部文工团下属越剧队。10月，参加中央文化部举办的第一届全国戏曲观摩演出大会，在越剧《西厢记》中饰张生，获演员一等奖。年末，随越剧队前往南京、上海、杭州、宁波等地为部队演出。1954年1月，玉兰剧团全体人员转业回上海，编为华东戏曲研究院越剧实验剧团二团。2月17日至3月20日，赴福建前线慰问解放军。8月1日，根据朝鲜唱剧移植改编的越剧《春香传》首演于大众剧场，在剧中塑造了忠于爱情的古代朝鲜贵族子弟李梦龙。9月25日，参加华东戏曲观摩大会，凭借《春香传》获表演一等奖。同年，当选为上海市人民代表、上海妇联执行委员。',
@@ -29,7 +29,8 @@ class Index extends PureComponent {
         return (
             <View style={styles.view}>
                 <Top icon1="arrow-back" title="徐派" />
-                <ScrollView style={styles.box}>
+                <ScrollView style={styles.box}
+                    showsVerticalScrollIndicator={false}>
                     {/*流派图片 */}
                     <Image style={styles.image1} source={{ uri: this.state.schoolstate.image1 }} />
                     {/*流派信息 */}
@@ -47,7 +48,7 @@ class Index extends PureComponent {
                     <Text style={styles.text1}>&emsp;&emsp;{this.state.schoolstate.art}</Text>
                     {/*流派专辑 */}
                     <TouchableOpacity style={styles.zhuanji} onPress={() => this.context.navigate('Album')}>
-                        <Image style={styles.image3} source={{ uri: this.state.schoolstate.image2}} />
+                        <Image style={styles.image3} source={{ uri: this.state.schoolstate.image2 }} />
                         <View style={{ width: pxToDp(220), justifyContent: 'center' }}>
                             <Text style={styles.zhuanjititle}>{this.state.schoolstate.title}</Text>
                             <Text style={styles.zhuanjitext} numberOfLines={1}>{this.state.schoolstate.ad}</Text>
@@ -65,12 +66,13 @@ const styles = StyleSheet.create({
         flex: 1
     },
     box: {
-        marginLeft: pxToDp(8),
-        marginRight: pxToDp(8),
-        marginBottom: pxToDp(8)
+        marginLeft: pxToDp(20),
+        marginRight: pxToDp(20),
+        marginBottom: pxToDp(8),
+
     },
     image1: {
-        width: pxToDp(355),
+        width: pxToDp(335),
         borderRadius: pxToDp(8),
         height: pxToDp(170)
     },
@@ -93,12 +95,16 @@ const styles = StyleSheet.create({
         marginTop: pxToDp(10)
     },
     text1: {
-        fontSize: pxToDp(17),
-        marginTop: pxToDp(10)
+        fontSize: pxToDp(14),
+        lineHeight: pxToDp(22),
+        marginTop: pxToDp(10),
+        color: '#666666'
     },
     text2: {
-        fontSize: pxToDp(17),
-        marginTop: pxToDp(15)
+        fontSize: pxToDp(14),
+        lineHeight: pxToDp(22),
+        marginTop: pxToDp(10),
+        color: '#666666'
     },
     zhuanji: {
         flexDirection: 'row',

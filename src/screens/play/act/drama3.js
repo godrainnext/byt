@@ -31,10 +31,12 @@ class Index extends PureComponent {
             <View style={{ backgroundColor: '#E2F4FE' }}>
                 <Top icon1="arrow-back" title="梁山伯与祝英台" />
                 <ScrollView
-                    style={{
-                        marginLeft: pxToDp(8),
-                        marginRight: pxToDp(8),
-                    }}
+                     showsVerticalScrollIndicator={false}
+                     style={{
+                     
+                       marginLeft: pxToDp(20),
+                       marginRight: pxToDp(20),
+                     }}
                 >
                     <Image
                         style={{ height: pxToDp(178), borderRadius: pxToDp(8), width: '100%' }}
@@ -54,19 +56,19 @@ class Index extends PureComponent {
                         <Text style={{ fontSize: pxToDp(16), fontWeight: 'bold', marginBottom: pxToDp(10) }}>
                             剧情简介
                         </Text>
-                        <Text style={{ fontSize: pxToDp(14), lineHeight:pxToDp(22),marginBottom: pxToDp(20) }}>
+                        <Text style={{ fontSize: pxToDp(14), marginBottom: pxToDp(20),lineHeight:pxToDp(22),color:'#333333'}}>
                             &emsp;&emsp;{this.state.dramalist.int1}
                         </Text>
-                        <Text style={{ fontSize: pxToDp(14), lineHeight:pxToDp(22),marginBottom: pxToDp(20) }}>
+                        <Text style={{ fontSize: pxToDp(14), marginBottom: pxToDp(20),lineHeight:pxToDp(22),color:'#333333'}}>
                             &emsp;&emsp;{this.state.dramalist.int2}
                         </Text>
-                        <Text style={{ fontSize: pxToDp(14), lineHeight:pxToDp(22),marginBottom: pxToDp(20) }}>
+                        <Text style={{ fontSize: pxToDp(14), marginBottom: pxToDp(20),lineHeight:pxToDp(22),color:'#333333'}}>
                             &emsp;&emsp;{this.state.dramalist.int3}
                         </Text>
-                        <Text style={{ fontSize: pxToDp(14), lineHeight:pxToDp(22),marginBottom: pxToDp(20) }}>
+                        <Text style={{ fontSize: pxToDp(14), marginBottom: pxToDp(20),lineHeight:pxToDp(22),color:'#333333'}}>
                             &emsp;&emsp;{this.state.dramalist.int4}
                         </Text>
-                        <Text style={{ fontSize: pxToDp(14), lineHeight:pxToDp(22),marginBottom: pxToDp(20) }}>
+                        <Text style={{ fontSize: pxToDp(14), marginBottom: pxToDp(20),lineHeight:pxToDp(22),color:'#333333'}}>
                             &emsp;&emsp;{this.state.dramalist.int5}
                         </Text>
                     </View>
@@ -74,16 +76,16 @@ class Index extends PureComponent {
                         <Text style={{ fontSize: pxToDp(16), fontWeight: 'bold', marginBottom: pxToDp(20) }}>
                             演出历史
                         </Text>
-                        <Text style={{ fontSize: pxToDp(14), lineHeight:pxToDp(22),marginBottom: pxToDp(20) }}>
+                        <Text style={{ fontSize: pxToDp(14), marginBottom: pxToDp(20),lineHeight:pxToDp(22),color:'#333333'}}>
                             &emsp;&emsp;{this.state.dramalist.text1}
                         </Text>
-                        <Text style={{ fontSize: pxToDp(14), lineHeight:pxToDp(22),marginBottom: pxToDp(20) }}>
+                        <Text style={{ fontSize: pxToDp(14), marginBottom: pxToDp(20),lineHeight:pxToDp(22),color:'#333333'}}>
                             &emsp;&emsp;{this.state.dramalist.text2}
                         </Text>
-                        <Text style={{ fontSize: pxToDp(14), lineHeight:pxToDp(22),marginBottom: pxToDp(20) }}>
+                        <Text style={{ fontSize: pxToDp(14), marginBottom: pxToDp(20),lineHeight:pxToDp(22),color:'#333333'}}>
                             &emsp;&emsp;{this.state.dramalist.text3}
                         </Text>
-                        <Text style={{ fontSize: pxToDp(14), lineHeight:pxToDp(22),marginBottom: pxToDp(20) }}>
+                        <Text style={{ fontSize: pxToDp(14), marginBottom: pxToDp(20),lineHeight:pxToDp(22),color:'#333333'}}>
                             &emsp;&emsp;{this.state.dramalist.text4}
                         </Text>
                     </View>

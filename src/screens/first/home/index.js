@@ -230,7 +230,7 @@ class Index extends Component {
               }}
               onPress={() => this.context.navigate('Timeline')}
             >
-              <Entypo name="colours" size={30} color="#468CD3" />
+              <Entypo name="colours" size={32} color="#468CD3" />
               <Text style={{ fontSize: pxToDp(16), marginTop: pxToDp(5),color:'#666666'}}>
                 图谱
               </Text>

@@ -20,7 +20,7 @@ class Index extends PureComponent {
             school3: '20世纪五六十年代，尹派越剧的发展进入了第二个高峰期，无论是表演、唱腔还是其他舞台艺术都更趋成熟、完美，标志着尹派艺术已经自成体系。1959年，越剧尹派艺术随芳华越剧团从发祥地上海迁移到福建。',
             development1: '越剧（尹派）以独特的风格、长存的魅力倾倒了无数的福建观众，同时对福建地方戏曲的发展创新产生了积极的影响。',
             development2: '2006年，尹派传承式微。越剧迷更爱看的还是经典戏。可经典戏不好演，因为芳华所有经典戏都是小生戏，小生在舞台上的戏份很重，很考验演员的唱功，但青年演员的唱腔是弱点。戏曲大环境挺好的，国家很重视，但福建省芳华越剧团的主要难题在于人才难找。越剧的土壤还是在浙江、上海，很多人才不愿意到福建，在福建招生是一大困难。但如果不出福建招生，就更难有学生了。',
-            development3:'自越剧（尹派）列入国家非物质文化遗产以来，福建省芳华越剧团开展向社会征集尹派资料的工作，从戏迷手里找到很多尹派的资料与节目单，并重新排练，使传统剧目得以传承。王君安曾推出个人CD《越韵风流——君安怀念先生尹桂芳》，其中有九个尹派唱段被翻译成英文。她还在哈佛大学等美国高校举办越剧讲座，用英语演讲示范，并带去了她演出的经典剧目。',
+            development3: '自越剧（尹派）列入国家非物质文化遗产以来，福建省芳华越剧团开展向社会征集尹派资料的工作，从戏迷手里找到很多尹派的资料与节目单，并重新排练，使传统剧目得以传承。王君安曾推出个人CD《越韵风流——君安怀念先生尹桂芳》，其中有九个尹派唱段被翻译成英文。她还在哈佛大学等美国高校举办越剧讲座，用英语演讲示范，并带去了她演出的经典剧目。',
             art: '越剧（尹派）的特点是委婉缠绵，洒脱深沉，纯朴隽永，是一种典型的以柔为主，柔中寓刚的风格。尹派越剧艺术的表演，既非常讲究手眼身法步之戏曲传统基本功底，又极其注意戏情戏理，集中力量塑造人物形象，这是尹派表演的重要特色。越剧（尹派）艺术不仅体现在表演和唱腔艺术上，而且注重舞台艺术的综合性，融编，导，演，音，美等为一体，力求整体效果的完美无缺。',
             title: '越剧尹派集锦',
             ad: '尹派是尹桂芳创立的越剧流派。尹派越剧表演风格质朴高雅、逼真传神，演唱洒脱流畅、醇厚隽永。'
@@ -30,7 +30,8 @@ class Index extends PureComponent {
         return (
             <View style={styles.view}>
                 <Top icon1="arrow-back" title="尹派" />
-                <ScrollView style={styles.box}>
+                <ScrollView style={styles.box}
+                    showsVerticalScrollIndicator={false}>
                     {/*流派图片 */}
                     <Image style={styles.image1} source={{ uri: this.state.schoolstate.image1 }} />
                     {/*流派信息 */}
@@ -49,7 +50,7 @@ class Index extends PureComponent {
                     <Text style={styles.text1}>&emsp;&emsp;{this.state.schoolstate.art}</Text>
                     {/*流派专辑 */}
                     <TouchableOpacity style={styles.zhuanji} onPress={() => this.context.navigate('Album')}>
-                        <Image style={styles.image3} source={{ uri: this.state.schoolstate.image2}} />
+                        <Image style={styles.image3} source={{ uri: this.state.schoolstate.image2 }} />
                         <View style={{ width: pxToDp(220), justifyContent: 'center' }}>
                             <Text style={styles.zhuanjititle}>{this.state.schoolstate.title}</Text>
                             <Text style={styles.zhuanjitext} numberOfLines={1}>{this.state.schoolstate.ad}</Text>
@@ -67,12 +68,13 @@ const styles = StyleSheet.create({
         flex: 1
     },
     box: {
-        marginLeft: pxToDp(8),
-        marginRight: pxToDp(8),
-        marginBottom: pxToDp(8)
+        marginLeft: pxToDp(20),
+        marginRight: pxToDp(20),
+        marginBottom: pxToDp(8),
+
     },
     image1: {
-        width: pxToDp(355),
+        width: pxToDp(335),
         borderRadius: pxToDp(8),
         height: pxToDp(170)
     },
@@ -95,12 +97,16 @@ const styles = StyleSheet.create({
         marginTop: pxToDp(10)
     },
     text1: {
-        fontSize: pxToDp(17),
-        marginTop: pxToDp(10)
+        fontSize: pxToDp(14),
+        lineHeight: pxToDp(22),
+        marginTop: pxToDp(10),
+        color: '#666666'
     },
     text2: {
-        fontSize: pxToDp(17),
-        marginTop: pxToDp(15)
+        fontSize: pxToDp(14),
+        lineHeight: pxToDp(22),
+        marginTop: pxToDp(10),
+        color: '#666666'
     },
     zhuanji: {
         flexDirection: 'row',

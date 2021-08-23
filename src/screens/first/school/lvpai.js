@@ -18,7 +18,7 @@ class Index extends PureComponent {
             school1: '吕瑞英戏路宽广，专长花旦，兼擅花衫、青衣，刀马旦，嗓子音域较宽，音色甜美，唱腔师承袁派，后根据自己条件和擅演剧目创新发展，自成一格，被公认为“吕派”。',
             school2: '吕派唱腔在继承袁派委婉典雅、细腻隽永的风格的基础上，又增加了活泼娇美、昂扬明亮的旋律色彩。吕派唱腔曲调活跃多变，擅长在中高音区运用俏丽的小腔，较多采用大幅度的音程跳动使唱腔旋律华彩，富有活力。',
             development1: '1963年1月22日，由上海市外事处主办，上海越剧院吕瑞英、张桂凤、陈少春等主演的《打金枝》，在友谊电影院招待尼泊尔国家副主席。周恩来总理、陈毅副总理、柯庆施市长、曹荻秋副市长陪同观剧。观后上台与演员合影。10月7日，由上海市外事处主办，上海越剧院演出的《打金枝》（吕瑞英、陈少春等主演）和《母子会》（徐玉兰、周宝奎主演），在友谊电影院招待以范文同总理率领的越南党政代表团。',
-            development2:'2006年3月27日，中国越剧诞生100周年，一台《百年流声——纪念中国越剧诞辰100周年电视文艺晚会》上演，特别选择越剧的发源地嵊州和越剧的发祥地上海进行双向传送异地直播。吕瑞英与袁雪芬、傅全香、范瑞娟、徐玉兰、王文娟、张桂凤、周宝奎、毕春芳、张小巧、吕瑞英、金采风等悉数到场。11月5日，“我最喜欢的越剧名曲、越剧名票”评选活动揭晓，吕瑞英与吴兆芬、单仰萍等坐镇评委席。',
+            development2: '2006年3月27日，中国越剧诞生100周年，一台《百年流声——纪念中国越剧诞辰100周年电视文艺晚会》上演，特别选择越剧的发源地嵊州和越剧的发祥地上海进行双向传送异地直播。吕瑞英与袁雪芬、傅全香、范瑞娟、徐玉兰、王文娟、张桂凤、周宝奎、毕春芳、张小巧、吕瑞英、金采风等悉数到场。11月5日，“我最喜欢的越剧名曲、越剧名票”评选活动揭晓，吕瑞英与吴兆芬、单仰萍等坐镇评委席。',
             art1: '在吕派唱腔的音调中常出现4音和7音两个偏音，由此又促使了唱腔中频繁的宫徵调式转换；板式运用也灵活多变，根据人物情绪变化，通过速度快慢、节奏松紧，使旋律色彩丰富，对比鲜明，富于层次，具有新鲜感。',
             art2: '在润腔方法上，常用各种装饰音和切分音型细致传达人物内心活动。如《红楼梦》中薛宝钗的“常言道主雅客来勤，谁不想高朋能盈门”两句唱，在“常”和“勤”二字用了上倚音，“雅”字的小腔中加以颤音，“能”字上用了七度下滑音，这不但使唱词的音韵四声清晰正确，而且曲调圆润而不轻飘，更真切体现了薛宝钗的性格风貌。',
             title: '越剧吕派集锦',
@@ -29,7 +29,8 @@ class Index extends PureComponent {
         return (
             <View style={styles.view}>
                 <Top icon1="arrow-back" title="吕派" />
-                <ScrollView style={styles.box}>
+                <ScrollView style={styles.box}
+                    showsVerticalScrollIndicator={false}>
                     {/*流派图片 */}
                     <Image style={styles.image1} source={{ uri: this.state.schoolstate.image1 }} />
                     {/*流派信息 */}
@@ -65,12 +66,13 @@ const styles = StyleSheet.create({
         flex: 1
     },
     box: {
-        marginLeft: pxToDp(8),
-        marginRight: pxToDp(8),
-        marginBottom: pxToDp(8)
+        marginLeft: pxToDp(20),
+        marginRight: pxToDp(20),
+        marginBottom: pxToDp(8),
+
     },
     image1: {
-        width: pxToDp(355),
+        width: pxToDp(335),
         borderRadius: pxToDp(8),
         height: pxToDp(170)
     },
@@ -93,12 +95,16 @@ const styles = StyleSheet.create({
         marginTop: pxToDp(10)
     },
     text1: {
-        fontSize: pxToDp(17),
-        marginTop: pxToDp(10)
+        fontSize: pxToDp(14),
+        lineHeight: pxToDp(22),
+        marginTop: pxToDp(10),
+        color: '#666666'
     },
     text2: {
-        fontSize: pxToDp(17),
-        marginTop: pxToDp(15)
+        fontSize: pxToDp(14),
+        lineHeight: pxToDp(22),
+        marginTop: pxToDp(10),
+        color: '#666666'
     },
     zhuanji: {
         flexDirection: 'row',

@@ -21,18 +21,22 @@ class Index extends PureComponent {
             development2: '1949年7月，参加上海市军管会文艺处举办的第一届地方戏剧研究班学习，任表演系中队长。是年9月，她和梅兰芳、周信芳、程砚秋作为戏曲界特邀代表参加了第一届中国人民政治协商会议，并出席了10月1日的开国大典。',
             art: '其唱腔旋律淳朴，节奏多变，感情真挚深沉，韵味醇厚，委婉缠绵，声情并茂，被称“袁派”，为戚雅仙、张云霞、金采风、吕瑞英等一批越剧演员所继承和发展。在日本帝国主义侵占期间，演出了《香妃》、《红粉金戈》、《木兰从军》、《黑暗家庭》、《王昭君》等表现爱国思想、歌颂民族气节、反对封建礼教的剧目。',
             title: '越剧袁派集锦',
-            ad: '袁派是袁雪芬创立的越剧旦角流派,袁派十分讲究重点唱句的演唱，擅用喷口、气口、加虚词以及强音、顿音等技巧进行特殊处理，造成演唱上的高潮。'
+            ad: '袁派是袁雪芬创立的越剧旦角流派，袁派十分讲究重点唱句的演唱，擅用喷口、气口、加虚词以及强音、顿音等技巧进行特殊处理，造成演唱上的高潮。'
         }
     }
     render() {
         return (
             <View style={styles.view}>
                 <Top icon1="arrow-back" title="袁派" />
-                <ScrollView style={styles.box}>
+                <ScrollView style={styles.box}
+                    showsVerticalScrollIndicator={false}
+                >
+
                     {/*流派图片 */}
                     <Image style={styles.image1} source={{ uri: this.state.schoolstate.image1 }} />
                     {/*流派信息 */}
-                    <Text style={styles.title}>个人经历</Text>
+                    <Text
+                        style={styles.title}>个人经历</Text>
                     <Text style={styles.text1}>&emsp;&emsp;{this.state.schoolstate.history1}</Text>
                     <Text style={styles.text2}>&emsp;&emsp;{this.state.schoolstate.history2}</Text>
                     <Text style={styles.title}>流派的创立</Text>
@@ -60,15 +64,16 @@ class Index extends PureComponent {
 const styles = StyleSheet.create({
     view: {
         backgroundColor: '#E2F4FE',
-        flex: 1
+        flex: 1,
     },
     box: {
-        marginLeft: pxToDp(8),
-        marginRight: pxToDp(8),
-        marginBottom: pxToDp(8)
+        marginLeft: pxToDp(20),
+        marginRight: pxToDp(20),
+        marginBottom: pxToDp(8),
+
     },
     image1: {
-        width: pxToDp(355),
+        width: pxToDp(335),
         borderRadius: pxToDp(8),
         height: pxToDp(170)
     },
@@ -82,24 +87,30 @@ const styles = StyleSheet.create({
     image22: {
         height: pxToDp(70),
         width: pxToDp(70),
-        borderRadius: pxToDp(8)
+        borderRadius: pxToDp(8),
+
     },
     title: {
-        fontSize: pxToDp(16),
-        lineHeight:pxToDp(18),
+        fontSize: pxToDp(14),
+        lineHeight: pxToDp(18),
         color: '#468CD3',
         fontWeight: 'bold',
-        marginTop: pxToDp(10)
+        marginTop: pxToDp(10),
+
     },
     text1: {
         fontSize: pxToDp(14),
-        lineHeight:pxToDp(22),
-        marginTop:pxToDp(10)
+        lineHeight: pxToDp(22),
+        marginTop: pxToDp(10),
+        color: '#666666'
+
     },
     text2: {
         fontSize: pxToDp(14),
-        lineHeight:pxToDp(22),
-        marginTop:pxToDp(15)
+        lineHeight: pxToDp(22),
+        marginTop: pxToDp(15), 
+        color: '#666666'
+
     },
     zhuanji: {
         flexDirection: 'row',
