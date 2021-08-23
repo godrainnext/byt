@@ -25,8 +25,9 @@ class history extends Component {
   render() {
     ;
     return (
-      <View style={{ backgroundColor: '#ecf6fc',padding:pxToDp(16) }}>
-        <Top icon1="arrow-back" />
+      <View style={{ backgroundColor: '#ecf6fc',flex:1}}>
+        <Top icon1="arrow-back" title="俯瞰百年" />
+        <View style={{padding:pxToDp(16),flex:1,paddingTop:0}}>
         <FlatList
           data={this.state.HYlist}
           renderItem={({ item }) => (
@@ -34,23 +35,21 @@ class history extends Component {
             <View
               key={item.id}
               style={{
-                height: pxToDp(220),
-                flexDirection: 'row',
-                justifyContent: 'center',
-                alignItems: 'center',
+                flex:1,
                 elevation: 10,
+                marginTop:pxToDp(16),
                 shadowColor: 'black',
                 shadowOffset: { width: 0, height: 0 },
                 shadowOpacity: 1,
-                shadowRadius: 10
+                shadowRadius: 10,
               }}
             >
-              <View style={{ width: '96%', height: '100%' }}>
+              <View>
                 <TouchableOpacity
                   onPress={() => this.context.navigate('Pagefive', item.id)}
                 >
                   <ImageBackground
-                    style={{ width: '100%', height: pxToDp(220) }}
+                    style={{height: pxToDp(180)}}
                     imageStyle={{ borderRadius: pxToDp(8) }}
                     source={{ uri: item.picurl }}
                   >
@@ -58,36 +57,28 @@ class history extends Component {
                       style={{
                         justifyContent: 'center',
                         alignItems: 'center',
-                        height: '64%'
+                        flex:1,
                       }}
                     ></View>
                     <View
                       style={{
-                        backgroundColor: 'red',
+                        backgroundColor: '#fff',
                         opacity: 0.8,
-                        width: '100%',
-                        height: '36%',
+                        height: pxToDp(48),
                         borderRadius: pxToDp(8),
-                        justifyContent: 'center',
-                        alignItems: 'center'
+                        alignItems:'center',
+                        flexDirection:'row',
+                        padding:pxToDp(8)
                       }}
                     >
-                        <View
-                          style={{
-                            flexDirection: 'row',
-                          }}
-                        >
                           <Text
                             numberOfLines={1}
                             style={{
                               fontSize: pxToDp(16),
-                              width: '96%',
-                              marginBottom: pxToDp(8),
                             }}
                           >
                             {item.title}
                           </Text>
-                        </View>
                         <View
                           style={{ flexDirection: 'row', alignItems: 'center' }}
                         >
@@ -106,6 +97,7 @@ class history extends Component {
           )}
           keyExtractor={(item) => item.id}
         />
+        </View>
       </View>
     );
   }
