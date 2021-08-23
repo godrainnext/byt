@@ -43,23 +43,16 @@ class Index extends PureComponent {
   }
   playSound = async () => {
     if (this.state.sound.length) {
-      console.log('Loading Sound');
-      console.log('Playing Sound');
       for (const sound of this.state.sound) {
         this.setState({ playingsong: sound });
         await sound.playAsync();
       }
       this.setState({ isplay: true });
-
-      console.log(this.state.sound);
     } else {
       for (const uri of this.state.URI) {
         const { sound } = await Audio.Sound.createAsync({ uri });
         this.setState({ sound: [...this.state.sound, sound] });
       }
-
-      console.log('Loading Sound');
-      console.log('Playing Sound');
       for (const sound of this.state.sound) {
         this.setState({ playingsong: sound });
         await sound.playAsync();
@@ -70,7 +63,6 @@ class Index extends PureComponent {
   };
 
   pauseSound = async () => {
-    console.log('Stopping Sound');
     // this.setState({sound:undefined})
     await this.state.playingsong.pauseAsync();
     this.setState({ isplay: false });

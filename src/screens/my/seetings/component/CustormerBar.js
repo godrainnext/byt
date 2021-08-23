@@ -36,7 +36,6 @@ class Index extends PureComponent {
     this.subscript.remove();
   }
   render() {
-    //console.log(this.props);
     const {
       fansCount = 0,
       followCount = 0,

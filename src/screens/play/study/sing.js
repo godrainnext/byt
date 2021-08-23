@@ -29,8 +29,6 @@ class Index extends PureComponent {
 
   playSound = async () => {
     if (this.state.sound.length) {
-      console.log('Loading Sound');
-      console.log('Playing Sound');
       for (const sound of this.state.sound) {
         this.setState({ playingsong: sound });
         await sound.playAsync();
@@ -81,18 +79,14 @@ class Index extends PureComponent {
       this.setState({ recording: file.recording });
       this.setState({ isrecoding: true });
       // console.log(file);
-      console.log('Recording started');
     } catch (err) {
       console.error('Failed to start recording', err);
     }
   };
   stopRecording = async () => {
-    console.log('Stopping recording..');
     // this.setState({recording:undefined});
     await this.state.recording.stopAndUnloadAsync();
     const uri = this.state.recording.getURI();
-    console.log(this.state.recording);
-    console.log('Recording stopped and stored at', uri);
     this.setState({ URI: [...this.state.URI, uri] });
     this.setState({ isrecoding: false });
   };

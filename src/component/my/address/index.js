@@ -19,7 +19,6 @@ class Address extends PureComponent {
   };
   static contextType = NavigationContext;
   render() {
-    console.log(this.props);
     return (
       <Fragment>
         {this.props.address.length ? (

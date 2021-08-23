@@ -99,7 +99,6 @@ export default class App extends React.PureComponent {
   }
   setTextValue = (TextValue) => {
     this.setState({ TextValue });
-    console.log(this.state.TextValue);
   };
   _renderItem = ({ item }) => {
     return (

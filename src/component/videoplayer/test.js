@@ -23,7 +23,6 @@ function formatTime(second) {
     let zero = function (v) {
         return (v >> 0) < 10 ? "0" + v : v;
     };
-    console.log([zero(h), zero(i), zero(s)].join(":"));
     // return [zero(h), zero(i), zero(s)].join(":");
     return zero(s);
 }
@@ -60,12 +59,10 @@ export default class VideoScreen extends Component {
 
     onLoad = (data) => {
         this.setState({duration: data.duration});
-        console.log(data.duration + "xxx");
     };
 
     onProgress = (data) => {
         this.setState({currentTime: data.currentTime});
-        console.log(data.currentTime + "hhh");
     };
 
     onEnd = () => {

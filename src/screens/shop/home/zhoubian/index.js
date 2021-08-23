@@ -19,7 +19,6 @@ class Index extends PureComponent {
   componentDidMount() {
     const status = this.props.route.params;
     getShopListByStatus(status).then((res) => {
-      console.log(res);
       this.setState({ shop: res });
     });
   }

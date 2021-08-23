@@ -36,8 +36,6 @@ export default class topic extends Component {
     this.changeListener.remove();
   }
   render() {
-    console.log(this.props.route.params);
-    console.log(this.props.route.params.id);
     const { id, text, img, detail, number } = this.props.route.params;
     return (
       <View style={{ flex: 1, backgroundColor: '#ecf6fc' }}>

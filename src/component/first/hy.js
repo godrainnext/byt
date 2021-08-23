@@ -25,7 +25,7 @@ export default class Hy extends PureComponent {
   layoutExample(number, title, type) {
     const isTinder = type === 'tinder';
     return (
-      <View style={{marginTop:pxToDp(20) }}>
+      <View style={{marginTop:pxToDp(16) }}>
         <Carousel
           data={this.state.enter}
           renderItem={isTinder ? this._renderLightItem : this._renderItem}
@@ -43,7 +43,7 @@ export default class Hy extends PureComponent {
       <SafeAreaView >
         <View >
           <ScrollView     
-            scrollEventThrottle={200}
+            scrollEventThrottle={pxToDp(200)}
             directionalLockEnabled={true}
           >
             {example3}

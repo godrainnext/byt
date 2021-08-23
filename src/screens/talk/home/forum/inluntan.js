@@ -55,7 +55,6 @@ class Index extends PureComponent {
     getMomentInnerById(this.props.route.params.mid)
       .then((res) => {
         this.setState({ inner: { ...res } });
-        console.log(res);
       })
       .catch((err) => console.log(err));
   }
@@ -140,7 +139,6 @@ class Index extends PureComponent {
   };
   static contextType = NavigationContext;
   render() {
-    console.log(this.props.route.params);
     const {
       comments,
       content = 123,

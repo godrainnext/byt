@@ -150,7 +150,6 @@ class shopdetails extends PureComponent {
     }
   };
   render() {
-    console.log(this.state.shopbanner);
     const { count, tabs, activeTab, activeSizeTab } = this.state;
     return (
       <View style={{ flex: 1, backgroundColor: '#ecf6fc' }}>

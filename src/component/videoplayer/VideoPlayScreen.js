@@ -196,23 +196,17 @@ export default class VideoPlayScreen extends PureComponent {
 
   /// -------Video组件回调事件-------
 
-  _onLoadStart = () => {
-    console.log('视频开始加载');
-  };
+  _onLoadStart = () => {};
 
-  _onBuffering = () => {
-    console.log('视频缓冲中...');
-  };
+  _onBuffering = () => {};
 
   _onLoaded = (data) => {
-    console.log('视频加载完成');
     this.setState({
       duration: data.duration
     });
   };
 
   _onProgressChanged = (data) => {
-    // console.log('视频进度更新');
     if (this.state.isPlaying) {
       this.setState({
         currentTime: data.currentTime
@@ -221,7 +215,6 @@ export default class VideoPlayScreen extends PureComponent {
   };
 
   _onPlayEnd = () => {
-    console.log('视频播放结束');
     this.setState({
       currentTime: 0,
       isPlaying: false,
@@ -229,9 +222,7 @@ export default class VideoPlayScreen extends PureComponent {
     });
   };
 
-  _onPlayError = () => {
-    console.log('视频播放失败');
-  };
+  _onPlayError = () => {};
 
   ///-------控件点击事件-------
 
@@ -315,12 +306,8 @@ export default class VideoPlayScreen extends PureComponent {
 
   /// 屏幕旋转时宽高会发生变化，可以在onLayout的方法中做处理，比监听屏幕旋转更加及时获取宽高变化
   _onLayout = (event) => {
-    console.log(this.state.isClick);
-
     //获取根View的宽高
     let { width, height } = event.nativeEvent.layout;
-    console.log('通过onLayout得到的宽度：' + width);
-    console.log('通过onLayout得到的高度：' + height);
 
     // 一般设备横屏下都是宽大于高，这里可以用这个来判断横竖屏
     let isLandscape = width > height;
