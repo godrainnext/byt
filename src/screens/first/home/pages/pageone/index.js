@@ -81,9 +81,9 @@ gener:[
             <View style={{ marginLeft: pxToDp(8), marginRight: pxToDp(8) }}>
               <TouchableOpacity style={{ flexDirection: 'row', marginTop: pxToDp(8) }}  onPress={() => this.context.navigate(item.school)}>
                 <Image style={{ height: pxToDp(100), width: pxToDp(100), borderRadius: pxToDp(8), margin: pxToDp(8) }} source={{ uri: item.path }}/>
-                <View style={{ justifyContent: 'center', width: pxToDp(240) }}>
-                  <Text style={{ fontSize: pxToDp(15), fontWeight: 'bold' }}>{item.title}</Text>
-                  <Text style={{ fontSize: pxToDp(13), flexWrap: 'wrap' }}>{item.text}</Text>
+                <View style={{ justifyContent: 'flex-start', width: pxToDp(240),marginTop:pxToDp(8)}}>
+                  <Text style={{ fontSize: pxToDp(16), fontWeight: 'bold' }}>{item.title}</Text>
+                  <Text style={{ fontSize: pxToDp(13), flexWrap: 'wrap',marginTop:pxToDp(20),fontSize:pxToDp(14),lineHeight:pxToDp(18),color:'#33333' }}numberOfLines={3}>{item.text}</Text>
                 </View>
               </TouchableOpacity>
             </View>

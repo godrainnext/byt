@@ -192,10 +192,10 @@ class Ziliao extends PureComponent {
                 }}
               >
                 <Avatar
-                  avatarStyle={{ alignSelf: 'center' }}
+                  avatarStyle={{ alignSelf: 'center' ,width:'100%'}}
                   size={120}
                   rounded
-                  title="CR"
+                  title="越"
                   onPress={() => this._changeModal()}
                   activeOpacity={0.7}
                   source={{

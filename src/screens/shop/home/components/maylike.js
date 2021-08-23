@@ -33,7 +33,7 @@ class Index extends PureComponent {
                 <Text style={{ color: 'grey', fontSize: pxToDp(13) }}>{this.props.number}人付款</Text>
               </View>
               <TouchableOpacity style={styles.shopCar}>
-                <Svg width="32" height="32" svgXmlData={shopCar} />
+                <Svg width="24" height="30" svgXmlData={shopCar} />
               </TouchableOpacity>
             </View>
           </View>

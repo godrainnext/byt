@@ -4,6 +4,7 @@ import Top from '@components/common/top';
 import { pxToDp } from '@utils/styleKits';
 import { NavigationContext } from "@react-navigation/native";
 import { Video } from 'react-native-video'
+import Mybtn from '../../../component/common/mybtn';
 
 class Index extends PureComponent {
 
@@ -22,14 +23,14 @@ class Index extends PureComponent {
     render() {
         const video = createRef()
         return (
-            <View style={{ flex: 1, backgroundColor: '#E2F4FE', justifyContent: "space-between" }}>
+            <View style={{ flex: 1, backgroundColor: '#E2F4FE', justifyContent: "space-between" ,fontSize:pxToDp(16)}}>
 
                 <View style={{ alignItems: "center", }}>
                     <Top icon1='arrow-back' title="穆桂英挂帅" icon2='star-outline' />
                     <Text style={{ fontSize: pxToDp(16), fontWeight: "bold", marginTop: pxToDp(15) }}>穆桂英挂帅 - 猛听得金鼓响画角声震</Text>
                 </View>
 
-                <View style={{ alignItems: 'center', marginTop: pxToDp(30) }}>
+                <View style={{ alignItems: 'center', }}>
                     <ScrollView showsVerticalScrollIndicator={false} style={{ height: '60%' }}>
                         <View style={{ alignItems: "center" }}>
                             <Text style={{ fontSize: pxToDp(16), lineHeight: pxToDp(40), alignItems: "center" }}>猛听得金鼓响画角声震</Text>
@@ -58,12 +59,18 @@ class Index extends PureComponent {
                             </View>
                         </View>
                     </ScrollView>
-                    <TouchableOpacity onPress={() => this.context.navigate("Sing")} style={{ marginTop: pxToDp(30), backgroundColor: "#468CD3", width: pxToDp(180), height: pxToDp(40), borderRadius: pxToDp(24), justifyContent: "center", alignItems: "center" }}>
-                        <Text style={{ fontWeight: "bold", fontSize: pxToDp(16), color: "white" }}>开始独唱</Text>
-                    </TouchableOpacity>
 
                     <View style={styles.bottom}>
 
+                    <Mybtn
+                        onPress={() => this.context.navigate("Sing")}
+                        title='开始独唱'           
+                        buttonStyle={{
+                            width: pxToDp(320),
+                            height: pxToDp(40),
+                            borderRadius:pxToDp(16),
+                        }}
+                    />
                     </View>
                 </View>
             </View>
@@ -74,31 +81,7 @@ class Index extends PureComponent {
 
 
 const styles = StyleSheet.create({
-    box: {
-        flexDirection: 'row',
-        height: pxToDp(90),
-        marginTop: pxToDp(5),
-        marginLeft: pxToDp(17),
-        borderBottomWidth: pxToDp(1),
-        borderBottomColor: '#696969'
-    },
-    image: {
-        height: pxToDp(80),
-        width: pxToDp(80)
-    },
-    text1: {
-        fontSize: pxToDp(14),
-        color: '#000000'
-    },
-    text2: {
-        fontSize: pxToDp(14),
-        color: '#696969'
-    },
-    text3: {
-        fontSize: pxToDp(11),
-        color: '#808080',
-        marginTop: pxToDp(40)
-    },
+
     bottom: {
         height: pxToDp(80),
         width: '100%',

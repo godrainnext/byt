@@ -7,7 +7,8 @@ import {
   ScrollView,
   TouchableOpacity,
   SafeAreaView,
-  ImageBackground
+  ImageBackground,
+  RefreshControl
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { NavigationContext } from '@react-navigation/native';
@@ -22,17 +23,27 @@ import Legend from '@components/first/legend';
 import { connect } from 'react-redux';
 import CustormerBar from '../seetings/component/CustormerBar';
 import Dongtai from '../seetings/component/dontai';
+
 export default class hello extends Component {
   static contextType = NavigationContext;
   state = {
     sctop: 0
   };
   componentDidMount() {}
+  wait = (timeout) => {
+    return new Promise(resolve => {
+      setTimeout(resolve, timeout);
+    });
+  }
 
   render() {
     const { userinfo } = this.state;
     return (
       <ParallaxScrollView
+     refreshControl={
+        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+      }
+      alwaysBounceVertical={true}
         onScroll={(event) => {
           this.setState({
             sctop:

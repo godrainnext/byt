@@ -15,6 +15,7 @@ import { pxToDp } from '@utils/styleKits';
 import LinearGradient from 'react-native-linear-gradient';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import { TextInput } from 'react-native-gesture-handler';
+import Mybtn from '../../../../component/common/mybtn';
 export default class hello extends Component {
     static contextType = NavigationContext;
     state = {
@@ -105,11 +106,29 @@ export default class hello extends Component {
                                         ></TextInput>
                                     </View>
                                 </TouchableOpacity>
-                                <TouchableOpacity onPress={chafang}>
-                                    <View style={styles.textbox}>
-                                        <Text style={styles.text}>加入房间</Text>
-                                    </View>
-                                </TouchableOpacity>
+                      
+                                <Mybtn
+                                    title="观看视频"
+                                    onPress={chafang}
+                                    ViewComponent={LinearGradient}
+                                    buttonStyle={{
+                                        width: pxToDp(180),
+                                        height: pxToDp(40),
+                                        alignSelf: 'center',
+                                        borderRadius: pxToDp(32),
+                                        marginTop:pxToDp(29)
+
+                                    }}
+                                    titleStyle={{
+                                        color: '#fcfcfc',
+                                        fontWeight: 'bold',
+                                        fontSize: pxToDp(16)
+                                    }}
+                                    linearGradientProps={{
+                                        colors: ['#fa9222', '#ffd501'],
+                                        start: { x: 0, y: 0.5 },
+                                        end: { x: 1, y: 0.5 }
+                                    }} />
                             </View>
                         </ScrollView>
                     </RBSheet>
@@ -181,12 +200,12 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     text1: {
-        fontSize: pxToDp(18),
+        fontSize: pxToDp(16),
         fontWeight: 'bold',
     },
     text2: {
-        fontSize: pxToDp(13),
-        color: 'black',
+        fontSize: pxToDp(12),
+        color: '#9999',
     },
     linear: {
         marginRight: pxToDp(8),

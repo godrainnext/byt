@@ -40,7 +40,7 @@ class Index extends PureComponent {
                         style={{ height: pxToDp(178), borderRadius: pxToDp(8), width: '100%' }}
                         source={{ uri: this.state.dramalist.path1 }}
                     />
-                    <Text style={{ fontSize: pxToDp(24), fontWeight: 'bold', marginBottom: pxToDp(20), marginTop: pxToDp(10) }}>
+                    <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold', marginBottom: pxToDp(20), marginTop: pxToDp(10) }}>
                         {this.state.dramalist.title}
                     </Text>
                     <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(10) }}>
@@ -51,44 +51,44 @@ class Index extends PureComponent {
                             marginTop: pxToDp(10)
                         }}
                     >
-                        <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold', marginBottom: pxToDp(10) }}>
+                        <Text style={{ fontSize: pxToDp(16), fontWeight: 'bold', marginBottom: pxToDp(10) }}>
                             剧情简介
                         </Text>
-                        <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(20) }}>
+                        <Text style={{ fontSize: pxToDp(14), lineHeight:pxToDp(22),marginBottom: pxToDp(20) }}>
                             &emsp;&emsp;{this.state.dramalist.int1}
                         </Text>
-                        <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(20) }}>
+                        <Text style={{ fontSize: pxToDp(14), lineHeight:pxToDp(22),marginBottom: pxToDp(20) }}>
                             &emsp;&emsp;{this.state.dramalist.int2}
                         </Text>
-                        <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(20) }}>
+                        <Text style={{ fontSize: pxToDp(14), lineHeight:pxToDp(22),marginBottom: pxToDp(20) }}>
                             &emsp;&emsp;{this.state.dramalist.int3}
                         </Text>
-                        <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(20) }}>
+                        <Text style={{ fontSize: pxToDp(14), lineHeight:pxToDp(22),marginBottom: pxToDp(20) }}>
                             &emsp;&emsp;{this.state.dramalist.int4}
                         </Text>
-                        <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(10) }}>
+                        <Text style={{ fontSize: pxToDp(14), lineHeight:pxToDp(22),marginBottom: pxToDp(20) }}>
                             &emsp;&emsp;{this.state.dramalist.int5}
                         </Text>
                     </View>
                     <View style={{ marginTop: pxToDp(10) }}>
-                        <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold', marginBottom: pxToDp(20) }}>
+                        <Text style={{ fontSize: pxToDp(16), fontWeight: 'bold', marginBottom: pxToDp(20) }}>
                             演出历史
                         </Text>
-                        <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(20) }}>
+                        <Text style={{ fontSize: pxToDp(14), lineHeight:pxToDp(22),marginBottom: pxToDp(20) }}>
                             &emsp;&emsp;{this.state.dramalist.text1}
                         </Text>
-                        <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(20) }}>
+                        <Text style={{ fontSize: pxToDp(14), lineHeight:pxToDp(22),marginBottom: pxToDp(20) }}>
                             &emsp;&emsp;{this.state.dramalist.text2}
                         </Text>
-                        <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(20) }}>
+                        <Text style={{ fontSize: pxToDp(14), lineHeight:pxToDp(22),marginBottom: pxToDp(20) }}>
                             &emsp;&emsp;{this.state.dramalist.text3}
                         </Text>
-                        <Text style={{ fontSize: pxToDp(17), marginBottom: pxToDp(20) }}>
+                        <Text style={{ fontSize: pxToDp(14), lineHeight:pxToDp(22),marginBottom: pxToDp(20) }}>
                             &emsp;&emsp;{this.state.dramalist.text4}
                         </Text>
                     </View>
                     <View>
-                        <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold', marginBottom: pxToDp(10) }} onPress={() => this.context.navigate('ScreenPlay3')}>
+                        <Text style={{ fontSize: pxToDp(14), fontWeight: 'bold', marginBottom: pxToDp(10) }} onPress={() => this.context.navigate('ScreenPlay3')}>
                             剧本详情
                         </Text>
                         <TouchableOpacity style={{

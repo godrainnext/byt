@@ -4,6 +4,7 @@ import { changeOriderStatus } from '../../../../service/mine';
 import { pxToDp } from '../../../../utils/styleKits';
 import { getUserOriderListAction } from '../../../first/home/store/actions';
 import { connect } from 'react-redux';
+import Mybtn from '../../../../component/common/mybtn';
 class Index extends PureComponent {
   changeStatus(id, status) {
     console.log(status);
@@ -39,7 +40,7 @@ class Index extends PureComponent {
           <Text style={{ fontSize: pxToDp(17) }}>百越庭官方旗舰店</Text>
           <Text style={{ fontSize: pxToDp(13) }}>
             {item.status === 0
-              ? '待支付'
+              ? ''
               : item.status === 1
               ? '待收货'
               : '待评价'}
@@ -125,26 +126,33 @@ class Index extends PureComponent {
           <Text style={{ marginLeft: pxToDp(8), fontSize: pxToDp(15) }}>
             {item.createAt}
           </Text>
-          <TouchableOpacity
-            onPress={() => this.changeStatus(item.oriderId, item.status + 1)}
-            style={{
-              borderColor: 'grey',
-              borderWidth: pxToDp(1),
-              height: pxToDp(23),
-              width: pxToDp(70),
-              borderRadius: pxToDp(8),
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            <Text style={{ fontSize: pxToDp(15) }}>
-              {item.status === 0
-                ? '去支付'
-                : item.status === 1
-                ? '确认收货'
-                : '评价'}
-            </Text>
-          </TouchableOpacity>
+   
+          <Mybtn
+                            onPress={() => this.changeStatus(item.oriderId, item.status + 1)}
+                        title={item.status === 0
+                          ? '去支付'
+                          : item.status === 1
+                          ? '确认收货'
+                          : '评价'}
+                          titleStyle={{
+                           height:30,
+                            color: '#fcfcfc',
+                            fontWeight: 'bold',
+                            fontSize: pxToDp(14),marginTop:pxToDp(10)
+  
+                          
+                          }}
+                          container
+                          buttonStyle={{
+                            width: pxToDp(90),
+                            height: pxToDp(30),
+                            alignSelf: 'flex-end',
+                            borderRadius: pxToDp(32),
+                            marginRight: pxToDp(8),
+
+                          }}
+                    />
+                       
         </View>
       </View>
     ));

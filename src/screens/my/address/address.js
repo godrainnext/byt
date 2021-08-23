@@ -14,6 +14,7 @@ import { NavigationContext } from '@react-navigation/native';
 import { pxToDp } from '../../../utils/styleKits';
 import { connect } from 'react-redux';
 import requset from '@service/index';
+import Mybtn from '../../../component/common/mybtn';
 class SwiperListItem extends PureComponent {
   state = {
     checkedId: 1,
@@ -27,9 +28,9 @@ class SwiperListItem extends PureComponent {
       this.props.route.params.changeDefaultAddress(item);
     });
   };
-   componentDidMount() {
-     this.setState({ checkedId: this.props.route.params.id });
-   }
+  componentDidMount() {
+    this.setState({ checkedId: this.props.route.params.id });
+  }
   static contextType = NavigationContext;
   render() {
     return (
@@ -37,7 +38,7 @@ class SwiperListItem extends PureComponent {
         <Top icon1="arrow-back" title="收货地址" />
 
         <ScrollView>
-          <View style={{ paddingBottom: pxToDp(105) }}>
+          <View style={{ paddingBottom: pxToDp(105),margin:pxToDp(8)}}>
             {this.props.address.map((item) => (
               <SwpierItem
                 onPress={() => this.changeBtn(item.id, item)}
@@ -56,35 +57,34 @@ class SwiperListItem extends PureComponent {
           style={{
             position: 'absolute',
             bottom: 0,
-            backgroundColor: '#f0bb51',
+            backgroundColor: '#fff',
             width: '100%',
-            height: pxToDp(50),
-            borderTopLeftRadius: pxToDp(8),
-            borderTopRightRadius: pxToDp(8)
+            height: pxToDp(54),
+            justifyContent:'center'
           }}
         >
-          <TouchableOpacity
-            style={{ width: '100%', height: '100%' }}
+          <Mybtn
             onPress={() =>
               this.context.navigate(
                 'newAddress',
                 this.props.route.params.orider
               )
             }
-          >
-            <Text
-              style={{
-                alignSelf: 'center',
-                top: pxToDp(15),
-                fontSize: pxToDp(18),
-                color: '#fcfcfc'
-              }}
-            >
-              新增收货地址
-            </Text>
-          </TouchableOpacity>
+            title='  新增收货地址'
+            buttonStyle={{
+              width: pxToDp(340),
+              height: pxToDp(40),
+              borderRadius: pxToDp(32),
+              alignSelf: 'center'
+            }}
+            linearGradientProps={{
+              colors: ['#fa9222', '#ffd501'],
+              start: { x: 0, y: 0.5 },
+              end: { x: 1, y: 0.5 }
+            }}
+          />
         </View>
-      </View>
+</View>
     );
   }
 }

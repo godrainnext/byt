@@ -11,6 +11,9 @@ import { pxToDp } from '@utils/styleKits';
 import { NavigationContext } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import StepIndicator from 'react-native-step-indicator';
+import LinearGradient from 'react-native-linear-gradient';
+import Mybtn from './mybtn';
+import { Button } from 'react-native-elements/dist/buttons/Button';
 
 class Index extends PureComponent {
     constructor(props) {
@@ -111,26 +114,34 @@ class Index extends PureComponent {
                                         labels={labels}
                                     />
                                 </View>
-                                <TouchableOpacity
-                                    disabled={this.state.isclick}
-                                    style={{
-                                        ...styles.openButton,
-                                        backgroundColor: this.state.color
-                                    }}
-                                    onPress={() => {
-                                        this.setState({
-                                            currentPosition: this.state.currentPosition + 1
-                                        });
-                                        this.setState({ color: 'grey' });
-                                        this.setState({ isclick: true });
-                                        this.setModalVisibles(true);
-                                    }}
-                                >
-                                    <Text style={styles.textStyle}>
-                                        {this.state.isclick ? '已签到' : '签到'}
-                                    </Text>
-                                </TouchableOpacity>
-                                <View style={{ flexDirection: 'row',alignItems:'center',justifyContent:'space-around',marginTop:pxToDp(35)}}>
+                              
+                                    <Button 
+                                    ViewComponent={LinearGradient}
+                                           onPress={() => {
+                                            this.setState({
+                                                currentPosition: this.state.currentPosition + 1
+                                            });
+                                            this.setState({ color: 'grey' });
+                                            this.setState({ isclick: true });
+                                            this.setModalVisibles(true);
+                                        }}
+                                        title= {this.state.isclick ? '已签到' : '签到'}
+                                        disabled={this.state.isclick}
+                                        linearGradientProps={{
+                                            colors:this.state.isclick?['#ccc','#ccc']:['#fa9222', '#ffd501'],
+                                            start: { x: 0, y: 0.5 },
+                                            end: { x: 1, y: 0.5 }
+                                          }}
+                                        buttonStyle={{
+                                            width: pxToDp(100),
+                                            height: pxToDp(100),
+                                            marginTop:pxToDp(30),
+                                            borderRadius: pxToDp(100),
+                                        }}
+                                 
+                                    />
+                         
+                                <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', marginTop: pxToDp(35) }}>
                                     <Image style={{ width: pxToDp(80), height: pxToDp(160) }} source={require('../../res/sucai/9.jpg')} />
                                     <View>
                                         <Text style={styles.modalText2}>-签到说明-</Text>
@@ -185,7 +196,7 @@ const styles = StyleSheet.create({
     modalText1: {
         textAlign: 'center',
         fontSize: pxToDp(17),
-        marginBottom:pxToDp(35)
+        marginBottom: pxToDp(35)
     },
     modalText2: {
         marginTop: pxToDp(15),

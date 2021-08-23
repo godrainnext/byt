@@ -181,6 +181,7 @@ class index extends PureComponent {
                 position: 'absolute',
                 left: pxToDp(105),
                 top: pxToDp(-60),
+              
               }}
             >
               <View

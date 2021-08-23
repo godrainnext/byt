@@ -167,24 +167,20 @@ class Index extends PureComponent {
                 {ownSay}
               </Text>
             </View>
-            <TouchableOpacity
-              style={{
-                width: pxToDp(150),
-                borderRadius: pxToDp(16),
-                alignSelf: 'center',
-                overflow: 'hidden'
-              }}
-            >
               <Button
                 title="编辑资料"
                 onPress={() =>
                   this.context.navigate('Ziliao', this.props.userInfo)
                 }
                 ViewComponent={LinearGradient}
-                titleStyle={{
+                buttonStyle={{
+                  width:160,
+                  height:40,
+                  borderRadius:pxToDp(32),
+                  alignSelf:'center',
                   color: '#fcfcfc',
                   fontWeight: 'bold',
-                  fontSize: pxToDp(18)
+                  fontSize: pxToDp(18),marginTop:pxToDp(16)
                 }}
                 linearGradientProps={{
                   colors: ['#fa9222', '#ffd501'],
@@ -192,7 +188,6 @@ class Index extends PureComponent {
                   end: { x: 1, y: 0.5 }
                 }}
               />
-            </TouchableOpacity>
           </ImageBackground>
         </View>
       </View>

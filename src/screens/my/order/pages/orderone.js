@@ -2,6 +2,7 @@ import React, { Component, PureComponent } from 'react';
 import { View, Text, Image, TouchableOpacity, ScrollView } from 'react-native';
 import { pxToDp } from '@utils/styleKits';
 import Orderitem from './orderItem';
+import Mybtn from '../../../../component/common/mybtn';
 
 class Index extends PureComponent {
   render() {

@@ -152,13 +152,13 @@ export default class ticketdetail extends PureComponent {
                 <View
                   style={{
                     height: pxToDp(30),
-                    backgroundColor: '#468cd3',
+                    backgroundColor:'#fa9222',
                     borderBottomRightRadius: pxToDp(30),
                     justifyContent: 'center',
                     alignItems: 'center'
                   }}
                 >
-                  <Text style={{ fontSize: pxToDp(15), fontWeight: 'bold' }}>
+                  <Text style={{ fontSize: pxToDp(15), fontWeight: 'bold',color:'#e9e9f6' }}>
                     观众评分
                   </Text>
                 </View>
@@ -246,9 +246,7 @@ export default class ticketdetail extends PureComponent {
                 alignItems: 'center',
               }}
             >
-              <Text style={{ fontSize: pxToDp(18) }}>详情</Text>
-              <Text style={{ fontSize: pxToDp(18) }}>/</Text>
-              <Text style={{ fontSize: pxToDp(18) }}>评价</Text>
+              <Text style={{ fontSize: pxToDp(16) }}>详情/评价</Text>
             </View>
           </View>
           <View>
@@ -263,7 +261,7 @@ export default class ticketdetail extends PureComponent {
               >
                 温馨提示
               </Text>
-              <Text style={{ fontSize: pxToDp(13) }}>
+              <Text style={{ fontSize: pxToDp(12),color:'#333333',lineHeight:pxToDp(20) }}>
                 您知悉，因各地疫情情况，演出地或您所在地疫情防控政策可能影响您的出行安排或演出的入场验证要求。若演出受不可抗力影响延期或取消导致退票的，本App仅支持退回票款，其他因观演发生的费用需由您自行承担。
               </Text>
             </View>

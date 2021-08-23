@@ -11,7 +11,7 @@ import { pxToDp } from '../../../utils/styleKits';
 import requset from '@service/index';
 import { connect } from 'react-redux';
 import { getAddressListAction } from './store/actions';
-
+import Mybtn from '../../../component/common/mybtn';
 class NewAddress extends PureComponent {
   constructor(props) {
     super(props);
@@ -80,29 +80,31 @@ class NewAddress extends PureComponent {
           }}
         >
           <View style={s.top}>
-            <View style={{ height: pxToDp(45) }}>
+            <View style={{ height: pxToDp(55) }}>
               <Input
                 placeholder="姓名"
                 onChangeText={(person) => this.setState({ person })}
                 style={{
                   height: pxToDp(45),
-                  paddingLeft: pxToDp(12)
+                  paddingLeft: pxToDp(12),
+                  fontSize: 14
                 }}
                 leftIcon={
-                  <Text style={{ fontSize: pxToDp(18) }}>收 货 人</Text>
+                  <Text style={{ fontSize: pxToDp(16) }}>收 货 人</Text>
                 }
               />
             </View>
-            <View style={{ height: pxToDp(45) }}>
+            <View style={{ height: pxToDp(55) }}>
               <Input
                 placeholder="11位手机号"
                 onChangeText={(phone) => this.setState({ phone })}
                 style={{
                   height: pxToDp(45),
-                  paddingLeft: pxToDp(7)
+                  paddingLeft: pxToDp(7),
+                  fontSize: pxToDp(14),
                 }}
                 leftIcon={
-                  <Text style={{ fontSize: pxToDp(18) }}>联系电话</Text>
+                  <Text style={{ fontSize: pxToDp(16) }}>联系电话</Text>
                 }
               />
             </View>
@@ -131,31 +133,32 @@ class NewAddress extends PureComponent {
             </TouchableOpacity> 
           </View>
         </View> */}
-          <View style={{ height: pxToDp(45) }}>
+          <View style={{ height: pxToDp(55) }}>
             <Input
               placeholder="请输入地址"
               onChangeText={(address) => this.setState({ address })}
               style={{
-                height: pxToDp(45),
-                paddingLeft: pxToDp(7)
+                height: pxToDp(55),
+                fontSize: pxToDp(14),
+                paddingLeft: pxToDp(8)
               }}
-              leftIcon={<Text style={{ fontSize: pxToDp(18) }}>地址信息</Text>}
+              leftIcon={<Text style={{ fontSize: pxToDp(16) }}>地址信息</Text>}
             />
           </View>
 
           <View
             style={{
-              height: pxToDp(45),
+              height: pxToDp(55),
               marginTop: pxToDp(20)
             }}
           >
             <View style={s.bottom}>
               <View style={{ justifyContent: 'center', height: pxToDp(45) }}>
-                <Text style={{ fontSize: pxToDp(17) }}>设为默认地址</Text>
+                <Text style={{ fontSize: pxToDp(16) }}>设为默认地址</Text>
               </View>
               <View>
                 <Switch
-                  style={{ marginTop: pxToDp(10), marginRight: pxToDp(10) }}
+                  style={{ marginTop: pxToDp(10), marginRight: pxToDp(8) }}
                   //动态改变value
                   value={this.state.value}
                   //当切换开关室回调此方法
@@ -167,48 +170,36 @@ class NewAddress extends PureComponent {
             </View>
           </View>
         </View>
-        <TouchableOpacity
-          style={{
-            backgroundColor: '#ecf6fc',
-            width: pxToDp(300),
-            height: pxToDp(50),
-            marginTop: pxToDp(10),
-            borderRadius: pxToDp(48),
-            alignSelf: 'center',
-            elevation: 4,
-            shadowColor: 'black', //  阴影颜色
-            shadowOffset: { width: 0, height: 0 }, // 阴影偏移
-            shadowOpacity: 1, // 阴影不透明度
-            shadowRadius: 10 //  圆角
-          }}
+
+        <Mybtn
           onPress={this.saveAddress}
-        >
-          <Text
-            style={{
-              alignSelf: 'center',
-              top: pxToDp(15),
-              fontSize: pxToDp(18),
-              color: '#000'
-            }}
-          >
-            保存
-          </Text>
-        </TouchableOpacity>
+          title='保存信息'
+          buttonStyle={{
+            width: pxToDp(352),
+            height: pxToDp(40),
+            borderRadius: pxToDp(32),
+            alignSelf: 'center',
+            marginTop:pxToDp(64)
+          }}
+          linearGradientProps={{
+            colors: ['#fa9222', '#ffd501'],
+            start: { x: 0, y: 0.5 },
+            end: { x: 1, y: 0.5 }
+          }}
+        />
       </View>
     );
   }
 }
 const s = StyleSheet.create({
-  top: {
-    height: pxToDp(100)
-  },
+
   center: {
     height: pxToDp(160)
   },
   bottom: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginLeft: pxToDp(10)
+    marginLeft: pxToDp(8)
   }
 });
 export default connect(() => ({}), { getAddressListAction })(NewAddress);

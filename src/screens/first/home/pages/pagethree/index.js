@@ -50,13 +50,13 @@ class Index extends PureComponent {
                   width: pxToDp(240),
                   height:pxToDp(130),
                   marginLeft: pxToDp(10),
-                  marginTop:pxToDp(10)
+                  marginTop:pxToDp(7)
                 }}
               >
                 <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold' }}>
                   {item.name}
                 </Text>
-                <Text style={{ fontSize: pxToDp(14) }} numberOfLines={4}>{item.content}</Text>
+                <Text style={{ fontSize: pxToDp(14),lineHeight:pxToDp(18),marginTop:pxToDp(14) }} numberOfLines={4}>{item.content}</Text>
               </View>
             </TouchableOpacity>
           ))}

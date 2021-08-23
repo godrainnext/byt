@@ -14,7 +14,7 @@ import { pxToDp } from '../../../utils/styleKits';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import { NavigationContext } from '@react-navigation/native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-
+import Mybtn from "../../../component/common/mybtn";
 class orders extends PureComponent {
   constructor(props) {
     super(props);

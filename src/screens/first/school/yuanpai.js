@@ -85,17 +85,20 @@ const styles = StyleSheet.create({
         borderRadius: pxToDp(8)
     },
     title: {
-        fontSize: pxToDp(18),
+        fontSize: pxToDp(16),
+        lineHeight:pxToDp(18),
         color: '#468CD3',
         fontWeight: 'bold',
         marginTop: pxToDp(10)
     },
     text1: {
-        fontSize: pxToDp(17),
+        fontSize: pxToDp(14),
+        lineHeight:pxToDp(22),
         marginTop:pxToDp(10)
     },
     text2: {
-        fontSize: pxToDp(17),
+        fontSize: pxToDp(14),
+        lineHeight:pxToDp(22),
         marginTop:pxToDp(15)
     },
     zhuanji: {

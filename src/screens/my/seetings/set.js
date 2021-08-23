@@ -5,6 +5,8 @@ import Top from '../../../component/common/top';
 import { NavigationContext } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { pxToDp } from '../../../utils/styleKits';
+import Mybtn from '../../../component/common/mybtn';
+import LinearGradient from 'react-native-linear-gradient'
 class Index extends PureComponent {
   constructor(props) {
     super(props);
@@ -44,34 +46,29 @@ class Index extends PureComponent {
           <TouchableOpacity onPress={() => this.context.navigate('Women')}>
             <List title="关于我们" />
           </TouchableOpacity>
-          <TouchableOpacity
-            activeOpacity={0.8}
-            onPress={this.cancelToken}
-            style={{
-              justifyContent: 'center',
-              alignItems: 'center',
-              height: pxToDp(50)
-            }}
-          >
-            <View
-              style={{
-                justifyContent: 'center',
-                alignItems: 'center',
-                width: '48%',
-                height: pxToDp(40),
-                borderRadius: pxToDp(8),
-                marginTop: pxToDp(32),
-                backgroundColor: '#f0bb51',
-                elevation: 4, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
-                shadowColor: 'black', //  阴影颜色
-                shadowOffset: { width: 0, height: 0 }, // 阴影偏移
-                shadowOpacity: 1, // 阴影不透明度
-                shadowRadius: 10 //  圆角
-              }}
-            >
-              <Text style={{ color: '#468cd3' }}>退出登录</Text>
-            </View>
-          </TouchableOpacity>
+            <Mybtn
+                    title="观看视频"
+                    onPress={this.cancelToken}
+                    onPress={() => this.context.navigate('Video', item.id)}
+                    ViewComponent={LinearGradient}
+                    buttonStyle={{
+                      width: pxToDp(200),
+                      height: pxToDp(50),
+                      alignSelf: 'center',
+                      borderRadius: pxToDp(32),
+
+                    }}
+                    titleStyle={{
+                      color: '#fcfcfc',
+                      fontWeight: 'bold',
+                      fontSize: pxToDp(16)
+                    }}
+                    linearGradientProps={{
+                      colors: ['#fa9222', '#ffd501'],
+                      start: { x: 0, y: 0.5 },
+                      end: { x: 1, y: 0.5 }
+                    }}
+                  />
         </View>
       </View>
     );

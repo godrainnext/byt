@@ -10,7 +10,8 @@ import { NavigationContext } from '@react-navigation/native';
 import axios from 'axios';
 import PulseLoader from 'react-native-pulse-loader';
 import Top from '@components/common/top';
-
+import LinearGradient from 'react-native-linear-gradient';
+import Mybtn from '../../../../component/common/mybtn';
 const dimensions = {
   width: Dimensions.get('window').width,
   height: Dimensions.get('window').height,
@@ -228,7 +229,7 @@ export default class App extends Component {
       {this._renderVideos()}
     </View> : (
       <View style={styles.max}>
-        <Top icon1="arrow-back" title="开房" />
+        <Top icon1="arrow-back" title="创建房间" />
         <View style={styles.max}>
           <View>
             <View style={{ marginTop: 4 }}>
@@ -277,9 +278,21 @@ export default class App extends Component {
             </View>
           </View>
           <View style={styles.buttonHolder}>
-            <TouchableOpacity onPress={this.startCall} style={styles.button}>
-              <Text style={styles.buttonText}> 开房 </Text>
-            </TouchableOpacity>
+            <Mybtn
+              title="创建房间"
+              onPress={this.startCall}
+              buttonStyle={{
+                width: pxToDp(200),
+                height: pxToDp(50),
+                alignSelf: 'center',
+                borderRadius: pxToDp(32),
+              }}
+              titleStyle={{
+                color: '#fcfcfc',
+                fontWeight: 'bold',
+                fontSize: pxToDp(16)
+              }}
+            />
             {/* <TouchableOpacity onPress={this.endCall} style={styles.button}>
               <Text style={styles.buttonText}> 结束直播 </Text>
             </TouchableOpacity> */}
@@ -420,7 +433,7 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   max: {
     flex: 1,
-    backgroundColor:'#ecf6fc'
+    backgroundColor: '#ecf6fc'
   },
   buttonHolder: {
     height: pxToDp(100),

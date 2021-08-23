@@ -33,14 +33,14 @@ class SwpierItem extends PureComponent {
   };
   render() {
     return (
-      <View style={{ marginBottom: 10, elevation: 10 }}>
+      <View style={{ marginBottom: 10,}}>
         <Card style={{ width: '100%' }} elevation={10}>
           <SwipeRow
             leftOpenValue={75}
             rightOpenValue={-88}
             disableRightSwipe={true} //禁止向右滑动
           >
-            <View style={styles.rowBack}>
+            <View>
               <View style={styles.backRightBtnRight}>
                 <TouchableOpacity
                   style={{ width: '100%', height: '100%' }}
@@ -56,19 +56,17 @@ class SwpierItem extends PureComponent {
               </View>
             </View>
 
-            <View style={{ backgroundColor: '#fff', height: 120, widht: 500 }}>
+            <View style={{ backgroundColor: '#fff', height: 120, width: '100%' ,borderRadius:6,overflow:'hidden'}}>
               <View
-                style={{ width: 200, flexDirection: 'row', marginRight: 225 }}
+                style={{ width: 200, flexDirection: 'row', marginRight: 225,alignItems:'center'}}
               >
                 {/* 姓名 */}
                 <Text
                   style={{
-                    fontSize: 20,
-                    position: 'absolute',
-                    left: 30,
-                    top: 10,
-                    fontWeight: 'bold',
-                    opacity: 0.8
+                    fontSize: 16,
+                    color:'#333333',
+                    opacity: 0.8,
+                    padding:16
                   }}
                 >
                   {this.props.item.name}
@@ -76,12 +74,10 @@ class SwpierItem extends PureComponent {
                 {/* 电话号码 */}
                 <Text
                   style={{
-                    fontSize: 15,
-                    position: 'absolute',
-                    left: 150,
-                    top: 15,
+                    fontSize: 12,
+                    marginLeft:pxToDp(8),
                     width: 120,
-                    fontWeight: 'bold',
+                    color:'#666666',
                     opacity: 0.8
                   }}
                 >
@@ -92,28 +88,31 @@ class SwpierItem extends PureComponent {
               <View
                 style={{
                   position: 'absolute',
-                  left: 30,
-                  top: 45,
-                  width: '80%'
+                  top: pxToDp(54),
+                  width: '90%',
+                  paddingBottom:pxToDp(12),
+                  marginLeft:pxToDp(16),
+                  borderBottomWidth:0.2,
+                  borderColor:'#666666'
                 }}
               >
                 <Text
-                  style={{ color: 'gray', fontWeight: 'bold', opacity: 0.5 }}
+                  style={{ color:'#333333',opacity: 0.5 }}
                   numberOfLines={1}
                 >
                   {this.props.address}
                 </Text>
               </View>
 
-              <View style={{ position: 'absolute', left: 30, bottom: -10 }}>
+              <View style={{ position: 'absolute', left: 16, bottom: -10 }}>
                 <TouchableOpacity
                   onPress={this.props.onPress}
                   style={{
-                    width: 23,
-                    height: 23,
-                    borderWidth: 0.5,
+                    width: pxToDp(22),
+                    height:  pxToDp(22),
+                    borderWidth: 0.1,
                     borderRadius: 32,
-                    borderColor: 'gray'
+                    borderColor: '#666666'
                   }}
                 >
                   <SvgUri
@@ -123,7 +122,7 @@ class SwpierItem extends PureComponent {
                     style={{ right: 2, bottom: 2 }}
                   />
                 </TouchableOpacity>
-                <Text style={{ left: 35, bottom: 20, opacity: 0.5 }}>
+                <Text style={{ left: 35, bottom: 20, opacity: 0.5 ,color:'#666666',fontSize:12}}>
                   默认地址
                 </Text>
               </View>
@@ -135,27 +134,12 @@ class SwpierItem extends PureComponent {
   }
 }
 const styles = StyleSheet.create({
-  rowBack: {
-    alignItems: 'center',
-    backgroundColor: '#fcfcfc',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    flex: 1
-  },
 
-  backRightBtn: {},
-  backRightBtnLeft: {
-    backgroundColor: '#1ac599', //2bed6b 1ac599
-    position: 'absolute',
-    right: 80,
-    width: 80,
-    top: 0.2,
-    height: 120
-  },
   backRightBtnRight: {
     backgroundColor: '#f8726f',
     height: 120,
     width: 80,
+    borderRadius:6,
     alignItems: 'center',
     justifyContent: 'center',
     position: 'absolute',

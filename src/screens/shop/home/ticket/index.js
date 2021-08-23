@@ -100,7 +100,7 @@ export default class index extends PureComponent {
     const { activeTab } = this.state;
     return (
       <View style={{ backgroundColor: '#ecf6fc', flex: 1 }}>
-        <Top title="票务系统" icon1="arrow-back" />
+        <Top title="门票中心" icon1="arrow-back" />
         <View style={styles.topbox}>
           <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold' }}>演出</Text>
         </View>
@@ -257,13 +257,11 @@ const styles = StyleSheet.create({
     height: pxToDp(100),
     marginTop: pxToDp(15),
     marginBottom: pxToDp(15),
-    backgroundColor: '#995fbd',
+    backgroundColor: '#fa9222',
     borderRadius: pxToDp(16),
     justifyContent: 'space-around',
-    elevation: 10, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
-    shadowColor: 'black', //  阴影颜色
-    shadowOffset: { width: 0, height: 0 }, // 阴影偏移
-    shadowOpacity: 0.6, // 阴影不透明度
-    shadowRadius: 18 //  圆角
+    overflow:'hidden',
+    elevation: 3, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+
   }
 });

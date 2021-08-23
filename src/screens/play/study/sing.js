@@ -16,6 +16,8 @@ import { Audio } from 'expo-av';
 import { LogFilter } from 'react-native-agora';
 import axios from 'axios';
 import { saveMusic } from '../../../service/play';
+import Mybtn from '../../../component/common/mybtn';
+import LinearGradient from 'react-native-linear-gradient'
 class Index extends PureComponent {
   state = {
     status: {},

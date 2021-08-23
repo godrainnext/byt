@@ -20,6 +20,7 @@ import Address from '../../../component/my/address';
 import { addOrider } from '../../../service/shop';
 import { connect } from 'react-redux';
 import { getUserOriderListAction } from '../../first/home/store/actions';
+import Mybtn from '../../../component/common/mybtn';
 class orders extends PureComponent {
   constructor(props) {
     super(props);
@@ -319,35 +320,23 @@ class orders extends PureComponent {
               ￥{price * count}
             </Text>
           </View>
-
-          <TouchableOpacity
-            cisabled={this.props.disabled}
+          <Mybtn   cisabled={this.props.disabled}
+                    title="提交订单"
+                
             onPress={this.addOrder}
-            style={{
-              borderRadius: pxToDp(24),
-              marginRight: pxToDp(20),
-              width: pxToDp(130),
-              height: pxToDp(40),
-              ...this.props.style,
-              overflow: 'hidden'
-            }}
-          >
-            <View
-              style={{
-                flex: 1,
-                paddingLeft: pxToDp(15),
-                paddingRight: pxToDp(15),
-                borderRadius: pxToDp(4),
-                width: '100%',
-                height: '100%',
-                justifyContent: 'center',
-                alignItems: 'center',
-                backgroundColor: '#ecf6fc'
-              }}
-            >
-              <Text>提交订单</Text>
-            </View>
-          </TouchableOpacity>
+                    buttonStyle={{
+                      width: pxToDp(120),
+                      height: pxToDp(40),
+                      alignSelf: 'flex-end',
+                      borderRadius: pxToDp(32),
+                      marginRight: pxToDp(8)
+                    }}
+                    titleStyle={{
+                      color: '#fcfcfc',
+                      fontWeight: 'bold',
+                      fontSize: pxToDp(16)
+                    }}
+                  />
         </View>
 
         {/* 支付方式弹窗 */}

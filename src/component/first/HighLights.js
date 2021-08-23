@@ -8,6 +8,8 @@ import changeImgSize from '@utils/changeImgSize';
 import { Button } from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
 import { PureComponent } from 'react';
+import Mybtn from '../../component/common/mybtn'
+
 
 export default class HighLights extends PureComponent {
   static contextType = NavigationContext;
@@ -123,40 +125,34 @@ export default class HighLights extends PureComponent {
                     borderColor: '#ccc'
                   }}
                 >
-                  <Text style={{ alignSelf: 'center', fontSize: pxToDp(16) }}>
+                  <Text style={{ alignSelf: 'center', fontSize: pxToDp(16),fontWeight:'bold'}} numberOfLines={1}>
                     {item.title}
                   </Text>
                 </View>
                 <View style={{ height: '30%', width: '100%' }}>
                   <Text
                     style={{
-                      fontSize: pxToDp(15),
+                      fontSize: pxToDp(12),
                       paddingLeft: pxToDp(20)
                     }}
                     numberOfLines={2}
                   >
                     {item.ezcontent}
                   </Text>
-                  <Button
+                  <Mybtn
                     title="观看视频"
                     onPress={() => this.context.navigate('Video', item.id)}
-                    ViewComponent={LinearGradient}
                     buttonStyle={{
-                      width: pxToDp(60),
-                      height: pxToDp(30),
+                      width: pxToDp(120),
+                      height: pxToDp(40),
                       alignSelf: 'flex-end',
-                      borderRadius: pxToDp(16),
-                      marginRight: pxToDp(16)
+                      borderRadius: pxToDp(32),
+                      marginRight: pxToDp(8)
                     }}
                     titleStyle={{
                       color: '#fcfcfc',
                       fontWeight: 'bold',
-                      fontSize: pxToDp(10)
-                    }}
-                    linearGradientProps={{
-                      colors: ['#fa9222', '#ffd501'],
-                      start: { x: 0, y: 0.5 },
-                      end: { x: 1, y: 0.5 }
+                      fontSize: pxToDp(16)
                     }}
                   />
                 </View>

@@ -73,7 +73,7 @@ class Index extends PureComponent {
               }}
             >
               <View>
-                <Text style={{ fontSize: pxToDp(18) }}>我的订单</Text>
+                <Text style={{ fontSize: pxToDp(16),padding:pxToDp(8) }}>我的订单</Text>
               </View>
               <TouchableOpacity
                 onPress={() => this.context.navigate('Order', 0)}
@@ -81,12 +81,12 @@ class Index extends PureComponent {
                 <View
                   style={{
                     flexDirection: 'row',
-                    fontSize: pxToDp(15),
-                    marginRight: pxToDp(8)
+                    marginRight: pxToDp(8),
+                    justifyContent:'center'
                   }}
                 >
-                  <Text>查看全部订单 </Text>
-                  <Ionicons name="angle-right" size={17} color="#000000" />
+                  <Text>全部订单 </Text>
+                  <Ionicons name="angle-right" size={18} color="#000000" />
                 </View>
               </TouchableOpacity>
             </View>
@@ -94,14 +94,13 @@ class Index extends PureComponent {
               style={{
                 flexDirection: 'row',
                 justifyContent: 'space-around',
-                marginTop: pxToDp(12)
               }}
             >
               <TouchableOpacity
                 onPress={() => this.context.navigate('Order', 1)}
               >
                 <View style={{ alignItems: 'center' }}>
-                  <Ionicons name="credit-card" size={25} color="#468CD3" />
+                  <Ionicons name="credit-card" size={32} color="#468CD3" />
                   <Text style={{ fontSize: pxToDp(15), marginTop: pxToDp(8) }}>
                     待支付
                   </Text>
@@ -111,7 +110,7 @@ class Index extends PureComponent {
                 onPress={() => this.context.navigate('Order', 2)}
               >
                 <View style={{ alignItems: 'center' }}>
-                  <Ionicons name="truck" size={25} color="#468CD3" />
+                  <Ionicons name="truck" size={32} color="#468CD3" />
                   <Text style={{ fontSize: pxToDp(15), marginTop: pxToDp(8) }}>
                     待收货
                   </Text>
@@ -121,7 +120,7 @@ class Index extends PureComponent {
                 onPress={() => this.context.navigate('Order', 3)}
               >
                 <View style={{ alignItems: 'center' }}>
-                  <Ionicons name="commenting-o" size={25} color="#468CD3" />
+                  <Ionicons name="commenting-o" size={32} color="#468CD3" />
                   <Text style={{ fontSize: pxToDp(15), marginTop: pxToDp(8) }}>
                     待评价
                   </Text>
@@ -129,7 +128,7 @@ class Index extends PureComponent {
               </TouchableOpacity>
               <TouchableOpacity onPress={() => this.context.navigate('Refund')}>
                 <View style={{ alignItems: 'center' }}>
-                  <Ionicons name="handshake-o" size={25} color="#468CD3" />
+                  <Ionicons name="handshake-o" size={32} color="#468CD3" />
                   <Text style={{ fontSize: pxToDp(15), marginTop: pxToDp(8) }}>
                     售后/退款
                   </Text>

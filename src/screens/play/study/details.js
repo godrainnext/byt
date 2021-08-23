@@ -3,7 +3,8 @@ import { View, Image, Text, TouchableOpacity, StyleSheet, ScrollView, ImageBackg
 import Top from '../../../component/common/top';
 import { pxToDp } from '../../../utils/styleKits';
 import { NavigationContext } from "@react-navigation/native";
-
+import Mybtn from '../../../component/common/mybtn';
+import LinearGradient from 'react-native-linear-gradient'
 class Index extends PureComponent {
     constructor(props) {
         super(props);
@@ -58,29 +59,42 @@ class Index extends PureComponent {
     render() {
         return (
             <View style={{ backgroundColor: '#E2F4FE', flex: 1 }}>
-                <View>
+         
                     <Top icon1='arrow-back' title="详情" />
-                </View>
+             
                 <ScrollView>
                     <View style={styles.top}>
                         <Image style={styles.image} source={require('../../../res/6.png')}></Image>
-                        <View style={{ justifyContent: "center", marginLeft: pxToDp(10) }}>
+                        <View style={{ justifyContent: 'space-between', marginLeft: pxToDp(8), height: pxToDp(70),marginTop:pxToDp(24)}}>
                             <Text style={styles.text1}>穆桂英挂帅</Text>
                             <Text style={styles.text2}>猛听得金鼓响画角声震</Text>
                             <Text style={styles.text3}>1959人唱过</Text>
                         </View>
                     </View>
-                    <View style={{ flexDirection: "row" }}>
-                        <TouchableOpacity style={{ backgroundColor: "#6666", width: pxToDp(80), height: pxToDp(25), justifyContent: "center", alignItems: "center", marginLeft: pxToDp(25), borderRadius: pxToDp(16) }}>
+                    <View>
+                        {/* <TouchableOpacity style={{ backgroundColor: "#6666", width: pxToDp(80), height: pxToDp(25), justifyContent: "center", alignItems: "center", marginLeft: pxToDp(25), borderRadius: pxToDp(16) }}>
                             <Text style={{ fontSize: pxToDp(12), fontWeight: "bold", color: "white" }}>练唱</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => this.context.navigate("Singbefore")} style={{ backgroundColor: "#468CD3", width: pxToDp(230), height: pxToDp(25), justifyContent: "center", alignItems: "center", marginLeft: pxToDp(25), borderRadius: pxToDp(16) }}>
-                            <Text style={{ fontSize: pxToDp(12), fontWeight: "bold", color: "white" }}>我要跟唱</Text>
-                        </TouchableOpacity>
+                        </TouchableOpacity> */}
+                        <Mybtn
+                        onPress={() => this.context.navigate("Sing")}
+                        title='开始独唱'
+                        buttonStyle={{
+                            width: pxToDp(160),
+                            height: pxToDp(40),
+                            borderRadius:pxToDp(32),
+                            alignSelf:'center'
+                        }}
+                        linearGradientProps={{
+                            colors: ['#fa9222', '#ffd501'],
+                            start: { x: 0, y: 0.5 },
+                            end: { x: 1, y: 0.5 }
+                        }}
+                    />
                     </View>
                     <View style={styles.center}>
-                        <View style={{ borderRadius: pxToDp(8), marginLeft: pxToDp(10), marginRight: pxToDp(10), marginTop: pxToDp(15), backgroundColor: "#E2F4FE" }}>
-                            <Text style={{ fontSize: pxToDp(15), margin: pxToDp(10) }}>曲子简介{'\n'}
+                        <View style={{ borderRadius: pxToDp(8), padding:pxToDp(8),marginLeft: pxToDp(10), marginRight: pxToDp(10), marginTop: pxToDp(15), backgroundColor: "#E2F4FE" }}>
+                        <Text style={{ fontSize: pxToDp(16), fontWeight:'bold' }}>曲子简介{'\n'} </Text>
+                            <Text style={{ fontSize: pxToDp(14),lineHeight:pxToDp(22) }}>
                                 猛听得金鼓响画角声震，唤起我破天门壮志凌云。{'\n'}
                                 想当年桃花马上威风凛凛，敌血飞溅石榴裙。{'\n'}
                                 有生之日责当尽，寸土怎能够属于他人。{'\n'}
@@ -131,12 +145,12 @@ const styles = StyleSheet.create({
         color: '#000000'
     },
     text2: {
-        fontSize: pxToDp(13),
-        color: '#696969',
-        marginTop: pxToDp(5)
+        fontSize: pxToDp(12),
+        color: '#666666',
+        marginTop: pxToDp(2)
     },
     text3: {
-        fontSize: pxToDp(13),
+        fontSize: pxToDp(12),
         color: '#808080',
         marginTop: pxToDp(5)
     },
@@ -144,13 +158,12 @@ const styles = StyleSheet.create({
         height: pxToDp(110),
         backgroundColor: '#E2F4FE',
         flexDirection: "row",
-        alignItems: "center",
+        alignSelf:'center'
+
     },
     image: {
         height: pxToDp(100),
         width: pxToDp(130),
-        marginLeft: pxToDp(10),
-        marginBottom: pxToDp(10)
     },
     center: {
         width: "100%",

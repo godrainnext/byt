@@ -4,6 +4,7 @@ import Top from '../../../component/common/top'
 import { pxToDp } from "../../../utils/styleKits";
 import { AlwaysOpen } from "../../../component/common/albummenu";
 import { NavigationContext } from '@react-navigation/native';
+import Mybtn from "../../../component/common/mybtn";
 class Index extends PureComponent {
   constructor(props) {
     super(props);
@@ -24,7 +25,7 @@ class Index extends PureComponent {
       <View style={{ backgroundColor: '#ecf6fc', flex: 1 }}>
         <Top icon1="arrow-back" />
         {/*头部信息 */}
-        <View style={{ marginLeft: pxToDp(8), marginRight: pxToDp(8) }}>
+        <View style={{ margin: pxToDp(8) }}>
           <View
             style={{
               flexDirection: 'row',
@@ -65,13 +66,28 @@ class Index extends PureComponent {
                     听戏
                   </Text>
                 </View>
-                <TouchableOpacity style={styles.touch}>
-                  <Text style={{ color: 'white', fontSize: pxToDp(13) }}>
-                    +收藏
-                  </Text>
-                </TouchableOpacity>
+                <Mybtn   cisabled={this.props.disabled}
+                    title="收藏"
+                
+            onPress={this.addOrder}
+                    buttonStyle={{
+                      width: pxToDp(60),
+                      height: pxToDp(35),
+                      alignSelf: 'flex-end',
+                      borderRadius: pxToDp(32),
+                      marginRight: pxToDp(8),
+                      
+                    }}
+                    titleStyle={{
+
+                      fontSize: pxToDp(14)
+                    }}
+                  />
+
               </View>
+              
             </View>
+            
           </View>
           <View
             style={{
@@ -80,7 +96,7 @@ class Index extends PureComponent {
               marginTop: pxToDp(10)
             }}
           >
-            <Text style={{ margin: pxToDp(5), fontSize: pxToDp(13) }}>
+            <Text style={{ margin: pxToDp(8), fontSize: pxToDp(12),  color:'#33333' ,lineHeight: pxToDp(14) }}>
               {this.state.data.brief}
             </Text>
           </View>
@@ -104,12 +120,13 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   text: {
-    fontSize: pxToDp(13)
+    fontSize: pxToDp(13),
+    color:'#6666'
   },
   image2: {
-    height: pxToDp(30),
-    width: pxToDp(30),
-    borderRadius: pxToDp(16)
+    height: pxToDp(40),
+    width: pxToDp(40),
+    borderRadius: pxToDp(40)
   },
   touch: {
     backgroundColor: '#468cd3',

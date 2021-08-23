@@ -65,14 +65,13 @@ class UserInner extends PureComponent {
           borderWidth: 0
         }}
       >
-        <View style={{ flexDirection: 'row' }}>
+        <View style={{ flexDirection: 'row',            padding:pxToDp(16)}}>
           <TouchableOpacity onPress={() => this.context.navigate('Myhome', id)}>
             <Image
               style={{
                 height: pxToDp(60),
                 width: pxToDp(60),
                 borderRadius: pxToDp(32),
-                margin: pxToDp(8)
               }}
               source={
                 this.props.avatar

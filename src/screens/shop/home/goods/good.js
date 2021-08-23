@@ -20,11 +20,14 @@ import Swiper from '@components/common/Swiper';
 import { getShopInfo } from '@service/shop';
 import { EasyLoading, Loading } from '@utils/ezLoading';
 import changeImgSize from '@utils/changeImgSize';
+import Mybtn from '../../../../component/common/mybtn';
+import LinearGradient from 'react-native-linear-gradient'
 const WINDOW_WIDTH = Dimensions.get('window').width;
 class shopdetails extends PureComponent {
   state = {
     count: 1,
     //商品
+    btnOpcity: false,
     products: [],
     //尺码
     Size: [
@@ -158,8 +161,12 @@ class shopdetails extends PureComponent {
         <Top icon1="arrow-back" title="猜你喜欢" />
         <Loading color="#468cd3" />
         <ScrollView
+          // onMomentumScrollBegin={() => { this.setState({ btnOpcity: true }); console.log(this.state.btnOpcity); }}
+          // onMomentumScrollEnd={() => { this.setState({ btnOpcity: false }); console.log(this.state.btnOpcity); }}
+          onScrollBeginDrag={() => { this.setState({ btnOpcity: true }); console.log(this.state.btnOpcity); }}
+          onScrollEndDrag={() => { this.setState({ btnOpcity: false }); console.log(this.state.btnOpcity); }}
           style={{
-            flex: 1
+            flex: 1,
           }}
         >
           {/* 商品图片 */}
@@ -180,7 +187,7 @@ class shopdetails extends PureComponent {
                 alignItems: 'flex-end'
               }}
             >
-              <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold' }}>
+              <Text style={{ fontSize: pxToDp(16), fontWeight: 'bold' }}>
                 ￥
                 {parseInt(
                   this.state.shop.price ? this.state.shop.price * 0.8 : 0
@@ -188,7 +195,7 @@ class shopdetails extends PureComponent {
               </Text>
               <Text
                 style={{
-                  fontSize: pxToDp(12),
+                  fontSize: pxToDp(14),
                   textDecorationLine: 'line-through',
                   marginLeft: pxToDp(10)
                 }}
@@ -273,7 +280,7 @@ class shopdetails extends PureComponent {
                 }}
               >
                 <View style={{ flexDirection: 'row' }}>
-                  <Text style={{ fontSize: pxToDp(18), marginTop: pxToDp(10) }}>
+                  <Text style={{ fontSize: pxToDp(16), marginTop: pxToDp(10) }}>
                     ￥{this.state.products[activeTab]?.price}
                   </Text>
                 </View>
@@ -299,7 +306,7 @@ class shopdetails extends PureComponent {
               <Text
                 style={{
                   marginLeft: pxToDp(25),
-                  fontSize: pxToDp(20),
+                  fontSize: pxToDp(16),
                   marginTop: pxToDp(10),
                   marginBottom: pxToDp(10)
                 }}
@@ -333,7 +340,7 @@ class shopdetails extends PureComponent {
                         width: pxToDp(50),
                         elevation: 5, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
                         shadowColor: 'black', //  阴影颜色
-                 //  圆角
+                        //  圆角
                       }}
                     >
                       <Text
@@ -358,7 +365,7 @@ class shopdetails extends PureComponent {
               <Text
                 style={{
                   marginLeft: pxToDp(25),
-                  fontSize: pxToDp(20),
+                  fontSize: pxToDp(16),
                   marginTop: pxToDp(10)
                 }}
               >
@@ -419,78 +426,77 @@ class shopdetails extends PureComponent {
                 </TouchableOpacity>
               ))}
             </View>
-          </ScrollView>
-          {/* 购买数量 */}
-          <View style={{ height: pxToDp(40), marginBottom: pxToDp(50) }}>
-            <View
-              style={{
-                margin: pxToDp(13),
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                alignItems: 'center'
-              }}
-            >
-              <Text>购买数量</Text>
+            <View style={{ height: pxToDp(40), marginBottom: pxToDp(50) }}>
               <View
                 style={{
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  backgroundColor: '#D3D3D3',
-                  width: pxToDp(100),
-                  height: pxToDp(30),
+                  margin: pxToDp(13),
                   flexDirection: 'row',
                   justifyContent: 'space-between',
-                  borderRadius: pxToDp(8)
+                  alignItems: 'center'
                 }}
               >
-                <TouchableOpacity
-                  onPress={this.onIt}
-                  disabled={this.state.guanbi}
-                  style={{ marginLeft: pxToDp(10) }}
+                <Text style={{fontSize:pxToDp(16)}}>购买数量</Text>
+                <View
+                  style={{
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    backgroundColor: '#D3D3D3',
+                    width: pxToDp(100),
+                    height: pxToDp(30),
+                    flexDirection: 'row',
+                    justifyContent: 'space-between',
+                    borderRadius: pxToDp(8)
+                  }}
                 >
-                  <Text style={{ fontWeight: 'bold', fontSize: pxToDp(20) }}>
-                    -
-                  </Text>
-                </TouchableOpacity>
-                <Text style={{ fontSize: pxToDp(15) }}>{count}</Text>
-                <TouchableOpacity
-                  onPress={this.onPress}
-                  style={{ marginRight: pxToDp(10) }}
-                >
-                  <Text style={{ fontWeight: 'bold', fontSize: pxToDp(20) }}>
-                    +
-                  </Text>
-                </TouchableOpacity>
+                  <TouchableOpacity
+                    onPress={this.onIt}
+                    disabled={this.state.guanbi}
+                    style={{ marginLeft: pxToDp(10) }}
+                  >
+                    <Text style={{  fontSize: pxToDp(20) }}>
+                      -
+                    </Text>
+                  </TouchableOpacity>
+                  <Text style={{ fontSize: pxToDp(15) }}>{count}</Text>
+                  <TouchableOpacity
+                    onPress={this.onPress}
+                    style={{ marginRight: pxToDp(10) }}
+                  >
+                    <Text style={{  fontSize: pxToDp(20) }}>
+                      +
+                    </Text>
+                  </TouchableOpacity>
+                </View>
               </View>
             </View>
-          </View>
-          <View
-            style={{
-              position: 'absolute',
-              bottom: 0,
-              backgroundColor: '#468cd3',
-              width: pxToDp(320),
-              height: pxToDp(40),
-              borderRadius: pxToDp(40),
-              alignSelf: 'center',
-              marginBottom: pxToDp(5)
-            }}
+          </ScrollView>
+          {/* 购买数量 */}
+          <View style={{marginTop:40}}
           >
-            <TouchableOpacity
+            <Mybtn
+            title='提交订单'
               style={{ width: '100%', height: '100%' }}
               onPress={this.goCreateOrider}
-            >
-              <Text
-                style={{
-                  fontSize: pxToDp(18),
-                  color: '#000',
-                  textAlign: 'center',
-                  marginTop: pxToDp(10)
-                }}
-              >
-                提交订单
-              </Text>
-            </TouchableOpacity>
+              containerStyle={{
+                position: 'absolute',
+                bottom: 0,
+                width: pxToDp(320),
+                height: pxToDp(40),
+                borderRadius: pxToDp(40),
+                alignSelf: 'center', color: 'red',
+                display: 'none',
+              }}
+              buttonStyle={{
+                width: '100%',
+                height: '100%',
+                alignSelf: 'flex-end',
+                display: this.state.btnOpcity ? 'none' : 'flex',
+                borderRadius: pxToDp(32),
+              }}
+
+              />
+
+
           </View>
         </RBSheet>
         {/* 购买按钮 */}
@@ -499,23 +505,35 @@ class shopdetails extends PureComponent {
             justifyContent: 'space-evenly'
           }}
         >
-          <TouchableOpacity
+          <Mybtn
             onPress={() => this.Scrollable.open()}
-            style={{
+            title='立刻购买'
+            ViewComponent={LinearGradient}
+            containerStyle={{
               position: 'absolute',
               bottom: 0,
-              backgroundColor: '#468cd3',
+              fontSize: 30,
               width: pxToDp(320),
               height: pxToDp(40),
               borderRadius: pxToDp(40),
-              alignItems: 'center',
-              alignSelf: 'center',
-              justifyContent: 'center',
+              alignSelf: 'center', color: 'red',
+              display: 'none',
               marginBottom: pxToDp(5)
             }}
-          >
-            <Text>立即购买</Text>
-          </TouchableOpacity>
+            buttonStyle={{
+              width: '100%',
+              height: '100%',
+              alignSelf: 'flex-end',
+              display: this.state.btnOpcity ? 'none' : 'flex',
+              borderRadius: pxToDp(32),
+            }}
+            linearGradientProps={{
+              colors: ['#fa9222', '#ffd501'],
+              start: { x: 0, y: 0.5 },
+              end: { x: 1, y: 0.5 }
+            }}
+          />
+
         </View>
       </View>
     );

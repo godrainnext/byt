@@ -26,10 +26,11 @@ export default class index extends PureComponent {
       <View
         style={{
           borderRadius: pxToDp(8),
-          height: pxToDp(310),
+          height: pxToDp(300),
           backgroundColor: 'rgba(255,255,255,0.5)',
           marginRight: pxToDp(10),
-          marginLeft: pxToDp(10)
+          marginLeft: pxToDp(10),
+
         }}
       >
         <ImageBackground
@@ -76,10 +77,15 @@ export default class index extends PureComponent {
                       justifyContent: 'center',
                       alignItems: 'center',
                       flex: 1,
-                      backgroundColor: 'white'
+                      backgroundColor: 'white',
+                      elevation:1,
+                      borderBottomLeftRadius:pxToDp(8),
+                      borderBottomRightRadius:pxToDp(8),
+                      
+                      
                     }}
                   >
-                    <Text style={{ fontSize: pxToDp(15) }}>{item.name}</Text>
+                    <Text style={{ fontSize: pxToDp(14) }}>{item.name}</Text>
                   </View>
                 </TouchableOpacity>
               ))}
