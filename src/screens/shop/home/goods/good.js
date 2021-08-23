@@ -158,9 +158,10 @@ class shopdetails extends PureComponent {
     return (
       <View style={{ flex: 1, backgroundColor: '#ecf6fc' }}>
         {/* 顶部导航 */}
-        <Top icon1="arrow-back" title="猜你喜欢" />
+        <Top icon1="arrow-back"/>
         <Loading color="#468cd3" />
         <ScrollView
+        bounces={true}
           // onMomentumScrollBegin={() => { this.setState({ btnOpcity: true }); console.log(this.state.btnOpcity); }}
           // onMomentumScrollEnd={() => { this.setState({ btnOpcity: false }); console.log(this.state.btnOpcity); }}
           onScrollBeginDrag={() => { this.setState({ btnOpcity: true }); console.log(this.state.btnOpcity); }}
@@ -177,7 +178,7 @@ class shopdetails extends PureComponent {
 
           {/* 品名 价格 */}
           <View style={{ alignItems: 'center', marginTop: pxToDp(20) }}>
-            <Text style={{ fontSize: pxToDp(22), fontWeight: 'bold' }}>
+            <Text style={{ fontSize: pxToDp(20),color:'#000000',fontWeight: 'bold' }}>
               {this.state.shop.title}
             </Text>
             <View
@@ -214,7 +215,7 @@ class shopdetails extends PureComponent {
               marginTop: pxToDp(15)
             }}
           >
-            <Text>{this.state.shop.inner}</Text>
+            <Text style={{fontSize:pxToDp(16),color:'#333333'}}>{this.state.shop.inner}</Text>
           </View>
 
           {/* 商品详情 */}

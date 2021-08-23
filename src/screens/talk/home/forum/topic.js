@@ -89,7 +89,7 @@ export default class topic extends Component {
           >
             <Text
               style={{
-                fontSize: pxToDp(20),
+                fontSize: pxToDp(16),
                 fontWeight: 'bold',
                 margin: pxToDp(8)
               }}
@@ -99,8 +99,10 @@ export default class topic extends Component {
             <Text
               style={{
                 marginTop: pxToDp(8),
-                fontWeight: 'bold',
-                margin: pxToDp(8)
+                lineHeight:pxToDp(22),
+                fontSize:pxToDp(14),
+                margin: pxToDp(8),
+                color:'#666666'
               }}
             >
               {detail}

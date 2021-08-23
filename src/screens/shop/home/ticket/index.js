@@ -102,11 +102,11 @@ export default class index extends PureComponent {
       <View style={{ backgroundColor: '#ecf6fc', flex: 1 }}>
         <Top title="门票中心" icon1="arrow-back" />
         <View style={styles.topbox}>
-          <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold' }}>演出</Text>
+          <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold', color: '#000000' }}>演出</Text>
         </View>
         <ScrollView
           showsVerticalScrollIndicator={false}
-          style={{ flex: 1, margin: pxToDp(16), marginTop: pxToDp(10) }}
+          style={{ flex: 1, marginLeft: pxToDp(8), marginTop: pxToDp(8),marginRight:pxToDp(8) }}
         >
           {/* 演出盒子 */}
           <View style={styles.message}>
@@ -115,7 +115,7 @@ export default class index extends PureComponent {
             <View
               style={{
                 flexDirection: 'row',
-                height: pxToDp(30)
+                height: pxToDp(35)
               }}
             >
               <Text style={styles.boxtext2}>去主页</Text>
@@ -134,6 +134,7 @@ export default class index extends PureComponent {
           {/* 票务选择 */}
           {this.state.data.map((item, index) => (
             <TouchableOpacity
+              activeOpacity={1}
               key={item.id}
               onPress={() =>
                 this.context.navigate('ticketdetail', {
@@ -145,7 +146,16 @@ export default class index extends PureComponent {
                 <View
                   style={{
                     height: pxToDp(140),
-                    flexDirection: 'row'
+                    width: '96%',
+                    alignSelf: 'center',
+                    flexDirection: 'row',
+                    backgroundColor: 'white',
+                    marginTop: pxToDp(8),
+                    borderRadius: pxToDp(8),
+                    elevation: 8,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                    shadowColor: 'black',  //  阴影颜色
+                    shadowRadius: pxToDp(8),  //  圆角,
+                    marginBottom:pxToDp(8)
                   }}
                 >
                   <ImageBackground
@@ -157,15 +167,17 @@ export default class index extends PureComponent {
                   >
                     <View
                       style={{
-                        width: pxToDp(45),
-                        height: pxToDp(12),
+                        width: pxToDp(55),
+                        height: pxToDp(15),
                         backgroundColor: '#000',
                         margin: pxToDp(2),
-                        borderRadius: pxToDp(4),
-                        opacity: 0.6
+                        borderRadius: pxToDp(10),
+                        opacity: 0.6,
+                        alignItems: 'center',
+                        justifyContent: 'center'
                       }}
                     >
-                      <Text style={{ fontSize: pxToDp(11), color: '#fff' }}>
+                      <Text style={{ fontSize: pxToDp(12), color: '#fff' }}>
                         {item.type}
                       </Text>
                     </View>
@@ -179,15 +191,15 @@ export default class index extends PureComponent {
                   >
                     <View>
                       <Text
-                        style={{ fontSize: pxToDp(15), fontWeight: 'bold' }}
+                        style={{ fontSize: pxToDp(16), fontWeight: 'bold', color: '#000000' }}
                         numberOfLines={2}
                       >
                         {item.name}
                       </Text>
                     </View>
                     <View>
-                      <Text style={{fontSize:pxToDp(13)}}>{item.date}</Text>
-                      <Text style={{fontSize:pxToDp(13)}}>{item.place}</Text>
+                      <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>{item.date}</Text>
+                      <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>{item.place}</Text>
                     </View>
                     <View
                       style={{
@@ -204,13 +216,13 @@ export default class index extends PureComponent {
                           alignItems: 'center'
                         }}
                       >
-                        <Text style={{ fontSize: pxToDp(13) }}>
+                        <Text style={{ fontSize: pxToDp(12), color: '#333333' }}>
                           {item.choose}
                         </Text>
                       </View>
                       <View style={{ flexDirection: 'row' }}>
-                        <Text style={{ color: 'red',fontSize:pxToDp(13)}}>￥{item.price}</Text>
-                        <Text style={{ fontSize: pxToDp(13) }}>起</Text>
+                        <Text style={{ color: '#f0bb51', fontSize: pxToDp(14) }}>￥{item.price}</Text>
+                        <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>起</Text>
                       </View>
                     </View>
                   </View>
@@ -226,7 +238,7 @@ export default class index extends PureComponent {
 const styles = StyleSheet.create({
   topbox: {
     height: pxToDp(30),
-    marginLeft: pxToDp(30),
+    marginLeft: pxToDp(12),
     marginTop: pxToDp(12),
     width: pxToDp(90),
     alignItems: 'flex-start',
@@ -255,6 +267,8 @@ const styles = StyleSheet.create({
   },
   message: {
     height: pxToDp(100),
+    width: '98%',
+    alignSelf: 'center',
     marginTop: pxToDp(15),
     marginBottom: pxToDp(15),
     backgroundColor: '#fa9222',

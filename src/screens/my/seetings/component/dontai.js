@@ -94,7 +94,7 @@ class Index extends PureComponent {
           onPlaybackStatusUpdate={(status) => this.setState({ status })}
         />
         <TouchableOpacity
-          style={{ position: 'absolute', bottom: 10, right: 10, opacity: 0.5 }}
+          style={{ position: 'absolute', bottom: 10, right: 10, opacity: 0.5}}
           onPress={() =>
             this.state.status.isPlaying
               ? video.current.pauseAsync()
@@ -147,7 +147,7 @@ class Index extends PureComponent {
           marginBottom: pxToDp(20),
           backgroundColor: 'rgba(255,255,255,0.5)',
           borderRadius: pxToDp(10),
-          elevation: 3
+          elevation:1
         }}
       >
         {this.state.contentArr ? (
@@ -188,16 +188,16 @@ class Index extends PureComponent {
                   borderRadius: pxToDp(8)
                 }}
               >
-                <Text style={{ fontSize: pxToDp(25), fontWeight: 'bold' }}>
+                <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold',color:'#333333' }}>
                   {item.createAt.substr(6, 5)}
                 </Text>
-                <Text style={{ fontSize: 17, paddingLeft: 5 }}>
+                <Text style={{ fontSize:pxToDp(18), paddingLeft: 5,color:'#333333' }}>
                   {item.createAt.substr(0, 4)}
                 </Text>
               </View>
               <View
                 style={{
-                  elevation: 2,
+                  elevation:.5,
                   borderWidth: 0,
                   backgroundColor: 'rgba(255,255,255,0.5)',
                   borderBottomLeftRadius: pxToDp(10),
@@ -226,12 +226,12 @@ class Index extends PureComponent {
                       fontSize: pxToDp(18),
                       marginBottom: pxToDp(10),
                       paddingLeft: pxToDp(8),
-                      marginTop: pxToDp(10)
+                      marginTop: pxToDp(10),
+                      color:'#333333'
                     }}
                   >
                     {item.content}
                   </Text>
-
                   {item.label ? this.showMusic(item) : this.showArticle(item)}
                 </View>
               </View>

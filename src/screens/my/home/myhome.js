@@ -4,30 +4,22 @@ import {
   Text,
   Image,
   StyleSheet,
-  ScrollView,
-  TouchableOpacity,
-  SafeAreaView,
   ImageBackground,
   RefreshControl
 } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 import { NavigationContext } from '@react-navigation/native';
 import { pxToDp } from '@utils/styleKits';
 import Top from '@components/common/top';
-import { getVideList } from '../../../service/home';
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
-import HighLights from '@components/first/HighLights';
-import ImageFade from '@components/ImageFade/index';
-import Hy from '@components/first/hy';
-import Legend from '@components/first/legend';
-import { connect } from 'react-redux';
 import CustormerBar from '../seetings/component/CustormerBar';
 import Dongtai from '../seetings/component/dontai';
 
 export default class hello extends Component {
   static contextType = NavigationContext;
   state = {
-    sctop: 0
+    sctop: 0,
+    text: '初始状态', 
+    refreshing: false 
   };
   componentDidMount() {}
   wait = (timeout) => {
@@ -35,15 +27,39 @@ export default class hello extends Component {
       setTimeout(resolve, timeout);
     });
   }
+  _onRefresh() {
 
+    if (this.state.refreshing === false) {
+        this._updateState('正在刷新......', true);
+
+        //5秒后结束刷新
+        setTimeout( ()=>{
+            this._updateState('结束状态', false)
+        }, 2000)
+
+    }
+}
+
+//更新State
+_updateState(message, refresh){
+    this.setState({text:message,refreshing: refresh});
+}
   render() {
     const { userinfo } = this.state;
     return (
       <ParallaxScrollView
-     refreshControl={
-        <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-      }
-      alwaysBounceVertical={true}
+      contentContainerStyle={{flex: 1, alignItems: 'center',justifyContent: 'center'}}
+      indicatorStyle={'black'}
+      showsHorizontalScrollIndicator={true}
+      bounces={true}
+      refreshControl={
+          <RefreshControl
+              tintColor={'red'}
+              titleColor={'brown'}
+              title={'正在刷新......'}
+              refreshing={this.state.refreshing}
+              onRefresh={this._onRefresh.bind(this)}
+          />}
         onScroll={(event) => {
           this.setState({
             sctop:
@@ -54,13 +70,12 @@ export default class hello extends Component {
         stickyHeaderHeight={40}
         parallaxHeaderHeight={380}
         navBarColor="#fa9222"
-        rendernavBar={<Top />}
         backgroundSpeed={10}
         renderBackground={() => (
           <View key="background">
             <Image
               source={{
-                uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic27.nipic.com%2F20130307%2F8984340_113532918000_2.jpg&refer=http%3A%2F%2Fpic27.nipic.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631857652&t=03b4f1cf6deeb6e50010fe5e59eb881d'
+                uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.wendangwang.com%2Fpic%2Fee1ba231ab39401c350878d6%2F8-810-jpg_6-1080-0-0-1080.jpg&refer=http%3A%2F%2Fwww.wendangwang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632230670&t=ca7b12369e096cee037d293434454e18'
               }}
               style={{
                 width: '100%',
@@ -90,9 +105,9 @@ export default class hello extends Component {
             >
               <Image
                 source={require('./3.png')}
-                style={{ width: pxToDp(50), height: pxToDp(50) }}
+                style={{ width: pxToDp(40), height: pxToDp(40) }}
               />
-              <Text style={{ fontSize: pxToDp(20), color: '#468cd3' }}>
+              <Text style={{ fontSize: pxToDp(18), color: '#333333' }}>
                 我的动态
               </Text>
             </View>

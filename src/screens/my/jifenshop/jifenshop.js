@@ -118,13 +118,12 @@ class Index extends PureComponent {
         <Top icon1="arrow-back" title="积分商城" />
         <ScrollView style={{ flex: 1 }}>
           <ImageBackground
-            source={require('../../../res/jfbg.jpg')}
+            source={require('../../../res/21.jpg')}
             style={{
-              width: pxToDp(320),
+              marginTop:pxToDp(8),
+              marginLeft:pxToDp(8),
+              marginRight:pxToDp(8),
               height: pxToDp(60),
-              marginLeft: pxToDp(27),
-              marginTop: pxToDp(5),
-              marginBottom: pxToDp(10),
               flexDirection: 'row',
               alignItems: 'center',
               justifyContent: 'space-between',
@@ -133,9 +132,9 @@ class Index extends PureComponent {
             imageStyle={{ borderRadius: pxToDp(8) }}
           >
             <View style={{ flexDirection: 'row', marginLeft: pxToDp(10) }}>
-              <Text style={{ fontSize: pxToDp(22), color: '#f90' }}>110</Text>
+              <Text style={{ fontSize: pxToDp(20), color: '#f90',fontWeight:'bold' }}>110</Text>
               <Ionicons
-                style={{ marginTop: pxToDp(10) }}
+                style={{ marginTop: pxToDp(10),marginLeft:pxToDp(4)}}
                 name="server-outline"
                 size={pxToDp(15)}
                 color="#000"
@@ -152,17 +151,22 @@ class Index extends PureComponent {
                 justifyContent: 'center'
               }}
             >
-              <Text style={{ fontSize: pxToDp(15), color: '#fff' }}>
+              <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
                 积分明细
               </Text>
-              <AntDesign name="right" size={pxToDp(15)} color="#000" />
+              <AntDesign name="right" size={pxToDp(15)} color="#666666" />
             </TouchableOpacity>
           </ImageBackground>
-          <View style={{ borderTopColor: 'black', borderTopWidth: pxToDp(1) }}>
-            <Text style={{ fontSize: pxToDp(18), margin: pxToDp(10) }}>
+          <View>
+            <Text style={{ fontSize: pxToDp(18), margin: pxToDp(10),fontWeight:'bold',color:'#000000',marginBottom:pxToDp(-2)}}>
               积分兑换
             </Text>
-            <View style={styles.dadbox}>
+            <View
+            style={{
+              flexWrap: 'wrap',
+              flexDirection: 'row'
+            }}
+          >
               {this.state.data.map((item, index) => (
                 <View style={styles.kidbox}>
                   <TouchableOpacity
@@ -173,22 +177,14 @@ class Index extends PureComponent {
                       })
                     }
                   >
-                    <View
-                      style={{
-                        height: pxToDp(170),
-                        marginTop: pxToDp(5),
-                        marginBottom: pxToDp(5)
-                      }}
-                    >
                       <Image style={styles.image} source={item.img} />
-                    </View>
                     <View style={{ height: pxToDp(60) }}>
-                      <Text style={{ fontSize: pxToDp(15), margin: pxToDp(5) }}>
+                      <Text style={{ fontSize: pxToDp(16), margin: pxToDp(5),color:'#000000'}}>
                         {item.name}
                       </Text>
 
                       <View style={styles.bottext}>
-                        <Text>{item.value}积分</Text>
+                        <Text style={{fontSize:pxToDp(14),color:'#333333'}}>{item.value}积分</Text>
                       </View>
                     </View>
                   </TouchableOpacity>
@@ -202,22 +198,21 @@ class Index extends PureComponent {
   }
 }
 const styles = StyleSheet.create({
-  dadbox: {
-    width: pxToDp(372),
-    flexWrap: 'wrap',
-    flexDirection: 'row'
-  },
   kidbox: {
-    width: pxToDp(170),
-    height: pxToDp(240),
+    backgroundColor: 'white',
+    width: pxToDp(172),
     borderRadius: pxToDp(8),
-    marginLeft: pxToDp(8),
-    marginRight: pxToDp(8)
+    margin: pxToDp(8),
+    marginRight: pxToDp(5),
+    elevation: 5,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+    shadowColor: 'black',  //  阴影颜色
+    shadowRadius: pxToDp(8),  //  圆角
   },
   image: {
     height: pxToDp(170),
-    width: pxToDp(170),
-    borderRadius: pxToDp(8)
+    width: pxToDp(172),
+    borderTopLeftRadius: pxToDp(8),
+    borderTopRightRadius: pxToDp(8)
   },
   bottext: {
     flexDirection: 'row',

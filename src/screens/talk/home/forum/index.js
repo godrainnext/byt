@@ -198,7 +198,7 @@ class Index extends PureComponent {
                       }}
                       imageStyle={{ borderRadius: pxToDp(8) }}
                     >
-                      <Text style={{ fontSize: pxToDp(20), color: 'black' }}>
+                      <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
                         {item.text}
                       </Text>
                     </ImageBackground>

@@ -52,8 +52,6 @@ class Index extends PureComponent {
     //activeTab 当前激活索引
     return (
       <View style={{ flexDirection: 'column' }}>
-        <Top icon1="arrow-back" title="个人中心" />
-
         <View>
           <ImageBackground
             style={{
@@ -102,7 +100,7 @@ class Index extends PureComponent {
               style={{
                 fontSize: pxToDp(20),
                 fontWeight: 'bold',
-                color: '#fff',
+                color: '#333333',
                 alignSelf: 'center',
                 marginTop: pxToDp(8)
               }}
@@ -122,13 +120,13 @@ class Index extends PureComponent {
                   style={{
                     fontSize: pxToDp(18),
                     fontWeight: 'bold',
-                    color: '#fcfcfc',
+                    color: '#333333',
                     alignSelf: 'center'
                   }}
                 >
                   {fansCount}
                 </Text>
-                <Text style={{ fontSize: pxToDp(15), color: '#fcfcfc' }}>
+                <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
                   粉丝
                 </Text>
               </View>
@@ -137,13 +135,13 @@ class Index extends PureComponent {
                   style={{
                     fontSize: pxToDp(18),
                     fontWeight: 'bold',
-                    color: '#fcfcfc',
+                    color: '#333333',
                     alignSelf: 'center'
                   }}
                 >
                   {followCount}
                 </Text>
-                <Text style={{ fontSize: pxToDp(15), color: '#fcfcfc' }}>
+                <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
                   关注
                 </Text>
               </View>
@@ -157,8 +155,8 @@ class Index extends PureComponent {
             >
               <Text
                 style={{
-                  color: '#fcfcfc',
-                  fontSize: pxToDp(15),
+                  color: '#333333',
+                  fontSize: pxToDp(16),
                   alignSelf: 'center',
                   marginTop: pxToDp(4)
                 }}

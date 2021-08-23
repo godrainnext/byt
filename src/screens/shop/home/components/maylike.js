@@ -26,11 +26,11 @@ class Index extends PureComponent {
             source={{ uri: this.props.imguri }}
           ></Image>
           <View style={{ padding: pxToDp(4) }}>
-            <Text style={{ fontSize: pxToDp(15) }}>{this.props.name}</Text>
+            <Text style={{ fontSize: pxToDp(16),color:'#333333'}}>{this.props.name}</Text>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
               <View style={styles.bottext}>
-                <Text style={{ color: '#f0bb51', fontSize: pxToDp(15) }}>￥{this.props.price}</Text>
-                <Text style={{ color: 'grey', fontSize: pxToDp(13) }}>{this.props.number}人付款</Text>
+                <Text style={{ color: '#f0bb51', fontSize: pxToDp(14) }}>￥{this.props.price}</Text>
+                <Text style={{ color: '#999999', fontSize: pxToDp(12), }}>{this.props.number}人付款</Text>
               </View>
               <TouchableOpacity style={styles.shopCar}>
                 <Svg width="24" height="30" svgXmlData={shopCar} />

@@ -5,7 +5,8 @@ import {
   TouchableOpacity,
   Image,
   StyleSheet,
-  ScrollView
+  ScrollView,
+  RefreshControl
 } from 'react-native';
 
 import Top from '@components/common/top';
@@ -19,7 +20,9 @@ import { getAddressListAction } from '../../my/address/store/actions';
 
 class Index extends PureComponent {
   state = {
-    arr: []
+    arr: [],
+    text: '初始状态', 
+    refreshing: false 
   };
   UNSAFE_componentWillMount() {
     this.props.getAddressListAction();
@@ -31,13 +34,39 @@ class Index extends PureComponent {
     });
   }
   static contextType = NavigationContext;
+  _onRefresh() {
+
+    if (this.state.refreshing === false) {
+        this._updateState('正在刷新......', true);
+
+        //5秒后结束刷新
+        setTimeout( ()=>{
+            this._updateState('结束状态', false)
+        }, 2000)
+
+    }
+}
+
+//更新State
+_updateState(message, refresh){
+    this.setState({text:message,refreshing: refresh});
+}
   render() {
     return (
       <View>
         <Top title="越市" />
-        <ScrollView 
-         showsVerticalScrollIndicator={false}
-        style={{ marginBottom: pxToDp(70) }}>
+        <ScrollView
+        bounces={true}
+        refreshControl={
+          <RefreshControl
+              tintColor={'red'}
+              titleColor={'brown'}
+              title={'正在刷新......'}
+              refreshing={this.state.refreshing}
+              onRefresh={this._onRefresh.bind(this)}
+          />}
+          showsVerticalScrollIndicator={false}
+          style={{ marginBottom: pxToDp(70) }}>
           {/*轮播 */}
           <View style={{ height: pxToDp(240) }}>
             <Swiper
@@ -75,20 +104,20 @@ class Index extends PureComponent {
               height: pxToDp(20),
               marginLeft: pxToDp(8),
               marginBottom: pxToDp(8),
-              marginTop:pxToDp(-8)
+              marginTop: pxToDp(-8)
             }}
           >
-            <Text style={{ color: '#468CD3', fontSize: pxToDp(18), fontWeight: 'bold', position: 'absolute' }}>
+            <Text style={{ color: '#000000', fontSize: pxToDp(18), fontWeight: 'bold', position: 'absolute' }}>
               长袖轻舞，越音袅袅
             </Text>
           </View>
-          <View style={{margin:pxToDp(8),flexDirection:'row'}}>
+          <View style={{ margin: pxToDp(8), flexDirection: 'row' }}>
             {/*线下门票 */}
             <TouchableOpacity onPress={() => this.context.navigate('ticket')}>
               <Image style={styles.image3} source={require('../../../res/门票.jpg')} />
             </TouchableOpacity>
             {/*戏服租赁 */}
-            <View style={{height:pxToDp(170),justifyContent: 'space-between',marginLeft:pxToDp(10)}}>
+            <View style={{ height: pxToDp(170), justifyContent: 'space-between', marginLeft: pxToDp(10) }}>
               <TouchableOpacity onPress={() => this.context.navigate('Zulin', 0)}>
                 <Image
                   style={styles.image4}
@@ -142,8 +171,8 @@ const styles = StyleSheet.create({
   },
   tcard: {
     flexDirection: 'row',
-    width:'100%',
-    justifyContent:'space-between'
+    width: '100%',
+    justifyContent: 'space-between'
   },
   ocard: {
     backgroundColor: 'white',
@@ -165,7 +194,7 @@ const styles = StyleSheet.create({
   },
   title: {
     margin: pxToDp(8),
-    color: '#468CD3',
+    color: '#000000',
     fontSize: pxToDp(18),
     fontWeight: 'bold'
   },

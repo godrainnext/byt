@@ -13,7 +13,7 @@ import { NavigationContext } from '@react-navigation/native';
 import { FAB } from 'react-native-elements';
 import Top from '../../../component/common/top';
 import Svg from 'react-native-svg-uri';
-import { star, right,enter} from '../../../component/common/iconSvg'
+import { star, right, enter } from '../../../component/common/iconSvg'
 
 class Index extends PureComponent {
   constructor(props) {
@@ -30,20 +30,24 @@ class Index extends PureComponent {
       ],
       drama: [
         {
-          id: '1', title: "王老虎抢亲", context: " 梅龙县蛟龙为患，一民女父亲被蛟龙所害，她声言只要有人替她斩蛟龙为父报仇，便愿意委身下嫁。天生好武的保长王老虎最大的心愿就是娶妻，此次机会不仅可以为民除害，更能一了终身大事。然而老虎有勇无谋，胸无城府。城中传来皇上征婚令，老虎怕妹妹王秀英被招进宫中一去不复返，竟在匆忙中抢了前去赴考的周文宾回王府。直至拜堂一刻才发现消息误传，老虎遂将文宾赶走。文宾因此错过考期，对老虎心生怨恨。老虎为姻缘往斩蛟龙，却遇上屠龙女侠─武三娘。文宾为了向老虎报复，义助三娘斩蛟龙。",
-          path: 'https://tse1-mm.cn.bing.net/th/id/R-C.bbb12009b513a91d9b5a53f70f5a643a?rik=BCiHmNUUN6LAEQ&riu=http%3a%2f%2fms00.mask9.com%2fmt0x0000%2f10380%2fimage%2f201012%2fchinese-qu-yi-wanglaohuqiangqin-still-mask9.jpg&ehk=LfSV9g3Cc9mdQx2f5AlQOowysTWBwdV1MGJc0FR99jY%3d&risl=&pid=ImgRaw&r=0'
+          id: '1', title: "王老虎抢亲", context: "杭州才子周文宾男扮女装于元宵夜游赛月台，遇上兵部尚书之子王天豹出游，王天豹对周文宾惊为天人，强抢回家成亲。周文宾说服王天豹把婚事延至翌日，王天豹为免宾出走，让周文宾和其妹秀英共宿。周文宾与秀英本互相倾慕，被王天豹阻挠，二人遂将计就计，王天豹及他母亲碍于家声，被逼答允周文宾和秀英的婚事。周文宾因祸得福，赢得美人归。",
+          path: 'https://tse1-mm.cn.bing.net/th/id/R-C.bbb12009b513a91d9b5a53f70f5a643a?rik=BCiHmNUUN6LAEQ&riu=http%3a%2f%2fms00.mask9.com%2fmt0x0000%2f10380%2fimage%2f201012%2fchinese-qu-yi-wanglaohuqiangqin-still-mask9.jpg&ehk=LfSV9g3Cc9mdQx2f5AlQOowysTWBwdV1MGJc0FR99jY%3d&risl=&pid=ImgRaw&r=0',
+          drama: 'Drama15'
         },
         {
           id: '2', title: '柳毅传书', context: '写秀才柳毅赴京应试，途经泾河畔，见一牧羊女悲啼，询知为洞庭龙女三娘，遣嫁泾河小龙，遭受虐待，乃仗义为三娘传送家书，入海会见洞庭龙王。钱塘君惊悉侄女被囚，赶奔泾河，杀死泾河小龙，救回龙女。三娘得救后，深感柳毅传书之义，请乃叔钱塘君作伐求配。柳毅为避施恩图报之嫌，拒婚而归。三娘矢志不渝，偕其父洞庭君化身为渔家父女同柳家邻里相处，与柳毅感情日笃，遂以真情相告。柳毅与她订齐眉之约，结为伉俪。',
-          path: 'https://tse2-mm.cn.bing.net/th/id/OIP-C.6kzqtoOCPHzarIgxfrhCrgHaJE?pid=ImgDet&rs=1'
+          path: 'https://tse2-mm.cn.bing.net/th/id/OIP-C.6kzqtoOCPHzarIgxfrhCrgHaJE?pid=ImgDet&rs=1',
+          drama: 'Drama16'
         },
         {
           id: '3', title: '庵堂认母', context: '《庵堂认母》源自越剧传统剧目《玉蜻蜓》，由陈静于1954年根据《玉蜻蜓》中“游庵认母”一折改编。《庵堂认母》作为《玉蜻蜓》剧中的核心场次，人物矛盾集中突出，唱做并重，情节亦相对独立，常作单折演出。',
-          path: 'https://tse1-mm.cn.bing.net/th/id/R-C.eaeaa96c3952c5c64e57225e5ce99e98?rik=Ct5p4V3tRKnLjQ&riu=http%3a%2f%2fi2.hdslb.com%2fbfs%2farchive%2f0c0b90d3613f192817f7db34663b46d3d635646f.jpg&ehk=qB%2fiB6EuQwj68FrVrcwQRlCLo29ZSEo6dGf5sKfKo4A%3d&risl=&pid=ImgRaw&r=0'
+          path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg0.ph.126.net%2FEgrbkTJBTaSyDbb58PBYKw%3D%3D%2F1058908862403224274.jpg&refer=http%3A%2F%2Fimg0.ph.126.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632209566&t=1424522e4ec66dc8c0dc790fb844b8ad',
+          drama: 'Drama14'
         },
         {
           id: '4', title: '山河恋', context: '春秋时期，梁僖公穷兵黩武，掳曹国美女绵姜为夫人。宰相黎瑟垂涎绵姜姿色，频加挑逗，屡被斥拒，怀恨在心，遂假传书信，召自幼与绵姜相好的纪苏公子进宫私会，以图陷害。幸宫女戴赢从中帮助，方化险为夷。不料绵姜赠纪苏公子凤钗一事为黎瑟侦知，乃怂恿僖公逼问绵姜，又串通纪侯宠妃宓姬潜赴曹国窃取珠凤，加害公子。危急之时，戴赢通过宓姬婢女季娣的帮助，恳托禁军百户长钟兕、申息两人，跋涉关山，历尽艰险，终于在湘灵庙手刃宓姬，解救了绵姜。',
-          path: 'https://img1.doubanio.com/pview/drama_subject_poster/median/public/029a00ee1245127.jpg'
+          path: 'https://img1.doubanio.com/pview/drama_subject_poster/median/public/029a00ee1245127.jpg',
+          drama: 'Drama17'
         },
       ],
       booksss: [
@@ -86,27 +90,24 @@ class Index extends PureComponent {
                 <View style={{ marginLeft: pxToDp(120), marginTop: pxToDp(10) }}>
                   <View style={styles.bookinf}>
                     <Text style={{ fontSize: pxToDp(17), fontWeight: 'bold' }}>{item.title}</Text>
-                    <TouchableOpacity onPress={() => this.context.navigate('Drama')} >
+                    <TouchableOpacity onPress={() => this.context.navigate(item.drama)} >
                       <Svg width="32" height="32" svgXmlData={right} />
                     </TouchableOpacity>
                   </View>
                   <Text stlye={{ fontSize: pxToDp(13) }} numberOfLines={2}>{item.context}</Text>
                   <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-
-
                   </View>
                 </View>
               </View>
               <View style={styles.book1}>
-                
+
                 <Image style={styles.bookimage1} source={{ uri: item.path }} />
-                
+
                 <View style={{ height: pxToDp(104), width: pxToDp(4), backgroundColor: 'lightgrey', borderTopRightRadius: pxToDp(8), borderBottomRightRadius: pxToDp(8) }}>
-                <View style={{ flexDirection: 'row' ,marginTop:pxToDp(20)}}>
-                      <Svg width="20" height="20" svgXmlData={star} />
-                    </View>
+                  <View style={{ flexDirection: 'row', marginTop: pxToDp(20) }}>
+                    <Svg width="20" height="20" svgXmlData={star} />
+                  </View>
                 </View>
-                
               </View>
             </View>
           ))}
@@ -292,7 +293,7 @@ const styles = StyleSheet.create({
     width: pxToDp(80),
     justifyContent: 'space-between',
     marginLeft: pxToDp(8),
-    paddingTop:pxToDp(5)
+    paddingTop: pxToDp(5)
   },
   bookbotton11: {
     height: pxToDp(100),

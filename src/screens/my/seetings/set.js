@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { View, TouchableOpacity, Text } from 'react-native';
-import List from '../../../component/common/list';
+import List from '../../../component/common/setlist';
 import Top from '../../../component/common/top';
 import { NavigationContext } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';

@@ -159,7 +159,7 @@ class Index extends PureComponent {
                     this.setModalVisible(true);
                 }}>
                     <Ionicons name="today-sharp" size={32} color="#468CD3" />
-                    <Text style={{ fontSize: pxToDp(15), marginTop: pxToDp(5) }}>签到</Text>
+                    <Text style={{ fontSize: pxToDp(16), marginTop: pxToDp(5),color:'#666666'}}>签到</Text>
                 </TouchableOpacity>
             </View>
         );
@@ -195,13 +195,19 @@ const styles = StyleSheet.create({
     },
     modalText1: {
         textAlign: 'center',
-        fontSize: pxToDp(17),
-        marginBottom: pxToDp(35)
+        fontSize: pxToDp(18),
+        marginBottom:pxToDp(35),
+        color:'#333333'
     },
     modalText2: {
-        marginTop: pxToDp(15),
+        marginTop: pxToDp(16),
         textAlign: 'center',
-        fontSize: pxToDp(15)
+        fontSize: pxToDp(16),
+        color:'#666666'
+    },
+    modalText3:{
+        fontSize: pxToDp(14),
+        color:'#999999'
     },
     box: {
         alignItems: 'center',
