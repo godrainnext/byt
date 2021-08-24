@@ -343,27 +343,23 @@ export class AlwaysOpen extends PureComponent {
   renderContent = () => (
     <View
       style={{
-        padding: pxToDp(20),
+        padding: pxToDp(16),
         flex: 1,
-        backgroundColor: '#ecf6fc',
         borderRadius: pxToDp(16)
       }}
     >
       <View>
         <View
           style={{
-            width: '100%',
-            flexDirection: 'row',
-            height: pxToDp(48),
-            alignItems: 'center'
+            height: pxToDp(32),
+            justifyContent: 'center'
           }}
         >
           <Text
             style={{
               fontSize: pxToDp(18),
               color:'#000000',
-              fontWeight: 'bold',
-              margin: pxToDp(10)
+              fontWeight:'bold',
             }}
           >
             {this.state.daddata[this.props.ArrData].name}
@@ -425,19 +421,13 @@ export class AlwaysOpen extends PureComponent {
         </View>
       </View>
       <View style={s.bigbox}>
-        <View
-          style={{
-            borderBottomColor: '#666',
-            borderBottomWidth: pxToDp(1.1),
-            margin: pxToDp(10)
-          }}
-        >
+        <View>
           <Text
             style={{
               fontSize: pxToDp(18),
               color:'#000000',
               fontWeight:'bold',
-              marginBottom: pxToDp(5)
+              marginBottom:pxToDp(8)
             }}
           >
             概述
@@ -491,7 +481,6 @@ const s = StyleSheet.create({
   },
   bigbox: {
     flex: 1,
-    marginBottom: pxToDp(200),
-    marginTop: pxToDp(20)
+    marginBottom: pxToDp(200)
   }
 });

@@ -178,7 +178,6 @@ export default class example extends Component {
 
     this.state = {
       columns: 2,
-      padding: 5,
       data,
       dataIndex: 0
     };
@@ -204,7 +203,7 @@ export default class example extends Component {
         {/* <View style={[styles.center, styles.header]}>
 					<Text style={{ fontWeight: '800', fontSize: 20 }}>市集</Text>
 				</View> */}
-        <View style={{ flex: 1, flexGrow: 10, padding: this.state.padding }}>
+        <View style={{ flex: 1,padding:pxToDp(16) }}>
           <Masonry
             bricks={this.state.data}
             columns={this.state.columns}

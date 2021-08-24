@@ -365,13 +365,21 @@ export default class Exswiper extends PureComponent {
     return (
       <View key={obj.id} style={styles.cell}>
         <View>
-          <Text style={{ fontWeight: 'bold', fontSize: pxToDp(16) }}>
+          <Text
+            style={{ fontWeight: 'bold', fontSize: pxToDp(16), color: '#000' }}
+          >
             {obj.year}
           </Text>
-          <Text style={{ color: '#ff755d', fontWeight: 'bold' }}>
+          <Text
+            style={{
+              color: '#333',
+              fontWeight: 'bold',
+              fontSize: pxToDp(14)
+            }}
+          >
             {obj.name}
           </Text>
-          <Text style={{ color: '#aeaeae', fontSize: pxToDp(12) }}>
+          <Text style={{ color: '#666', fontSize: pxToDp(14) }}>
             {obj.local}
           </Text>
           <View
@@ -386,7 +394,7 @@ export default class Exswiper extends PureComponent {
               style={{
                 fontSize: pxToDp(20),
                 fontWeight: 'bold',
-                color: '#fa6e57',
+                color: '#333',
                 top: pxToDp(-5)
               }}
             >
@@ -394,7 +402,7 @@ export default class Exswiper extends PureComponent {
             </Text>
             <Text
               style={{
-                fontSize: pxToDp(15)
+                fontSize: pxToDp(16)
               }}
             >
               / {this.state.pagedata.length}
@@ -409,7 +417,7 @@ export default class Exswiper extends PureComponent {
     return (
       <View style={{ flex: 1 }}>
         <Top title="时空地图" icon1="arrow-back" />
-        <View style={{ width: '90%', alignSelf: 'center' }}>
+        <View style={{ padding: pxToDp(16), flex: 1}}>
           {this.state.currentPage.titleimg.map((item, id) => (
             <Image
               key={id}
@@ -421,7 +429,7 @@ export default class Exswiper extends PureComponent {
         <Modalize
           ref={modalizeRef}
           modalStyle={styles.content__modal}
-          alwaysOpen={pxToDp(460)}
+          alwaysOpen={pxToDp(416)}
           handlePosition="inside"
         >
           <View style={{ marginBottom: pxToDp(200) }}>
@@ -466,10 +474,10 @@ const styles = StyleSheet.create({
     height: pxToDp(80),
     width: pxToDp(345),
     borderWidth: pxToDp(1.5),
-    borderColor: '#e08471',
+    borderColor: '#468cd3',
     borderRadius: pxToDp(8),
     padding: pxToDp(10),
-    margin: pxToDp(16)
+    margin: pxToDp(16),
   },
   content__modal: {
     shadowColor: '#000',

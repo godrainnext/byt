@@ -22,23 +22,26 @@ export default class page extends PureComponent {
       <ScrollView>
         <View
           style={{
-            backgroundColor:"#fff",
-            margin:pxToDp(8),
+            margin: pxToDp(16),
             borderRadius: pxToDp(8),
-            elevation: 4,
-            shadowColor: 'black',  //  阴影颜色
-            shadowOffset: { width: 0, height: 0 },  // 阴影偏移
-            shadowOpacity: 1,  // 阴影不透明度
-            shadowRadius: 10,  //  圆角
+            elevation: 1,
+            shadowColor: 'black', //  阴影颜色
+            shadowOffset: { width: 0, height: 0 }, // 阴影偏移
+            shadowOpacity: 1, // 阴影不透明度
+            shadowRadius: 10 //  圆角
           }}
         >
           <Text style={styles.big}>{this.props.pagedata.name}</Text>
-          <View style={{ flexDirection: 'row', paddingLeft: pxToDp(20) }}>
+          <View style={{ flexDirection: 'row', marginLeft: pxToDp(10),marginTop:pxToDp(-2),marginBottom:pxToDp(4) }}>
             <Text>{this.props.pagedata.local}</Text>
-            <Text style={{ paddingLeft: pxToDp(20) }}>{this.props.pagedata.year2}</Text>
+            <Text style={{ paddingLeft: pxToDp(20) }}>
+              {this.props.pagedata.year2}
+            </Text>
           </View>
           <View>
-            <Text style={{ padding: pxToDp(20) }}>{this.props.pagedata.introduce}</Text>
+            <Text style={{ marginLeft: pxToDp(10),marginBottom:pxToDp(8) }}>
+              {this.props.pagedata.introduce}
+            </Text>
           </View>
           <View style={{ flex: 1 }}>
             {this.props.pagedata.img.map((item, id) => (
@@ -87,11 +90,11 @@ const styles = StyleSheet.create({
     // zIndex:3,
   },
   big: {
-    fontSize: pxToDp(25),
-    fontWeight: '700',
+    fontSize: pxToDp(18),
+    fontWeight: 'bold',
     color: '#000',
-    margin: pxToDp(20),
-    marginBottom: pxToDp(10)
+    margin: pxToDp(10),
+    marginBottom: pxToDp(10),
   },
   mid: {
     fontSize: pxToDp(15),

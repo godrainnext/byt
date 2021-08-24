@@ -169,7 +169,7 @@ export default class index extends PureComponent {
                 marginBottom: pxToDp(20)
               }}
             >
-              <View style={styles.box}>
+              <View style={[styles.box,{marginLeft:pxToDp(22)}]}>
                 <TouchableOpacity
                   onPress={() => this.setState({ ArrIndex: 1 })}
                   style={styles.smallbox}
@@ -226,7 +226,7 @@ export default class index extends PureComponent {
                   </View>
                 </TouchableOpacity>
               </View>
-              <View style={styles.box}>
+              <View style={[styles.box,{marginRight:pxToDp(22)}]}>
                 <TouchableOpacity
                   onPress={() => this.setState({ ArrIndex: 2 })}
                   style={styles.smallbox}
