@@ -77,10 +77,10 @@ gener:[
       <View style={{ backgroundColor: '#E2F4FE', flex: 1 }}>
         <Top icon1="arrow-back" title="流派传奇" />
         <ScrollView
-          style={{ flex: 1, padding: pxToDp(16) }}
+          style={{ flex: 1, padding: pxToDp(8) }}
           showsVerticalScrollIndicator={false}
         >
-          <View style={{ marginTop: pxToDp(-8), marginBottom: pxToDp(32) }}>
+          <View style={{  marginBottom: pxToDp(32),marginLeft:pxToDp(8),marginRight:pxToDp(8)}}>
             {this.state.gener.map((item) => (
               <TouchableOpacity
                 onPress={() => this.context.navigate(item.school)}
@@ -89,7 +89,13 @@ gener:[
                   borderRadius: pxToDp(8),
                   flexDirection: 'row',
                   marginTop: pxToDp(10),
-                  backgroundColor: 'white'
+                  backgroundColor: 'white',
+                  marginBottom:pxToDp(4),
+                  elevation: 4,
+shadowColor: 'black',  //  阴影颜色
+ shadowOffset: { width: 0, height: 0 },  // 阴影偏移
+ shadowOpacity: 1,  // 阴影不透明度
+ shadowRadius: 10,  //  圆角
                 }}
               >
                 <Image

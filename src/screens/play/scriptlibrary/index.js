@@ -13,7 +13,7 @@ import { NavigationContext } from '@react-navigation/native';
 import { FAB } from 'react-native-elements';
 import Top from '../../../component/common/top';
 import Svg from 'react-native-svg-uri';
-import { star, right, enter } from '../../../component/common/iconSvg'
+import { star, right, enter } from '../../../component/common/iconSvg';
 
 class Index extends PureComponent {
   constructor(props) {
@@ -165,7 +165,10 @@ class Index extends PureComponent {
     return (
       <View style={{ backgroundColor: '#ecf6fc', flex: 1 }}>
         <Top icon1="arrow-back" title="剧本中心" />
-        <ScrollView style={{ flex: 1, padding: pxToDp(16) }}>
+        <ScrollView
+          style={{ flex: 1, padding: pxToDp(16) }}
+          showsVerticalScrollIndicator={false}
+        >
           {/*剧本推荐 */}
           <Text
             style={{
@@ -233,7 +236,7 @@ class Index extends PureComponent {
               style={styles.shujia1}
               source={require('../../../res/短书架.png')}
             >
-              <ScrollView horizontal={true} style={{ marginLeft: pxToDp(-8) }}>
+              <ScrollView horizontal={true} style={{ marginLeft: pxToDp(-8) }} showsVerticalScrollIndicator = {false}>
                 {this.state.booksss.map((item) => (
                   <View style={styles.books}>
                     <Image
@@ -254,7 +257,7 @@ class Index extends PureComponent {
               style={styles.shujia1}
               source={require('../../../res/短书架.png')}
             >
-              <ScrollView horizontal={true} style={{ marginLeft: pxToDp(-8) }}>
+              <ScrollView horizontal={true} style={{ marginLeft: pxToDp(-8) }} showsVerticalScrollIndicator = {false}>
                 {this.state.bookss.map((item) => (
                   <View style={styles.books}>
                     <Image
@@ -275,7 +278,7 @@ class Index extends PureComponent {
               style={styles.shujia1}
               source={require('../../../res/短书架.png')}
             >
-              <ScrollView horizontal={true} style={{ marginLeft: pxToDp(-8) }}>
+              <ScrollView horizontal={true} style={{ marginLeft: pxToDp(-8) }} showsVerticalScrollIndicator = {false}>
                 {this.state.books.map((item) => (
                   <View style={styles.books}>
                     <Image
@@ -308,7 +311,7 @@ class Index extends PureComponent {
             style={{ height: pxToDp(385), width: '100%' }}
             source={require('../../../res/书架.png')}
           >
-            <ScrollView horizontal={true} style={{ marginLeft: pxToDp(-8) }}>
+            <ScrollView horizontal={true} style={{ marginLeft: pxToDp(-8) }} showsVerticalScrollIndicator = {false}>
               {this.state.data.map((item) => (
                 <View style={styles.shujia}>
                   <Image style={styles.book} source={item.image} />

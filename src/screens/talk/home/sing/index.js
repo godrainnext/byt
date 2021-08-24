@@ -59,7 +59,7 @@ export default class hello extends Component {
             });
         };
         return (
-            <ScrollView style={styles.box}>
+            <ScrollView style={styles.box} showsVerticalScrollIndicator = {false}>
                 <View style={styles.touchbox}>
                     <TouchableOpacity style={styles.touch} onPress={() => this.context.navigate('Study')}>
                         <Text style={styles.text1}>单人练唱</Text>

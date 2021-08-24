@@ -115,13 +115,13 @@ class Index extends PureComponent {
     return (
       <View style={{ flex: 1, backgroundColor: '#e2f4fe' }}>
         <Top icon1="arrow-back" title="积分商城" />
-        <ScrollView style={{ flex: 1 }}>
+        <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
           <ImageBackground
             source={require('../../../res/21.jpg')}
             style={{
-              marginTop:pxToDp(8),
-              marginLeft:pxToDp(8),
-              marginRight:pxToDp(8),
+              marginTop: pxToDp(8),
+              marginLeft: pxToDp(8),
+              marginRight: pxToDp(8),
               height: pxToDp(60),
               flexDirection: 'row',
               alignItems: 'center',
@@ -131,9 +131,17 @@ class Index extends PureComponent {
             imageStyle={{ borderRadius: pxToDp(8) }}
           >
             <View style={{ flexDirection: 'row', marginLeft: pxToDp(10) }}>
-              <Text style={{ fontSize: pxToDp(20), color: '#f90',fontWeight:'bold' }}>110</Text>
+              <Text
+                style={{
+                  fontSize: pxToDp(20),
+                  color: '#f90',
+                  fontWeight: 'bold'
+                }}
+              >
+                110
+              </Text>
               <Ionicons
-                style={{ marginTop: pxToDp(10),marginLeft:pxToDp(4)}}
+                style={{ marginTop: pxToDp(10), marginLeft: pxToDp(4) }}
                 name="server-outline"
                 size={pxToDp(15)}
                 color="#000"
@@ -157,15 +165,23 @@ class Index extends PureComponent {
             </TouchableOpacity>
           </ImageBackground>
           <View>
-            <Text style={{ fontSize: pxToDp(18), margin: pxToDp(10),fontWeight:'bold',color:'#000000',marginBottom:pxToDp(-2)}}>
+            <Text
+              style={{
+                fontSize: pxToDp(18),
+                margin: pxToDp(10),
+                fontWeight: 'bold',
+                color: '#000000',
+                marginBottom: pxToDp(-2)
+              }}
+            >
               积分兑换
             </Text>
             <View
-            style={{
-              flexWrap: 'wrap',
-              flexDirection: 'row'
-            }}
-          >
+              style={{
+                flexWrap: 'wrap',
+                flexDirection: 'row'
+              }}
+            >
               {this.state.data.map((item, index) => (
                 <View style={styles.kidbox}>
                   <TouchableOpacity
@@ -176,14 +192,24 @@ class Index extends PureComponent {
                       })
                     }
                   >
-                      <Image style={styles.image} source={item.img} />
+                    <Image style={styles.image} source={item.img} />
                     <View style={{ height: pxToDp(60) }}>
-                      <Text style={{ fontSize: pxToDp(16), margin: pxToDp(5),color:'#000000'}}>
+                      <Text
+                        style={{
+                          fontSize: pxToDp(16),
+                          margin: pxToDp(5),
+                          color: '#000000'
+                        }}
+                      >
                         {item.name}
                       </Text>
 
                       <View style={styles.bottext}>
-                        <Text style={{fontSize:pxToDp(14),color:'#333333'}}>{item.value}积分</Text>
+                        <Text
+                          style={{ fontSize: pxToDp(14), color: '#333333' }}
+                        >
+                          {item.value}积分
+                        </Text>
                       </View>
                     </View>
                   </TouchableOpacity>
@@ -203,9 +229,9 @@ const styles = StyleSheet.create({
     borderRadius: pxToDp(8),
     margin: pxToDp(8),
     marginRight: pxToDp(5),
-    elevation: 5,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
-    shadowColor: 'black',  //  阴影颜色
-    shadowRadius: pxToDp(8),  //  圆角
+    elevation: 5, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+    shadowColor: 'black', //  阴影颜色
+    shadowRadius: pxToDp(8) //  圆角
   },
   image: {
     height: pxToDp(170),

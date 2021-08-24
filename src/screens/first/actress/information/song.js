@@ -12,7 +12,7 @@ class Index extends PureComponent {
   };
   render() {
     return (
-      <ScrollView {...this.props}>
+      <ScrollView {...this.props} showsVerticalScrollIndicator = {false}>
         <View>
           {this.state.song.map((item, id) => (
             <View style={styles.box}>

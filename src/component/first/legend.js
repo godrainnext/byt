@@ -28,7 +28,7 @@ export default class Legend extends PureComponent {
               style={{
                 fontSize: pxToDp(16),
                 fontWeight: 'bold',
-                color: '#666666'
+                color: '#333333'
               }}
             >
               袁派
@@ -37,7 +37,7 @@ export default class Legend extends PureComponent {
               style={{
                 fontSize: pxToDp(14),
                 flexWrap: 'wrap',
-                color: '#999999',
+                color: '#666666',
                 marginRight: pxToDp(4)
               }}
               numberOfLines={2}
@@ -67,7 +67,7 @@ export default class Legend extends PureComponent {
               style={{
                 fontSize: pxToDp(16),
                 fontWeight: 'bold',
-                color: '#666666'
+                color:  '#333333'
               }}
             >
               范派
@@ -76,7 +76,7 @@ export default class Legend extends PureComponent {
               style={{
                 fontSize: pxToDp(14),
                 flexWrap: 'wrap',
-                color: '#999999',
+                color: '#666666',
                 marginRight: pxToDp(4)
               }}
               numberOfLines={2}
@@ -105,7 +105,7 @@ export default class Legend extends PureComponent {
               style={{
                 fontSize: pxToDp(16),
                 fontWeight: 'bold',
-                color: '#666666'
+                color: '#333333'
               }}
             >
               尹派
@@ -114,12 +114,12 @@ export default class Legend extends PureComponent {
               style={{
                 fontSize: pxToDp(14),
                 flexWrap: 'wrap',
-                color: '#999999',
+                color: '#666666',
                 marginRight: pxToDp(4)
               }}
               numberOfLines={2}
             >
-              尹派的特点是委婉缠绵，洒脱深沉，纯朴隽永，清新舒展，是一种典型的以柔为主、柔中寓刚的风格。
+              尹派的特点是委婉缠绵，洒脱深沉，纯朴隽永，清新舒展。
             </Text>
           </View>
         </TouchableOpacity>

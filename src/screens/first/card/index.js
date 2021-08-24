@@ -29,6 +29,7 @@ class history extends Component {
         <Top icon1="arrow-back" title="俯瞰百年" />
         <View style={{padding:pxToDp(16),flex:1,paddingTop:0}}>
         <FlatList
+        showsVerticalScrollIndicator = {false}
           data={this.state.HYlist}
           renderItem={({ item }) => (
             // 视频大图  开始

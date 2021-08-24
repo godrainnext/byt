@@ -73,6 +73,7 @@ export default class ticketdetail extends PureComponent {
         <Top icon1="arrow-back" title="门票详情" />
         <ScrollView
           stickyHeaderIndices={[1]}
+          showsVerticalScrollIndicator = {false}
           style={{ margin: pxToDp(8), flex: 1 }}
         >
           <View>

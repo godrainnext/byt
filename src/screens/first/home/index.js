@@ -187,7 +187,7 @@ class Index extends Component {
                 style={{
                   fontSize: pxToDp(16),
                   marginTop: pxToDp(5),
-                  color: '#666666'
+                  color: '#333333'
                 }}
               >
                 推荐
@@ -213,7 +213,7 @@ class Index extends Component {
                 style={{
                   fontSize: pxToDp(16),
                   marginTop: pxToDp(5),
-                  color: '#666666'
+                  color: '#333333'
                 }}
               >
                 VR
@@ -233,7 +233,7 @@ class Index extends Component {
                 style={{
                   fontSize: pxToDp(16),
                   marginTop: pxToDp(5),
-                  color: '#666666'
+                  color: '#333333'
                 }}
               >
                 教学
@@ -253,7 +253,7 @@ class Index extends Component {
                 style={{
                   fontSize: pxToDp(16),
                   marginTop: pxToDp(5),
-                  color: '#666666'
+                  color: '#333333'
                 }}
               >
                 图谱
@@ -273,7 +273,7 @@ class Index extends Component {
                 style={{
                   fontSize: pxToDp(16),
                   marginTop: pxToDp(5),
-                  color: '#666666'
+                  color: '#333333'
                 }}
               >
                 剧本
@@ -293,7 +293,7 @@ class Index extends Component {
               <Text
                 style={{
                   fontSize: pxToDp(18),
-                  color: '#333333',
+                  color: '#000000',
                   fontWeight: 'bold'
                 }}
               >
@@ -323,7 +323,7 @@ class Index extends Component {
               <Text
                 style={{
                   fontSize: pxToDp(18),
-                  color: '#333333',
+                  color: '#000000',
                   fontWeight: 'bold'
                 }}
               >
@@ -370,7 +370,7 @@ class Index extends Component {
               <Text
                 style={{
                   fontSize: pxToDp(18),
-                  color: '#333333',
+                  color: '#000000',
                   fontWeight: 'bold'
                 }}
               >
@@ -401,7 +401,7 @@ class Index extends Component {
               style={{
                 fontSize: pxToDp(18),
                 margin: pxToDp(8),
-                color: '#333333',
+                color: '#000000',
                 fontWeight: 'bold'
               }}
             >
@@ -475,7 +475,7 @@ class Index extends Component {
             <Text
               style={{
                 fontSize: pxToDp(18),
-                color: '#333333',
+                color: '#000000',
                 fontWeight: 'bold'
               }}
             >
@@ -508,7 +508,7 @@ class Index extends Component {
                   >
                     <View style={styles.bookinf}>
                       <Text
-                        style={{ fontSize: pxToDp(15), fontWeight: 'bold' }}
+                        style={{ fontSize: pxToDp(16),color:'#333333',fontWeight: 'bold' }}
                       >
                         {item.title}
                       </Text>
@@ -518,7 +518,7 @@ class Index extends Component {
                         <Svg width="32" height="32" svgXmlData={right} />
                       </TouchableOpacity>
                     </View>
-                    <Text stlye={{ fontSize: pxToDp(13) }} numberOfLines={3}>
+                    <Text stlye={{ fontSize: pxToDp(14),color:'#666666'}} numberOfLines={3}>
                       {item.context}
                     </Text>
                     <View

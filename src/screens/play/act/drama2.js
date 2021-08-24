@@ -53,6 +53,7 @@ class Index extends PureComponent {
             padding: pxToDp(16),
             flex: 1
           }}
+          showsVerticalScrollIndicator = {false}
         >
           <Image
             style={{ height: pxToDp(180), borderRadius: pxToDp(8) }}

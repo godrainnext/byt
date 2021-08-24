@@ -45,6 +45,7 @@ export default class Hy extends PureComponent {
           <ScrollView     
             scrollEventThrottle={pxToDp(200)}
             directionalLockEnabled={true}
+            showsVerticalScrollIndicator = {false}
           >
             {example3}
           </ScrollView>

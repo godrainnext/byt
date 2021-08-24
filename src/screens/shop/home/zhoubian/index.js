@@ -27,7 +27,7 @@ class Index extends PureComponent {
     return (
       <View style={{ flex: 1 }}>
         <Top icon1="arrow-back" title="周边商城" />
-        <ScrollView style={styles.scrollview}>
+        <ScrollView style={styles.scrollview} showsVerticalScrollIndicator = {false}>
           <View style={styles.tcard}>
             {this.state.shop.map((item, id) => (
               <Maylike

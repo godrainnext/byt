@@ -182,7 +182,16 @@ function Nav() {
         {/**剧本库页面 */}
         <Stack.Screen name="Scriptlibrary" component={Screens.Scriptlibrary} />
         {/**名角个人页 */}
-        <Stack.Screen name="Actress" component={Screens.Actress} />
+        <Stack.Screen name="Wangwenjuan" component={Screens.Wangwenjuan} />
+        <Stack.Screen name="Bichunfang" component={Screens.Bichunfang} />
+        <Stack.Screen name="Fanruijuan" component={Screens.Fanruijuan} />
+        <Stack.Screen name="Jincaifeng" component={Screens.Jincaifeng} />
+        <Stack.Screen name="Lujinhua" component={Screens.Lujinhua} />
+        <Stack.Screen name="Lvruiying" component={Screens.Lvruiying} />
+        <Stack.Screen name="Qiyaxian" component={Screens.Qiyaxian} />
+        <Stack.Screen name="Xuyulan" component={Screens.Xuyulan} />
+        <Stack.Screen name="Yuanxuefen" component={Screens.Yuanxuefen} />
+        <Stack.Screen name="Zhangyunxia" component={Screens.Zhangyunxia} />
         {/**专辑页面 */}
         <Stack.Screen name="Album" component={Screens.Album} />
         {/**歌曲播放界面 */}

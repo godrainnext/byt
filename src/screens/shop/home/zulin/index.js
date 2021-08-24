@@ -34,6 +34,7 @@ class Index extends PureComponent {
             height: '100%',
             backgroundColor: '#ecf6fc'
           }}
+          showsVerticalScrollIndicator = {false}
         >
           <View style={styles.tcard}>
             {this.state.zuliList.map((item, id) => (

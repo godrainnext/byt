@@ -40,6 +40,7 @@ export default class topic extends Component {
     return (
       <View style={{ flex: 1, backgroundColor: '#ecf6fc' }}>
         <ScrollView
+        showsVerticalScrollIndicator = {false}
           stickyHeaderIndices={[2]}
           style={{
             flex: 1

@@ -37,7 +37,7 @@ class index extends PureComponent {
         style={{ backgroundColor: '#ecf6fc', flex: 1 }}
       >
       <Top icon1="arrow-back" title="越文" />
-        <ScrollView style={{ padding: pxToDp(16),flex:1}}>
+        <ScrollView style={{ padding: pxToDp(16),flex:1}} showsVerticalScrollIndicator = {false}>
           <View>
             <View
               style={{

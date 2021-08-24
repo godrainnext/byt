@@ -164,7 +164,8 @@ class Index extends PureComponent {
                     opacity: 0.8,
                     height: pxToDp(48),
                     borderRadius: pxToDp(8),
-                    padding: pxToDp(8)
+                    paddingLeft: pxToDp(8),
+                    justifyContent: 'center'
                   }}
                 >
                   <View>
@@ -225,8 +226,7 @@ class Index extends PureComponent {
                 <View
                   style={{
                     flexDirection: 'row',
-                    alignItems: 'center',
-                    marginBottom: pxToDp(8)
+                    alignItems: 'center'
                   }}
                 >
                   <TouchableOpacity
@@ -565,7 +565,8 @@ class Index extends PureComponent {
                     opacity: 0.8,
                     height: pxToDp(48),
                     borderRadius: pxToDp(8),
-                    padding: pxToDp(8)
+                    paddingLeft: pxToDp(8),
+                    justifyContent: 'center'
                   }}
                 >
                   <View>
@@ -617,7 +618,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center',
     paddingLeft: pxToDp(8),
-    paddingRight: pxToDp(8)
+    paddingRight: pxToDp(8),
   },
   imgbox: {
     width: pxToDp(140),
