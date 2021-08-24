@@ -24,8 +24,9 @@ class Index extends PureComponent {
   render() {
     return (
       <View style={{ backgroundColor: '#ecf6fc', flex: 1 }}>
-        <View style={{ marginLeft: pxToDp(8), marginRight: pxToDp(8) }}>
-          <Top icon1="arrow-back" title="教学" />
+         <Top icon1="arrow-back" title="教学" /> 
+         <View style={{ margin: pxToDp(16),}}>
+        
           <ScrollView style={{ marginBottom: pxToDp(32) }}>
             {/*视频 */}
             <View style={{ flex: 1 }}>
@@ -172,7 +173,7 @@ class Index extends PureComponent {
                         borderRadius: pxToDp(8)
                       }}
                     >
-                      <View style={{ margin: pxToDp(8) }}>
+                      <View style={{ margin: pxToDp(8) ,}}>
                         <View
                           style={{
                             flexDirection: 'row',
@@ -198,23 +199,23 @@ class Index extends PureComponent {
                         >
                           <Icon
                             name="control-play"
-                            size={15}
+                            size={12}
                             color={'#333333'}
                           />
                           <Text
                             style={{
                               marginLeft: pxToDp(4),
-                              fontSize: pxToDp(14)
+                              fontSize: pxToDp(12)
                             }}
                           >
                             96.7万
                           </Text>
                           <View style={{ width: pxToDp(20) }}></View>
-                          <Icon name="clock" size={15} color={'#333333'} />
+                          <Icon name="clock" size={12} color={'#333333'} />
                           <Text
                             style={{
                               marginLeft: pxToDp(4),
-                              fontSize: pxToDp(14)
+                              fontSize: pxToDp(12)
                             }}
                           >
                             02:12
@@ -715,23 +716,23 @@ class Index extends PureComponent {
                         >
                           <Icon
                             name="control-play"
-                            size={15}
+                            size={12}
                             color={'#333333'}
                           />
                           <Text
                             style={{
                               marginLeft: pxToDp(4),
-                              fontSize: pxToDp(14)
+                              fontSize: pxToDp(12)
                             }}
                           >
                             96.7万
                           </Text>
                           <View style={{ width: pxToDp(20) }}></View>
-                          <Icon name="clock" size={15} color={'#333333'} />
+                          <Icon name="clock" size={12} color={'#333333'} />
                           <Text
                             style={{
                               marginLeft: pxToDp(4),
-                              fontSize: pxToDp(14)
+                              fontSize: pxToDp(12)
                             }}
                           >
                             02:12

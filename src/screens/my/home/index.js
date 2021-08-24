@@ -18,7 +18,7 @@ import { connect } from 'react-redux';
 import { getUserOriderListAction } from '../../first/home/store/actions';
 import UserInner from '../../../component/home/userInner';
 import LinearGradient from 'react-native-linear-gradient';
-import MyAddress from '../../../component/my/address/myAddress';
+import Address from '../../../component/my/address/myAddress';
 import SvgUri from 'react-native-svg-uri';
 import { daizhifu, dpingjia, shouhou ,shouhuo} from '../../../component/common/iconSvg';
 

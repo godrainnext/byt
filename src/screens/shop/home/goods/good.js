@@ -279,9 +279,12 @@ class shopdetails extends PureComponent {
                   width: pxToDp(280)
                 }}
               >
-                <View style={{ flexDirection: 'row' }}>
+                <View>
                   <Text style={{ fontSize: pxToDp(16), marginTop: pxToDp(16) }}>
                     ￥{this.state.products[activeTab]?.price}
+                  </Text>
+                  <Text style={{ fontSize: pxToDp(16), marginTop: pxToDp(16),color:'#666666'}}>
+                    {this.state.products[activeTab]?.color}
                   </Text>
                 </View>
                 <TouchableOpacity onPress={() => this.Scrollable.close()}>
@@ -485,7 +488,7 @@ class shopdetails extends PureComponent {
               onPress={this.goCreateOrider}
               containerStyle={{
                 position: 'absolute',
-                bottom: 0,
+                bottom:pxToDp(5),
                 width: pxToDp(320),
                 height: pxToDp(40),
                 borderRadius: pxToDp(40),

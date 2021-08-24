@@ -208,7 +208,7 @@ class Index extends Component {
                 style={{
                   fontSize: pxToDp(16),
                   marginTop: pxToDp(5),
-                  color: '#666666'
+                  color: '#333333'
                 }}
               >
                 VR
@@ -228,7 +228,7 @@ class Index extends Component {
                 style={{
                   fontSize: pxToDp(16),
                   marginTop: pxToDp(5),
-                  color: '#666666'
+                  color: '#333333'
                 }}
               >
                 教学
@@ -262,7 +262,7 @@ class Index extends Component {
                 style={{
                   fontSize: pxToDp(16),
                   marginTop: pxToDp(5),
-                  color: '#666666'
+                  color: '#333333'
                 }}
               >
                 剧本
@@ -282,7 +282,7 @@ class Index extends Component {
               <Text
                 style={{
                   fontSize: pxToDp(18),
-                  color: '#333333',
+                  color: '#000000',
                   fontWeight: 'bold'
                 }}
               >
@@ -312,7 +312,7 @@ class Index extends Component {
               <Text
                 style={{
                   fontSize: pxToDp(18),
-                  color: '#333333',
+                  color: '#000000',
                   fontWeight: 'bold'
                 }}
               >
@@ -359,7 +359,7 @@ class Index extends Component {
               <Text
                 style={{
                   fontSize: pxToDp(18),
-                  color: '#333333',
+                  color: '#000000',
                   fontWeight: 'bold'
                 }}
               >
@@ -390,7 +390,7 @@ class Index extends Component {
               style={{
                 fontSize: pxToDp(18),
                 margin: pxToDp(8),
-                color: '#333333',
+                color: '#000000',
                 fontWeight: 'bold'
               }}
             >
@@ -464,7 +464,7 @@ class Index extends Component {
             <Text
               style={{
                 fontSize: pxToDp(18),
-                color: '#333333',
+                color: '#000000',
                 fontWeight: 'bold'
               }}
             >

@@ -91,13 +91,13 @@ class Index extends PureComponent {
             </Text>
           </View>
           <View>
-            <Text
+          <Text
               style={{
                 fontSize: pxToDp(18),
                 fontWeight: 'bold',
-                marginBottom: pxToDp(4)
+                marginTop: pxToDp(40),
+                marginBottom:pxToDp(20)
               }}
-              onPress={() => this.context.navigate('ScreenPlay')}
             >
               剧本详情
             </Text>

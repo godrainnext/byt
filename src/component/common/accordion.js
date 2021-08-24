@@ -31,12 +31,12 @@ export default class Acordion extends PureComponent {
     return (
       <ScrollView>
         <View>
-          <Text style={{ fontSize: pxToDp(16) }}>{Arr.detail1}</Text>
+          <Text style={{ fontSize: pxToDp(16),color:'#333333' }}>&emsp;&emsp;{Arr.detail1}</Text>
         </View>
         <Collapsible collapsed={this.state.collapsed} align="center">
           <View>
-            <Text style={{ fontSize: pxToDp(16) }}>{Arr.detail2}</Text>
-            <Text style={{ color: '#666', fontSize: pxToDp(14) }}>
+            <Text style={{ fontSize: pxToDp(16),color:'#333333'}}>{Arr.detail2}</Text>
+            <Text style={{ color: '#666666', fontSize: pxToDp(14),marginTop:pxToDp(10)}}>
               {Arr.warn}
             </Text>
           </View>
@@ -92,6 +92,6 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: '#fff'
   },
-  lefttext: { color: '#aaa', marginBottom: pxToDp(5) },
-  righttext: { color: '#aaa', marginBottom: pxToDp(5) }
+  lefttext: { color: '#666666', marginBottom: pxToDp(5),fontSize:pxToDp(12)},
+  righttext: { color: '#666666', marginBottom: pxToDp(5),fontSize:pxToDp(12) }
 });

@@ -66,14 +66,14 @@ export default class topic extends Component {
                 alignItems: 'center'
               }}
             >
-              <Text style={{ fontSize: pxToDp(16) }}>{number}人参与讨论</Text>
-              <AntDesign name="right" size={pxToDp(20)} />
+              <Text style={{ fontSize: pxToDp(16),color:'#999999' }}>{number}人参与讨论</Text>
+              <AntDesign name="right" size={pxToDp(20)} color='#999999' />
             </TouchableOpacity>
           </ImageBackground>
           {/* 中间内容 */}
           <View
             style={{
-              margin: pxToDp(8),
+              margin: pxToDp(16),
               marginTop: pxToDp(24),
               paddingBottom: pxToDp(24),
               borderRadius: pxToDp(16),
@@ -98,8 +98,8 @@ export default class topic extends Component {
               style={{
                 marginTop: pxToDp(8),
                 lineHeight:pxToDp(24),
-                fontSize:pxToDp(14),
-                margin: pxToDp(8),
+                fontSize:pxToDp(16),
+                margin: pxToDp(24),
                 color:'#666666'
               }}
             >

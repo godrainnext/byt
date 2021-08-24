@@ -32,7 +32,7 @@ export default class HighLights extends PureComponent {
           <Text
             style={{
               fontSize: pxToDp(18),
-              color: '#333333',
+              color: '#000000',
               fontWeight: 'bold'
             }}
           >
@@ -138,27 +138,10 @@ export default class HighLights extends PureComponent {
 
                       }}
                       titleStyle={{
-                        color: '#fcfcfc',
-                        fontWeight: 'bold',
+
                         fontSize: pxToDp(16)
                       }}
                     />
-                    {/* <Mybtn
-                    title="观看视频"
-                    onPress={() => this.context.navigate('Video', item.id)}
-                    buttonStyle={{
-                      width: pxToDp(120),
-                      height: pxToDp(40),
-                      alignSelf: 'flex-end',
-                      borderRadius: pxToDp(32),
-                      marginRight: pxToDp(8)
-                    }}
-                    titleStyle={{
-                      color: '#fcfcfc',
-                      fontWeight: 'bold',
-                      fontSize: pxToDp(16)
-                    }}
-                  /> */}
                   </View>
                 </View>
               </View>

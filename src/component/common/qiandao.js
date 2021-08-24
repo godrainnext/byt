@@ -14,6 +14,7 @@ import StepIndicator from 'react-native-step-indicator';
 import LinearGradient from 'react-native-linear-gradient';
 import Mybtn from './mybtn';
 import { Button } from 'react-native-elements/dist/buttons/Button';
+import { color } from 'react-native-elements/dist/helpers';
 
 class Index extends PureComponent {
     constructor(props) {
@@ -68,7 +69,7 @@ class Index extends PureComponent {
             stepIndicatorLabelFinishedColor: '#ffffff',
             stepIndicatorLabelUnFinishedColor: '#aaaaaa',
             labelColor: '#999999',
-            labelSize: 13,
+            labelSize: pxToDp(12),
             currentStepLabelColor: '#468cd3'
         };
         return (
@@ -101,7 +102,7 @@ class Index extends PureComponent {
                                 <Text style={styles.modalText1}>-每日签到-</Text>
                                 <View style={{ flexDirection: 'row', width: pxToDp(335) }}>
                                     {this.state.jifen.map((item, index) => (
-                                        <Text style={{ marginRight: pxToDp(32.7), color: 'grey' }}>
+                                        <Text style={{ marginRight: pxToDp(32.7), color: '#999999',fontSize:pxToDp(12) }}>
                                             {item}
                                         </Text>
                                     ))}
@@ -126,6 +127,7 @@ class Index extends PureComponent {
                                             this.setModalVisibles(true);
                                         }}
                                         title= {this.state.isclick ? '已签到' : '签到'}
+                                        titleStyle={{color:'red'}}
                                         disabled={this.state.isclick}
                                         linearGradientProps={{
                                             colors:this.state.isclick?['#ccc','#ccc']:['#fa9222', '#ffd501'],
@@ -159,7 +161,7 @@ class Index extends PureComponent {
                     this.setModalVisible(true);
                 }}>
                     <Ionicons name="today-sharp" size={32} color="#468CD3" />
-                    <Text style={{ fontSize: pxToDp(16), marginTop: pxToDp(5),color:'#666666'}}>签到</Text>
+                    <Text style={{ fontSize: pxToDp(16), marginTop: pxToDp(5),color:'#333333'}}>签到</Text>
                 </TouchableOpacity>
             </View>
         );
@@ -197,7 +199,8 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: pxToDp(18),
         marginBottom:pxToDp(35),
-        color:'#333333'
+        color:'#333333',
+        fontWeight:'bold'
     },
     modalText2: {
         marginTop: pxToDp(16),
@@ -237,6 +240,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         marginBottom: pxToDp(10)
+    },
+    textqian:{
+        fontSize:pxToDp(14)
     }
 });
 export default Index;

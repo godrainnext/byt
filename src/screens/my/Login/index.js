@@ -178,12 +178,12 @@ class Login extends PureComponent {
           style={[
             styles.opcity1,
             {
-              top: pxToDp(100),
+              top: pxToDp(80),
               opacity: this.state.opcitytext2 // Bind opacity to animated value
             }
           ]}
         >
-          留得千秋载。
+          留得千秋载
         </Animated.Text>
         <Animated.Text
           style={[
@@ -200,12 +200,12 @@ class Login extends PureComponent {
             styles.opcity2,
             {
               right: pxToDp(50),
-              top: pxToDp(100),
+              top: pxToDp(80),
               opacity: this.state.opcitytext4 // Bind opacity to animated value
             }
           ]}
         >
-          留得千秋载。
+          留得千秋载
         </Animated.Text>
 
         <View

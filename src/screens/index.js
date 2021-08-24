@@ -21,7 +21,16 @@ export { default as Opera } from './first/opera/index'; //唱段的首页
 export { default as Optuijian } from './first/opera/optuijian'; //唱段推荐
 export { default as Opperson } from './first/opera/opperson'; //名角的唱段页面
 export { default as Opgroup } from './first/opera/opgroup'; //流派的唱段页面
-export { default as Actress } from './first/actress/index'; //名角个人页
+export { default as Wangwenjuan } from './first/actress/wangwenjuan'; //名角个人页 王文娟
+export { default as Bichunfang } from './first/actress/bichunfang'; //名角个人页 毕春芳
+export { default as Fanruijuan } from './first/actress/fanruijuan'; //名角个人页 范瑞娟
+export { default as Jincaifeng } from './first/actress/jincaifeng'; //名角个人页 金采风
+export { default as Lujinhua } from './first/actress/lujinhua'; //名角个人页 陆锦花
+export { default as Lvruiying } from './first/actress/lvruiying'; //名角个人页 吕瑞英
+export { default as Qiyaxian } from './first/actress/qiyaxian'; //名角个人页 戚雅仙
+export { default as Xuyulan } from './first/actress/xuyulan'; //名角个人页 徐玉兰
+export { default as Yuanxuefen } from './first/actress/yuanxuefen'; //名角个人页 袁雪芬
+export { default as Zhangyunxia } from './first/actress/zhangyunxia'; //名角个人页 张云霞
 export { default as Album } from './first/album'; //专辑页面
 export { default as MusicPlayer } from './first/musicplayer/musicPlayer'; //歌曲播放页面
 export { default as Card } from './first/card/index'; //俯瞰百年卡片

@@ -34,28 +34,26 @@ class index extends PureComponent {
     const { images } = this.state;
     return (
       <View
-        style={{ backgroundColor: '#ecf6fc', flex: 1, padding: pxToDp(16) }}
+        style={{ backgroundColor: '#ecf6fc', flex: 1 }}
       >
-        <ScrollView stickyHeaderIndices={[0]}>
-          <Top icon1="arrow-back" title="越文" />
+      <Top icon1="arrow-back" title="越文" />
+        <ScrollView style={{ padding: pxToDp(16),flex:1}}>
           <View>
             <View
               style={{
                 alignItems: 'center',
-                marginBottom: pxToDp(8),
-                marginTop: pxToDp(8)
               }}
             >
-              <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold' }}>
+              <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold' }}>
                 {this.state.title}
               </Text>
             </View>
 
             {arr1.map((item, index) => (
-              <View>
+              <View style={{marginTop:pxToDp(8)}}>
                 {item.split('/d').map((item, index) => (
                   <View>
-                    <Text style={{ fontSize: pxToDp(17) }}>
+                    <Text style={{ fontSize: pxToDp(16),marginTop:pxToDp(4) }}>
                       &emsp;&emsp;{item}
                     </Text>
                   </View>
@@ -66,8 +64,8 @@ class index extends PureComponent {
                       style={{
                         height: pxToDp(180),
                         borderRadius: pxToDp(8),
-                        marginBottom: pxToDp(8),
-                        marginTop: pxToDp(8)
+                        marginTop: pxToDp(8),
+                        marginBottom:pxToDp(-4)
                       }}
                       source={{
                         uri: images[index]
@@ -82,14 +80,14 @@ class index extends PureComponent {
             {/* 评论区 */}
             <View
               style={{
-                marginTop: pxToDp(8),
-                marginBottom: pxToDp(8)
+                marginTop: pxToDp(12),
+                marginBottom: pxToDp(16)
               }}
             >
               <Text
                 style={{
                   fontSize: pxToDp(18),
-                  color: '#468CD3',
+                  color: '#000',
                   fontWeight: 'bold'
                 }}
               >

@@ -109,9 +109,9 @@ class Index extends PureComponent {
               style={{
                 fontSize: pxToDp(18),
                 fontWeight: 'bold',
-                marginTop: pxToDp(4)
+                marginTop: pxToDp(40),
+                marginBottom:pxToDp(20)
               }}
-              onPress={() => this.context.navigate('ScreenPlay')}
             >
               剧本详情
             </Text>

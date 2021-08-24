@@ -113,7 +113,7 @@ class Index extends PureComponent {
           ))}
           {/*介绍 */}
           <View>
-            <Text style={{ fontSize: pxToDp(18), color: '#468CD3', fontWeight: 'bold', marginTop: pxToDp(12), marginLeft: pxToDp(8) }}>他山之石</Text>
+            <Text style={{ fontSize: pxToDp(18), color: '#000000', fontWeight: 'bold', marginTop: pxToDp(12), marginLeft: pxToDp(8) }}>他山之石</Text>
             <ImageBackground style={styles.shujia1} source={require('../../../res/短书架.png')}>
               <ScrollView horizontal={true}>
                 {this.state.booksss.map((item) => (
@@ -161,7 +161,7 @@ class Index extends PureComponent {
             </ImageBackground>
           </View>
           {/**书架 */}
-          <Text style={{ fontSize: pxToDp(18), color: '#468CD3', fontWeight: 'bold', marginLeft: pxToDp(8), marginBottom: pxToDp(12) }}>永恒经典</Text>
+          <Text style={{ fontSize: pxToDp(18), color: '#000000', fontWeight: 'bold', marginLeft: pxToDp(8), marginBottom: pxToDp(12) }}>永恒经典</Text>
           <ImageBackground style={{ height: pxToDp(385), width: '100%' }} source={require('../../../res/书架.png')}>
             <ScrollView horizontal={true}>
               {this.state.data.map((item) => (
