@@ -7,14 +7,14 @@ class Index extends PureComponent {
   renderInner = () => (
     <Fragment>
       <View>
-        <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold' }}>
+        <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold' }}>
           五女拜寿
         </Text>
       </View>
       <Text
         style={{
-          marginTop: pxToDp(10),
-          fontSize: pxToDp(17),
+          marginTop: pxToDp(8),
+          fontSize: pxToDp(16),
           marginBottom: pxToDp(10)
         }}
       >
@@ -23,14 +23,13 @@ class Index extends PureComponent {
       <View>
         <Image
           style={{
-            width: '100%',
-            height: pxToDp(200),
+            height: pxToDp(180),
             borderRadius: pxToDp(8)
           }}
           source={require('../../../../res/play/fengmian4.png')}
         />
       </View>
-      <Text style={styles.Text}>
+      <Text style={[styles.Text, { marginTop: pxToDp(8) }]}>
         <Text style={styles.texthead}>老家院（白）</Text>:
         老爷——禀老爷夫人，扬州/苏州大小姐大姑爷，二小姐、二姑爷；杭州四小姐四姑爷、五小姐五姑爷带来各式各样寿礼，一齐给你拜寿来了！
       </Text>
@@ -133,6 +132,7 @@ class Index extends PureComponent {
   render() {
     return (
       <ScreenBase
+      top="五女拜寿"
         renderInner={this.renderInner}
         arr={[
           {
@@ -160,11 +160,12 @@ class Index extends PureComponent {
 const styles = StyleSheet.create({
   Text: {
     fontSize: pxToDp(16),
-    marginTop: pxToDp(25),
+    marginTop: pxToDp(4),
     lineHeight: pxToDp(25)
   },
   texthead: {
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+     fontSize: pxToDp(16)
   }
 });
 export default Index;

@@ -76,46 +76,51 @@ gener:[
     return (
       <View style={{ backgroundColor: '#E2F4FE', flex: 1 }}>
         <Top icon1="arrow-back" title="流派传奇" />
-        <ScrollView style={{ marginRight: pxToDp(8), marginLeft: pxToDp(8)}} showsVerticalScrollIndicator={false}>
-          {this.state.gener.map((item) => (
-            <TouchableOpacity
-              onPress={() => this.context.navigate(item.school)}
-              style={{
-                width: '100%',
-                height: pxToDp(130),
-                borderRadius: pxToDp(8),
-                flexDirection: 'row',
-                marginTop: pxToDp(10),
-                backgroundColor: 'white'
-              }}
-            >
-              <Image
+        <ScrollView
+          style={{ flex: 1, padding: pxToDp(16) }}
+          showsVerticalScrollIndicator={false}
+        >
+          <View style={{ marginTop: pxToDp(-8), marginBottom: pxToDp(32) }}>
+            {this.state.gener.map((item) => (
+              <TouchableOpacity
+                onPress={() => this.context.navigate(item.school)}
                 style={{
-                  width: pxToDp(90),
-                  height: pxToDp(110),
-                  borderRadius: pxToDp(8),
-                  marginLeft: pxToDp(10),
-                  marginTop: pxToDp(10)
-                }}
-                source={{ uri: item.path }}
-              />
-              <View
-                style={{
-                  width: pxToDp(240),
                   height: pxToDp(130),
-                  marginLeft: pxToDp(10),
-                  justifyContent: 'center'
+                  borderRadius: pxToDp(8),
+                  flexDirection: 'row',
+                  marginTop: pxToDp(10),
+                  backgroundColor: 'white'
                 }}
               >
-                <Text style={{ fontSize: pxToDp(15), fontWeight: 'bold' }}>
-                  {item.title}
-                </Text>
-                <Text style={{ fontSize: pxToDp(13) }} numberOfLines={2}>
-                  {item.text}
-                </Text>
-              </View>
-            </TouchableOpacity>
-          ))}
+                <Image
+                  style={{
+                    width: pxToDp(90),
+                    height: pxToDp(110),
+                    borderRadius: pxToDp(8),
+                    marginLeft: pxToDp(10),
+                    marginTop: pxToDp(10)
+                  }}
+                  source={{ uri: item.path }}
+                />
+                <View
+                  style={{
+                    width: pxToDp(235),
+                    height: pxToDp(130),
+                    marginLeft: pxToDp(10),
+                    justifyContent: 'center',
+                    paddingRight: pxToDp(8)
+                  }}
+                >
+                  <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold' }}>
+                    {item.title}
+                  </Text>
+                  <Text style={{ fontSize: pxToDp(14) }} numberOfLines={2}>
+                    {item.text}
+                  </Text>
+                </View>
+              </TouchableOpacity>
+            ))}
+          </View>
         </ScrollView>
       </View>
     );

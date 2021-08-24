@@ -7,12 +7,12 @@ class Index extends PureComponent {
   renderInner = () => (
     <Fragment>
       <View>
-        <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold' }}>祥林嫂</Text>
+        <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold' }}>祥林嫂</Text>
       </View>
       <Text
         style={{
-          marginTop: pxToDp(10),
-          fontSize: pxToDp(17),
+          marginTop: pxToDp(8),
+          fontSize: pxToDp(16),
           marginBottom: pxToDp(10)
         }}
       >
@@ -21,14 +21,13 @@ class Index extends PureComponent {
       <View>
         <Image
           style={{
-            width: '100%',
-            height: pxToDp(200),
+            height: pxToDp(180),
             borderRadius: pxToDp(8)
           }}
           source={require('../../../../res/play/fengmian8.jpg')}
         />
       </View>
-      <Text style={styles.Text}>
+      <Text style={[styles.Text, { marginTop: pxToDp(8) }]}>
         <Text style={styles.texthead}>幕后合唱</Text>:
         年年腊月年年冬，卫家山人家事穷，最穷莫如祥林家，世世代代做长工。样林一死债满身，愁得老娘心事重。婆婆唉！丈夫死后整十年，撇下我孤儿寡妇度曰艰。我曰间贴箔到黄昏后，晚间纺纱到五更天。总算把祥林祥根扶养大，实指望百年有靠老来甜。有谁知黄梅不落青梅落，样林呀，儿子会死在娘前面。
       </Text>
@@ -127,6 +126,7 @@ class Index extends PureComponent {
   render() {
     return (
       <ScreenBase
+        top="祥林嫂"
         renderInner={this.renderInner}
         arr={[
           {
@@ -154,11 +154,12 @@ class Index extends PureComponent {
 const styles = StyleSheet.create({
   Text: {
     fontSize: pxToDp(16),
-    marginTop: pxToDp(25),
+    marginTop: pxToDp(4),
     lineHeight: pxToDp(25)
   },
   texthead: {
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    fontSize: pxToDp(16)
   }
 });
 export default Index;

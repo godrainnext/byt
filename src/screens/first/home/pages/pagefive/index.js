@@ -82,15 +82,13 @@ class index extends PureComponent {
               style={{
                 marginTop: pxToDp(12),
                 marginBottom: pxToDp(16)
-              }}
-            >
+              }}>
               <Text
                 style={{
                   fontSize: pxToDp(18),
                   color: '#000',
                   fontWeight: 'bold'
-                }}
-              >
+                }}>
                 评论区
               </Text>
             </View>
@@ -100,15 +98,13 @@ class index extends PureComponent {
                 justifyContent: 'space-between',
                 alignItems: 'center',
                 marginRight: pxToDp(8)
-              }}
-            >
+              }}>
               <View
                 style={{
                   flexDirection: 'row',
                   alignItems: 'center',
                   marginBottom: pxToDp(8)
-                }}
-              >
+                }}>
                 <Image
                   style={{
                     width: pxToDp(40),

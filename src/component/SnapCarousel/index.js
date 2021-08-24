@@ -29,79 +29,80 @@ const ENTRIES1 = [
 ];
 const { width: screenWidth } = Dimensions.get('window');
 
-const MyCarousel = props => {
-    const [entries, setEntries] = useState([]);
-    const carouselRef = useRef(null);
+const MyCarousel = (props) => {
+  const [entries, setEntries] = useState([]);
+  const carouselRef = useRef(null);
 
-    const goForward = () => {
-carouselRef.current.snapToNext();
-    };
+  const goForward = () => {
+    carouselRef.current.snapToNext();
+  };
 
-    useEffect(() => {
-        setEntries(ENTRIES1);
-    }, []);
+  useEffect(() => {
+    setEntries(ENTRIES1);
+  }, []);
 
-    const renderItem = ({ item, index }, parallaxProps) => {
-        return (
-            <View style={styles.item}>
-                <ParallaxImage
-                    source={{ uri: item.illustration }}
-                    containerStyle={styles.imageContainer}
-                    style={styles.image}
-                    parallaxFactor={0.4}
-                    {...parallaxProps}
-                />
-                <Text style={{  fontSize: pxToDp(16),color:'#333333',marginLeft:pxToDp(8)}} numberOfLines={1}>
-                    {item.title}
-                </Text>
-
-            </View>
-        );
-    };
-
+  const renderItem = ({ item, index }, parallaxProps) => {
     return (
-        <View style={styles.container}>
-            {/* <TouchableOpacity onPress={goForward}>
+      <View style={styles.item}>
+        <ParallaxImage
+          source={{ uri: item.illustration }}
+          containerStyle={styles.imageContainer}
+          style={styles.image}
+          parallaxFactor={0.4}
+          {...parallaxProps}
+        />
+        <Text
+          style={{ fontSize: pxToDp(16), color: '#333333' }}
+          numberOfLines={1}
+        >
+          {item.title}
+        </Text>
+      </View>
+    );
+  };
+
+  return (
+    <View style={styles.container}>
+      {/* <TouchableOpacity onPress={goForward}>
                 <Text>go to next slide</Text>
             </TouchableOpacity> */}
-            <Carousel
-                ref={carouselRef}
-                inactiveSlideScale={0.9}
-                sliderWidth={pxToDp(360)}
-                firstItem={0}
-                itemWidth={pxToDp(280)}
-                data={entries}
-                renderItem={renderItem}
-                hasParallaxImages={true}
-                // vertical={true}
-                activeSlideOffset={0}
-                loop={true}
-                //autoplay={true}
-                //autoplayDelay={500}
-                //autoplayInterval={3000}
-            />
-        </View>
-    );
+      <Carousel
+        ref={carouselRef}
+        inactiveSlideScale={0.9}
+        sliderWidth={pxToDp(360)}
+        firstItem={0}
+        itemWidth={pxToDp(280)}
+        data={entries}
+        renderItem={renderItem}
+        hasParallaxImages={true}
+        // vertical={true}
+        activeSlideOffset={0}
+        loop={true}
+        //autoplay={true}
+        //autoplayDelay={500}
+        //autoplayInterval={3000}
+      />
+    </View>
+  );
 };
 
 export default MyCarousel;
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-    item: {
-        width:'100%',
-        height: pxToDp(240),
-    },
-    imageContainer: {
-        flex: 1,
-        marginBottom: Platform.select({ ios: 0, android: 1 }), // Prevent a random Android rendering issue
-        backgroundColor: 'white',
-        borderRadius: 8,
-    },
-    image: {
-        ...StyleSheet.absoluteFillObject,
-        resizeMode: 'contain',
-    },
+  container: {
+    flex: 1
+  },
+  item: {
+    height: pxToDp(240)
+  },
+  imageContainer: {
+    flex: 1,
+    marginBottom: Platform.select({ ios: 0, android: 1 }), // Prevent a random Android rendering issue
+    backgroundColor: 'white',
+    borderRadius: 8
+  },
+  image: {
+    ...StyleSheet.absoluteFillObject,
+    resizeMode: 'contain'
+  }
 });
