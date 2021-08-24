@@ -44,7 +44,7 @@ class index extends PureComponent {
                 alignItems: 'center',
               }}
             >
-              <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold' }}>
+              <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold',color:'#000000' }}>
                 {this.state.title}
               </Text>
             </View>
@@ -53,7 +53,7 @@ class index extends PureComponent {
               <View style={{marginTop:pxToDp(8)}}>
                 {item.split('/d').map((item, index) => (
                   <View>
-                    <Text style={{ fontSize: pxToDp(16),marginTop:pxToDp(4) }}>
+                    <Text style={{ fontSize: pxToDp(16),marginTop:pxToDp(4),color:'#333333'}}>
                       &emsp;&emsp;{item}
                     </Text>
                   </View>
@@ -86,7 +86,7 @@ class index extends PureComponent {
               <Text
                 style={{
                   fontSize: pxToDp(18),
-                  color: '#000',
+                  color: '#000000',
                   fontWeight: 'bold'
                 }}>
                 评论区

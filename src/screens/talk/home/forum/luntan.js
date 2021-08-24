@@ -43,14 +43,14 @@ const Music = memo(function (props) {
             width: 70,
             overflow: 'hidden',
             justifyContent: 'flex-end',
-            alignItems: 'flex-end',
+            alignItems:'center',
             height: '100%',
             left: 20,
-            bottom: 15
+            bottom: 15,
           }}
         >
           <LottieView
-            style={{ height: pxToDp(20), alignSelf: 'flex-start' }}
+            style={{ height: pxToDp(20), alignSelf: 'center',justifyContent:'center' }}
             source={require('../../../../../lottie/40716-musicsoundequalizer.json')}
             autoPlay={true}
             loop
@@ -66,7 +66,7 @@ const Music = memo(function (props) {
         onPlaybackStatusUpdate={props.onPlaybackStatusUpdate}
       />
       <TouchableOpacity
-        style={{ position: 'absolute', bottom: 10, right: 15, opacity: 0.5 }}
+        style={{ position: 'absolute', bottom:pxToDp(12), right:pxToDp(16), opacity: 0.5 }}
         onPress={() =>
           props.status.isPlaying
             ? video.current.pauseAsync()
@@ -172,15 +172,15 @@ class Index extends PureComponent {
                   >
                     <TouchableOpacity style={{ alignItems: 'center' }}>
                       <Ionicons name="qq" size={25} color="#87CEFA" />
-                      <Text style={{ fontSize: pxToDp(12),color:'#333333' }}>qq</Text>
+                      <Text style={{ fontSize: pxToDp(12), color: '#333333' }}>qq</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={{ alignItems: 'center' }}>
                       <Ionicons name="wechat" size={25} color="#32CD32" />
-                      <Text style={{ fontSize: pxToDp(12),color:'#333333' }}>微信</Text>
+                      <Text style={{ fontSize: pxToDp(12), color: '#333333' }}>微信</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={{ alignItems: 'center' }}>
                       <Ionicons name="weibo" size={25} color="#FA8072" />
-                      <Text style={{ fontSize: pxToDp(12),color:'#333333' }}>微博</Text>
+                      <Text style={{ fontSize: pxToDp(12), color: '#333333' }}>微博</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                       style={{ alignItems: 'center' }}
@@ -190,11 +190,11 @@ class Index extends PureComponent {
                       }}
                     >
                       <Ionicons name="exclamation" size={25} color="#DC143C" />
-                      <Text style={{ fontSize: pxToDp(12),color:'#333333' }} >举报</Text>
+                      <Text style={{ fontSize: pxToDp(12), color: '#333333' }} >举报</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={{ alignItems: 'center' }}>
                       <Ionicons name="star" size={25} color="#FFD700" />
-                      <Text style={{ fontSize: pxToDp(12),color:'#333333' }}>收藏</Text>
+                      <Text style={{ fontSize: pxToDp(12), color: '#333333' }}>收藏</Text>
                     </TouchableOpacity>
                   </View>
                   <TouchableOpacity
@@ -208,11 +208,11 @@ class Index extends PureComponent {
                       width: pxToDp(200),
                       borderRadius: pxToDp(12),
                       alignItems: 'center',
-                      justifyContent:'center',
+                      justifyContent: 'center',
                       marginTop: pxToDp(20)
                     }}
                   >
-                    <Text style={{ fontSize: pxToDp(12),color:'#333333' }}>取消</Text>
+                    <Text style={{ fontSize: pxToDp(12), color: '#333333' }}>取消</Text>
                   </TouchableOpacity>
                 </View>
               </View>
@@ -222,28 +222,31 @@ class Index extends PureComponent {
         <ScrollView showsVerticalScrollIndicator = {false}>
           <View
             style={{
-              width: '95%',
-              marginLeft: pxToDp(10),
-              marginTop: pxToDp(10),
-              marginBottom: pxToDp(20)
+              paddingLeft: pxToDp(16),
+              paddingRight: pxToDp(16),
+              paddingTop: pxToDp(8),
             }}
           >
             {actress.map((item) => (
               <View
                 key={item.id}
                 style={{
-                  elevation: 2,
+                  elevation: 10,
+                  shadowColor: 'black', //  阴影颜色
+                  shadowOffset: { width: 0, height: 0 }, // 阴影偏移
+                  shadowOpacity: 1, // 阴影不透明度
+                  shadowRadius: 10, //  圆角
                   borderWidth: 0,
                   marginBottom: pxToDp(20),
                   backgroundColor: 'white',
-                  borderRadius: pxToDp(20)
+                  borderRadius: pxToDp(8)
                 }}
               >
                 <TouchableOpacity
                   style={{
+                    right: pxToDp(16),
+                    top: pxToDp(24),
                     position: 'absolute',
-                    top: pxToDp(30),
-                    right: pxToDp(30)
                   }}
                   onPress={() => {
                     this.setModalVisible(true);
@@ -251,15 +254,13 @@ class Index extends PureComponent {
                 >
                   <SvgUri svgXmlData={sandian} width="20" height="20" />
                 </TouchableOpacity>
-                <View style={{ flexDirection: 'row', margin: pxToDp(10) }}>
+                <View style={{ flexDirection: 'row', alignItems: 'center', margin: pxToDp(8) }}>
                   <Image
                     source={{ uri: changeImgSize(item.user.avatar) }}
                     style={{
                       width: pxToDp(60),
                       height: pxToDp(60),
-                      borderRadius: pxToDp(30),
-                      marginLeft: pxToDp(20),
-                      marginTop: pxToDp(10)
+                      borderRadius: pxToDp(30)
                     }}
                   />
                   <TouchableOpacity
@@ -270,13 +271,13 @@ class Index extends PureComponent {
                       })
                     }
                   >
-                    <View style={{ marginTop: pxToDp(10) }}>
+                    <View>
                       <Text
                         style={{
                           fontSize: pxToDp(18),
-                          color:'#000000',
+                          color: '#000000',
                           fontWeight: 'bold',
-                          paddingLeft: pxToDp(20)
+                          marginLeft: pxToDp(8)
                         }}
                       >
                         {item.user.nickName}
@@ -284,9 +285,8 @@ class Index extends PureComponent {
                       <Text
                         style={{
                           fontSize: pxToDp(16),
-                          color:'#333333',
-                          paddingLeft: pxToDp(20),
-                          marginTop: pxToDp(5)
+                          color: '#333333',
+                          marginLeft: pxToDp(8)
                         }}
                       >
                         {item.createTime}
@@ -296,9 +296,9 @@ class Index extends PureComponent {
                 </View>
                 <View
                   style={{
-                    width: '90%',
-                    marginBottom: pxToDp(30),
-                    alignSelf: 'center'
+                    marginLeft: pxToDp(16),
+                    marginRight: pxToDp(16),
+                    marginBottom: pxToDp(16),
                   }}
                 >
                   <TouchableOpacity
@@ -312,10 +312,7 @@ class Index extends PureComponent {
                     <Text
                       style={{
                         fontSize: pxToDp(18),
-                        color:'#333333',
-                        marginBottom: pxToDp(10),
-                        paddingLeft: pxToDp(8),
-                        marginTop: pxToDp(10)
+                        color: '#333333',
                       }}
                     >
                       {item.content}
@@ -347,8 +344,8 @@ class Index extends PureComponent {
                         position: 'absolute',
                         bottom: pxToDp(5),
                         left: pxToDp(30),
-                        fontSize:pxToDp(12),
-                        color:'#666666'
+                        fontSize: pxToDp(12),
+                        color: '#666666'
                       }}
                     >
                       {this.state.count}
@@ -375,18 +372,22 @@ class Index extends PureComponent {
               <View
                 key={item.id}
                 style={{
-                  elevation: 2,
+                  elevation: 10,
+                  shadowColor: 'black', //  阴影颜色
+                  shadowOffset: { width: 0, height: 0 }, // 阴影偏移
+                  shadowOpacity: 1, // 阴影不透明度
+                  shadowRadius: 10, //  圆角
                   borderWidth: 0,
                   marginBottom: pxToDp(20),
                   backgroundColor: 'white',
-                  borderRadius: pxToDp(20)
+                  borderRadius: pxToDp(8)
                 }}
               >
                 <TouchableOpacity
                   style={{
                     position: 'absolute',
-                    top: pxToDp(30),
-                    right: pxToDp(30)
+                    top: pxToDp(16),
+                    right: pxToDp(24)
                   }}
                   onPress={() => {
                     this.setModalVisible(true);
@@ -394,15 +395,13 @@ class Index extends PureComponent {
                 >
                   <SvgUri svgXmlData={sandian} width="20" height="20" />
                 </TouchableOpacity>
-                <View style={{ flexDirection: 'row', margin: pxToDp(10) }}>
+                <View style={{ flexDirection: 'row', alignItems: 'center', margin: pxToDp(8) }}>
                   <Image
                     source={{ uri: changeImgSize(item.user.avatar) }}
                     style={{
                       width: pxToDp(60),
                       height: pxToDp(60),
-                      borderRadius: pxToDp(30),
-                      marginLeft: pxToDp(20),
-                      marginTop: pxToDp(10)
+                      borderRadius: pxToDp(30)
                     }}
                   />
                   <TouchableOpacity
@@ -413,13 +412,13 @@ class Index extends PureComponent {
                       })
                     }
                   >
-                    <View style={{ marginTop: pxToDp(10) }}>
+                    <View>
                       <Text
                         style={{
                           fontSize: pxToDp(18),
-                          color:'#000000',
+                          color: '#000000',
                           fontWeight: 'bold',
-                          paddingLeft: pxToDp(20)
+                          marginLeft: pxToDp(8)
                         }}
                       >
                         {item.user.nickName}
@@ -427,9 +426,8 @@ class Index extends PureComponent {
                       <Text
                         style={{
                           fontSize: pxToDp(16),
-                          color:'#333333',
-                          paddingLeft: pxToDp(20),
-                          marginTop: pxToDp(5)
+                          color: '#333333',
+                          marginLeft: pxToDp(8)
                         }}
                       >
                         {item.createTime}
@@ -439,9 +437,9 @@ class Index extends PureComponent {
                 </View>
                 <View
                   style={{
-                    width: '90%',
-                    marginBottom: pxToDp(30),
-                    alignSelf: 'center'
+                    marginLeft: pxToDp(16),
+                    marginRight: pxToDp(16),
+                    marginBottom: pxToDp(16),
                   }}
                 >
                   <TouchableOpacity
@@ -455,10 +453,7 @@ class Index extends PureComponent {
                     <Text
                       style={{
                         fontSize: pxToDp(18),
-                        color:'#333333',
-                        marginBottom: pxToDp(10),
-                        paddingLeft: pxToDp(8),
-                        marginTop: pxToDp(10)
+                        color: '#333333',
                       }}
                     >
                       {item.content}
@@ -490,8 +485,8 @@ class Index extends PureComponent {
                         position: 'absolute',
                         bottom: pxToDp(5),
                         left: pxToDp(30),
-                        fontSize:pxToDp(12),
-                        color:'#666666'
+                        fontSize: pxToDp(12),
+                        color: '#666666'
                       }}
                     >
                       {this.state.count}
@@ -526,7 +521,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 22
+    marginTop: pxToDp(16)
   },
   modalView: {
     margin: 20,

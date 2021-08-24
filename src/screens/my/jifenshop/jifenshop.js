@@ -120,8 +120,8 @@ class Index extends PureComponent {
             source={require('../../../res/21.jpg')}
             style={{
               marginTop: pxToDp(8),
-              marginLeft: pxToDp(8),
-              marginRight: pxToDp(8),
+              marginLeft: pxToDp(16),
+              marginRight: pxToDp(16),
               height: pxToDp(60),
               flexDirection: 'row',
               alignItems: 'center',
@@ -130,7 +130,7 @@ class Index extends PureComponent {
             }}
             imageStyle={{ borderRadius: pxToDp(8) }}
           >
-            <View style={{ flexDirection: 'row', marginLeft: pxToDp(10) }}>
+            <View style={{ flexDirection: 'row', marginLeft: pxToDp(16) }}>
               <Text
                 style={{
                   fontSize: pxToDp(20),
@@ -151,8 +151,7 @@ class Index extends PureComponent {
               style={{
                 height: pxToDp(35),
                 width: pxToDp(90),
-                marginRight: pxToDp(13),
-                borderRadius: pxToDp(24),
+                marginRight: pxToDp(16),
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'center'
@@ -168,10 +167,10 @@ class Index extends PureComponent {
             <Text
               style={{
                 fontSize: pxToDp(18),
-                margin: pxToDp(10),
+                marginTop: pxToDp(8),
                 fontWeight: 'bold',
                 color: '#000000',
-                marginBottom: pxToDp(-2)
+                marginLeft: pxToDp(16)
               }}
             >
               积分兑换
@@ -179,7 +178,9 @@ class Index extends PureComponent {
             <View
               style={{
                 flexWrap: 'wrap',
-                flexDirection: 'row'
+                flexDirection: 'row',
+                marginLeft: pxToDp(16),
+                marginRight: pxToDp(16)
               }}
             >
               {this.state.data.map((item, index) => (
@@ -225,7 +226,7 @@ class Index extends PureComponent {
 const styles = StyleSheet.create({
   kidbox: {
     backgroundColor: 'white',
-    width: pxToDp(172),
+    width: pxToDp(158),
     borderRadius: pxToDp(8),
     margin: pxToDp(8),
     marginRight: pxToDp(5),
@@ -234,8 +235,8 @@ const styles = StyleSheet.create({
     shadowRadius: pxToDp(8) //  圆角
   },
   image: {
-    height: pxToDp(170),
-    width: pxToDp(172),
+    height: pxToDp(160),
+    width: pxToDp(158),
     borderTopLeftRadius: pxToDp(8),
     borderTopRightRadius: pxToDp(8)
   },

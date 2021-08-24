@@ -6,7 +6,8 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-  ImageBackground
+  ImageBackground,
+  Modal
 } from 'react-native';
 import { pxToDp } from '@utils/styleKits';
 import { NavigationContext } from '@react-navigation/native';
@@ -20,6 +21,8 @@ import { BottomSheet, ListItem } from 'react-native-elements';
 import { getMomentListByUserId } from '../../../../service/moment';
 import { Audio } from 'expo-av';
 import { Video } from 'expo-av';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 class Index extends PureComponent {
   state = {
@@ -34,7 +37,8 @@ class Index extends PureComponent {
       }
     ],
     status: {},
-    isShow: false
+    isShow: false,
+    modalVisible: false,
   };
   componentDidMount() {
     getMomentListByUserId(this.props.userId).then((res) => {
@@ -61,7 +65,9 @@ class Index extends PureComponent {
       this.setState({ isplay: true });
     }
   };
-
+  setModalVisible = (visible) => {
+    this.setState({ modalVisible: visible });
+  };
   pauseSound = async () => {
     // this.setState({sound:undefined})
     await this.state.playingsong.pauseAsync();
@@ -71,12 +77,8 @@ class Index extends PureComponent {
     const video = createRef();
     return (
       <ImageBackground
-        style={{
-          flex: 1,
-          height: pxToDp(150),
-          marginTop: pxToDp(10),
-          backgroundColor: 'rgba(255,255,255,0.5)'
-        }}
+        style={{ flex: 1, height: pxToDp(50), marginTop: pxToDp(10) }}
+        imageStyle={{ borderRadius: pxToDp(8) }}
         source={{ uri: obj.cover }}
       >
         <Video
@@ -105,7 +107,7 @@ class Index extends PureComponent {
   showArticle = (obj) => {
     return (
       <ScrollView
-        style={{ flex: 1, height: pxToDp(120), marginTop: pxToDp(10) }}
+        style={{ flex: 1, height: pxToDp(120), marginTop: pxToDp(8) }}
         horizontal={true}
         showsHorizontalScrollIndicator={false}
       >
@@ -128,20 +130,92 @@ class Index extends PureComponent {
   static contextType = NavigationContext;
 
   render() {
+    const { modalVisible } = this.state;
+    const jubao = () => {
+      this.setModalVisible(!modalVisible);
+      this.context.navigate('Jubao');
+    };
     return (
       <View
         style={{
-          width: '98%',
-          alignSelf: 'center',
-          marginLeft: pxToDp(10),
-          marginRight: pxToDp(10),
+          width: '100%',
           marginTop: pxToDp(8),
           marginBottom: pxToDp(20),
           backgroundColor: 'rgba(255,255,255,0.5)',
-          borderRadius: pxToDp(10),
+          borderRadius: pxToDp(8),
           elevation: 3
         }}
       >
+        <View style={styles.centeredView}>
+          <Modal
+            animationType="slide"
+            transparent={true}
+            visible={modalVisible}
+            onRequestClose={() => {
+              Alert.alert('Modal has been closed.');
+              this.setModalVisible(!modalVisible);
+            }}
+          >
+            <View style={styles.centeredView}>
+              <View style={styles.modalView}>
+                <View style={{ alignItems: 'center' }}>
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      justifyContent: 'space-around',
+                      width: pxToDp(280),
+                      alignItems: 'center'
+                    }}
+                  >
+                    <TouchableOpacity style={{ alignItems: 'center' }}>
+                      <FontAwesome name="qq" size={25} color="#87CEFA" />
+                      <Text>qq</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{ alignItems: 'center' }}>
+                      <FontAwesome name="wechat" size={25} color="#32CD32" />
+                      <Text>微信</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{ alignItems: 'center' }}>
+                      <FontAwesome name="weibo" size={25} color="#FA8072" />
+                      <Text>微博</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      style={{ alignItems: 'center' }}
+                      onPress={jubao}
+                    >
+                      <FontAwesome
+                        name="exclamation"
+                        size={25}
+                        color="#DC143C"
+                      />
+                      <Text>举报</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={{ alignItems: 'center' }}>
+                      <Ionicons name="star" size={25} color="#FFD700" />
+                      <Text>收藏</Text>
+                    </TouchableOpacity>
+                  </View>
+                  <TouchableOpacity
+                    onPress={() => {
+                      this.setModalVisible(!modalVisible);
+                    }}
+                    style={{
+                      borderWidth: pxToDp(1),
+                      borderColor: 'black',
+                      height: pxToDp(25),
+                      width: pxToDp(200),
+                      borderRadius: pxToDp(16),
+                      alignItems: 'center',
+                      marginTop: pxToDp(20)
+                    }}
+                  >
+                    <Text style={{ fontSize: pxToDp(14) }}>取消</Text>
+                  </TouchableOpacity>
+                </View>
+              </View>
+            </View>
+          </Modal>
+        </View>
         {this.state.contentArr ? (
           this.state.contentArr.map((item) => (
             <View key={item.momentId}>
@@ -166,8 +240,8 @@ class Index extends PureComponent {
                 ))}
               </BottomSheet>
               <TouchableOpacity
-                style={{ position: 'absolute', top: 10, right: 20 }}
-                onPress={() => this.setState({ isShow: true })}
+                style={{ position: 'absolute', top: pxToDp(15), right: pxToDp(24) }}
+                onPress={() => this.setModalVisible(!modalVisible)}
               >
                 <SvgUri svgXmlData={sandian} width="20" height="20" />
               </TouchableOpacity>
@@ -175,15 +249,15 @@ class Index extends PureComponent {
                 style={{
                   flexDirection: 'row',
                   alignItems: 'flex-end',
-                  marginTop: pxToDp(10),
-                  marginLeft: pxToDp(10),
-                  borderRadius: pxToDp(8)
+                  marginTop: pxToDp(8),
+                  marginLeft: pxToDp(16),
+                  marginRight: pxToDp(16),
                 }}
               >
-                <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold',color:'#000000' }}>
+                <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold', color: '#000000' }}>
                   {item.createAt.substr(6, 5)}
                 </Text>
-                <Text style={{ fontSize:pxToDp(18), paddingLeft: 5,color:'#333333' }}>
+                <Text style={{ fontSize: pxToDp(18), paddingLeft: 5, color: '#333333' }}>
                   {item.createAt.substr(0, 4)}
                 </Text>
               </View>
@@ -191,9 +265,9 @@ class Index extends PureComponent {
                 style={{
                   elevation: 2,
                   borderWidth: 0,
-                  backgroundColor: 'rgba(255,255,255,0.5)',
-                  borderBottomLeftRadius: pxToDp(10),
-                  borderBottomRightRadius: pxToDp(10)
+                  marginRight: pxToDp(16),
+                  borderRadius: pxToDp(8),
+                  marginLeft: pxToDp(16),
                 }}
               >
                 <View
@@ -219,7 +293,7 @@ class Index extends PureComponent {
                       marginBottom: pxToDp(10),
                       paddingLeft: pxToDp(8),
                       marginTop: pxToDp(10),
-                      color:'#333333'
+                      color: '#333333'
                     }}
                   >
                     {item.content}
@@ -239,4 +313,23 @@ class Index extends PureComponent {
   }
 }
 
+const styles = StyleSheet.create({
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  modalView: {
+    margin: pxToDp(20),
+    backgroundColor: 'white',
+    borderRadius: pxToDp(24),
+    padding: pxToDp(35),
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2
+    }
+  }
+});
 export default Index;

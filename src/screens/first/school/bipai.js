@@ -112,22 +112,24 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: pxToDp(18),
-    color: '#000',
+    color: '#000000',
     fontWeight: 'bold',
     marginTop: pxToDp(4)
   },
   title1: {
     fontSize: pxToDp(18),
-    color: '#000',
+    color: '#000000',
     fontWeight: 'bold',
     marginTop: pxToDp(8)
   },
   text1: {
     fontSize: pxToDp(16),
+    color:'#333333',
     marginTop: pxToDp(4)
   },
   text2: {
-    fontSize: pxToDp(16)
+    fontSize: pxToDp(16),
+    color:'#333333'
   },
   zhuanji: {
     flexDirection: 'row',
@@ -150,13 +152,13 @@ const styles = StyleSheet.create({
     margin: pxToDp(8)
   },
   zhuanjititle: {
-    fontSize: pxToDp(18),
+    fontSize: pxToDp(16),
     fontWeight: 'bold',
-    color: 'black'
+    color: '#333333'
   },
   zhuanjitext: {
-    fontSize: pxToDp(15),
-    color: 'grey',
+    fontSize: pxToDp(14),
+    color: '#666666',
     marginTop: pxToDp(8)
   }
 });

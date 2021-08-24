@@ -84,7 +84,7 @@ export default StyleSheet.create({
   },
   title: {
     color: colors.black,
-    fontSize: 13,
+    fontSize:pxToDp(14),
     fontWeight: 'bold',
     letterSpacing: 0.5
   },

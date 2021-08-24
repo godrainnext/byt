@@ -58,10 +58,12 @@ class UserInner extends PureComponent {
         style={{
           borderRadius: pxToDp(8),
           backgroundColor: '#f0fcff',
-          margin: pxToDp(8),
           height: pxToDp(140),
           elevation: 3,
-          borderWidth: 0
+          borderWidth: 0,
+          marginLeft:pxToDp(16),
+          marginRight:pxToDp(16),
+          marginTop:pxToDp(8)
         }}
       >
         <View style={{ flexDirection: 'row' }}>
@@ -70,7 +72,7 @@ class UserInner extends PureComponent {
               style={{
                 height: pxToDp(60),
                 width: pxToDp(60),
-                borderRadius: pxToDp(32),
+                borderRadius: pxToDp(30),
                 margin: pxToDp(8)
               }}
               source={
@@ -98,7 +100,8 @@ class UserInner extends PureComponent {
                   margin: pxToDp(8),
                   fontSize: pxToDp(18),
                   color:'#333333',
-                  fontWeight: 'bold'
+                  fontWeight: 'bold',
+                  marginLeft:pxToDp(0)
                 }}
               >
                 {nickName ? nickName : '新用户8888'}

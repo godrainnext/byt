@@ -107,6 +107,7 @@ class index extends Component {
           style={{
             flex: 1,
             backgroundColor: '#eee',
+            marginTop: pxToDp(8)
           }}
         >
           <ScrollView showsVerticalScrollIndicator={false}>
@@ -115,7 +116,6 @@ class index extends Component {
               style={{
                 justifyContent: 'center',
                 alignItems: 'center',
-                marginTop: pxToDp(16)
               }}
             >
               <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold', color: '#000000' }}>
@@ -141,16 +141,19 @@ class index extends Component {
                       s.basicstyle,
                       {
                         backgroundColor: 'white',
-                        margin: pxToDp(8),
+                        marginTop: pxToDp(8),
+                        marginRight: pxToDp(16),
+                        marginLeft: pxToDp(16),
                         borderRadius: pxToDp(8)
                       }
                     ]}
                   >
                     <Input
                       placeholder="请输入真实姓名"
-                      inputStyle={{ fontSize: pxToDp(14) }}
                       style={{ marginTop: pxToDp(8) }}
+                      inputStyle={{ fontSize: pxToDp(16), color: '#333333' }}
                       placeholderTextColor='#999999'
+                      inputContainerStyle={{ borderColor: 'white', marginLeft: pxToDp(8), marginTop: pxToDp(8) }}
                       onChangeText={(value) =>
                         this.setState({ username: value })
                       }
@@ -161,7 +164,8 @@ class index extends Component {
                     />
                     <Input
                       placeholder="请输入身份证号码"
-                      inputStyle={{ fontSize: pxToDp(14) }}
+                      inputStyle={{ fontSize: pxToDp(16), color: '#333333' }}
+                      inputContainerStyle={{ borderColor: 'white', marginLeft: pxToDp(8) }}
                       value={this.state.fayan}
                       placeholderTextColor='#999999'
                       onChangeText={(value) => this.setState({ fayan: value })}
@@ -179,9 +183,11 @@ class index extends Component {
                     s.basicstyle,
                     {
                       backgroundColor: 'white',
-                      margin: pxToDp(8),
+                      marginTop: pxToDp(8),
+                      marginRight: pxToDp(16),
+                      marginLeft: pxToDp(16),
                       borderRadius: pxToDp(8),
-                      height: pxToDp(400),
+                      height: pxToDp(428),
                       marginTop: pxToDp(-8)
                     }
                   ]}
@@ -211,7 +217,7 @@ class index extends Component {
                     <Text
                       style={{
                         color: '#666666',
-                        marginTop: pxToDp(-8),
+                        marginTop: pxToDp(8),
                         marginBottom: pxToDp(8),
                         fontSize: pxToDp(12)
                       }}
@@ -244,7 +250,7 @@ class index extends Component {
                     <Text
                       style={{
                         color: '#666666',
-                        marginTop: pxToDp(-8),
+                        marginTop: pxToDp(8),
                         marginBottom: pxToDp(8),
                         fontSize: pxToDp(12)
                       }}
@@ -285,8 +291,9 @@ class index extends Component {
                     justifyContent: 'center',
                     alignItems: 'center',
                     height: pxToDp(88),
-                    padding: pxToDp(8),
-                    marginTop: pxToDp(16),
+                    marginLeft: pxToDp(16),
+                    marginRight: pxToDp(16),
+                    marginTop: pxToDp(8),
                     marginBottom: pxToDp(8)
                   }}
                 >

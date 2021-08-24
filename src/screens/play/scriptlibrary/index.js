@@ -236,7 +236,11 @@ class Index extends PureComponent {
               style={styles.shujia1}
               source={require('../../../res/短书架.png')}
             >
-              <ScrollView horizontal={true} style={{ marginLeft: pxToDp(-8) }} showsVerticalScrollIndicator = {false}>
+              <ScrollView
+                horizontal={true}
+                style={{ marginLeft: pxToDp(-8) }}
+                showsHorizontalScrollIndicator={false}
+              >
                 {this.state.booksss.map((item) => (
                   <View style={styles.books}>
                     <Image
@@ -257,7 +261,11 @@ class Index extends PureComponent {
               style={styles.shujia1}
               source={require('../../../res/短书架.png')}
             >
-              <ScrollView horizontal={true} style={{ marginLeft: pxToDp(-8) }} showsVerticalScrollIndicator = {false}>
+              <ScrollView
+                horizontal={true}
+                style={{ marginLeft: pxToDp(-8) }}
+                showsHorizontalScrollIndicator = {false}
+              >
                 {this.state.bookss.map((item) => (
                   <View style={styles.books}>
                     <Image
@@ -278,7 +286,11 @@ class Index extends PureComponent {
               style={styles.shujia1}
               source={require('../../../res/短书架.png')}
             >
-              <ScrollView horizontal={true} style={{ marginLeft: pxToDp(-8) }} showsVerticalScrollIndicator = {false}>
+              <ScrollView
+                horizontal={true}
+                style={{ marginLeft: pxToDp(-8) }}
+                showsHorizontalScrollIndicator = {false}
+              >
                 {this.state.books.map((item) => (
                   <View style={styles.books}>
                     <Image
@@ -311,7 +323,11 @@ class Index extends PureComponent {
             style={{ height: pxToDp(385), width: '100%' }}
             source={require('../../../res/书架.png')}
           >
-            <ScrollView horizontal={true} style={{ marginLeft: pxToDp(-8) }} showsVerticalScrollIndicator = {false}>
+            <ScrollView
+              horizontal={true}
+              style={{ marginLeft: pxToDp(-8) }}
+              showsVerticalScrollIndicator={false}
+            >
               {this.state.data.map((item) => (
                 <View style={styles.shujia}>
                   <Image style={styles.book} source={item.image} />
