@@ -83,18 +83,18 @@ class Index extends PureComponent {
         <Top icon1="arrow-back" title="剧本中心" />
         <ScrollView style={{ flex: 1 }}>
           {/*剧本推荐 */}
-          <Text style={{ fontSize: pxToDp(18), color: '#468CD3', fontWeight: 'bold', marginTop: pxToDp(12), marginLeft: pxToDp(8) }}>猜你喜欢</Text>
+          <Text style={{ fontSize: pxToDp(18), color: '#000000', fontWeight: 'bold', marginTop: pxToDp(12), marginLeft: pxToDp(8) }}>猜你喜欢</Text>
           {this.state.drama.map((item) => (
             <View style={styles.bookbox}>
               <View style={styles.bookbotton11}>
                 <View style={{ marginLeft: pxToDp(120), marginTop: pxToDp(10) }}>
                   <View style={styles.bookinf}>
-                    <Text style={{ fontSize: pxToDp(17), fontWeight: 'bold' }}>{item.title}</Text>
+                    <Text style={{ fontSize: pxToDp(16),color:'#333333',fontWeight: 'bold' }}>{item.title}</Text>
                     <TouchableOpacity onPress={() => this.context.navigate(item.drama)} >
                       <Svg width="32" height="32" svgXmlData={right} />
                     </TouchableOpacity>
                   </View>
-                  <Text stlye={{ fontSize: pxToDp(13) }} numberOfLines={2}>{item.context}</Text>
+                  <Text stlye={{ fontSize: pxToDp(14),color:'#666666' }} numberOfLines={3}>{item.context}</Text>
                   <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                   </View>
                 </View>
@@ -113,7 +113,7 @@ class Index extends PureComponent {
           ))}
           {/*介绍 */}
           <View>
-            <Text style={{ fontSize: pxToDp(18), color: '#468CD3', fontWeight: 'bold', marginTop: pxToDp(12), marginLeft: pxToDp(8) }}>他山之石</Text>
+            <Text style={{ fontSize: pxToDp(18), color: '#000000', fontWeight: 'bold', marginTop: pxToDp(12), marginLeft: pxToDp(8) }}>他山之石</Text>
             <ImageBackground style={styles.shujia1} source={require('../../../res/短书架.png')}>
               <ScrollView horizontal={true}>
                 {this.state.booksss.map((item) => (
@@ -161,7 +161,7 @@ class Index extends PureComponent {
             </ImageBackground>
           </View>
           {/**书架 */}
-          <Text style={{ fontSize: pxToDp(18), color: '#468CD3', fontWeight: 'bold', marginLeft: pxToDp(8), marginBottom: pxToDp(12) }}>永恒经典</Text>
+          <Text style={{ fontSize: pxToDp(18), color: '#000000', fontWeight: 'bold', marginLeft: pxToDp(8), marginBottom: pxToDp(12) }}>永恒经典</Text>
           <ImageBackground style={{ height: pxToDp(385), width: '100%' }} source={require('../../../res/书架.png')}>
             <ScrollView horizontal={true}>
               {this.state.data.map((item) => (

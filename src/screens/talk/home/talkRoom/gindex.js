@@ -327,11 +327,9 @@ export default class App extends PureComponent {
         const { peerIds } = this.state;
         console.log(peerIds);
         return (
-            <ImageBackground style={{ width: '100%', height: '100%' }} source={{ uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic.vjshi.com%2F2015-07-03%2F1435906279772_102%2F00002.jpg%3Fx-oss-process%3Dstyle%2Fwatermark&refer=http%3A%2F%2Fpic.vjshi.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631528779&t=9aa6e3fc4a10ebf05c0ad6f581c2c98e' }}>
                 <View style={styles.fullView}>
                     {this._renderRemoteVideos()}
                 </View>
-            </ImageBackground>
         );
     };
     _renderRemoteVideos = () => {
@@ -356,7 +354,7 @@ export default class App extends PureComponent {
                         // injectedJavaScript={`	`}
                         onMessage={event => { '接收h5页面传过来的消息' }}
                     /> */}
-                    <View style={{ height: pxToDp(280), padding: pxToDp(16),backgroundColor:'white',borderRadius:pxToDp(16) }}>
+                    <View style={styles.songbox}>
                         {showSong ? this.renderSong() : this.renderVideo()}
                     </View>
                     <View style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center',marginTop:pxToDp(10) }}>
@@ -424,4 +422,14 @@ const styles = StyleSheet.create({
         paddingVertical: 5,
         color: '#0093E9',
     },
+    songbox:{ 
+        height: pxToDp(280), 
+        padding: pxToDp(16),
+        backgroundColor:'white',
+        borderBottomLeftRadius:pxToDp(16),
+        borderBottomRightRadius:pxToDp(16),
+        elevation: 8,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+        shadowColor: 'black',  //  阴影颜色
+        shadowRadius: pxToDp(10),  //  圆角
+    }
 });

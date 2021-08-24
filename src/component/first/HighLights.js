@@ -30,7 +30,7 @@ export default class HighLights extends PureComponent {
           <Text
             style={{
               fontSize: pxToDp(18),
-              color: '#333333',
+              color: '#000000',
               fontWeight: 'bold'
             }}
           >
