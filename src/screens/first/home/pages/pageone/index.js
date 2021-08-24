@@ -107,10 +107,10 @@ gener:[
                   justifyContent: 'center'
                 }}
               >
-                <Text style={{ fontSize: pxToDp(15), fontWeight: 'bold' }}>
+                <Text style={{ fontSize: pxToDp(16), fontWeight: 'bold',color:'#333333'}}>
                   {item.title}
                 </Text>
-                <Text style={{ fontSize: pxToDp(13) }} numberOfLines={2}>
+                <Text style={{ fontSize: pxToDp(14),color:'#666666',marginTop:pxToDp(8) }} numberOfLines={2}>
                   {item.text}
                 </Text>
               </View>

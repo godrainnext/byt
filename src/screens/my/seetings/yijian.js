@@ -10,9 +10,11 @@ class Index extends PureComponent {
             <Top icon1="arrow-back" title="意见反馈" />
             <TextInput
               style={{
-                margin: pxToDp(20),
+                marginLeft:pxToDp(16),
+                marginRight:pxToDp(16),
+                marginTop:pxToDp(8),
                 height: pxToDp(200),
-                borderRadius: pxToDp(24),
+                borderRadius: pxToDp(8),
                 backgroundColor: '#fff',
                 textAlign: 'center',
                 elevation: 10, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）

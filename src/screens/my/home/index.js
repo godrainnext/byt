@@ -46,18 +46,13 @@ class Index extends PureComponent {
       >
         <Top title="戏痴" />
         <ScrollView>
-          {/*        
-          <View style={{position:'absolute',width:400,height:400,bottom:350,borderRadius:100,alignSelf:'center',opacity:.4}}>
-          
-         
-          </View>  */}
-
           <UserInner />
           <View
             style={{
               borderRadius: pxToDp(8),
               backgroundColor: '#f0fcff',
-              margin: pxToDp(8),
+              marginLeft:pxToDp(16),
+              marginRight:pxToDp(16),
               height: pxToDp(140),
               marginTop: pxToDp(8),
               elevation: 3,
@@ -68,7 +63,7 @@ class Index extends PureComponent {
               style={{
                 flexDirection: 'row',
                 justifyContent: 'space-between',
-                margin: pxToDp(10),
+                margin: pxToDp(12),
                 alignItems: 'center'
               }}
             >
@@ -81,10 +76,11 @@ class Index extends PureComponent {
                 <View
                   style={{
                     flexDirection: 'row',
+                    alignItems:'center',
                     justifyContent:'center',      
                   }}
                 >
-                  <Text style={{  fontSize: pxToDp(15),color:"#666666"}}>查看全部订单 </Text>
+                  <Text style={{  fontSize: pxToDp(14),color:"#666666"}}>查看全部订单 </Text>
                   <Ionicons name="angle-right" size={24} color="#666666" />
                 </View>
               </TouchableOpacity>
@@ -93,7 +89,7 @@ class Index extends PureComponent {
               style={{
                 flexDirection: 'row',
                 justifyContent: 'space-around',
-                marginTop: pxToDp(12)
+                marginTop: pxToDp(16)
               }}
             >
               <TouchableOpacity

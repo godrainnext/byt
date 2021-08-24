@@ -53,7 +53,7 @@ export default class SliderEntry extends PureComponent {
       <View style={{height:20}}>
         <Text
           style={[styles.title, even ? styles.titleEven : {}]}
-          numberOfLines={2}
+          numberOfLines={1}
         >
           {title.toUpperCase()}
         </Text>
@@ -87,7 +87,7 @@ export default class SliderEntry extends PureComponent {
           {uppercaseTitle}
           <Text
             style={[styles.ezcontent, even ? styles.ezcontentEven : {}]}
-            numberOfLines={2}
+            numberOfLines={1}
           >
             {ezcontent}
           </Text>

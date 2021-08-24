@@ -221,7 +221,7 @@ class Index extends PureComponent {
             }}
           >
             <Text style={{ fontSize: pxToDp(18),color:'#000000',margin: pxToDp(8) }}>
-              评论
+              评论区
             </Text>
             <View style={{marginBottom:pxToDp(80)}}>
             <Comments

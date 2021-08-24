@@ -38,13 +38,8 @@ export default class topic extends Component {
   render() {
     const { id, text, img, detail, number } = this.props.route.params;
     return (
-      <View style={{ flex: 1, backgroundColor: '#ecf6fc' }}>
-        <ScrollView
-          stickyHeaderIndices={[2]}
-          style={{
-            flex: 1
-          }}
-        >
+      <View style={{ flex: 1 }}>
+        <ScrollView>
           {/* 头部背景 */}
           <ImageBackground
             style={{ height: pxToDp(250) }}
@@ -54,73 +49,54 @@ export default class topic extends Component {
               <Ionicons
                 name="arrow-back"
                 size={pxToDp(30)}
-                style={{ margin: pxToDp(16) }}
+                style={{ paddingTop: pxToDp(16), paddingLeft: pxToDp(16) }}
               />
             </TouchableOpacity>
-            <TouchableOpacity
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'flex-end',
-                marginTop: pxToDp(135),
-                marginRight: pxToDp(16),
-                alignItems: 'center'
-              }}
-            >
-              <Text style={{ fontSize: pxToDp(16) }}>{number}人参与讨论</Text>
-              <AntDesign name="right" size={pxToDp(20)} />
-            </TouchableOpacity>
+            <View style={{ alignSelf: 'flex-end', marginTop: pxToDp(155), marginRight: pxToDp(16) }}>
+              <Text style={{ fontSize: pxToDp(16), color: '#333333' }}>{number}人参与讨论</Text>
+            </View>
           </ImageBackground>
           {/* 中间内容 */}
-          <View
-            style={{
-              margin: pxToDp(8),
-              marginTop: pxToDp(24),
-              paddingBottom: pxToDp(24),
-              borderRadius: pxToDp(16),
-              backgroundColor: '#fff',
-              elevation: 10,
-              shadowColor: 'black', //  阴影颜色
-              shadowOffset: { width: 0, height: 0 }, // 阴影偏移
-              shadowOpacity: 1, // 阴影不透明度
-              shadowRadius: 10 //  圆角
-            }}
-          >
-            <Text
+          <View style={{marginTop:pxToDp(-10),width:'100%',backgroundColor:'#ecf6fc',borderTopRightRadius:pxToDp(8),borderTopLeftRadius:pxToDp(8)}}>
+            <View
               style={{
-                fontSize: pxToDp(20),
-                fontWeight: 'bold',
-                margin: pxToDp(8)
+                padding: pxToDp(8),
+                margin: pxToDp(16),
+                borderRadius: pxToDp(8),
+                backgroundColor: '#fff',
+                elevation: 10,
+                shadowColor: 'black', //  阴影颜色
+                shadowOffset: { width: 0, height: 0 }, // 阴影偏移
+                shadowOpacity: 1, // 阴影不透明度
+                shadowRadius: 10 //  圆角
               }}
             >
-              {text}
-            </Text>
-            <Text
-              style={{
-                marginTop: pxToDp(8),
-                fontWeight: 'bold',
-                margin: pxToDp(8)
-              }}
-            >
-              {detail}
-            </Text>
-          </View>
-          {/* 评论区 */}
-          <View
-            style={{
-              height: pxToDp(40),
-              margin: pxToDp(8),
-              backgroundColor: 'white',
-              flexDirection: 'row',
-              alignItems: 'center'
-              //    borderRadius: pxToDp(16)
-            }}
-          >
-            <Text style={{ fontSize: pxToDp(18), marginLeft: pxToDp(16) }}>
+              <Text
+                style={{
+                  marginBottom: pxToDp(8),
+                  fontSize: pxToDp(18),
+                  color: '#000000',
+                  fontWeight: 'bold',
+                }}
+              >
+                {text}
+              </Text>
+              <Text
+                style={{
+                  fontSize: pxToDp(14),
+                  color: '#333333'
+                }}
+              >
+                &emsp;&emsp;{detail}
+              </Text>
+            </View>
+            {/* 评论区 */}
+            <Text style={{ fontSize: pxToDp(18), color: '#000000', fontWeight: 'bold', paddingLeft: pxToDp(16) }}>
               全部
             </Text>
-          </View>
-          <View style={{ marginTop: pxToDp(-16) }}>
-            <Tiebar dongtai={this.state.dongtai} />
+            <View style={{ marginTop: pxToDp(-12) }}>
+              <Tiebar dongtai={this.state.dongtai} />
+            </View>
           </View>
         </ScrollView>
       </View>
