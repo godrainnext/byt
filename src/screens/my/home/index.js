@@ -45,7 +45,7 @@ class Index extends PureComponent {
         style={{ flex: 1 }}
       >
         <Top title="戏痴" />
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
           <UserInner />
           <View
             style={{

@@ -45,17 +45,16 @@ class Index extends PureComponent {
 const styles = StyleSheet.create({
   ocard: {
     backgroundColor: 'white',
-    width: pxToDp(172),
+    width: pxToDp(165.5),
     borderRadius: pxToDp(8),
-    margin: pxToDp(8),
-    marginRight: pxToDp(5),
+    marginTop:pxToDp(10),
     elevation: 5,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
     shadowColor: 'black',  //  阴影颜色
     shadowRadius: pxToDp(8),  //  圆角
   },
   image: {
-    height: pxToDp(170),
-    width: pxToDp(172),
+    height: pxToDp(160),
+    width: pxToDp(165.5),
     borderTopLeftRadius: pxToDp(8),
     borderTopRightRadius: pxToDp(8)
   },

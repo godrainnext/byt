@@ -30,6 +30,7 @@ export default class hello extends Component {
               event.nativeEvent.contentOffset.y / 3
           });
         }}
+        showsVerticalScrollIndicator={false}
         stickyHeaderHeight={40}
         parallaxHeaderHeight={380}
         navBarColor="#fa9222"

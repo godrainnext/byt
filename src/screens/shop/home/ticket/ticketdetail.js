@@ -69,17 +69,14 @@ export default class ticketdetail extends PureComponent {
   }
   render() {
     return (
-      <View style={{ backgroundColor: '#ecf6fc', flex: 1 }}>
+      <View style={{ backgroundColor: 'white', flex: 1 }}>
         <Top icon1="arrow-back" title="门票详情" />
-        <ScrollView
-          stickyHeaderIndices={[1]}
-          style={{ margin: pxToDp(8), flex: 1 }}
-        >
-          <View>
+        <ScrollView style={{ flex: 1 }}>
+          <View style={{ marginTop: pxToDp(8), marginRight: pxToDp(16), marginLeft: pxToDp(16) }}>
             {/* 海报栏 */}
             <View
               style={{
-                height: pxToDp(140),
+                height: pxToDp(120),
                 flexDirection: 'row'
               }}
             >
@@ -92,8 +89,8 @@ export default class ticketdetail extends PureComponent {
               />
               <View
                 style={{
-                  margin: pxToDp(8),
-                  width: pxToDp(240),
+                  height: pxToDp(120),
+                  width:pxToDp(250),
                   justifyContent: 'space-between'
                 }}
               >
@@ -102,14 +99,15 @@ export default class ticketdetail extends PureComponent {
                     style={{
                       fontSize: pxToDp(16),
                       fontWeight: 'bold',
-                      color: '#000000'
+                      color: '#000000',
+                      marginLeft: pxToDp(8)
                     }}
                     numberOfLines={2}
                   >
                     {this.props.route.params.name}
                   </Text>
                 </View>
-                <View>
+                <View style={{marginLeft:pxToDp(8)}}>
                   <Text style={{ color: '#f0bb51', fontSize: pxToDp(14) }}>
                     ￥{this.props.route.params.price}
                   </Text>
@@ -145,10 +143,8 @@ export default class ticketdetail extends PureComponent {
             {/* 观众评分 */}
             <View
               style={{
-                height: pxToDp(140),
+                height: pxToDp(100),
                 flexDirection: 'row',
-                marginLeft: pxToDp(8),
-                marginRight: pxToDp(8),
                 marginTop: pxToDp(10)
               }}
             >
@@ -172,7 +168,7 @@ export default class ticketdetail extends PureComponent {
                   style={{
                     flexDirection: 'row',
                     justifyContent: 'center',
-                    marginBottom: pxToDp(40)
+                    marginBottom: pxToDp(20)
                   }}
                 >
                   <Text style={{ fontSize: pxToDp(24), color: '#468cd3' }}>
@@ -192,10 +188,15 @@ export default class ticketdetail extends PureComponent {
               {/* 右评论 */}
               <View
                 style={{
-                  width: pxToDp(248),
-                  marginTop: pxToDp(30)
-                }}
-              >
+                  marginTop: pxToDp(30),
+                  backgroundColor: 'white',
+                  height: pxToDp(70),
+                  borderRadius: pxToDp(8),
+                  elevation: 5,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                  shadowColor: '#000000',  //  阴影颜色
+                  shadowRadius: pxToDp(10),  //  圆角
+                  padding: pxToDp(8)
+                }}>
                 <MarqueeVertical
                   textList={[
                     {
@@ -211,11 +212,11 @@ export default class ticketdetail extends PureComponent {
                       value: 'Bread:好评！现场气氛很好，老师们表演很精彩'
                     }
                   ]}
-                  width={pxToDp(248)}
-                  height={pxToDp(110)}
+                  width={pxToDp(225)}
+                  height={pxToDp(60)}
                   direction={'up'}
                   numberOfLines={2}
-                  bgContainerStyle={{ backgroundColor: '#ecf6fc' }}
+                  bgContainerStyle={{ backgroundColor: 'transparent' }}
                   textStyle={{ fontSize: pxToDp(16), color: '#333333' }}
                   onTextClick={(item) => {
                     alert('' + JSON.stringify(item));
@@ -224,229 +225,200 @@ export default class ticketdetail extends PureComponent {
               </View>
             </View>
           </View>
-          <View
-            style={{
-              marginLeft: pxToDp(8),
-              marginRight: pxToDp(8),
-              marginTop: pxToDp(10),
-              backgroundColor: '#eee',
-              flexDirection: 'row',
-              height: pxToDp(30),
-              borderRadius: pxToDp(8),
-              alignItems: 'center'
-            }}
-          >
-            {/* 详情&评价 */}
-            <View
+          {/* 温馨提醒 */}
+          <View style={styles.mainbox}>
+            <Text
               style={{
-                flexDirection: 'row',
-                alignItems: 'center'
+                fontSize: pxToDp(18),
+                color: '#000000',
+                fontWeight: 'bold',
+                marginBottom: pxToDp(10)
               }}
             >
-              <Text style={{ fontSize: pxToDp(18), color: '#333333' }}>
-                详情
-              </Text>
-              <Text style={{ fontSize: pxToDp(18), color: '#333333' }}>/</Text>
-              <Text style={{ fontSize: pxToDp(18), color: '#333333' }}>
-                评价
-              </Text>
-            </View>
+              温馨提示
+            </Text>
+            <Text style={{ fontSize: pxToDp(16), color: '#333333' }}>
+              您知悉，因各地疫情情况，演出地或您所在地疫情防控政策可能影响您的出行安排或演出的入场验证要求。若演出受不可抗力影响延期或取消导致退票的，本App仅支持退回票款，其他因观演发生的费用需由您自行承担。
+            </Text>
           </View>
+          {/* 演出介绍 */}
+          <View style={styles.mainbox}>
+            <Text
+              style={{
+                fontSize: pxToDp(18),
+                color: '#000000',
+                fontWeight: 'bold'
+              }}
+            >
+              演出介绍
+            </Text>
+            <Image
+              source={require('../../../../res/ticket7.jpg')}
+              style={{
+                width: '100%',
+                height: pxToDp(400),
+                marginTop: pxToDp(10),
+                borderRadius: pxToDp(8)
+              }}
+            />
+            <Text
+              style={{
+                marginBottom: pxToDp(15),
+                fontSize: pxToDp(16),
+                color: '#333333',
+                marginTop: pxToDp(15)
+              }}
+            >
+              越剧，作为我们江南特有的剧种，有着百年的历史，多以“才子佳人”为题材，唱腔温婉，情感细腻。是我国的第二大剧种，流传于全世界。
+              {'\n'}
+              2020年10月开场以来，几乎场场满座，也为杭州这座旅游文化名城增添了几分戏剧色彩。
+            </Text>
+            <Image
+              source={require('../../../../res/ticket8.jpg')}
+              style={styles.kidimg}
+            />
+            <Image
+              source={require('../../../../res/ticket9.jpg')}
+              style={styles.kidimg}
+            />
+            <Image
+              source={require('../../../../res/ticket10.jpg')}
+              style={styles.kidimg}
+            />
+          </View>
+          {/* 观众热评 */}
           <View>
-            {/* 温馨提醒 */}
+            <Text
+              style={{
+                fontSize: pxToDp(18),
+                color: '#000000',
+                fontWeight: 'bold',
+                marginLeft: pxToDp(16),
+                marginTop: pxToDp(8),
+              }}
+            >
+              观众热评
+            </Text>
+          </View>
+          {this.state.data.map((item, index) => (
             <View style={styles.mainbox}>
-              <Text
+              <View
                 style={{
-                  fontSize: pxToDp(18),
-                  color: '#000000',
-                  fontWeight: 'bold',
-                  marginBottom: pxToDp(10)
+                  height: pxToDp(50),
+                  flexDirection: 'row',
+                  alignItems: 'center'
                 }}
               >
-                温馨提示
-              </Text>
-              <Text style={{ fontSize: pxToDp(16), color: '#333333' }}>
-                您知悉，因各地疫情情况，演出地或您所在地疫情防控政策可能影响您的出行安排或演出的入场验证要求。若演出受不可抗力影响延期或取消导致退票的，本App仅支持退回票款，其他因观演发生的费用需由您自行承担。
-              </Text>
-            </View>
-            {/* 演出介绍 */}
-            <View style={styles.mainbox}>
-              <Text
-                style={{
-                  fontSize: pxToDp(18),
-                  color: '#000000',
-                  fontWeight: 'bold'
-                }}
-              >
-                演出介绍
-              </Text>
-              <Image
-                source={require('../../../../res/ticket7.jpg')}
-                style={{
-                  width: pxToDp(340),
-                  height: pxToDp(400),
-                  marginTop: pxToDp(10),
-                  borderRadius: pxToDp(8)
-                }}
-              />
-              <Text
-                style={{
-                  marginBottom: pxToDp(15),
-                  fontSize: pxToDp(16),
-                  color: '#333333',
-                  marginTop: pxToDp(15)
-                }}
-              >
-                越剧，作为我们江南特有的剧种，有着百年的历史，多以“才子佳人”为题材，唱腔温婉，情感细腻。是我国的第二大剧种，流传于全世界。
-                {'\n'}
-                2020年10月开场以来，几乎场场满座，也为杭州这座旅游文化名城增添了几分戏剧色彩。
-              </Text>
-              <Image
-                source={require('../../../../res/ticket8.jpg')}
-                style={styles.kidimg}
-              />
-              <Image
-                source={require('../../../../res/ticket9.jpg')}
-                style={styles.kidimg}
-              />
-              <Image
-                source={require('../../../../res/ticket10.jpg')}
-                style={styles.kidimg}
-              />
-            </View>
-            {/* 观众热评 */}
-            <View>
-              <Text
-                style={{
-                  fontSize: pxToDp(18),
-                  color: '#000000',
-                  fontWeight: 'bold',
-                  marginLeft: pxToDp(8)
-                }}
-              >
-                观众热评
-              </Text>
-            </View>
-            {this.state.data.map((item, index) => (
-              <View style={styles.mainbox}>
-                <View
+                <Image
+                  source={{ uri: item.avatar }}
                   style={{
-                    height: pxToDp(50),
-                    flexDirection: 'row',
-                    alignItems: 'center'
+                    height: pxToDp(30),
+                    width: pxToDp(30),
+                    borderRadius: pxToDp(15)
+                  }}
+                />
+                <Text
+                  style={{
+                    fontWeight: 'bold',
+                    marginLeft: pxToDp(10),
+                    fontSize: pxToDp(16),
+                    color: '#333333'
                   }}
                 >
-                  <Image
-                    source={{ uri: item.avatar }}
-                    style={{
-                      height: pxToDp(30),
-                      width: pxToDp(30),
-                      borderRadius: pxToDp(15)
-                    }}
-                  />
+                  {item.name}
+                </Text>
+              </View>
+
+              <View
+                style={{
+                  marginLeft: pxToDp(30),
+                  width: pxToDp(312)
+                }}
+              >
+                {/* 评论盒子 */}
+                <View>
                   <Text
-                    style={{
-                      fontWeight: 'bold',
-                      marginLeft: pxToDp(10),
-                      fontSize: pxToDp(16),
-                      color: '#333333'
-                    }}
+                    numberOfLines={5}
+                    style={{ fontSize: pxToDp(14), color: '#666666' }}
                   >
-                    {item.name}
+                    {item.detail}
                   </Text>
                 </View>
-
+                {/* 评论图片盒子 */}
+                <View style={{ flexDirection: 'row' }}>
+                  <Image
+                    source={item.img1}
+                    style={{
+                      width: pxToDp(100),
+                      height: pxToDp(100),
+                      marginLeft: pxToDp(3),
+                      borderRadius: pxToDp(8),
+                      marginTop: pxToDp(10)
+                    }}
+                  />
+                  <Image
+                    source={item.img2}
+                    style={{
+                      width: pxToDp(100),
+                      height: pxToDp(100),
+                      marginLeft: pxToDp(3),
+                      borderRadius: pxToDp(8),
+                      marginTop: pxToDp(10)
+                    }}
+                  />
+                  <Image
+                    source={item.img3}
+                    style={{
+                      width: pxToDp(100),
+                      height: pxToDp(100),
+                      marginLeft: pxToDp(3),
+                      borderRadius: pxToDp(8),
+                      marginTop: pxToDp(10)
+                    }}
+                  />
+                </View>
+                {/* 其他信息 */}
                 <View
                   style={{
-                    marginLeft: pxToDp(30),
-                    width: pxToDp(312)
+                    flexDirection: 'row',
+                    marginTop: pxToDp(10),
+                    marginBottom: pxToDp(10),
+                    justifyContent: 'space-between'
                   }}
                 >
-                  {/* 评论盒子 */}
-                  <View>
-                    <Text
-                      numberOfLines={5}
-                      style={{ fontSize: pxToDp(14), color: '#666666' }}
-                    >
-                      {item.detail}
-                    </Text>
-                  </View>
-                  {/* 评论图片盒子 */}
-                  <View style={{ flexDirection: 'row' }}>
-                    <Image
-                      source={item.img1}
-                      style={{
-                        width: pxToDp(100),
-                        height: pxToDp(100),
-                        marginLeft: pxToDp(3),
-                        borderRadius: pxToDp(8),
-                        marginTop: pxToDp(10)
-                      }}
-                    />
-                    <Image
-                      source={item.img2}
-                      style={{
-                        width: pxToDp(100),
-                        height: pxToDp(100),
-                        marginLeft: pxToDp(3),
-                        borderRadius: pxToDp(8),
-                        marginTop: pxToDp(10)
-                      }}
-                    />
-                    <Image
-                      source={item.img3}
-                      style={{
-                        width: pxToDp(100),
-                        height: pxToDp(100),
-                        marginLeft: pxToDp(3),
-                        borderRadius: pxToDp(8),
-                        marginTop: pxToDp(10)
-                      }}
-                    />
-                  </View>
-                  {/* 其他信息 */}
+                  <Text style={{ fontSize: pxToDp(14), color: '#666666' }}>
+                    {item.date}
+                  </Text>
                   <View
-                    style={{
-                      flexDirection: 'row',
-                      marginTop: pxToDp(10),
-                      marginBottom: pxToDp(10),
-                      justifyContent: 'space-between'
-                    }}
+                    style={{ marginLeft: pxToDp(130), flexDirection: 'row' }}
                   >
-                    <Text style={{ fontSize: pxToDp(14), color: '#666666' }}>
-                      {item.date}
-                    </Text>
-                    <View
-                      style={{ marginLeft: pxToDp(150), flexDirection: 'row' }}
+                    <SvgUri svgXmlData={pinglun} width="20" height="20" />
+                    <Text
+                      style={{
+                        marginLeft: pxToDp(4),
+                        marginRight: pxToDp(20),
+                        fontSize: pxToDp(14),
+                        color: '#666666'
+                      }}
                     >
-                      <SvgUri svgXmlData={pinglun} width="20" height="20" />
-                      <Text
-                        style={{
-                          marginLeft: pxToDp(4),
-                          marginRight: pxToDp(20),
-                          fontSize: pxToDp(14),
-                          color: '#666666'
-                        }}
-                      >
-                        {item.reply}
-                      </Text>
-                      <SvgUri svgXmlData={dianzan} width="20" height="20" />
-                      <Text
-                        style={{
-                          marginLeft: pxToDp(4),
-                          marginRight: pxToDp(20),
-                          fontSize: pxToDp(14),
-                          color: '#666666'
-                        }}
-                      >
-                        {item.like}
-                      </Text>
-                    </View>
+                      {item.reply}
+                    </Text>
+                    <SvgUri svgXmlData={dianzan} width="20" height="20" />
+                    <Text
+                      style={{
+                        marginLeft: pxToDp(4),
+                        marginRight: pxToDp(20),
+                        fontSize: pxToDp(14),
+                        color: '#666666'
+                      }}
+                    >
+                      {item.like}
+                    </Text>
                   </View>
                 </View>
               </View>
-            ))}
-          </View>
+            </View>
+          ))}
         </ScrollView>
       </View>
     );
@@ -457,21 +429,15 @@ const styles = StyleSheet.create({
   img: {
     width: pxToDp(90),
     height: pxToDp(120),
-    marginLeft: pxToDp(10),
-    marginTop: pxToDp(10),
     flexDirection: 'row',
     justifyContent: 'flex-end'
   },
   centerbox1: {
     height: pxToDp(50),
-    marginLeft: pxToDp(8),
-    marginRight: pxToDp(8),
     justifyContent: 'center'
   },
   centerbox2: {
     height: pxToDp(50),
-    marginLeft: pxToDp(8),
-    marginRight: pxToDp(8),
     justifyContent: 'space-between',
     alignItems: 'center',
     flexDirection: 'row'
@@ -488,12 +454,12 @@ const styles = StyleSheet.create({
     color: '#468cd3'
   },
   mainbox: {
-    marginLeft: pxToDp(8),
-    marginRight: pxToDp(8),
-    marginTop: pxToDp(10)
+    marginLeft: pxToDp(16),
+    marginRight: pxToDp(16),
+    marginTop: pxToDp(8)
   },
   kidimg: {
-    width: pxToDp(340),
+    width: '100%',
     height: pxToDp(200),
     marginBottom: pxToDp(10),
     borderRadius: pxToDp(8)
