@@ -18,6 +18,7 @@ import Top from '../../../../component/common/top';
 import { CheckBox } from 'react-native-elements';
 import { ToastAndroid } from 'react-native';
 import { apply } from '../../../../service/mine';
+import Mybtn from '../../../../component/common/mybtn';
 
 const { height, width } = Dimensions.get('window');
 
@@ -122,7 +123,7 @@ class index extends Component {
                 个人信息验证
               </Text>
             </View>
-            <View>
+            <View style={{marginBottom:pxToDp(60)}}>
               <View>
                 <View style={{ marginBottom: pxToDp(16) }}>
                   <View
@@ -285,7 +286,7 @@ class index extends Component {
                     justifyContent: 'center',
                     alignItems: 'center',
                     height: pxToDp(88),
-                    padding: pxToDp(8),
+
                     marginTop: pxToDp(16),
                     marginBottom: pxToDp(8)
                   }}
@@ -314,31 +315,29 @@ class index extends Component {
               justifyContent: 'space-around'
             }}
           >
-            <TouchableOpacity
-              activeOpacity={0.8}
-              onPress={this.submit}
-              style={{
-                justifyContent: 'center',
-                alignItems: 'center',
-                height: pxToDp(50)
-              }}
-            >
-              <View
-                style={[
-                  s.basicstyle,
-                  {
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    width: pxToDp(300),
-                    height: pxToDp(50),
-                    borderRadius: pxToDp(8),
-                    backgroundColor: '#f0bb51'
-                  }
-                ]}
-              >
-                <Text style={{ color: '#468cd3' }}>立刻认证</Text>
-              </View>
-            </TouchableOpacity>
+            <Mybtn
+            onPress={() => this.Scrollable.open()}
+            title='提交申请'
+
+            containerStyle={{
+              position: 'absolute',
+              bottom: 0,
+              fontSize: 30,
+              width: pxToDp(320),
+              height: pxToDp(40),
+              borderRadius: pxToDp(40),
+              alignSelf: 'center', color: 'red',
+              display: 'none',
+              marginBottom: pxToDp(5)
+            }}
+            buttonStyle={{
+              width: '100%',
+              height: '100%',
+              alignSelf: 'flex-end',
+              display: this.state.btnOpcity ? 'none' : 'flex',
+              borderRadius: pxToDp(32),
+            }}
+          />
           </View>
         </View>
       </View>
@@ -363,10 +362,6 @@ const s = StyleSheet.create({
     justifyContent: 'space-between',
     borderBottomWidth: 1,
     borderBottomColor: '#ccc'
-  },
-  button: {
-    marginTop: pxToDp(20),
-    marginLeft: pxToDp(5)
   },
   alertBackground: {
     flex: 1,

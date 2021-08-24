@@ -7,7 +7,8 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-  Dimensions
+  Dimensions,
+  TouchableNativeFeedback
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { NavigationContext } from '@react-navigation/native';
@@ -147,16 +148,16 @@ class Index extends Component {
         parallaxHeaderHeight={220}
         backgroundSpeed={10}
         renderBackground={() => (
-          <View style={{padding:pxToDp(16)}}>
-          <ImageFade
-          style={{margin:16}}
-            ref="ImageFade"
-            duration={800}
-            delay={3000}
-            style={{ width: "100%", height: pxToDp(200) }}>
-            <Image style={{ width: "100%", height: pxToDp(200), borderRadius: pxToDp(20) }} source={require("../../../res/homeswiper1.jpg")} />
-            <Image style={{ width: "100%", height: pxToDp(200), borderRadius: pxToDp(20) }} source={require("../../../res/homeswiper2.jpg")} />
-          </ImageFade>
+          <View style={{ padding: pxToDp(16) }}>
+            <ImageFade
+              style={{ margin: 16 }}
+              ref="ImageFade"
+              duration={800}
+              delay={3000}
+              style={{ width: "100%", height: pxToDp(200) }}>
+              <Image style={{ width: "100%", height: pxToDp(200), borderRadius: pxToDp(20) }} source={require("../../../res/homeswiper1.jpg")} />
+              <Image style={{ width: "100%", height: pxToDp(200), borderRadius: pxToDp(20) }} source={require("../../../res/homeswiper2.jpg")} />
+            </ImageFade>
           </View>)}
         //自定义头部内容
         renderForeground={() => <View style={{ Top: 200, left: 100 }}></View>}
@@ -244,7 +245,7 @@ class Index extends Component {
               onPress={() => this.context.navigate('Timeline')}
             >
               <Entypo name="colours" size={32} color="#468CD3" />
-              <Text style={{ fontSize: pxToDp(16), marginTop: pxToDp(5),color:'#666666'}}>
+              <Text style={{ fontSize: pxToDp(16), marginTop: pxToDp(5), color: '#666666' }}>
                 图谱
               </Text>
             </TouchableOpacity>
@@ -396,6 +397,7 @@ class Index extends Component {
             >
               本周热门
             </Text>
+
             <TouchableOpacity
               style={{ flexDirection: 'row' }}
               onPress={() => this.context.navigate('HotList')}
@@ -409,47 +411,56 @@ class Index extends Component {
           <View style={styles.carousel}>
             <Carousel control={false} style={{ height: pxToDp(166) }}>
               {this.state.books.map((item) => (
-                <TouchableOpacity
-                  style={styles.bookbox}
-                  onPress={() => this.context.navigate(item.drama)}
-                >
-                  <View style={styles.bookbotton}>
-                    <View
-                      style={{ marginLeft: pxToDp(120), marginTop: pxToDp(8) }}
-                    >
-                      <View style={styles.bookinf1}>
-                        <View>
-                          <Text
-                            style={{ fontSize: pxToDp(16), fontWeight: 'bold' ,color:'#333333'}}
-                          >
-                            {item.title}
-                          </Text>
+
+                <View style={styles.bookbox} >
+                  <TouchableNativeFeedback
+                    onPress={() => this.context.navigate(item.drama)}
+                    useForeground={true}>
+                    <View style={styles.bookbotton}>
+                      <View
+                        style={{ marginLeft: pxToDp(120), marginTop: pxToDp(8) }}
+                      >
+                        <View style={styles.bookinf1}>
+                          <View>
+                            <Text
+                              style={{ fontSize: pxToDp(16), fontWeight: 'bold', color: '#333333' }}
+                            >
+                              {item.title}
+                            </Text>
+                          </View>
+                          <View>
+                            <Svg width="32" height="32" svgXmlData={item.icon} />
+                          </View>
                         </View>
-                        <View>
-                          <Svg width="32" height="32" svgXmlData={item.icon} />
-                        </View>
+                        <Text style={{ fontSize: pxToDp(14), color: '#666666' }} numberOfLines={3}>
+                          {item.context}
+                        </Text>
                       </View>
-                      <Text style={{ fontSize: pxToDp(14),color:'#666666'}} numberOfLines={3}>
-                        {item.context}
-                      </Text>
                     </View>
-                  </View>
-                  <View style={styles.book11}>
-                    <Image
-                      style={styles.bookimage}
-                      source={{ uri: item.path }}
-                    />
-                    <View
-                      style={{
-                        height: pxToDp(104),
-                        width: pxToDp(4),
-                        backgroundColor: 'lightgrey',
-                        borderBottomRightRadius: pxToDp(8),
-                        borderTopRightRadius: pxToDp(8)
-                      }}
-                    ></View>
-                  </View>
-                </TouchableOpacity>
+                  </TouchableNativeFeedback>   
+                  <TouchableNativeFeedback
+                    onPress={() => this.context.navigate(item.drama)}
+                    useForeground={true}>
+                    <View style={styles.book11}>
+
+                      <Image
+                        style={styles.bookimage}
+                        source={{ uri: item.path }}
+                      />
+
+                      <View
+                        style={{
+                          height: pxToDp(104),
+                          width: pxToDp(4),
+                          backgroundColor: 'lightgrey',
+                          borderBottomRightRadius: pxToDp(8),
+                          borderTopRightRadius: pxToDp(8)
+                        }}
+                      ></View>
+                    </View>
+                  </TouchableNativeFeedback>
+                </View>
+
               ))}
             </Carousel>
           </View>
@@ -488,40 +499,43 @@ class Index extends Component {
           >
             {this.state.book.map((item) => (
               <View style={styles.bookbox1}>
-                <View style={styles.bookbotton}>
-                  <View
-                    style={{
-                      marginLeft: pxToDp(120),
-                      marginTop: pxToDp(8)
-                    }}
-                  >
-                    <View style={styles.bookinf}>
-                      <Text
-                        style={{ fontSize: pxToDp(16), fontWeight: 'bold',color:'#333333'}}
-                      >
-                        {item.title}
-                      </Text>
-                      <TouchableOpacity
-                        onPress={() => this.context.navigate(item.drama)}
-                      >
-                        <Svg width="32" height="32" svgXmlData={right} />
-                      </TouchableOpacity>
-                    </View>
-                    <Text  numberOfLines={3} style={{color:'#666666',fontSize:pxToDp(14)}}>
-                      {item.context}
-                    </Text>
+                <TouchableNativeFeedback onPress={() => this.context.navigate(item.drama)}
+                  useForeground={true}>
+                  <View style={styles.bookbotton}>
                     <View
                       style={{
-                        flexDirection: 'row',
-                        alignItems: 'center',
-                        marginTop: pxToDp(5)
+                        marginLeft: pxToDp(120),
+                        marginTop: pxToDp(8)
                       }}
-                    ></View>
+                    >
+                      <View style={styles.bookinf}>
+                        <Text
+                          style={{ fontSize: pxToDp(16), fontWeight: 'bold', color: '#333333' }}
+                        >
+                          {item.title}
+                        </Text>
+                      </View>
+                      <Text numberOfLines={3} style={{ color: '#666666', fontSize: pxToDp(14) }}>
+                        {item.context}
+                      </Text>
+                      <View
+                        style={{
+                          flexDirection: 'row',
+                          alignItems: 'center',
+                          marginTop: pxToDp(5)
+                        }}
+                      >
+                      </View>
+                    </View>
                   </View>
-                </View>
+                </TouchableNativeFeedback>
                 <View style={styles.book}>
-                  <Image style={styles.bookimage} source={{ uri: item.path }} />
-
+                  <TouchableNativeFeedback onPress={() => this.context.navigate(item.drama)}
+                    useForeground={true}>
+                    <View>
+                      <Image style={styles.bookimage} source={{ uri: item.path }} />
+                    </View>
+                  </TouchableNativeFeedback>
                   <View
                     style={{
                       height: pxToDp(104),

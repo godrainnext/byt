@@ -6,7 +6,8 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-  ImageBackground
+  ImageBackground,
+  TouchableNativeFeedback
 } from 'react-native';
 import { pxToDp } from '@utils/styleKits';
 import { NavigationContext } from '@react-navigation/native';
@@ -86,19 +87,23 @@ class Index extends PureComponent {
           <Text style={{ fontSize: pxToDp(18), color: '#468CD3', fontWeight: 'bold', marginTop: pxToDp(12), marginLeft: pxToDp(16) }}>猜你喜欢</Text>
           {this.state.drama.map((item) => (
             <View style={styles.bookbox}>
+              <TouchableNativeFeedback 
+              useForeground={true}
+              onPress={() => this.context.navigate(item.drama)} >
               <View style={styles.bookbotton11}>
                 <View style={{ marginLeft: pxToDp(120), marginTop: pxToDp(10) }}>
                   <View style={styles.bookinf}>
-                    <Text style={{ fontSize: pxToDp(16), fontWeight: 'bold',color:'#333333'}}>{item.title}</Text>
-                    <TouchableOpacity onPress={() => this.context.navigate(item.drama)} >
-                      <Svg width="32" height="32" svgXmlData={right} />
-                    </TouchableOpacity>
+                    <Text style={{ fontSize: pxToDp(16), fontWeight: 'bold',color:'#333333'}}>{item.title}</Text>      
                   </View>
                   <Text numberOfLines={2} style={{color:'#666666',fontSize:pxToDp(14)}}>{item.context}</Text>
                   <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                   </View>
                 </View>
-              </View>
+              </View> 
+              </TouchableNativeFeedback>
+              <TouchableNativeFeedback 
+              useForeground={true}
+              onPress={() => this.context.navigate(item.drama)} >
               <View style={styles.book1}>
 
                 <Image style={styles.bookimage1} source={{ uri: item.path }} />
@@ -109,6 +114,7 @@ class Index extends PureComponent {
                   </View>
                 </View>
               </View>
+            </TouchableNativeFeedback>
             </View>
           ))}
           {/*介绍 */}

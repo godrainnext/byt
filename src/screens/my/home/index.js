@@ -106,7 +106,7 @@ class Index extends PureComponent {
               >
                 <View style={{ alignItems: 'center',}}>
                 <SvgUri svgXmlData={daizhifu} height='25' width='25'/>
-                  <Text style={{ fontSize: pxToDp(14),color:'#333333',marginTop: pxToDp(8) }}>
+                  <Text style={{ fontSize: pxToDp(16),color:'#333333',marginTop: pxToDp(8) }}>
                     待支付
                   </Text>
                 </View>
@@ -116,7 +116,7 @@ class Index extends PureComponent {
               >
                 <View style={{ alignItems: 'center' }}>
                 <SvgUri svgXmlData={shouhuo} height='25' width='25'/>
-                  <Text style={{ fontSize: pxToDp(14),color:'#333333', marginTop: pxToDp(8) }}>
+                  <Text style={{ fontSize: pxToDp(16),color:'#333333', marginTop: pxToDp(8) }}>
                     待收货
                   </Text>
                 </View>
@@ -126,7 +126,7 @@ class Index extends PureComponent {
               >
                 <View style={{ alignItems: 'center' }}>
                 <SvgUri svgXmlData={dpingjia} height='25' width='25'/>
-                  <Text style={{ fontSize: pxToDp(14),color:'#333333', marginTop: pxToDp(8) }}>
+                  <Text style={{ fontSize: pxToDp(16),color:'#333333', marginTop: pxToDp(8) }}>
                     待评价
                   </Text>
                 </View>
@@ -134,7 +134,7 @@ class Index extends PureComponent {
               <TouchableOpacity onPress={() => this.context.navigate('Refund')}>
                 <View style={{ alignItems: 'center' }}>
                   <SvgUri svgXmlData={shouhou} height='25' width='25'/>
-                  <Text style={{ fontSize: pxToDp(14),color:'#333333', marginTop: pxToDp(8) }}>
+                  <Text style={{ fontSize: pxToDp(16),color:'#333333', marginTop: pxToDp(8) }}>
                     售后/退款
                   </Text>
                 </View>

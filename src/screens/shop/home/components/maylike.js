@@ -5,7 +5,8 @@ import {
   TouchableOpacity,
   Image,
   StyleSheet,
-  ScrollView
+  ScrollView,
+  TouchableNativeFeedback
 } from 'react-native';
 import Top from '@components/common/top';
 import { pxToDp } from '@utils/styleKits';
@@ -18,15 +19,18 @@ class Index extends PureComponent {
   render() {
     return (
       <View style={styles.ocard}>
-        <TouchableOpacity
-          onPress={() => this.context.navigate('Good', this.props.id)}
+        <TouchableNativeFeedback
+        useForeground={true}
+         onPress={() => this.context.navigate('Good', this.props.id)}>
+        <View
+         
         >
           <Image
             style={styles.image}
             source={{ uri: this.props.imguri }}
           ></Image>
           <View style={{ padding: pxToDp(8) }}>
-            <Text style={{ fontSize: pxToDp(16),color:'#333333'}}>{this.props.name}</Text>
+            <Text style={{ fontSize: pxToDp(16), color: '#333333' }}>{this.props.name}</Text>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
               <View style={styles.bottext}>
                 <Text style={{ color: '#f0bb51', fontSize: pxToDp(14) }}>￥{this.props.price}</Text>
@@ -37,7 +41,8 @@ class Index extends PureComponent {
               </TouchableOpacity>
             </View>
           </View>
-        </TouchableOpacity>
+        </View>
+        </TouchableNativeFeedback>
       </View>
     );
   }
@@ -66,8 +71,8 @@ const styles = StyleSheet.create({
     height: pxToDp(28),
     width: pxToDp(28),
     borderRadius: pxToDp(14),
-    alignItems:'center',
-    justifyContent:'center'
+    alignItems: 'center',
+    justifyContent: 'center'
   }
 });
 

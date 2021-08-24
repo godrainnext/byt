@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Text, View, TouchableOpacity, Image } from 'react-native';
+import { Text, View, TouchableOpacity, Image,  TouchableNativeFeedback} from 'react-native';
 import { NavigationContext } from '@react-navigation/native';
 import { pxToDp } from '../../utils/styleKits';
 
@@ -8,9 +8,9 @@ export default class Legend extends PureComponent {
   render() {
     return (
       <View>
-        <TouchableOpacity
+        <TouchableNativeFeedback onPress={() => this.context.navigate('School1')}>
+        <View
           style={{ flexDirection: 'row' }}
-          onPress={() => this.context.navigate('School1')}
         >
           <Image
             style={{
@@ -27,14 +27,16 @@ export default class Legend extends PureComponent {
           <Text style={{ fontSize: pxToDp(16), fontWeight: 'bold',color:'#333333' }}>
               袁派
             </Text>
-            <Text style={{ fontSize: pxToDp(14), flexWrap: 'wrap',color:'#666666',marginTop:pxToDp(16) }}>
+            <Text style={{ fontSize: pxToDp(14), flexWrap: 'wrap',color:'#666666',marginTop:pxToDp(16),lineHeight:pxToDp(24)}}>
               袁派唱腔的特点是质朴平易，委婉细腻，深沉含蓄，韵味醇厚。
             </Text>
           </View>
-        </TouchableOpacity>
-        <TouchableOpacity
+        </View>
+        </TouchableNativeFeedback>
+        <TouchableNativeFeedback onPress={() => this.context.navigate('School2')}>
+        <View
           style={{ flexDirection: 'row' }}
-          onPress={() => this.context.navigate('School2')}
+
         >
           <Image
             style={{
@@ -52,14 +54,15 @@ export default class Legend extends PureComponent {
           <Text style={{ fontSize: pxToDp(16), fontWeight: 'bold',color:'#333333' }}>
               范派
             </Text>
-            <Text style={{ fontSize: pxToDp(14), flexWrap: 'wrap',color:'#666666',marginTop:pxToDp(16) }}>
+            <Text style={{ fontSize: pxToDp(14), flexWrap: 'wrap',color:'#666666',marginTop:pxToDp(14),lineHeight:pxToDp(24)}}>
               范瑞娟中低音厚实，高音响亮有力，唱腔凝重大方，富有阳刚之美。
             </Text>
           </View>
-        </TouchableOpacity>
-        <TouchableOpacity
+        </View>
+        </TouchableNativeFeedback>
+        <TouchableNativeFeedback onPress={() => this.context.navigate('School3')}>
+        <View
           style={{ flexDirection: 'row' }}
-          onPress={() => this.context.navigate('School3')}
         >
           <Image
             style={{
@@ -76,11 +79,12 @@ export default class Legend extends PureComponent {
            <Text style={{ fontSize: pxToDp(16), fontWeight: 'bold',color:'#333333' }}>
               尹派
             </Text>
-            <Text style={{ fontSize: pxToDp(14), color:'#666666',marginTop:pxToDp(16) }}>
+            <Text style={{ fontSize: pxToDp(14), flexWrap: 'wrap',color:'#666666',marginTop:pxToDp(14),lineHeight:pxToDp(24)}}>
               尹派的特点是委婉缠绵，洒脱深沉，纯朴隽永，清新舒展，是一种典型的以柔为主、柔中寓刚的风格。
             </Text>
           </View>
-        </TouchableOpacity>
+          </View>
+        </TouchableNativeFeedback>
       </View>
     );
   }

@@ -6,7 +6,8 @@ import {
   ImageBackground,
   StyleSheet,
   ScrollView,
-  TouchableOpacity
+  TouchableOpacity,
+  TouchableNativeFeedback
 } from 'react-native';
 import { pxToDp } from '../../../utils/styleKits';
 import Svg from 'react-native-svg-uri';
@@ -94,115 +95,118 @@ class Index extends PureComponent {
           </View>
         </ImageBackground>
         {/**榜单第一 */}
-        <TouchableOpacity style={styles.box}
-          activeOpacity={1}
-          onPress={() => this.context.navigate('Drama4')}>
-          <View style={styles.bookbooton}>
-            <Image
-              style={styles.bookimage1}
-              source={{
-                uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimage8.pinlue.com%2Fimg3%2Ftu_jpg%2FksnrPhRhOUPIvAqAbKCblUE58P73JL45ksk6RoStOt1QqsyGRULuDNlm589MJep46BicicicnEeYd9uoxplOgImkg%2F640.jpeg&refer=http%3A%2F%2Fimage8.pinlue.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631837799&t=26164c70c17997051e585d51c8be88fd'
-              }}
-            />
-            <View style={{ width: pxToDp(220) }}>
-              <View style={styles.booktitle}>
-                <Text style={styles.booktitle3}>红楼梦</Text>
-                <Svg width="32" height="32" svgXmlData={jinpai} />
+        <View style={styles.box}>
+          <TouchableNativeFeedback onPress={() => this.context.navigate('Drama4')}>
+            <View style={styles.bookbooton}>
+              <Image
+                style={styles.bookimage1}
+                source={{
+                  uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimage8.pinlue.com%2Fimg3%2Ftu_jpg%2FksnrPhRhOUPIvAqAbKCblUE58P73JL45ksk6RoStOt1QqsyGRULuDNlm589MJep46BicicicnEeYd9uoxplOgImkg%2F640.jpeg&refer=http%3A%2F%2Fimage8.pinlue.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631837799&t=26164c70c17997051e585d51c8be88fd'
+                }}
+              />
+              <View style={{ width: pxToDp(220) }}>
+                <View style={styles.booktitle}>
+                  <Text style={styles.booktitle3}>红楼梦</Text>
+                  <Svg width="32" height="32" svgXmlData={jinpai} />
+                </View>
+                <Text
+                  style={{ fontSize: pxToDp(13), marginLeft: pxToDp(10) }}
+                  numberOfLines={3}
+                >
+                  新版越剧《红楼梦》创作于1999年，首演于同年8月。它从调整戏剧结构入手，别样营造大悲大喜、大实大虚的舞台意境，并提高舞美空间层次，丰富音乐形象，整合流派表演，精缩演出时间，实现了一次富有创意的新编。
+                </Text>
               </View>
-              <Text
-                style={{ fontSize: pxToDp(13), marginLeft: pxToDp(10) }}
-                numberOfLines={3}
-              >
-                新版越剧《红楼梦》创作于1999年，首演于同年8月。它从调整戏剧结构入手，别样营造大悲大喜、大实大虚的舞台意境，并提高舞美空间层次，丰富音乐形象，整合流派表演，精缩演出时间，实现了一次富有创意的新编。
-              </Text>
             </View>
-          </View>
-        </TouchableOpacity>
+          </TouchableNativeFeedback>
+        </View>
 
         <View style={{ marginLeft: pxToDp(28), marginRight: pxToDp(10) }}>
           {/*榜单第二 */}
-          <TouchableOpacity
-            activeOpacity={1}
-            style={{ marginTop: pxToDp(56), flexDirection: 'row' }}
+          <TouchableNativeFeedback
+            useForeground={true}
             onPress={() => this.context.navigate('Drama5')}>
-            <Image
-              style={{
-                height: pxToDp(110),
-                width: pxToDp(95),
-                borderRadius: pxToDp(8)
-              }}
-              source={{
-                uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fweixin.sanbiaoge.com%2Fcunchu5%2F2021-03-05%2F6_16149534226318178.jpg&refer=http%3A%2F%2Fweixin.sanbiaoge.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631837861&t=bccaf84652f1353d90b378e7225577c7'
-              }}
-            />
-            <View style={{ width: pxToDp(220) }}>
-              <View style={styles.booktitle}>
-                <Text style={styles.booktitle3}>碧玉簪</Text>
-                <Svg width="32" height="32" svgXmlData={yinpai} />
-              </View>
-              <Text
-                style={{ fontSize: pxToDp(12), marginLeft: pxToDp(10) }}
-                numberOfLines={3}
-              >
-                《碧玉簪》讲述了王玉林得尚书李廷甫赏识，获许配廷甫女秀英为妻。秀英的表兄顾文友因妒生恨，骗取秀英的碧玉簪放进伪造情书里，诬陷秀英与他有染。最终玉林送凤冠请罪，夫妇冰释前嫌。
-              </Text>
-            </View>
-          </TouchableOpacity>
-          {/*榜单第三 */}
-          <TouchableOpacity
-            activeOpacity={1}
-            style={{ marginTop: pxToDp(16), flexDirection: 'row' }}
-            onPress={() => this.context.navigate('Drama6')}>
-            <Image
-              style={{
-                height: pxToDp(110),
-                width: pxToDp(95),
-                borderRadius: pxToDp(8)
-              }}
-              source={{
-                uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Finews.gtimg.com%2Fnewsapp_bt%2F0%2F10088823340%2F1000.jpg&refer=http%3A%2F%2Finews.gtimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631837909&t=641368304e82a93e756196f93fd1d805'
-              }}
-            />
-            <View style={{ width: pxToDp(220) }}>
-              <View style={styles.booktitle}>
-                <Text style={styles.booktitle3}>周仁哭坟</Text>
-                <Svg width="32" height="32" svgXmlData={tongpai} />
-              </View>
-              <Text
-                style={{ fontSize: pxToDp(12), marginLeft: pxToDp(10) }}
-                numberOfLines={3}
-              >
-                《周仁哭坟》越剧折子戏，选材自京剧《周仁献嫂》。由朱福侠编导。《周仁哭坟》一折专为《吴凤花越剧舞台艺术风采》专场表演而编写排演，集中演绎周仁在其妻坟前哭诉冤屈的情绪。
-              </Text>
-            </View>
-          </TouchableOpacity>
-          {/*剩下7个书 */}
-          {this.state.book.map((item) => (
-            <TouchableOpacity
-              activeOpacity={1}
-              style={{ marginTop: pxToDp(16), flexDirection: 'row' }}
-              onPress={() => this.context.navigate(item.drama)}>
+            <View style={{ marginTop: pxToDp(56), flexDirection: 'row' }}>
               <Image
                 style={{
                   height: pxToDp(110),
                   width: pxToDp(95),
                   borderRadius: pxToDp(8)
                 }}
-                source={{ uri: item.path }}
+                source={{
+                  uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fweixin.sanbiaoge.com%2Fcunchu5%2F2021-03-05%2F6_16149534226318178.jpg&refer=http%3A%2F%2Fweixin.sanbiaoge.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631837861&t=bccaf84652f1353d90b378e7225577c7'
+                }}
               />
               <View style={{ width: pxToDp(220) }}>
-                <View style={styles.booktitle2}>
-                  <Text style={styles.booktitle3}>{item.title}</Text>
-                  <Text style={{ fontSize: pxToDp(16) }}>{item.id}</Text>
+                <View style={styles.booktitle}>
+                  <Text style={styles.booktitle3}>碧玉簪</Text>
+                  <Svg width="32" height="32" svgXmlData={yinpai} />
                 </View>
                 <Text
-                  style={{ fontSize: pxToDp(13), marginLeft: pxToDp(10) }}
+                  style={{ fontSize: pxToDp(12), marginLeft: pxToDp(10) }}
                   numberOfLines={3}
                 >
-                  {item.context}
+                  《碧玉簪》讲述了王玉林得尚书李廷甫赏识，获许配廷甫女秀英为妻。秀英的表兄顾文友因妒生恨，骗取秀英的碧玉簪放进伪造情书里，诬陷秀英与他有染。最终玉林送凤冠请罪，夫妇冰释前嫌。
                 </Text>
               </View>
-            </TouchableOpacity>
+            </View>
+          </TouchableNativeFeedback>
+          {/*榜单第三 */}
+          <TouchableNativeFeedback
+            useForeground={true}
+            onPress={() => this.context.navigate('Drama6')}>
+            <View style={{ marginTop: pxToDp(16), flexDirection: 'row' }}>
+              <Image
+                style={{
+                  height: pxToDp(110),
+                  width: pxToDp(95),
+                  borderRadius: pxToDp(8)
+                }}
+                source={{
+                  uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Finews.gtimg.com%2Fnewsapp_bt%2F0%2F10088823340%2F1000.jpg&refer=http%3A%2F%2Finews.gtimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631837909&t=641368304e82a93e756196f93fd1d805'
+                }}
+              />
+              <View style={{ width: pxToDp(220) }}>
+                <View style={styles.booktitle}>
+                  <Text style={styles.booktitle3}>周仁哭坟</Text>
+                  <Svg width="32" height="32" svgXmlData={tongpai} />
+                </View>
+                <Text
+                  style={{ fontSize: pxToDp(12), marginLeft: pxToDp(10) }}
+                  numberOfLines={3}
+                >
+                  《周仁哭坟》越剧折子戏，选材自京剧《周仁献嫂》。由朱福侠编导。《周仁哭坟》一折专为《吴凤花越剧舞台艺术风采》专场表演而编写排演，集中演绎周仁在其妻坟前哭诉冤屈的情绪。
+                </Text>
+              </View>
+            </View>
+          </TouchableNativeFeedback>
+          {/*剩下7个书 */}
+          {this.state.book.map((item) => (
+            <TouchableNativeFeedback
+              useForeground={true}
+              onPress={() => this.context.navigate(item.drama)}>
+              <View style={{ marginTop: pxToDp(16), flexDirection: 'row' }}>
+                <Image
+                  style={{
+                    height: pxToDp(110),
+                    width: pxToDp(95),
+                    borderRadius: pxToDp(8)
+                  }}
+                  source={{ uri: item.path }}
+                />
+                <View style={{ width: pxToDp(220) }}>
+                  <View style={styles.booktitle2}>
+                    <Text style={styles.booktitle3}>{item.title}</Text>
+                    <Text style={{ fontSize: pxToDp(16) }}>{item.id}</Text>
+                  </View>
+                  <Text
+                    style={{ fontSize: pxToDp(13), marginLeft: pxToDp(10) }}
+                    numberOfLines={3}
+                  >
+                    {item.context}
+                  </Text>
+                </View>
+              </View>
+            </TouchableNativeFeedback>
           ))}
         </View>
       </ScrollView>
@@ -223,7 +227,8 @@ const styles = StyleSheet.create({
     height: pxToDp(100),
     width: pxToDp(350),
     marginTop: pxToDp(-70),
-    alignSelf: 'center'
+    alignSelf: 'center',
+
   },
   bookbooton: {
     height: pxToDp(110),

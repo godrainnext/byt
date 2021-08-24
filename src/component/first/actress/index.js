@@ -5,7 +5,8 @@ import {
   ImageBackground,
   TouchableOpacity,
   ScrollView,
-  Image
+  Image,
+  TouchableNativeFeedback
 } from 'react-native';
 import { pxToDp } from '@utils/styleKits';
 import { NavigationContext } from '@react-navigation/native';
@@ -85,40 +86,42 @@ export default class index extends PureComponent {
             <View style={{ marginTop: pxToDp(75) }}></View>
             <ScrollView showsHorizontalScrollIndicator={false} horizontal={true} style={{ marginTop: pxToDp(45) }}>
               {this.state.roleList.map((item) => (
-                <TouchableOpacity
-                  onPress={() => this.context.navigate(item.next)}
-                  style={{
-                    width: pxToDp(100),
-                    height: pxToDp(160),
-                    borderRadius: pxToDp(8),
-                    marginRight: pxToDp(20)
-                  }}
-                >
-                  <Image
-                    style={{
-                      width: pxToDp(100),
-                      height: pxToDp(140),
-                      borderTopLeftRadius: pxToDp(8),
-                      borderTopRightRadius: pxToDp(8)
-                    }}
-                    source={{ uri: item.avatar }}
-                  />
+                <TouchableNativeFeedback onPress={() => this.context.navigate(item.next)}
+                useForeground={true}>
                   <View
                     style={{
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      flex: 1,
-                      backgroundColor: 'white',
-                      elevation:1,
-                      borderBottomLeftRadius:pxToDp(8),
-                      borderBottomRightRadius:pxToDp(8),
-                      
-                      
+                      width: pxToDp(100),
+                      height: pxToDp(160),
+                      borderRadius: pxToDp(8),
+                      marginRight: pxToDp(20)
                     }}
                   >
-                    <Text style={{ fontSize: pxToDp(14) }}>{item.name}</Text>
+                    <Image
+                      style={{
+                        width: pxToDp(100),
+                        height: pxToDp(140),
+                        borderTopLeftRadius: pxToDp(8),
+                        borderTopRightRadius: pxToDp(8)
+                      }}
+                      source={{ uri: item.avatar }}
+                    />
+                    <View
+                      style={{
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        flex: 1,
+                        backgroundColor: 'white',
+                        elevation: 1,
+                        borderBottomLeftRadius: pxToDp(8),
+                        borderBottomRightRadius: pxToDp(8),
+
+
+                      }}
+                    >
+                      <Text style={{ fontSize: pxToDp(14) }}>{item.name}</Text>
+                    </View>
                   </View>
-                </TouchableOpacity>
+                </TouchableNativeFeedback>
               ))}
             </ScrollView>
           </View>

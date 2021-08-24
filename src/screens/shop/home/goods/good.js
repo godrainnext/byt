@@ -160,7 +160,7 @@ class shopdetails extends PureComponent {
         <Top icon1="arrow-back"/>
         <Loading color="#468cd3" />
         <ScrollView
-        bounces={true}
+        showsVerticalScrollIndicator={false}
           // onMomentumScrollBegin={() => { this.setState({ btnOpcity: true }); console.log(this.state.btnOpcity); }}
           // onMomentumScrollEnd={() => { this.setState({ btnOpcity: false }); console.log(this.state.btnOpcity); }}
           onScrollBeginDrag={() => { this.setState({ btnOpcity: true }); console.log(this.state.btnOpcity); }}
@@ -517,7 +517,7 @@ class shopdetails extends PureComponent {
           <Mybtn
             onPress={() => this.Scrollable.open()}
             title='立刻购买'
-            ViewComponent={LinearGradient}
+
             containerStyle={{
               position: 'absolute',
               bottom: 0,
@@ -535,11 +535,6 @@ class shopdetails extends PureComponent {
               alignSelf: 'flex-end',
               display: this.state.btnOpcity ? 'none' : 'flex',
               borderRadius: pxToDp(32),
-            }}
-            linearGradientProps={{
-              colors: ['#fa9222', '#ffd501'],
-              start: { x: 0, y: 0.5 },
-              end: { x: 1, y: 0.5 }
             }}
           />
 

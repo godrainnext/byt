@@ -476,7 +476,7 @@ const s = StyleSheet.create({
     paddingBottom: 10,
     fontSize: 15,
     fontWeight: '200',
-    lineHeight: pxToDp(22),
+    lineHeight: pxToDp(24),
     color: '#666'
   },
   bigbox: {

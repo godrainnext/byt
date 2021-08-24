@@ -6,7 +6,8 @@ import {
   Image,
   StyleSheet,
   ScrollView,
-  RefreshControl
+  RefreshControl,
+  TouchableNativeFeedback
 } from 'react-native';
 
 import Top from '@components/common/top';
@@ -21,8 +22,8 @@ import { getAddressListAction } from '../../my/address/store/actions';
 class Index extends PureComponent {
   state = {
     arr: [],
-    text: '初始状态', 
-    refreshing: false 
+    text: '初始状态',
+    refreshing: false
   };
   UNSAFE_componentWillMount() {
     this.props.getAddressListAction();
@@ -36,34 +37,34 @@ class Index extends PureComponent {
   _onRefresh() {
 
     if (this.state.refreshing === false) {
-        this._updateState('正在刷新......', true);
+      this._updateState('正在刷新......', true);
 
-        //5秒后结束刷新
-        setTimeout( ()=>{
-            this._updateState('结束状态', false)
-        }, 2000)
+      //5秒后结束刷新
+      setTimeout(() => {
+        this._updateState('结束状态', false)
+      }, 1000)
 
     }
-}
+  }
 
-//更新State
-_updateState(message, refresh){
-    this.setState({text:message,refreshing: refresh});
-}
+  //更新State
+  _updateState(message, refresh) {
+    this.setState({ text: message, refreshing: refresh });
+  }
   render() {
     return (
       <View>
         <Top title="越市" />
         <ScrollView
-        bounces={true}
-        refreshControl={
-          <RefreshControl
+          bounces={true}
+          refreshControl={
+            <RefreshControl
               tintColor={'red'}
               titleColor={'brown'}
               title={'正在刷新......'}
               refreshing={this.state.refreshing}
               onRefresh={this._onRefresh.bind(this)}
-          />}
+            />}
           showsVerticalScrollIndicator={false}
           style={{ marginBottom: pxToDp(70) }}>
           {/*轮播 */}
@@ -112,26 +113,36 @@ _updateState(message, refresh){
           </View>
           <View style={{ margin: pxToDp(8), flexDirection: 'row' }}>
             {/*线下门票 */}
-            <TouchableOpacity onPress={() => this.context.navigate('ticket')}>
-              <Image style={styles.image3} source={require('../../../res/门票.jpg')} />
-            </TouchableOpacity>
+            < TouchableNativeFeedback onPress={() => this.context.navigate('ticket')}
+              useForeground={true}>
+              <View >
+                <Image style={styles.image3} source={require('../../../res/门票.jpg')} />
+              </View>
+            </TouchableNativeFeedback>
             {/*戏服租赁 */}
             <View style={{ height: pxToDp(170), justifyContent: 'space-between', marginLeft: pxToDp(10) }}>
-              <TouchableOpacity onPress={() => this.context.navigate('Zulin', 0)}>
-                <Image
-                  style={styles.image4}
-                  source={require('../../../res/30.jpg')}
-                />
-              </TouchableOpacity>
+              < TouchableNativeFeedback
+                useForeground={true}
+                onPress={() => this.context.navigate('Zulin', 0)}>
+                <View>
+                  <Image
+                    style={styles.image4}
+                    source={require('../../../res/30.jpg')}
+                  />
+                </View>
+              </TouchableNativeFeedback>
               {/*越剧周边 */}
-              <TouchableOpacity
+              < TouchableNativeFeedback
                 onPress={() => this.context.navigate('Zhoubian', 1)}
-              >
-                <Image
-                  style={styles.image4}
-                  source={require('../../../res/29.jpg')}
-                />
-              </TouchableOpacity>
+                useForeground={true}>
+                <View
+                >
+                  <Image
+                    style={styles.image4}
+                    source={require('../../../res/29.jpg')}
+                  />
+                </View>
+              </TouchableNativeFeedback>
             </View>
           </View>
           {/*推荐模块 */}
