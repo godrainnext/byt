@@ -426,7 +426,11 @@ class Index extends Component {
                 >
                   <View style={styles.bookbotton}>
                     <View
-                      style={{ marginLeft: pxToDp(152), marginTop: pxToDp(8) }}
+                      style={{
+                        marginLeft: pxToDp(122),
+                        marginTop: pxToDp(8),
+                        padding: pxToDp(4)
+                      }}
                     >
                       <View style={styles.bookinf1}>
                         <View>
@@ -503,12 +507,17 @@ class Index extends Component {
                   <View
                     style={{
                       marginLeft: pxToDp(120),
-                      marginTop: pxToDp(8)
+                      marginTop: pxToDp(8),
+                      padding: pxToDp(4)
                     }}
                   >
                     <View style={styles.bookinf}>
                       <Text
-                        style={{ fontSize: pxToDp(16),color:'#333333',fontWeight: 'bold' }}
+                        style={{
+                          fontSize: pxToDp(16),
+                          color: '#333333',
+                          fontWeight: 'bold'
+                        }}
                       >
                         {item.title}
                       </Text>
@@ -518,7 +527,10 @@ class Index extends Component {
                         <Svg width="32" height="32" svgXmlData={right} />
                       </TouchableOpacity>
                     </View>
-                    <Text stlye={{ fontSize: pxToDp(14),color:'#666666'}} numberOfLines={3}>
+                    <Text
+                      stlye={{ fontSize: pxToDp(14), color: '#666666' }}
+                      numberOfLines={3}
+                    >
                       {item.context}
                     </Text>
                     <View
@@ -612,7 +624,7 @@ const styles = StyleSheet.create({
   },
   bookinf1: {
     flexDirection: 'row',
-    width: pxToDp(180),
+    width: pxToDp(210),
     alignItems: 'center',
     justifyContent: 'space-between'
   },

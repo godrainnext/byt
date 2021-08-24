@@ -38,7 +38,7 @@ class Index extends PureComponent {
               marginLeft: pxToDp(16),
               marginRight: pxToDp(16),
               justifyContent: 'space-between',
-              marginTop: pxToDp(-2)
+              marginTop: pxToDp(-4)
             }}
           >
             {this.state.zuliList.map((item, id) => (

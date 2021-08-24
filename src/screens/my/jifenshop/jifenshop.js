@@ -183,7 +183,7 @@ class Index extends PureComponent {
               flexDirection: 'row',
               marginLeft:pxToDp(16),
               marginRight:pxToDp(16),
-              marginTop:pxToDp(-2),
+              marginTop:pxToDp(-6),
               justifyContent:'space-between'
             }}
           >
@@ -231,7 +231,7 @@ const styles = StyleSheet.create({
   kidbox: {
     backgroundColor: 'white',
     width: pxToDp(165.5),
-    marginTop:pxToDp(10),
+    marginTop:pxToDp(14),
     borderRadius: pxToDp(8),
     elevation: 5,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
     shadowColor: 'black',  //  阴影颜色

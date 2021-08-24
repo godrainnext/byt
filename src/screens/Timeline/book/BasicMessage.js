@@ -57,19 +57,6 @@ class Index extends PureComponent {
                 }}
               />
             </View>
-            <View style={{ marginLeft: pxToDp(15) }}>
-              <Text style={{ marginBottom: pxToDp(10), fontSize: pxToDp(15) }}>
-                古籍原貌
-              </Text>
-              <Image
-                source={require('../../../res/play/1.jpg')}
-                style={{
-                  height: pxToDp(96),
-                  width: pxToDp(80),
-                  borderRadius: pxToDp(8)
-                }}
-              />
-            </View>
           </View>
         </ScrollView>
         <View
