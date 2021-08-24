@@ -62,10 +62,12 @@ class UserInner extends PureComponent {
         style={{
           borderRadius: pxToDp(8),
           backgroundColor: '#f0fcff',
-          margin: pxToDp(8),
           height: pxToDp(140),
           elevation: 3,
-          borderWidth: 0,overflow:'hidden'
+          borderWidth: 0,
+          marginLeft:pxToDp(16),
+          marginRight:pxToDp(16),
+          marginTop:pxToDp(8)
         }}
       >
               <View style={{position:'absolute',right:-2,top:pxToDp(80)}}>

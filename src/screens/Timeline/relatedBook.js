@@ -5,7 +5,7 @@ import {
   Image,
   StyleSheet,
   ScrollView,
-  TouchableOpacity
+ TouchableNativeFeedback
 } from 'react-native';
 import Top from '../../component/common/top';
 import { NavigationContext } from '@react-navigation/native';
@@ -91,28 +91,32 @@ export default class relatedBook extends PureComponent {
           <View>
             <View style={{ flex: 1 }}>
               {this.state.data.map((item, index) => (
-                <TouchableOpacity
+                <TouchableNativeFeedback 
+                
                   key={item.id}
                   onPress={() => this.context.navigate('bookDetail')}
-                  style={styles.botbox}
+                 
                 >
+                  <View style={styles.botbox}>
                   <View
                     style={{
                       height: pxToDp(130),
-                      flexDirection: 'row'
+                      flexDirection: 'row',
+                      
                     }}
                   >
                     <View>
                       <Image style={styles.image} source={item.img} />
                     </View>
-                    <View style={{ marginLeft: pxToDp(10) }}>
+                    <View style={{ marginLeft: pxToDp(10),bottom:pxToDp(10)}}>
                       <Text style={styles.text2}>{item.name}</Text>
                       <Text style={styles.text3} numberOfLines={4}>
                         {item.Details}
                       </Text>
                     </View>
                   </View>
-                </TouchableOpacity>
+                  </View>
+                </TouchableNativeFeedback>
               ))}
             </View>
           </View>
@@ -137,7 +141,7 @@ const styles = StyleSheet.create({
   },
   text2: {
     marginTop: pxToDp(10),
-    fontSize: pxToDp(15),
+    fontSize: pxToDp(18 ),
     fontWeight: 'bold'
   },
   image: {
@@ -146,9 +150,11 @@ const styles = StyleSheet.create({
     borderRadius: pxToDp(8)
   },
   text3: {
-    fontSize: pxToDp(13),
+    fontSize: pxToDp(16),
+    lineHeight:pxToDp(22),
     marginTop: pxToDp(5),
-    width: pxToDp(220)
+   width:pxToDp(246),
+    color:'#666666'
   },
   actionButtonIcon: {
     fontSize: 20,

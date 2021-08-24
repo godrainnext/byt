@@ -358,8 +358,9 @@ export class AlwaysOpen extends PureComponent {
           <Text
             style={{
               fontSize: pxToDp(18),
-              color:'#000000',
+              color:'#333333',
               fontWeight:'bold',
+             
             }}
           >
             {this.state.daddata[this.props.ArrData].name}
@@ -370,7 +371,8 @@ export class AlwaysOpen extends PureComponent {
         <View
           style={{
             flexDirection: 'row',
-            justifyContent: 'space-between'
+            justifyContent: 'space-between',
+            marginTop:pxToDp(20),
           }}
         >
           {/* 时空地图 */}
@@ -427,7 +429,8 @@ export class AlwaysOpen extends PureComponent {
               fontSize: pxToDp(18),
               color:'#000000',
               fontWeight:'bold',
-              marginBottom:pxToDp(8)
+              marginBottom:pxToDp(8),
+              marginTop:pxToDp(20)
             }}
           >
             概述

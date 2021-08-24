@@ -27,7 +27,9 @@ class Index extends PureComponent {
         <Top icon1="arrow-back" title="消息通知与推送" />
         <View
           style={{
-            margin: pxToDp(8),
+            marginTop:pxToDp(8),
+            marginRight:pxToDp(16),
+            marginLeft:pxToDp(16),
             height: pxToDp(300)
           }}
         >

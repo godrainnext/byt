@@ -21,7 +21,9 @@ class Index extends PureComponent {
           style={{
             backgroundColor: '#fff',
             borderRadius: pxToDp(8),
-            margin: pxToDp(8)
+            marginTop: pxToDp(8),
+            marginLeft:pxToDp(16),
+            marginRight:pxToDp(16)
           }}
         >
           <View style={styles.kidbox2}>

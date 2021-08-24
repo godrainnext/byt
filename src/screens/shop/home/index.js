@@ -53,7 +53,7 @@ class Index extends PureComponent {
   }
   render() {
     return (
-      <View>
+      <View style={{backgroundColor:'#fff'}}>
         <Top title="越市" />
         <ScrollView
           bounces={true}
@@ -102,16 +102,15 @@ class Index extends PureComponent {
           <View
             style={{
               height: pxToDp(20),
-              marginLeft: pxToDp(8),
-              marginBottom: pxToDp(8),
-              marginTop: pxToDp(-8)
+              margin:pxToDp(16)
+  
             }}
           >
             <Text style={{ color: '#000000', fontSize: pxToDp(18), fontWeight: 'bold', position: 'absolute' }}>
               长袖轻舞，越音袅袅
             </Text>
           </View>
-          <View style={{ margin: pxToDp(8), flexDirection: 'row' }}>
+          <View style={{ marginLeft: pxToDp(16),marginRight:16, flexDirection: 'row', }}>
             {/*线下门票 */}
             < TouchableNativeFeedback onPress={() => this.context.navigate('ticket')}
               useForeground={true}>
@@ -150,7 +149,9 @@ class Index extends PureComponent {
           <View
             style={{
               flexWrap: 'wrap',
-              flexDirection: 'row'
+              flexDirection: 'row',
+              margin:pxToDp(8)
+              
             }}
           >
             {this.state.arr.map((item) => (
@@ -176,7 +177,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     height: pxToDp(200),
-    margin: pxToDp(8),
+    margin: pxToDp(16),
     borderRadius: pxToDp(8)
   },
   tcard: {
@@ -188,7 +189,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     width: pxToDp(174),
     borderRadius: pxToDp(8),
-    margin: pxToDp(8)
+    margin: pxToDp(16)
   },
   image: {
     height: pxToDp(170),
@@ -203,7 +204,7 @@ const styles = StyleSheet.create({
     marginBottom: pxToDp(10)
   },
   title: {
-    margin: pxToDp(8),
+    margin: pxToDp(16),
     color: '#000000',
     fontSize: pxToDp(18),
     fontWeight: 'bold'
@@ -240,7 +241,7 @@ const styles = StyleSheet.create({
   },
   image4: {
     height: pxToDp(80),
-    width: pxToDp(174),
+    width: pxToDp(158),
     borderRadius: pxToDp(8),
     alignSelf: 'center'
   }

@@ -50,10 +50,10 @@ class Index extends PureComponent {
                     width: pxToDp(240),
                     height: pxToDp(130),
                     marginLeft: pxToDp(10),
-                    marginTop: pxToDp(7)
+                    marginTop: pxToDp(12)
                   }}
                 >
-                  <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold', color: '#333333' }}>
+                  <Text style={{ fontSize: pxToDp(16), fontWeight: 'bold', color: '#333333' }}>
                     {item.name}
                   </Text>
                   <Text style={{ fontSize: pxToDp(14), lineHeight: pxToDp(24), marginTop: pxToDp(14), color: '#666666' }} numberOfLines={3}>{item.content}</Text>

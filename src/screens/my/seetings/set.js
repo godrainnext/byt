@@ -25,7 +25,9 @@ class Index extends PureComponent {
           style={{
             backgroundColor: 'white',
             borderRadius: pxToDp(8),
-            margin: pxToDp(8),
+            marginTop:pxToDp(8),
+            marginLeft:pxToDp(16),
+            marginRight:pxToDp(16),
             paddingBottom: pxToDp(32),
             elevation: 4, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
             shadowColor: 'black', //  阴影颜色

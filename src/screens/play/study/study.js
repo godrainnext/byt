@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { View, Image, ScrollView, TextInput, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Image, ScrollView, TextInput, Text, TouchableOpacity, StyleSheet, TouchableNativeFeedback } from 'react-native';
 import Top from '../../../component/common/top';
 import { pxToDp } from '../../../utils/styleKits';
 import { NavigationContext } from "@react-navigation/native";
@@ -60,15 +60,15 @@ class Index extends PureComponent {
         return (
             <View style={{ backgroundColor: '#E2F4FE', flex: 1 }}>
                 <Top icon1='arrow-back' title="单人练唱" />
-                <View style={{padding:pxToDp(16),paddingBottom:1,flex:1}}>
+                <View style={{ padding: pxToDp(16), paddingBottom: 1, flex: 1 }}>
                     <View style={{ flexDirection: "row", backgroundColor: "white", height: pxToDp(35), alignItems: "center", borderRadius: pxToDp(16) }}>
-                        <Text style={{ marginLeft: pxToDp(20),fontSize:pxToDp(14)}}>搜索</Text>
+                        <Text style={{ marginLeft: pxToDp(20), fontSize: pxToDp(14) }}>搜索</Text>
                         <TextInput style={{ marginLeft: pxToDp(5), width: pxToDp(290) }}
                             placeholder="" />
                     </View>
                     <ScrollView >
                         {this.state.products.map((item, index) => (
-                            <TouchableOpacity onPress={() => this.context.navigate("Details")}>
+                            <TouchableNativeFeedback onPress={() => this.context.navigate("Details")}>
                                 <View style={styles.box}>
                                     <Image style={styles.image} source={{ uri: item.image }}></Image>
                                     <View>
@@ -77,7 +77,7 @@ class Index extends PureComponent {
                                         <Text style={styles.text3}>{item.listener}</Text>
                                     </View>
                                 </View>
-                            </TouchableOpacity>
+                            </TouchableNativeFeedback>
                         ))}
                     </ScrollView>
                 </View>
@@ -91,9 +91,9 @@ const styles = StyleSheet.create({
     box: {
         flexDirection: 'row',
         height: pxToDp(120),
-        marginTop:pxToDp(8),
-        marginLeft:pxToDp(6),
-        marginRight:pxToDp(6),
+        marginTop: pxToDp(8),
+        marginLeft: pxToDp(6),
+        marginRight: pxToDp(6),
         borderRadius: pxToDp(8),
         backgroundColor: "white",
         alignItems: "center",
@@ -107,18 +107,19 @@ const styles = StyleSheet.create({
         height: pxToDp(100),
         width: pxToDp(90),
         marginLeft: pxToDp(15),
-        borderRadius:pxToDp(8)
+        borderRadius: pxToDp(8)
     },
     text1: {
-        fontSize: pxToDp(16),
-        color: '#000000',
-        fontWeight:'bold',
+        fontSize: pxToDp(18),
+        color: '#333333',
+        fontWeight: 'bold',
         marginLeft: pxToDp(8)
     },
     text2: {
         fontSize: pxToDp(14),
-        color: '#333333',
-        marginLeft: pxToDp(8)
+        color: '#666666',
+        marginTop: pxToDp(12)
+        , marginLeft: pxToDp(8)
     },
     text3: {
         fontSize: pxToDp(13),

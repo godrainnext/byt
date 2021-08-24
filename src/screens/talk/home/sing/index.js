@@ -8,6 +8,7 @@ import {
     TouchableOpacity,
     SafeAreaView,
     ImageBackground,
+    TouchableNativeFeedback,
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { NavigationContext } from '@react-navigation/native';
@@ -62,19 +63,31 @@ export default class hello extends Component {
         return (
             <ScrollView style={styles.box}>
                 <View style={styles.touchbox}>
-                    <TouchableOpacity style={styles.touch} onPress={() => this.context.navigate('Study')}>
+                    <TouchableNativeFeedback
+                    useForeground={true}
+                    onPress={() => this.context.navigate('Study')}>
+                        <View style={styles.touch} >
                         <Text style={styles.text1}>单人练唱</Text>
                         <Text style={styles.text2}>个人练习</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.touch} onPress={() => this.context.navigate('KaiFang')}>
+                        </View>
+                    </TouchableNativeFeedback>
+                    <TouchableNativeFeedback   
+                     useForeground={true}
+                    onPress={() => this.context.navigate('KaiFang')}>
+                    <View style={styles.touch} >
                         <Text style={styles.text1}>创建歌房</Text>
                         <Text style={styles.text2}>点击创建</Text>
-                    </TouchableOpacity>
+                        </View>
+                    </TouchableNativeFeedback>
 
-                    <TouchableOpacity style={styles.touch} onPress={() => this.Scrollable3.open()}>
+                    <TouchableNativeFeedback       
+                     useForeground={true}
+                    onPress={() => this.Scrollable3.open()}>
+                     <View style={styles.touch} >
                         <Text style={styles.text1}>加入歌房</Text>
                         <Text style={styles.text2}>双人合唱</Text>
-                    </TouchableOpacity>
+                        </View>
+                    </TouchableNativeFeedback>
                     {/**查找房间 */}
                     <RBSheet
                         ref={(ref) => {

@@ -6,7 +6,8 @@ import {
   FlatList,
   TouchableOpacity,
   Button,
-  Image
+  Image,
+  TouchableNativeFeedback
 } from 'react-native';
 import { pxToDp } from '../../../utils/styleKits';
 import { NavigationContext } from '@react-navigation/native';
@@ -45,9 +46,11 @@ class history extends Component {
               }}
             >
               <View>
-                <TouchableOpacity
+                <TouchableNativeFeedback
+                useForeground={true}
                   onPress={() => this.context.navigate('Pagefive', item.id)}
                 >
+                  <View>
                   <ImageBackground
                     style={{height: pxToDp(180)}}
                     imageStyle={{ borderRadius: pxToDp(8) }}
@@ -91,7 +94,8 @@ class history extends Component {
                         </View>
                     </View>
                   </ImageBackground>
-                </TouchableOpacity>
+                  </View>
+                </TouchableNativeFeedback>
               </View>
             </View>
           )}

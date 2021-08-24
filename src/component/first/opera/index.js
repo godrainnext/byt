@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Text, View, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import { Text, View, TouchableOpacity, Image, StyleSheet, TouchableNativeFeedback } from 'react-native';
 import { getVideList } from '@service/home';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { pxToDp } from '@utils/styleKits';
@@ -18,7 +18,8 @@ export default class Opera extends PureComponent {
     return (
       <View>
         {this.state.arr.map((item) => (
-          <TouchableOpacity
+          <TouchableNativeFeedback
+          useForeground={true}
             onPress={() => this.context.navigate('Video', item.id)}
           >
             <View style={styles.box}>
@@ -38,7 +39,7 @@ export default class Opera extends PureComponent {
                 </View>
               </View>
             </View>
-          </TouchableOpacity>
+          </TouchableNativeFeedback>
         ))}
       </View>
     );

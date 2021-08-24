@@ -164,13 +164,13 @@ text2: {
     margin: pxToDp(8)
   },
   zhuanjititle: {
-    fontSize: pxToDp(18),
+    fontSize: pxToDp(16),
     fontWeight: 'bold',
-    color: 'black'
+    color: '#333333'
   },
   zhuanjitext: {
-    fontSize: pxToDp(15),
-    color: 'grey',
+    fontSize: pxToDp(14),
+    color: '#666666',
     marginTop: pxToDp(8)
   }
 });

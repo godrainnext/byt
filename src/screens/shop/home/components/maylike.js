@@ -50,7 +50,7 @@ class Index extends PureComponent {
 const styles = StyleSheet.create({
   ocard: {
     backgroundColor: 'white',
-    width: pxToDp(172),
+    width: pxToDp(164),
     borderRadius: pxToDp(8),
     margin: pxToDp(8),
     marginRight: pxToDp(5),
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   },
   image: {
     height: pxToDp(170),
-    width: pxToDp(172),
+    width: '100%',
     borderTopLeftRadius: pxToDp(8),
     borderTopRightRadius: pxToDp(8)
   },

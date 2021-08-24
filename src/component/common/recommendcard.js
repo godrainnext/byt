@@ -256,6 +256,7 @@ class index extends Component {
                     return (
                       <View style={styles.card}>
                         <TouchableOpacity
+                        activeOpacity={1}
                           style={{
                             justifyContent: 'center',
                             alignItems: 'center',

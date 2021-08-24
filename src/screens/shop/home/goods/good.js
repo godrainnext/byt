@@ -171,7 +171,7 @@ class shopdetails extends PureComponent {
         >
           {/* 商品图片 */}
 
-          <View style={{ alignItems: 'center', marginTop: pxToDp(20) }}>
+          <View style={{ alignItems: 'center', marginTop: pxToDp(20),}}>
             <Swiper shopbanner={this.state.shopbanner} />
           </View>
 
@@ -209,23 +209,25 @@ class shopdetails extends PureComponent {
 
           <View
             style={{
-              marginLeft: pxToDp(15),
-              marginRight: pxToDp(15),
-              marginTop: pxToDp(15)
+              margin: pxToDp(16),
+        
             }}
           >
-            <Text style={{fontSize:pxToDp(14),color:'#666666',lineHeight:pxToDp(24)}}>{this.state.shop.inner}</Text>
+            <Text style={{fontSize:pxToDp(16),color:'#666666',lineHeight:pxToDp(24),}}>{this.state.shop.inner}</Text>
           </View>
 
           {/* 商品详情 */}
-          <View style={{ marginTop: pxToDp(20) }}>
+          <View style={{ marginTop: pxToDp(20),marginBottom:pxToDp(36),}}>
             {this.state.products.map((item, index) => (
               <View key={item.id}>
                 <Image
                   style={{
-                    width: pxToDp(350),
+                    alignSelf:'center',
+                    width: pxToDp(334),
                     height: pxToDp(350),
-                    margin: pxToDp(12),
+                    marginLeft:16,
+                    marginRight:16,
+                    marginBottom:pxToDp(16),
                     borderRadius: pxToDp(8)
                   }}
                   source={{ uri: changeImgSize(item.img, 'small') }}
