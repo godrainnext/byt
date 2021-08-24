@@ -24,7 +24,7 @@ class index extends PureComponent {
       watchNum = 0
     } = this.props.videoInfo;
     return (
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View style={{ marginVertical: 2, padding: 10 }}>
           <View style={{ marginVertical: 2, padding: 10 }}>
             <View>
@@ -132,7 +132,9 @@ class index extends PureComponent {
                 marginTop: pxToDp(16)
               }}
             >
-              <Text style={{ fontSize: pxToDp(14),color:'grey'}}>—暂无更多—</Text>
+              <Text style={{ fontSize: pxToDp(14), color: 'grey' }}>
+                —暂无更多—
+              </Text>
             </View>
           </View>
         </View>

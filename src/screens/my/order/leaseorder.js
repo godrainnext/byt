@@ -1,6 +1,6 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
-import React, { PureComponent } from "react";
+import React, { PureComponent } from 'react';
 import {
   View,
   Text,
@@ -72,7 +72,10 @@ class orders extends PureComponent {
     return (
       <View style={{ backgroundColor: '#e2f4fe' }}>
         <Top icon1="arrow-back" title="确认订单" />
-        <ScrollView style={{ height: pxToDp(675) }}>
+        <ScrollView
+          style={{ height: pxToDp(675) }}
+          showsVerticalScrollIndicator={false}
+        >
           {/* 订单状态 */}
           <View
             style={{

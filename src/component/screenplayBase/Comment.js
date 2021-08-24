@@ -28,57 +28,64 @@ class Comment extends PureComponent {
   render() {
     return (
       <View style={{ backgroundColor: '#ecf6fc', flex: 1 }}>
-        <Top icon1="arrow-back" title="追鱼" />
-        <View style={{ padding: pxToDp(10) }}>
-          <ScrollView showsVerticalScrollIndicator={false} scrollbars="none">
-            {this.props.renderInner()}
-            {/* 分割线 */}
-            <View
-              style={{
-                width: pxToDp(350),
-                marginTop: pxToDp(20),
-                height: pxToDp(1),
-                backgroundColor: 'black',
-                opacity: 0.2,
-                marginBottom: pxToDp(10)
-              }}
-            />
-            {/* 评论区 */}
-            <View style={{ marginBottom: pxToDp(120) }}>
-              {this.props.arr.map((item) => (
-                <CommentItem item={item} key={item.id} />
-              ))}
-            </View>
-          </ScrollView>
-          {/* 发评论 */}
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          scrollbars="none"
+          style={{
+            padding: pxToDp(16),
+            flex: 1,
+            paddingBottom: 0
+          }}
+        >
+          {this.props.renderInner()}
+          {/* 评论区 */}
           <View
             style={{
-              backgroundColor: '#fff',
-              height: pxToDp(48),
-              width: '110%',
-              alignItems: 'center',
-              flexDirection: 'row',
-              position: 'absolute',
-              bottom:pxToDp(54)
+              marginTop: pxToDp(12),
+              marginBottom: pxToDp(10)
             }}
           >
-            <TextInput
-              onChangeText={(val) => this.setState({ content: val })}
-              value={this.state.content}
-              placeholder="发一条友善的评论"
+            <Text
               style={{
-                height: '80%',
-                backgroundColor: '#ddd',
-                width: '75%',
-                marginLeft: pxToDp(20),
-                borderRadius: pxToDp(20),
-                paddingLeft: pxToDp(10)
+                fontSize: pxToDp(18),
+                color: '#000',
+                fontWeight: 'bold'
               }}
-            />
-            <TouchableOpacity onPress={this.submits}>
-              <Text style={{ marginLeft: pxToDp(20) }}>发布</Text>
-            </TouchableOpacity>
+            >
+              评论区
+            </Text>
           </View>
+          <View style={{ marginBottom: pxToDp(24) }}>
+            {this.props.arr.map((item) => (
+              <CommentItem item={item} key={item.id} />
+            ))}
+          </View>
+        </ScrollView>
+        {/* 发评论 */}
+        <View
+          style={{
+            backgroundColor: '#fff',
+            height: pxToDp(48),
+            alignItems: 'center',
+            flexDirection: 'row'
+          }}
+        >
+          <TextInput
+            onChangeText={(val) => this.setState({ content: val })}
+            value={this.state.content}
+            placeholder="发一条友善的评论"
+            style={{
+              height: '80%',
+              backgroundColor: '#ddd',
+              width: '75%',
+              marginLeft: pxToDp(20),
+              borderRadius: pxToDp(20),
+              paddingLeft: pxToDp(16)
+            }}
+          />
+          <TouchableOpacity onPress={this.submits}>
+            <Text style={{ marginLeft: pxToDp(20) }}>发布</Text>
+          </TouchableOpacity>
         </View>
       </View>
     );

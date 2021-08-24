@@ -219,7 +219,7 @@ class Index extends PureComponent {
             </View>
           </Modal>
         </View>
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator = {false}>
           <View
             style={{
               paddingLeft: pxToDp(16),

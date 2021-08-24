@@ -36,7 +36,7 @@ export default class ModalT extends PureComponent {
             padding: 10
           }}
         >
-          <ScrollView>
+          <ScrollView showsVerticalScrollIndicator={false}>
             <View key={item.id}>
               <FlipCard
                 style={styles.card}

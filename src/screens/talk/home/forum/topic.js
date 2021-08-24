@@ -52,12 +52,28 @@ export default class topic extends Component {
                 style={{ paddingTop: pxToDp(16), paddingLeft: pxToDp(16) }}
               />
             </TouchableOpacity>
-            <View style={{ alignSelf: 'flex-end', marginTop: pxToDp(155), marginRight: pxToDp(16) }}>
-              <Text style={{ fontSize: pxToDp(16), color: '#333333' }}>{number}人参与讨论</Text>
+            <View
+              style={{
+                alignSelf: 'flex-end',
+                marginTop: pxToDp(155),
+                marginRight: pxToDp(16)
+              }}
+            >
+              <Text style={{ fontSize: pxToDp(16), color: '#333333' }}>
+                {number}人参与讨论
+              </Text>
             </View>
           </ImageBackground>
           {/* 中间内容 */}
-          <View style={{marginTop:pxToDp(-10),width:'100%',backgroundColor:'#ecf6fc',borderTopRightRadius:pxToDp(8),borderTopLeftRadius:pxToDp(8)}}>
+          <View
+            style={{
+              marginTop: pxToDp(-10),
+              width: '100%',
+              backgroundColor: '#ecf6fc',
+              borderTopRightRadius: pxToDp(8),
+              borderTopLeftRadius: pxToDp(8)
+            }}
+          >
             <View
               style={{
                 padding: pxToDp(8),
@@ -76,7 +92,7 @@ export default class topic extends Component {
                   marginBottom: pxToDp(8),
                   fontSize: pxToDp(18),
                   color: '#000000',
-                  fontWeight: 'bold',
+                  fontWeight: 'bold'
                 }}
               >
                 {text}
@@ -91,7 +107,14 @@ export default class topic extends Component {
               </Text>
             </View>
             {/* 评论区 */}
-            <Text style={{ fontSize: pxToDp(18), color: '#000000', fontWeight: 'bold', paddingLeft: pxToDp(16) }}>
+            <Text
+              style={{
+                fontSize: pxToDp(18),
+                color: '#000000',
+                fontWeight: 'bold',
+                paddingLeft: pxToDp(16)
+              }}
+            >
               全部
             </Text>
             <View style={{ marginTop: pxToDp(-12) }}>

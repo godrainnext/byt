@@ -238,7 +238,7 @@ export default class videoplayer extends React.Component {
       : null;
     return (
       <View>
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
           <View>
             <TouchableWithoutFeedback
               onPress={this._changePauseSliderFullState}

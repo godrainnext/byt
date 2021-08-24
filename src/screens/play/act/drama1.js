@@ -16,10 +16,13 @@ import Svg from 'react-native-svg-uri';
 import { right } from '../../../component/common/iconSvg';
 
 class Index extends PureComponent {
-  state = {
-    dramalist: {
+  constructor(props) {
+    super(props);
+    this.state = {
+    dramalist: [
+      {
       title: '追鱼',
-      author: '康德',
+      author:'康德',
       year: '北宋嘉佑年间',
       int1: ' 北宋嘉佑年间,应天府（今商丘）学子张珍之父与开封府金牡丹小姐之父金丞相原本乃是同窗好友，自幼指腹为婚。张珍父母去世后，家道衰败，金宠嫌他贫穷便冷眼相待，让他独居后苑碧波亭，并以“金家三代不招白衣婿”为由，命张珍独居后花园碧波潭畔草庐读书，伺机退婚。',
       int2: '张珍独居客乡，遭受冷落，万般愁肠，经常在夜深人静的时候，到碧波潭自叹心事。碧波潭里的鲤鱼精见张珍纯朴，一表人才，不甘水府寂寥，便变做牡丹小姐的模样，去书房与张珍约会，两人情投意合，形影难分，遂约定每日二更在后花园相会，不料被真牡丹小姐发现被赶出金门。',
@@ -37,9 +40,11 @@ class Index extends PureComponent {
       path2:
         'https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20190614%2F1e3e605bfd104fe7b78a71ac22b33080.jpeg&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631924206&t=a33d3574aac710c72a8b2b7805f51081'
     }
+    ]}
   };
   static contextType = NavigationContext;
   render() {
+    console.log(this.state.dramalist)
     return (
       <View style={{ backgroundColor: '#E2F4FE', flex: 1 }}>
         <Top icon1="arrow-back" title="追鱼" />
@@ -48,13 +53,14 @@ class Index extends PureComponent {
             padding: pxToDp(16),
             flex: 1
           }}
+          showsVerticalScrollIndicator = {false}
         >
           <Image
             style={{
               height: pxToDp(180),
               borderRadius: pxToDp(8)
             }}
-            source={{ uri: this.state.dramalist.path1 }}
+            source={{ uri: this.state.dramalist[0].path1 }}
           />
           <Text
             style={{
@@ -64,11 +70,11 @@ class Index extends PureComponent {
               marginTop: pxToDp(8)
             }}
           >
-            {this.state.dramalist.title}
+            {this.state.dramalist[0].title}
           </Text>
           <Text style={styles.title1}>
-            &emsp;&emsp;作者：{this.state.dramalist.author} 创作年代:{' '}
-            {this.state.dramalist.year}
+            &emsp;&emsp;作者：{this.state.dramalist[0].author} 创作年代:{' '}
+            {this.state.dramalist[0].year}
           </Text>
           <View
             style={{
@@ -77,31 +83,31 @@ class Index extends PureComponent {
           >
             <Text style={styles.text}>剧情简介</Text>
             <Text style={styles.title1}>
-              &emsp;&emsp;{this.state.dramalist.int1}
+              &emsp;&emsp;{this.state.dramalist[0].int1}
             </Text>
             <Text style={styles.title}>
-              &emsp;&emsp;{this.state.dramalist.int2}
+              &emsp;&emsp;{this.state.dramalist[0].int2}
             </Text>
             <Text style={styles.title}>
-              &emsp;&emsp;{this.state.dramalist.int3}
+              &emsp;&emsp;{this.state.dramalist[0].int3}
             </Text>
             <Text style={styles.title}>
-              &emsp;&emsp;{this.state.dramalist.int4}
+              &emsp;&emsp;{this.state.dramalist[0].int4}
             </Text>
             <Text style={styles.title}>
-              &emsp;&emsp;{this.state.dramalist.int5}
+              &emsp;&emsp;{this.state.dramalist[0].int5}
             </Text>
           </View>
           <View style={{ marginTop: pxToDp(4) }}>
             <Text style={styles.text2}>演出历史</Text>
             <Text style={styles.title}>
-              &emsp;&emsp;{this.state.dramalist.text1}
+              &emsp;&emsp;{this.state.dramalist[0].text1}
             </Text>
             <Text style={styles.title}>
-              &emsp;&emsp;{this.state.dramalist.text2}
+              &emsp;&emsp;{this.state.dramalist[0].text2}
             </Text>
             <Text style={styles.title}>
-              &emsp;&emsp;{this.state.dramalist.text3}
+              &emsp;&emsp;{this.state.dramalist[0].text3}
             </Text>
           </View>
           <View>
@@ -117,14 +123,18 @@ class Index extends PureComponent {
             </Text>
             <TouchableOpacity
               style={styles.book}
-              onPress={() => this.context.navigate('Screenpaly')}
+              onPress={() => this.context.navigate('Screenpaly',{
+                 ...this.state.dramalist,
+                 title:this.state.dramalist[0].title
+              } 
+             )}
             >
               <Image
                 style={{
                   height: pxToDp(100),
                   borderRadius: pxToDp(8)
                 }}
-                source={{ uri: this.state.dramalist.path2 }}
+                source={{ uri: this.state.dramalist[0].path2 }}
               />
               <View style={{ marginTop: pxToDp(-60), marginLeft: pxToDp(300) }}>
                 <Svg width="32" height="32" svgXmlData={right} />

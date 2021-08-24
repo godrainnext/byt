@@ -87,35 +87,31 @@ export default class relatedBook extends PureComponent {
     return (
       <View style={{ flex: 1 }}>
         <Top icon1="arrow-back" title="相关书籍" />
-        <ScrollView style={{ flex: 1 }}>
-          <View>
-            <View style={{ flex: 1 }}>
+        <ScrollView style={{ flex: 1,padding:pxToDp(8),backgroundColor:"#fff" }} showsVerticalScrollIndicator={false}>
+            <View style={{  marginBottom: pxToDp(32),marginLeft:pxToDp(8),marginRight:pxToDp(8)}}>
               {this.state.data.map((item, index) => (
                 <TouchableOpacity
                   key={item.id}
                   onPress={() => this.context.navigate('bookDetail')}
                   style={styles.botbox}
                 >
-                  <View
-                    style={{
-                      height: pxToDp(130),
-                      flexDirection: 'row'
-                    }}
-                  >
-                    <View>
                       <Image style={styles.image} source={item.img} />
-                    </View>
-                    <View style={{ marginLeft: pxToDp(10) }}>
+                    <View 
+                    style={{
+                    width: pxToDp(235),
+                    height: pxToDp(130),
+                    marginLeft: pxToDp(10),
+                    justifyContent: 'center',
+                    paddingRight: pxToDp(8)
+                  }}>
                       <Text style={styles.text2}>{item.name}</Text>
-                      <Text style={styles.text3} numberOfLines={4}>
+                      <Text style={{ fontSize: pxToDp(14) }} numberOfLines={4}>
                         {item.Details}
                       </Text>
-                    </View>
-                  </View>
+                      </View>
                 </TouchableOpacity>
               ))}
             </View>
-          </View>
         </ScrollView>
       </View>
     );
@@ -126,29 +122,30 @@ const styles = StyleSheet.create({
     fontSize: pxToDp(20),
     fontWeight: 'bold',
     marginTop: pxToDp(4),
-    marginLeft: pxToDp(10)
   },
   botbox: {
+    height: pxToDp(130),
+    borderRadius: pxToDp(8),
     flexDirection: 'row',
-    borderBottomColor: 'grey',
-    borderBottomWidth: pxToDp(0.5),
-    margin: pxToDp(10),
-    height: pxToDp(140)
+    marginTop: pxToDp(10),
+    marginBottom:pxToDp(4),
+    backgroundColor: 'white',
+    elevation: 4,
+shadowColor: 'black',  //  阴影颜色
+ shadowOffset: { width: 0, height: 0 },  // 阴影偏移
+ shadowOpacity: 1,  // 阴影不透明度
+ shadowRadius: 10,  //  圆角
   },
   text2: {
-    marginTop: pxToDp(10),
-    fontSize: pxToDp(15),
-    fontWeight: 'bold'
+    fontSize: pxToDp(18),
+     fontWeight: 'bold'
   },
   image: {
-    height: pxToDp(120),
-    width: pxToDp(100),
-    borderRadius: pxToDp(8)
-  },
-  text3: {
-    fontSize: pxToDp(13),
-    marginTop: pxToDp(5),
-    width: pxToDp(220)
+    width: pxToDp(90),
+    height: pxToDp(110),
+    borderRadius: pxToDp(8),
+    marginLeft: pxToDp(10),
+    marginTop: pxToDp(10)
   },
   actionButtonIcon: {
     fontSize: 20,

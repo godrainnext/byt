@@ -24,11 +24,10 @@ class Index extends PureComponent {
       <View style={{ backgroundColor: '#ecf6fc', flex: 1 }}>
         <Top icon1="arrow-back" />
         {/*头部信息 */}
-        <View style={{ marginLeft: pxToDp(8), marginRight: pxToDp(8) }}>
+        <View style={{flex:1,padding:pxToDp(16)}}>
           <View
             style={{
               flexDirection: 'row',
-              marginTop: pxToDp(10),
               backgroundColor: 'rgba(255,255,255,0.5)',
               borderRadius: pxToDp(8)
             }}
@@ -76,8 +75,8 @@ class Index extends PureComponent {
           <View
             style={{
               backgroundColor: 'rgba(255,255,255,0.5)',
-              width: '100%',
-              marginTop: pxToDp(10)
+              marginTop: pxToDp(10),
+              borderRadius:pxToDp(8)
             }}
           >
             <Text style={{ margin: pxToDp(5), fontSize: pxToDp(13) }}>

@@ -46,13 +46,19 @@ class Index extends PureComponent {
       >
         <Top title="戏痴" />
         <ScrollView showsVerticalScrollIndicator={false}>
+          {/*        
+          <View style={{position:'absolute',width:400,height:400,bottom:350,borderRadius:100,alignSelf:'center',opacity:.4}}>
+          
+         
+          </View>  */}
+
           <UserInner />
           <View
             style={{
               borderRadius: pxToDp(8),
               backgroundColor: '#f0fcff',
-              marginLeft:pxToDp(16),
-              marginRight:pxToDp(16),
+              marginLeft: pxToDp(16),
+              marginRight: pxToDp(16),
               height: pxToDp(140),
               marginTop: pxToDp(8),
               elevation: 3,
@@ -68,7 +74,9 @@ class Index extends PureComponent {
               }}
             >
               <View>
-                <Text style={{ fontSize: pxToDp(18),color:'#333333'}}>我的订单</Text>
+                <Text style={{ fontSize: pxToDp(18), color: '#333333' }}>
+                  我的订单
+                </Text>
               </View>
               <TouchableOpacity
                 onPress={() => this.context.navigate('Order', 0)}
@@ -76,11 +84,13 @@ class Index extends PureComponent {
                 <View
                   style={{
                     flexDirection: 'row',
-                    alignItems:'center',
-                    justifyContent:'center',      
+                    alignItems: 'center',
+                    justifyContent: 'center'
                   }}
                 >
-                  <Text style={{  fontSize: pxToDp(14),color:"#666666"}}>查看全部订单 </Text>
+                  <Text style={{ fontSize: pxToDp(14), color: '#666666' }}>
+                    查看全部订单{' '}
+                  </Text>
                   <Ionicons name="angle-right" size={24} color="#666666" />
                 </View>
               </TouchableOpacity>
@@ -97,7 +107,13 @@ class Index extends PureComponent {
               >
                 <View style={{ alignItems: 'center' }}>
                   <Ionicons name="credit-card" size={25} color="#468CD3" />
-                  <Text style={{ fontSize: pxToDp(16),color:'#333333',marginTop: pxToDp(8) }}>
+                  <Text
+                    style={{
+                      fontSize: pxToDp(16),
+                      color: '#333333',
+                      marginTop: pxToDp(8)
+                    }}
+                  >
                     待支付
                   </Text>
                 </View>
@@ -107,7 +123,13 @@ class Index extends PureComponent {
               >
                 <View style={{ alignItems: 'center' }}>
                   <Ionicons name="truck" size={25} color="#468CD3" />
-                  <Text style={{ fontSize: pxToDp(16),color:'#333333', marginTop: pxToDp(8) }}>
+                  <Text
+                    style={{
+                      fontSize: pxToDp(16),
+                      color: '#333333',
+                      marginTop: pxToDp(8)
+                    }}
+                  >
                     待收货
                   </Text>
                 </View>
@@ -117,7 +139,13 @@ class Index extends PureComponent {
               >
                 <View style={{ alignItems: 'center' }}>
                   <Ionicons name="commenting-o" size={25} color="#468CD3" />
-                  <Text style={{ fontSize: pxToDp(16),color:'#333333', marginTop: pxToDp(8) }}>
+                  <Text
+                    style={{
+                      fontSize: pxToDp(16),
+                      color: '#333333',
+                      marginTop: pxToDp(8)
+                    }}
+                  >
                     待评价
                   </Text>
                 </View>
@@ -125,7 +153,13 @@ class Index extends PureComponent {
               <TouchableOpacity onPress={() => this.context.navigate('Refund')}>
                 <View style={{ alignItems: 'center' }}>
                   <Ionicons name="handshake-o" size={25} color="#468CD3" />
-                  <Text style={{ fontSize: pxToDp(16),color:'#333333', marginTop: pxToDp(8) }}>
+                  <Text
+                    style={{
+                      fontSize: pxToDp(16),
+                      color: '#333333',
+                      marginTop: pxToDp(8)
+                    }}
+                  >
                     售后/退款
                   </Text>
                 </View>

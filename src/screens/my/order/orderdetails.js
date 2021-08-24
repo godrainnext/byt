@@ -308,7 +308,7 @@ class orderdetails extends PureComponent {
             container: { borderTopLeftRadius: 10, borderTopRightRadius: 10 }
           }}
         >
-          <ScrollView>
+          <ScrollView showsVerticalScrollIndicator={false}>
             <View style={{ backgroundColor: '#468cd3', height: pxToDp(150) }}>
               <View
                 style={{

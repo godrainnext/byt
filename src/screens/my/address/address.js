@@ -36,7 +36,7 @@ class SwiperListItem extends PureComponent {
       <View style={styles.outView}>
         <Top icon1="arrow-back" title="收货地址" />
 
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator = {false}>
           <View style={{ paddingBottom: pxToDp(105) }}>
             {this.props.address.map((item) => (
               <SwpierItem

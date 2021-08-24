@@ -37,7 +37,7 @@ class index extends PureComponent {
         style={{ backgroundColor: '#ecf6fc', flex: 1 }}
       >
       <Top icon1="arrow-back" title="越文" />
-        <ScrollView style={{ padding: pxToDp(16),flex:1}}>
+        <ScrollView style={{ padding: pxToDp(16),flex:1}} showsVerticalScrollIndicator = {false}>
           <View>
             <View
               style={{
@@ -82,15 +82,13 @@ class index extends PureComponent {
               style={{
                 marginTop: pxToDp(12),
                 marginBottom: pxToDp(16)
-              }}
-            >
+              }}>
               <Text
                 style={{
                   fontSize: pxToDp(18),
                   color: '#000000',
                   fontWeight: 'bold'
-                }}
-              >
+                }}>
                 评论区
               </Text>
             </View>
@@ -100,15 +98,13 @@ class index extends PureComponent {
                 justifyContent: 'space-between',
                 alignItems: 'center',
                 marginRight: pxToDp(8)
-              }}
-            >
+              }}>
               <View
                 style={{
                   flexDirection: 'row',
                   alignItems: 'center',
                   marginBottom: pxToDp(8)
-                }}
-              >
+                }}>
                 <Image
                   style={{
                     width: pxToDp(40),

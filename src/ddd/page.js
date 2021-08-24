@@ -19,7 +19,7 @@ import { pxToDp } from './styleKits';
 export default class page extends PureComponent {
   render() {
     return (
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View
           style={{
             margin: pxToDp(16),
@@ -28,18 +28,25 @@ export default class page extends PureComponent {
             shadowColor: 'black', //  阴影颜色
             shadowOffset: { width: 0, height: 0 }, // 阴影偏移
             shadowOpacity: 1, // 阴影不透明度
-            shadowRadius: 10 //  圆角
+            shadowRadius: 10, //  圆角
           }}
         >
           <Text style={styles.big}>{this.props.pagedata.name}</Text>
-          <View style={{ flexDirection: 'row', marginLeft: pxToDp(10),marginTop:pxToDp(-2),marginBottom:pxToDp(4) }}>
+          <View
+            style={{
+              flexDirection: 'row',
+              marginLeft: pxToDp(10),
+              marginTop: pxToDp(-2),
+              marginBottom: pxToDp(4),
+            }}
+          >
             <Text>{this.props.pagedata.local}</Text>
             <Text style={{ paddingLeft: pxToDp(20) }}>
               {this.props.pagedata.year2}
             </Text>
           </View>
           <View>
-            <Text style={{ marginLeft: pxToDp(10),marginBottom:pxToDp(8) }}>
+            <Text style={{ marginLeft: pxToDp(10), marginBottom: pxToDp(8),marginRight:pxToDp(10) }}>
               {this.props.pagedata.introduce}
             </Text>
           </View>

@@ -59,7 +59,7 @@ export default class PullPickerView extends Overlay.PullView {
           </View>
         }
         {!title ? null : <View style={headerSeparatorStyle} />}
-        <ScrollView style={{backgroundColor: Theme.pupColor, flexGrow: 1}}>
+        <ScrollView  showsVerticalScrollIndicator = {false} style={{backgroundColor: Theme.pupColor, flexGrow: 1}}>
           {items && items.map((item, index) => (
             <this.constructor.Item
               key={'item' + index}

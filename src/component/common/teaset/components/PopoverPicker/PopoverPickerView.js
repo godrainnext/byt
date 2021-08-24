@@ -65,15 +65,16 @@ export default class PopoverPickerView extends Overlay.PopoverView {
   renderContent() {
     let {items, selectedIndex, getItemText} = this.props;
     return super.renderContent(
-      <ScrollView>
-        {items && items.map((item, index) => (
-          <this.constructor.Item
-            key={'item' + index}
-            title={getItemText ? getItemText(item, index) : item}
-            selected={index === selectedIndex}
-            onPress={() => this.onItemPress(index)}
+      <ScrollView showsVerticalScrollIndicator={false}>
+        {items &&
+          items.map((item, index) => (
+            <this.constructor.Item
+              key={'item' + index}
+              title={getItemText ? getItemText(item, index) : item}
+              selected={index === selectedIndex}
+              onPress={() => this.onItemPress(index)}
             />
-        ))}
+          ))}
       </ScrollView>
     );
   }

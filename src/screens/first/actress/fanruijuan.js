@@ -25,44 +25,99 @@ class Index extends PureComponent {
     }
     render() {
         return (
-            <View style={{ flex: 1 }}>
-                <Top icon1="arrow-back" title="范瑞娟" />
-                <ScrollView >
-                    {/*基本信息 */}
-                    <View style={{ flex: 1, backgroundColor: 'white', padding: pxToDp(16), paddingBottom: 0 }}>
-                        <Text style={styles.title}>基本信息</Text>
-                        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-                            <View style={{ width: '65%' }}>
-                                <Text style={styles.text}>姓名：{this.state.person.name}</Text>
-                                <Text style={styles.text}>籍贯：{this.state.person.place}</Text>
-                                <Text style={styles.text}>出生日期：{this.state.person.birth}</Text>
-                                <Text style={styles.text}>逝世日期：{this.state.person.death}</Text>
-                                <Text style={styles.text}>流派：{this.state.person.genre}</Text>
-                                <Text style={styles.text}>行当：{this.state.person.job}</Text>
-                                <Text style={styles.text}>代表作品：{this.state.person.work}</Text>
-                            </View>
-                            <Image style={{ height: pxToDp(168), width: pxToDp(120), borderRadius: pxToDp(8) }} source={{ uri: this.state.person.image }} />
-                        </View>
-                        <Text style={styles.text}>主要成就：{this.state.person.success}</Text>
-                        {/**人物评价 */}
-                        <View style={{ marginTop: pxToDp(16) }}>
-                            <Text style={styles.title}>人物评价</Text>
-                            <Text style={styles.text}>{this.state.person.evaluate1}</Text>
-                            <Text style={styles.text}>{this.state.person.evaluate2}</Text>
-                        </View>
-                        {/**图片 */}
-                        <View style={{ marginTop: pxToDp(16), marginBottom: pxToDp(16) }}>
-                            <Text style={styles.title}>人物图集</Text>
-                            <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between' }}>
-                                <Image style={styles.image} source={{ uri: this.state.person.image1 }} />
-                                <Image style={styles.image} source={{ uri: this.state.person.image2 }} />
-                                <Image style={styles.image} source={{ uri: this.state.person.image3 }} />
-                                <Image style={styles.image} source={{ uri: this.state.person.image4 }} />
-                            </View>
-                        </View>
-                    </View>
-                </ScrollView>
-            </View>
+          <View style={{ flex: 1 }}>
+            <Top icon1="arrow-back" title="范瑞娟" />
+            <ScrollView showsVerticalScrollIndicator={false}>
+              {/*基本信息 */}
+              <View
+                style={{
+                  flex: 1,
+                  backgroundColor: 'white',
+                  padding: pxToDp(16),
+                  paddingBottom: 0
+                }}
+              >
+                <Text style={styles.title}>基本信息</Text>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    justifyContent: 'space-between'
+                  }}
+                >
+                  <View style={{ width: '65%' }}>
+                    <Text style={styles.text}>
+                      姓名：{this.state.person.name}
+                    </Text>
+                    <Text style={styles.text}>
+                      籍贯：{this.state.person.place}
+                    </Text>
+                    <Text style={styles.text}>
+                      出生日期：{this.state.person.birth}
+                    </Text>
+                    <Text style={styles.text}>
+                      逝世日期：{this.state.person.death}
+                    </Text>
+                    <Text style={styles.text}>
+                      流派：{this.state.person.genre}
+                    </Text>
+                    <Text style={styles.text}>
+                      行当：{this.state.person.job}
+                    </Text>
+                    <Text style={styles.text}>
+                      代表作品：{this.state.person.work}
+                    </Text>
+                  </View>
+                  <Image
+                    style={{
+                      height: pxToDp(168),
+                      width: pxToDp(120),
+                      borderRadius: pxToDp(8)
+                    }}
+                    source={{ uri: this.state.person.image }}
+                  />
+                </View>
+                <Text style={styles.text}>
+                  主要成就：{this.state.person.success}
+                </Text>
+                {/**人物评价 */}
+                <View style={{ marginTop: pxToDp(12) }}>
+                  <Text style={styles.title}>人物评价</Text>
+                  <Text style={styles.text}>{this.state.person.evaluate1}</Text>
+                  <Text style={styles.text}>{this.state.person.evaluate2}</Text>
+                </View>
+                {/**图片 */}
+                <View
+                  style={{ marginTop: pxToDp(12), marginBottom: pxToDp(16) }}
+                >
+                  <Text style={styles.title}>人物图集</Text>
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      flexWrap: 'wrap',
+                      justifyContent: 'space-between'
+                    }}
+                  >
+                    <Image
+                      style={styles.image}
+                      source={{ uri: this.state.person.image1 }}
+                    />
+                    <Image
+                      style={styles.image}
+                      source={{ uri: this.state.person.image2 }}
+                    />
+                    <Image
+                      style={styles.image}
+                      source={{ uri: this.state.person.image3 }}
+                    />
+                    <Image
+                      style={styles.image}
+                      source={{ uri: this.state.person.image4 }}
+                    />
+                  </View>
+                </View>
+              </View>
+            </ScrollView>
+          </View>
         );
     }
 }

@@ -147,7 +147,7 @@ class Index extends PureComponent {
     return (
       <View>
         <Top title="越吟" />
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator = {false}>
           {/*剧本练唱 */}
           <View style={{ marginLeft: pxToDp(10), marginRight: pxToDp(10) }}>
             <Text

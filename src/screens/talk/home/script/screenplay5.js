@@ -7,14 +7,14 @@ class Index extends PureComponent {
   renderInner = () => (
     <Fragment>
       <View>
-        <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold' }}>
+        <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold' }}>
           王老虎抢亲
         </Text>
       </View>
       <Text
         style={{
-          marginTop: pxToDp(10),
-          fontSize: pxToDp(17),
+          marginTop: pxToDp(8),
+          fontSize: pxToDp(16),
           marginBottom: pxToDp(10)
         }}
       >
@@ -23,14 +23,13 @@ class Index extends PureComponent {
       <View>
         <Image
           style={{
-            width: '100%',
-            height: pxToDp(200),
+            height: pxToDp(180),
             borderRadius: pxToDp(8)
           }}
           source={require('../../../../res/play/fengmian5.jpg')}
         />
       </View>
-      <Text style={styles.Text}>
+      <Text style={[styles.Text, { marginTop: pxToDp(8) }]}>
         <Text style={styles.texthead}>（文唱）</Text>:
         我以为，王府门中一条心，又谁知，沙土里面拌黄金。秀英一片真心爱，我走上前去说分明。此时不可太冒失，我还须当面试真情。说远不远近不近，离此约有三百零。清和坊开豆腐店，招牌叫做许隆兴。我叫许大年十八，至今尚未配婚姻。
       </Text>
@@ -93,6 +92,7 @@ class Index extends PureComponent {
   render() {
     return (
       <ScreenBase
+        top="王老虎抢亲"
         renderInner={this.renderInner}
         arr={[
           {
@@ -120,11 +120,12 @@ class Index extends PureComponent {
 const styles = StyleSheet.create({
   Text: {
     fontSize: pxToDp(16),
-    marginTop: pxToDp(25),
+    marginTop: pxToDp(4),
     lineHeight: pxToDp(25)
   },
   texthead: {
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    fontSize: pxToDp(16)
   }
 });
 export default Index;

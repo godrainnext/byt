@@ -29,6 +29,7 @@ class Index extends PureComponent {
             flex: 1,
             backgroundColor: '#ecf6fc'
           }}
+          showsVerticalScrollIndicator = {false}
         >
           <View
             style={{

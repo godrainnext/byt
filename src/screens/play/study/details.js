@@ -61,7 +61,7 @@ class Index extends PureComponent {
                 <View>
                     <Top icon1='arrow-back' title="详情" />
                 </View>
-                <ScrollView>
+                <ScrollView showsVerticalScrollIndicator = {false}>
                     <View style={styles.top}>
                         <Image style={styles.image} source={require('../../../res/6.png')}></Image>
                         <View style={{ justifyContent: "center", marginLeft: pxToDp(10) }}>
