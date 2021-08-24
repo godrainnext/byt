@@ -76,7 +76,7 @@ gener:[
     return (
       <View style={{ backgroundColor: '#E2F4FE', flex: 1 }}>
         <Top icon1="arrow-back" title="流派传奇" />
-        <ScrollView>
+        <ScrollView style={{ marginRight: pxToDp(8), marginLeft: pxToDp(8)}} showsVerticalScrollIndicator={false}>
           {this.state.gener.map((item) => (
             <View style={{ marginLeft: pxToDp(8), marginRight: pxToDp(8) }}>
               <TouchableOpacity style={{ flexDirection: 'row', marginTop: pxToDp(8) }}  onPress={() => this.context.navigate(item.school)}>

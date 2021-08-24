@@ -112,7 +112,6 @@ class Index extends PureComponent {
   };
   render() {
     const { activeTab } = this.state;
-    console.log(activeTab);
     return (
       <View style={{ flex: 1, backgroundColor: '#e2f4fe' }}>
         <Top icon1="arrow-back" title="积分商城" />

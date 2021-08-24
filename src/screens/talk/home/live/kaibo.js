@@ -90,7 +90,6 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-    console.log(this.props.route.params);
 
     this.state = {
       appId: '29792ec3eded410facd609fb7ad76fef',

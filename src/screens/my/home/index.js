@@ -42,12 +42,12 @@ class Index extends PureComponent {
   render() {
     return (
       <LinearGradient
-        colors={['#a1d9fd', 'white']}
+        colors={['white', 'white']}
         start={{ x: 0, y: 0 }}
         end={{ x: 0, y: 0.8 }}
         style={{ flex: 1 }}
       >
-  
+          <Top title="戏痴" />
         <ScrollView>
           {/*        
           <View style={{position:'absolute',width:400,height:400,bottom:350,borderRadius:100,alignSelf:'center',opacity:.4}}>
@@ -57,7 +57,7 @@ class Index extends PureComponent {
 
           <UserInner />
           <ImageBackground
-          source={require('./userback3.png')}
+          source={require('./userback.jpg')}
             style={{
               borderRadius: pxToDp(8),
               backgroundColor: '#f0fcff',
@@ -142,7 +142,7 @@ class Index extends PureComponent {
             </View>
           </ImageBackground>
           <View>
-            <MyAddress />
+            < Address />
 
             <TouchableOpacity
               onPress={() => this.context.navigate('Jifenshop')}

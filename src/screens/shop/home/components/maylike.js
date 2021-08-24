@@ -25,7 +25,7 @@ class Index extends PureComponent {
             style={styles.image}
             source={{ uri: this.props.imguri }}
           ></Image>
-          <View style={{ padding: pxToDp(4) }}>
+          <View style={{ padding: pxToDp(8) }}>
             <Text style={{ fontSize: pxToDp(16),color:'#333333'}}>{this.props.name}</Text>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
               <View style={styles.bottext}>

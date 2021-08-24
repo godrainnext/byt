@@ -260,7 +260,7 @@ const styles = StyleSheet.create({
     marginLeft: pxToDp(10)
   },
   booktitle3: {
-    fontSize: pxToDp(15),
+    fontSize: pxToDp(16),
     fontWeight: 'bold'
   }
 });

@@ -36,8 +36,6 @@ export default class topic extends Component {
     this.changeListener.remove();
   }
   render() {
-    console.log(this.props.route.params);
-    console.log(this.props.route.params.id);
     const { id, text, img, detail, number } = this.props.route.params;
     return (
       <View style={{ flex: 1, backgroundColor: '#ecf6fc' }}>
@@ -99,7 +97,7 @@ export default class topic extends Component {
             <Text
               style={{
                 marginTop: pxToDp(8),
-                lineHeight:pxToDp(22),
+                lineHeight:pxToDp(24),
                 fontSize:pxToDp(14),
                 margin: pxToDp(8),
                 color:'#666666'

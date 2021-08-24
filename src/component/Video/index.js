@@ -99,7 +99,6 @@ export default class App extends React.PureComponent {
   }
   setTextValue = (TextValue) => {
     this.setState({ TextValue });
-    console.log(this.state.TextValue);
   };
   _renderItem = ({ item }) => {
     return (
@@ -178,7 +177,7 @@ export default class App extends React.PureComponent {
                 style={{ flexDirection: 'row', position: 'absolute', left: 20 }}
               >
                 <TouchableOpacity>
-                  <SvgUri svgXmlData={like} width="30" height="30" />
+                  <SvgUri svgXmlData={like} width="20" height="20" />
                 </TouchableOpacity>
                 <Text style={{ fontSize: 15 }}>点赞:1111</Text>
               </View>
@@ -192,8 +191,8 @@ export default class App extends React.PureComponent {
                 <TouchableOpacity onPress={this.sendComment}>
                   <SvgUri
                     svgXmlData={comment}
-                    width="30"
-                    height="30"
+                    width="20"
+                    height="20"
                     style={{ bottom: 5 }}
                   />
                 </TouchableOpacity>
@@ -207,7 +206,7 @@ export default class App extends React.PureComponent {
                 }}
               >
                 <TouchableOpacity>
-                  <SvgUri svgXmlData={trans} width="30" height="30" />
+                  <SvgUri svgXmlData={trans} width="20" height="20" />
                 </TouchableOpacity>
                 <Text style={{ fontSize: 15 }}>收藏:1111</Text>
               </View>

@@ -94,7 +94,7 @@ class Index extends PureComponent {
                     <View style={styles.center}>
                         <View style={{ borderRadius: pxToDp(8), padding:pxToDp(8),marginLeft: pxToDp(10), marginRight: pxToDp(10), marginTop: pxToDp(15), backgroundColor: "#E2F4FE" }}>
                         <Text style={{ fontSize: pxToDp(16), fontWeight:'bold' }}>曲子简介{'\n'} </Text>
-                            <Text style={{ fontSize: pxToDp(14),lineHeight:pxToDp(22) }}>
+                            <Text style={{ fontSize: pxToDp(14),lineHeight:pxToDp(24) }}>
                                 猛听得金鼓响画角声震，唤起我破天门壮志凌云。{'\n'}
                                 想当年桃花马上威风凛凛，敌血飞溅石榴裙。{'\n'}
                                 有生之日责当尽，寸土怎能够属于他人。{'\n'}
@@ -102,13 +102,13 @@ class Index extends PureComponent {
                             </Text>
                         </View>
                         {this.state.products.map((item, index) => (
-                            <View style={{ borderRadius: pxToDp(8), marginLeft: pxToDp(10), marginRight: pxToDp(10), marginTop: pxToDp(10), backgroundColor: "#E2F4FE" }}>
+                            <View style={styles.box}>
                                 <View style={{ flexDirection: "row", margin: pxToDp(15), alignItems: "center", justifyContent: "space-between" }}>
                                     <View style={{ flexDirection: "row" }}>
-                                        <Image source={require('../../../res/7.jpg')} style={{ width: pxToDp(40), height: pxToDp(40), borderRadius: pxToDp(40) }} />
+                                        <Image source={require('../../../res/7.jpg')} style={{ width: pxToDp(60), height: pxToDp(60), borderRadius: pxToDp(30) }} />
                                         <View style={{ marginLeft: pxToDp(10) }}>
-                                            <Text style={{ fontSize: pxToDp(14), fontWeight: "bold" }}>{item.name}</Text>
-                                            <Text style={{ fontSize: pxToDp(12), color: "#666", marginTop: pxToDp(5) }}>{item.time}</Text>
+                                            <Text style={{ fontSize: pxToDp(16), fontWeight: "bold" }}>{item.name}</Text>
+                                            <Text style={{ fontSize: pxToDp(14), color: "#666", marginTop: pxToDp(5) }}>{item.time}</Text>
                                         </View>
                                     </View>
                                     <TouchableOpacity style={{ backgroundColor: "white", width: pxToDp(50), height: pxToDp(25), justifyContent: "center", alignItems: "center", borderRadius: pxToDp(16) }}>
@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
     },
     top: {
         height: pxToDp(110),
-        backgroundColor: '#E2F4FE',
+        backgroundColor: 'white',
         flexDirection: "row",
         alignSelf:'center'
 
@@ -169,8 +169,8 @@ const styles = StyleSheet.create({
         width: "100%",
         backgroundColor: "white",
         marginTop: pxToDp(15),
-        borderTopLeftRadius: pxToDp(16),
-        borderTopRightRadius: pxToDp(16),
+        borderTopLeftRadius: pxToDp(8),
+        borderTopRightRadius: pxToDp(8),
     },
     bottom: {
         height: pxToDp(50),
@@ -178,6 +178,16 @@ const styles = StyleSheet.create({
         backgroundColor: '#3399cc',
         alignSelf: 'center',
         alignItems: 'center'
+    },
+    box: {
+        borderRadius: pxToDp(8),
+        marginLeft: pxToDp(10),
+        marginRight: pxToDp(10),
+        marginTop: pxToDp(10),
+        backgroundColor: "white",
+        elevation: 8,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+        shadowColor: 'black',  //  阴影颜色
+        shadowRadius: pxToDp(10),  //  圆角
     }
 })
 

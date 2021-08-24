@@ -118,8 +118,6 @@ class Index extends PureComponent {
   };
   playSound = async () => {
     if (this.state.sound.length) {
-      console.log('Loading Sound');
-      console.log('Playing Sound');
       for (const sound of this.state.sound) {
         this.setState({ playingsong: sound });
         await sound.playAsync();
@@ -140,7 +138,6 @@ class Index extends PureComponent {
   };
 
   pauseSound = async () => {
-    console.log('Stopping Sound');
     // this.setState({sound:undefined})
     await this.state.playingsong.pauseAsync();
     this.setState({ isplay: false });
@@ -149,7 +146,6 @@ class Index extends PureComponent {
   render() {
     const music = this.props.dongtai.filter((item) => item.label);
     const actress = this.props.dongtai.filter((item) => !item.label);
-    console.log('render');
     const { modalVisible } = this.state;
     return (
       <View>
@@ -176,15 +172,15 @@ class Index extends PureComponent {
                   >
                     <TouchableOpacity style={{ alignItems: 'center' }}>
                       <Ionicons name="qq" size={25} color="#87CEFA" />
-                      <Text>qq</Text>
+                      <Text style={{ fontSize: pxToDp(12),color:'#333333' }}>qq</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={{ alignItems: 'center' }}>
                       <Ionicons name="wechat" size={25} color="#32CD32" />
-                      <Text>微信</Text>
+                      <Text style={{ fontSize: pxToDp(12),color:'#333333' }}>微信</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={{ alignItems: 'center' }}>
                       <Ionicons name="weibo" size={25} color="#FA8072" />
-                      <Text>微博</Text>
+                      <Text style={{ fontSize: pxToDp(12),color:'#333333' }}>微博</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                       style={{ alignItems: 'center' }}
@@ -194,11 +190,11 @@ class Index extends PureComponent {
                       }}
                     >
                       <Ionicons name="exclamation" size={25} color="#DC143C" />
-                      <Text>举报</Text>
+                      <Text style={{ fontSize: pxToDp(12),color:'#333333' }} >举报</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={{ alignItems: 'center' }}>
                       <Ionicons name="star" size={25} color="#FFD700" />
-                      <Text>收藏</Text>
+                      <Text style={{ fontSize: pxToDp(12),color:'#333333' }}>收藏</Text>
                     </TouchableOpacity>
                   </View>
                   <TouchableOpacity
@@ -212,10 +208,11 @@ class Index extends PureComponent {
                       width: pxToDp(200),
                       borderRadius: pxToDp(12),
                       alignItems: 'center',
+                      justifyContent:'center',
                       marginTop: pxToDp(20)
                     }}
                   >
-                    <Text style={{ fontSize: pxToDp(14) }}>取消</Text>
+                    <Text style={{ fontSize: pxToDp(12),color:'#333333' }}>取消</Text>
                   </TouchableOpacity>
                 </View>
               </View>
@@ -260,7 +257,7 @@ class Index extends PureComponent {
                     style={{
                       width: pxToDp(60),
                       height: pxToDp(60),
-                      borderRadius: pxToDp(40),
+                      borderRadius: pxToDp(30),
                       marginLeft: pxToDp(20),
                       marginTop: pxToDp(10)
                     }}
@@ -276,7 +273,8 @@ class Index extends PureComponent {
                     <View style={{ marginTop: pxToDp(10) }}>
                       <Text
                         style={{
-                          fontSize: pxToDp(25),
+                          fontSize: pxToDp(18),
+                          color:'#000000',
                           fontWeight: 'bold',
                           paddingLeft: pxToDp(20)
                         }}
@@ -285,7 +283,8 @@ class Index extends PureComponent {
                       </Text>
                       <Text
                         style={{
-                          fontSize: pxToDp(15),
+                          fontSize: pxToDp(16),
+                          color:'#333333',
                           paddingLeft: pxToDp(20),
                           marginTop: pxToDp(5)
                         }}
@@ -313,6 +312,7 @@ class Index extends PureComponent {
                     <Text
                       style={{
                         fontSize: pxToDp(18),
+                        color:'#333333',
                         marginBottom: pxToDp(10),
                         paddingLeft: pxToDp(8),
                         marginTop: pxToDp(10)
@@ -346,7 +346,9 @@ class Index extends PureComponent {
                       style={{
                         position: 'absolute',
                         bottom: pxToDp(5),
-                        left: pxToDp(30)
+                        left: pxToDp(30),
+                        fontSize:pxToDp(12),
+                        color:'#666666'
                       }}
                     >
                       {this.state.count}
@@ -398,7 +400,7 @@ class Index extends PureComponent {
                     style={{
                       width: pxToDp(60),
                       height: pxToDp(60),
-                      borderRadius: pxToDp(40),
+                      borderRadius: pxToDp(30),
                       marginLeft: pxToDp(20),
                       marginTop: pxToDp(10)
                     }}
@@ -414,7 +416,8 @@ class Index extends PureComponent {
                     <View style={{ marginTop: pxToDp(10) }}>
                       <Text
                         style={{
-                          fontSize: pxToDp(25),
+                          fontSize: pxToDp(18),
+                          color:'#000000',
                           fontWeight: 'bold',
                           paddingLeft: pxToDp(20)
                         }}
@@ -423,7 +426,8 @@ class Index extends PureComponent {
                       </Text>
                       <Text
                         style={{
-                          fontSize: pxToDp(15),
+                          fontSize: pxToDp(16),
+                          color:'#333333',
                           paddingLeft: pxToDp(20),
                           marginTop: pxToDp(5)
                         }}
@@ -451,6 +455,7 @@ class Index extends PureComponent {
                     <Text
                       style={{
                         fontSize: pxToDp(18),
+                        color:'#333333',
                         marginBottom: pxToDp(10),
                         paddingLeft: pxToDp(8),
                         marginTop: pxToDp(10)
@@ -484,7 +489,9 @@ class Index extends PureComponent {
                       style={{
                         position: 'absolute',
                         bottom: pxToDp(5),
-                        left: pxToDp(30)
+                        left: pxToDp(30),
+                        fontSize:pxToDp(12),
+                        color:'#666666'
                       }}
                     >
                       {this.state.count}

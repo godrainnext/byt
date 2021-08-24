@@ -83,18 +83,18 @@ class Index extends PureComponent {
         <Top icon1="arrow-back" title="剧本中心" />
         <ScrollView style={{ flex: 1 }}>
           {/*剧本推荐 */}
-          <Text style={{ fontSize: pxToDp(18), color: '#468CD3', fontWeight: 'bold', marginTop: pxToDp(12), marginLeft: pxToDp(8) }}>猜你喜欢</Text>
+          <Text style={{ fontSize: pxToDp(18), color: '#468CD3', fontWeight: 'bold', marginTop: pxToDp(12), marginLeft: pxToDp(16) }}>猜你喜欢</Text>
           {this.state.drama.map((item) => (
             <View style={styles.bookbox}>
               <View style={styles.bookbotton11}>
                 <View style={{ marginLeft: pxToDp(120), marginTop: pxToDp(10) }}>
                   <View style={styles.bookinf}>
-                    <Text style={{ fontSize: pxToDp(17), fontWeight: 'bold' }}>{item.title}</Text>
+                    <Text style={{ fontSize: pxToDp(16), fontWeight: 'bold',color:'#333333'}}>{item.title}</Text>
                     <TouchableOpacity onPress={() => this.context.navigate(item.drama)} >
                       <Svg width="32" height="32" svgXmlData={right} />
                     </TouchableOpacity>
                   </View>
-                  <Text stlye={{ fontSize: pxToDp(13) }} numberOfLines={2}>{item.context}</Text>
+                  <Text numberOfLines={2} style={{color:'#666666',fontSize:pxToDp(14)}}>{item.context}</Text>
                   <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                   </View>
                 </View>

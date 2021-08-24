@@ -4,8 +4,7 @@ import {
   Text,
   Image,
   StyleSheet,
-  ImageBackground,
-  RefreshControl
+  ImageBackground
 } from 'react-native';
 import { NavigationContext } from '@react-navigation/native';
 import { pxToDp } from '@utils/styleKits';
@@ -13,53 +12,17 @@ import Top from '@components/common/top';
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 import CustormerBar from '../seetings/component/CustormerBar';
 import Dongtai from '../seetings/component/dontai';
-
 export default class hello extends Component {
   static contextType = NavigationContext;
   state = {
-    sctop: 0,
-    text: '初始状态', 
-    refreshing: false 
+    sctop: 0
   };
-  componentDidMount() {}
-  wait = (timeout) => {
-    return new Promise(resolve => {
-      setTimeout(resolve, timeout);
-    });
-  }
-  _onRefresh() {
+  componentDidMount() { }
 
-    if (this.state.refreshing === false) {
-        this._updateState('正在刷新......', true);
-
-        //5秒后结束刷新
-        setTimeout( ()=>{
-            this._updateState('结束状态', false)
-        }, 2000)
-
-    }
-}
-
-//更新State
-_updateState(message, refresh){
-    this.setState({text:message,refreshing: refresh});
-}
   render() {
     const { userinfo } = this.state;
     return (
       <ParallaxScrollView
-      contentContainerStyle={{flex: 1, alignItems: 'center',justifyContent: 'center'}}
-      indicatorStyle={'black'}
-      showsHorizontalScrollIndicator={true}
-      bounces={true}
-      refreshControl={
-          <RefreshControl
-              tintColor={'red'}
-              titleColor={'brown'}
-              title={'正在刷新......'}
-              refreshing={this.state.refreshing}
-              onRefresh={this._onRefresh.bind(this)}
-          />}
         onScroll={(event) => {
           this.setState({
             sctop:
@@ -92,7 +55,7 @@ _updateState(message, refresh){
           <View style={[style.top, { top: this.state.sctop }]}>
             <ImageBackground
               source={require('./myback.png')}
-              style={{ width: 400, height: 800 }}
+              style={{ width: 400, height: 600 }}
             />
           </View>
           <View style={style.bottom}>

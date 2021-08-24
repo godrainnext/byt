@@ -60,7 +60,6 @@ class Index extends PureComponent {
    * @description Function to initialize the Rtc Engine, attach event listeners and actions
    */
   init = async () => {
-    console.log(123);
     const { appId } = this.state;
     // this._engine = await RtcEngine.create(appId);
     // await this._engine.enableVideo();
@@ -112,7 +111,6 @@ class Index extends PureComponent {
         joinSucceed: true
       });
     });
-    console.log(1234);
   };
 
   startCall = async () => {
@@ -133,7 +131,7 @@ class Index extends PureComponent {
     const { text } = this.state;
     const kaifang = () => {
       this.Scrollable1.close();
-      this.context.navigate('KaiFang'), console.log(123);
+      this.context.navigate('KaiFang');
     };
     const chafang = () => {
       this.Scrollable3.close();

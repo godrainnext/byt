@@ -153,7 +153,6 @@ class shopdetails extends PureComponent {
     }
   };
   render() {
-    console.log(this.state.shopbanner);
     const { count, tabs, activeTab, activeSizeTab } = this.state;
     return (
       <View style={{ flex: 1, backgroundColor: '#ecf6fc' }}>
@@ -178,7 +177,7 @@ class shopdetails extends PureComponent {
 
           {/* 品名 价格 */}
           <View style={{ alignItems: 'center', marginTop: pxToDp(20) }}>
-            <Text style={{ fontSize: pxToDp(20),color:'#000000',fontWeight: 'bold' }}>
+            <Text style={{ fontSize: pxToDp(20),color:'#333333',fontWeight: 'bold' }}>
               {this.state.shop.title}
             </Text>
             <View
@@ -188,7 +187,7 @@ class shopdetails extends PureComponent {
                 alignItems: 'flex-end'
               }}
             >
-              <Text style={{ fontSize: pxToDp(16), fontWeight: 'bold' }}>
+              <Text style={{ fontSize: pxToDp(16),color:'#f0bb51' }}>
                 ￥
                 {parseInt(
                   this.state.shop.price ? this.state.shop.price * 0.8 : 0
@@ -215,7 +214,7 @@ class shopdetails extends PureComponent {
               marginTop: pxToDp(15)
             }}
           >
-            <Text style={{fontSize:pxToDp(16),color:'#333333'}}>{this.state.shop.inner}</Text>
+            <Text style={{fontSize:pxToDp(14),color:'#666666',lineHeight:pxToDp(24)}}>{this.state.shop.inner}</Text>
           </View>
 
           {/* 商品详情 */}
@@ -262,7 +261,7 @@ class shopdetails extends PureComponent {
                   style={{
                     width: pxToDp(60),
                     height: pxToDp(60),
-                    margin: pxToDp(10),
+                    margin: pxToDp(16),
                     borderRadius: pxToDp(8)
                   }}
                   source={{
@@ -281,7 +280,7 @@ class shopdetails extends PureComponent {
                 }}
               >
                 <View style={{ flexDirection: 'row' }}>
-                  <Text style={{ fontSize: pxToDp(16), marginTop: pxToDp(10) }}>
+                  <Text style={{ fontSize: pxToDp(16), marginTop: pxToDp(16) }}>
                     ￥{this.state.products[activeTab]?.price}
                   </Text>
                 </View>
@@ -302,7 +301,7 @@ class shopdetails extends PureComponent {
             </View>
             {/* 尺码选择 */}
             <View
-              style={{ borderTopWidth: pxToDp(1.1), borderColor: '#f1f1f1' }}
+              style={{ borderTopWidth: pxToDp(1.1), borderColor: '#f1f1f1',margin:pxToDp(16)  }}
             >
               <Text
                 style={{
@@ -317,6 +316,7 @@ class shopdetails extends PureComponent {
               <View style={{ flexWrap: 'wrap', flexDirection: 'row' }}>
                 {this.state.Size.map((item, index) => (
                   <TouchableOpacity
+                  activeOpacity={1}
                     key={item.id}
                     onPress={() => this.changeSizeTab(index)}
                     style={{
@@ -349,7 +349,7 @@ class shopdetails extends PureComponent {
                           alignSelf: 'center',
                           marginTop: pxToDp(4),
                           marginBottom: pxToDp(4),
-                          color: index === activeSizeTab ? '#468CD3' : 'black'
+                          color: index === activeSizeTab ? '#468CD3' : '#666666'
                         }}
                       >
                         {item.size}
@@ -361,7 +361,7 @@ class shopdetails extends PureComponent {
             </View>
             {/* 颜色分类 */}
             <View
-              style={{ borderTopWidth: pxToDp(1.1), borderColor: '#f1f1f1' }}
+              style={{ borderTopWidth: pxToDp(1.1), borderColor: '#f1f1f1' ,margin:pxToDp(16) }}
             >
               <Text
                 style={{
@@ -394,7 +394,7 @@ class shopdetails extends PureComponent {
                       backgroundColor:
                         index === activeTab ? '#ecf6fc' : 'white',
                       borderColor: index === activeTab ? '#468CD3' : 'white',
-                      borderWidth: index === activeTab ? pxToDp(1) : pxToDp(0),
+                      borderWidth: 1,
                       borderRadius: pxToDp(8),
                       height: pxToDp(131),
                       elevation: 5, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
@@ -405,8 +405,8 @@ class shopdetails extends PureComponent {
                   >
                     <Image
                       style={{
-                        width: pxToDp(98),
-                        height: pxToDp(98),
+                        width: pxToDp(99),
+                        height: pxToDp(99),
                         borderTopLeftRadius: pxToDp(8),
                         borderTopRightRadius: pxToDp(8)
                       }}
@@ -418,7 +418,7 @@ class shopdetails extends PureComponent {
                         alignSelf: 'center',
                         marginTop: pxToDp(5),
                         marginBottom: pxToDp(5),
-                        color: index === activeTab ? '#468CD3' : 'black'
+                        color: index === activeTab ? '#468CD3' : '#666666'
                       }}
                     >
                       {item.color}
@@ -430,10 +430,14 @@ class shopdetails extends PureComponent {
             <View style={{ height: pxToDp(40), marginBottom: pxToDp(50) }}>
               <View
                 style={{
-                  margin: pxToDp(13),
+                  margin: pxToDp(16),
+                  height:40,
+                  borderColor: '#f1f1f1' ,
+                  borderBottomWidth:1,
+                  borderTopWidth:1,
                   flexDirection: 'row',
                   justifyContent: 'space-between',
-                  alignItems: 'center'
+                  alignItems: 'center',
                 }}
               >
                 <Text style={{fontSize:pxToDp(16)}}>购买数量</Text>
@@ -441,9 +445,10 @@ class shopdetails extends PureComponent {
                   style={{
                     justifyContent: 'center',
                     alignItems: 'center',
-                    backgroundColor: '#D3D3D3',
+                    backgroundColor: '#999999',
                     width: pxToDp(100),
                     height: pxToDp(30),
+                    opacity:.5,
                     flexDirection: 'row',
                     justifyContent: 'space-between',
                     borderRadius: pxToDp(8)

@@ -13,27 +13,28 @@ class Index extends PureComponent {
         return (
             <View>
                 <Top title="戏缘" />
-              
-                    <View    style={{
-                        height: pxToDp(60), flexDirection: "row", paddingLeft: pxToDp(16),
-                        justifyContent:"space-around",backgroundColor:'#ecf6fc'
-                    }}>
-                          {tabs.map((v, i) => <TouchableOpacity
+                <View
+                    style={{
+                        flexDirection: 'row',
+                        justifyContent: 'space-around',
+                        backgroundColor: '#E2F4FE',
+                        height: pxToDp(50)
+                    }}
+                >
+                    {tabs.map((v, i) => <TouchableOpacity
                         key={i}
                         onPress={() => goToPage(i)}
                         style={{
                             justifyContent: 'center',
                             borderBottomColor: "#003C66",
                             borderBottomWidth: activeTab === i ? pxToDp(3) : 0,
-                          
                         }}
                     >
                         <Text
-                            style={{ color: activeTab === i ? "black" : "grey", fontSize: activeTab === i ? pxToDp(20) : pxToDp(15) }}
+                            style={{ color: activeTab === i ? "black" : "grey", fontSize: activeTab === i ? pxToDp(18) : pxToDp(16) }}
                         >{v}</Text>
                     </TouchableOpacity>)}
-                  </View>
-                
+                </View>
             </View>
         );
     }

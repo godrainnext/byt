@@ -29,7 +29,6 @@ class Index extends PureComponent {
   }
   componentDidMount() {
     getShopList(0, 5).then((res) => {
-      console.log(res);
       this.setState({ arr: res });
     });
   }

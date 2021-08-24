@@ -134,7 +134,6 @@ class Login extends PureComponent {
         }
       })
       .then(async (res) => {
-        console.log(res);
         if (!res) {
           ToastAndroid.show('用户名或密码错误', ToastAndroid.SHORT);
         } else {

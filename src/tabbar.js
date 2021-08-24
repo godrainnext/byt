@@ -17,11 +17,11 @@ class Index extends PureComponent {
   static contextType = NavigationContext;
   kaiBo = () => {
     this.Scrollable1.close();
-    this.context.navigate('KaiBo'), console.log(123);
+    this.context.navigate('KaiBo');
   };
   kaiFang = () => {
     this.Scrollable1.close();
-    this.context.navigate('KaiFang'), console.log(123);
+    this.context.navigate('KaiFang');
   };
   // faComment = ()=>{
   //   this.Scrollable1.close();

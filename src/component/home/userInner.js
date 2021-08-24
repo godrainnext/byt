@@ -23,7 +23,6 @@ class UserInner extends PureComponent {
   static contextType = NavigationContext;
   componentDidMount() {
     this.addFollow = DeviceEventEmitter.addListener('addFollow', () => {
-      console.log(1234);
       getUserFans().then((res) => {
         this.setState({ fansCount: res.fansCount });
       });
@@ -59,7 +58,7 @@ class UserInner extends PureComponent {
     const { fansCount = 0, followCount = 0 } = this.state;
     return (
       <ImageBackground
-      source={require('./userback.png')}
+      source={require('./userback1.jpg')}
         style={{
           borderRadius: pxToDp(8),
           backgroundColor: '#f0fcff',
@@ -69,9 +68,9 @@ class UserInner extends PureComponent {
           borderWidth: 0,overflow:'hidden'
         }}
       >
-              <View style={{position:'absolute',right:-2,top:pxToDp(30)}}>
+              <View style={{position:'absolute',right:-2,top:pxToDp(80)}}>
         <Mybtn
-                    title="积分福利"
+                    title="签 到"
                     onPress={() => this.context.navigate('Video', item.id)}
                     buttonStyle={{
                       width: pxToDp(80),
@@ -87,9 +86,9 @@ class UserInner extends PureComponent {
                     titleStyle={{
                       color: '#fcfcfc',
                       fontWeight: 'bold',
-                      fontSize: pxToDp(12),
+                      fontSize: pxToDp(16),
                       height:40,
-                      marginTop:pxToDp(22)
+                      marginTop:pxToDp(16)
                     }}
                   />
           </View>
@@ -142,7 +141,7 @@ class UserInner extends PureComponent {
                   我爱越剧
                 </Text>
                 <SvgUri
-                  width='20' height='10'
+                  width='20' height='12'
                   svgXmlData='<svg t="1629697652445" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3372" width="200" height="200"><path d="M906.752 906.2912a32 32 0 0 1 4.7616 63.6416l-4.7104 0.3584H120.576a32 32 0 0 1-4.7104-63.6416l4.7104-0.3584H906.752z m-281.4976-845.824a32 32 0 0 1 45.2608 0l205.5168 205.568a32 32 0 0 1 0 45.2608l-478.1568 478.1568a32 32 0 0 1-23.6544 9.3184l-212.48-6.9632a32 32 0 0 1-30.976-33.0752l6.9632-198.6048a32 32 0 0 1 9.3696-21.504z m-111.7184 202.24l-312.32 312.2688-5.376 153.9584 166.5536 5.4272L673.792 422.912l-160.256-160.256z m134.2976-134.3488l-89.088 89.088 160.256 160.256 89.1392-89.088-160.3072-160.256z" p-id="3373" fill="#666666"></path></svg>' />
               
               </View>

@@ -18,13 +18,12 @@ class history extends Component {
   state = { HYlist: [] };
   componentDidMount() {
     getListByStatus(1, 0, 20).then((res) => {
-      console.log(res);
       this.setState({ HYlist: res });
     });
   }
   render() {
     return (
-      <View style={{ marginBottom: pxToDp(60), backgroundColor: '#ecf6fc' }}>
+      <View style={{ backgroundColor: '#ecf6fc',padding:pxToDp(16) }}>
         <Top icon1="arrow-back" />
         <FlatList
           data={this.state.HYlist}
@@ -37,7 +36,6 @@ class history extends Component {
                 flexDirection: 'row',
                 justifyContent: 'center',
                 alignItems: 'center',
-                margin: pxToDp(8),
                 elevation: 10,
                 shadowColor: 'black',
                 shadowOffset: { width: 0, height: 0 },
@@ -63,19 +61,18 @@ class history extends Component {
                     ></View>
                     <View
                       style={{
-                        backgroundColor: '#eaffff',
+                        backgroundColor: 'red',
                         opacity: 0.8,
                         width: '100%',
                         height: '36%',
-                        borderRadius: pxToDp(8)
+                        borderRadius: pxToDp(8),
+                        justifyContent: 'center',
+                        alignItems: 'center'
                       }}
                     >
-                      <View style={{ margin: pxToDp(8) }}>
                         <View
                           style={{
                             flexDirection: 'row',
-                            justifyContent: 'center',
-                            alignItems: 'center'
                           }}
                         >
                           <Text
@@ -83,7 +80,7 @@ class history extends Component {
                             style={{
                               fontSize: pxToDp(16),
                               width: '96%',
-                              marginBottom: pxToDp(8)
+                              marginBottom: pxToDp(8),
                             }}
                           >
                             {item.title}
@@ -99,7 +96,6 @@ class history extends Component {
                             {item.ezcontent}
                           </Text>
                         </View>
-                      </View>
                     </View>
                   </ImageBackground>
                 </TouchableOpacity>

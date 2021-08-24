@@ -62,8 +62,8 @@ export default class commentItem extends PureComponent {
               <View>
                 <SvgUri
                   svgXmlData={inDianZan}
-                  width="15"
-                  height="15"
+                  width="20"
+                  height="20"
                   style={{ color: 'pink' }}
                 />
                 <Text>{this.state.count}</Text>
@@ -72,8 +72,8 @@ export default class commentItem extends PureComponent {
               <View>
                 <SvgUri
                   svgXmlData={dianzan}
-                  width="15"
-                  height="15"
+                  width="20"
+                  height="20"
                   style={{ color: 'pink' }}
                 />
                 <Text>{this.state.count}</Text>

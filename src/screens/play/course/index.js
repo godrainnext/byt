@@ -19,16 +19,14 @@ import SnapCarousel from '../../../component/SnapCarousel/index';
 import { Video } from 'expo-av';
 
 class Index extends PureComponent {
-  state = {
-
-  }
+  state = {};
   static contextType = NavigationContext;
   render() {
     return (
       <View style={{ backgroundColor: '#ecf6fc', flex: 1 }}>
         <View style={{ marginLeft: pxToDp(8), marginRight: pxToDp(8) }}>
           <Top icon1="arrow-back" title="教学" />
-          <ScrollView style={{ marginBottom: pxToDp(50) }}>
+          <ScrollView style={{ marginBottom: pxToDp(32) }}>
             {/*视频 */}
             <View style={{ flex: 1 }}>
               <Video
@@ -50,12 +48,13 @@ class Index extends PureComponent {
               style={{
                 width: '100%',
                 flexDirection: 'row',
-                justifyContent: "space-between",
+                justifyContent: 'space-between',
                 alignItems: 'center',
                 marginTop: pxToDp(16)
               }}
             >
-              <TouchableOpacity onPress={() => this.context.navigate("Basic")}
+              <TouchableOpacity
+                onPress={() => this.context.navigate('Basic')}
                 style={{
                   width: '49%',
                   height: pxToDp(80),
@@ -95,7 +94,8 @@ class Index extends PureComponent {
                   </Text>
                 </ImageBackground>
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => this.context.navigate("Master")}
+              <TouchableOpacity
+                onPress={() => this.context.navigate('Master')}
                 style={{
                   width: '49%',
                   height: pxToDp(80),
@@ -180,7 +180,13 @@ class Index extends PureComponent {
                             alignItems: 'center'
                           }}
                         >
-                          <Text style={{ fontSize: pxToDp(16), width: '96%', color: '#333333' }}>
+                          <Text
+                            style={{
+                              fontSize: pxToDp(16),
+                              width: '96%',
+                              color: '#333333'
+                            }}
+                          >
                             跟沈歆雯学越剧
                           </Text>
                           <TouchableOpacity>
@@ -190,11 +196,29 @@ class Index extends PureComponent {
                         <View
                           style={{ flexDirection: 'row', alignItems: 'center' }}
                         >
-                          <Icon name="control-play" size={15} color={'#333333'} />
-                          <Text style={{ marginLeft: pxToDp(4), fontSize: pxToDp(14) }}>96.7万</Text>
+                          <Icon
+                            name="control-play"
+                            size={15}
+                            color={'#333333'}
+                          />
+                          <Text
+                            style={{
+                              marginLeft: pxToDp(4),
+                              fontSize: pxToDp(14)
+                            }}
+                          >
+                            96.7万
+                          </Text>
                           <View style={{ width: pxToDp(20) }}></View>
                           <Icon name="clock" size={15} color={'#333333'} />
-                          <Text style={{ marginLeft: pxToDp(4), fontSize: pxToDp(14) }}>02:12</Text>
+                          <Text
+                            style={{
+                              marginLeft: pxToDp(4),
+                              fontSize: pxToDp(14)
+                            }}
+                          >
+                            02:12
+                          </Text>
                         </View>
                       </View>
                     </View>
@@ -235,13 +259,19 @@ class Index extends PureComponent {
                       style={{ alignItems: 'center', flexDirection: 'row' }}
                     >
                       <Text
-                        style={{ fontSize: pxToDp(18), fontWeight: 'bold', color: '#333333' }}
+                        style={{
+                          fontSize: pxToDp(18),
+                          fontWeight: 'bold',
+                          color: '#333333'
+                        }}
                       >
                         梨树下
                       </Text>
                     </TouchableOpacity>
                   </View>
-                  <Text style={{ fontSize: pxToDp(16), color: '#333333' }}>前人风韵传后代</Text>
+                  <Text style={{ fontSize: pxToDp(16), color: '#333333' }}>
+                    前人风韵传后代
+                  </Text>
                   <View
                     horizontal={true}
                     style={{
@@ -279,7 +309,11 @@ class Index extends PureComponent {
                         >
                           <Icon2 name="play-arrow" size={16} color={'white'} />
                           <Text
-                            style={{ color: 'white', marginLeft: pxToDp(4), fontSize: pxToDp(12) }}
+                            style={{
+                              color: 'white',
+                              marginLeft: pxToDp(4),
+                              fontSize: pxToDp(12)
+                            }}
                           >
                             7589
                           </Text>
@@ -328,7 +362,11 @@ class Index extends PureComponent {
                         >
                           <Icon2 name="play-arrow" size={16} color={'white'} />
                           <Text
-                            style={{ color: 'white', marginLeft: pxToDp(4), fontSize: pxToDp(12) }}
+                            style={{
+                              color: 'white',
+                              marginLeft: pxToDp(4),
+                              fontSize: pxToDp(12)
+                            }}
                           >
                             7589
                           </Text>
@@ -384,7 +422,11 @@ class Index extends PureComponent {
                               color={'white'}
                             />
                             <Text
-                              style={{ color: 'white', marginLeft: pxToDp(4), fontSize: pxToDp(12) }}
+                              style={{
+                                color: 'white',
+                                marginLeft: pxToDp(4),
+                                fontSize: pxToDp(12)
+                              }}
                             >
                               4289
                             </Text>
@@ -419,8 +461,7 @@ class Index extends PureComponent {
                 marginTop: pxToDp(16)
               }}
             >
-              <Carousel control={false} style={{ height: pxToDp(110) }}
-              >
+              <Carousel control={false} style={{ height: pxToDp(110) }}>
                 <View
                   style={{
                     width: '100%',
@@ -474,7 +515,11 @@ class Index extends PureComponent {
                         }}
                       >
                         <Icon name="control-play" size={12} color={'#333333'} />
-                        <Text style={{ fontSize: pxToDp(12), color: '#333333' }}>6.3万</Text>
+                        <Text
+                          style={{ fontSize: pxToDp(12), color: '#333333' }}
+                        >
+                          6.3万
+                        </Text>
                       </View>
                     </View>
                   </View>
@@ -532,7 +577,11 @@ class Index extends PureComponent {
                         }}
                       >
                         <Icon name="control-play" size={12} color={'#333333'} />
-                        <Text style={{ fontSize: pxToDp(12), color: '#333333' }}>1.3万</Text>
+                        <Text
+                          style={{ fontSize: pxToDp(12), color: '#333333' }}
+                        >
+                          1.3万
+                        </Text>
                       </View>
                     </View>
                   </View>
@@ -590,7 +639,11 @@ class Index extends PureComponent {
                         }}
                       >
                         <Icon name="control-play" size={12} color={'#333333'} />
-                        <Text style={{ fontSize: pxToDp(12), color: '#333333' }}>1.7万</Text>
+                        <Text
+                          style={{ fontSize: pxToDp(12), color: '#333333' }}
+                        >
+                          1.7万
+                        </Text>
                       </View>
                     </View>
                   </View>
@@ -604,10 +657,10 @@ class Index extends PureComponent {
                 flexDirection: 'row',
                 alignItems: 'center',
                 marginTop: pxToDp(16),
-                marginBottom:pxToDp(30)
+                marginBottom: pxToDp(30)
               }}
             >
-              <View style={{ width: '100%', height: '100%', }}>
+              <View style={{ width: '100%', height: '100%' }}>
                 <TouchableOpacity onPress={() => this.context.navigate()}>
                   <ImageBackground
                     style={{ width: '100%', height: pxToDp(220) }}
@@ -644,7 +697,13 @@ class Index extends PureComponent {
                             alignItems: 'center'
                           }}
                         >
-                          <Text style={{ fontSize: pxToDp(16), width: '96%', color: '#333333' }}>
+                          <Text
+                            style={{
+                              fontSize: pxToDp(16),
+                              width: '96%',
+                              color: '#333333'
+                            }}
+                          >
                             跟沈歆雯学越剧
                           </Text>
                           <TouchableOpacity>
@@ -654,11 +713,29 @@ class Index extends PureComponent {
                         <View
                           style={{ flexDirection: 'row', alignItems: 'center' }}
                         >
-                          <Icon name="control-play" size={15} color={'#333333'} />
-                          <Text style={{ marginLeft: pxToDp(4), fontSize: pxToDp(14) }}>96.7万</Text>
+                          <Icon
+                            name="control-play"
+                            size={15}
+                            color={'#333333'}
+                          />
+                          <Text
+                            style={{
+                              marginLeft: pxToDp(4),
+                              fontSize: pxToDp(14)
+                            }}
+                          >
+                            96.7万
+                          </Text>
                           <View style={{ width: pxToDp(20) }}></View>
                           <Icon name="clock" size={15} color={'#333333'} />
-                          <Text style={{ marginLeft: pxToDp(4), fontSize: pxToDp(14) }}>02:12</Text>
+                          <Text
+                            style={{
+                              marginLeft: pxToDp(4),
+                              fontSize: pxToDp(14)
+                            }}
+                          >
+                            02:12
+                          </Text>
                         </View>
                       </View>
                     </View>

@@ -31,8 +31,6 @@ class Index extends PureComponent {
 
   playSound = async () => {
     if (this.state.sound.length) {
-      console.log('Loading Sound');
-      console.log('Playing Sound');
       for (const sound of this.state.sound) {
         this.setState({ playingsong: sound });
         await sound.playAsync();
@@ -83,18 +81,14 @@ class Index extends PureComponent {
       this.setState({ recording: file.recording });
       this.setState({ isrecoding: true });
       // console.log(file);
-      console.log('Recording started');
     } catch (err) {
       console.error('Failed to start recording', err);
     }
   };
   stopRecording = async () => {
-    console.log('Stopping recording..');
     // this.setState({recording:undefined});
     await this.state.recording.stopAndUnloadAsync();
     const uri = this.state.recording.getURI();
-    console.log(this.state.recording);
-    console.log('Recording stopped and stored at', uri);
     this.setState({ URI: [...this.state.URI, uri] });
     this.setState({ isrecoding: false });
   };
@@ -110,10 +104,11 @@ class Index extends PureComponent {
         }}
       >
         <View style={{ alignItems: 'center' }}>
-          <Top icon1="arrow-back" title="穆桂英挂帅" icon2="star-outline" />
+          <Top icon1="arrow-back" title="穆桂英挂帅" />
           <Text
             style={{
-              fontSize: pxToDp(16),
+              fontSize: pxToDp(18),
+              color: '#000000',
               fontWeight: 'bold',
               marginTop: pxToDp(15)
             }}
@@ -125,14 +120,15 @@ class Index extends PureComponent {
         <View style={{ alignItems: 'center' }}>
           <ScrollView
             showsVerticalScrollIndicator={false}
-            style={{ height: '60%' }}
+            style={{ height: '70%' }}
           >
             <View style={{ alignItems: 'center' }}>
               <Text
                 style={{
                   fontSize: pxToDp(16),
                   lineHeight: pxToDp(40),
-                  alignItems: 'center'
+                  alignItems: 'center',
+                  color: '#333333'
                 }}
               >
                 猛听得金鼓响画角声震
@@ -141,7 +137,8 @@ class Index extends PureComponent {
                 style={{
                   fontSize: pxToDp(16),
                   lineHeight: pxToDp(40),
-                  alignItems: 'center'
+                  alignItems: 'center',
+                  color: '#333333'
                 }}
               >
                 唤起我破天门壮志凌云
@@ -150,7 +147,8 @@ class Index extends PureComponent {
                 style={{
                   fontSize: pxToDp(16),
                   lineHeight: pxToDp(40),
-                  alignItems: 'center'
+                  alignItems: 'center',
+                  color: '#333333'
                 }}
               >
                 想当年桃花马上威风凛凛
@@ -159,7 +157,8 @@ class Index extends PureComponent {
                 style={{
                   fontSize: pxToDp(16),
                   lineHeight: pxToDp(40),
-                  alignItems: 'center'
+                  alignItems: 'center',
+                  color: '#333333'
                 }}
               >
                 敌血飞溅石榴裙
@@ -168,7 +167,8 @@ class Index extends PureComponent {
                 style={{
                   fontSize: pxToDp(16),
                   lineHeight: pxToDp(40),
-                  alignItems: 'center'
+                  alignItems: 'center',
+                  color: '#333333'
                 }}
               >
                 有生之日责当尽
@@ -177,7 +177,8 @@ class Index extends PureComponent {
                 style={{
                   fontSize: pxToDp(16),
                   lineHeight: pxToDp(40),
-                  alignItems: 'center'
+                  alignItems: 'center',
+                  color: '#333333'
                 }}
               >
                 寸土怎能够属于他人
@@ -186,7 +187,8 @@ class Index extends PureComponent {
                 style={{
                   fontSize: pxToDp(16),
                   lineHeight: pxToDp(40),
-                  alignItems: 'center'
+                  alignItems: 'center',
+                  color: '#333333'
                 }}
               >
                 番王小丑何足论
@@ -195,7 +197,8 @@ class Index extends PureComponent {
                 style={{
                   fontSize: pxToDp(16),
                   lineHeight: pxToDp(40),
-                  alignItems: 'center'
+                  alignItems: 'center',
+                  color: '#333333'
                 }}
               >
                 我一剑能当百万的兵
@@ -204,16 +207,18 @@ class Index extends PureComponent {
                 style={{
                   fontSize: pxToDp(16),
                   lineHeight: pxToDp(40),
-                  alignItems: 'center'
+                  alignItems: 'center',
+                  color: '#333333'
                 }}
               >
-                猛听得金鼓响画角声震{' '}
+                猛听得金鼓响画角声震
               </Text>
               <Text
                 style={{
                   fontSize: pxToDp(16),
                   lineHeight: pxToDp(40),
-                  alignItems: 'center'
+                  alignItems: 'center',
+                  color: '#333333'
                 }}
               >
                 唤起我破天门壮志凌云
@@ -222,7 +227,8 @@ class Index extends PureComponent {
                 style={{
                   fontSize: pxToDp(16),
                   lineHeight: pxToDp(40),
-                  alignItems: 'center'
+                  alignItems: 'center',
+                  color: '#333333'
                 }}
               >
                 想当年桃花马上威风凛凛
@@ -231,7 +237,8 @@ class Index extends PureComponent {
                 style={{
                   fontSize: pxToDp(16),
                   lineHeight: pxToDp(40),
-                  alignItems: 'center'
+                  alignItems: 'center',
+                  color: '#333333'
                 }}
               >
                 敌血飞溅石榴裙
@@ -240,7 +247,8 @@ class Index extends PureComponent {
                 style={{
                   fontSize: pxToDp(16),
                   lineHeight: pxToDp(40),
-                  alignItems: 'center'
+                  alignItems: 'center',
+                  color: '#333333'
                 }}
               >
                 有生之日责当尽
@@ -249,7 +257,8 @@ class Index extends PureComponent {
                 style={{
                   fontSize: pxToDp(16),
                   lineHeight: pxToDp(40),
-                  alignItems: 'center'
+                  alignItems: 'center',
+                  color: '#333333'
                 }}
               >
                 寸土怎能够属于他人
@@ -258,7 +267,8 @@ class Index extends PureComponent {
                 style={{
                   fontSize: pxToDp(16),
                   lineHeight: pxToDp(40),
-                  alignItems: 'center'
+                  alignItems: 'center',
+                  color: '#333333'
                 }}
               >
                 番王小丑何足论
@@ -267,7 +277,8 @@ class Index extends PureComponent {
                 style={{
                   fontSize: pxToDp(16),
                   lineHeight: pxToDp(40),
-                  alignItems: 'center'
+                  alignItems: 'center',
+                  color: '#333333'
                 }}
               >
                 我一剑能当百万的兵
@@ -287,6 +298,7 @@ class Index extends PureComponent {
         <View style={styles.bottom}>
           <View>
             <TouchableOpacity
+              style={{ alignItems: 'center' }}
               onPress={() =>
                 this.state.status.isPlaying
                   ? video.current.pauseAsync()
@@ -294,17 +306,18 @@ class Index extends PureComponent {
               }
             >
               <Ionicons name="musical-notes-outline" size={25} color="white" />
-              <Text>{this.state.status.isPlaying ? '暂停' : '播放'}</Text>
+              <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>{this.state.status.isPlaying ? '暂停' : '播放'}</Text>
             </TouchableOpacity>
           </View>
           <View>
-            <TouchableOpacity>
+            <TouchableOpacity style={{ alignItems: 'center' }}>
               <Ionicons name="options-outline" size={25} color="white" />
-              <Text>音量</Text>
+              <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>音量</Text>
             </TouchableOpacity>
           </View>
           <View>
             <TouchableOpacity
+              style={{ alignItems: 'center' }}
               onPress={
                 this.state.isrecoding ? this.stopRecording : this.startRecording
               }
@@ -313,17 +326,18 @@ class Index extends PureComponent {
             </TouchableOpacity>
           </View>
           <View>
-            <TouchableOpacity>
+            <TouchableOpacity style={{ alignItems: 'center' }}>
               <Ionicons name="refresh" size={25} color="white" />
-              <Text>重唱</Text>
+              <Text style={{ fontSize: pxToDp(14), color: '#333333' }} >重唱</Text>
             </TouchableOpacity>
           </View>
           <View>
             <TouchableOpacity
+              style={{ alignItems: 'center' }}
               onPress={this.state.isplay ? this.pauseSound : this.playSound}
             >
               <Ionicons name="checkmark" size={25} color="white" />
-              <Text>结束</Text>
+              <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>结束</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -359,7 +373,7 @@ const styles = StyleSheet.create({
     marginTop: pxToDp(40)
   },
   bottom: {
-    height: pxToDp(80),
+    height: pxToDp(60),
     width: '100%',
     backgroundColor: '#3399cc',
     alignSelf: 'center',

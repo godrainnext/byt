@@ -15,7 +15,6 @@ class Index extends PureComponent {
   }
   static contextType = NavigationContext;
   render() {
-    console.log(this.props.route);
     return (
       <View style={{ backgroundColor: '#E2F4FE', flex: 1 }}>
         <Top icon1="arrow-back" title="名角风采" />
@@ -25,38 +24,37 @@ class Index extends PureComponent {
               onPress={() => this.context.navigate('Actress', item)}
               key={item.id}
               style={{
-                width: '100%',
                 height: pxToDp(130),
                 borderRadius: pxToDp(8),
                 flexDirection: 'row',
                 marginTop: pxToDp(10),
-                backgroundColor: 'white',
+                backgroundColor: 'white'
               }}
             >
-                <Image
-                  style={{
-                    width: pxToDp(90),
-                    height: pxToDp(110),
-                    borderRadius: pxToDp(8),
-                    marginLeft:pxToDp(10),
-                    marginTop:pxToDp(10)
-                  }}
-                  source={{
-                    uri: changeImgSize(item.avatar)
-                  }}
-                />
+              <Image
+                style={{
+                  width: pxToDp(90),
+                  height: pxToDp(110),
+                  borderRadius: pxToDp(8),
+                  marginLeft: pxToDp(10),
+                  marginTop: pxToDp(10)
+                }}
+                source={{
+                  uri: changeImgSize(item.avatar)
+                }}
+              />
               <View
                 style={{
                   width: pxToDp(240),
-                  height:pxToDp(130),
+                  height: pxToDp(130),
                   marginLeft: pxToDp(10),
                   marginTop:pxToDp(7)
                 }}
               >
-                <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold' }}>
+                <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold',color:'#333333' }}>
                   {item.name}
                 </Text>
-                <Text style={{ fontSize: pxToDp(14),lineHeight:pxToDp(18),marginTop:pxToDp(14) }} numberOfLines={4}>{item.content}</Text>
+                <Text style={{ fontSize: pxToDp(14),lineHeight:pxToDp(18),marginTop:pxToDp(14),color:'#666666' }} numberOfLines={4}>{item.content}</Text>
               </View>
             </TouchableOpacity>
           ))}

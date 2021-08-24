@@ -36,7 +36,6 @@ class Index extends PureComponent {
     this.subscript.remove();
   }
   render() {
-    //console.log(this.props);
     const {
       fansCount = 0,
       followCount = 0,
@@ -98,7 +97,7 @@ class Index extends PureComponent {
             </TouchableOpacity>
             <Text
               style={{
-                fontSize: pxToDp(20),
+                fontSize: pxToDp(18),
                 fontWeight: 'bold',
                 color: '#333333',
                 alignSelf: 'center',

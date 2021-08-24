@@ -261,6 +261,7 @@ const styles = StyleSheet.create({
     width: pxToDp(90),
     height: pxToDp(120),
     marginLeft: pxToDp(10),
+    color:'#333333',
     marginTop: pxToDp(10),
     flexDirection: 'row',
     justifyContent: 'flex-end'
@@ -269,8 +270,8 @@ const styles = StyleSheet.create({
     height: pxToDp(100),
     width: '98%',
     alignSelf: 'center',
-    marginTop: pxToDp(15),
-    marginBottom: pxToDp(15),
+    marginTop: pxToDp(16),
+    marginBottom: pxToDp(16),
     backgroundColor: '#fa9222',
     borderRadius: pxToDp(16),
     justifyContent: 'space-around',
