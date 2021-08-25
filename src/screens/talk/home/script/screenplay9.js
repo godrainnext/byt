@@ -7,7 +7,7 @@ class Index extends PureComponent {
   renderInner = () => (
     <Fragment>
       <View>
-        <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold' }}>山河恋</Text>
+        <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold',color:'#000000' }}>山河恋</Text>
       </View>
       <Text
         style={{
@@ -145,10 +145,12 @@ const styles = StyleSheet.create({
   Text: {
     fontSize: pxToDp(16),
     marginTop: pxToDp(4),
+    color: '#333333',
     lineHeight: pxToDp(25)
   },
   texthead: {
     fontWeight: 'bold',
+    color: '#333333',
     fontSize: pxToDp(16),
   }
 });

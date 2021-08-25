@@ -16,8 +16,8 @@ import { NavigationContext } from '@react-navigation/native';
 
 const CONTENT = [
   {
-    title: '方亚芬 天问教学',
-    text: '袁派优秀传人方亚芬',
+    title: '方亚芬越剧教学',
+    text: '《西厢记》选段',
     content1: '第一集',
     content2: '第二集',
     content3: '第三集',
@@ -25,8 +25,8 @@ const CONTENT = [
     path: require('../../../../res/genre/1.jpg')
   },
   {
-    title: '茅威涛教你越剧',
-    text: '尹派茅威涛教学',
+    title: '竺小招越剧教学',
+    text: '《莫愁女》选段',
     content1: '第一集',
     content2: '第二集',
     content3: '第三集',
@@ -34,8 +34,8 @@ const CONTENT = [
     path: require('../../../../res/genre/3.jpg')
   },
   {
-    title: '越剧《葬花》教学',
-    text: '黄志清-越剧花旦',
+    title: '王君安越剧教学',
+    text: '《红楼梦》选段',
     content1: '第一集',
     content2: '第二集',
     content3: '第三集',
@@ -43,8 +43,8 @@ const CONTENT = [
     path: require('../../../../res/genre/4.jpg')
   },
   {
-    title: '林再民越剧小课堂',
-    text: '唱腔篇',
+    title: '吴凤花越剧教学',
+    text: '《梁山伯与祝英台》选段',
     content1: '第一集',
     content2: '第二集',
     content3: '第三集',
@@ -52,8 +52,8 @@ const CONTENT = [
     path: require('../../../../res/genre/5.jpg')
   },
   {
-    title: '王文娟系列',
-    text: '越剧一代宗师',
+    title: '金静越剧教学',
+    text: '《白蛇传》选段',
     content1: '第一集',
     content2: '第二集',
     content3: '第三集',
@@ -61,8 +61,8 @@ const CONTENT = [
     path: require('../../../../res/genre/6.jpg')
   },
   {
-    title: '尹桂芳越剧教学',
-    text: '“越剧皇帝”、流派宗师',
+    title: '陈飞越剧教学',
+    text: '《孔雀东南飞》选段',
     content1: '第一集',
     content2: '第二集',
     content3: '第三集',

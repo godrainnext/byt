@@ -20,7 +20,6 @@ export default class index extends PureComponent {
           id: '1',
           posters: require('../../../../res/ticket1.jpg'),
           name: '【杭州】【鼓楼剧场】钱塘戏社越剧专场-周日',
-          type: '曲苑杂坛',
           date: '2021.08.15-10.01',
           place: '杭州 鼓楼剧场',
           detail: '中山南路501号鼓楼城墙二楼',
@@ -32,7 +31,6 @@ export default class index extends PureComponent {
           id: '2',
           posters: require('../../../../res/ticket2.jpg'),
           name: '【杭州】越剧六代同台《梁山伯与祝英台》',
-          type: '曲苑杂坛',
           date: '2021.10.08周五 19:30',
           place: '杭州 杭州剧院',
           detail: '武林广场29号',
@@ -44,7 +42,6 @@ export default class index extends PureComponent {
           id: '3',
           posters: require('../../../../res/ticket3.jpg'),
           name: '【杭州】此情关风月 拾光谱新篇 ——杭州越剧院建院65周年“四季有越”2021年度巡演·杭州站',
-          type: '曲苑杂坛',
           date: '2021.10.04-10.05',
           place: '杭州 杭州剧院',
           detail: '武林广场29号',
@@ -56,7 +53,6 @@ export default class index extends PureComponent {
           id: '4',
           posters: require('../../../../res/ticket4.jpg'),
           name: '【杭州】浙江小百花越剧院（浙江小百花越剧团）·越剧新版《梁祝》',
-          type: '曲苑杂坛',
           date: '2021.10.16周六19:00',
           place: '杭州 杭州临平大剧院',
           detail: '望梅路与汀兰街交叉口南100米',
@@ -68,7 +64,6 @@ export default class index extends PureComponent {
           id: '5',
           posters: require('../../../../res/ticket5.jpg'),
           name: '【杭州】浙江小百花越剧院（浙江小百花越剧团）·经典越剧《五女拜寿》',
-          type: '曲苑杂坛',
           date: '2021.10.17周日19::00',
           place: '杭州 杭州临平大剧院',
           detail: '望梅路与汀兰街交叉口南100米',
@@ -79,7 +74,6 @@ export default class index extends PureComponent {
         {
           id: '6',
           posters: require('../../../../res/ticket6.jpg'),
-          type: '曲苑杂坛',
           name: '【嘉兴】越剧《双轿接亲》',
           date: '2021.10.10周日13:00',
           place: '嘉兴 海盐县大剧院',
@@ -162,22 +156,6 @@ export default class index extends PureComponent {
                     }}
                     source={item.posters}
                   >
-                    <View
-                      style={{
-                        width: pxToDp(55),
-                        height: pxToDp(15),
-                        backgroundColor: '#000',
-                        margin: pxToDp(2),
-                        borderRadius: pxToDp(10),
-                        opacity: 0.6,
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                      }}
-                    >
-                      <Text style={{ fontSize: pxToDp(12), color: '#fff' }}>
-                        {item.type}
-                      </Text>
-                    </View>
                   </ImageBackground>
                   <View
                     style={{
