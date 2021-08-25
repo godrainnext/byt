@@ -6,13 +6,14 @@ class Index extends PureComponent {
   renderInner = () => (
     <Fragment>
       <View>
-        <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold' }}>
+        <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold',color:'#000000' }}>
           梁祝（十八相送）
         </Text>
       </View>
       <Text
         style={{
           marginTop: pxToDp(8),
+          color: '#333333',
           fontSize: pxToDp(16),
           marginBottom: pxToDp(10)
         }}
@@ -361,11 +362,13 @@ const styles = StyleSheet.create({
   Text: {
     fontSize: pxToDp(16),
     marginTop: pxToDp(4),
+    color: '#333333',
     lineHeight: pxToDp(25)
   },
   texthead: {
     fontWeight: 'bold',
-    fontSize: pxToDp(16)
+    fontSize: pxToDp(16),
+    color: '#333333',
   }
 });
 export default Index;

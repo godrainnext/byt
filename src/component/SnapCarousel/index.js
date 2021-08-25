@@ -17,7 +17,7 @@ const ENTRIES1 = [
     illustration: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fy0.ifengimg.com%2Fnews_spider%2Fdci_2012%2F08%2F556d0bf3b26a800daca84b6fb1f01057.jpg&refer=http%3A%2F%2Fy0.ifengimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632452780&t=6f391f56dc36ccd118c3d4fad984f8e0',
   },
   {
-    title: '了解越剧的妆容与服饰',
+    title: '越剧的妆容与服饰',
     subtitle: '2',
     illustration: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20171224%2F7a4c8b3f2c88470486067eabbc3ef436.jpeg&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631081945&t=98411174c1cee09113ae525a36933077',
   },

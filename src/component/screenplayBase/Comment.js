@@ -41,7 +41,7 @@ class Comment extends PureComponent {
           {/* 评论区 */}
           <View
             style={{
-              marginTop: pxToDp(12),
+              marginTop: pxToDp(24),
               marginBottom: pxToDp(10)
             }}
           >
@@ -76,7 +76,7 @@ class Comment extends PureComponent {
             placeholder="发一条友善的评论"
             style={{
               height: '80%',
-              backgroundColor: '#ddd',
+              backgroundColor: '#fff',
               width: '75%',
               marginLeft: pxToDp(20),
               borderRadius: pxToDp(20),
