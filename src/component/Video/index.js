@@ -137,7 +137,7 @@ export default class App extends React.PureComponent {
     const { status } = this.state;
     return (
       <View>
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
           <View>
             <View style={styles.container}>
               <Video
@@ -257,6 +257,7 @@ export default class App extends React.PureComponent {
             </View>
             <View>
               <FlatList
+              showsVerticalScrollIndicator = {false}
                 data={this.state.Listzzz}
                 renderItem={this._renderItem}
               />

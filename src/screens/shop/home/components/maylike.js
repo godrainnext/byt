@@ -37,7 +37,7 @@ class Index extends PureComponent {
                 <Text style={{ color: '#999999', fontSize: pxToDp(12), }}>{this.props.number}人付款</Text>
               </View>
               <TouchableOpacity style={styles.shopCar}>
-                <Svg width="24" height="30" svgXmlData={shopCar} />
+                <Svg width="24" height="24" svgXmlData={shopCar} />
               </TouchableOpacity>
             </View>
           </View>
@@ -52,9 +52,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     width: pxToDp(164),
     borderRadius: pxToDp(8),
-    margin: pxToDp(8),
-    marginRight: pxToDp(5),
-    elevation: 5,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+    marginTop:pxToDp(12),
+    elevation: 2,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
     shadowColor: 'black',  //  阴影颜色
     shadowRadius: pxToDp(8),  //  圆角
   },
@@ -65,7 +64,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius: pxToDp(8)
   },
   shopCar: {
-    elevation: 5,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+    elevation: 2,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
     shadowColor: 'grey',  //  阴影颜色
     shadowRadius: pxToDp(16),  //  圆角,
     height: pxToDp(28),

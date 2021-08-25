@@ -75,7 +75,8 @@ class Index extends PureComponent {
   render() {
     return (
       <ScrollView
-        style={{ backgroundColor: 'white', flex: 1, marginBottom: pxToDp(10) }}
+        style={{ backgroundColor: 'white', flex: 1}}
+        showsVerticalScrollIndicator={false}
       >
         <ImageBackground
           source={require('../../../res/jfbg.jpg')}
@@ -89,7 +90,7 @@ class Index extends PureComponent {
           </TouchableOpacity>
           <View style={styles.title}>
             <Text style={styles.paihang}>排行榜</Text>
-            <Text style={{ fontSize: pxToDp(13), color: 'white' }}>
+            <Text style={{ fontSize: pxToDp(14), color: 'white' }}>
               以近7天的剧本点击阅读量为准
             </Text>
           </View>
@@ -106,11 +107,11 @@ class Index extends PureComponent {
               />
               <View style={{ width: pxToDp(220) }}>
                 <View style={styles.booktitle}>
-                  <Text style={styles.booktitle3}>红楼梦</Text>
+                  <Text style={[styles.booktitle3,{marginBottom:pxToDp(8)}]}>红楼梦</Text>
                   <Svg width="32" height="32" svgXmlData={jinpai} />
                 </View>
                 <Text
-                  style={{ fontSize: pxToDp(13), marginLeft: pxToDp(10) }}
+                  style={{ fontSize: pxToDp(14), marginLeft: pxToDp(10),color:'#666666'}}
                   numberOfLines={3}
                 >
                   新版越剧《红楼梦》创作于1999年，首演于同年8月。它从调整戏剧结构入手，别样营造大悲大喜、大实大虚的舞台意境，并提高舞美空间层次，丰富音乐形象，整合流派表演，精缩演出时间，实现了一次富有创意的新编。
@@ -138,11 +139,11 @@ class Index extends PureComponent {
               />
               <View style={{ width: pxToDp(220) }}>
                 <View style={styles.booktitle}>
-                  <Text style={styles.booktitle3}>碧玉簪</Text>
+                  <Text style={[styles.booktitle3,{marginBottom:pxToDp(8)}]}>碧玉簪</Text>
                   <Svg width="32" height="32" svgXmlData={yinpai} />
                 </View>
                 <Text
-                  style={{ fontSize: pxToDp(12), marginLeft: pxToDp(10) }}
+                  style={{ fontSize: pxToDp(14), marginLeft: pxToDp(10),color:'#666666' }}
                   numberOfLines={3}
                 >
                   《碧玉簪》讲述了王玉林得尚书李廷甫赏识，获许配廷甫女秀英为妻。秀英的表兄顾文友因妒生恨，骗取秀英的碧玉簪放进伪造情书里，诬陷秀英与他有染。最终玉林送凤冠请罪，夫妇冰释前嫌。
@@ -167,11 +168,11 @@ class Index extends PureComponent {
               />
               <View style={{ width: pxToDp(220) }}>
                 <View style={styles.booktitle}>
-                  <Text style={styles.booktitle3}>周仁哭坟</Text>
+                  <Text style={[styles.booktitle3,{    marginBottom:pxToDp(8)}]}>周仁哭坟</Text>
                   <Svg width="32" height="32" svgXmlData={tongpai} />
                 </View>
                 <Text
-                  style={{ fontSize: pxToDp(12), marginLeft: pxToDp(10) }}
+                  style={{ fontSize: pxToDp(14), marginLeft: pxToDp(10) ,color:"#666666"}}
                   numberOfLines={3}
                 >
                   《周仁哭坟》越剧折子戏，选材自京剧《周仁献嫂》。由朱福侠编导。《周仁哭坟》一折专为《吴凤花越剧舞台艺术风采》专场表演而编写排演，集中演绎周仁在其妻坟前哭诉冤屈的情绪。
@@ -199,7 +200,7 @@ class Index extends PureComponent {
                     <Text style={{ fontSize: pxToDp(16) }}>{item.id}</Text>
                   </View>
                   <Text
-                    style={{ fontSize: pxToDp(13), marginLeft: pxToDp(10) }}
+                    style={{ fontSize: pxToDp(14), marginLeft: pxToDp(10),color:"#666666",marginTop:pxToDp(12)}}
                     numberOfLines={3}
                   >
                     {item.context}
@@ -209,6 +210,7 @@ class Index extends PureComponent {
             </TouchableNativeFeedback>
           ))}
         </View>
+        <View style={{marginBottom:pxToDp(16)}}></View>
       </ScrollView>
     );
   }
@@ -219,7 +221,7 @@ const styles = StyleSheet.create({
     marginLeft: pxToDp(30)
   },
   paihang: {
-    fontSize: pxToDp(22),
+    fontSize: pxToDp(20),
     fontWeight: 'bold',
     color: 'white'
   },
@@ -258,7 +260,6 @@ const styles = StyleSheet.create({
   },
   booktitle2: {
     width: pxToDp(190),
-    alignItems: 'center',
     justifyContent: 'space-between',
     flexDirection: 'row',
     marginTop: pxToDp(10),
@@ -266,7 +267,15 @@ const styles = StyleSheet.create({
   },
   booktitle3: {
     fontSize: pxToDp(16),
-    fontWeight: 'bold'
-  }
+    fontWeight: 'bold',
+
+  },
+  imgbox: {
+    height: pxToDp(120),
+    width: pxToDp(95),
+    marginLeft: pxToDp(-8),
+    borderRadius: pxToDp(8)
+  },
+  text:{ fontSize: pxToDp(14), marginLeft: pxToDp(10) }
 });
 export default Index;

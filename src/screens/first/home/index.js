@@ -165,16 +165,15 @@ class Index extends Component {
       >
         <View
           style={{
-            padding: pxToDp(16),
             flex: 1
           }}
         >
-          <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+          <View style={{ marginLeft: pxToDp(16), marginRight: pxToDp(16),marginTop:pxToDp(8) ,flexDirection:'row',justifyContent:'space-around'}}>
             {/**推荐卡片 */}
             <TouchableOpacity
               style={{
                 alignItems: 'center',
-                justifyContent: 'center'
+                justifyContent: 'space-between'
               }}
               onPress={this.toggleModal}
             >
@@ -194,13 +193,12 @@ class Index extends Component {
               toggleModalProps={this.toggleModal}
             />
             {/**签到 */}
-            <Qiandao />
             {/**VR */}
             <TouchableOpacity
               style={{
                 alignItems: 'center',
                 justifyContent: 'center',
-                marginLeft: pxToDp(48)
+                marginLeft: pxToDp(40)
               }}
               onPress={() => this.context.navigate('VR')}
             >
@@ -220,7 +218,7 @@ class Index extends Component {
               style={{
                 alignItems: 'center',
                 justifyContent: 'center',
-                marginLeft: pxToDp(48)
+                marginLeft: pxToDp(40)
               }}
               onPress={() => this.context.navigate('Course')}
             >
@@ -240,7 +238,7 @@ class Index extends Component {
               style={{
                 alignItems: 'center',
                 justifyContent: 'center',
-                marginLeft: pxToDp(48)
+                marginLeft: pxToDp(40)
               }}
               onPress={() => this.context.navigate('Timeline')}
             >
@@ -254,7 +252,7 @@ class Index extends Component {
               style={{
                 alignItems: 'center',
                 justifyContent: 'center',
-                marginLeft: pxToDp(48)
+                marginLeft: pxToDp(40)
               }}
               onPress={() => this.context.navigate('Scriptlibrary')}
             >
@@ -269,15 +267,15 @@ class Index extends Component {
                 剧本
               </Text>
             </TouchableOpacity>
-          </ScrollView>
+          </View>
           {/**精选唱段 */}
           <HighLights />
           {/*俯瞰百年 */}
-          <View style={{ marginTop: pxToDp(8), height: pxToDp(263) }}>
+          <View style={{ marginTop: pxToDp(8), height: pxToDp(263),marginBottom:50}}>
             <View
               style={{
                 flexDirection: 'row',
-                justifyContent: 'space-between'
+                justifyContent: 'space-between', marginLeft: pxToDp(16), marginRight: pxToDp(16), marginTop: pxToDp(24), marginBottom: pxToDp(20)
               }}
             >
               <Text
@@ -302,12 +300,12 @@ class Index extends Component {
             <Hy />
           </View>
           {/*流派传奇 */}
-          <View style={{ marginTop: pxToDp(16) }}>
+          <View style={{marginLeft: pxToDp(16),marginTop:20 }}>
             <View
               style={{
                 flexDirection: 'row',
                 justifyContent: 'space-between',
-                marginBottom: pxToDp(16)
+                marginBottom: pxToDp(20), marginLeft: pxToDp(16), marginRight: pxToDp(16)
               }}
             >
               <Text
@@ -334,7 +332,7 @@ class Index extends Component {
               style={{
                 backgroundColor: 'white',
                 borderRadius: pxToDp(8),
-                elevation: 8,
+                elevation: 2,
                 shadowColor: 'black', //  阴影颜色
                 shadowOffset: { width: 0, height: 0 }, // 阴影偏移
                 shadowOpacity: 1, // 阴影不透明度
@@ -347,7 +345,7 @@ class Index extends Component {
           {/*梨园子弟 */}
           <View
             style={{
-              marginTop: pxToDp(16)
+              marginTop: pxToDp(24), marginLeft: pxToDp(16), marginRight: pxToDp(16)
             }}
           >
             <View
@@ -355,6 +353,7 @@ class Index extends Component {
                 flexDirection: 'row',
                 justifyContent: 'space-between',
                 marginBottom: pxToDp(8)
+
               }}
             >
               <Text
@@ -384,7 +383,7 @@ class Index extends Component {
             style={{
               flexDirection: 'row',
               justifyContent: 'space-between',
-              alignItems: 'center'
+              alignItems: 'center',marginLeft:pxToDp(16),marginRight:pxToDp(16)
             }}
           >
             <Text
@@ -437,7 +436,7 @@ class Index extends Component {
                         </Text>
                       </View>
                     </View>
-                  </TouchableNativeFeedback>   
+                  </TouchableNativeFeedback>
                   <TouchableNativeFeedback
                     onPress={() => this.context.navigate(item.drama)}
                     useForeground={true}>
@@ -469,7 +468,8 @@ class Index extends Component {
             style={{
               flexDirection: 'row',
               justifyContent: 'space-between',
-              alignItems: 'center'
+              alignItems: 'center',
+              marginTop:pxToDp(16),marginLeft:pxToDp(16),marginRight:pxToDp(16)
             }}
           >
             <Text
@@ -515,7 +515,7 @@ class Index extends Component {
                           {item.title}
                         </Text>
                       </View>
-                      <Text numberOfLines={3} style={{ color: '#666666', fontSize: pxToDp(14) }}>
+                      <Text numberOfLines={3} style={{ color: '#666666', fontSize: pxToDp(14), marginTop: pxToDp(4) }}>
                         {item.context}
                       </Text>
                       <View
@@ -564,7 +564,7 @@ const styles = StyleSheet.create({
     height: pxToDp(120),
     width: pxToDp(100),
     borderRadius: pxToDp(8),
-    elevation: 5, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+    elevation: 2, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
     shadowColor: 'black', //  阴影颜色
     shadowRadius: pxToDp(8), //  圆角,
     shadowOffset: { width: 0, height: 0 },
@@ -574,14 +574,15 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   bookbox: {
-    height: pxToDp(130)
+    height: pxToDp(130),
+    marginLeft:pxToDp(16),marginRight:pxToDp(16)
   },
   bookbotton: {
     height: pxToDp(110),
     backgroundColor: 'white',
     borderRadius: pxToDp(8),
-    marginTop: pxToDp(30),
-    elevation: 5, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+    marginTop: pxToDp(24),
+    elevation: 2, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
     shadowColor: 'black', //  阴影颜色
     shadowRadius: pxToDp(8), //  圆角,
     shadowOffset: { width: 0, height: 0 },
@@ -604,7 +605,7 @@ const styles = StyleSheet.create({
     height: pxToDp(120),
     width: pxToDp(100),
     borderRadius: pxToDp(8),
-    elevation: 5, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+    elevation: 2, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
     shadowColor: 'black', //  阴影颜色
     shadowRadius: pxToDp(8), //  圆角,
     shadowOffset: { width: 0, height: 0 },
@@ -615,7 +616,7 @@ const styles = StyleSheet.create({
   },
   bookinf1: {
     flexDirection: 'row',
-    width: pxToDp(180),
+    width: pxToDp(210),
     alignItems: 'center',
     justifyContent: 'space-between'
   },
@@ -624,7 +625,10 @@ const styles = StyleSheet.create({
   },
   bookbox1: {
     height: pxToDp(130),
-    marginTop: pxToDp(16)
+    marginTop: pxToDp(16),
+    marginLeft: pxToDp(16),
+    marginRight: pxToDp(16)
+    
   }
 });
 

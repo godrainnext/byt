@@ -196,6 +196,7 @@ class shopdetails extends PureComponent {
           style={{
             flex: 1
           }}
+          showsVerticalScrollIndicator = {false}
         >
           {/* 商品图片 */}
 
@@ -274,6 +275,7 @@ class shopdetails extends PureComponent {
               flex: 1,
               marginBottom: pxToDp(50)
             }}
+            showsVerticalScrollIndicator = {false}
           >
             <View>
               {/* 标题 */}

@@ -58,15 +58,17 @@ class Index extends PureComponent {
     static contextType = NavigationContext;
     render() {
         return (
-            <View style={{ backgroundColor: '#E2F4FE', flex: 1 }}>
+            <View style={{ backgroundColor: '#fff', flex: 1 }}>
                 <Top icon1='arrow-back' title="单人练唱" />
-                <View style={{ padding: pxToDp(16), paddingBottom: 1, flex: 1 }}>
-                    <View style={{ flexDirection: "row", backgroundColor: "white", height: pxToDp(35), alignItems: "center", borderRadius: pxToDp(16) }}>
+                <View style={{ paddingLeft:pxToDp(16),paddingRight:pxToDp(16), paddingBottom: 1, flex: 1,}}>
+                    {/* <View style={{ flexDirection: "row", backgroundColor: "white", height: pxToDp(35), alignItems: "center", borderRadius: pxToDp(16) }}>
                         <Text style={{ marginLeft: pxToDp(20), fontSize: pxToDp(14) }}>搜索</Text>
                         <TextInput style={{ marginLeft: pxToDp(5), width: pxToDp(290) }}
                             placeholder="" />
-                    </View>
-                    <ScrollView >
+                    </View> */}
+                    
+                    <ScrollView showsVerticalScrollIndicator = {false} >
+                        <View style={{marginBottom:pxToDp(16)}}>
                         {this.state.products.map((item, index) => (
                             <TouchableNativeFeedback onPress={() => this.context.navigate("Details")}>
                                 <View style={styles.box}>
@@ -79,6 +81,7 @@ class Index extends PureComponent {
                                 </View>
                             </TouchableNativeFeedback>
                         ))}
+                        </View>
                     </ScrollView>
                 </View>
             </View>
@@ -91,13 +94,13 @@ const styles = StyleSheet.create({
     box: {
         flexDirection: 'row',
         height: pxToDp(120),
-        marginTop: pxToDp(8),
+        marginTop: pxToDp(16),
         marginLeft: pxToDp(6),
         marginRight: pxToDp(6),
         borderRadius: pxToDp(8),
         backgroundColor: "white",
         alignItems: "center",
-        elevation: 8,
+        elevation: 2,
         shadowColor: 'black',
         shadowOffset: { width: 0, height: 0 },
         shadowOpacity: 1,
@@ -117,9 +120,11 @@ const styles = StyleSheet.create({
     },
     text2: {
         fontSize: pxToDp(14),
+        width:pxToDp(215),
         color: '#666666',
-        marginTop: pxToDp(12)
-        , marginLeft: pxToDp(8)
+        marginTop: pxToDp(12) ,
+         marginLeft: pxToDp(8),
+     
     },
     text3: {
         fontSize: pxToDp(13),

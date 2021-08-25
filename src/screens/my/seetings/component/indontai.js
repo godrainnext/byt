@@ -37,7 +37,10 @@ class Index extends PureComponent {
     }
     render() {
         return (
-          <ScrollView style={{ backgroundColor: '#fff' }}>
+          <ScrollView
+            style={{ backgroundColor: '#fff' }}
+            showsVerticalScrollIndicator={false}
+          >
             <Top icon1="arrow-back" title="设置" />
             <View
               style={{
@@ -74,6 +77,7 @@ class Index extends PureComponent {
                 width: '95%',
                 marginLeft: pxToDp(10)
               }}
+              showsVerticalScrollIndicator={false}
               horizontal={true}
             >
               {this.state.louzhu.dtimg.map((item, index) => (

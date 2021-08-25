@@ -24,7 +24,7 @@ class index extends PureComponent {
         return (
             <View>
                 <FlatList
-
+showsVerticalScrollIndicator = {false}
                     data={this.state.shop}
                     renderItem={this._renderItem}
                 />

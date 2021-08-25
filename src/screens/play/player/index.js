@@ -12,6 +12,7 @@ const App = () => {
 
     return (
         <ScrollView
+        showsVerticalScrollIndicator = {false}
             scrollEnabled={!inFullscreen2}
             ref={refScrollView}
             onContentSizeChange={() => {

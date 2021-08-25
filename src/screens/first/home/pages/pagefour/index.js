@@ -19,7 +19,10 @@ class Index extends PureComponent {
     return (
       <View style={{ backgroundColor: '#E2F4FE', flex: 1 }}>
         <Top icon1="arrow-back" title="精选唱段" />
-        <ScrollView style={{ marginBottom: pxToDp(50) }}>
+        <ScrollView
+          style={{ marginBottom: pxToDp(50) }}
+          showsVerticalScrollIndicator={false}
+        >
           <View
             style={{
               flexDirection: 'row',

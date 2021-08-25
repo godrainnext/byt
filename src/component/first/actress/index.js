@@ -63,9 +63,10 @@ export default class index extends PureComponent {
         style={{
           borderRadius: pxToDp(8),
           height: pxToDp(300),
+          marginLeft:pxToDp(16),
+          marginRight:pxToDp(16),
           backgroundColor: 'rgba(255,255,255,0.5)',
-          marginRight: pxToDp(10),
-          marginLeft: pxToDp(10),
+
 
         }}
       >
@@ -93,7 +94,8 @@ export default class index extends PureComponent {
                       width: pxToDp(100),
                       height: pxToDp(160),
                       borderRadius: pxToDp(8),
-                      marginRight: pxToDp(20)
+                      marginRight: pxToDp(20),
+                      marginBottom:pxToDp(4)
                     }}
                   >
                     <Image

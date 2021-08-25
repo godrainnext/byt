@@ -132,7 +132,7 @@ class Index extends PureComponent {
             isModalVisible={this.state.isShow}
           />
         </View>
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator = {false}>
           <View>
             {/*轮播图 */}
             <View>
@@ -141,7 +141,17 @@ class Index extends PureComponent {
                   styles.swiper,
                   { width: width - 20, height: 180, marginLeft: pxToDp(10) }
                 ]}
-                dataSource={images}
+                dataSource={[
+                  {
+                    uri: 'http://img05.lantingyahui.com/Img05/49/99/30/9e791ddb-a31e-4687-bf71-f21695d302df.jpg'
+                  },
+                  {
+                    uri: 'http://img03.lantingyahui.com/Img03/79/30/34/3f1ff8ca-2a76-4d9b-88a2-21e6498816b6.jpg'
+                  },
+                  {
+                    uri: 'http://img04.lantingyahui.com/Img04/44/03/69/36c6859e-3854-4b33-9863-d7da7666c5f5.jpg'
+                  }
+                ]}
                 width={width - 20}
                 height={180}
                 renderRow={this.renderRow}

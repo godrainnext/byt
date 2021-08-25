@@ -18,7 +18,10 @@ class Index extends PureComponent {
 
   render() {
     return (
-      <ScrollView style={{ marginTop: pxToDp(20) }}>
+      <ScrollView
+        style={{ marginTop: pxToDp(20) }}
+        showsVerticalScrollIndicator={false}
+      >
         {this.props.userinfo.collect.map((item) => (
           <View
             key={item.collectid}

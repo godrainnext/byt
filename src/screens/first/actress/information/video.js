@@ -11,7 +11,7 @@ import { pxToDp } from '@utils/styleKits';
 
 function TabView1(props) {
   return (
-    <ScrollView {...props}>
+    <ScrollView {...props} showsVerticalScrollIndicator={false}>
       <View>
         <View style={{ margin: pxToDp(8) }}>
           <Image

@@ -10,14 +10,13 @@ import CustormerBar from './book/CustormerBar';
 export default class bookDetail extends Component {
   render() {
     return (
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1,backgroundColor:'white' }}>
         <Top icon1="arrow-back" title="追鱼" />
-
         <View
           style={{
-            backgroundColor: '#ecf6fc',
-            height: pxToDp(150),
-            margin: pxToDp(10),
+            backgroundColor: 'white',
+            marginTop:pxToDp(8),
+            marginLeft:pxToDp(16),
             flexDirection: 'row'
           }}
         >
@@ -25,7 +24,6 @@ export default class bookDetail extends Component {
             style={{
               width: pxToDp(100),
               height: pxToDp(120),
-              margin: pxToDp(10),
               borderRadius:pxToDp(8),
               backgroundColor: '#ecf6fc'
             }}
@@ -33,16 +31,15 @@ export default class bookDetail extends Component {
           />
           <View
             style={{
-              margin: pxToDp(10),
-              justifyContent: 'space-around',
-              height: pxToDp(100)
+              marginLeft: pxToDp(8),
+              justifyContent: 'flex-start',
             }}
           >
-            <Text style={{ fontWeight: 'bold', fontSize: pxToDp(20) }}>
+            <Text style={{ fontWeight: 'bold', fontSize: pxToDp(20),color:'#000000',marginTop:pxToDp(2) }}>
               追鱼
             </Text>
-            <Text style={{ color: '#666' }}>Chasing fish</Text>
-            <Text style={{ fontSize: pxToDp(16) }}>佚名</Text>
+            <Text style={{ color: '#666666',fontSize:pxToDp(14) }}>Chasing fish</Text>
+            <Text style={{ fontSize: pxToDp(16),color:'#333333',marginTop:pxToDp(10)}}>佚名</Text>
           </View>
         </View>
         <ScrollableTabView

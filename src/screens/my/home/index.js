@@ -47,16 +47,22 @@ class Index extends PureComponent {
         end={{ x: 0, y: 0.8 }}
         style={{ flex: 1 }}
       >
-          <Top title="戏痴" />
-        <ScrollView>
+        <Top title="戏痴" />
+        <ScrollView showsVerticalScrollIndicator={false}>
+          {/*        
+          <View style={{position:'absolute',width:400,height:400,bottom:350,borderRadius:100,alignSelf:'center',opacity:.4}}>
+          
+         
+          </View>  */}
+
           <UserInner />
           <ImageBackground
           source={require('./userback.jpg')}
             style={{
               borderRadius: pxToDp(8),
               backgroundColor: '#f0fcff',
-              marginLeft:pxToDp(16),
-              marginRight:pxToDp(16),
+              marginLeft: pxToDp(16),
+              marginRight: pxToDp(16),
               height: pxToDp(140),
               marginTop: pxToDp(16),
               elevation: 3,
@@ -73,7 +79,9 @@ class Index extends PureComponent {
               }}
             >
               <View>
-                <Text style={{ fontSize: pxToDp(16),color:'#333333'}}>我的订单</Text>
+                <Text style={{ fontSize: pxToDp(18), color: '#333333' }}>
+                  我的订单
+                </Text>
               </View>
               <TouchableOpacity
                 onPress={() => this.context.navigate('Order', 0)}
@@ -81,11 +89,13 @@ class Index extends PureComponent {
                 <View
                   style={{
                     flexDirection: 'row',
-                    alignItems:'center',
-                    justifyContent:'center',      
+                    alignItems: 'center',
+                    justifyContent: 'center'
                   }}
                 >
-                  <Text style={{  fontSize: pxToDp(14),color:"#666666",}}>全部订单 </Text>
+                  <Text style={{ fontSize: pxToDp(14), color: '#666666' }}>
+                    查看全部订单{' '}
+                  </Text>
                   <Ionicons name="angle-right" size={24} color="#666666" />
                 </View>
               </TouchableOpacity>
@@ -100,9 +110,15 @@ class Index extends PureComponent {
               <TouchableOpacity
                 onPress={() => this.context.navigate('Order', 1)}
               >
-                <View style={{ alignItems: 'center',}}>
-                <SvgUri svgXmlData={daizhifu} height='25' width='25'/>
-                  <Text style={{ fontSize: pxToDp(16),color:'#333333',marginTop: pxToDp(8) }}>
+                <View style={{ alignItems: 'center' }}>
+                <SvgUri svgXmlData={daizhifu} width='20' height='20'/>
+                  <Text
+                    style={{
+                      fontSize: pxToDp(16),
+                      color: '#333333',
+                      marginTop: pxToDp(8)
+                    }}
+                  >
                     待支付
                   </Text>
                 </View>
@@ -111,8 +127,14 @@ class Index extends PureComponent {
                 onPress={() => this.context.navigate('Order', 2)}
               >
                 <View style={{ alignItems: 'center' }}>
-                <SvgUri svgXmlData={shouhuo} height='25' width='25'/>
-                  <Text style={{ fontSize: pxToDp(16),color:'#333333', marginTop: pxToDp(8) }}>
+                <SvgUri svgXmlData={shouhuo} width='20' height='20'/>
+                  <Text
+                    style={{
+                      fontSize: pxToDp(16),
+                      color: '#333333',
+                      marginTop: pxToDp(8)
+                    }}
+                  >
                     待收货
                   </Text>
                 </View>
@@ -121,16 +143,28 @@ class Index extends PureComponent {
                 onPress={() => this.context.navigate('Order', 3)}
               >
                 <View style={{ alignItems: 'center' }}>
-                <SvgUri svgXmlData={dpingjia} height='25' width='25'/>
-                  <Text style={{ fontSize: pxToDp(16),color:'#333333', marginTop: pxToDp(8) }}>
+                <SvgUri svgXmlData={dpingjia} width='20' height='20'/>
+                  <Text
+                    style={{
+                      fontSize: pxToDp(16),
+                      color: '#333333',
+                      marginTop: pxToDp(8)
+                    }}
+                  >
                     待评价
                   </Text>
                 </View>
               </TouchableOpacity>
               <TouchableOpacity onPress={() => this.context.navigate('Refund')}>
                 <View style={{ alignItems: 'center' }}>
-                  <SvgUri svgXmlData={shouhou} height='25' width='25'/>
-                  <Text style={{ fontSize: pxToDp(16),color:'#333333', marginTop: pxToDp(8) }}>
+                  <SvgUri svgXmlData={shouhou} width='20' height='20'/>
+                  <Text
+                    style={{
+                      fontSize: pxToDp(16),
+                      color: '#333333',
+                      marginTop: pxToDp(8)
+                    }}
+                  >
                     售后/退款
                   </Text>
                 </View>

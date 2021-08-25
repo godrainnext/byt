@@ -101,6 +101,7 @@ const App = () => {
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
+      showsVerticalScrollIndicator = {false}
         data={DATA}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}

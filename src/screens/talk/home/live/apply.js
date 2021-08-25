@@ -107,8 +107,8 @@ class index extends Component {
         <View
           style={{
             flex: 1,
-            backgroundColor: '#eee',
-            marginTop: pxToDp(8)
+            padding: pxToDp(16),
+            backgroundColor: '#eee'
           }}
         >
           <ScrollView showsVerticalScrollIndicator={false}>
@@ -116,14 +116,20 @@ class index extends Component {
             <View
               style={{
                 justifyContent: 'center',
-                alignItems: 'center',
+                alignItems: 'center'
               }}
             >
-              <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold', color: '#000000' }}>
+              <Text
+                style={{
+                  fontSize: pxToDp(20),
+                  fontWeight: 'bold',
+                  color: '#000000'
+                }}
+              >
                 个人信息验证
               </Text>
             </View>
-            <View style={{marginBottom:pxToDp(60)}}>
+            <View style={{ marginBottom: pxToDp(60) }}>
               <View>
                 <View style={{ marginBottom: pxToDp(16) }}>
                   <View
@@ -133,7 +139,13 @@ class index extends Component {
                       marginTop: pxToDp(8)
                     }}
                   >
-                    <Text style={{ color: '#f0bb51', fontSize: pxToDp(12),margin:16 }}>
+                    <Text
+                      style={{
+                        color: '#f0bb51',
+                        fontSize: pxToDp(12),
+                        marginBottom: pxToDp(16)
+                      }}
+                    >
                       请您如实准确填写本人信息，否则将认证失败
                     </Text>
                   </View>
@@ -141,48 +153,98 @@ class index extends Component {
                     style={[
                       s.basicstyle,
                       {
-                        backgroundColor: 'white',
-                        marginTop: pxToDp(8),
-                        marginRight: pxToDp(16),
-                        marginLeft: pxToDp(16),
+                        backgroundColor: '#fff',
                         borderRadius: pxToDp(8)
                       }
                     ]}
                   >
                     <Input
                       placeholder="请输入真实姓名"
-                      style={{ marginTop: pxToDp(8) }}
                       inputStyle={{ fontSize: pxToDp(16), color: '#333333' }}
-                      placeholderTextColor='#999999'
-                      inputContainerStyle={{ borderColor: 'white', marginLeft: pxToDp(8), marginTop: pxToDp(8) }}
+                      placeholderTextColor="#999999"
+                      inputContainerStyle={{
+                        borderColor: 'white',
+                        marginLeft: pxToDp(8)
+                      }}
                       onChangeText={(value) =>
                         this.setState({ username: value })
                       }
                       value={this.state.username}
                       leftIcon={
-                        <View style={{flexDirection:'row',marginTop:pxToDp(10)}}>
-                        <Text style={{ fontSize: pxToDp(16), color: 'red', marginBottom: pxToDp(4) }}>*</Text>
-                   <Text style={{ fontSize: pxToDp(16), color: '#333333', marginBottom: pxToDp(4) }}>真实姓名</Text>
-                   </View>
-                      }
-                    />
-             
-                    <Input
-                      placeholder="请输入身份证号码"
-                      inputStyle={{ fontSize: pxToDp(16), color: '#333333' }}
-                      inputContainerStyle={{ borderColor: 'white', marginLeft: pxToDp(8) }}
-                      value={this.state.fayan}
-                      placeholderTextColor='#999999'
-                      onChangeText={(value) => this.setState({ fayan: value })}
-                      maxLength={18}
-                      keyboardType="number-pad"
-                      leftIcon={
-                        <View style={{flexDirection:'row'}}>
-                             <Text style={{ fontSize: pxToDp(16), color: 'red', marginBottom: pxToDp(4) }}>*</Text>
-                        <Text style={{ fontSize: pxToDp(16), color: '#333333', marginBottom: pxToDp(4) }}>身份证号</Text>
+                        <View
+                          style={{
+                            flexDirection: 'row',
+                            marginTop: pxToDp(4)
+                          }}
+                        >
+                          <Text
+                            style={{
+                              fontSize: pxToDp(16),
+                              color: 'red',
+                              marginBottom: pxToDp(4)
+                            }}
+                          >
+                            *
+                          </Text>
+                          <Text
+                            style={{
+                              fontSize: pxToDp(16),
+                              color: '#333333'
+                            }}
+                          >
+                            真实姓名
+                          </Text>
                         </View>
                       }
                     />
+                    <View
+                      style={{
+                        marginTop: pxToDp(-32),
+                        marginBottom: pxToDp(-24)
+                      }}
+                    >
+                      <Input
+                        placeholder="请输入身份证号码"
+                        inputStyle={{ fontSize: pxToDp(16), color: '#333333' }}
+                        inputContainerStyle={{
+                          borderColor: 'white',
+                          marginLeft: pxToDp(8)
+                        }}
+                        value={this.state.fayan}
+                        placeholderTextColor="#999999"
+                        onChangeText={(value) =>
+                          this.setState({ fayan: value })
+                        }
+                        maxLength={18}
+                        keyboardType="number-pad"
+                        leftIcon={
+                          <View
+                            style={{
+                              flexDirection: 'row',
+                              marginTop: pxToDp(4)
+                            }}
+                          >
+                            <Text
+                              style={{
+                                fontSize: pxToDp(16),
+                                color: 'red',
+                                marginBottom: pxToDp(4)
+                              }}
+                            >
+                              *
+                            </Text>
+                            <Text
+                              style={{
+                                fontSize: pxToDp(16),
+                                color: '#333333'
+                              }}
+                            >
+                              身份证号
+                            </Text>
+                          </View>
+                        }
+                      />
+                    </View>
                   </View>
                 </View>
                 {/* 身份证照片上传 */}
@@ -191,12 +253,8 @@ class index extends Component {
                     s.basicstyle,
                     {
                       backgroundColor: 'white',
-                      marginTop: pxToDp(8),
-                      marginRight: pxToDp(16),
-                      marginLeft: pxToDp(16),
                       borderRadius: pxToDp(8),
-                      height: pxToDp(428),
-                      marginTop: pxToDp(-8)
+                      height: pxToDp(428)
                     }
                   ]}
                 >
@@ -204,7 +262,13 @@ class index extends Component {
                     onPress={() => this._changeModal()}
                     style={{ alignItems: 'center', marginTop: pxToDp(8) }}
                   >
-                    <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold', color: '#000000' }}>
+                    <Text
+                      style={{
+                        fontSize: pxToDp(20),
+                        fontWeight: 'bold',
+                        color: '#000000'
+                      }}
+                    >
                       身份证人像面照片
                     </Text>
                     <View
@@ -237,7 +301,13 @@ class index extends Component {
                     onPress={() => this._changeModal()}
                     style={{ alignItems: 'center' }}
                   >
-                    <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold', color: '#000000' }}>
+                    <Text
+                      style={{
+                        fontSize: pxToDp(20),
+                        fontWeight: 'bold',
+                        color: '#000000'
+                      }}
+                    >
                       身份证国徽面照片
                     </Text>
                     <View
@@ -258,7 +328,6 @@ class index extends Component {
                     <Text
                       style={{
                         color: '#666666',
-                        marginTop: pxToDp(8),
                         marginBottom: pxToDp(8),
                         fontSize: pxToDp(12)
                       }}
@@ -299,12 +368,18 @@ class index extends Component {
                     justifyContent: 'center',
                     alignItems: 'center',
                     height: pxToDp(88),
-
-                    marginTop: pxToDp(16),
-                    marginBottom: pxToDp(8)
+                    marginTop: pxToDp(16)
                   }}
                 >
-                  <Text style={{ color: '#999999', fontSize: pxToDp(12),margin:pxToDp(16) }}>
+                  <Text
+                    style={{
+                      color: '#999999',
+                      fontSize: pxToDp(12),
+                      marginBottom: pxToDp(8),
+                      paddingLeft: pxToDp(8),
+                      paddingRight: pxToDp(8)
+                    }}
+                  >
                     根据相关政策法规要求，开通百越庭直播间需要进行实名认证。实名认证不涉及金钱账户，信息严格保密。
                   </Text>
                   <CheckBox
@@ -329,28 +404,28 @@ class index extends Component {
             }}
           >
             <Mybtn
-            onPress={() => this.Scrollable.open()}
-            title='提交申请'
-
-            containerStyle={{
-              position: 'absolute',
-              bottom: 0,
-              fontSize: 30,
-              width: pxToDp(320),
-              height: pxToDp(40),
-              borderRadius: pxToDp(40),
-              alignSelf: 'center', color: 'red',
-              display: 'none',
-              marginBottom: pxToDp(5)
-            }}
-            buttonStyle={{
-              width: '100%',
-              height: '100%',
-              alignSelf: 'flex-end',
-              display: this.state.btnOpcity ? 'none' : 'flex',
-              borderRadius: pxToDp(32),
-            }}
-          />
+              onPress={() => this.Scrollable.open()}
+              title="提交申请"
+              containerStyle={{
+                position: 'absolute',
+                bottom: 0,
+                fontSize: 30,
+                width: pxToDp(320),
+                height: pxToDp(40),
+                borderRadius: pxToDp(40),
+                alignSelf: 'center',
+                color: 'red',
+                display: 'none',
+                marginBottom: pxToDp(5)
+              }}
+              buttonStyle={{
+                width: '100%',
+                height: '100%',
+                alignSelf: 'flex-end',
+                display: this.state.btnOpcity ? 'none' : 'flex',
+                borderRadius: pxToDp(32)
+              }}
+            />
           </View>
         </View>
       </View>
@@ -405,7 +480,7 @@ const s = StyleSheet.create({
     alignSelf: 'center'
   },
   basicstyle: {
-    elevation: 4, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+    elevation: 2, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
     shadowColor: 'black', //  阴影颜色
     shadowOffset: { width: 0, height: 0 }, // 阴影偏移
     shadowOpacity: 1, // 阴影不透明度

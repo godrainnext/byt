@@ -219,7 +219,7 @@ class Index extends PureComponent {
             </View>
           </Modal>
         </View>
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator = {false}>
           <View
             style={{
               paddingLeft: pxToDp(16),
@@ -231,7 +231,7 @@ class Index extends PureComponent {
               <View
                 key={item.id}
                 style={{
-                  elevation: 10,
+                  elevation: 2,
                   shadowColor: 'black', //  阴影颜色
                   shadowOffset: { width: 0, height: 0 }, // 阴影偏移
                   shadowOpacity: 1, // 阴影不透明度
@@ -372,7 +372,7 @@ class Index extends PureComponent {
               <View
                 key={item.id}
                 style={{
-                  elevation: 10,
+                  elevation: 2,
                   shadowColor: 'black', //  阴影颜色
                   shadowOffset: { width: 0, height: 0 }, // 阴影偏移
                   shadowOpacity: 1, // 阴影不透明度
@@ -536,7 +536,7 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-    elevation: 5
+    elevation:2
   },
   textStyle: {
     color: 'white',

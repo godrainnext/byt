@@ -29,11 +29,11 @@ export default class Opera extends PureComponent {
               />
               <View style={styles.botbox}>
                 <Text style={styles.text1}>{item.title}</Text>
-                <View>
+                <View style={{marginTop:pxToDp(10)}}>
                   <Text style={styles.text2}>杭州越剧团</Text>
                   <View style={styles.smallbox}>
                     <Text style={styles.text2}>
-                      {item.watchNum}观看 · {item.createAt}
+                      {item.watchNum}观看{item.createAt}
                     </Text>
                   </View>
                 </View>
@@ -46,49 +46,47 @@ export default class Opera extends PureComponent {
   }
 }
 const styles = StyleSheet.create({
-  view: {
-    marginTop: pxToDp(10),
-    marginLeft: pxToDp(10),
-    marginRight: pxToDp(10)
-  },
   title: {
     fontSize: pxToDp(18),
     color: '#468CD3',
     fontWeight: 'bold'
   },
   box: {
-    height: pxToDp(120),
-    width: pxToDp(375),
     flexDirection: 'row',
-    borderBottomColor: 'grey',
-    borderBottomWidth: pxToDp(0.5),
-    marginTop: pxToDp(10)
+    backgroundColor:"white",
+    borderRadius:pxToDp(8),
+    marginLeft:pxToDp(16),
+    marginRight:pxToDp(16),
+    marginTop:pxToDp(16),
+    elevation: 4,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+    shadowColor: 'black',  //  阴影颜色
+    shadowRadius: pxToDp(8),  //  圆角
   },
   image: {
-    height: pxToDp(110),
-    width: pxToDp(170),
+    height: pxToDp(90),
+    width: pxToDp(130),
     borderRadius: pxToDp(8),
-    marginLeft: pxToDp(10)
+    margin:pxToDp(8)
   },
   botbox: {
-    justifyContent: 'space-between',
-    width: pxToDp(180),
-    height: pxToDp(110),
-    marginLeft: pxToDp(10),
-    marginRight: pxToDp(10)
+    justifyContent: 'flex-start',
+    marginTop:pxToDp(10),
+    marginLeft: pxToDp(8),
   },
   text1: {
-    fontSize: pxToDp(15),
+    fontSize: pxToDp(16),
+    color:'#333333',
     fontWeight: 'bold',
-    flexWrap: 'wrap'
   },
   text2: {
-    fontSize: pxToDp(13)
+    fontSize: pxToDp(12),
+    color:"#666666",
+    marginTop:pxToDp(2)
   },
   smallbox: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     width: pxToDp(170),
-    alignItems: 'center'
+    alignItems: 'center',
   }
 });

@@ -8,7 +8,7 @@ class Index extends PureComponent {
         return (
             <View>
                 <Top icon1="arrow-back" title="双人剧本" />
-                <ScrollView>
+                <ScrollView showsVerticalScrollIndicator = {false}>
                     <View style={styles.topbox}>
                         <Image style={styles.image1} source={require('../../../res/1.jpg')} />
                         <View style={{ marginLeft: pxToDp(10) }}>

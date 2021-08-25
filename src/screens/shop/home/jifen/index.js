@@ -45,6 +45,7 @@ export default class index extends PureComponent {
             backgroundColor:'white',
             paddingBottom: pxToDp(50)
           }}
+          showsVerticalScrollIndicator = {false}
         >
           <View>
             <ImageBackground

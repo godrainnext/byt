@@ -14,7 +14,10 @@ class Index extends PureComponent {
               icon2="ellipsis-horizontal"
             />
             <View>
-              <ScrollView style={{ marginBottom: pxToDp(180) }}>
+              <ScrollView
+                style={{ marginBottom: pxToDp(180) }}
+                showsVerticalScrollIndicator={false}
+              >
                 <View
                   style={{
                     marginLeft: pxToDp(15),
