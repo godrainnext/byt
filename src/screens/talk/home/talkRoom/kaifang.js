@@ -12,28 +12,31 @@ import PulseLoader from 'react-native-pulse-loader';
 import Top from '@components/common/top';
 import LinearGradient from 'react-native-linear-gradient';
 import Mybtn from '../../../../component/common/mybtn';
+import ImagePicker from 'react-native-image-crop-picker';
 const dimensions = {
   width: Dimensions.get('window').width,
-  height: Dimensions.get('window').height,
+  height: Dimensions.get('window').height
 };
 const requestCameraAndAudioPermission = async () => {
   try {
     const granted = await PermissionsAndroid.requestMultiple([
       PermissionsAndroid.PERMISSIONS.CAMERA,
-      PermissionsAndroid.PERMISSIONS.RECORD_AUDIO,
-    ])
+      PermissionsAndroid.PERMISSIONS.RECORD_AUDIO
+    ]);
     if (
-      granted['android.permission.RECORD_AUDIO'] === PermissionsAndroid.RESULTS.GRANTED
-      && granted['android.permission.CAMERA'] === PermissionsAndroid.RESULTS.GRANTED
+      granted['android.permission.RECORD_AUDIO'] ===
+        PermissionsAndroid.RESULTS.GRANTED &&
+      granted['android.permission.CAMERA'] ===
+        PermissionsAndroid.RESULTS.GRANTED
     ) {
-      console.log('You can use the cameras & mic')
+      console.log('You can use the cameras & mic');
     } else {
-      console.log('Permission denied')
+      console.log('Permission denied');
     }
   } catch (err) {
-    console.warn(err)
+    console.warn(err);
   }
-}
+};
 
 // const { width, height } = Dimensions.get('window');
 const HTML = `
@@ -72,20 +75,19 @@ export default class App extends Component {
 
   constructor(props) {
     super(props);
-    console.log(this.props.route.params)
+    console.log(this.props.route.params);
 
     this.state = {
       appId: '29792ec3eded410facd609fb7ad76fef',
-      token: '00629792ec3eded410facd609fb7ad76fefIAAbKUcPA8ZKD6c3OvRQ3dLsbHqp9OSHU+zfE7bUrcatNkgDg6MAAAAAEACcjToMxfsZYQEAAQDE+xlh',
+      token:
+        '00629792ec3eded410facd609fb7ad76fefIAAbKUcPA8ZKD6c3OvRQ3dLsbHqp9OSHU+zfE7bUrcatNkgDg6MAAAAAEACcjToMxfsZYQEAAQDE+xlh',
       // channelName: 'ABC',
       channelName: '',
-      joinSucceed: false,//默认进入直播
+      joinSucceed: false, //默认进入直播
       peerIds: [],
       roomName: '',
       roomImg: '',
-      arr: [],
-
-
+      arr: []
     };
     if (Platform.OS === 'android') {
       // Request required permissions from Android
@@ -100,10 +102,11 @@ export default class App extends Component {
       return;
     } else {
       return (
-        <TouchableOpacity
-          activeOpacity={1}
-          onPress={() => this._openPicker()}>
-          <Image source={require("../../../../res/addimg.png")} style={{ width: pxToDp(40), height: pxToDp(40) }} />
+        <TouchableOpacity activeOpacity={1} onPress={() => this._openPicker()}>
+          <Image
+            source={require('../../../../res/addimg.png')}
+            style={{ width: pxToDp(40), height: pxToDp(40) }}
+          />
         </TouchableOpacity>
       );
     }
@@ -115,18 +118,17 @@ export default class App extends Component {
       height: 400,
       cropping: true,
       multiple: true,
-      maxFiles: 9,
-    }).then(image => {
+      maxFiles: 9
+    }).then((image) => {
       console.log('imag', image);
       this.setState({
-        arr: image,
+        arr: image
       });
       //     const {arr} = this.state;
       //    arr.push(image);
       //     this.setState({arr})
       //     console.log('arr',arr[1])
     });
-
   }
 
   componentDidMount() {
@@ -142,15 +144,15 @@ export default class App extends Component {
     // this._engine = await RtcEngine.create(appId);
     // await this._engine.enableVideo();
 
-    this._engine = await RtcEngine.create(appId)
+    this._engine = await RtcEngine.create(appId);
     // 启用视频模块。
-    await this._engine.enableVideo()
+    await this._engine.enableVideo();
     // 开启本地视频预览。
-    await this._engine.startPreview()
+    await this._engine.startPreview();
     // 将频道场景设为直播。
-    await this._engine.setChannelProfile(ChannelProfile.LiveBroadcasting)
+    await this._engine.setChannelProfile(ChannelProfile.LiveBroadcasting);
     // 设置用户角色为主播。
-    await this._engine.setClientRole(ClientRole.Broadcaster)
+    await this._engine.setClientRole(ClientRole.Broadcaster);
     this._engine.addListener('Warning', (warn) => {
       console.log('Warning', warn);
     });
@@ -167,7 +169,7 @@ export default class App extends Component {
       if (peerIds.indexOf(uid) === -1) {
         this.setState({
           // Add peer ID to state array
-          peerIds: [...peerIds, uid],
+          peerIds: [...peerIds, uid]
         });
       }
     });
@@ -177,7 +179,7 @@ export default class App extends Component {
       const { peerIds } = this.state;
       this.setState({
         // Remove peer ID from state array
-        peerIds: peerIds.filter((id) => id !== uid),
+        peerIds: peerIds.filter((id) => id !== uid)
       });
     });
 
@@ -186,7 +188,7 @@ export default class App extends Component {
       console.log('JoinChannelSuccess', channel, uid, elapsed);
       // Set state variable to true
       this.setState({
-        joinSucceed: true,
+        joinSucceed: true
       });
     });
   };
@@ -218,56 +220,171 @@ export default class App extends Component {
   };
 
   closeCall = () => {
-    this.endCall().then(
-      this.context.navigate('Tabbar')
-    )
-  }
+    this.endCall().then(this.context.navigate('Tabbar'));
+  };
 
   render() {
     const { roomName, channelName, roomImg, joinSucceed } = this.state;
-    return joinSucceed ? <View style={{ flex: 1 }}>
-      {this._renderVideos()}
-    </View> : (
+    return joinSucceed ? (
+      <View style={{ flex: 1 }}>{this._renderVideos()}</View>
+    ) : (
       <View style={styles.max}>
         <Top icon1="arrow-back" title="创建房间" />
-        <View style={styles.max}>
-          <View>
-            <View style={{ marginTop: 4 }}>
-              <View style={{ justifyContent: 'center', alignItems: 'center', height: pxToDp(32), marginBottom: pxToDp(8) }}>
-                <Text style={{ color: '#50935E' }}>输入房间号，让小伙伴更快速找到您</Text>
+        <View style={[styles.max, { padding: pxToDp(16) }]}>
+          <View
+            style={{
+              justifyContent: 'center',
+              alignItems: 'center',
+              height: pxToDp(32),
+              marginBottom: pxToDp(8)
+            }}
+          >
+            <Text style={{ color: '#50935E' }}>
+              输入房间号，让小伙伴更快速找到您
+            </Text>
+          </View>
+          <View
+            style={{
+              borderRadius: pxToDp(8),
+              elevation: 1,
+              shadowColor: 'black', //  阴影颜色
+              shadowOffset: { width: 0, height: 0 }, // 阴影偏移
+              shadowOpacity: 1, // 阴影不透明度
+              shadowRadius: 10 //  圆角
+            }}
+          >
+            <View>
+              <View style={{ marginBottom: pxToDp(-24) }}>
+                <Input
+                  placeholder="请输入房间名"
+                  // rightIcon={<Text style={{ color: 'gray' }}></Text>}
+                  value={roomName}
+                  inputContainerStyle={{
+                    borderBottomWidth: 0
+                  }}
+                  onChangeText={(roomName) => this.setState({ roomName })}
+                  leftIcon={
+                    <View
+                      style={{
+                        flexDirection: 'row',
+                        marginTop: pxToDp(4)
+                      }}
+                    >
+                      <Text
+                        style={{
+                          fontSize: pxToDp(16),
+                          color: 'red',
+                          marginBottom: pxToDp(4)
+                        }}
+                      >
+                        *
+                      </Text>
+                      <Text
+                        style={{
+                          fontSize: pxToDp(16),
+                          color: '#333333'
+                        }}
+                      >
+                        房间名
+                      </Text>
+                    </View>
+                  }
+                />
               </View>
-              <Input
-                placeholder="请输入房间名"
-                // rightIcon={<Text style={{ color: 'gray' }}></Text>}
-                value={roomName}
-                onChangeText={(roomName) => this.setState({ roomName })}
-                leftIcon={<Text style={{ fontSize: pxToDp(16) }}>*房间名</Text>}
-              />
-              <Input
-                placeholder="请选择房间号"
-                value={channelName}
-                onChangeText={(channelName) => this.setState({ channelName })}
-                // rightIcon={<Text style={{ color: 'gray' }}>请选择房间号</Text>}
-                leftIcon={<Text style={{ fontSize: pxToDp(16) }}>*房间号</Text>}
-              />
-              <Input
-                rightIcon={<View>
-                  {this.tianjia()}
+              <View style={{ marginBottom: pxToDp(-24) }}>
+                <Input
+                  placeholder="请选择房间号"
+                  value={channelName}
+                  inputContainerStyle={{
+                    borderBottomWidth: 0
+                  }}
+                  onChangeText={(channelName) => this.setState({ channelName })}
+                  // rightIcon={<Text style={{ color: 'gray' }}>请选择房间号</Text>}
+                  leftIcon={
+                    <View
+                      style={{
+                        flexDirection: 'row',
+                        marginTop: pxToDp(4)
+                      }}
+                    >
+                      <Text
+                        style={{
+                          fontSize: pxToDp(16),
+                          color: 'red',
+                          marginBottom: pxToDp(4)
+                        }}
+                      >
+                        *
+                      </Text>
+                      <Text
+                        style={{
+                          fontSize: pxToDp(16),
+                          color: '#333333'
+                        }}
+                      >
+                        房间号
+                      </Text>
+                    </View>
+                  }
+                />
+              </View>
+              <View style={{ marginBottom: pxToDp(-16) }}>
+                <Input
+                  rightIcon={
+                    <View>
+                      {this.tianjia()}
 
-                  {
-                    this.state.arr.map((v, k) => {
-                      return (
-                        <View style={styles.Box} key={k}>
-                          <TouchableOpacity onPress={() => this.setState({ roomImg: v.path })}>
-                            <Image style={{ height: pxToDp(40), width: pxToDp(40) }} source={{ uri: v.path }} />
-                          </TouchableOpacity>
-                        </View>
-                      );
-                    })
-                  }</View>}
-                disabled={true}
-                leftIcon={<Text style={{ fontSize: pxToDp(16) }}>*封面图</Text>}
-              />
+                      {this.state.arr.map((v, k) => {
+                        return (
+                          <View style={styles.Box} key={k}>
+                            <TouchableOpacity
+                              onPress={() => this.setState({ roomImg: v.path })}
+                            >
+                              <Image
+                                style={{
+                                  height: pxToDp(40),
+                                  width: pxToDp(40)
+                                }}
+                                source={{ uri: v.path }}
+                              />
+                            </TouchableOpacity>
+                          </View>
+                        );
+                      })}
+                    </View>
+                  }
+                  disabled={true}
+                  inputContainerStyle={{
+                    borderBottomWidth: 0
+                  }}
+                  leftIcon={
+                    <View
+                      style={{
+                        flexDirection: 'row',
+                        marginTop: pxToDp(4)
+                      }}
+                    >
+                      <Text
+                        style={{
+                          fontSize: pxToDp(16),
+                          color: 'red',
+                          marginBottom: pxToDp(4)
+                        }}
+                      >
+                        *
+                      </Text>
+                      <Text
+                        style={{
+                          fontSize: pxToDp(16),
+                          color: '#333333'
+                        }}
+                      >
+                        封面图
+                      </Text>
+                    </View>
+                  }
+                />
+              </View>
               {/* <TouchableOpacity
                                     activeOpacity={1}
                                     onPress={() => this._openPicker()}>
@@ -277,26 +394,26 @@ export default class App extends Component {
                                 </TouchableOpacity> */}
             </View>
           </View>
-          <View style={styles.buttonHolder}>
-            <Mybtn
-              title="创建房间"
-              onPress={this.startCall}
-              buttonStyle={{
-                width: pxToDp(200),
-                height: pxToDp(50),
-                alignSelf: 'center',
-                borderRadius: pxToDp(32),
-              }}
-              titleStyle={{
-                color: '#fcfcfc',
-                fontWeight: 'bold',
-                fontSize: pxToDp(16)
-              }}
-            />
-            {/* <TouchableOpacity onPress={this.endCall} style={styles.button}>
+        </View>
+        <View style={styles.buttonHolder}>
+          <Mybtn
+            title="创建房间"
+            onPress={this.startCall}
+            buttonStyle={{
+              width: pxToDp(200),
+              height: pxToDp(50),
+              alignSelf: 'center',
+              borderRadius: pxToDp(32)
+            }}
+            titleStyle={{
+              color: '#fcfcfc',
+              fontWeight: 'bold',
+              fontSize: pxToDp(16)
+            }}
+          />
+          {/* <TouchableOpacity onPress={this.endCall} style={styles.button}>
               <Text style={styles.buttonText}> 结束直播 </Text>
             </TouchableOpacity> */}
-          </View>
         </View>
       </View>
     );
@@ -305,7 +422,12 @@ export default class App extends Component {
   _renderVideos = () => {
     const { joinSucceed } = this.state;
     return joinSucceed ? (
-      <ImageBackground style={{ width: '100%', height: '100%' }} source={{ uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic.vjshi.com%2F2015-07-03%2F1435906279772_102%2F00002.jpg%3Fx-oss-process%3Dstyle%2Fwatermark&refer=http%3A%2F%2Fpic.vjshi.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631528779&t=9aa6e3fc4a10ebf05c0ad6f581c2c98e' }}>
+      <ImageBackground
+        style={{ width: '100%', height: '100%' }}
+        source={{
+          uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic.vjshi.com%2F2015-07-03%2F1435906279772_102%2F00002.jpg%3Fx-oss-process%3Dstyle%2Fwatermark&refer=http%3A%2F%2Fpic.vjshi.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631528779&t=9aa6e3fc4a10ebf05c0ad6f581c2c98e'
+        }}
+      >
         <View style={styles.fullView}>
           {/* <RtcLocalView.SurfaceView
           style={styles.max}
@@ -316,7 +438,6 @@ export default class App extends Component {
           {this._renderRemoteVideos()}
         </View>
       </ImageBackground>
-
     ) : null;
   };
 
@@ -325,10 +446,10 @@ export default class App extends Component {
     return (
       <View
         style={styles.remoteContainer}
-      // contentContainerStyle={{ paddingHorizontal: 2.5 }}
-      // horizontal={true}
+        // contentContainerStyle={{ paddingHorizontal: 2.5 }}
+        // horizontal={true}
       >
-        <Top title='小剧场' icon1="arrow-back" />
+        <Top title="小剧场" icon1="arrow-back" />
         {/* <View style={{ flexDirection: 'row', alignItems: 'center' }}>
           <View style={{ backgroundColor: 'rgba(0,0,0,0.4)', height: pxToDp(50), width: pxToDp(168), flexDirection: 'row', justifyContent: 'center', alignItems: 'center', borderRadius: pxToDp(24), padding: pxToDp(4) }}>
             <View style={{ marginRight: pxToDp(8), marginLeft: pxToDp(-8) }}>
@@ -367,52 +488,117 @@ export default class App extends Component {
             </TouchableOpacity>
           </View>
         </View> */}
-        <TouchableOpacity onPress={this.closeCall} style={{ backgroundColor: 'rgba(0,0,0,0.4)', height: pxToDp(24), width: pxToDp(24), flexDirection: 'row', justifyContent: 'center', alignItems: 'center', borderRadius: pxToDp(24), padding: pxToDp(4) }}>
-          <View style={{ height: pxToDp(20), width: pxToDp(20), justifyContent: 'center', alignItems: 'center' }}>
-            <Text style={{ color: 'white', fontSize: 16, fontWeight: 'bold' }}>X</Text>
+        <TouchableOpacity
+          onPress={this.closeCall}
+          style={{
+            backgroundColor: 'rgba(0,0,0,0.4)',
+            height: pxToDp(24),
+            width: pxToDp(24),
+            flexDirection: 'row',
+            justifyContent: 'center',
+            alignItems: 'center',
+            borderRadius: pxToDp(24),
+            padding: pxToDp(4)
+          }}
+        >
+          <View
+            style={{
+              height: pxToDp(20),
+              width: pxToDp(20),
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}
+          >
+            <Text style={{ color: 'white', fontSize: 16, fontWeight: 'bold' }}>
+              X
+            </Text>
           </View>
         </TouchableOpacity>
-        <View style={{ height: pxToDp(412), }}>
+        <View style={{ height: pxToDp(412) }}>
           <WebView
-            style={{ width: '100%', height: pxToDp(320), backgroundColor: 'transparent', }}
+            style={{
+              width: '100%',
+              height: pxToDp(320),
+              backgroundColor: 'transparent'
+            }}
             // source={{ html: HTML }}
-            source={{ uri: "file:///android_asset/static.bundle/music.html" }}
+            source={{ uri: 'file:///android_asset/static.bundle/music.html' }}
             originWhitelist={['*']}
             // source={{ html:this.props.html,baseUrl:'file:///android_asset/web/'}}
             // source={{ html:this.props.html,baseUrl:'http://127.0.0.1:5500/src/page/test/index.html'}}
-            javaScriptEnabled={true}//是否开启js
-            domStorageEnabled={true}//是否开启存储
-            scalesPageToFit={false}//用户是否可以改变页面
+            javaScriptEnabled={true} //是否开启js
+            domStorageEnabled={true} //是否开启存储
+            scalesPageToFit={false} //用户是否可以改变页面
             scrollEnabled={false}
             // injectedJavaScript={`	`}
-            onMessage={event => { '接收h5页面传过来的消息' }}
+            onMessage={(event) => {
+              '接收h5页面传过来的消息';
+            }}
           />
-          <View style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center' }}>
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-around',
+              alignItems: 'center'
+            }}
+          >
             <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-              <Image style={{ width: pxToDp(65), height: pxToDp(65), borderRadius: pxToDp(24) }} source={{ uri: 'https://pics2.baidu.com/feed/bd315c6034a85edf1a928e0e0da87425dc547587.jpeg?token=119b3f2abe0889ed0753ea8c3e8b288d' }}></Image>
+              <Image
+                style={{
+                  width: pxToDp(65),
+                  height: pxToDp(65),
+                  borderRadius: pxToDp(24)
+                }}
+                source={{
+                  uri: 'https://pics2.baidu.com/feed/bd315c6034a85edf1a928e0e0da87425dc547587.jpeg?token=119b3f2abe0889ed0753ea8c3e8b288d'
+                }}
+              ></Image>
               {/* <PulseLoader
                 avatar={'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fn.sinaimg.cn%2Fsinacn20109%2F760%2Fw400h360%2F20191211%2Fa8b3-iknhexi8274828.jpg&refer=http%3A%2F%2Fn.sinaimg.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631579838&t=ee8f687abcaebebad05066b5a419cc3e'}
               /> */}
               <Text style={{ fontSize: pxToDp(16) }}>野原新之助</Text>
             </View>
-            <TouchableOpacity style={{ width: pxToDp(80), height: pxToDp(40), borderRadius: pxToDp(32), backgroundColor: '#468cd3', justifyContent: 'center', alignItems: 'center' }}>
-              <Text style={{ fontSize: pxToDp(16) }}>
-                开始演唱
-              </Text>
+            <TouchableOpacity
+              style={{
+                width: pxToDp(80),
+                height: pxToDp(40),
+                borderRadius: pxToDp(32),
+                backgroundColor: '#468cd3',
+                justifyContent: 'center',
+                alignItems: 'center'
+              }}
+            >
+              <Text style={{ fontSize: pxToDp(16) }}>开始演唱</Text>
             </TouchableOpacity>
             <View style={{ justifyContent: 'center', alignItems: 'center' }}>
               {/* <PulseLoader
                 avatar={'https://img0.baidu.com/it/u=4203889072,870375471&fm=26&fmt=auto&gp=0.jpg'}
               /> */}
-              <Image style={{ width: pxToDp(65), height: pxToDp(65), borderRadius: pxToDp(24) }} source={{ uri: 'https://img0.baidu.com/it/u=4203889072,870375471&fm=26&fmt=auto&gp=0.jpg' }}></Image>
+              <Image
+                style={{
+                  width: pxToDp(65),
+                  height: pxToDp(65),
+                  borderRadius: pxToDp(24)
+                }}
+                source={{
+                  uri: 'https://img0.baidu.com/it/u=4203889072,870375471&fm=26&fmt=auto&gp=0.jpg'
+                }}
+              ></Image>
               <Text style={{ fontSize: pxToDp(16) }}>蜡笔小新</Text>
             </View>
           </View>
         </View>
-        <View style={{ justifyContent: 'center', alignItems: 'center', margin: pxToDp(8) }}>
-          <Text style={{ fontSize: pxToDp(14), color: '#468cd3' }}>开始演唱啦，请留意各自演唱的分段哦</Text>
+        <View
+          style={{
+            justifyContent: 'center',
+            alignItems: 'center',
+            margin: pxToDp(8)
+          }}
+        >
+          <Text style={{ fontSize: pxToDp(14), color: '#468cd3' }}>
+            开始演唱啦，请留意各自演唱的分段哦
+          </Text>
         </View>
-
 
         {/* <WebView
           style={{ width: pxToDp(350), height: pxToDp(400), backgroundColor: 'transparent', marginTop: pxToDp(320) }}
@@ -433,42 +619,42 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   max: {
     flex: 1,
-    backgroundColor: '#ecf6fc'
+    backgroundColor: '#fff'
   },
   buttonHolder: {
     height: pxToDp(100),
     alignItems: 'center',
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-evenly'
   },
   button: {
     paddingHorizontal: 20,
     paddingVertical: 10,
     backgroundColor: '#0093E9',
-    borderRadius: pxToDp(24),
+    borderRadius: pxToDp(24)
   },
   buttonText: {
-    color: '#fff',
+    color: '#fff'
   },
   fullView: {
     width: dimensions.width,
-    height: dimensions.height,
+    height: dimensions.height
   },
   remoteContainer: {
     width: '100%',
     height: dimensions.height,
-    position: 'absolute',
+    position: 'absolute'
     // marginTop:80
   },
   remote: {
     width: pxToDp(150),
     height: pxToDp(150),
-    marginHorizontal: 2.5,
+    marginHorizontal: 2.5
   },
   noUserText: {
     paddingHorizontal: 10,
     paddingVertical: 5,
-    color: '#0093E9',
-  },
+    color: '#0093E9'
+  }
 });

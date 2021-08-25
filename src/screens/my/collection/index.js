@@ -6,7 +6,7 @@ import { pxToDp } from "../../../utils/styleKits";
 class Index extends PureComponent {
   render() {
     return (
-      <ScrollView style={{ backgroundColor: '#e2f4fe' }}>
+      <ScrollView style={{ backgroundColor: '#e2f4fe' }} showsVerticalScrollIndicator = {false}>
         <Top icon1="arrow-back" title="收藏" />
         <View style={{ margin: pxToDp(10) }}>
           <View

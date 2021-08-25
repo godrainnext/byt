@@ -1,20 +1,19 @@
 import React, { Fragment, PureComponent } from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import { pxToDp } from '@utils/styleKits';
-import { NavigationContext } from '@react-navigation/native';
 import ScreenBase from '@components/screenplayBase/ScreenBase';
 class Index extends PureComponent {
   renderInner = () => (
     <Fragment>
       <View>
-        <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold' }}>
+        <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold' }}>
           庵堂认母
         </Text>
       </View>
       <Text
         style={{
-          marginTop: pxToDp(10),
-          fontSize: pxToDp(17),
+          marginTop: pxToDp(8),
+          fontSize: pxToDp(16),
           marginBottom: pxToDp(10)
         }}
       >
@@ -23,14 +22,13 @@ class Index extends PureComponent {
       <View>
         <Image
           style={{
-            width: '100%',
-            height: pxToDp(200),
+            height: pxToDp(180),
             borderRadius: pxToDp(8)
           }}
           source={require('../../../../res/play/fengmian2.jpg')}
         />
       </View>
-      <Text style={styles.Text}>
+      <Text style={[styles.Text, { marginTop: pxToDp(8) }]}>
         <Text style={styles.texthead}>徐元宰（白）</Text>:
         哎呀，她若不是我娘，神态怎会如此？嗯，待我再来试探于她。
       </Text>
@@ -416,6 +414,7 @@ class Index extends PureComponent {
   render() {
     return (
       <ScreenBase
+        top="庵堂认母"
         renderInner={this.renderInner}
         arr={[
           {
@@ -435,11 +434,12 @@ class Index extends PureComponent {
 const styles = StyleSheet.create({
   Text: {
     fontSize: pxToDp(16),
-    marginTop: pxToDp(25),
+    marginTop: pxToDp(4),
     lineHeight: pxToDp(25)
   },
   texthead: {
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    fontSize: pxToDp(16)
   }
 });
 export default Index;

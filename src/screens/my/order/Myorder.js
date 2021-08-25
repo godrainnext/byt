@@ -139,42 +139,79 @@ class orders extends PureComponent {
     const { count, title, color, img, price } = this.props.route.params;
 
     return (
-      <View style={{ backgroundColor: '#e2f4fe', flex: 1 }}>
+      <View style={{ backgroundColor: '#fff', flex: 1 }}>
         <Top icon1="arrow-back" title="确认订单" />
-        <ScrollView style={{ height: pxToDp(675) }}>
+        <ScrollView
+          style={{ flex: 1, padding: pxToDp(14) }}
+          showsVerticalScrollIndicator={false}
+        >
           {/* 订单状态 */}
           <View
             style={{
+              margin: pxToDp(2),
               borderRadius: pxToDp(8),
-              margin: pxToDp(5),
               height: pxToDp(50),
               justifyContent: 'center',
               alignItems: 'center',
-              backgroundColor: 'white'
+              backgroundColor: 'white',
+              elevation: 2,
+              shadowColor: 'black', //  阴影颜色
+              shadowOffset: { width: 0, height: 0 }, // 阴影偏移
+              shadowOpacity: 1, // 阴影不透明度
+              shadowRadius: 10 //  圆角
             }}
           >
             <Text style={{ fontSize: pxToDp(16) }}>订单状态: 待确认</Text>
           </View>
-          {/* 收获地址 */}
-          <Address
-            orider={this.props.route.params}
-            defaultAddress={this.state.defaultAddress}
-            changeAddressId={this.changeAddressId}
-            changeDefaultAddresses={this.changeDefaultAddress}
-          />
+          {/* 收货地址 */}
+          <View
+            style={{
+              margin: pxToDp(2),
+              marginTop: pxToDp(16),
+              backgroundColor: '#fff',
+              borderRadius: pxToDp(8),
+              elevation: 2,
+              shadowColor: 'black', //  阴影颜色
+              shadowOffset: { width: 0, height: 0 }, // 阴影偏移
+              shadowOpacity: 1, // 阴影不透明度
+              shadowRadius: 10 //  圆角
+            }}
+          >
+            <Address
+              orider={this.props.route.params}
+              defaultAddress={this.state.defaultAddress}
+              changeAddressId={this.changeAddressId}
+              changeDefaultAddresses={this.changeDefaultAddress}
+            />
+          </View>
           {/* 商品信息 */}
           <TouchableOpacity
             style={{
-              height: pxToDp(140),
+              margin: pxToDp(2),
+              height: pxToDp(124),
               flexDirection: 'row',
               backgroundColor: 'white',
-              margin: pxToDp(5),
-              borderRadius: pxToDp(8)
+              borderRadius: pxToDp(8),
+              marginTop: pxToDp(16),
+              elevation: 2,
+              shadowColor: 'black', //  阴影颜色
+              shadowOffset: { width: 0, height: 0 }, // 阴影偏移
+              shadowOpacity: 1, // 阴影不透明度
+              shadowRadius: 10 //  圆角
             }}
           >
-            <View style={{ justifyContent: 'center', marginLeft: pxToDp(15) }}>
+            <View
+              style={{
+                justifyContent: 'center'
+              }}
+            >
               <Image
-                style={{ width: pxToDp(110), height: pxToDp(110) }}
+                style={{
+                  width: pxToDp(110),
+                  height: pxToDp(110),
+                  margin: pxToDp(8),
+                  borderRadius: pxToDp(8)
+                }}
                 source={{
                   uri: img
                 }}
@@ -182,32 +219,35 @@ class orders extends PureComponent {
             </View>
             <View
               style={{
-                marginLeft: pxToDp(8),
-                marginTop: pxToDp(18),
-                justifyContent: 'space-between'
+                marginTop: pxToDp(8),
+                marginBottom: pxToDp(8),
+                justifyContent: 'space-around'
               }}
             >
-              <View style={{}}>
+              <View>
                 <Text style={{ fontSize: pxToDp(15), fontWeight: 'bold' }}>
                   {title}
                 </Text>
               </View>
               <View
                 style={{
-                  marginBottom: pxToDp(30),
                   width: pxToDp(220),
                   flexDirection: 'row',
                   justifyContent: 'space-between'
                 }}
               >
-                <View style={{ width: pxToDp(150) }}>
+                <View
+                  style={{
+                    width: pxToDp(210),
+                    flexDirection: 'row',
+                    justifyContent: 'space-between'
+                  }}
+                >
                   <Text style={{ fontSize: pxToDp(12) }}>{color}</Text>
-                </View>
-                <View>
                   <Text style={{ fontSize: pxToDp(12) }}>X{count}</Text>
                 </View>
               </View>
-              <View style={{ marginBottom: pxToDp(15) }}>
+              <View>
                 <Text
                   style={{
                     fontSize: pxToDp(18),
@@ -223,18 +263,22 @@ class orders extends PureComponent {
           {/* 商品价格 */}
           <View
             style={{
+              margin: pxToDp(2),
               backgroundColor: 'white',
-              margin: pxToDp(5),
-              borderRadius: pxToDp(8)
+              borderRadius: pxToDp(8),
+              marginTop: pxToDp(16),
+              elevation: 2,
+              shadowColor: 'black', //  阴影颜色
+              shadowOffset: { width: 0, height: 0 }, // 阴影偏移
+              shadowOpacity: 1, // 阴影不透明度
+              shadowRadius: 10 //  圆角
             }}
           >
             <View
               style={{
-                marginRight: pxToDp(10),
+                margin: pxToDp(8),
                 justifyContent: 'space-between',
-                flexDirection: 'row',
-                marginLeft: pxToDp(20),
-                marginTop: pxToDp(10)
+                flexDirection: 'row'
               }}
             >
               <Text style={{ opacity: 0.6 }}>商品价格</Text>
@@ -243,12 +287,9 @@ class orders extends PureComponent {
             <View
               style={{
                 alignItems: 'flex-end',
-                marginRight: pxToDp(10),
                 justifyContent: 'space-between',
                 flexDirection: 'row',
-                marginTop: pxToDp(10),
-                marginBottom: pxToDp(15),
-                marginLeft: pxToDp(20)
+                margin: pxToDp(8)
               }}
             >
               <Text style={{ fontSize: pxToDp(18) }}>合计</Text>
@@ -268,17 +309,22 @@ class orders extends PureComponent {
             <TouchableOpacity
               onPress={() => this.Scrollable.open()}
               style={{
+                margin: pxToDp(2),
                 justifyContent: 'space-between',
                 alignItems: 'center',
                 height: pxToDp(40),
-                margin: pxToDp(10),
                 flexDirection: 'row',
                 backgroundColor: 'white',
-                margin: pxToDp(5),
-                borderRadius: pxToDp(8)
+                marginTop: pxToDp(16),
+                borderRadius: pxToDp(8),
+                elevation: 2,
+                shadowColor: 'black', //  阴影颜色
+                shadowOffset: { width: 0, height: 0 }, // 阴影偏移
+                shadowOpacity: 1, // 阴影不透明度
+                shadowRadius: 10 //  圆角
               }}
             >
-              <Text style={{ marginLeft: pxToDp(15) }}>支付方式:</Text>
+              <Text style={{ marginLeft: pxToDp(8) }}>支付方式:</Text>
               <Text style={{ marginLeft: pxToDp(200) }}>{this.state.way}</Text>
               <Image
                 style={{
@@ -298,7 +344,12 @@ class orders extends PureComponent {
             justifyContent: 'space-between',
             flexDirection: 'row',
             backgroundColor: 'white',
-            height: pxToDp(70)
+            height: pxToDp(70),
+            elevation: 2,
+            shadowColor: 'black', //  阴影颜色
+            shadowOffset: { width: 0, height: 0 }, // 阴影偏移
+            shadowOpacity: 1, // 阴影不透明度
+            shadowRadius: 10 //  圆角
           }}
         >
           <View
@@ -320,23 +371,23 @@ class orders extends PureComponent {
               ￥{price * count}
             </Text>
           </View>
-          <Mybtn   cisabled={this.props.disabled}
-                    title="提交订单"
-                
+          <Mybtn
+            cisabled={this.props.disabled}
+            title="提交订单"
             onPress={this.addOrder}
-                    buttonStyle={{
-                      width: pxToDp(120),
-                      height: pxToDp(40),
-                      alignSelf: 'flex-end',
-                      borderRadius: pxToDp(32),
-                      marginRight: pxToDp(8)
-                    }}
-                    titleStyle={{
-                      color: '#fcfcfc',
-                      fontWeight: 'bold',
-                      fontSize: pxToDp(16)
-                    }}
-                  />
+            buttonStyle={{
+              width: pxToDp(120),
+              height: pxToDp(40),
+              alignSelf: 'flex-end',
+              borderRadius: pxToDp(32),
+              marginRight: pxToDp(8)
+            }}
+            titleStyle={{
+              color: '#fcfcfc',
+              fontWeight: 'bold',
+              fontSize: pxToDp(16)
+            }}
+          />
         </View>
 
         {/* 支付方式弹窗 */}

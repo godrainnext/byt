@@ -73,7 +73,7 @@ export class AlwaysOpen extends PureComponent {
       <Modalize
         ref={this.modalizeRef}
         modalStyle={s.content__modal}
-        alwaysOpen={pxToDp(456)}
+        alwaysOpen={pxToDp(436)}
         handlePosition="inside"
       >
         {this.renderContent()}
@@ -112,14 +112,15 @@ const s = StyleSheet.create({
   },
   bigbox: {
     height: pxToDp(800),
-    marginTop: pxToDp(20)
+    marginTop: pxToDp(20),
   },
   song: {
     alignItems: 'center',
     justifyContent: 'space-between',
-    width: pxToDp(350),
     flexDirection: 'row',
-    marginTop: pxToDp(10)
+    marginTop: pxToDp(10),
+    paddingLeft:pxToDp(16),
+    paddingRight:pxToDp(16),
   },
   smallbox: {
     flexDirection: 'row',

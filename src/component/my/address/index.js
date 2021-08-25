@@ -31,39 +31,49 @@ class Address extends PureComponent {
               })
             }
             style={{
-              marginTop: pxToDp(5),
               borderRadius: pxToDp(8),
-              margin: pxToDp(5),
-              backgroundColor: 'white'
+              backgroundColor: 'white',
+              flexDirection: 'row',
+              height: pxToDp(80)
             }}
           >
+            <View style={{ width: pxToDp(318) }}>
+              {/* 姓名 电话 */}
+              <View
+                style={{
+                  height: pxToDp(50),
+                  alignItems: 'center',
+                  marginLeft: pxToDp(8),
+                  flexDirection: 'row'
+                }}
+              >
+                <Text style={{ fontSize: pxToDp(16) }}>
+                  {this.props.defaultAddress?.name}
+                </Text>
+                <Text style={{ fontSize: pxToDp(16), marginLeft: pxToDp(40) }}>
+                  {this.props.defaultAddress?.phoneNum}
+                </Text>
+              </View>
+              {/* 地址 */}
+              <View style={{ marginLeft: pxToDp(8) }}>
+                <Text style={{ fontSize: pxToDp(14) }}>
+                  {this.props.defaultAddress?.address}
+                </Text>
+              </View>
+            </View>
             <View
               style={{
-                marginTop: pxToDp(20),
-                marginLeft: pxToDp(20),
-                flexDirection: 'row'
+                height: pxToDp(80),
+                justifyContent: 'center'
               }}
             >
-              <Text style={{ fontSize: pxToDp(16) }}>
-                {this.props.defaultAddress?.name}
-              </Text>
-              <Text style={{ fontSize: pxToDp(16), marginLeft: pxToDp(40) }}>
-                {this.props.defaultAddress?.phoneNum}
-              </Text>
               <Image
                 style={{
                   width: pxToDp(20),
-                  height: pxToDp(20),
-                  marginLeft: pxToDp(130),
-                  marginTop: pxToDp(15)
+                  height: pxToDp(20)
                 }}
                 source={require('../../../res/箭头.png')}
               />
-            </View>
-            <View style={{ marginLeft: pxToDp(20), marginBottom: pxToDp(10) }}>
-              <Text style={{ fontSize: pxToDp(14) }}>
-                {this.props.defaultAddress?.address}
-              </Text>
             </View>
           </TouchableOpacity>
         ) : (

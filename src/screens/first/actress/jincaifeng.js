@@ -27,7 +27,7 @@ class Index extends PureComponent {
     return (
       <View style={{ flex: 1 }}>
         <Top icon1="arrow-back" title="金采风" />
-        <ScrollView >
+        <ScrollView showsVerticalScrollIndicator = {false}>
           {/*基本信息 */}
           <View style={{ flex: 1, backgroundColor: 'white', padding: pxToDp(16), paddingBottom: 0 }}>
             <Text style={styles.title}>基本信息</Text>
@@ -45,13 +45,13 @@ class Index extends PureComponent {
             </View>
             <Text style={styles.text}>主要成就：{this.state.person.success}</Text>
             {/**人物评价 */}
-            <View style={{ marginTop: pxToDp(16) }}>
+            <View style={{ marginTop: pxToDp(12) }}>
               <Text style={styles.title}>人物评价</Text>
               <Text style={styles.text}>{this.state.person.evaluate1}</Text>
               <Text style={styles.text}>{this.state.person.evaluate2}</Text>
             </View>
             {/**图片 */}
-            <View style={{ marginTop: pxToDp(16), marginBottom: pxToDp(16) }}>
+            <View style={{ marginTop: pxToDp(12), marginBottom: pxToDp(16) }}>
               <Text style={styles.title}>人物图集</Text>
               <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between' }}>
                 <Image style={styles.image} source={{ uri: this.state.person.image1 }} />

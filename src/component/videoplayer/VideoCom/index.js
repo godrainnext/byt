@@ -202,7 +202,10 @@ class index extends PureComponent {
                   height={495}
                   openDuration={0}
                 >
-                  <ScrollView style={{ flex: 1 }}>
+                  <ScrollView
+                    style={{ flex: 1 }}
+                    showsVerticalScrollIndicator={false}
+                  >
                     {item.recomment?.map((items) => (
                       <View key={items.id}>
                         <View

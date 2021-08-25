@@ -28,6 +28,8 @@ import Top from '../../../../component/common/top';
 import { launchImageLibrary } from 'react-native-image-picker';
 import request from '@service/index';
 import { connect } from 'react-redux';
+import Mybtn from '../../../../component/common/mybtn';
+import ImagePicker from 'react-native-image-crop-picker';
 const dimensions = {
   width: Dimensions.get('window').width,
   height: Dimensions.get('window').height
@@ -267,52 +269,159 @@ class App extends Component {
       <View style={{ flex: 1 }}>{this._renderVideos(this.props.userInfo)}</View>
     ) : (
       <View style={styles.max}>
-        <View style={styles.max}>
-          <Top title="开播" icon1="arrow-back" />
-          <View>
-            <View style={{ marginTop: 4 }}>
-              <View
-                style={{
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  height: pxToDp(32),
-                  marginBottom: pxToDp(8)
-                }}
-              >
-                <Text style={{ color: '#50935E' }}>
-                  请您如实准确填写本人信息，否则将认证失败
-                </Text>
+        <Top title="开播" icon1="arrow-back" />
+        <View style={[styles.max, { padding: pxToDp(16) }]}>
+          <View
+            style={{
+              justifyContent: 'center',
+              alignItems: 'center',
+              height: pxToDp(32),
+              marginBottom: pxToDp(8)
+            }}
+          >
+            <Text style={{ color: '#50935E' }}>
+              请您如实准确填写本人信息，否则将认证失败
+            </Text>
+          </View>
+          <View
+            style={{
+              borderRadius: pxToDp(8),
+              elevation: 1,
+              shadowColor: 'black', //  阴影颜色
+              shadowOffset: { width: 0, height: 0 }, // 阴影偏移
+              shadowOpacity: 1, // 阴影不透明度
+              shadowRadius: 10 //  圆角
+            }}
+          >
+            <View>
+              <View style={{ marginBottom: pxToDp(-24) }}>
+                <Input
+                  placeholder="请输入房间名"
+                  // rightIcon={<Text style={{ color: 'gray' }}></Text>}
+                  value={roomName}
+                  inputContainerStyle={{
+                    borderBottomWidth: 0
+                  }}
+                  onChangeText={(roomName) => this.setState({ roomName })}
+                  leftIcon={
+                    <View
+                      style={{
+                        flexDirection: 'row',
+                        marginTop: pxToDp(4)
+                      }}
+                    >
+                      <Text
+                        style={{
+                          fontSize: pxToDp(16),
+                          color: 'red',
+                          marginBottom: pxToDp(4)
+                        }}
+                      >
+                        *
+                      </Text>
+                      <Text
+                        style={{
+                          fontSize: pxToDp(16),
+                          color: '#333333'
+                        }}
+                      >
+                        房间名
+                      </Text>
+                    </View>
+                  }
+                />
               </View>
-              <Input
-                placeholder="请输入房间名"
-                // rightIcon={<Text style={{ color: 'gray' }}></Text>}
-                value={roomName}
-                onChangeText={(roomName) => this.setState({ roomName })}
-                leftIcon={<Text style={{ fontSize: pxToDp(16) }}>*房间名</Text>}
-              />
-              <Input
-                placeholder="请选择房间号"
-                value={channelName}
-                onChangeText={(channelName) => this.setState({ channelName })}
-                // rightIcon={<Text style={{ color: 'gray' }}>请选择房间号</Text>}
-                leftIcon={<Text style={{ fontSize: pxToDp(16) }}>*房间号</Text>}
-              />
-              <Input
-                rightIcon={<View>{this.tianjia()}</View>}
-                disabled={true}
-                leftIcon={<Text style={{ fontSize: pxToDp(16) }}>*封面图</Text>}
-              />
+              <View style={{ marginBottom: pxToDp(-24) }}>
+                <Input
+                  placeholder="请选择房间号"
+                  value={channelName}
+                  inputContainerStyle={{
+                    borderBottomWidth: 0
+                  }}
+                  onChangeText={(channelName) => this.setState({ channelName })}
+                  // rightIcon={<Text style={{ color: 'gray' }}>请选择房间号</Text>}
+                  leftIcon={
+                    <View
+                      style={{
+                        flexDirection: 'row',
+                        marginTop: pxToDp(4)
+                      }}
+                    >
+                      <Text
+                        style={{
+                          fontSize: pxToDp(16),
+                          color: 'red',
+                          marginBottom: pxToDp(4)
+                        }}
+                      >
+                        *
+                      </Text>
+                      <Text
+                        style={{
+                          fontSize: pxToDp(16),
+                          color: '#333333'
+                        }}
+                      >
+                        房间号
+                      </Text>
+                    </View>
+                  }
+                />
+              </View>
+              <View style={{ marginBottom: pxToDp(-16) }}>
+                <Input
+                  rightIcon={<View>{this.tianjia()}</View>}
+                  disabled={true}
+                  inputContainerStyle={{
+                    borderBottomWidth: 0
+                  }}
+                  leftIcon={
+                    <View
+                      style={{
+                        flexDirection: 'row',
+                        marginTop: pxToDp(4)
+                      }}
+                    >
+                      <Text
+                        style={{
+                          fontSize: pxToDp(16),
+                          color: 'red',
+                          marginBottom: pxToDp(4)
+                        }}
+                      >
+                        *
+                      </Text>
+                      <Text
+                        style={{
+                          fontSize: pxToDp(16),
+                          color: '#333333'
+                        }}
+                      >
+                        封面图
+                      </Text>
+                    </View>
+                  }
+                />
+              </View>
             </View>
           </View>
-          <Image
-            source={{ uri: this.state.image.uri }}
-            style={{ width: 200, height: 200 }}
+        </View>
+        <View style={styles.buttonHolder}>
+          <Mybtn
+            title="创建房间"
+            onPress={this.startCall}
+            buttonStyle={{
+              width: pxToDp(200),
+              height: pxToDp(50),
+              alignSelf: 'center',
+              borderRadius: pxToDp(32)
+            }}
+            titleStyle={{
+              color: '#fcfcfc',
+              fontWeight: 'bold',
+              fontSize: pxToDp(16)
+            }}
           />
-          <View style={styles.buttonHolder}>
-            <TouchableOpacity onPress={this.startCall} style={styles.button}>
-              <Text style={styles.buttonText}> 开始直播 </Text>
-            </TouchableOpacity>
-          </View>
         </View>
       </View>
     );

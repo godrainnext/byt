@@ -21,10 +21,14 @@ class Index extends PureComponent {
   static contextType = NavigationContext;
   render() {
     return (
-      <ScrollView style={{ backgroundColor: '#E2F4FE', flex: 1 }}>
-        <Top icon1="arrow-back" />
+      <View style={{flex:1}}>
+      <Top icon1="arrow-back" title="精选唱段"/>
+      <ScrollView
+        style={{ backgroundColor: '#E2F4FE', flex: 1,padding:pxToDp(16)}}
+        showsVerticalScrollIndicator={false}
+      >
         {/*经典推荐 */}
-        <View style={styles.view}>
+        <View>
           <View
             style={{ flexDirection: 'row', justifyContent: 'space-between' }}
           >
@@ -43,9 +47,8 @@ class Index extends PureComponent {
         </View>
         <Opera status={0} />
         {/*名角唱段 */}
-        <View style={styles.view}>
           <View
-            style={{ flexDirection: 'row', justifyContent: 'space-between' }}
+            style={{ flexDirection: 'row', justifyContent: 'space-between',marginTop:pxToDp(16) }}
           >
             <Text style={styles.title}>名角唱段</Text>
             <TouchableOpacity
@@ -59,44 +62,36 @@ class Index extends PureComponent {
               </View>
             </TouchableOpacity>
           </View>
-        </View>
+          <View style={{marginBottom:pxToDp(32)}}>
         <Opera status={1} />
+        </View>
       </ScrollView>
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  view: {
-    marginTop: pxToDp(8),
-    marginLeft: pxToDp(8),
-    marginRight: pxToDp(8)
-  },
   title: {
     fontSize: pxToDp(18),
-    color: '#468CD3',
+    color: '#000',
     fontWeight: 'bold'
   },
   box: {
     height: pxToDp(120),
     width: pxToDp(375),
     flexDirection: 'row',
-    borderBottomColor: 'grey',
-    borderBottomWidth: pxToDp(0.5),
-    marginTop: pxToDp(8)
+    marginTop: pxToDp(8),
   },
   image: {
     height: pxToDp(110),
     width: pxToDp(170),
     borderRadius: pxToDp(8),
-    marginLeft: pxToDp(8)
   },
   botbox: {
     justifyContent: 'space-between',
     width: pxToDp(180),
     height: pxToDp(110),
-    marginLeft: pxToDp(8),
-    marginRight: pxToDp(8)
   },
   text1: {
     fontSize: pxToDp(15),

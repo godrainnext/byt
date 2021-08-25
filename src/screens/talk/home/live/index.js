@@ -44,7 +44,7 @@ class Index extends Component {
   render() {
     return (
       <View style={{ flex: 1, backgroundColor: 'white' }}>
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator = {false}>
           {this.state.arr.map((item) => (
             <View key={item.id}>
               <TouchableOpacity

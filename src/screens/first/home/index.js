@@ -615,7 +615,7 @@ const styles = StyleSheet.create({
   },
   bookinf1: {
     flexDirection: 'row',
-    width: pxToDp(180),
+    width: pxToDp(210),
     alignItems: 'center',
     justifyContent: 'space-between'
   },

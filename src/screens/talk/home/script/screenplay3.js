@@ -6,14 +6,14 @@ class Index extends PureComponent {
   renderInner = () => (
     <Fragment>
       <View>
-        <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold' }}>
+        <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold' }}>
           梁祝（十八相送）
         </Text>
       </View>
       <Text
         style={{
-          marginTop: pxToDp(10),
-          fontSize: pxToDp(17),
+          marginTop: pxToDp(8),
+          fontSize: pxToDp(16),
           marginBottom: pxToDp(10)
         }}
       >
@@ -22,14 +22,13 @@ class Index extends PureComponent {
       <View>
         <Image
           style={{
-            width: '100%',
-            height: pxToDp(200),
+            height: pxToDp(180),
             borderRadius: pxToDp(8)
           }}
           source={require('../../../../res/play/fengmian3.jpg')}
         />
       </View>
-      <Text style={styles.Text}>
+      <Text style={[styles.Text, { marginTop: pxToDp(8) }]}>
         <Text style={styles.texthead}>（祝白）</Text>:
         梁兄，（唱）书房门前一枝梅，树上鸟儿对打对，喜鹊满树喳喳叫，向你梁兄报喜来。
       </Text>
@@ -333,6 +332,7 @@ class Index extends PureComponent {
   render() {
     return (
       <ScreenBase
+        top="梁祝"
         renderInner={this.renderInner}
         arr={[
           {
@@ -360,11 +360,12 @@ class Index extends PureComponent {
 const styles = StyleSheet.create({
   Text: {
     fontSize: pxToDp(16),
-    marginTop: pxToDp(25),
+    marginTop: pxToDp(4),
     lineHeight: pxToDp(25)
   },
   texthead: {
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    fontSize: pxToDp(16)
   }
 });
 export default Index;

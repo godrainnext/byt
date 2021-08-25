@@ -38,12 +38,17 @@ export default class commentItem extends PureComponent {
             alignItems: 'center'
           }}
         >
-          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+            }}
+          >
             <Image
               style={{
                 width: pxToDp(40),
                 height: pxToDp(40),
-                margin: pxToDp(5),
+                margin: pxToDp(4),
                 borderRadius: pxToDp(20)
               }}
               source={{
@@ -51,8 +56,16 @@ export default class commentItem extends PureComponent {
               }}
             />
             <View>
-              <Text style={{ fontSize: pxToDp(14) }}>{item.nickName}</Text>
-              <Text style={{ fontSize: pxToDp(13), color: 'grey' }}>
+              <Text style={{ fontSize: pxToDp(14), marginLeft: pxToDp(4) }}>
+                {item.nickName}
+              </Text>
+              <Text
+                style={{
+                  fontSize: pxToDp(13),
+                  marginLeft: pxToDp(4),
+                  color: 'grey'
+                }}
+              >
                 {item.createTime}
               </Text>
             </View>
@@ -66,7 +79,7 @@ export default class commentItem extends PureComponent {
                   height="20"
                   style={{ color: 'pink' }}
                 />
-                <Text>{this.state.count}</Text>
+                <Text style={{ alignSelf: 'center' }}>{this.state.count}</Text>
               </View>
             ) : (
               <View>
@@ -76,7 +89,7 @@ export default class commentItem extends PureComponent {
                   height="20"
                   style={{ color: 'pink' }}
                 />
-                <Text>{this.state.count}</Text>
+                <Text style={{ alignSelf: 'center' }}>{this.state.count}</Text>
               </View>
             )}
           </TouchableOpacity>

@@ -48,6 +48,7 @@ class Index extends PureComponent {
             padding: pxToDp(20),
             flex: 1
           }}
+          showsVerticalScrollIndicator = {false}
         >
           <Image
             style={{
@@ -109,7 +110,7 @@ class Index extends PureComponent {
               style={{
                 fontSize: pxToDp(18),
                 fontWeight: 'bold',
-                marginTop: pxToDp(40),
+                marginTop: pxToDp(30),
                 marginBottom:pxToDp(20)
               }}
             >
@@ -139,7 +140,6 @@ class Index extends PureComponent {
 const styles = StyleSheet.create({
   title1: {
     fontSize: pxToDp(16),
-    marginTop: pxToDp(4),
     lineHeight:pxToDp(24),
     color:'#333333',
     alignSelf:'center',
@@ -155,14 +155,14 @@ const styles = StyleSheet.create({
   text: {
     fontSize: pxToDp(18),
     fontWeight: 'bold',
-    marginBottom: pxToDp(20),
-    marginTop:pxToDp(40)
+
+    marginTop:pxToDp(30)
   },
   text2: {
     fontSize: pxToDp(18),
     fontWeight: 'bold',
     marginBottom: pxToDp(20),
-    marginTop:pxToDp(40)
+    marginTop:pxToDp(30)
   },
 
   book: {

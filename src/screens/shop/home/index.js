@@ -53,7 +53,7 @@ class Index extends PureComponent {
   }
   render() {
     return (
-      <View style={{backgroundColor:'#fff'}}>
+      <View style={{ flex: 1 }}>
         <Top title="越市" />
         <ScrollView
           bounces={true}
@@ -66,9 +66,9 @@ class Index extends PureComponent {
               onRefresh={this._onRefresh.bind(this)}
             />}
           showsVerticalScrollIndicator={false}
-          style={{ marginBottom: pxToDp(70) }}>
+        >
           {/*轮播 */}
-          <View style={{ height: pxToDp(240) }}>
+          <View style={{ height: pxToDp(220), marginLeft: pxToDp(16), marginRight: pxToDp(16) }}>
             <Swiper
               removeClippedSubviews={false}
               showsButtons={false}
@@ -76,7 +76,7 @@ class Index extends PureComponent {
               autoplay={true}
               showsPagination={false}
               autoplayTimeout={3}
-              style={{ marginTop: pxToDp(8) }}
+              style={{ marginTop: pxToDp(8), marginBottom: pxToDp(8) }}
             >
               <View style={styles.slide}>
                 <Image
@@ -101,16 +101,13 @@ class Index extends PureComponent {
           {/*小推广 */}
           <View
             style={{
-              height: pxToDp(20),
-              margin:pxToDp(16)
-  
+              marginLeft: pxToDp(16),
+              marginTop: pxToDp(-4)
             }}
           >
-            <Text style={{ color: '#000000', fontSize: pxToDp(18), fontWeight: 'bold', position: 'absolute' }}>
-              长袖轻舞，越音袅袅
-            </Text>
+            <Text style={styles.title}>长袖轻舞，越音袅袅</Text>
           </View>
-          <View style={{ marginLeft: pxToDp(16),marginRight:16, flexDirection: 'row', }}>
+          <View style={{ flexDirection: 'row', marginLeft: pxToDp(16), marginRight: pxToDp(16), marginTop: pxToDp(8) }}>
             {/*线下门票 */}
             < TouchableNativeFeedback onPress={() => this.context.navigate('ticket')}
               useForeground={true}>
@@ -145,13 +142,22 @@ class Index extends PureComponent {
             </View>
           </View>
           {/*推荐模块 */}
-          <Text style={styles.title}>你可能喜欢</Text>
+          <View
+            style={{
+              marginLeft: pxToDp(16),
+              marginTop: pxToDp(8)
+            }}
+          >
+            <Text style={styles.title}>你可能喜欢</Text>
+          </View>
           <View
             style={{
               flexWrap: 'wrap',
               flexDirection: 'row',
-              margin:pxToDp(8)
-              
+              marginLeft: pxToDp(16),
+              marginRight: pxToDp(16),
+              justifyContent: 'space-between',
+              marginTop: pxToDp(-4)
             }}
           >
             {this.state.arr.map((item) => (
@@ -177,13 +183,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     height: pxToDp(200),
-    margin: pxToDp(16),
     borderRadius: pxToDp(8)
   },
   tcard: {
-    flexDirection: 'row',
-    width: '100%',
-    justifyContent: 'space-between'
+    height: pxToDp(20)
   },
   ocard: {
     backgroundColor: 'white',
@@ -201,13 +204,11 @@ const styles = StyleSheet.create({
     height: '100%',
     width: '100%',
     borderRadius: pxToDp(8),
-    marginBottom: pxToDp(10)
   },
   title: {
-    margin: pxToDp(16),
     color: '#000000',
     fontSize: pxToDp(18),
-    fontWeight: 'bold'
+    fontWeight: 'bold',
   },
   image1: {
     height: pxToDp(100),
@@ -235,13 +236,13 @@ const styles = StyleSheet.create({
     marginTop: pxToDp(3)
   },
   image3: {
-    height: pxToDp(174),
-    width: pxToDp(174),
+    height: pxToDp(170),
+    width: pxToDp(166.5),
     borderRadius: pxToDp(8)
   },
   image4: {
     height: pxToDp(80),
-    width: pxToDp(158),
+    width: pxToDp(167),
     borderRadius: pxToDp(8),
     alignSelf: 'center'
   }

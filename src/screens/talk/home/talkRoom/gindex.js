@@ -255,57 +255,115 @@ export default class App extends PureComponent {
     //渲染歌单页面
     renderSong = () => {
         const { showSong } = this.state;
-        return <Swiper
+        return (
+          <Swiper
             removeClippedSubviews={false}
             showsButtons={false}
             showsPagination={true}
             loop={false}
             autoplay={false}
             paginationStyle={{ bottom: pxToDp(-15) }} //dot的位置
-        >
+          >
             <View>
-                <ScrollView showsVerticalScrollIndicator={false}>
-                    {this.state.data1.map((item) => (
-                        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: pxToDp(10), alignItems: 'center' }}>
-                            <View>
-                                <Text style={{ fontSize: pxToDp(16), fontWeight: 'bold', color: '#333333' }}>{item.title}</Text>
-                                <Text style={{ fontSize: pxToDp(14), color: '#999999' }}>{item.autor}</Text>
-                            </View>
-                            <TouchableOpacity onPress={()=>this.setState({showSong:false})}>
-                                <SvgUri svgXmlData={playmusic} width="30" height="30" />
-                            </TouchableOpacity>
-                        </View>))}
-                </ScrollView>
+              <ScrollView showsVerticalScrollIndicator={false}>
+                {this.state.data1.map((item) => (
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      justifyContent: 'space-between',
+                      marginBottom: pxToDp(10),
+                      alignItems: 'center'
+                    }}
+                  >
+                    <View>
+                      <Text
+                        style={{
+                          fontSize: pxToDp(16),
+                          fontWeight: 'bold',
+                          color: '#333333'
+                        }}
+                      >
+                        {item.title}
+                      </Text>
+                      <Text style={{ fontSize: pxToDp(14), color: '#999999' }}>
+                        {item.autor}
+                      </Text>
+                    </View>
+                    <TouchableOpacity
+                      onPress={() => this.setState({ showSong: false })}
+                    >
+                      <SvgUri svgXmlData={playmusic} width="30" height="30" />
+                    </TouchableOpacity>
+                  </View>
+                ))}
+              </ScrollView>
             </View>
             <View>
-                <ScrollView>
-                    {this.state.data2.map((item) => (
-                        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: pxToDp(10), alignItems: 'center' }}>
-                            <View>
-                                <Text style={{ fontSize: pxToDp(16), fontWeight: 'bold', color: '#333333' }}>{item.title}</Text>
-                                <Text style={{ fontSize: pxToDp(14), color: '#999999' }}>{item.autor}</Text>
-                            </View>
-                            <TouchableOpacity>
-                                <SvgUri svgXmlData={playmusic} width="30" height="30" />
-                            </TouchableOpacity>
-                        </View>))}
-                </ScrollView>
+              <ScrollView showsVerticalScrollIndicator={false}>
+                {this.state.data2.map((item) => (
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      justifyContent: 'space-between',
+                      marginBottom: pxToDp(10),
+                      alignItems: 'center'
+                    }}
+                  >
+                    <View>
+                      <Text
+                        style={{
+                          fontSize: pxToDp(16),
+                          fontWeight: 'bold',
+                          color: '#333333'
+                        }}
+                      >
+                        {item.title}
+                      </Text>
+                      <Text style={{ fontSize: pxToDp(14), color: '#999999' }}>
+                        {item.autor}
+                      </Text>
+                    </View>
+                    <TouchableOpacity>
+                      <SvgUri svgXmlData={playmusic} width="30" height="30" />
+                    </TouchableOpacity>
+                  </View>
+                ))}
+              </ScrollView>
             </View>
             <View>
-                <ScrollView>
-                    {this.state.data3.map((item) => (
-                        <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: pxToDp(10), alignItems: 'center' }}>
-                            <View>
-                                <Text style={{ fontSize: pxToDp(16), fontWeight: 'bold', color: '#333333' }}>{item.title}</Text>
-                                <Text style={{ fontSize: pxToDp(14), color: '#999999' }}>{item.autor}</Text>
-                            </View>
-                            <TouchableOpacity>
-                                <SvgUri svgXmlData={playmusic} width="30" height="30" />
-                            </TouchableOpacity>
-                        </View>))}
-                </ScrollView>
+              <ScrollView showsVerticalScrollIndicator={false}>
+                {this.state.data3.map((item) => (
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      justifyContent: 'space-between',
+                      marginBottom: pxToDp(10),
+                      alignItems: 'center'
+                    }}
+                  >
+                    <View>
+                      <Text
+                        style={{
+                          fontSize: pxToDp(16),
+                          fontWeight: 'bold',
+                          color: '#333333'
+                        }}
+                      >
+                        {item.title}
+                      </Text>
+                      <Text style={{ fontSize: pxToDp(14), color: '#999999' }}>
+                        {item.autor}
+                      </Text>
+                    </View>
+                    <TouchableOpacity>
+                      <SvgUri svgXmlData={playmusic} width="30" height="30" />
+                    </TouchableOpacity>
+                  </View>
+                ))}
+              </ScrollView>
             </View>
-        </Swiper>
+          </Swiper>
+        );
     }
     //渲染视频页面
     renderVideo = () => {

@@ -11,7 +11,7 @@ class Index extends PureComponent {
           style={{
             flexDirection: 'row',
             justifyContent: 'space-around',
-            backgroundColor: '#E2F4FE',
+            backgroundColor: 'white',
             height: pxToDp(50)
           }}
         >
@@ -28,7 +28,7 @@ class Index extends PureComponent {
               <Text
                 style={{
                   color: activeTab === i ? 'black' : 'grey',
-                  fontSize: activeTab === i ? pxToDp(20) : pxToDp(15)
+                  fontSize: activeTab === i ? pxToDp(16) : pxToDp(14)
                 }}
               >
                 {v}

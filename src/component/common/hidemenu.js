@@ -372,7 +372,7 @@ export class AlwaysOpen extends PureComponent {
           style={{
             flexDirection: 'row',
             justifyContent: 'space-between',
-            marginTop:pxToDp(20),
+            marginTop:pxToDp(2),
           }}
         >
           {/* 时空地图 */}
@@ -430,7 +430,7 @@ export class AlwaysOpen extends PureComponent {
               color:'#000000',
               fontWeight:'bold',
               marginBottom:pxToDp(8),
-              marginTop:pxToDp(20)
+              marginTop:pxToDp(10)
             }}
           >
             概述

@@ -61,7 +61,7 @@ export default class hello extends Component {
             });
         };
         return (
-            <ScrollView style={styles.box}>
+            <ScrollView style={styles.box} showsVerticalScrollIndicator = {false}>
                 <View style={styles.touchbox}>
                     <TouchableNativeFeedback
                     useForeground={true}
@@ -193,73 +193,69 @@ export default class hello extends Component {
 }
 
 const styles = StyleSheet.create({
-    box: {
-        flex: 1,
-        backgroundColor: 'white',
-    },
-    touchbox: {
-        flexDirection: 'row',
-        marginRight: pxToDp(8),
-        marginLeft: pxToDp(8),
-        justifyContent: 'space-between',
-        marginTop: pxToDp(16)
-    },
-    touch: {
-        width: '32%',
-        height: pxToDp(70),
-        backgroundColor: 'rgba(143,178,201,0.5)',
-        borderRadius: pxToDp(8),
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    text1: {
-        fontSize: pxToDp(18),
-        color:'#000000',
-        fontWeight: 'bold',
-    },
-    text2: {
-        fontSize: pxToDp(14),
-        color:'#666666',
-    },
-    linear: {
-        marginRight: pxToDp(8),
-        marginLeft: pxToDp(8),
-        height: pxToDp(200),
-        marginTop: pxToDp(16),
-        borderRadius: pxToDp(8)
-    },
-    image: {
-        width: pxToDp(100),
-        height: pxToDp(100),
-        borderRadius: pxToDp(8)
-    },
-    text: {
-        fontSize: pxToDp(13),
-        color: 'white'
-    },
-    textbox: {
-        height: pxToDp(40),
-        width: pxToDp(180),
-        borderRadius: pxToDp(32),
-        backgroundColor: '#468cd3',
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginTop: pxToDp(10)
-    },
-    textinputbox: {
-        height: pxToDp(40),
-        width: pxToDp(180),
-        borderRadius: pxToDp(32),
-        backgroundColor: 'white',
-        marginTop: pxToDp(10),
-        borderColor: 'grey',
-        borderWidth: pxToDp(1)
-    },
-    gridContainer: {
-        height: '100%',
-        width: pxToDp(375),
-        alignItems: 'center',
-        alignSelf: 'center',
-        justifyContent: 'center'
-    },
-})
+  box: {
+    flex: 1,
+    backgroundColor: 'white',
+    padding: pxToDp(16)
+  },
+  touchbox: {
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  touch: {
+    width: '32%',
+    height: pxToDp(70),
+    backgroundColor: 'rgba(143,178,201,0.5)',
+    borderRadius: pxToDp(8),
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  text1: {
+    fontSize: pxToDp(18),
+    color: '#000000',
+    fontWeight: 'bold'
+  },
+  text2: {
+    fontSize: pxToDp(14),
+    color: '#666666'
+  },
+  linear: {
+    height: pxToDp(200),
+    marginTop: pxToDp(16),
+    borderRadius: pxToDp(8)
+  },
+  image: {
+    width: pxToDp(100),
+    height: pxToDp(100),
+    borderRadius: pxToDp(8)
+  },
+  text: {
+    fontSize: pxToDp(13),
+    color: 'white'
+  },
+  textbox: {
+    height: pxToDp(40),
+    width: pxToDp(180),
+    borderRadius: pxToDp(32),
+    backgroundColor: '#468cd3',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: pxToDp(8)
+  },
+  textinputbox: {
+    height: pxToDp(40),
+    width: pxToDp(180),
+    borderRadius: pxToDp(32),
+    backgroundColor: 'white',
+    marginTop: pxToDp(8),
+    borderColor: 'grey',
+    borderWidth: pxToDp(1)
+  },
+  gridContainer: {
+    height: '100%',
+    width: pxToDp(375),
+    alignItems: 'center',
+    alignSelf: 'center',
+    justifyContent: 'center'
+  }
+});

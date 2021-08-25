@@ -132,7 +132,7 @@ class Index extends PureComponent {
             isModalVisible={this.state.isShow}
           />
         </View>
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator = {false}>
           <View>
             {/*轮播图 */}
             <View>

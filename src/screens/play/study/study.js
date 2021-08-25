@@ -66,7 +66,7 @@ class Index extends PureComponent {
                         <TextInput style={{ marginLeft: pxToDp(5), width: pxToDp(290) }}
                             placeholder="" />
                     </View>
-                    <ScrollView >
+                    <ScrollView showsVerticalScrollIndicator = {false}>
                         {this.state.products.map((item, index) => (
                             <TouchableNativeFeedback onPress={() => this.context.navigate("Details")}>
                                 <View style={styles.box}>

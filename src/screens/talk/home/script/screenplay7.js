@@ -7,12 +7,12 @@ class Index extends PureComponent {
   renderInner = () => (
     <Fragment>
       <View>
-        <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold' }}>碧玉簪</Text>
+        <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold' }}>碧玉簪</Text>
       </View>
       <Text
         style={{
-          marginTop: pxToDp(10),
-          fontSize: pxToDp(17),
+          marginTop: pxToDp(8),
+          fontSize: pxToDp(16),
           marginBottom: pxToDp(10)
         }}
       >
@@ -21,8 +21,7 @@ class Index extends PureComponent {
       <View>
         <Image
           style={{
-            width: '100%',
-            height: pxToDp(200),
+            height: pxToDp(180),
             borderRadius: pxToDp(8)
           }}
           source={{
@@ -30,7 +29,7 @@ class Index extends PureComponent {
           }}
         />
       </View>
-      <Text style={styles.Text}>
+      <Text style={[styles.Text, { marginTop: pxToDp(8) }]}>
         <Text style={styles.texthead}>（秀唱）</Text>:
         谯楼打罢二更鼓，官人他独坐一旁不理我。我自从嫁到王家一月多，真好比口吃黄连我心里苦。那婆婆拉他上楼来，总希望我们夫妻从此可和睦。谁知他怒气冲冲独自坐，他是不理不睬恶摆布。我不明不白受委屈，可怜我有满腹的委屈向谁诉。枉费了婆婆一片心，看起来今生夫妻难和睦。
       </Text>
@@ -81,6 +80,7 @@ class Index extends PureComponent {
   render() {
     return (
       <ScreenBase
+        top="三盖衣"
         renderInner={this.renderInner}
         arr={[
           {
@@ -108,11 +108,12 @@ class Index extends PureComponent {
 const styles = StyleSheet.create({
   Text: {
     fontSize: pxToDp(16),
-    marginTop: pxToDp(25),
+    marginTop: pxToDp(4),
     lineHeight: pxToDp(25)
   },
   texthead: {
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    fontSize: pxToDp(16)
   }
 });
 export default Index;

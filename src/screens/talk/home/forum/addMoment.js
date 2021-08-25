@@ -190,7 +190,7 @@ class index extends PureComponent {
             padding: pxToDp(10)
           }}
         >
-          <ScrollView>
+          <ScrollView showsVerticalScrollIndicator = {false}>
             <View>
               <View style={{ marginTop: 4 }}>
                 <View>
