@@ -157,27 +157,40 @@ class shopdetails extends PureComponent {
     return (
       <View style={{ flex: 1, backgroundColor: '#ecf6fc' }}>
         {/* 顶部导航 */}
-        <Top icon1="arrow-back"/>
+        <Top icon1="arrow-back" />
         <Loading color="#468cd3" />
         <ScrollView
-        showsVerticalScrollIndicator={false}
+          showsVerticalScrollIndicator={false}
           // onMomentumScrollBegin={() => { this.setState({ btnOpcity: true }); console.log(this.state.btnOpcity); }}
           // onMomentumScrollEnd={() => { this.setState({ btnOpcity: false }); console.log(this.state.btnOpcity); }}
-          onScrollBeginDrag={() => { this.setState({ btnOpcity: true }); console.log(this.state.btnOpcity); }}
-          onScrollEndDrag={() => { this.setState({ btnOpcity: false }); console.log(this.state.btnOpcity); }}
-          style={{
-            flex: 1,
+          onScrollBeginDrag={() => {
+            this.setState({ btnOpcity: true });
+            console.log(this.state.btnOpcity);
           }}
+          onScrollEndDrag={() => {
+            this.setState({ btnOpcity: false });
+            console.log(this.state.btnOpcity);
+          }}
+          style={{
+            flex: 1
+          }}
+          showsVerticalScrollIndicator={false}
         >
           {/* 商品图片 */}
 
-          <View style={{ alignItems: 'center', marginTop: pxToDp(20),}}>
+          <View style={{ alignItems: 'center', marginTop: pxToDp(20) }}>
             <Swiper shopbanner={this.state.shopbanner} />
           </View>
 
           {/* 品名 价格 */}
           <View style={{ alignItems: 'center', marginTop: pxToDp(20) }}>
-            <Text style={{ fontSize: pxToDp(20),color:'#333333',fontWeight: 'bold' }}>
+            <Text
+              style={{
+                fontSize: pxToDp(20),
+                color: '#333333',
+                fontWeight: 'bold'
+              }}
+            >
               {this.state.shop.title}
             </Text>
             <View
@@ -187,7 +200,7 @@ class shopdetails extends PureComponent {
                 alignItems: 'flex-end'
               }}
             >
-              <Text style={{ fontSize: pxToDp(16),color:'#f0bb51' }}>
+              <Text style={{ fontSize: pxToDp(16), color: '#f0bb51' }}>
                 ￥
                 {parseInt(
                   this.state.shop.price ? this.state.shop.price * 0.8 : 0
@@ -209,25 +222,32 @@ class shopdetails extends PureComponent {
 
           <View
             style={{
-              margin: pxToDp(16),
-        
+              margin: pxToDp(16)
             }}
           >
-            <Text style={{fontSize:pxToDp(16),color:'#666666',lineHeight:pxToDp(24),}}>{this.state.shop.inner}</Text>
+            <Text
+              style={{
+                fontSize: pxToDp(16),
+                color: '#666666',
+                lineHeight: pxToDp(24)
+              }}
+            >
+              &emsp;&emsp;{this.state.shop.inner}
+            </Text>
           </View>
 
           {/* 商品详情 */}
-          <View style={{ marginTop: pxToDp(20),marginBottom:pxToDp(36),}}>
+          <View style={{ marginTop: pxToDp(20), marginBottom: pxToDp(36) }}>
             {this.state.products.map((item, index) => (
               <View key={item.id}>
                 <Image
                   style={{
-                    alignSelf:'center',
+                    alignSelf: 'center',
                     width: pxToDp(334),
                     height: pxToDp(350),
-                    marginLeft:16,
-                    marginRight:16,
-                    marginBottom:pxToDp(16),
+                    marginLeft: 16,
+                    marginRight: 16,
+                    marginBottom: pxToDp(16),
                     borderRadius: pxToDp(8)
                   }}
                   source={{ uri: changeImgSize(item.img, 'small') }}
@@ -246,7 +266,7 @@ class shopdetails extends PureComponent {
             container: { borderTopLeftRadius: 10, borderTopRightRadius: 10 }
           }}
         >
-          <ScrollView>
+          <ScrollView showsVerticalScrollIndicator={false}>
             {/* 标题 */}
             <View
               style={{
@@ -285,14 +305,21 @@ class shopdetails extends PureComponent {
                   <Text style={{ fontSize: pxToDp(16), marginTop: pxToDp(16) }}>
                     ￥{this.state.products[activeTab]?.price}
                   </Text>
-                  <Text style={{ fontSize: pxToDp(16), marginTop: pxToDp(16),color:'#666666'}}>
+                  <Text
+                    style={{
+                      fontSize: pxToDp(16),
+                      marginTop: pxToDp(16),
+                      color: '#666666'
+                    }}
+                  >
                     {this.state.products[activeTab]?.color}
                   </Text>
                 </View>
                 <TouchableOpacity onPress={() => this.Scrollable.close()}>
                   <View
                     style={{
-                      marginTop: pxToDp(10)
+                      marginTop: pxToDp(10),
+                      marginRight: pxToDp(10)
                     }}
                   >
                     <AntDesign
@@ -305,15 +332,12 @@ class shopdetails extends PureComponent {
               </View>
             </View>
             {/* 尺码选择 */}
-            <View
-              style={{ borderTopWidth: pxToDp(1.1), borderColor: '#f1f1f1',margin:pxToDp(16)  }}
-            >
+            <View style={styles.sizebox}>
               <Text
                 style={{
                   marginLeft: pxToDp(25),
                   fontSize: pxToDp(16),
-                  marginTop: pxToDp(10),
-                  marginBottom: pxToDp(10)
+                  marginTop: pxToDp(8)
                 }}
               >
                 尺码
@@ -321,7 +345,7 @@ class shopdetails extends PureComponent {
               <View style={{ flexWrap: 'wrap', flexDirection: 'row' }}>
                 {this.state.Size.map((item, index) => (
                   <TouchableOpacity
-                  activeOpacity={1}
+                    activeOpacity={1}
                     key={item.id}
                     onPress={() => this.changeSizeTab(index)}
                     style={{
@@ -344,8 +368,8 @@ class shopdetails extends PureComponent {
                           index === activeSizeTab ? pxToDp(1) : pxToDp(0),
                         height: pxToDp(30),
                         width: pxToDp(50),
-                        elevation: 5, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
-                        shadowColor: 'black', //  阴影颜色
+                        elevation: 2, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                        shadowColor: 'black' //  阴影颜色
                         //  圆角
                       }}
                     >
@@ -365,14 +389,12 @@ class shopdetails extends PureComponent {
               </View>
             </View>
             {/* 颜色分类 */}
-            <View
-              style={{ borderTopWidth: pxToDp(1.1), borderColor: '#f1f1f1' ,margin:pxToDp(16) }}
-            >
+            <View style={styles.sizebox}>
               <Text
                 style={{
                   marginLeft: pxToDp(25),
                   fontSize: pxToDp(16),
-                  marginTop: pxToDp(10)
+                  marginTop: pxToDp(8)
                 }}
               >
                 颜色分类
@@ -389,7 +411,7 @@ class shopdetails extends PureComponent {
                   style={{
                     alignItems: 'center',
                     flexDirection: 'row',
-                    marginTop: pxToDp(20),
+                    marginTop: pxToDp(8),
                     marginLeft: pxToDp(20)
                   }}
                 >
@@ -402,7 +424,7 @@ class shopdetails extends PureComponent {
                       borderWidth: 1,
                       borderRadius: pxToDp(8),
                       height: pxToDp(131),
-                      elevation: 5, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                      elevation: 2, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
                       shadowColor: 'grey', //  阴影颜色
                       shadowRadius: pxToDp(10), //  圆角
                       marginBottom: pxToDp(1)
@@ -432,20 +454,27 @@ class shopdetails extends PureComponent {
                 </TouchableOpacity>
               ))}
             </View>
-            <View style={{ height: pxToDp(40), marginBottom: pxToDp(50) }}>
+            <View
+              style={{
+                height: pxToDp(40),
+                marginBottom: pxToDp(50)
+              }}
+            >
               <View
                 style={{
                   margin: pxToDp(16),
-                  height:40,
-                  borderColor: '#f1f1f1' ,
-                  borderBottomWidth:1,
-                  borderTopWidth:1,
+                  height: 40,
+                  borderColor: '#f1f1f1',
+                  borderBottomWidth: 1,
+                  borderTopWidth: 1,
                   flexDirection: 'row',
                   justifyContent: 'space-between',
-                  alignItems: 'center',
+                  alignItems: 'center'
                 }}
               >
-                <Text style={{fontSize:pxToDp(16)}}>购买数量</Text>
+                <Text style={{ fontSize: pxToDp(16), marginLeft: pxToDp(16) }}>
+                  购买数量
+                </Text>
                 <View
                   style={{
                     justifyContent: 'center',
@@ -453,7 +482,7 @@ class shopdetails extends PureComponent {
                     backgroundColor: '#999999',
                     width: pxToDp(100),
                     height: pxToDp(30),
-                    opacity:.5,
+                    opacity: 0.5,
                     flexDirection: 'row',
                     justifyContent: 'space-between',
                     borderRadius: pxToDp(8)
@@ -464,50 +493,43 @@ class shopdetails extends PureComponent {
                     disabled={this.state.guanbi}
                     style={{ marginLeft: pxToDp(10) }}
                   >
-                    <Text style={{  fontSize: pxToDp(20) }}>
-                      -
-                    </Text>
+                    <Text style={{ fontSize: pxToDp(20) }}>-</Text>
                   </TouchableOpacity>
                   <Text style={{ fontSize: pxToDp(15) }}>{count}</Text>
                   <TouchableOpacity
                     onPress={this.onPress}
                     style={{ marginRight: pxToDp(10) }}
                   >
-                    <Text style={{  fontSize: pxToDp(20) }}>
-                      +
-                    </Text>
+                    <Text style={{ fontSize: pxToDp(20) }}>+</Text>
                   </TouchableOpacity>
                 </View>
               </View>
             </View>
           </ScrollView>
           {/* 购买数量 */}
-          <View style={{marginTop:40}}
-          >
+          <View style={{ marginTop: 40 }}>
             <Mybtn
-            title='提交订单'
+              title="提交订单"
               style={{ width: '100%', height: '100%' }}
               onPress={this.goCreateOrider}
               containerStyle={{
                 position: 'absolute',
-                bottom:pxToDp(5),
+                bottom: pxToDp(5),
                 width: pxToDp(320),
                 height: pxToDp(40),
                 borderRadius: pxToDp(40),
-                alignSelf: 'center', color: 'red',
-                display: 'none',
+                alignSelf: 'center',
+                color: 'red',
+                display: 'none'
               }}
               buttonStyle={{
                 width: '100%',
                 height: '100%',
                 alignSelf: 'flex-end',
                 display: this.state.btnOpcity ? 'none' : 'flex',
-                borderRadius: pxToDp(32),
+                borderRadius: pxToDp(32)
               }}
-
-              />
-
-
+            />
           </View>
         </RBSheet>
         {/* 购买按钮 */}
@@ -518,8 +540,7 @@ class shopdetails extends PureComponent {
         >
           <Mybtn
             onPress={() => this.Scrollable.open()}
-            title='立刻购买'
-
+            title="立刻购买"
             containerStyle={{
               position: 'absolute',
               bottom: 0,
@@ -527,7 +548,8 @@ class shopdetails extends PureComponent {
               width: pxToDp(320),
               height: pxToDp(40),
               borderRadius: pxToDp(40),
-              alignSelf: 'center', color: 'red',
+              alignSelf: 'center',
+              color: 'red',
               display: 'none',
               marginBottom: pxToDp(5)
             }}
@@ -536,10 +558,9 @@ class shopdetails extends PureComponent {
               height: '100%',
               alignSelf: 'flex-end',
               display: this.state.btnOpcity ? 'none' : 'flex',
-              borderRadius: pxToDp(32),
+              borderRadius: pxToDp(32)
             }}
           />
-
         </View>
       </View>
     );
@@ -571,6 +592,12 @@ const styles = StyleSheet.create({
     height: pxToDp(500),
     marginLeft: pxToDp(15),
     marginRight: pxToDp(15)
+  },
+  sizebox: {
+    borderTopWidth: pxToDp(1.1),
+    borderColor: '#f1f1f1',
+    margin: pxToDp(8),
+    marginBottom: 0
   }
 });
 export default shopdetails;

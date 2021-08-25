@@ -10,7 +10,7 @@ class Index extends PureComponent {
         <Top icon1="arrow-back" title="历史浏览" />
         <ScrollView
           showsVerticalScrollIndicator={false}
-          style={{ backgroundColor: '#e2f4fe' }}>
+          style={{ backgroundColor: '#fff' }}>
           <View style={{ marginLeft: pxToDp(16), marginRight: pxToDp(16),marginBottom:pxToDp(60) }}>
             <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: pxToDp(8) }} >
               <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold', color: '#333333' }}>
@@ -23,10 +23,10 @@ class Index extends PureComponent {
             <View
               style={{
                 flexDirection: 'row',
-                marginTop: pxToDp(8),
+                marginTop: pxToDp(16),
                 backgroundColor: 'white',
                 borderRadius: pxToDp(8),
-                elevation: 8,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                elevation: 2,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
                 shadowColor: 'black',  //  阴影颜色
                 shadowRadius: pxToDp(10),  //  圆角
               }}
@@ -62,10 +62,10 @@ class Index extends PureComponent {
             <View
               style={{
                 flexDirection: 'row',
-                marginTop: pxToDp(8),
+                marginTop: pxToDp(16),
                 backgroundColor: 'white',
                 borderRadius: pxToDp(8),
-                elevation: 8,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                elevation: 2,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
                 shadowColor: 'black',  //  阴影颜色
                 shadowRadius: pxToDp(10),  //  圆角
               }}
@@ -98,7 +98,7 @@ class Index extends PureComponent {
                 </Text>
               </View>
             </View>
-            <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: pxToDp(8) }} >
+            <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: pxToDp(16) }} >
               <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold', color: '#333333' }}>
                 8-11
               </Text>
@@ -109,10 +109,10 @@ class Index extends PureComponent {
             <View
               style={{
                 flexDirection: 'row',
-                marginTop: pxToDp(8),
+                marginTop: pxToDp(16),
                 backgroundColor: 'white',
                 borderRadius: pxToDp(8),
-                elevation: 8,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                elevation: 2,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
                 shadowColor: 'black',  //  阴影颜色
                 shadowRadius: pxToDp(10),  //  圆角
               }}
@@ -148,10 +148,10 @@ class Index extends PureComponent {
             <View
               style={{
                 flexDirection: 'row',
-                marginTop: pxToDp(8),
+                marginTop: pxToDp(16),
                 backgroundColor: 'white',
                 borderRadius: pxToDp(8),
-                elevation: 8,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                elevation: 2,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
                 shadowColor: 'black',  //  阴影颜色
                 shadowRadius: pxToDp(10),  //  圆角
               }}
@@ -187,10 +187,10 @@ class Index extends PureComponent {
             <View
               style={{
                 flexDirection: 'row',
-                marginTop: pxToDp(8),
+                marginTop: pxToDp(16),
                 backgroundColor: 'white',
                 borderRadius: pxToDp(8),
-                elevation: 8,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                elevation: 2,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
                 shadowColor: 'black',  //  阴影颜色
                 shadowRadius: pxToDp(10),  //  圆角
               }}
@@ -226,10 +226,10 @@ class Index extends PureComponent {
             <View
               style={{
                 flexDirection: 'row',
-                marginTop: pxToDp(8),
+                marginTop: pxToDp(16),
                 backgroundColor: 'white',
                 borderRadius: pxToDp(8),
-                elevation: 8,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                elevation: 2,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
                 shadowColor: 'black',  //  阴影颜色
                 shadowRadius: pxToDp(10),  //  圆角
                 marginBottom: pxToDp(8)

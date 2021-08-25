@@ -29,6 +29,7 @@ class Index extends PureComponent {
           flex: 1,
           marginBottom: pxToDp(10)
         }}
+        showsVerticalScrollIndicator = {false}
       >
         <ImageBackground
           source={require('../../../res/8.jpg')}

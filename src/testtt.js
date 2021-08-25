@@ -190,7 +190,11 @@ export default class hello extends Component {
             >
               <View style={{ margin: pxToDp(10) }}>
                 <View style={{ marginTop: pxToDp(75) }}></View>
-                <ScrollView horizontal={true} style={{ marginTop: pxToDp(45) }}>
+                <ScrollView
+                  horizontal={true}
+                  style={{ marginTop: pxToDp(45) }}
+                  showsVerticalScrollIndicator={false}
+                >
                   <TouchableOpacity
                     onPress={() => this.context.navigate('Actress')}
                     style={{

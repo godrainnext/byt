@@ -113,15 +113,17 @@ class Index extends PureComponent {
   render() {
     const { activeTab } = this.state;
     return (
-      <View style={{ flex: 1, backgroundColor: '#e2f4fe' }}>
+      <View style={{ flex: 1, backgroundColor: '#fff' }}>
         <Top icon1="arrow-back" title="积分商城" />
-        <ScrollView style={{ flex: 1 }}>
+        <ScrollView 
+        showsVerticalScrollIndicator={false}
+        style={{ flex: 1 }}>
           <ImageBackground
             source={require('../../../res/21.jpg')}
             style={{
-              marginTop:pxToDp(8),
-              marginLeft:pxToDp(16),
-              marginRight:pxToDp(16),
+              marginTop: pxToDp(8),
+              marginLeft: pxToDp(16),
+              marginRight: pxToDp(16),
               height: pxToDp(60),
               flexDirection: 'row',
               alignItems: 'center',
@@ -131,9 +133,17 @@ class Index extends PureComponent {
             imageStyle={{ borderRadius: pxToDp(8) }}
           >
             <View style={{ flexDirection: 'row', marginLeft: pxToDp(16) }}>
-              <Text style={{ fontSize: pxToDp(20), color: '#f90',fontWeight:'bold' }}>110</Text>
+              <Text
+                style={{
+                  fontSize: pxToDp(20),
+                  color: '#f90',
+                  fontWeight: 'bold'
+                }}
+              >
+                110
+              </Text>
               <Ionicons
-                style={{ marginTop: pxToDp(10),marginLeft:pxToDp(4)}}
+                style={{ marginTop: pxToDp(10), marginLeft: pxToDp(4) }}
                 name="server-outline"
                 size={pxToDp(15)}
                 color="#000"
@@ -156,7 +166,15 @@ class Index extends PureComponent {
             </TouchableOpacity>
           </ImageBackground>
           <View>
-            <Text style={{ fontSize: pxToDp(18), marginTop: pxToDp(8),fontWeight:'bold',color:'#000000',marginLeft:pxToDp(16)}}>
+            <Text
+              style={{
+                fontSize: pxToDp(18),
+                marginTop: pxToDp(8),
+                fontWeight: 'bold',
+                color: '#000000',
+                marginLeft: pxToDp(16)
+              }}
+            >
               积分兑换
             </Text>
             <View
@@ -164,7 +182,9 @@ class Index extends PureComponent {
               flexWrap: 'wrap',
               flexDirection: 'row',
               marginLeft:pxToDp(16),
-              marginRight:pxToDp(16)
+              marginRight:pxToDp(16),
+              marginTop:pxToDp(-6),
+              justifyContent:'space-between'
             }}
           >
               {this.state.data.map((item, index) => (
@@ -177,14 +197,23 @@ class Index extends PureComponent {
                       })
                     }
                   >
-                      <Image style={styles.image} source={item.img} />
+                    <Image style={styles.image} source={item.img} />
                     <View style={{ height: pxToDp(60) }}>
-                      <Text style={{ fontSize: pxToDp(16), margin: pxToDp(5),color:'#000000'}}>
+                      <Text
+                        style={{
+                          fontSize: pxToDp(16),
+                          margin: pxToDp(5),
+                          color: '#000000'
+                        }}
+                      >
                         {item.name}
                       </Text>
-
                       <View style={styles.bottext}>
-                        <Text style={{fontSize:pxToDp(14),color:'#333333'}}>{item.value}积分</Text>
+                        <Text
+                          style={{ fontSize: pxToDp(14), color: '#333333' }}
+                        >
+                          {item.value}积分
+                        </Text>
                       </View>
                     </View>
                   </TouchableOpacity>
@@ -192,6 +221,7 @@ class Index extends PureComponent {
               ))}
             </View>
           </View>
+          <View style={{height:pxToDp(10)}}></View>
         </ScrollView>
       </View>
     );
@@ -200,17 +230,16 @@ class Index extends PureComponent {
 const styles = StyleSheet.create({
   kidbox: {
     backgroundColor: 'white',
-    width: pxToDp(158),
+    width: pxToDp(165.5),
+    marginTop:pxToDp(14),
     borderRadius: pxToDp(8),
-    margin: pxToDp(8),
-    marginRight: pxToDp(5),
-    elevation: 5,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+    elevation: 2,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
     shadowColor: 'black',  //  阴影颜色
     shadowRadius: pxToDp(8),  //  圆角
   },
   image: {
     height: pxToDp(160),
-    width: pxToDp(158),
+    width: pxToDp(165.5),
     borderTopLeftRadius: pxToDp(8),
     borderTopRightRadius: pxToDp(8)
   },

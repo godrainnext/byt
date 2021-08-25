@@ -6,7 +6,11 @@ import VideoPlayScreen from "./VideoPlayScreen.js";
 class RootScreen extends Component {
     render() {
         return (
-          <ScrollView stickyHeaderIndices={[0]} contentContainerStyle={{}}>
+          <ScrollView
+            stickyHeaderIndices={[0]}
+            contentContainerStyle={{}}
+            showsVerticalScrollIndicator={false}
+          >
             <VideoPlayScreen />
             <View>
               <View

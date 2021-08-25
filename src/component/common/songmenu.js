@@ -103,7 +103,9 @@ const s = StyleSheet.create({
     },
     smallbox: {
         flexDirection: 'row',
-        margin: pxToDp(10),
+        marginLeft:pxToDp(16),
+        marginRight:pxToDp(16),
+        marginTop:pxToDp(8),
         alignItems: 'center'
     },
 });

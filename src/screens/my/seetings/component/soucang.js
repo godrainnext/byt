@@ -31,7 +31,7 @@ class Index extends PureComponent {
     static contextType = NavigationContext;
     render() {
         return (
-          <ScrollView style={{}}>
+          <ScrollView style={{}} showsVerticalScrollIndicator={false}>
             <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
               {this.state.book.map((item) => (
                 <View

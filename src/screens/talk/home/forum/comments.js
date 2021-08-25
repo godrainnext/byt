@@ -172,7 +172,7 @@ class Index extends PureComponent {
                   height={495}
                   openDuration={0}
                 >
-                  <ScrollView style={{ flex: 1 }}>
+                  <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator = {false}>
                     {this.state.reply?.map((items) => (
                       <View key={items.id}>
                         <View

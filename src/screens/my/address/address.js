@@ -75,12 +75,12 @@ class SwiperListItem extends PureComponent {
               width: pxToDp(340),
               height: pxToDp(40),
               borderRadius: pxToDp(32),
-              alignSelf: 'center'
+              alignSelf: 'center',
             }}
             linearGradientProps={{
               colors: ['#fa9222', '#ffd501'],
               start: { x: 0, y: 0.5 },
-              end: { x: 1, y: 0.5 }
+              end: { x: 1, y: 0.5 },
             }}
           />
         </View>
@@ -92,14 +92,14 @@ const styles = StyleSheet.create({
   outView: {
     flex: 1,
     width: '100%',
-    backgroundColor: '#e2f4fe'
+    backgroundColor: '#fff'
   },
   rowBack: {
     alignItems: 'center',
     backgroundColor: '#DDD',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    flex: 1
+    flex: 1,
   },
   rowFront: {
     alignItems: 'center',

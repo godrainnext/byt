@@ -82,7 +82,9 @@ class Index extends PureComponent {
                             width: pxToDp(160),
                             height: pxToDp(40),
                             borderRadius:pxToDp(32),
-                            alignSelf:'center'
+                            alignSelf:'center',
+                            marginTop:pxToDp(16)
+
                         }}
                         linearGradientProps={{
                             colors: ['#fa9222', '#ffd501'],

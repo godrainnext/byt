@@ -8,7 +8,7 @@ class Index extends PureComponent {
   };
   render() {
     return (
-      <ScrollView {...this.props}>
+      <ScrollView {...this.props} showsVerticalScrollIndicator = {false}>
         <View style={{ alignItems: 'center', justifyContent: 'center' }}>
           {this.state.img.map((item, id) => (
             <Image

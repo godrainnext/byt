@@ -22,12 +22,19 @@ class Index extends PureComponent {
             backgroundColor: '#fff',
             borderRadius: pxToDp(8),
             marginTop: pxToDp(8),
-            marginLeft:pxToDp(16),
-            marginRight:pxToDp(16)
+            marginLeft: pxToDp(16),
+            marginRight: pxToDp(16),
+            elevation: 2,
+            shadowColor: 'black', //  阴影颜色
+            shadowOffset: { width: 0, height: 0 }, // 阴影偏移
+            shadowOpacity: 1, // 阴影不透明度
+            shadowRadius: 10 //  圆角
           }}
         >
           <View style={styles.kidbox2}>
-            <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>公开我的粉丝</Text>
+            <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>
+              公开我的粉丝
+            </Text>
             <Switch
               //动态改变value
               value={this.state.value1}
@@ -38,7 +45,9 @@ class Index extends PureComponent {
             />
           </View>
           <View style={styles.kidbox2}>
-            <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>公开我的关注</Text>
+            <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>
+              公开我的关注
+            </Text>
             <Switch
               //动态改变value
               value={this.state.value2}
@@ -49,7 +58,9 @@ class Index extends PureComponent {
             />
           </View>
           <View style={styles.kidbox2}>
-            <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>公开我的动态</Text>
+            <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>
+              公开我的动态
+            </Text>
             <Switch
               //动态改变value
               value={this.state.value3}
@@ -60,7 +71,9 @@ class Index extends PureComponent {
             />
           </View>
           <View style={styles.kidbox2}>
-            <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>公开我的收藏</Text>
+            <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>
+              公开我的收藏
+            </Text>
             <Switch
               //动态改变value
               value={this.state.value4}

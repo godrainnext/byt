@@ -29,7 +29,7 @@ export default class Acordion extends PureComponent {
     const { point, pointlater, touch } = this.state;
     const Arr = this.props.daddata;
     return (
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View>
           <Text style={{ fontSize: pxToDp(16),color:'#333333',lineHeight:pxToDp(22)}}>&emsp;&emsp;{Arr.detail1}</Text>
         </View>

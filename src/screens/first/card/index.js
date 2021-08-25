@@ -26,10 +26,11 @@ class history extends Component {
   render() {
     ;
     return (
-      <View style={{ backgroundColor: '#ecf6fc',flex:1}}>
+      <View style={{ backgroundColor: '#fff',flex:1}}>
         <Top icon1="arrow-back" title="俯瞰百年" />
         <View style={{padding:pxToDp(16),flex:1,paddingTop:0}}>
         <FlatList
+        showsVerticalScrollIndicator = {false}
           data={this.state.HYlist}
           renderItem={({ item }) => (
             // 视频大图  开始
@@ -37,12 +38,14 @@ class history extends Component {
               key={item.id}
               style={{
                 flex:1,
-                elevation: 10,
+                elevation: 2,
+                borderRadius:pxToDp(8),
+                borderWidth:0,
                 marginTop:pxToDp(16),
                 shadowColor: 'black',
                 shadowOffset: { width: 0, height: 0 },
                 shadowOpacity: 1,
-                shadowRadius: 10,
+                shadowRadius: 16,
               }}
             >
               <View>

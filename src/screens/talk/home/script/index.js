@@ -43,7 +43,7 @@ class Index extends PureComponent {
   render() {
     return (
       <View>
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator = {false}>
           <View>
             <Text style={styles.text1}>他山之石</Text>
             {this.state.jblist.map((item, id) => (

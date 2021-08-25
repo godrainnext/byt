@@ -24,7 +24,7 @@ state={
         return(
            <View>
                <FlatList
-
+showsVerticalScrollIndicator = {false}
                 data={this.state.shop}
                 renderItem={this._renderItem}
                 />

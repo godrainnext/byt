@@ -30,8 +30,8 @@ class SwpierItem extends PureComponent {
   };
   render() {
     return (
-      <View style={{ marginBottom: 10,}}>
-        <Card style={{ width: '100%' }} elevation={10}>
+      <View style={{ marginBottom: 10,margin:pxToDp(8) }}>
+        <Card style={{ width: '100%' }} elevation={2}>
           <SwipeRow
             leftOpenValue={75}
             rightOpenValue={-88}

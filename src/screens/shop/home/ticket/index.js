@@ -100,13 +100,10 @@ export default class index extends PureComponent {
     const { activeTab } = this.state;
     return (
       <View style={{ backgroundColor: '#ecf6fc', flex: 1 }}>
-        <Top title="门票中心" icon1="arrow-back" />
-        <View style={styles.topbox}>
-          <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold', color: '#000000' }}>演出</Text>
-        </View>
+        <Top title="票务系统" icon1="arrow-back" />
         <ScrollView
           showsVerticalScrollIndicator={false}
-          style={{ flex: 1, marginLeft: pxToDp(8), marginTop: pxToDp(8),marginRight:pxToDp(8) }}
+          style={{ flex: 1 }}
         >
           {/* 演出盒子 */}
           <View style={styles.message}>
@@ -146,8 +143,8 @@ export default class index extends PureComponent {
                 <View
                   style={{
                     height: pxToDp(140),
-                    width: '96%',
-                    alignSelf: 'center',
+                    marginRight:pxToDp(16),
+                    marginLeft:pxToDp(16),
                     flexDirection: 'row',
                     backgroundColor: 'white',
                     marginTop: pxToDp(8),
@@ -155,7 +152,7 @@ export default class index extends PureComponent {
                     elevation: 8,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
                     shadowColor: 'black',  //  阴影颜色
                     shadowRadius: pxToDp(8),  //  圆角,
-                    marginBottom:pxToDp(8)
+                    marginBottom: pxToDp(8)
                   }}
                 >
                   <ImageBackground
@@ -268,12 +265,11 @@ const styles = StyleSheet.create({
   },
   message: {
     height: pxToDp(100),
-    width: '98%',
-    alignSelf: 'center',
-    marginTop: pxToDp(16),
-    marginBottom: pxToDp(16),
-    backgroundColor: '#fa9222',
-    borderRadius: pxToDp(16),
+    marginTop: pxToDp(8),
+    marginLeft: pxToDp(16),
+    marginRight: pxToDp(16),
+    backgroundColor: '#995fbd',
+    borderRadius: pxToDp(8),
     justifyContent: 'space-around',
     overflow:'hidden',
     elevation: 3, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）

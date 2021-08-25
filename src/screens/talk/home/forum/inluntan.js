@@ -166,7 +166,7 @@ class Index extends PureComponent {
               alignSelf:'center',
               paddingBottom: pxToDp(20),
               borderRadius: pxToDp(16),
-              elevation: 8,
+              elevation: 2,
               shadowColor: 'black', //  阴影颜色
               shadowOffset: { width: 0, height: 0 }, // 阴影偏移
               shadowOpacity: 0.6, // 阴影不透明度

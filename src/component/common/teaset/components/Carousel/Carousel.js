@@ -255,16 +255,17 @@ export default class Carousel extends Component {
       control = <this.constructor.Control index={pageIndex} total={this.pageCount} carousel={this} />
     }
     return (
-      <View style={[style, {alignItems: 'stretch'}]}>
+      <View style={[style, { alignItems: 'stretch' }]}>
         <ScrollView
-          style={{flex: 1}}
+          showsVerticalScrollIndicator={false}
+          style={{ flex: 1 }}
           horizontal={horizontal}
           contentContainerStyle={contentContainerStyle}
           {...others}
-          ref='scrollView'
+          ref="scrollView"
           onScroll={(e) => this.onScroll(e)}
           onLayout={(e) => this.onLayout(e)}
-          >
+        >
           {this.renderCards()}
         </ScrollView>
         {control}

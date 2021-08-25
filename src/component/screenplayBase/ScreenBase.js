@@ -1,7 +1,8 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import { NavigationContext } from '@react-navigation/native';
 import { connect } from 'react-redux';
 import Comment from './Comment';
+import Top from '@components/common/top';
 class Index extends PureComponent {
   state = {
     arr: []
@@ -27,11 +28,14 @@ class Index extends PureComponent {
   static contextType = NavigationContext;
   render() {
     return (
-      <Comment
-        renderInner={this.props.renderInner}
-        submit={this.addComment}
-        arr={this.state.arr}
-      />
+      <Fragment>
+        <Top title={this.props.top} icon1="arrow-back" />
+        <Comment
+          renderInner={this.props.renderInner}
+          submit={this.addComment}
+          arr={this.state.arr}
+        />
+      </Fragment>
     );
   }
 }
