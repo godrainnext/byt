@@ -248,6 +248,7 @@ function Nav() {
         <Stack.Screen name="Testtt" component={Screens.Testtt} />
         <Stack.Screen name="ToSing" component={Screens.ToSing} />
         <Stack.Screen name="RegInfo" component={Screens.RegInfo} />
+        <Stack.Screen name="Lottie" component={Screens.Lottie} />
       </Stack.Navigator>
     </NavigationContainer>
   );

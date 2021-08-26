@@ -154,3 +154,4 @@ export { default as WaterButton } from '../component/common/waterbutton'; //æ³¢ç
 export { default as NewTimeLine } from './test/test5';
 export { default as Testtt } from '../testtt';
 export { default as ToSing } from './talk/home/sing';
+export { default as Lottie } from './test/lottie'

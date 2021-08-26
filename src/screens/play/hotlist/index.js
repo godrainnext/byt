@@ -10,10 +10,9 @@ import {
   TouchableNativeFeedback
 } from 'react-native';
 import { pxToDp } from '../../../utils/styleKits';
-import Svg from 'react-native-svg-uri';
-import { jinpai, yinpai, tongpai } from '../../../component/common/iconSvg';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { NavigationContext } from '@react-navigation/native';
+import LottieView from 'lottie-react-native';
 class Index extends PureComponent {
   constructor(props) {
     super(props);
@@ -75,12 +74,12 @@ class Index extends PureComponent {
   render() {
     return (
       <ScrollView
-        style={{ backgroundColor: 'white', flex: 1}}
+        style={{ backgroundColor: 'white', flex: 1 }}
         showsVerticalScrollIndicator={false}
       >
         <ImageBackground
           source={require('../../../res/jfbg.jpg')}
-          style={{ height: pxToDp(150) }}
+          style={{ height: pxToDp(200) }}
         >
           <TouchableOpacity
             onPress={() => this.context.goBack()}
@@ -91,8 +90,18 @@ class Index extends PureComponent {
           <View style={styles.title}>
             <Text style={styles.paihang}>排行榜</Text>
             <Text style={{ fontSize: pxToDp(14), color: 'white' }}>
-              以近7天的剧本点击阅读量为准
+              以近7天的剧本
             </Text>
+            <Text style={{ fontSize: pxToDp(14), color: 'white' }}>
+              点击阅读量为准</Text>
+          </View>
+          <View style={{width:pxToDp(150),height:pxToDp(70),marginTop:pxToDp(-50)}}>
+          <LottieView
+          style={{position:'absolute',width:pxToDp(550),left:pxToDp(-42),top:pxToDp(-18)}}
+            source={require('../../../../lottie/826/lf20_rukjet2z.json')}
+            autoPlay={true}
+            loop={false}
+          />
           </View>
         </ImageBackground>
         {/**榜单第一 */}
@@ -107,11 +116,15 @@ class Index extends PureComponent {
               />
               <View style={{ width: pxToDp(220) }}>
                 <View style={styles.booktitle}>
-                  <Text style={[styles.booktitle3,{marginBottom:pxToDp(8)}]}>红楼梦</Text>
-                  <Svg width="32" height="32" svgXmlData={jinpai} />
+                  <Text style={[styles.booktitle3, { marginBottom: pxToDp(8), marginTop: pxToDp(-32) }]}>红楼梦</Text>
+                  <LottieView
+                    style={{ height: pxToDp(80), width: pxToDp(80), marginTop: pxToDp(-16), marginLeft: pxToDp(16) }}
+                    source={require('../../../../lottie/金牌.json')}
+                    autoPlay={true}
+                  />
                 </View>
                 <Text
-                  style={{ fontSize: pxToDp(14), marginLeft: pxToDp(10),color:'#666666'}}
+                  style={{ fontSize: pxToDp(14), marginLeft: pxToDp(10), color: '#666666', zIndex: 99999, marginTop: pxToDp(-32) }}
                   numberOfLines={3}
                 >
                   新版越剧《红楼梦》创作于1999年，首演于同年8月。它从调整戏剧结构入手，别样营造大悲大喜、大实大虚的舞台意境，并提高舞美空间层次，丰富音乐形象，整合流派表演，精缩演出时间，实现了一次富有创意的新编。
@@ -120,7 +133,6 @@ class Index extends PureComponent {
             </View>
           </TouchableNativeFeedback>
         </View>
-
         <View style={{ marginLeft: pxToDp(28), marginRight: pxToDp(10) }}>
           {/*榜单第二 */}
           <TouchableNativeFeedback
@@ -139,11 +151,15 @@ class Index extends PureComponent {
               />
               <View style={{ width: pxToDp(220) }}>
                 <View style={styles.booktitle}>
-                  <Text style={[styles.booktitle3,{marginBottom:pxToDp(8)}]}>碧玉簪</Text>
-                  <Svg width="32" height="32" svgXmlData={yinpai} />
+                  <Text style={[styles.booktitle3, { marginBottom: pxToDp(8), marginTop: pxToDp(-32) }]}>碧玉簪</Text>
+                  <LottieView
+                    style={{ height: pxToDp(80), width: pxToDp(80), marginTop: pxToDp(-16), marginLeft: pxToDp(16) }}
+                    source={require('../../../../lottie/银牌.json')}
+                    autoPlay={true}
+                  />
                 </View>
                 <Text
-                  style={{ fontSize: pxToDp(14), marginLeft: pxToDp(10),color:'#666666' }}
+                  style={{ fontSize: pxToDp(14), marginLeft: pxToDp(10), color: '#666666', zIndex: 99999, marginTop: pxToDp(-32) }}
                   numberOfLines={3}
                 >
                   《碧玉簪》讲述了王玉林得尚书李廷甫赏识，获许配廷甫女秀英为妻。秀英的表兄顾文友因妒生恨，骗取秀英的碧玉簪放进伪造情书里，诬陷秀英与他有染。最终玉林送凤冠请罪，夫妇冰释前嫌。
@@ -168,11 +184,15 @@ class Index extends PureComponent {
               />
               <View style={{ width: pxToDp(220) }}>
                 <View style={styles.booktitle}>
-                  <Text style={[styles.booktitle3,{    marginBottom:pxToDp(8)}]}>周仁哭坟</Text>
-                  <Svg width="32" height="32" svgXmlData={tongpai} />
+                  <Text style={[styles.booktitle3, { marginBottom: pxToDp(8), marginTop: pxToDp(-32) }]}>周仁哭坟</Text>
+                  <LottieView
+                    style={{ height: pxToDp(80), width: pxToDp(80), marginTop: pxToDp(-16), marginLeft: pxToDp(16) }}
+                    source={require('../../../../lottie/铜牌.json')}
+                    autoPlay={true}
+                  />
                 </View>
                 <Text
-                  style={{ fontSize: pxToDp(14), marginLeft: pxToDp(10) ,color:"#666666"}}
+                  style={{ fontSize: pxToDp(14), marginLeft: pxToDp(10), color: "#666666", zIndex: 99999, marginTop: pxToDp(-32) }}
                   numberOfLines={3}
                 >
                   《周仁哭坟》越剧折子戏，选材自京剧《周仁献嫂》。由朱福侠编导。《周仁哭坟》一折专为《吴凤花越剧舞台艺术风采》专场表演而编写排演，集中演绎周仁在其妻坟前哭诉冤屈的情绪。
@@ -200,7 +220,7 @@ class Index extends PureComponent {
                     <Text style={{ fontSize: pxToDp(16) }}>{item.id}</Text>
                   </View>
                   <Text
-                    style={{ fontSize: pxToDp(14), marginLeft: pxToDp(10),color:"#666666",marginTop:pxToDp(12)}}
+                    style={{ fontSize: pxToDp(14), marginLeft: pxToDp(10), color: "#666666", marginTop: pxToDp(12) }}
                     numberOfLines={3}
                   >
                     {item.context}
@@ -210,15 +230,16 @@ class Index extends PureComponent {
             </TouchableNativeFeedback>
           ))}
         </View>
-        <View style={{marginBottom:pxToDp(16)}}></View>
-      </ScrollView>
+        <View style={{ marginBottom: pxToDp(16) }}></View>
+      </ScrollView >
     );
   }
 }
 
 const styles = StyleSheet.create({
   title: {
-    marginLeft: pxToDp(30)
+    alignItems: 'center',
+    marginTop:pxToDp(12)
   },
   paihang: {
     fontSize: pxToDp(20),
@@ -276,6 +297,6 @@ const styles = StyleSheet.create({
     marginLeft: pxToDp(-8),
     borderRadius: pxToDp(8)
   },
-  text:{ fontSize: pxToDp(14), marginLeft: pxToDp(10) }
+  text: { fontSize: pxToDp(14), marginLeft: pxToDp(10) }
 });
 export default Index;
