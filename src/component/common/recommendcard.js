@@ -243,8 +243,9 @@ class index extends Component {
                 style={{
                   borderColor: 'white',
                   borderWidth: pxToDp(1),
-                  height: pxToDp(70),
-                  marginRight: pxToDp(46),
+                  height: pxToDp(80),
+                  marginTop:pxToDp(6),
+                  marginRight: pxToDp(45),
                 }}
               ></View>
             </View>
