@@ -71,7 +71,7 @@ const MyCarousel = (props) => {
       <Carousel
         ref={carouselRef}
         inactiveSlideScale={0.9}
-        sliderWidth={pxToDp(340)}
+        sliderWidth={pxToDp(342)}
         firstItem={0}
         itemWidth={pxToDp(280)}
         data={entries}
