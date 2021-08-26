@@ -36,13 +36,14 @@ class Index extends PureComponent {
       {
         text: '确认',
         onPress: async () => {
-          if (this.state.isplay) {
+          if (this.state.isrecoding) {
             await this.stopRecording();
           }
-
+          console.log(this.state.isrecoding);
           const fd = new FormData();
           const arr = [];
           for (const uri of this.state.URI) {
+            console.log(uri);
             let file = {
               uri: uri,
               type: 'multipart/form-data',
@@ -326,7 +327,7 @@ class Index extends PureComponent {
                   : video.current.playAsync();
               }}
             >
-              <Ionicons name="musical-notes-outline" size={25} color="white" />
+              <Ionicons name="musical-notes-outline" size={25} color="grey" />
               <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
                 {this.state.status.isPlaying ? '暂停' : '播放'}
               </Text>
@@ -334,7 +335,7 @@ class Index extends PureComponent {
           </View>
           <View>
             <TouchableOpacity style={{ alignItems: 'center' }}>
-              <Ionicons name="options-outline" size={25} color="white" />
+              <Ionicons name="options-outline" size={25} color="grey" />
               <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
                 音量
               </Text>
@@ -348,7 +349,7 @@ class Index extends PureComponent {
                 // this.toPlay();
                 this.setState({ autoPlay: !autoPlay })
                 console.log(autoPlay);
-                this.state.isrecoding ? this.stopRecording : this.startRecording
+                this.state.isrecoding ? this.stopRecording() : this.startRecording()
               }}
             >
               <LottieView
@@ -363,7 +364,7 @@ class Index extends PureComponent {
           </View>
           <View>
             <TouchableOpacity style={{ alignItems: 'center' }}>
-              <Ionicons name="refresh" size={25} color="white" />
+              <Ionicons name="refresh" size={25} color="grey" />
               <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
                 重唱
               </Text>
@@ -372,9 +373,12 @@ class Index extends PureComponent {
           <View>
             <TouchableOpacity
               style={{ alignItems: 'center' }}
-              onPress={this.state.isplay ? this.pauseSound : this.playSound}
+              onPress={() => {
+                this.toPause();
+                this.state.isplay ? this.pauseSound() : this.playSound()
+              }}
             >
-              <Ionicons name="checkmark" size={25} color="white" />
+              <Ionicons name="checkmark" size={25} color="grey" />
               <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
                 结束
               </Text>
@@ -415,7 +419,7 @@ const styles = StyleSheet.create({
   bottom: {
     height: pxToDp(60),
     width: '100%',
-    backgroundColor: '#3399cc',
+    backgroundColor: 'transparent',
     alignSelf: 'center',
     alignItems: 'center',
     flexDirection: 'row',
