@@ -60,7 +60,7 @@ class Index extends PureComponent {
               backgroundColor: '#fff',
               marginTop: pxToDp(8),
               borderRadius: pxToDp(8),
-              elevation: 8, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+              elevation: 2, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
               shadowColor: 'black', //  阴影颜色
               shadowOffset: { width: 0, height: 0 }, // 阴影偏移
               shadowOpacity: 0.5, // 阴影不透明度
@@ -191,7 +191,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     height: pxToDp(50),
     borderRadius: pxToDp(8),
-    elevation: 8, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+    elevation: 2, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
     shadowColor: 'black', //  阴影颜色
     shadowOffset: { width: 0, height: 0 }, // 阴影偏移
     shadowOpacity: 0.5, // 阴影不透明度

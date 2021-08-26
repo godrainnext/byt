@@ -108,7 +108,7 @@ class index extends Component {
           style={{
             flex: 1,
             padding: pxToDp(16),
-            backgroundColor: '#fff'
+            backgroundColor: '#eee'
           }}
         >
           <ScrollView showsVerticalScrollIndicator={false}>
@@ -153,6 +153,7 @@ class index extends Component {
                     style={[
                       s.basicstyle,
                       {
+                        backgroundColor: '#fff',
                         borderRadius: pxToDp(8)
                       }
                     ]}
@@ -251,6 +252,7 @@ class index extends Component {
                   style={[
                     s.basicstyle,
                     {
+                      backgroundColor: 'white',
                       borderRadius: pxToDp(8),
                       height: pxToDp(428)
                     }

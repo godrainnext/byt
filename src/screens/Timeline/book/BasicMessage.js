@@ -19,33 +19,33 @@ class Index extends PureComponent {
         <ScrollView
           style={{
             flex: 1,
-            marginTop: pxToDp(15)
+            marginTop: pxToDp(8)
           }}
           showsVerticalScrollIndicator={false}
         >
-          <View style={{ flex: 1, marginBottom: pxToDp(50) }}>
+          <View style={{ flex: 1}}>
             <View style={styles.baiscbox}>
-              <Text style={{ fontSize: pxToDp(15) }}>成书国家</Text>
-              <Text style={{ fontSize: pxToDp(15) }}>中国</Text>
+              <Text style={{ fontSize: pxToDp(16) }}>成书国家</Text>
+              <Text style={{ fontSize: pxToDp(16) }}>中国</Text>
             </View>
             <View style={styles.baiscbox}>
-              <Text style={{ fontSize: pxToDp(15) }}>成书时期</Text>
-              <Text style={{ fontSize: pxToDp(15) }}>明</Text>
+              <Text style={{ fontSize: pxToDp(16) }}>成书时期</Text>
+              <Text style={{ fontSize: pxToDp(16) }}>明</Text>
             </View>
             <View style={styles.baiscbox}>
-              <Text style={{ fontSize: pxToDp(15) }}>书籍领域</Text>
-              <Text style={{ fontSize: pxToDp(15) }}>文学艺术，戏剧</Text>
+              <Text style={{ fontSize: pxToDp(16) }}>书籍领域</Text>
+              <Text style={{ fontSize: pxToDp(16) }}>文学艺术，戏剧</Text>
             </View>
             <View style={styles.baiscbox}>
-              <Text style={{ fontSize: pxToDp(15) }}>国学分类</Text>
-              <Text style={{ fontSize: pxToDp(15) }}>集部</Text>
+              <Text style={{ fontSize: pxToDp(16) }}>国学分类</Text>
+              <Text style={{ fontSize: pxToDp(16) }}>集部</Text>
             </View>
             <View style={styles.baiscbox}>
-              <Text style={{ fontSize: pxToDp(15) }}>成书时间</Text>
-              <Text style={{ fontSize: pxToDp(15) }}>1368年-1644年</Text>
+              <Text style={{ fontSize: pxToDp(16) }}>成书时间</Text>
+              <Text style={{ fontSize: pxToDp(16) }}>1368年-1644年</Text>
             </View>
-            <View style={{ marginLeft: pxToDp(15) }}>
-              <Text style={{ marginBottom: pxToDp(10), fontSize: pxToDp(15) }}>
+            <View style={{ marginLeft: pxToDp(16) }}>
+              <Text style={{ marginBottom: pxToDp(10), fontSize: pxToDp(16),marginTop:pxToDp(8)}}>
                 古籍原貌
               </Text>
               <Image
@@ -80,7 +80,7 @@ class Index extends PureComponent {
               justifyContent: 'center'
             }}
           >
-            <Text>立即购买</Text>
+            <Text>开始阅读</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -90,12 +90,12 @@ class Index extends PureComponent {
 
 const styles = StyleSheet.create({
   baiscbox: {
-    height: pxToDp(32),
-    marginTop: pxToDp(16),
+    height: pxToDp(24),
+    marginTop: pxToDp(8),
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginLeft: pxToDp(15),
-    marginRight: pxToDp(15)
+    marginLeft: pxToDp(16),
+    marginRight: pxToDp(16)
   }
 });
 

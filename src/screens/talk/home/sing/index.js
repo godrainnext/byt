@@ -93,7 +93,7 @@ export default class hello extends Component {
                         ref={(ref) => {
                             this.Scrollable3 = ref;
                         }}
-                        height={300}
+                        height={160}
                         width={375}
                         closeOnDragDown
                         customStyles={{
@@ -121,7 +121,7 @@ export default class hello extends Component {
                                 </TouchableOpacity>
                       
                                 <Mybtn
-                                    title="观看视频"
+                                    title="进入房间"
                                     onPress={chafang}
                                     ViewComponent={LinearGradient}
                                     buttonStyle={{

@@ -98,53 +98,58 @@ class Index extends PureComponent {
 
 const styles = StyleSheet.create({
   view: {
-    backgroundColor: '#E2F4FE',
+    backgroundColor: 'white',
     flex: 1
   },
   box: {
-    padding: pxToDp(20),
     paddingBottom: 0,
-    flex: 1
+    flex: 1,
   },
   image1: {
     borderRadius: pxToDp(8),
-    height: pxToDp(180)
+    height: pxToDp(180),
+    marginLeft: pxToDp(16),
+    marginRight: pxToDp(16),
+    marginTop:pxToDp(8)
   },
   title: {
     fontSize: pxToDp(18),
     color: '#333333',
     fontWeight: 'bold',
-    marginTop: pxToDp(4),
-    marginTop:pxToDp(40),
-    marginBottom:pxToDp(20)
+    marginTop: pxToDp(24),
+    marginLeft: pxToDp(16)
   },
   title1: {
     fontSize: pxToDp(18),
     color: '#333333',
     fontWeight: 'bold',
-    marginTop: pxToDp(8),    
-    marginTop:pxToDp(40),
-    marginBottom:pxToDp(20)
-  
+    marginTop: pxToDp(24),
+    marginLeft: pxToDp(16)
   },
   text1: {
     fontSize: pxToDp(16),
     color: '#333333',
-    lineHeight: pxToDp(24)
-},
-text2: {
+    lineHeight: pxToDp(24),
+    marginTop: pxToDp(16),
+    marginLeft: pxToDp(16),
+    marginRight: pxToDp(16)
+  },
+  text2: {
     fontSize: pxToDp(16),
     color: '#333333',
-    lineHeight: pxToDp(24)
-},
+    lineHeight: pxToDp(24),
+    marginLeft: pxToDp(16),
+    marginRight: pxToDp(16)
+  },
   zhuanji: {
     flexDirection: 'row',
-    width: '100%',
+    marginTop: pxToDp(16),
+    marginRight:pxToDp(16),
+    marginLeft:pxToDp(16),
+    marginBottom: pxToDp(16),
     height: pxToDp(100),
     borderRadius: pxToDp(8),
     backgroundColor: '#fff',
-    marginTop: pxToDp(8),
-    marginBottom: pxToDp(32),
     elevation: 4,
     shadowColor: 'black', //  阴影颜色
     shadowOffset: { width: 0, height: 0 }, // 阴影偏移

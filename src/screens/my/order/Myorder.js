@@ -163,7 +163,7 @@ class orders extends PureComponent {
           >
             <Text style={{ fontSize: pxToDp(16) }}>订单状态: 待确认</Text>
           </View>
-          {/* 收货地址 */}
+          {/* 收获地址 */}
           <View
             style={{
               margin: pxToDp(2),
@@ -325,12 +325,12 @@ class orders extends PureComponent {
               }}
             >
               <Text style={{ marginLeft: pxToDp(8) }}>支付方式:</Text>
-              <Text style={{ marginLeft: pxToDp(200) }}>{this.state.way}</Text>
+              <Text style={{ marginLeft: pxToDp(180) }}>{this.state.way}</Text>
               <Image
                 style={{
                   width: pxToDp(15),
                   height: pxToDp(15),
-                  marginRight: pxToDp(10)
+                  marginRight: pxToDp(16)
                 }}
                 source={require('../../../res/箭头.png')}
               />

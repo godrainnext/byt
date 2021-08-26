@@ -40,7 +40,7 @@ export default class Hy extends PureComponent {
   render() {
     const example3 = this.layoutExample('', '', 'stack');
     return (
-      <SafeAreaView >
+      <SafeAreaView  style={{marginLeft:pxToDp(16),marginRight:pxToDp(16),}}>
         <View >
           <ScrollView     
             scrollEventThrottle={pxToDp(200)}

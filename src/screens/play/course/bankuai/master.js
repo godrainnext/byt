@@ -5,7 +5,8 @@ import {
   Text,
   View,
   TouchableOpacity,
-  Image
+  Image,
+  TouchableNativeFeedback
 } from 'react-native';
 import Accordion from 'react-native-collapsible/Accordion';
 import { pxToDp } from '../../../../utils/styleKits';
@@ -187,7 +188,7 @@ shadowColor: 'black',  //  阴影颜色
             <Accordion
               activeSections={activeSections}
               sections={CONTENT}
-              touchableComponent={TouchableOpacity}
+              touchableComponent={TouchableNativeFeedback}
               expandMultiple={multipleSelect}
               renderHeader={this.renderHeader}
               renderContent={this.renderContent}
@@ -233,13 +234,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: '#fff',
     height: pxToDp(48),
-    width: pxToDp(80),
+    width: pxToDp(78),
     marginLeft: pxToDp(16),
     marginTop: pxToDp(16),
     borderRadius: pxToDp(8),
     alignItems: 'center',
     justifyContent: 'center',
-    elevation: 2,
+    elevation:2,
     shadowColor: 'black', //  阴影颜色
     shadowOffset: { width: 0, height: 0 }, // 阴影偏移
     shadowOpacity: 1, // 阴影不透明度

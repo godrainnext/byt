@@ -18,7 +18,8 @@ class Index extends PureComponent {
                         flexDirection: 'row',
                         justifyContent: 'space-around',
                         backgroundColor: '#E2F4FE',
-                        height: pxToDp(50)
+                        height: pxToDp(40),
+                        width:pxToDp(200)
                     }}
                 >
                     {tabs.map((v, i) => <TouchableOpacity

@@ -19,7 +19,7 @@ class Index extends PureComponent {
   };
   render() {
     return (
-      <View style={{ backgroundColor: '#e2f4fe', flex: 1 }}>
+      <View style={{ backgroundColor: '#fff', flex: 1 }}>
         <Top icon1="arrow-back" title="设置" />
         <View
           style={{
@@ -49,14 +49,13 @@ class Index extends PureComponent {
             <List title="关于我们" />
           </TouchableOpacity>
             <Mybtn
-                    title="观看视频"
+                    title="退出登录"
                     onPress={this.cancelToken}
-                    onPress={() => this.context.navigate('Video', item.id)}
-                    ViewComponent={LinearGradient}
                     buttonStyle={{
                       width: pxToDp(200),
-                      height: pxToDp(50),
+                      height: pxToDp(40),
                       alignSelf: 'center',
+                      marginTop:pxToDp(16),
                       borderRadius: pxToDp(32),
 
                     }}
@@ -64,11 +63,6 @@ class Index extends PureComponent {
                       color: '#fcfcfc',
                       fontWeight: 'bold',
                       fontSize: pxToDp(16)
-                    }}
-                    linearGradientProps={{
-                      colors: ['#fa9222', '#ffd501'],
-                      start: { x: 0, y: 0.5 },
-                      end: { x: 1, y: 0.5 }
                     }}
                   />
         </View>

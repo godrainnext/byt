@@ -143,7 +143,8 @@ class Index extends PureComponent {
           marginBottom: pxToDp(20),
           backgroundColor: 'rgba(255,255,255,0.5)',
           borderRadius: pxToDp(8),
-          elevation: 3
+          elevation: 2,
+         
         }}
       >
         <View style={styles.centeredView}>
@@ -252,12 +253,13 @@ class Index extends PureComponent {
                   marginTop: pxToDp(8),
                   marginLeft: pxToDp(16),
                   marginRight: pxToDp(16),
+               
                 }}
               >
-                <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold', color: '#000000' }}>
+                <Text style={{ fontSize: pxToDp(24), fontWeight: 'bold', color: '#000000' }}>
                   {item.createAt.substr(6, 5)}
                 </Text>
-                <Text style={{ fontSize: pxToDp(18), paddingLeft: 5, color: '#333333' }}>
+                <Text style={{ fontSize: pxToDp(18), color: '#333333',marginBottom:pxToDp(4),marginLeft:pxToDp(4) }}>
                   {item.createAt.substr(0, 4)}
                 </Text>
               </View>
@@ -267,7 +269,7 @@ class Index extends PureComponent {
                   borderWidth: 0,
                   marginRight: pxToDp(16),
                   borderRadius: pxToDp(8),
-                  marginLeft: pxToDp(16),
+                  marginLeft: pxToDp(16),   marginBottom:pxToDp(12)
                 }}
               >
                 <View
@@ -316,7 +318,8 @@ const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    
   },
   modalView: {
     margin: pxToDp(20),

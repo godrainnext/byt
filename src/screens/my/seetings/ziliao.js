@@ -162,13 +162,14 @@ class Ziliao extends PureComponent {
         />
         <View
           style={{
-            width: '90%',
+            marginLeft:pxToDp(16),
+            marginRight:pxToDp(16),
             height: '75%',
             backgroundColor: '#fff',
             alignSelf: 'center',
             borderRadius: pxToDp(32),
             marginTop: pxToDp(60),
-            elevation: 10,
+            elevation: 2,
             shadowColor: 'black', //  阴影颜色
             shadowOffset: { width: 0, height: 0 }, // 阴影偏移
             shadowOpacity: 1, // 阴影不透明度
@@ -238,7 +239,7 @@ class Ziliao extends PureComponent {
             onPress={() => this.context.navigate('Nickname')}
           >
             <View style={s.basic}>
-              <View style={{ marginLeft: pxToDp(20) }}>
+              <View style={{ marginLeft: pxToDp(16) }}>
                 <View style={{ marginTop: pxToDp(20) }}>
                   <Text style={{ fontSize: pxToDp(16), color: '#aaa' }}>
                     昵称
@@ -261,7 +262,7 @@ class Ziliao extends PureComponent {
           </TouchableOpacity>
           <TouchableOpacity onPress={() => this.context.navigate('Signature')}>
             <View style={[s.basic, { height: 100 }]}>
-              <View style={{ marginLeft: pxToDp(20), flex: 1 }}>
+              <View style={{ marginLeft: pxToDp(16), flex: 1 }}>
                 <View style={{ marginTop: pxToDp(20) }}>
                   <Text style={{ fontSize: pxToDp(16), color: '#aaa' }}>
                     个性签名
@@ -291,7 +292,7 @@ class Ziliao extends PureComponent {
               [
                 {
                   flexDirection: 'row',
-                  marginLeft: pxToDp(20),
+                  marginLeft: pxToDp(16),
                   marginTop: pxToDp(20)
                 }
               ])
@@ -319,7 +320,7 @@ class Ziliao extends PureComponent {
           </View>
 
           <View style={[s.basic, { height: 80, marginTop: pxToDp(20) }]}>
-            <View style={{ marginLeft: pxToDp(20) }}>
+            <View style={{ marginLeft: pxToDp(20)}}>
               <Text
                 style={{
                   fontSize: pxToDp(16),

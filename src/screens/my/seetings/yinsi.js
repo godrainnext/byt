@@ -24,7 +24,7 @@ class Index extends PureComponent {
             marginTop: pxToDp(8),
             marginLeft: pxToDp(16),
             marginRight: pxToDp(16),
-            elevation: 4,
+            elevation: 2,
             shadowColor: 'black', //  阴影颜色
             shadowOffset: { width: 0, height: 0 }, // 阴影偏移
             shadowOpacity: 1, // 阴影不透明度
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
   kidbox2: {
     marginLeft: pxToDp(16),
     marginTop: pxToDp(4),
-    marginBottom:pxToDp(4),
+    marginBottom: pxToDp(4),
     marginRight: pxToDp(16),
     height: pxToDp(40),
     alignItems: 'center',

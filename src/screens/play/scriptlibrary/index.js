@@ -164,36 +164,120 @@ class Index extends PureComponent {
   static contextType = NavigationContext;
   render() {
     return (
-      <View style={{ backgroundColor: '#ecf6fc', flex: 1 }}>
+      <View style={{ backgroundColor: 'white', flex: 1 }}>
         <Top icon1="arrow-back" title="剧本中心" />
-        <ScrollView
-          style={{ flex: 1, padding: pxToDp(16) }}
-          showsVerticalScrollIndicator={false}
-        >
+        <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
           {/*剧本推荐 */}
-          <Text style={{ fontSize: pxToDp(18), color: '#468CD3', fontWeight: 'bold', marginTop: pxToDp(12), marginLeft: pxToDp(16) }}>猜你喜欢</Text>
+          <Text
+            style={{
+              fontSize: pxToDp(18),
+              color: '#000000',
+              fontWeight: 'bold',
+              marginLeft: pxToDp(16),
+              marginTop: pxToDp(8),
+              marginBottom: pxToDp(-16)
+            }}
+          >
+            猜你喜欢
+          </Text>
           {this.state.drama.map((item) => (
-            <View style={styles.bookbox}>
-              <TouchableNativeFeedback 
-              useForeground={true}
-              onPress={() => this.context.navigate(item.drama)} >
-              <View style={styles.bookbotton11}>
-                <View style={{ marginLeft: pxToDp(120), marginTop: pxToDp(8) }}>
-                  <View style={styles.bookinf}>
-                    <Text style={{ fontSize: pxToDp(16), fontWeight: 'bold',color:'#333333'}}>{item.title}</Text>      
-                  </View>
-                  <Text numberOfLines={2} style={{color:'#666666',fontSize:pxToDp(14)}}>{item.context}</Text>
-                  <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            <View
+              style={{
+                height: pxToDp(130),
+                marginTop: pxToDp(16),
+                marginLeft: pxToDp(16),
+                marginRight: pxToDp(16)
+              }}
+            >
+              <TouchableNativeFeedback
+                useForeground={true}
+                onPress={() => this.context.navigate(item.drama)}
+              >
+                <View
+                  style={{
+                    height: pxToDp(110),
+                    backgroundColor: 'white',
+                    borderRadius: pxToDp(8),
+                    marginTop: pxToDp(30),
+                    elevation: 5, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                    shadowColor: 'black', //  阴影颜色
+                    shadowRadius: pxToDp(8), //  圆角,
+                    shadowOffset: { width: 0, height: 0 },
+                    shadowOpacity: 1
+                  }}
+                >
+                  <View
+                    style={{
+                      marginLeft: pxToDp(120),
+                      marginTop: pxToDp(8)
+                    }}
+                  >
+                    <View
+                      style={{
+                        flexDirection: 'row',
+                        width: pxToDp(210),
+                        alignItems: 'center',
+                        justifyContent: 'space-between'
+                      }}
+                    >
+                      <Text
+                        style={{
+                          fontSize: pxToDp(16),
+                          fontWeight: 'bold',
+                          color: '#333333'
+                        }}
+                      >
+                        {item.title}
+                      </Text>
+                    </View>
+                    <Text
+                      numberOfLines={3}
+                      style={{ color: '#666666', fontSize: pxToDp(14) }}
+                    >
+                      {item.context}
+                    </Text>
+                    <View
+                      style={{
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        marginTop: pxToDp(5)
+                      }}
+                    ></View>
                   </View>
                 </View>
-              </View> 
               </TouchableNativeFeedback>
-              <TouchableNativeFeedback 
-              useForeground={true}
-              onPress={() => this.context.navigate(item.drama)} >
-              <View style={styles.book1}>
-                <Image style={styles.bookimage1} source={{ uri: item.path }} />
-
+              <View
+                style={{
+                  marginTop: pxToDp(-130),
+                  marginLeft: pxToDp(12),
+                  height: pxToDp(120),
+                  width: pxToDp(100),
+                  borderRadius: pxToDp(8),
+                  elevation: 5, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                  shadowColor: 'black', //  阴影颜色
+                  shadowRadius: pxToDp(8), //  圆角,
+                  shadowOffset: { width: 0, height: 0 },
+                  shadowOpacity: 1,
+                  flexDirection: 'row',
+                  justifyContent: 'center',
+                  alignItems: 'center'
+                }}
+              >
+                <TouchableNativeFeedback
+                  onPress={() => this.context.navigate(item.drama)}
+                  useForeground={true}
+                >
+                  <View>
+                    <Image
+                      style={{
+                        height: pxToDp(120),
+                        width: pxToDp(100),
+                        borderRadius: pxToDp(8)
+                      }}
+                      source={{ uri: item.path }}
+                    />
+                  </View>
+                </TouchableNativeFeedback>
                 <View
                   style={{
                     height: pxToDp(104),
@@ -203,129 +287,135 @@ class Index extends PureComponent {
                     borderBottomRightRadius: pxToDp(8)
                   }}
                 >
-                  <View style={{ flexDirection: 'row', marginTop: pxToDp(20) }}>
-                    <Svg width="20" height="20" svgXmlData={star} />
-                  </View>
+                  <Svg width="20" height="20" svgXmlData={star} />
                 </View>
               </View>
-            </TouchableNativeFeedback>
             </View>
           ))}
           {/*介绍 */}
-          <View>
+          <View
+            style={{
+              marginLeft: pxToDp(16),
+              marginRight: pxToDp(16),
+              marginTop: pxToDp(8)
+            }}
+          >
             <Text
               style={{
                 fontSize: pxToDp(18),
                 color: '#000',
                 fontWeight: 'bold',
-                marginTop: pxToDp(12)
+                marginTop: pxToDp(8)
               }}
             >
               他山之石
             </Text>
-            <ImageBackground
-              style={styles.shujia1}
-              source={require('../../../res/短书架.png')}
-            >
-              <ScrollView
-                horizontal={true}
-                style={{ marginLeft: pxToDp(-8) }}
-                showsHorizontalScrollIndicator={false}
+            <View style={styles.booksheef}>
+              <ImageBackground
+                style={styles.shujia1}
+                source={require('../../../res/短书架.png')}
               >
-                {this.state.booksss.map((item) => (
-                  <View style={styles.books}>
-                    <Image
-                      style={styles.booksimage}
-                      source={{ uri: item.path }}
-                    />
-                    <View style={styles.bookstext}>
-                      <Text>{item.title}</Text>
-                      <TouchableOpacity>
-                        <Svg width="20" height="20" svgXmlData={enter} />
-                      </TouchableOpacity>
+                <ScrollView
+                  horizontal={true}
+                  showsHorizontalScrollIndicator={false}
+                >
+                  {this.state.booksss.map((item) => (
+                    <View style={styles.books}>
+                      <Image
+                        style={styles.booksimage}
+                        source={{ uri: item.path }}
+                      />
+                      <View style={styles.bookstext}>
+                        <Text>{item.title}</Text>
+                        <TouchableOpacity>
+                          <Svg width="20" height="20" svgXmlData={enter} />
+                        </TouchableOpacity>
+                      </View>
                     </View>
-                  </View>
-                ))}
-              </ScrollView>
-            </ImageBackground>
-            <ImageBackground
-              style={styles.shujia1}
-              source={require('../../../res/短书架.png')}
-            >
-              <ScrollView
-                horizontal={true}
-                style={{ marginLeft: pxToDp(-8) }}
-                showsHorizontalScrollIndicator = {false}
+                  ))}
+                </ScrollView>
+              </ImageBackground>
+              <ImageBackground
+                style={styles.shujia1}
+                source={require('../../../res/短书架.png')}
               >
-                {this.state.bookss.map((item) => (
-                  <View style={styles.books}>
-                    <Image
-                      style={styles.booksimage}
-                      source={{ uri: item.path }}
-                    />
-                    <View style={styles.bookstext}>
-                      <Text>{item.title}</Text>
-                      <TouchableOpacity>
-                        <Svg width="20" height="20" svgXmlData={enter} />
-                      </TouchableOpacity>
+                <ScrollView
+                  horizontal={true}
+                  showsHorizontalScrollIndicator={false}
+                >
+                  {this.state.bookss.map((item) => (
+                    <View style={styles.books}>
+                      <Image
+                        style={styles.booksimage}
+                        source={{ uri: item.path }}
+                      />
+                      <View style={styles.bookstext}>
+                        <Text>{item.title}</Text>
+                        <TouchableOpacity>
+                          <Svg width="20" height="20" svgXmlData={enter} />
+                        </TouchableOpacity>
+                      </View>
                     </View>
-                  </View>
-                ))}
-              </ScrollView>
-            </ImageBackground>
-            <ImageBackground
-              style={styles.shujia1}
-              source={require('../../../res/短书架.png')}
-            >
-              <ScrollView
-                horizontal={true}
-                style={{ marginLeft: pxToDp(-8) }}
-                showsHorizontalScrollIndicator = {false}
+                  ))}
+                </ScrollView>
+              </ImageBackground>
+              <ImageBackground
+                style={styles.shujia1}
+                source={require('../../../res/短书架.png')}
               >
-                {this.state.books.map((item) => (
-                  <View style={styles.books}>
-                    <Image
-                      style={styles.booksimage}
-                      source={{ uri: item.path }}
-                    />
-                    <View style={styles.bookstext}>
-                      <Text>{item.title}</Text>
-                      <TouchableOpacity>
-                        <Svg width="20" height="20" svgXmlData={enter} />
-                      </TouchableOpacity>
+                <ScrollView
+                  horizontal={true}
+                  showsHorizontalScrollIndicator={false}
+                >
+                  {this.state.books.map((item) => (
+                    <View style={styles.books}>
+                      <Image
+                        style={styles.booksimage}
+                        source={{ uri: item.path }}
+                      />
+                      <View style={styles.bookstext}>
+                        <Text>{item.title}</Text>
+                        <TouchableOpacity>
+                          <Svg width="20" height="20" svgXmlData={enter} />
+                        </TouchableOpacity>
+                      </View>
                     </View>
-                  </View>
-                ))}
-              </ScrollView>
-            </ImageBackground>
+                  ))}
+                </ScrollView>
+              </ImageBackground>
+            </View>
           </View>
           {/**书架 */}
-          <Text
-            style={{
-              fontSize: pxToDp(18),
-              color: '#000',
-              fontWeight: 'bold',
-              marginBottom: pxToDp(12)
-            }}
-          >
-            永恒经典
-          </Text>
-          <ImageBackground
-            style={{ height: pxToDp(385), width: '100%' }}
-            source={require('../../../res/书架.png')}
-          >
-            <ScrollView
-              horizontal={true}
-              style={{ marginLeft: pxToDp(-8) }}
-              showsVerticalScrollIndicator={false}
+          <View style={{ marginLeft: pxToDp(16), marginRight: pxToDp(16) }}>
+            <Text
+              style={{
+                fontSize: pxToDp(18),
+                color: '#000',
+                fontWeight: 'bold',
+                marginBottom: pxToDp(8),
+                marginTop: pxToDp(8)
+              }}
             >
-              {this.state.data.map((item) => (
-                <View style={styles.shujia}>
-                  <Image style={styles.book} source={item.image} />
-                </View>
-              ))}
-            </ScrollView>
-          </ImageBackground>
+              永恒经典
+            </Text>
+            <View style={styles.booksheef2}>
+              <ImageBackground
+                style={{ height: pxToDp(370), width: '100%' }}
+                source={require('../../../res/书架.png')}
+              >
+                <ScrollView
+                  horizontal={true}
+                  showsHorizontalScrollIndicator={false}
+                >
+                  {this.state.data.map((item) => (
+                    <View style={styles.shujia}>
+                      <Image style={styles.book} source={item.image} />
+                    </View>
+                  ))}
+                </ScrollView>
+              </ImageBackground>
+            </View>
+          </View>
         </ScrollView>
       </View>
     );
@@ -374,7 +464,7 @@ const styles = StyleSheet.create({
     width: pxToDp(83),
     borderRadius: pxToDp(8),
     marginLeft: pxToDp(10),
-    elevation: 8, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+    elevation: 4, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
     shadowColor: 'black', //  阴影颜色
     shadowRadius: pxToDp(8), //  圆角,
     shadowOffset: { width: 0, height: 0 },
@@ -386,7 +476,7 @@ const styles = StyleSheet.create({
     height: pxToDp(120),
     width: pxToDp(100),
     borderRadius: pxToDp(8),
-    elevation: 8, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+    elevation: 4, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
     shadowColor: 'black', //  阴影颜色
     shadowRadius: pxToDp(8), //  圆角,
     shadowOffset: { width: 0, height: 0 },
@@ -397,7 +487,9 @@ const styles = StyleSheet.create({
   },
   bookbox: {
     height: pxToDp(130),
-    marginTop: pxToDp(12)
+    marginTop: pxToDp(8),
+    marginLeft: pxToDp(18),
+    marginRight: pxToDp(16)
   },
   bookbotton: {
     height: pxToDp(100),
@@ -419,7 +511,7 @@ const styles = StyleSheet.create({
   shujia1: {
     height: pxToDp(185),
     width: '100%',
-    marginTop: pxToDp(12)
+    marginTop: pxToDp(8)
   },
   books: {
     height: pxToDp(150),
@@ -427,7 +519,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: pxToDp(8),
     marginLeft: pxToDp(8),
-    elevation: 8, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+    elevation: 4, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
     shadowColor: 'black', //  阴影颜色
     shadowRadius: pxToDp(8), //  圆角,
     shadowOffset: { width: 0, height: 0 },
@@ -452,9 +544,31 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: pxToDp(8),
     marginTop: pxToDp(30),
-    elevation: 8, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+    elevation: 4, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
     shadowColor: 'black', //  阴影颜色
     shadowRadius: pxToDp(8) //  圆角,
+  },
+  booksheef: {
+    backgroundColor: 'white',
+    marginTop: pxToDp(8),
+    borderRadius: pxToDp(8),
+    padding: pxToDp(8),
+    elevation: 4, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+    shadowColor: 'black', //  阴影颜色
+    shadowRadius: pxToDp(8), //  圆角,
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 1
+  },
+  booksheef2: {
+    backgroundColor: 'white',
+    marginBottom: pxToDp(10),
+    borderRadius: pxToDp(8),
+    padding: pxToDp(8),
+    elevation: 4, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+    shadowColor: 'black', //  阴影颜色
+    shadowRadius: pxToDp(8), //  圆角,
+    shadowOffset: { width: 0, height: 0 },
+    shadowOpacity: 1
   }
 });
 export default Index;

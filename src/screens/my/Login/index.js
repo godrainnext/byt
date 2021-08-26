@@ -178,7 +178,7 @@ class Login extends PureComponent {
           style={[
             styles.opcity1,
             {
-              top: pxToDp(80),
+              top: pxToDp(75),
               opacity: this.state.opcitytext2 // Bind opacity to animated value
             }
           ]}
@@ -200,7 +200,7 @@ class Login extends PureComponent {
             styles.opcity2,
             {
               right: pxToDp(50),
-              top: pxToDp(80),
+              top: pxToDp(75),
               opacity: this.state.opcitytext4 // Bind opacity to animated value
             }
           ]}

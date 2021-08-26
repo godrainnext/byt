@@ -46,18 +46,23 @@ class Index extends PureComponent {
   static contextType = NavigationContext;
   render() {
     return (
-      <View style={{ backgroundColor: '#E2F4FE', flex: 1 }}>
+      <View style={{ backgroundColor: 'white', flex: 1 }}>
         <Top icon1="arrow-back" title="五女拜寿" />
         <ScrollView
-           showsVerticalScrollIndicator={false}
+          showsVerticalScrollIndicator={false}
           style={{
-            padding: pxToDp(20),
             flex: 1
           }}
-          showsVerticalScrollIndicator = {false}
+          showsVerticalScrollIndicator={false}
         >
           <Image
-            style={{ height: pxToDp(180), borderRadius: pxToDp(8) }}
+            style={{
+              height: pxToDp(180),
+              borderRadius: pxToDp(8),
+              marginLeft: pxToDp(16),
+              marginRight: pxToDp(16),
+              marginTop: pxToDp(8)
+            }}
             source={{ uri: this.state.dramalist[0].path1 }}
           />
           <Text
@@ -65,20 +70,18 @@ class Index extends PureComponent {
               fontSize: pxToDp(18),
               color: '#000',
               fontWeight: 'bold',
-              marginTop: pxToDp(8)
+              marginTop: pxToDp(24),
+              marginLeft: pxToDp(16)
             }}
           >
             {this.state.dramalist[0].title}
           </Text>
           <Text style={styles.title1}>
-          作者：&ensp;{this.state.dramalist.author} &emsp;&emsp;创作年代:&ensp;
-            {this.state.dramalist.year}
+            作者：&emsp;{this.state.dramalist[0].author}{' '}
+            &emsp;&emsp;创作年代:&emsp;
+            {this.state.dramalist[0].year}
           </Text>
-          <View
-            style={{
-              marginTop: pxToDp(4)
-            }}
-          >
+          <View>
             <Text style={styles.text}>剧情简介</Text>
             <Text style={styles.title1}>
               &emsp;&emsp;{this.state.dramalist[0].int1}
@@ -93,7 +96,7 @@ class Index extends PureComponent {
               &emsp;&emsp;{this.state.dramalist[0].int4}
             </Text>
           </View>
-          <View style={{ marginTop: pxToDp(4) }}>
+          <View>
             <Text style={styles.text2}>演出历史</Text>
             <Text style={styles.title}>
               &emsp;&emsp;{this.state.dramalist[0].text1}
@@ -105,16 +108,16 @@ class Index extends PureComponent {
               &emsp;&emsp;{this.state.dramalist[0].text3}
             </Text>
             <Text style={styles.title}>
-              &emsp;&emsp;{this.state.dramalist[0].text3}
+              &emsp;&emsp;{this.state.dramalist[0].text4}
             </Text>
           </View>
           <View>
-          <Text
+            <Text
               style={{
                 fontSize: pxToDp(18),
                 fontWeight: 'bold',
-                marginTop: pxToDp(40),
-                marginBottom:pxToDp(20)
+                marginTop: pxToDp(24),
+                marginLeft: pxToDp(16)
               }}
             >
               剧本详情
@@ -122,18 +125,19 @@ class Index extends PureComponent {
             <TouchableOpacity
               style={styles.book}
               onPress={() =>
-                this.context.navigate(
-                  'Screenpaly4',{
-                     ...this.state.dramalist,
-                  title : this.state.dramalist[0].title
-                  }
-                )
+                this.context.navigate('Screenpaly', {
+                  ...this.state.dramalist,
+                  title: this.state.dramalist[0].title
+                })
               }
             >
               <Image
                 style={{
                   height: pxToDp(100),
-                  borderRadius: pxToDp(8)
+                  borderRadius: pxToDp(8),
+                  marginLeft: pxToDp(16),
+                  marginRight: pxToDp(16),
+                  marginTop: pxToDp(24)
                 }}
                 source={{ uri: this.state.dramalist[0].path2 }}
               />
@@ -151,37 +155,37 @@ class Index extends PureComponent {
 const styles = StyleSheet.create({
   title1: {
     fontSize: pxToDp(16),
-    marginTop: pxToDp(4),
-    lineHeight:pxToDp(24),
-    color:'#333333',
-    alignSelf:'center',
-    marginTop:pxToDp(20)
-    
+    lineHeight: pxToDp(24),
+    color: '#333333',
+    alignSelf: 'center',
+    marginTop: pxToDp(16),
+    marginRight: pxToDp(16),
+    marginLeft: pxToDp(16)
   },
   title: {
     fontSize: pxToDp(16),
- 
-    lineHeight:pxToDp(24),
-    color:'#333333'
+    lineHeight: pxToDp(24),
+    color: '#333333',
+    marginTop: pxToDp(16),
+    marginLeft: pxToDp(16),
+    marginRight: pxToDp(16)
   },
   text: {
     fontSize: pxToDp(18),
     fontWeight: 'bold',
-    marginBottom: pxToDp(20),
-    marginTop:pxToDp(40)
+    marginTop: pxToDp(24),
+    marginLeft: pxToDp(16)
   },
   text2: {
     fontSize: pxToDp(18),
     fontWeight: 'bold',
-    marginBottom: pxToDp(20),
-    marginTop:pxToDp(40)
+    marginTop: pxToDp(24),
+    marginLeft: pxToDp(16)
   },
-
   book: {
-    marginTop: pxToDp(8),
-    marginBottom: pxToDp(32),
     height: pxToDp(100),
-    borderRadius: pxToDp(8)
+    borderRadius: pxToDp(8),
+    marginBottom: pxToDp(50)
   }
 });
 export default Index;

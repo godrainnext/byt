@@ -8,6 +8,7 @@ import Icon1 from 'react-native-vector-icons/MaterialIcons';
 import { pxToDp } from '../../../utils/styleKits';
 import { AlwaysOpen } from "../../../component/common/songmenu";
 import Top from '../../../component/common/top';
+import { ScrollView } from 'react-native-gesture-handler'
 // import { Slider } from '@react-native-community/slider'
 const mockData = require('./musicList.json')
 const deviceInfo = {
@@ -269,7 +270,7 @@ export default class MusicPlayer extends Component {
               <Text style={styles.subTitle}>{musicInfo.title}</Text>
             </View>
             <View style={styles.progressStyle}>
-              <Text style={{ width: pxToDp(35), fontSize: pxToDp(11), color: 'grey', marginLeft: pxToDp(5) }}>{this.formatMediaTime(Math.floor(this.state.currentTime))}</Text>
+              <Text style={{ width: pxToDp(35), fontSize: pxToDp(12), color: '#999999', marginLeft: pxToDp(5) }}>{this.formatMediaTime(Math.floor(this.state.currentTime))}</Text>
               <Slider
                 style={styles.slider}
                 value={this.state.slideValue}
@@ -281,7 +282,7 @@ export default class MusicPlayer extends Component {
                 onSlidingComplete={value => this.player.seek(value)}
               />
               <View style={{ width: pxToDp(35), alignItems: 'flex-end', marginRight: pxToDp(5) }}>
-                <Text style={{ fontSize: pxToDp(11), color: 'grey' }}>{this.formatMediaTime(Math.floor(this.state.duration))}</Text>
+                <Text style={{ fontSize: pxToDp(12), color: '#999999' }}>{this.formatMediaTime(Math.floor(this.state.duration))}</Text>
               </View>
             </View>
           </View>
@@ -299,11 +300,9 @@ export default class MusicPlayer extends Component {
             onBuffer={this.onBuffer}
             onTimedMetadata={this.onTimedMetadata} />
         </View>
-        <View style={{width:'100%',height:pxToDp(700),zIndex:9999,elevation:9999}}>
+        <View style={{width:'100%',flex:1,zIndex:9999,elevation:9999}}>
         <AlwaysOpen ArrData={ArrIndex} />
-
         </View>
-
       </View>
 
 
@@ -334,14 +333,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#ecf6fc',
   },
   bgContainer: {
-    position: 'absolute',
     height: '50%',
-    width: '87%',
+    marginLeft:pxToDp(32),
+    marginTop:pxToDp(16),
+    marginRight:pxToDp(16),
     backgroundColor: 'white',
     borderRadius: pxToDp(8),
-    marginTop: pxToDp(24),
-    marginLeft: pxToDp(40),
-    elevation: 10,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+    elevation: 4,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
     shadowColor: 'black',  //  阴影颜色
     shadowRadius: pxToDp(8),  //  圆
   },
@@ -379,10 +377,8 @@ const styles = StyleSheet.create({
     width: pxToDp(200),
     height: pxToDp(200),
     borderRadius: pxToDp(8),
-    alignSelf: 'center',
     position: 'absolute',
-    left: pxToDp(32),
-    marginTop: pxToDp(50),
-    marginLeft: pxToDp(-55),
+    marginTop:pxToDp(40),
+    marginLeft:pxToDp(-16)
   },
 })

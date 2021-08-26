@@ -113,7 +113,7 @@ class Index extends PureComponent {
   render() {
     const { activeTab } = this.state;
     return (
-      <View style={{ flex: 1, backgroundColor: '#e2f4fe' }}>
+      <View style={{ flex: 1, backgroundColor: '#fff' }}>
         <Top icon1="arrow-back" title="积分商城" />
         <ScrollView 
         showsVerticalScrollIndicator={false}
@@ -233,7 +233,7 @@ const styles = StyleSheet.create({
     width: pxToDp(165.5),
     marginTop:pxToDp(14),
     borderRadius: pxToDp(8),
-    elevation: 5,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+    elevation: 2,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
     shadowColor: 'black',  //  阴影颜色
     shadowRadius: pxToDp(8),  //  圆角
   },

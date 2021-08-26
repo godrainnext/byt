@@ -39,7 +39,7 @@ class Index extends PureComponent {
     pages: [
       {
         selected: 'first',
-        title: '越台',
+        title: '戏台',
         renderIcon: () => (
           <Image
             style={{ width: pxToDp(30), height: pxToDp(28) }}
@@ -120,7 +120,7 @@ class Index extends PureComponent {
                       alignItems: 'center',
                       borderRadius: pxToDp(16),
                       flexDirection: 'row',
-                      elevation: 10,
+                      elevation: 4,
                       shadowColor: 'black',
                       shadowOffset: { width: 0, height: 0 },
                       shadowOpacity: 1,
@@ -278,7 +278,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#468cd3',
     alignItems: 'center',
     justifyContent: 'center',
-    elevation: 8,
+    elevation: 2,
     shadowColor: 'black',
     shadowOffset: { width: 0, height: 0 },
     shadowOpacity: 1,

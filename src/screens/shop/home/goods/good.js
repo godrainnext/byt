@@ -21,7 +21,7 @@ import { getShopInfo } from '@service/shop';
 import { EasyLoading, Loading } from '@utils/ezLoading';
 import changeImgSize from '@utils/changeImgSize';
 import Mybtn from '../../../../component/common/mybtn';
-import LinearGradient from 'react-native-linear-gradient'
+import LinearGradient from 'react-native-linear-gradient';
 const WINDOW_WIDTH = Dimensions.get('window').width;
 class shopdetails extends PureComponent {
   state = {
@@ -368,7 +368,7 @@ class shopdetails extends PureComponent {
                           index === activeSizeTab ? pxToDp(1) : pxToDp(0),
                         height: pxToDp(30),
                         width: pxToDp(50),
-                        elevation: 5, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                        elevation: 2, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
                         shadowColor: 'black' //  阴影颜色
                         //  圆角
                       }}
@@ -424,7 +424,7 @@ class shopdetails extends PureComponent {
                       borderWidth: 1,
                       borderRadius: pxToDp(8),
                       height: pxToDp(131),
-                      elevation: 5, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                      elevation: 2, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
                       shadowColor: 'grey', //  阴影颜色
                       shadowRadius: pxToDp(10), //  圆角
                       marginBottom: pxToDp(1)

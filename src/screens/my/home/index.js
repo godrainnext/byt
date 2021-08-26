@@ -20,7 +20,12 @@ import UserInner from '../../../component/home/userInner';
 import LinearGradient from 'react-native-linear-gradient';
 import Address from '../../../component/my/address/myAddress';
 import SvgUri from 'react-native-svg-uri';
-import { daizhifu, dpingjia, shouhou ,shouhuo} from '../../../component/common/iconSvg';
+import {
+  daizhifu,
+  dpingjia,
+  shouhou,
+  shouhuo
+} from '../../../component/common/iconSvg';
 
 class Index extends PureComponent {
   state = { avatar: '' };
@@ -57,7 +62,7 @@ class Index extends PureComponent {
 
           <UserInner />
           <ImageBackground
-          source={require('./userback.jpg')}
+            source={require('./userback.jpg')}
             style={{
               borderRadius: pxToDp(8),
               backgroundColor: '#f0fcff',
@@ -67,7 +72,7 @@ class Index extends PureComponent {
               marginTop: pxToDp(16),
               elevation: 3,
               borderWidth: 0,
-              overflow:'hidden'
+              overflow: 'hidden'
             }}
           >
             <View
@@ -111,7 +116,7 @@ class Index extends PureComponent {
                 onPress={() => this.context.navigate('Order', 1)}
               >
                 <View style={{ alignItems: 'center' }}>
-                  <Ionicons name="credit-card" size={25} color="#468CD3" />
+                  <SvgUri svgXmlData={daizhifu} width="20" height="20" />
                   <Text
                     style={{
                       fontSize: pxToDp(16),
@@ -127,7 +132,7 @@ class Index extends PureComponent {
                 onPress={() => this.context.navigate('Order', 2)}
               >
                 <View style={{ alignItems: 'center' }}>
-                  <Ionicons name="truck" size={25} color="#468CD3" />
+                  <SvgUri svgXmlData={shouhuo} width="20" height="20" />
                   <Text
                     style={{
                       fontSize: pxToDp(16),
@@ -143,7 +148,7 @@ class Index extends PureComponent {
                 onPress={() => this.context.navigate('Order', 3)}
               >
                 <View style={{ alignItems: 'center' }}>
-                  <Ionicons name="commenting-o" size={25} color="#468CD3" />
+                  <SvgUri svgXmlData={dpingjia} width="20" height="20" />
                   <Text
                     style={{
                       fontSize: pxToDp(16),
@@ -157,7 +162,7 @@ class Index extends PureComponent {
               </TouchableOpacity>
               <TouchableOpacity onPress={() => this.context.navigate('Refund')}>
                 <View style={{ alignItems: 'center' }}>
-                  <Ionicons name="handshake-o" size={25} color="#468CD3" />
+                  <SvgUri svgXmlData={shouhou} width="20" height="20" />
                   <Text
                     style={{
                       fontSize: pxToDp(16),
@@ -172,12 +177,12 @@ class Index extends PureComponent {
             </View>
           </ImageBackground>
           <View>
-            < Address />
+            <Address />
 
             <TouchableOpacity
               onPress={() => this.context.navigate('Jifenshop')}
             >
-              <List icon="server-outline" title="积分商城"/>
+              <List icon="server-outline" title="积分商城" />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => this.context.navigate('History')}>
               <List icon="eye-outline" title="历史浏览" />

@@ -14,8 +14,6 @@ import StepIndicator from 'react-native-step-indicator';
 import LinearGradient from 'react-native-linear-gradient';
 import Mybtn from './mybtn';
 import { Button } from 'react-native-elements/dist/buttons/Button';
-import { color } from 'react-native-elements/dist/helpers';
-
 class Index extends PureComponent {
     constructor(props) {
         super(props);
@@ -102,7 +100,7 @@ class Index extends PureComponent {
                                 <Text style={styles.modalText1}>-每日签到-</Text>
                                 <View style={{ flexDirection: 'row', width: pxToDp(335) }}>
                                     {this.state.jifen.map((item, index) => (
-                                        <Text style={{ marginRight: pxToDp(32.7), color: '#999999',fontSize:pxToDp(12) }}>
+                                        <Text style={{ marginRight: pxToDp(32.7), color: '#999999', fontSize: pxToDp(12) }}>
                                             {item}
                                         </Text>
                                     ))}
@@ -115,34 +113,34 @@ class Index extends PureComponent {
                                         labels={labels}
                                     />
                                 </View>
-                              
-                                    <Button 
+
+                                <Button
                                     ViewComponent={LinearGradient}
-                                           onPress={() => {
-                                            this.setState({
-                                                currentPosition: this.state.currentPosition + 1
-                                            });
-                                            this.setState({ color: 'grey' });
-                                            this.setState({ isclick: true });
-                                            this.setModalVisibles(true);
-                                        }}
-                                        title= {this.state.isclick ? '已签到' : '签到'}
-                                        titleStyle={{color:'red'}}
-                                        disabled={this.state.isclick}
-                                        linearGradientProps={{
-                                            colors:this.state.isclick?['#ccc','#ccc']:['#fa9222', '#ffd501'],
-                                            start: { x: 0, y: 0.5 },
-                                            end: { x: 1, y: 0.5 }
-                                          }}
-                                        buttonStyle={{
-                                            width: pxToDp(100),
-                                            height: pxToDp(100),
-                                            marginTop:pxToDp(30),
-                                            borderRadius: pxToDp(100),
-                                        }}
-                                 
-                                    />
-                         
+                                    onPress={() => {
+                                        this.setState({
+                                            currentPosition: this.state.currentPosition + 1
+                                        });
+                                        this.setState({ color: 'grey' });
+                                        this.setState({ isclick: true });
+                                        this.setModalVisibles(true);
+                                    }}
+                                    title={this.state.isclick ? '已签到' : '签到'}
+                                    titleStyle={{ color: 'red' }}
+                                    disabled={this.state.isclick}
+                                    linearGradientProps={{
+                                        colors: this.state.isclick ? ['#ccc', '#ccc'] : ['#fa9222', '#ffd501'],
+                                        start: { x: 0, y: 0.5 },
+                                        end: { x: 1, y: 0.5 }
+                                    }}
+                                    buttonStyle={{
+                                        width: pxToDp(100),
+                                        height: pxToDp(100),
+                                        marginTop: pxToDp(30),
+                                        borderRadius: pxToDp(100),
+                                    }}
+
+                                />
+
                                 <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', marginTop: pxToDp(35) }}>
                                     <Image style={{ width: pxToDp(80), height: pxToDp(160) }} source={require('../../res/sucai/9.jpg')} />
                                     <View>
@@ -157,12 +155,24 @@ class Index extends PureComponent {
                         </View>
                     </Modal>
                 </View>
-                <TouchableOpacity style={{ alignItems: 'center', justifyContent: 'center', marginLeft: pxToDp(50) }} onPress={() => {
-                    this.setModalVisible(true);
-                }}>
-                    <Ionicons name="today-sharp" size={32} color="#468CD3" />
-                    <Text style={{ fontSize: pxToDp(16), marginTop: pxToDp(5),color:'#333333'}}>签到</Text>
-                </TouchableOpacity>
+                    <Mybtn
+                        title="签 到"
+                        onPress={() => {this.setModalVisible(true)}}
+                        buttonStyle={{
+                            width: pxToDp(80),
+                            height: pxToDp(30),
+                            alignSelf: 'flex-end',
+                            borderTopLeftRadius: pxToDp(32),
+                            borderBottomLeftRadius: pxToDp(32),
+                        }}
+                        titleStyle={{
+                            color: '#fcfcfc',
+                            fontWeight: 'bold',
+                            fontSize: pxToDp(16),
+                            height: 40,
+                            marginTop: pxToDp(16)
+                        }}
+                    />
             </View>
         );
     }
@@ -183,13 +193,13 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
-        elevation: 5
+        elevation: 2
     },
     openButton: {
         backgroundColor: '#F194FF',
         borderRadius: pxToDp(8),
         marginTop: pxToDp(35),
-        elevation: 12,
+        elevation: 2,
         width: pxToDp(240),
         height: pxToDp(30),
         alignItems: 'center',
@@ -198,19 +208,19 @@ const styles = StyleSheet.create({
     modalText1: {
         textAlign: 'center',
         fontSize: pxToDp(18),
-        marginBottom:pxToDp(35),
-        color:'#333333',
-        fontWeight:'bold'
+        marginBottom: pxToDp(35),
+        color: '#333333',
+        fontWeight: 'bold'
     },
     modalText2: {
         marginTop: pxToDp(16),
         textAlign: 'center',
         fontSize: pxToDp(16),
-        color:'#666666'
+        color: '#666666'
     },
-    modalText3:{
+    modalText3: {
         fontSize: pxToDp(14),
-        color:'#999999'
+        color: '#999999'
     },
     box: {
         alignItems: 'center',
@@ -241,8 +251,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginBottom: pxToDp(10)
     },
-    textqian:{
-        fontSize:pxToDp(14)
+    textqian: {
+        fontSize: pxToDp(14)
     }
 });
 export default Index;

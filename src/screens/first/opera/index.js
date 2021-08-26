@@ -24,47 +24,12 @@ class Index extends PureComponent {
       <View style={{flex:1}}>
       <Top icon1="arrow-back" title="精选唱段"/>
       <ScrollView
-        style={{ backgroundColor: '#E2F4FE', flex: 1,padding:pxToDp(16)}}
+        style={{ backgroundColor: 'white', flex: 1}}
         showsVerticalScrollIndicator={false}
       >
-        {/*经典推荐 */}
-        <View>
-          <View
-            style={{ flexDirection: 'row', justifyContent: 'space-between' }}
-          >
-            <Text style={styles.title}>经典推荐</Text>
-            <TouchableOpacity
-              onPress={() => this.context.navigate('Optuijian', 0)}
-            >
-              <View style={{ flexDirection: 'row' }}>
-                <Text style={{ fontSize: pxToDp(15), color: 'grey' }}>
-                  查看更多
-                </Text>
-                <Ionicons name="chevron-forward" size={20} color="grey" />
-              </View>
-            </TouchableOpacity>
-          </View>
-        </View>
         <Opera status={0} />
-        {/*名角唱段 */}
-          <View
-            style={{ flexDirection: 'row', justifyContent: 'space-between',marginTop:pxToDp(16) }}
-          >
-            <Text style={styles.title}>名角唱段</Text>
-            <TouchableOpacity
-              onPress={() => this.context.navigate('Opperson', 1)}
-            >
-              <View style={{ flexDirection: 'row' }}>
-                <Text style={{ fontSize: pxToDp(15), color: 'grey' }}>
-                  查看更多
-                </Text>
-                <Ionicons name="chevron-forward" size={20} color="grey" />
-              </View>
-            </TouchableOpacity>
-          </View>
-          <View style={{marginBottom:pxToDp(32)}}>
         <Opera status={1} />
-        </View>
+        <View style={{height:pxToDp(20)}}></View>
       </ScrollView>
       </View>
     );

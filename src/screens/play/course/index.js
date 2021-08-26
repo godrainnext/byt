@@ -179,21 +179,21 @@ class Index extends PureComponent {
                     </Text>
                   </View>
                   <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                    <Icon name="control-play" size={15} color={'#333333'} />
+                    <Icon name="control-play" size={12} color={'#333333'} />
                     <Text
                       style={{
                         marginLeft: pxToDp(4),
-                        fontSize: pxToDp(14)
+                        fontSize: pxToDp(12)
                       }}
                     >
                       96.7万
                     </Text>
                     <View style={{ width: pxToDp(20) }}></View>
-                    <Icon name="clock" size={15} color={'#333333'} />
+                    <Icon name="clock" size={12} color={'#333333'} />
                     <Text
                       style={{
                         marginLeft: pxToDp(4),
-                        fontSize: pxToDp(14)
+                        fontSize: pxToDp(12)
                       }}
                     >
                       02:12
@@ -580,21 +580,21 @@ class Index extends PureComponent {
                     </Text>
                   </View>
                   <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                    <Icon name="control-play" size={15} color={'#333333'} />
+                    <Icon name="control-play" size={12} color={'#333333'} />
                     <Text
                       style={{
                         marginLeft: pxToDp(4),
-                        fontSize: pxToDp(14)
+                        fontSize: pxToDp(12)
                       }}
                     >
                       96.7万
                     </Text>
                     <View style={{ width: pxToDp(20) }}></View>
-                    <Icon name="clock" size={15} color={'#333333'} />
+                    <Icon name="clock" size={12} color={'#333333'} />
                     <Text
                       style={{
                         marginLeft: pxToDp(4),
-                        fontSize: pxToDp(14)
+                        fontSize: pxToDp(12)
                       }}
                     >
                       02:12

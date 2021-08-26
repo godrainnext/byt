@@ -1,7 +1,14 @@
-import React, { PureComponent } from "react";
-import { View, Text, TouchableOpacity, StyleSheet, Image, ScrollView } from "react-native";
-import { pxToDp } from "../../../utils/styleKits";
-import Top from '../../../component/common/top'
+import React, { PureComponent } from 'react';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Image,
+  ScrollView
+} from 'react-native';
+import { pxToDp } from '../../../utils/styleKits';
+import Top from '../../../component/common/top';
 
 class Index extends PureComponent {
   render() {
@@ -48,10 +55,10 @@ class Index extends PureComponent {
             <View
               style={{
                 flexDirection: 'row',
-                marginTop: pxToDp(8),
+                marginTop: pxToDp(16),
                 backgroundColor: 'white',
                 borderRadius: pxToDp(8),
-                elevation: 4, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                elevation: 2, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
                 shadowColor: 'black', //  阴影颜色
                 shadowRadius: pxToDp(10) //  圆角
               }}
@@ -87,10 +94,10 @@ class Index extends PureComponent {
             <View
               style={{
                 flexDirection: 'row',
-                marginTop: pxToDp(8),
+                marginTop: pxToDp(16),
                 backgroundColor: 'white',
                 borderRadius: pxToDp(8),
-                elevation: 4, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                elevation: 2, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
                 shadowColor: 'black', //  阴影颜色
                 shadowRadius: pxToDp(10) //  圆角
               }}
@@ -127,7 +134,7 @@ class Index extends PureComponent {
               style={{
                 flexDirection: 'row',
                 alignItems: 'center',
-                marginTop: pxToDp(8)
+                marginTop: pxToDp(16)
               }}
             >
               <Text
@@ -152,10 +159,10 @@ class Index extends PureComponent {
             <View
               style={{
                 flexDirection: 'row',
-                marginTop: pxToDp(8),
+                marginTop: pxToDp(16),
                 backgroundColor: 'white',
                 borderRadius: pxToDp(8),
-                elevation: 4, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                elevation: 2, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
                 shadowColor: 'black', //  阴影颜色
                 shadowRadius: pxToDp(10) //  圆角
               }}
@@ -191,10 +198,10 @@ class Index extends PureComponent {
             <View
               style={{
                 flexDirection: 'row',
-                marginTop: pxToDp(8),
+                marginTop: pxToDp(16),
                 backgroundColor: 'white',
                 borderRadius: pxToDp(8),
-                elevation: 4, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                elevation: 2, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
                 shadowColor: 'black', //  阴影颜色
                 shadowRadius: pxToDp(10) //  圆角
               }}
@@ -230,10 +237,10 @@ class Index extends PureComponent {
             <View
               style={{
                 flexDirection: 'row',
-                marginTop: pxToDp(8),
+                marginTop: pxToDp(16),
                 backgroundColor: 'white',
                 borderRadius: pxToDp(8),
-                elevation: 4, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                elevation: 2, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
                 shadowColor: 'black', //  阴影颜色
                 shadowRadius: pxToDp(10) //  圆角
               }}
@@ -269,10 +276,10 @@ class Index extends PureComponent {
             <View
               style={{
                 flexDirection: 'row',
-                marginTop: pxToDp(8),
+                marginTop: pxToDp(16),
                 backgroundColor: 'white',
                 borderRadius: pxToDp(8),
-                elevation: 4, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                elevation: 2, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
                 shadowColor: 'black', //  阴影颜色
                 shadowRadius: pxToDp(10), //  圆角
                 marginBottom: pxToDp(8)
@@ -312,6 +319,5 @@ class Index extends PureComponent {
     );
   }
 }
-const styles = StyleSheet.create({
-})
+const styles = StyleSheet.create({});
 export default Index;
