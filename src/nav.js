@@ -10,7 +10,7 @@ const Stack = createStackNavigator();
 function Nav() {
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode="none" initialRouteName="Login">
+      <Stack.Navigator headerMode="none" initialRouteName="SingOver">
         <Stack.Screen name="NewTimeLine" component={Screens.NewTimeLine} />
 
         <Stack.Screen name="Tabbar" component={Tabbar} />
@@ -248,6 +248,7 @@ function Nav() {
         <Stack.Screen name="Testtt" component={Screens.Testtt} />
         <Stack.Screen name="ToSing" component={Screens.ToSing} />
         <Stack.Screen name="RegInfo" component={Screens.RegInfo} />
+        <Stack.Screen name="SingOver" component={Screens.SingOver} />
       </Stack.Navigator>
     </NavigationContainer>
   );
