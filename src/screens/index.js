@@ -84,6 +84,7 @@ export { default as Play } from './play/home'; //游玩首页
 export { default as Study } from './play/study/study'; //练唱
 export { default as Details } from './play/study/details'; //练唱详情
 export { default as Sing } from './play/study/sing'; //唱歌
+export { default as SaveMusic } from './play/study/SaveMusic'; //唱歌
 export { default as Singbefore } from './play/study/singbefore'; //唱歌
 export { default as Act } from './play/act'; //双人剧本页
 export { default as Change } from './play/change'; //AI换衣页
@@ -138,16 +139,14 @@ export { default as Screenpaly8 } from './talk/home/script/screenplay8'; //剧�
 export { default as Screenpaly9 } from './talk/home/script/screenplay9'; //剧本9页面
 
 export { default as SeeZhiBo } from './talk/zhiboye/gindex';
-export { default as Video } from '../component/videoplayer/index'//视频页
-export { default as Jubao } from './talk/home/forum/jubao' //举报页
+export { default as Video } from '../component/videoplayer/index'; //视频页
+export { default as Jubao } from './talk/home/forum/jubao'; //举报页
 
-
-
-export { default as Test1 } from './test/test1'
-export { default as Test2 } from './test/test2'
-export { default as Test3 } from './test/test3'
-export { default as Test4 } from './test/test4'
-export { default as Test6 } from './test/test8'
+export { default as Test1 } from './test/test1';
+export { default as Test2 } from './test/test2';
+export { default as Test3 } from './test/test3';
+export { default as Test4 } from './test/test4';
+export { default as Test6 } from './test/test8';
 
 export { default as WaterButton } from '../component/common/waterbutton'; //波纹按钮
 

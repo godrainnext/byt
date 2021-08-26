@@ -62,24 +62,16 @@ class Index extends PureComponent {
             }}
             source={{ uri: this.state.dramalist[0].path1 }}
           />
-          <Text
-            style={{
-              fontSize: pxToDp(18),
-              color: '#000',
-              fontWeight: 'bold',
-              marginTop: pxToDp(24),
-              marginLeft: pxToDp(16)
-            }}
-          >
+         <Text style={styles.text}>
             {this.state.dramalist[0].title}
           </Text>
-          <Text style={styles.title1}>
-            作者：&emsp;{this.state.dramalist[0].author} &emsp;&emsp;创作年代:&emsp;
+          <Text style={styles.title}>
+          &emsp;&emsp;作者：{this.state.dramalist[0].author} &emsp;创作年代:&emsp;
             {this.state.dramalist[0].year}
           </Text>
           <View>
             <Text style={styles.text}>剧情简介</Text>
-            <Text style={styles.title1}>
+            <Text style={styles.title}>
               &emsp;&emsp;{this.state.dramalist[0].int1}
             </Text>
             <Text style={styles.title}>
@@ -90,7 +82,7 @@ class Index extends PureComponent {
             </Text>
           </View>
           <View>
-            <Text style={styles.text2}>演出历史</Text>
+            <Text style={styles.text}>演出历史</Text>
             <Text style={styles.title}>
               &emsp;&emsp;{this.state.dramalist[0].text1}
             </Text>
@@ -102,14 +94,7 @@ class Index extends PureComponent {
             </Text>
           </View>
           <View>
-            <Text
-              style={{
-                fontSize: pxToDp(18),
-                fontWeight: 'bold',
-                marginTop: pxToDp(24),
-                marginLeft: pxToDp(16)
-              }}
-            >
+          <Text style={styles.text}>
               剧本详情
             </Text>
             <TouchableOpacity
@@ -142,15 +127,6 @@ class Index extends PureComponent {
 }
 
 const styles = StyleSheet.create({
-  title1: {
-    fontSize: pxToDp(16),
-    lineHeight: pxToDp(24),
-    color: '#333333',
-    alignSelf: 'center',
-    marginTop: pxToDp(16),
-    marginRight: pxToDp(16),
-    marginLeft: pxToDp(16)
-  },
   title: {
     fontSize: pxToDp(16),
     lineHeight: pxToDp(24),
@@ -161,12 +137,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: pxToDp(18),
-    fontWeight: 'bold',
-    marginTop: pxToDp(24),
-    marginLeft: pxToDp(16)
-  },
-  text2: {
-    fontSize: pxToDp(18),
+    color: '#000000',
     fontWeight: 'bold',
     marginTop: pxToDp(24),
     marginLeft: pxToDp(16)

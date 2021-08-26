@@ -5,7 +5,8 @@ import {
   Text,
   TouchableOpacity,
   StyleSheet,
-  ScrollView
+  ScrollView,
+  Alert
 } from 'react-native';
 import Top from '@components/common/top';
 import { pxToDp } from '@utils/styleKits';
@@ -13,11 +14,8 @@ import Slider from '@components/common/slider';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Video } from 'expo-av';
 import { Audio } from 'expo-av';
-import { LogFilter } from 'react-native-agora';
-import axios from 'axios';
-import { saveMusic } from '../../../service/play';
-import Mybtn from '../../../component/common/mybtn';
-import LinearGradient from 'react-native-linear-gradient'
+import request from '@service/index';
+import { NavigationContext } from '@react-navigation/native';
 class Index extends PureComponent {
   state = {
     status: {},
@@ -28,35 +26,39 @@ class Index extends PureComponent {
     isplay: false,
     URI: []
   };
-
+  static contextType = NavigationContext;
   playSound = async () => {
-    if (this.state.sound.length) {
-      for (const sound of this.state.sound) {
-        this.setState({ playingsong: sound });
-        await sound.playAsync();
+    Alert.alert('是否确认结束练唱?', '保存音频', [
+      { text: '取消' },
+      {
+        text: '确认',
+        onPress: async () => {
+          if (this.state.isplay) {
+            await this.stopRecording();
+          }
+
+          const fd = new FormData();
+          const arr = [];
+          for (const uri of this.state.URI) {
+            let file = {
+              uri: uri,
+              type: 'multipart/form-data',
+              name: uri
+            };
+            fd.append('file', file);
+            const { sound } = await Audio.Sound.createAsync({ uri });
+            arr.push(sound);
+          }
+          fd.append('staticId', 1);
+          request.post({ url: '/uploads/music', data: fd }).then((res) => {
+            this.context.navigate('saveMusic', {
+              staticId: 1,
+              sound: arr[0]
+            });
+          });
+        }
       }
-      this.setState({ isplay: true });
-    } else {
-      const fd = new FormData();
-      for (const uri of this.state.URI) {
-        let file = {
-          uri: uri,
-          type: 'multipart/form-data',
-          name: uri
-        };
-        fd.append('file', file);
-        const { sound } = await Audio.Sound.createAsync({ uri });
-        this.setState({ sound: [...this.state.sound, sound] });
-      }
-      for (const sound of this.state.sound) {
-        this.setState({ playingsong: sound });
-        await sound.playAsync();
-      }
-      axios.post('http://192.168.50.146:3000/uploads/music', fd).then((res) => {
-        console.log(res);
-      });
-      this.setState({ isplay: true });
-    }
+    ]);
   };
 
   pauseSound = async () => {
@@ -89,7 +91,7 @@ class Index extends PureComponent {
     // this.setState({recording:undefined});
     await this.state.recording.stopAndUnloadAsync();
     const uri = this.state.recording.getURI();
-    this.setState({ URI: [...this.state.URI, uri] });
+    await this.setState({ URI: [...this.state.URI, uri] });
     this.setState({ isrecoding: false });
   };
   render() {
@@ -299,20 +301,25 @@ class Index extends PureComponent {
           <View>
             <TouchableOpacity
               style={{ alignItems: 'center' }}
-              onPress={() =>
+              onPress={() => {
+                console.log(video.current);
                 this.state.status.isPlaying
                   ? video.current.pauseAsync()
-                  : video.current.playAsync()
-              }
+                  : video.current.playAsync();
+              }}
             >
               <Ionicons name="musical-notes-outline" size={25} color="white" />
-              <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>{this.state.status.isPlaying ? '暂停' : '播放'}</Text>
+              <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
+                {this.state.status.isPlaying ? '暂停' : '播放'}
+              </Text>
             </TouchableOpacity>
           </View>
           <View>
             <TouchableOpacity style={{ alignItems: 'center' }}>
               <Ionicons name="options-outline" size={25} color="white" />
-              <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>音量</Text>
+              <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
+                音量
+              </Text>
             </TouchableOpacity>
           </View>
           <View>
@@ -328,7 +335,9 @@ class Index extends PureComponent {
           <View>
             <TouchableOpacity style={{ alignItems: 'center' }}>
               <Ionicons name="refresh" size={25} color="white" />
-              <Text style={{ fontSize: pxToDp(14), color: '#333333' }} >重唱</Text>
+              <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
+                重唱
+              </Text>
             </TouchableOpacity>
           </View>
           <View>
@@ -337,7 +346,9 @@ class Index extends PureComponent {
               onPress={this.state.isplay ? this.pauseSound : this.playSound}
             >
               <Ionicons name="checkmark" size={25} color="white" />
-              <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>结束</Text>
+              <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
+                结束
+              </Text>
             </TouchableOpacity>
           </View>
         </View>

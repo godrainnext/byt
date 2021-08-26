@@ -81,11 +81,11 @@ class Index extends PureComponent {
               style={styles.image3}
               source={{ uri: this.state.schoolstate.image2 }}
             />
-            <View style={{ width: pxToDp(220), justifyContent: 'center' }}>
+            <View style={{ width: pxToDp(240), marginTop: pxToDp(10), marginBottom: pxToDp(10), justifyContent: 'space-between' }}>
               <Text style={styles.zhuanjititle}>
                 {this.state.schoolstate.title}
               </Text>
-              <Text style={styles.zhuanjitext} numberOfLines={1}>
+              <Text style={styles.zhuanjitext} numberOfLines={2}>
                 {this.state.schoolstate.ad}
               </Text>
             </View>
@@ -110,18 +110,18 @@ const styles = StyleSheet.create({
     height: pxToDp(180),
     marginLeft: pxToDp(16),
     marginRight: pxToDp(16),
-    marginTop:pxToDp(8)
+    marginTop: pxToDp(8)
   },
   title: {
     fontSize: pxToDp(18),
-    color: '#333333',
+    color: '#000000',
     fontWeight: 'bold',
     marginTop: pxToDp(24),
     marginLeft: pxToDp(16)
   },
   title1: {
     fontSize: pxToDp(18),
-    color: '#333333',
+    color: '#000000',
     fontWeight: 'bold',
     marginTop: pxToDp(24),
     marginLeft: pxToDp(16)
@@ -144,17 +144,16 @@ const styles = StyleSheet.create({
   zhuanji: {
     flexDirection: 'row',
     marginTop: pxToDp(16),
-    marginRight:pxToDp(16),
-    marginLeft:pxToDp(16),
+    marginRight: pxToDp(16),
+    marginLeft: pxToDp(16),
     marginBottom: pxToDp(16),
-    height: pxToDp(100),
     borderRadius: pxToDp(8),
     backgroundColor: '#fff',
-    elevation: 4,
-    shadowColor: 'black', //  阴影颜色
+    elevation: 2,
+    shadowColor: '#000000', //  阴影颜色
     shadowOffset: { width: 0, height: 0 }, // 阴影偏移
     shadowOpacity: 1, // 阴影不透明度
-    shadowRadius: 10 //  圆角
+    shadowRadius: pxToDp(8) //  圆角
   },
   image3: {
     height: pxToDp(80),
@@ -163,13 +162,13 @@ const styles = StyleSheet.create({
     margin: pxToDp(8)
   },
   zhuanjititle: {
-    fontSize: pxToDp(18),
+    fontSize: pxToDp(16),
     fontWeight: 'bold',
-    color: 'black'
+    color: '#333333'
   },
   zhuanjitext: {
-    fontSize: pxToDp(15),
-    color: 'grey',
+    fontSize: pxToDp(14),
+    color: '#666666',
     marginTop: pxToDp(8)
   }
 });

@@ -93,6 +93,21 @@ class Index extends PureComponent {
           id: '6',
           title: '沙漠王子',
           path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fs3.sinaimg.cn%2Fmiddle%2F5f7c87a6x8d49dea713b2%26690&refer=http%3A%2F%2Fs3.sinaimg.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631802511&t=97bcf5c96499200fd4d73431edeef1f2'
+        },
+        {
+          id: '7',
+          title: '宝莲灯',
+          path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp1.itc.cn%2Fq_70%2Fimages03%2F20210111%2Fe64c3bf452b547a2afb9fa57c6a1dc67.jpeg&refer=http%3A%2F%2Fp1.itc.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631803304&t=de85194fcf63d4b0459a3c611bb40d12'
+        },
+        {
+          id: '8',
+          title: '玉堂春',
+          path: 'https://ss0.baidu.com/94o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/a8773912b31bb05178ff0161357adab44bede0a4.jpg'
+        },
+        {
+          id: '9',
+          title: '杨贵妃',
+          path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.cpfwb.com%2Fforum%2F201602%2F14%2F140143k9519reknwqrr1rw.jpg&refer=http%3A%2F%2Fimg.cpfwb.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631803390&t=00ecc2e47b3736de82d0de246d8b2514'
         }
       ],
       bookss: [
@@ -125,39 +140,22 @@ class Index extends PureComponent {
           id: '6',
           title: '月照西厢',
           path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fnimg.ws.126.net%2F%3Furl%3Dhttp%3A%2F%2Fdingyue.ws.126.net%2F2020%2F0126%2Fff1137fej00q4oeoe001yc200u000k0g00zk00np.jpg%26thumbnail%3D650x2147483647%26quality%3D80%26type%3Djpg&refer=http%3A%2F%2Fnimg.ws.126.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631803171&t=65db9a07c2c1826ffeb121bb253f1267'
-        }
-      ],
-      books: [
+        },
         {
-          id: '1',
+          id: '7',
           title: '白蛇传',
           path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg2.jiemian.com%2F101%2Foriginal%2F20190926%2F156947704271169000_a580xH.jpg&refer=http%3A%2F%2Fimg2.jiemian.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631803219&t=5613a65e16ae516a0d12e22139363de2'
         },
         {
-          id: '2',
+          id: '7',
           title: '沉香扇',
           path: 'https://gss0.baidu.com/70cFfyinKgQFm2e88IuM_a/forum/pic/item/a8014c086e061d95096a1f767bf40ad162d9ca4b.jpg'
         },
         {
-          id: '3',
+          id: '9',
           title: '浪荡子',
           path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg11.360buyimg.com%2FpopWaterMark%2F10402%2F35e21d4b-6ac2-4d01-a551-7a18c7e1bdbf.jpg&refer=http%3A%2F%2Fimg11.360buyimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631803283&t=d3d9204e76dca21b0880235aaf5993c9'
         },
-        {
-          id: '4',
-          title: '宝莲灯',
-          path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp1.itc.cn%2Fq_70%2Fimages03%2F20210111%2Fe64c3bf452b547a2afb9fa57c6a1dc67.jpeg&refer=http%3A%2F%2Fp1.itc.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631803304&t=de85194fcf63d4b0459a3c611bb40d12'
-        },
-        {
-          id: '5',
-          title: '玉堂春',
-          path: 'https://ss0.baidu.com/94o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/a8773912b31bb05178ff0161357adab44bede0a4.jpg'
-        },
-        {
-          id: '6',
-          title: '杨贵妃',
-          path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.cpfwb.com%2Fforum%2F201602%2F14%2F140143k9519reknwqrr1rw.jpg&refer=http%3A%2F%2Fimg.cpfwb.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631803390&t=00ecc2e47b3736de82d0de246d8b2514'
-        }
       ]
     };
   }
@@ -165,19 +163,113 @@ class Index extends PureComponent {
   render() {
     return (
       <View style={{ backgroundColor: 'white', flex: 1 }}>
-        <Top icon1="arrow-back" title="剧本中心" />
+        <Top icon1="arrow-back" title="剧本" />
         <ScrollView
           style={{ flex: 1 }}
           showsVerticalScrollIndicator={false}
         >
+          {/**书架 */}
+          <View style={{ marginLeft: pxToDp(16), marginRight: pxToDp(16) }}>
+            <Text
+              style={{
+                fontSize: pxToDp(18),
+                color: '#000',
+                fontWeight: 'bold',
+                marginBottom: pxToDp(8),
+                marginTop: pxToDp(8)
+              }}
+            >
+              永恒经典
+            </Text>
+            <View style={styles.booksheef2}>
+              <ImageBackground
+                style={{ height: pxToDp(370), width: '100%', }}
+                source={require('../../../res/书架.png')}
+              >
+                <ScrollView
+                  horizontal={true}
+                  showsHorizontalScrollIndicator={false}
+                >
+                  {this.state.data.map((item) => (
+                    <View style={styles.shujia}>
+                      <Image style={styles.book} source={item.image} />
+                    </View>
+                  ))}
+                </ScrollView>
+              </ImageBackground>
+            </View>
+          </View>
+          {/*介绍 */}
+          <View style={{ marginLeft: pxToDp(16), marginRight: pxToDp(16) }}>
+            <Text
+              style={{
+                fontSize: pxToDp(18),
+                color: '#000',
+                fontWeight: 'bold',
+                marginTop: pxToDp(8)
+              }}
+            >
+              他山之石
+            </Text>
+            <View style={styles.booksheef}>
+              <ImageBackground
+                style={styles.shujia1}
+                source={require('../../../res/短书架.png')}
+              >
+                <ScrollView
+                  horizontal={true}
+                  showsHorizontalScrollIndicator={false}
+                >
+                  {this.state.booksss.map((item) => (
+                    <View style={styles.books}>
+                      <Image
+                        style={styles.booksimage}
+                        source={{ uri: item.path }}
+                      />
+                      <View style={styles.bookstext}>
+                        <Text>{item.title}</Text>
+                        <TouchableOpacity>
+                          <Svg width="20" height="20" svgXmlData={enter} />
+                        </TouchableOpacity>
+                      </View>
+                    </View>
+                  ))}
+                </ScrollView>
+              </ImageBackground>
+              <ImageBackground
+                style={styles.shujia1}
+                source={require('../../../res/短书架.png')}
+              >
+                <ScrollView
+                  horizontal={true}
+                  showsHorizontalScrollIndicator={false}
+                >
+                  {this.state.bookss.map((item) => (
+                    <View style={styles.books}>
+                      <Image
+                        style={styles.booksimage}
+                        source={{ uri: item.path }}
+                      />
+                      <View style={styles.bookstext}>
+                        <Text>{item.title}</Text>
+                        <TouchableOpacity>
+                          <Svg width="20" height="20" svgXmlData={enter} />
+                        </TouchableOpacity>
+                      </View>
+                    </View>
+                  ))}
+                </ScrollView>
+              </ImageBackground>
+            </View>
+          </View>
           {/*剧本推荐 */}
-          <Text style={{ fontSize: pxToDp(18), color: '#000000', fontWeight: 'bold', marginLeft: pxToDp(16), marginTop: pxToDp(8),marginBottom:pxToDp(-16)}}>猜你喜欢</Text>
+          <Text style={{ fontSize: pxToDp(18), color: '#000000', fontWeight: 'bold', marginLeft: pxToDp(16), marginTop: pxToDp(8), marginBottom: pxToDp(-16) }}>猜你喜欢</Text>
           {this.state.drama.map((item) => (
             <View style={{
               height: pxToDp(130),
               marginTop: pxToDp(16),
-              marginLeft:pxToDp(16),
-              marginRight:pxToDp(16)
+              marginLeft: pxToDp(16),
+              marginRight: pxToDp(16)
             }}>
               <TouchableNativeFeedback
                 useForeground={true}
@@ -264,124 +356,7 @@ class Index extends PureComponent {
               </View>
             </View>
           ))}
-          {/*介绍 */}
-          <View style={{ marginLeft: pxToDp(16), marginRight: pxToDp(16),marginTop:pxToDp(8)}}>
-            <Text
-              style={{
-                fontSize: pxToDp(18),
-                color: '#000',
-                fontWeight: 'bold',
-                marginTop: pxToDp(8)
-              }}
-            >
-              他山之石
-            </Text>
-            <View style={styles.booksheef}>
-              <ImageBackground
-                style={styles.shujia1}
-                source={require('../../../res/短书架.png')}
-              >
-                <ScrollView
-                  horizontal={true}
-                  showsHorizontalScrollIndicator={false}
-                >
-                  {this.state.booksss.map((item) => (
-                    <View style={styles.books}>
-                      <Image
-                        style={styles.booksimage}
-                        source={{ uri: item.path }}
-                      />
-                      <View style={styles.bookstext}>
-                        <Text>{item.title}</Text>
-                        <TouchableOpacity>
-                          <Svg width="20" height="20" svgXmlData={enter} />
-                        </TouchableOpacity>
-                      </View>
-                    </View>
-                  ))}
-                </ScrollView>
-              </ImageBackground>
-              <ImageBackground
-                style={styles.shujia1}
-                source={require('../../../res/短书架.png')}
-              >
-                <ScrollView
-                  horizontal={true}
-                  showsHorizontalScrollIndicator={false}
-                >
-                  {this.state.bookss.map((item) => (
-                    <View style={styles.books}>
-                      <Image
-                        style={styles.booksimage}
-                        source={{ uri: item.path }}
-                      />
-                      <View style={styles.bookstext}>
-                        <Text>{item.title}</Text>
-                        <TouchableOpacity>
-                          <Svg width="20" height="20" svgXmlData={enter} />
-                        </TouchableOpacity>
-                      </View>
-                    </View>
-                  ))}
-                </ScrollView>
-              </ImageBackground>
-              <ImageBackground
-                style={styles.shujia1}
-                source={require('../../../res/短书架.png')}
-              >
-                <ScrollView
-                  horizontal={true}
-                  showsHorizontalScrollIndicator={false}
-                >
-                  {this.state.books.map((item) => (
-                    <View style={styles.books}>
-                      <Image
-                        style={styles.booksimage}
-                        source={{ uri: item.path }}
-                      />
-                      <View style={styles.bookstext}>
-                        <Text>{item.title}</Text>
-                        <TouchableOpacity>
-                          <Svg width="20" height="20" svgXmlData={enter} />
-                        </TouchableOpacity>
-                      </View>
-                    </View>
-                  ))}
-                </ScrollView>
-              </ImageBackground>
-            </View>
-          </View>
-          {/**书架 */}
-          <View style={{ marginLeft: pxToDp(16), marginRight: pxToDp(16) }}>
-            <Text
-              style={{
-                fontSize: pxToDp(18),
-                color: '#000',
-                fontWeight: 'bold',
-                marginBottom: pxToDp(8),
-                marginTop: pxToDp(8)
-              }}
-            >
-              永恒经典
-            </Text>
-            <View style={styles.booksheef2}>
-              <ImageBackground
-                style={{ height: pxToDp(370), width: '100%' }}
-                source={require('../../../res/书架.png')}
-              >
-                <ScrollView
-                  horizontal={true}
-                  showsHorizontalScrollIndicator={false}
-                >
-                  {this.state.data.map((item) => (
-                    <View style={styles.shujia}>
-                      <Image style={styles.book} source={item.image} />
-                    </View>
-                  ))}
-                </ScrollView>
-              </ImageBackground>
-            </View>
-          </View>
+          <View style={{height:pxToDp(24)}}></View>
         </ScrollView>
       </View>
     );
@@ -527,7 +502,6 @@ const styles = StyleSheet.create({
   },
   booksheef2: {
     backgroundColor: 'white',
-    marginBottom: pxToDp(10),
     borderRadius: pxToDp(8),
     padding: pxToDp(8),
     elevation: 4, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
