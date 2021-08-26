@@ -326,7 +326,7 @@ class Index extends PureComponent {
             <TouchableOpacity
               style={{ alignItems: 'center' }}
               onPress={
-                this.state.isrecoding ? this.stopRecording : this.startRecording
+                this.state.isrecoding ? this. g : this.startRecording
               }
             >
               <Ionicons name="mic-circle" size={55} color="white" />

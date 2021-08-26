@@ -105,7 +105,6 @@ export default class hello extends Component {
           </View>
           <Mybtn
             title="本地保存"
-            onPress={() => this.context.navigate('Video', item.id)}
             buttonStyle={{
               width: pxToDp(120),
               height: pxToDp(40),
