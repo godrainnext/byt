@@ -115,7 +115,6 @@ class Index extends PureComponent {
                                 </View>
 
                                 <Button
-                                    ViewComponent={LinearGradient}
                                     onPress={() => {
                                         this.setState({
                                             currentPosition: this.state.currentPosition + 1
@@ -127,11 +126,6 @@ class Index extends PureComponent {
                                     title={this.state.isclick ? '已签到' : '签到'}
                                     titleStyle={{ color: 'red' }}
                                     disabled={this.state.isclick}
-                                    linearGradientProps={{
-                                        colors: this.state.isclick ? ['#ccc', '#ccc'] : ['#fa9222', '#ffd501'],
-                                        start: { x: 0, y: 0.5 },
-                                        end: { x: 1, y: 0.5 }
-                                    }}
                                     buttonStyle={{
                                         width: pxToDp(100),
                                         height: pxToDp(100),
