@@ -79,11 +79,11 @@ class Index extends PureComponent {
                             style={styles.image3}
                             source={{ uri: this.state.schoolstate.image2 }}
                         />
-                        <View style={{ width: pxToDp(220), justifyContent: 'center' }}>
+                        <View style={{ width: pxToDp(240), marginTop: pxToDp(10), marginBottom: pxToDp(10), justifyContent: 'space-between' }}>
                             <Text style={styles.zhuanjititle}>
                                 {this.state.schoolstate.title}
                             </Text>
-                            <Text style={styles.zhuanjitext} numberOfLines={1}>
+                            <Text style={styles.zhuanjitext} numberOfLines={2}>
                                 {this.state.schoolstate.ad}
                             </Text>
                         </View>
@@ -96,79 +96,78 @@ class Index extends PureComponent {
 
 const styles = StyleSheet.create({
     view: {
-      backgroundColor: 'white',
-      flex: 1
+        backgroundColor: 'white',
+        flex: 1
     },
     box: {
-      paddingBottom: 0,
-      flex: 1,
+        paddingBottom: 0,
+        flex: 1,
     },
     image1: {
-      borderRadius: pxToDp(8),
-      height: pxToDp(180),
-      marginLeft: pxToDp(16),
-      marginRight: pxToDp(16),
-      marginTop:pxToDp(8)
+        borderRadius: pxToDp(8),
+        height: pxToDp(180),
+        marginLeft: pxToDp(16),
+        marginRight: pxToDp(16),
+        marginTop: pxToDp(8)
     },
     title: {
-      fontSize: pxToDp(18),
-      color: '#333333',
-      fontWeight: 'bold',
-      marginTop: pxToDp(24),
-      marginLeft: pxToDp(16)
+        fontSize: pxToDp(18),
+        color: '#000000',
+        fontWeight: 'bold',
+        marginTop: pxToDp(24),
+        marginLeft: pxToDp(16)
     },
     title1: {
-      fontSize: pxToDp(18),
-      color: '#333333',
-      fontWeight: 'bold',
-      marginTop: pxToDp(24),
-      marginLeft: pxToDp(16)
+        fontSize: pxToDp(18),
+        color: '#000000',
+        fontWeight: 'bold',
+        marginTop: pxToDp(24),
+        marginLeft: pxToDp(16)
     },
     text1: {
-      fontSize: pxToDp(16),
-      color: '#333333',
-      lineHeight: pxToDp(24),
-      marginTop: pxToDp(16),
-      marginLeft: pxToDp(16),
-      marginRight: pxToDp(16)
+        fontSize: pxToDp(16),
+        color: '#333333',
+        lineHeight: pxToDp(24),
+        marginTop: pxToDp(16),
+        marginLeft: pxToDp(16),
+        marginRight: pxToDp(16)
     },
     text2: {
-      fontSize: pxToDp(16),
-      color: '#333333',
-      lineHeight: pxToDp(24),
-      marginLeft: pxToDp(16),
-      marginRight: pxToDp(16)
+        fontSize: pxToDp(16),
+        color: '#333333',
+        lineHeight: pxToDp(24),
+        marginLeft: pxToDp(16),
+        marginRight: pxToDp(16)
     },
     zhuanji: {
-      flexDirection: 'row',
-      marginTop: pxToDp(16),
-      marginRight:pxToDp(16),
-      marginLeft:pxToDp(16),
-      marginBottom: pxToDp(16),
-      height: pxToDp(100),
-      borderRadius: pxToDp(8),
-      backgroundColor: '#fff',
-      elevation: 4,
-      shadowColor: 'black', //  阴影颜色
-      shadowOffset: { width: 0, height: 0 }, // 阴影偏移
-      shadowOpacity: 1, // 阴影不透明度
-      shadowRadius: 10 //  圆角
+        flexDirection: 'row',
+        marginTop: pxToDp(16),
+        marginRight: pxToDp(16),
+        marginLeft: pxToDp(16),
+        marginBottom: pxToDp(16),
+        borderRadius: pxToDp(8),
+        backgroundColor: '#fff',
+        elevation: 2,
+        shadowColor: '#000000', //  阴影颜色
+        shadowOffset: { width: 0, height: 0 }, // 阴影偏移
+        shadowOpacity: 1, // 阴影不透明度
+        shadowRadius: pxToDp(8) //  圆角
     },
     image3: {
-      height: pxToDp(80),
-      width: pxToDp(80),
-      borderRadius: pxToDp(8),
-      margin: pxToDp(8)
+        height: pxToDp(80),
+        width: pxToDp(80),
+        borderRadius: pxToDp(8),
+        margin: pxToDp(8)
     },
     zhuanjititle: {
-      fontSize: pxToDp(18),
-      fontWeight: 'bold',
-      color: 'black'
+        fontSize: pxToDp(16),
+        fontWeight: 'bold',
+        color: '#333333'
     },
     zhuanjitext: {
-      fontSize: pxToDp(15),
-      color: 'grey',
-      marginTop: pxToDp(8)
+        fontSize: pxToDp(14),
+        color: '#666666',
+        marginTop: pxToDp(8)
     }
-  });
+});
 export default Index;

@@ -122,6 +122,7 @@ class Login extends PureComponent {
     }
   };
   Login = () => {
+    console.log(this.state.username);
     requset
       .post({
         url: '/user/login',
@@ -134,6 +135,7 @@ class Login extends PureComponent {
         }
       })
       .then(async (res) => {
+        console.log(res);
         if (!res) {
           ToastAndroid.show('用户名或密码错误', ToastAndroid.SHORT);
         } else {
@@ -355,7 +357,7 @@ const styles = StyleSheet.create({
     width: pxToDp(120),
     height: pxToDp(50),
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   loginbtn: {
     width: pxToDp(100),
@@ -374,7 +376,7 @@ const styles = StyleSheet.create({
     width: pxToDp(120),
     height: pxToDp(50),
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   }
 });
 

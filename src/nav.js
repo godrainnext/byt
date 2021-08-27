@@ -36,7 +36,8 @@ function Nav() {
         <Stack.Screen name="PageFour" component={Screens.PageFour} />
         {/* 俯瞰百年文章 */}
         <Stack.Screen name="Pagefive" component={Screens.Pagefive} />
-        {/*我的 */}{/**已改字体大小和颜色 */}
+        {/*我的 */}
+        {/**已改字体大小和颜色 */}
         <Stack.Screen name="My" component={Screens.My} />
 
         {/*设置 */}
@@ -47,7 +48,8 @@ function Nav() {
         <Stack.Screen name="Tuisong" component={Screens.Tuisong} />
         <Stack.Screen name="Yijian" component={Screens.Yijian} />
         <Stack.Screen name="Yinsi" component={Screens.Yinsi} />
-        {/** 历史浏览*/}
+        <Stack.Screen name="saveMusic" component={Screens.SaveMusic} />
+        {/**SaveMusic 历史浏览*/}
         <Stack.Screen name="History" component={Screens.History} />
         {/** 积分商城*/}
         <Stack.Screen name="Jifenshop" component={Screens.Jifenshop} />
