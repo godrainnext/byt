@@ -224,19 +224,19 @@ const styles = StyleSheet.create({
     marginLeft: pxToDp(10),
     marginTop: pxToDp(6),
     fontWeight: 'bold',
-    color: '#fff'
+    color: '#000'
   },
   boxtext2: {
     fontSize: pxToDp(14),
     marginLeft: pxToDp(10),
-    color: '#fff',
+    color: '#000',
     marginTop: pxToDp(6)
   },
   img: {
     width: pxToDp(90),
     height: pxToDp(120),
     marginLeft: pxToDp(10),
-    color:'#333333',
+    color: '#333333',
     marginTop: pxToDp(10),
     flexDirection: 'row',
     justifyContent: 'flex-end'
@@ -246,11 +246,10 @@ const styles = StyleSheet.create({
     marginTop: pxToDp(8),
     marginLeft: pxToDp(16),
     marginRight: pxToDp(16),
-    backgroundColor: '#995fbd',
+    backgroundColor: '#468cd3',
     borderRadius: pxToDp(8),
     justifyContent: 'space-around',
-    overflow:'hidden',
-    elevation: 3, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
-
+    overflow: 'hidden',
+    elevation: 3 //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
   }
 });
