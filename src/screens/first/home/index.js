@@ -138,7 +138,7 @@ class Index extends Component {
         // }}
         renderStickyHeader={() => <Top title="越台" />}
         stickyHeaderHeight={pxToDp(50)}
-        parallaxHeaderHeight={220}
+        parallaxHeaderHeight={190}
         backgroundSpeed={10}
         renderBackground={() => (
           <View style={{ padding: pxToDp(16),backgroundColor:'white'}}>
@@ -147,7 +147,7 @@ class Index extends Component {
               ref="ImageFade"
               duration={800}
               delay={3000}
-              style={{ width: '100%', height: pxToDp(200) }}
+              style={{ width: '100%', height: pxToDp(170) }}
             >
               <Image
                 style={{
@@ -181,7 +181,6 @@ class Index extends Component {
             style={{
               marginLeft: pxToDp(16),
               marginRight: pxToDp(16),
-              marginTop: pxToDp(8),
               flexDirection: 'row',
               justifyContent: 'space-around'
             }}
