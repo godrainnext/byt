@@ -38,6 +38,7 @@ class Index extends PureComponent {
         onPress: async () => {
           if (this.state.isrecoding) {
             await this.stopRecording();
+            this.context.navigate("SingOver")
           }
           console.log(this.state.isrecoding);
           const fd = new FormData();
