@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ImageFade from './imgaefade'
+import ImageFade from './imgaefade';
 import {
   View,
   Text,
@@ -141,17 +141,33 @@ class Index extends Component {
         parallaxHeaderHeight={220}
         backgroundSpeed={10}
         renderBackground={() => (
-          <View style={{ padding: pxToDp(16) }}>
+          <View style={{ padding: pxToDp(16),backgroundColor:'white'}}>
             <ImageFade
               style={{ margin: 16 }}
               ref="ImageFade"
               duration={800}
               delay={3000}
-              style={{ width: "100%", height: pxToDp(200) }}>
-              <Image style={{ width: "100%", height: pxToDp(200), borderRadius: pxToDp(20) }} source={require("../../../res/homeswiper1.jpg")} />
-              <Image style={{ width: "100%", height: pxToDp(200), borderRadius: pxToDp(20) }} source={require("../../../res/homeswiper2.jpg")} />
+              style={{ width: '100%', height: pxToDp(200) }}
+            >
+              <Image
+                style={{
+                  width: '100%',
+                  height: pxToDp(170),
+                  borderRadius: pxToDp(16)
+                }}
+                source={require('../../../res/homeswiper1.jpg')}
+              />
+              <Image
+                style={{
+                  width: '100%',
+                  height: pxToDp(170),
+                  borderRadius: pxToDp(16)
+                }}
+                source={require('../../../res/homeswiper2.jpg')}
+              />
             </ImageFade>
-          </View>)}
+          </View>
+        )}
         //自定义头部内容
         renderForeground={() => <View style={{ Top: 200, left: 100 }}></View>}
         scrollableViewStyle={{ backgroundColor: '#fcfcfc' }}
@@ -161,16 +177,25 @@ class Index extends Component {
             flex: 1
           }}
         >
-          <View style={{ marginLeft: pxToDp(16), marginRight: pxToDp(16), marginTop: pxToDp(8), flexDirection: 'row', justifyContent: 'space-around' }}>
+          <View
+            style={{
+              marginLeft: pxToDp(16),
+              marginRight: pxToDp(16),
+              marginTop: pxToDp(8),
+              flexDirection: 'row',
+              justifyContent: 'space-around'
+            }}
+          >
             {/**推荐卡片 */}
             <TouchableOpacity
               style={{
                 alignItems: 'center',
-                justifyContent: 'space-between'
+                justifyContent: 'center',
+                width: pxToDp(40)
               }}
               onPress={this.toggleModal}
             >
-              <Ionicons name="layers-outline" size={32} color="#468CD3" />
+              <Ionicons name="layers" size={32} color="#468CD3" />
               <Text
                 style={{
                   fontSize: pxToDp(16),
@@ -185,33 +210,13 @@ class Index extends Component {
               isModalVisible={this.state.isModalVisible}
               toggleModalProps={this.toggleModal}
             />
-            {/**签到 */}
-            {/**VR */}
-            <TouchableOpacity
-              style={{
-                alignItems: 'center',
-                justifyContent: 'center',
-                marginLeft: pxToDp(40)
-              }}
-              onPress={() => this.context.navigate('VR')}
-            >
-              <Ionicons name="earth-sharp" size={32} color="#468CD3" />
-              <Text
-                style={{
-                  fontSize: pxToDp(16),
-                  marginTop: pxToDp(5),
-                  color: '#333333'
-                }}
-              >
-                VR
-              </Text>
-            </TouchableOpacity>
             {/**教程 */}
             <TouchableOpacity
               style={{
                 alignItems: 'center',
                 justifyContent: 'center',
-                marginLeft: pxToDp(40)
+                marginLeft: pxToDp(40),
+                width: pxToDp(40)
               }}
               onPress={() => this.context.navigate('Course')}
             >
@@ -226,17 +231,56 @@ class Index extends Component {
                 教学
               </Text>
             </TouchableOpacity>
+            {/**VR */}
+            <TouchableOpacity
+              style={{
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginLeft: pxToDp(40),
+                width: pxToDp(40)
+              }}
+              onPress={() => this.context.navigate('VR')}
+            >
+              <View style={{ width: pxToDp(40), overflow: 'hidden' }}>
+                <LottieView
+                  autoPlay={true}
+                  loop={true}
+                  style={{
+                    width: pxToDp(76),
+                    marginLeft: pxToDp(-9)
+                  }}
+                  source={require('../../../../lottie/VR.json')}
+                />
+              </View>
+              <Text
+                style={{
+                  fontSize: pxToDp(16),
+                  marginTop: pxToDp(5),
+                  color: '#333333',
+                  bottom: pxToDp(22)
+                }}
+              >
+                VR
+              </Text>
+            </TouchableOpacity>
             {/**图谱 */}
             <TouchableOpacity
               style={{
                 alignItems: 'center',
                 justifyContent: 'center',
-                marginLeft: pxToDp(40)
+                marginLeft: pxToDp(40),
+                width: pxToDp(40)
               }}
               onPress={() => this.context.navigate('Timeline')}
             >
               <Entypo name="colours" size={32} color="#468CD3" />
-              <Text style={{ fontSize: pxToDp(16), marginTop: pxToDp(5), color: '#666666' }}>
+              <Text
+                style={{
+                  fontSize: pxToDp(16),
+                  marginTop: pxToDp(5),
+                  color: '#333333'
+                }}
+              >
                 图谱
               </Text>
             </TouchableOpacity>
@@ -245,7 +289,8 @@ class Index extends Component {
               style={{
                 alignItems: 'center',
                 justifyContent: 'center',
-                marginLeft: pxToDp(40)
+                marginLeft: pxToDp(40),
+                width: pxToDp(40)
               }}
               onPress={() => this.context.navigate('Scriptlibrary')}
             >
@@ -264,11 +309,21 @@ class Index extends Component {
           {/**精选唱段 */}
           <HighLights />
           {/*俯瞰百年 */}
-          <View style={{ marginTop: pxToDp(8), height: pxToDp(263), marginBottom: 50 }}>
+          <View
+            style={{
+              marginTop: pxToDp(8),
+              height: pxToDp(263),
+              marginBottom: 50
+            }}
+          >
             <View
               style={{
                 flexDirection: 'row',
-                justifyContent: 'space-between', marginLeft: pxToDp(16), marginRight: pxToDp(16), marginTop: pxToDp(24), marginBottom: pxToDp(20)
+                justifyContent: 'space-between',
+                marginLeft: pxToDp(16),
+                marginRight: pxToDp(16),
+                marginTop: pxToDp(24),
+                marginBottom: pxToDp(20)
               }}
             >
               <Text
@@ -341,7 +396,9 @@ class Index extends Component {
           {/*梨园子弟 */}
           <View
             style={{
-              marginTop: pxToDp(24), marginLeft: pxToDp(16), marginRight: pxToDp(16)
+              marginTop: pxToDp(24),
+              marginLeft: pxToDp(16),
+              marginRight: pxToDp(16)
             }}
           >
             <View
@@ -349,7 +406,6 @@ class Index extends Component {
                 flexDirection: 'row',
                 justifyContent: 'space-between',
                 marginBottom: pxToDp(8)
-
               }}
             >
               <Text
@@ -379,7 +435,9 @@ class Index extends Component {
             style={{
               flexDirection: 'row',
               justifyContent: 'space-between',
-              alignItems: 'center', marginLeft: pxToDp(16), marginRight: pxToDp(16)
+              alignItems: 'center',
+              marginLeft: pxToDp(16),
+              marginRight: pxToDp(16)
             }}
           >
             <Text
@@ -406,13 +464,17 @@ class Index extends Component {
           <View style={styles.carousel}>
             <Carousel control={false} style={{ height: pxToDp(166) }}>
               {this.state.books.map((item) => (
-                <View style={styles.bookbox} >
+                <View style={styles.bookbox}>
                   <TouchableNativeFeedback
                     onPress={() => this.context.navigate(item.drama)}
-                    useForeground={true}>
+                    useForeground={true}
+                  >
                     <View style={styles.bookbotton}>
                       <View
-                        style={{ marginLeft: pxToDp(120), marginTop: pxToDp(8) }}
+                        style={{
+                          marginLeft: pxToDp(120),
+                          marginTop: pxToDp(8)
+                        }}
                       >
                         <View style={styles.bookinf1}>
                           <View>
@@ -424,7 +486,12 @@ class Index extends Component {
                           </View>
                           <View>
                             <LottieView
-                              style={{ height: pxToDp(80), width: pxToDp(80), marginTop: pxToDp(-16), marginLeft: pxToDp(16) }}
+                              style={{
+                                height: pxToDp(80),
+                                width: pxToDp(80),
+                                marginTop: pxToDp(-16),
+                                marginLeft: pxToDp(16)
+                              }}
                               source={item.lottie}
                               autoPlay={true}
                             />
@@ -438,9 +505,9 @@ class Index extends Component {
                   </TouchableNativeFeedback>
                   <TouchableNativeFeedback
                     onPress={() => this.context.navigate(item.drama)}
-                    useForeground={true}>
+                    useForeground={true}
+                  >
                     <View style={styles.book11}>
-
                       <Image
                         style={styles.bookimage}
                         source={{ uri: item.path }}
@@ -458,7 +525,6 @@ class Index extends Component {
                     </View>
                   </TouchableNativeFeedback>
                 </View>
-
               ))}
             </Carousel>
           </View>
@@ -468,7 +534,9 @@ class Index extends Component {
               flexDirection: 'row',
               justifyContent: 'space-between',
               alignItems: 'center',
-              marginTop: pxToDp(16), marginLeft: pxToDp(16), marginRight: pxToDp(16)
+              marginTop: pxToDp(16),
+              marginLeft: pxToDp(16),
+              marginRight: pxToDp(16)
             }}
           >
             <Text
@@ -498,8 +566,10 @@ class Index extends Component {
           >
             {this.state.book.map((item) => (
               <View style={styles.bookbox1}>
-                <TouchableNativeFeedback onPress={() => this.context.navigate(item.drama)}
-                  useForeground={true}>
+                <TouchableNativeFeedback
+                  onPress={() => this.context.navigate(item.drama)}
+                  useForeground={true}
+                >
                   <View style={styles.bookbotton}>
                     <View
                       style={{
@@ -509,12 +579,23 @@ class Index extends Component {
                     >
                       <View style={styles.bookinf}>
                         <Text
-                          style={{ fontSize: pxToDp(16), fontWeight: 'bold', color: '#333333' }}
+                          style={{
+                            fontSize: pxToDp(16),
+                            fontWeight: 'bold',
+                            color: '#333333'
+                          }}
                         >
                           {item.title}
                         </Text>
                       </View>
-                      <Text numberOfLines={3} style={{ color: '#666666', fontSize: pxToDp(14), marginTop: pxToDp(4) }}>
+                      <Text
+                        numberOfLines={3}
+                        style={{
+                          color: '#666666',
+                          fontSize: pxToDp(14),
+                          marginTop: pxToDp(4)
+                        }}
+                      >
                         {item.context}
                       </Text>
                       <View
@@ -523,16 +604,20 @@ class Index extends Component {
                           alignItems: 'center',
                           marginTop: pxToDp(5)
                         }}
-                      >
-                      </View>
+                      ></View>
                     </View>
                   </View>
                 </TouchableNativeFeedback>
                 <View style={styles.book}>
-                  <TouchableNativeFeedback onPress={() => this.context.navigate(item.drama)}
-                    useForeground={true}>
+                  <TouchableNativeFeedback
+                    onPress={() => this.context.navigate(item.drama)}
+                    useForeground={true}
+                  >
                     <View>
-                      <Image style={styles.bookimage} source={{ uri: item.path }} />
+                      <Image
+                        style={styles.bookimage}
+                        source={{ uri: item.path }}
+                      />
                     </View>
                   </TouchableNativeFeedback>
                   <View
@@ -574,7 +659,8 @@ const styles = StyleSheet.create({
   },
   bookbox: {
     height: pxToDp(130),
-    marginLeft: pxToDp(16), marginRight: pxToDp(16)
+    marginLeft: pxToDp(16),
+    marginRight: pxToDp(16)
   },
   bookbotton: {
     height: pxToDp(110),
@@ -627,7 +713,6 @@ const styles = StyleSheet.create({
     marginTop: pxToDp(16),
     marginLeft: pxToDp(16),
     marginRight: pxToDp(16)
-
   }
 });
 

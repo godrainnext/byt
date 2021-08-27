@@ -21,7 +21,7 @@ import { getShopInfo } from '@service/shop';
 import { EasyLoading, Loading } from '@utils/ezLoading';
 import changeImgSize from '@utils/changeImgSize';
 import Mybtn from '../../../../component/common/mybtn';
-import LinearGradient from 'react-native-linear-gradient'
+import LinearGradient from 'react-native-linear-gradient';
 const WINDOW_WIDTH = Dimensions.get('window').width;
 class shopdetails extends PureComponent {
   state = {

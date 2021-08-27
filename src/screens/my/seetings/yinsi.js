@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
   kidbox2: {
     marginLeft: pxToDp(16),
     marginTop: pxToDp(4),
-    marginBottom:pxToDp(4),
+    marginBottom: pxToDp(4),
     marginRight: pxToDp(16),
     height: pxToDp(40),
     alignItems: 'center',

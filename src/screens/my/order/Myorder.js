@@ -324,8 +324,8 @@ class orders extends PureComponent {
                 shadowRadius: 10 //  圆角
               }}
             >
-              <Text style={{ marginLeft: pxToDp(8)}}>支付方式:</Text>
-              <Text style={{ marginLeft: pxToDp(180)}}>{this.state.way}</Text>
+              <Text style={{ marginLeft: pxToDp(8) }}>支付方式:</Text>
+              <Text style={{ marginLeft: pxToDp(180) }}>{this.state.way}</Text>
               <Image
                 style={{
                   width: pxToDp(15),
