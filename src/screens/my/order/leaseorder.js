@@ -89,7 +89,7 @@ class orders extends PureComponent {
           >
             <Text style={{ fontSize: pxToDp(16) }}>订单状态: 待确认</Text>
           </View>
-          {/* 收获地址 */}
+          {/* 收货地址 */}
           <TouchableOpacity
             onPress={() => this.context.navigate('address')}
             style={{
