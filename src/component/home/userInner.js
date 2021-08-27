@@ -74,13 +74,18 @@ class UserInner extends PureComponent {
           <Qiandao />
         </View>
 
-        <View style={{ flexDirection: 'row', padding: pxToDp(16) }}>
+        <View style={{ flexDirection: 'row', padding: pxToDp(16), marginTop: pxToDp(20) }}>
           <TouchableOpacity onPress={() => this.context.navigate('Myhome', id)}>
-            <Image
+            <ImageBackground
               style={{
                 height: pxToDp(72),
                 width: pxToDp(72),
-                borderRadius: pxToDp(72),
+                borderRadius: pxToDp(36),
+              }}
+              imageStyle={{
+                height: pxToDp(72),
+                width: pxToDp(72),
+                borderRadius: pxToDp(36),
               }}
               source={
                 this.props.avatar
@@ -91,12 +96,15 @@ class UserInner extends PureComponent {
                     ? { uri: changeImgSize(avatar, 'small') }
                     : require('../../res/initAvatar.jpeg')
               }
-            ></Image>
+            >
+              <Image style={{ height: pxToDp(93), width: pxToDp(93), marginTop: pxToDp(-10), marginLeft: pxToDp(-12) }} source={require('../../res/头像框2.png')} />
+            </ImageBackground>
           </TouchableOpacity>
           <View
             style={{
               justifyContent: 'center',
               width: '70%',
+              marginLeft: pxToDp(8)
             }}
           >
             <View>

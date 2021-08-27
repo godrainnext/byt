@@ -2,6 +2,7 @@ import React, { PureComponent, createRef } from 'react';
 import {
   View,
   Image,
+  ImageBackground,
   Text,
   TouchableOpacity,
   StyleSheet,
@@ -27,7 +28,8 @@ class Index extends PureComponent {
     sound: [],
     isplay: false,
     URI: [],
-    autoPlay: true
+    autoPlay: true,
+    showLoading: true,
   };
   static contextType = NavigationContext;
   playSound = async () => {
@@ -112,38 +114,132 @@ class Index extends PureComponent {
       this.animation.pause();
     }
   }
-
+  //渲染加载页面
+  renderLoading = () => {
+    const { showLoading } = this.state;
+    return (
+      <View style={styles.bottom}>
+        <TouchableOpacity
+          style={{ flexDirection: 'column', marginBottom: pxToDp(120), alignItems: 'center' }}
+          onPress={() => this.setState({ showLoading: false })}
+        >
+          <LottieView
+            style={{ width: pxToDp(180) }}
+            source={require('../../../../lottie/演唱loading.json')}
+            autoPlay={true}
+            loop={false}
+          />
+          <Text style={{ fontSize: pxToDp(14), color: '#000000', marginTop: pxToDp(-75), fontWeight: 'bold' }}>开始练唱</Text>
+        </TouchableOpacity>
+      </View>
+    )
+  }
+  //渲染按钮页面
+  renderMenu = () => {
+    const { autoPlay } = this.state;
+    return (
+      <View style={styles.bottom}>
+        <View>
+          <TouchableOpacity
+            style={{ alignItems: 'center' }}
+            onPress={() => {
+              console.log(video.current);
+              this.state.status.isPlaying
+                ? video.current.pauseAsync()
+                : video.current.playAsync();
+            }}
+          >
+            <Ionicons name="musical-notes-outline" size={25} color="grey" />
+            <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
+              {this.state.status.isPlaying ? '暂停' : '播放'}
+            </Text>
+          </TouchableOpacity>
+        </View>
+        <View>
+          <TouchableOpacity style={{ alignItems: 'center' }}>
+            <Ionicons name="options-outline" size={25} color="grey" />
+            <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
+              音量
+            </Text>
+          </TouchableOpacity>
+        </View>
+        <View>
+          <TouchableOpacity
+            style={{ alignItems: 'center' }}
+            onPress={() => {
+              this.toContr();
+              // this.toPlay();
+              this.setState({ autoPlay: !autoPlay })
+              console.log(autoPlay);
+              this.state.isrecoding ? this.stopRecording() : this.startRecording()
+            }}
+          >
+            <LottieView
+              style={{ width: pxToDp(100) }}
+              source={require('../../../../lottie/练唱按钮1.json')}
+              ref={animation => {
+                this.animation = animation;
+              }}
+              loop
+            />
+          </TouchableOpacity>
+        </View>
+        <View>
+          <TouchableOpacity style={{ alignItems: 'center' }}>
+            <Ionicons name="refresh" size={25} color="grey" />
+            <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
+              重唱
+            </Text>
+          </TouchableOpacity>
+        </View>
+        <View>
+          <TouchableOpacity
+            style={{ alignItems: 'center' }}
+            onPress={() => {
+              this.toPause();
+              this.state.isplay ? this.pauseSound() : this.playSound()
+            }}
+          >
+            <Ionicons name="checkmark" size={25} color="grey" />
+            <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
+              结束
+            </Text>
+          </TouchableOpacity>
+        </View>
+      </View>
+    )
+  }
   render() {
     const video = createRef();
-    const { autoPlay } = this.state
+    const { showLoading } = this.state
     return (
       <View
         style={{
           flex: 1,
-          backgroundColor: '#E2F4FE',
+          backgroundColor: 'white',
           justifyContent: 'space-between'
         }}
       >
-        <View style={{ alignItems: 'center' }}>
-          <Top icon1="arrow-back" title="穆桂英挂帅" />
-          <Text
-            style={{
-              fontSize: pxToDp(18),
-              color: '#000000',
-              fontWeight: 'bold',
-              marginTop: pxToDp(15)
-            }}
-          >
-            穆桂英挂帅 - 猛听得金鼓响画角声震
-          </Text>
-        </View>
-
-        <View style={{ alignItems: 'center' }}>
+        <Top icon1="arrow-back" title="穆桂英挂帅" />
+        <ImageBackground
+          style={{ flex: 1 }}
+          source={{ uri: 'https://img0.baidu.com/it/u=1585654361,1964181034&fm=26&fmt=auto&gp=0.jpg' }}
+        >
           <ScrollView
             showsVerticalScrollIndicator={false}
-            style={{ height: '70%' }}
+            style={{ marginTop: pxToDp(60), marginBottom: pxToDp(60) }}
           >
             <View style={{ alignItems: 'center' }}>
+              <Text
+                style={{
+                  fontSize: pxToDp(16),
+                  lineHeight: pxToDp(40),
+                  alignItems: 'center',
+                  color: '#333333'
+                }}
+              >
+                《穆桂英挂帅》选段
+              </Text>
               <Text
                 style={{
                   fontSize: pxToDp(16),
@@ -314,77 +410,10 @@ class Index extends PureComponent {
               />
             </View>
           </ScrollView>
-        </View>
-
-        <View style={styles.bottom}>
           <View>
-            <TouchableOpacity
-              style={{ alignItems: 'center' }}
-              onPress={() => {
-                console.log(video.current);
-                this.state.status.isPlaying
-                  ? video.current.pauseAsync()
-                  : video.current.playAsync();
-              }}
-            >
-              <Ionicons name="musical-notes-outline" size={25} color="grey" />
-              <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
-                {this.state.status.isPlaying ? '暂停' : '播放'}
-              </Text>
-            </TouchableOpacity>
+            {showLoading ? this.renderLoading() : this.renderMenu()}
           </View>
-          <View>
-            <TouchableOpacity style={{ alignItems: 'center' }}>
-              <Ionicons name="options-outline" size={25} color="grey" />
-              <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
-                音量
-              </Text>
-            </TouchableOpacity>
-          </View>
-          <View>
-            <TouchableOpacity
-              style={{ alignItems: 'center' }}
-              onPress={() => {
-                this.toContr();
-                // this.toPlay();
-                this.setState({ autoPlay: !autoPlay })
-                console.log(autoPlay);
-                this.state.isrecoding ? this.stopRecording() : this.startRecording()
-              }}
-            >
-              <LottieView
-                style={{ width: pxToDp(80) }}
-                source={require('../../../../lottie/练唱按钮1.json')}
-                ref={animation => {
-                  this.animation = animation;
-                }}
-                loop
-              />
-            </TouchableOpacity>
-          </View>
-          <View>
-            <TouchableOpacity style={{ alignItems: 'center' }}>
-              <Ionicons name="refresh" size={25} color="grey" />
-              <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
-                重唱
-              </Text>
-            </TouchableOpacity>
-          </View>
-          <View>
-            <TouchableOpacity
-              style={{ alignItems: 'center' }}
-              onPress={() => {
-                this.toPause();
-                this.state.isplay ? this.pauseSound() : this.playSound()
-              }}
-            >
-              <Ionicons name="checkmark" size={25} color="grey" />
-              <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
-                结束
-              </Text>
-            </TouchableOpacity>
-          </View>
-        </View>
+        </ImageBackground>
       </View>
     );
   }
@@ -418,6 +447,7 @@ const styles = StyleSheet.create({
   },
   bottom: {
     height: pxToDp(60),
+    marginBottom: pxToDp(15),
     width: '100%',
     backgroundColor: 'transparent',
     alignSelf: 'center',

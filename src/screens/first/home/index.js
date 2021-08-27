@@ -26,16 +26,8 @@ import RecommendCard from '../../../component/common/recommendcard';
 import Qiandao from '../../../component/common/qiandao';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Svg from 'react-native-svg-uri';
-import {
-  star,
-  right,
-  jinpai,
-  yinpai,
-  tongpai
-} from '../../../component/common/iconSvg';
+import { star } from '../../../component/common/iconSvg';
 import { Carousel } from '../../../component/common/teaset';
-import Animated from 'react-native-reanimated';
-import { TIME_OUT } from '../../../service/requset/config';
 import LottieView from 'lottie-react-native';
 let navHeight = 45;
 
@@ -301,12 +293,12 @@ class Index extends Component {
             <Hy />
           </View>
           {/*流派传奇 */}
-          <View style={{ marginLeft: pxToDp(16), marginTop: 20 }}>
+          <View style={{ marginLeft: pxToDp(16), marginTop: pxToDp(24), marginRight: pxToDp(16) }}>
             <View
               style={{
                 flexDirection: 'row',
                 justifyContent: 'space-between',
-                marginBottom: pxToDp(20), marginLeft: pxToDp(16), marginRight: pxToDp(16)
+                marginBottom: pxToDp(16)
               }}
             >
               <Text
@@ -329,11 +321,13 @@ class Index extends Component {
                 </View>
               </TouchableOpacity>
             </View>
+            <View style={{ backgroundColor: '#f0bb51', height: pxToDp(100), width: pxToDp(100), marginBottom: pxToDp(-97), marginLeft: pxToDp(-3), borderRadius: pxToDp(8) }} />
             <View
               style={{
                 backgroundColor: 'white',
                 borderRadius: pxToDp(8),
                 elevation: 2,
+                zIndex: 9999999,
                 shadowColor: 'black', //  阴影颜色
                 shadowOffset: { width: 0, height: 0 }, // 阴影偏移
                 shadowOpacity: 1, // 阴影不透明度
@@ -342,6 +336,7 @@ class Index extends Component {
             >
               <Legend />
             </View>
+            <View style={{ backgroundColor: '#f0bb51', height: pxToDp(100), width: pxToDp(100), marginTop: pxToDp(-97), marginLeft: pxToDp(247), borderRadius: pxToDp(8) }} />
           </View>
           {/*梨园子弟 */}
           <View
@@ -422,7 +417,7 @@ class Index extends Component {
                         <View style={styles.bookinf1}>
                           <View>
                             <Text
-                              style={{ fontSize: pxToDp(16), fontWeight: 'bold', color: '#333333',marginTop:pxToDp(-32) }}
+                              style={{ fontSize: pxToDp(16), fontWeight: 'bold', color: '#333333', marginTop: pxToDp(-32) }}
                             >
                               {item.title}
                             </Text>
@@ -435,7 +430,7 @@ class Index extends Component {
                             />
                           </View>
                         </View>
-                        <Text style={{ fontSize: pxToDp(14), color: '#666666' ,marginTop: pxToDp(-32) }} numberOfLines={3}>
+                        <Text style={{ fontSize: pxToDp(14), color: '#666666', marginTop: pxToDp(-32) }} numberOfLines={3}>
                           {item.context}
                         </Text>
                       </View>

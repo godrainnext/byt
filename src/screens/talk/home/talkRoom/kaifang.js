@@ -227,7 +227,10 @@ export default class App extends Component {
     ) : (
       <View style={styles.max}>
         <Top icon1="arrow-back" title="创建房间" />
-        <View style={[styles.max, { padding: pxToDp(16) }]}>
+        <ImageBackground
+          style={{ flex: 1 }}
+          source={{ uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic.51yuansu.com%2Fbackgd%2Fcover%2F00%2F09%2F99%2F5b73d29121a93.jpg%21%2Ffw%2F780%2Fquality%2F90%2Funsharp%2Ftrue%2Fcompress%2Ftrue&refer=http%3A%2F%2Fpic.51yuansu.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632621146&t=ee04297b47ec90e5762b16ccb4077614' }}
+        >
           <View
             style={{
               justifyContent: 'center',
@@ -391,7 +394,6 @@ export default class App extends Component {
                                 </TouchableOpacity> */}
             </View>
           </View>
-        </View>
         <View style={styles.buttonHolder}>
           <Mybtn
             title="创建房间"
@@ -412,7 +414,8 @@ export default class App extends Component {
               <Text style={styles.buttonText}> 结束直播 </Text>
             </TouchableOpacity> */}
         </View>
-      </View>
+        </ImageBackground>
+      </View> 
     );
   }
 
@@ -443,8 +446,8 @@ export default class App extends Component {
     return (
       <View
         style={styles.remoteContainer}
-        // contentContainerStyle={{ paddingHorizontal: 2.5 }}
-        // horizontal={true}
+      // contentContainerStyle={{ paddingHorizontal: 2.5 }}
+      // horizontal={true}
       >
         <Top title="小剧场" icon1="arrow-back" />
         {/* <View style={{ flexDirection: 'row', alignItems: 'center' }}>
