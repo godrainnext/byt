@@ -127,16 +127,7 @@ class Index extends PureComponent {
       >
         <View style={{ alignItems: 'center' }}>
           <Top icon1="arrow-back" title="穆桂英挂帅" />
-          <Text
-            style={{
-              fontSize: pxToDp(18),
-              color: '#000000',
-              fontWeight: 'bold',
-              marginTop: pxToDp(15)
-            }}
-          >
-            穆桂英挂帅 - 猛听得金鼓响画角声震
-          </Text>
+          <Text style={styles.titlebox}>穆桂英挂帅 - 猛听得金鼓响画角声震</Text>
         </View>
 
         <View style={{ alignItems: 'center' }}>
@@ -145,166 +136,22 @@ class Index extends PureComponent {
             style={{ height: '70%' }}
           >
             <View style={{ alignItems: 'center' }}>
-              <Text
-                style={{
-                  fontSize: pxToDp(16),
-                  lineHeight: pxToDp(40),
-                  alignItems: 'center',
-                  color: '#333333'
-                }}
-              >
-                猛听得金鼓响画角声震
-              </Text>
-              <Text
-                style={{
-                  fontSize: pxToDp(16),
-                  lineHeight: pxToDp(40),
-                  alignItems: 'center',
-                  color: '#333333'
-                }}
-              >
-                唤起我破天门壮志凌云
-              </Text>
-              <Text
-                style={{
-                  fontSize: pxToDp(16),
-                  lineHeight: pxToDp(40),
-                  alignItems: 'center',
-                  color: '#333333'
-                }}
-              >
-                想当年桃花马上威风凛凛
-              </Text>
-              <Text
-                style={{
-                  fontSize: pxToDp(16),
-                  lineHeight: pxToDp(40),
-                  alignItems: 'center',
-                  color: '#333333'
-                }}
-              >
-                敌血飞溅石榴裙
-              </Text>
-              <Text
-                style={{
-                  fontSize: pxToDp(16),
-                  lineHeight: pxToDp(40),
-                  alignItems: 'center',
-                  color: '#333333'
-                }}
-              >
-                有生之日责当尽
-              </Text>
-              <Text
-                style={{
-                  fontSize: pxToDp(16),
-                  lineHeight: pxToDp(40),
-                  alignItems: 'center',
-                  color: '#333333'
-                }}
-              >
-                寸土怎能够属于他人
-              </Text>
-              <Text
-                style={{
-                  fontSize: pxToDp(16),
-                  lineHeight: pxToDp(40),
-                  alignItems: 'center',
-                  color: '#333333'
-                }}
-              >
-                番王小丑何足论
-              </Text>
-              <Text
-                style={{
-                  fontSize: pxToDp(16),
-                  lineHeight: pxToDp(40),
-                  alignItems: 'center',
-                  color: '#333333'
-                }}
-              >
-                我一剑能当百万的兵
-              </Text>
-              <Text
-                style={{
-                  fontSize: pxToDp(16),
-                  lineHeight: pxToDp(40),
-                  alignItems: 'center',
-                  color: '#333333'
-                }}
-              >
-                猛听得金鼓响画角声震
-              </Text>
-              <Text
-                style={{
-                  fontSize: pxToDp(16),
-                  lineHeight: pxToDp(40),
-                  alignItems: 'center',
-                  color: '#333333'
-                }}
-              >
-                唤起我破天门壮志凌云
-              </Text>
-              <Text
-                style={{
-                  fontSize: pxToDp(16),
-                  lineHeight: pxToDp(40),
-                  alignItems: 'center',
-                  color: '#333333'
-                }}
-              >
-                想当年桃花马上威风凛凛
-              </Text>
-              <Text
-                style={{
-                  fontSize: pxToDp(16),
-                  lineHeight: pxToDp(40),
-                  alignItems: 'center',
-                  color: '#333333'
-                }}
-              >
-                敌血飞溅石榴裙
-              </Text>
-              <Text
-                style={{
-                  fontSize: pxToDp(16),
-                  lineHeight: pxToDp(40),
-                  alignItems: 'center',
-                  color: '#333333'
-                }}
-              >
-                有生之日责当尽
-              </Text>
-              <Text
-                style={{
-                  fontSize: pxToDp(16),
-                  lineHeight: pxToDp(40),
-                  alignItems: 'center',
-                  color: '#333333'
-                }}
-              >
-                寸土怎能够属于他人
-              </Text>
-              <Text
-                style={{
-                  fontSize: pxToDp(16),
-                  lineHeight: pxToDp(40),
-                  alignItems: 'center',
-                  color: '#333333'
-                }}
-              >
-                番王小丑何足论
-              </Text>
-              <Text
-                style={{
-                  fontSize: pxToDp(16),
-                  lineHeight: pxToDp(40),
-                  alignItems: 'center',
-                  color: '#333333'
-                }}
-              >
-                我一剑能当百万的兵
-              </Text>
+              <Text style={styles.basicbox}>猛听得金鼓响画角声震</Text>
+              <Text style={styles.basicbox}>唤起我破天门壮志凌云</Text>
+              <Text style={styles.basicbox}>想当年桃花马上威风凛凛</Text>
+              <Text style={styles.basicbox}>敌血飞溅石榴裙</Text>
+              <Text style={styles.basicbox}>有生之日责当尽</Text>
+              <Text style={styles.basicbox}>寸土怎能够属于他人</Text>
+              <Text style={styles.basicbox}>番王小丑何足论</Text>
+              <Text style={styles.basicbox}>我一剑能当百万的兵</Text>
+              <Text style={styles.basicbox}>猛听得金鼓响画角声震</Text>
+              <Text style={styles.basicbox}>唤起我破天门壮志凌云</Text>
+              <Text style={styles.basicbox}>想当年桃花马上威风凛凛</Text>
+              <Text style={styles.basicbox}>敌血飞溅石榴裙</Text>
+              <Text style={styles.basicbox}>有生之日责当尽</Text>
+              <Text style={styles.basicbox}>寸土怎能够属于他人</Text>
+              <Text style={styles.basicbox}>番王小丑何足论</Text>
+              <Text style={styles.basicbox}>我一剑能当百万的兵</Text>
             </View>
             <View style={{ alignItems: 'center', justifyContent: 'center' }}>
               <Video
@@ -425,6 +272,18 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-around'
+  },
+  titlebox: {
+    fontSize: pxToDp(18),
+    color: '#000000',
+    fontWeight: 'bold',
+    marginTop: pxToDp(15)
+  },
+  basicbox: {
+    fontSize: pxToDp(16),
+    lineHeight: pxToDp(40),
+    alignItems: 'center',
+    color: '#333333'
   }
 });
 

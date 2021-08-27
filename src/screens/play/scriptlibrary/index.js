@@ -155,7 +155,7 @@ class Index extends PureComponent {
           id: '9',
           title: '浪荡子',
           path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg11.360buyimg.com%2FpopWaterMark%2F10402%2F35e21d4b-6ac2-4d01-a551-7a18c7e1bdbf.jpg&refer=http%3A%2F%2Fimg11.360buyimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631803283&t=d3d9204e76dca21b0880235aaf5993c9'
-        },
+        }
       ]
     };
   }
@@ -164,10 +164,7 @@ class Index extends PureComponent {
     return (
       <View style={{ backgroundColor: 'white', flex: 1 }}>
         <Top icon1="arrow-back" title="剧本" />
-        <ScrollView
-          style={{ flex: 1 }}
-          showsVerticalScrollIndicator={false}
-        >
+        <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
           {/**书架 */}
           <View style={{ marginLeft: pxToDp(16), marginRight: pxToDp(16) }}>
             <Text
@@ -183,7 +180,7 @@ class Index extends PureComponent {
             </Text>
             <View style={styles.booksheef2}>
               <ImageBackground
-                style={{ height: pxToDp(370), width: '100%', }}
+                style={{ height: pxToDp(370), width: '100%' }}
                 source={require('../../../res/书架.png')}
               >
                 <ScrollView
@@ -263,47 +260,72 @@ class Index extends PureComponent {
             </View>
           </View>
           {/*剧本推荐 */}
-          <Text style={{ fontSize: pxToDp(18), color: '#000000', fontWeight: 'bold', marginLeft: pxToDp(16), marginTop: pxToDp(8), marginBottom: pxToDp(-16) }}>猜你喜欢</Text>
-          {this.state.drama.map((item) => (
-            <View style={{
-              height: pxToDp(130),
-              marginTop: pxToDp(16),
+          <Text
+            style={{
+              fontSize: pxToDp(18),
+              color: '#000000',
+              fontWeight: 'bold',
               marginLeft: pxToDp(16),
-              marginRight: pxToDp(16)
-            }}>
+              marginTop: pxToDp(8),
+              marginBottom: pxToDp(-16)
+            }}
+          >
+            猜你喜欢
+          </Text>
+          {this.state.drama.map((item) => (
+            <View
+              style={{
+                height: pxToDp(130),
+                marginTop: pxToDp(16),
+                marginLeft: pxToDp(16),
+                marginRight: pxToDp(16)
+              }}
+            >
               <TouchableNativeFeedback
                 useForeground={true}
-                onPress={() => this.context.navigate(item.drama)} >
-                <View style={{
-                  height: pxToDp(110),
-                  backgroundColor: 'white',
-                  borderRadius: pxToDp(8),
-                  marginTop: pxToDp(30),
-                  elevation: 5, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
-                  shadowColor: 'black', //  阴影颜色
-                  shadowRadius: pxToDp(8), //  圆角,
-                  shadowOffset: { width: 0, height: 0 },
-                  shadowOpacity: 1
-                }}>
+                onPress={() => this.context.navigate(item.drama)}
+              >
+                <View
+                  style={{
+                    height: pxToDp(110),
+                    backgroundColor: 'white',
+                    borderRadius: pxToDp(8),
+                    marginTop: pxToDp(30),
+                    elevation: 5, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                    shadowColor: 'black', //  阴影颜色
+                    shadowRadius: pxToDp(8), //  圆角,
+                    shadowOffset: { width: 0, height: 0 },
+                    shadowOpacity: 1
+                  }}
+                >
                   <View
                     style={{
                       marginLeft: pxToDp(120),
                       marginTop: pxToDp(8)
                     }}
                   >
-                    <View style={{
-                      flexDirection: 'row',
-                      width: pxToDp(210),
-                      alignItems: 'center',
-                      justifyContent: 'space-between'
-                    }}>
+                    <View
+                      style={{
+                        flexDirection: 'row',
+                        width: pxToDp(210),
+                        alignItems: 'center',
+                        justifyContent: 'space-between'
+                      }}
+                    >
                       <Text
-                        style={{ fontSize: pxToDp(16), fontWeight: 'bold', color: '#333333' }}
+                        style={{
+                          fontSize: pxToDp(16),
+                          fontWeight: 'bold',
+                          color: '#333333'
+                        }}
                       >
                         {item.title}
                       </Text>
                     </View>
-                    <Text numberOfLines={3} style={{ color: '#666666', fontSize: pxToDp(14) }}>
+                    <Text
+                      numberOfLines={3}
+                      style={{ color: '#666666', fontSize: pxToDp(14) }}
+                    >
                       {item.context}
                     </Text>
                     <View
@@ -312,34 +334,40 @@ class Index extends PureComponent {
                         alignItems: 'center',
                         marginTop: pxToDp(5)
                       }}
-                    >
-                    </View>
+                    ></View>
                   </View>
                 </View>
               </TouchableNativeFeedback>
-              <View style={{
-                marginTop: pxToDp(-130),
-                marginLeft: pxToDp(12),
-                height: pxToDp(120),
-                width: pxToDp(100),
-                borderRadius: pxToDp(8),
-                elevation: 5, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
-                shadowColor: 'black', //  阴影颜色
-                shadowRadius: pxToDp(8), //  圆角,
-                shadowOffset: { width: 0, height: 0 },
-                shadowOpacity: 1,
-                flexDirection: 'row',
-                justifyContent: 'center',
-                alignItems: 'center'
-              }}>
-                <TouchableNativeFeedback onPress={() => this.context.navigate(item.drama)}
-                  useForeground={true}>
+              <View
+                style={{
+                  marginTop: pxToDp(-130),
+                  marginLeft: pxToDp(12),
+                  height: pxToDp(120),
+                  width: pxToDp(100),
+                  borderRadius: pxToDp(8),
+                  elevation: 5, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                  shadowColor: 'black', //  阴影颜色
+                  shadowRadius: pxToDp(8), //  圆角,
+                  shadowOffset: { width: 0, height: 0 },
+                  shadowOpacity: 1,
+                  flexDirection: 'row',
+                  justifyContent: 'center',
+                  alignItems: 'center'
+                }}
+              >
+                <TouchableNativeFeedback
+                  onPress={() => this.context.navigate(item.drama)}
+                  useForeground={true}
+                >
                   <View>
-                    <Image style={{
-                      height: pxToDp(120),
-                      width: pxToDp(100),
-                      borderRadius: pxToDp(8)
-                    }} source={{ uri: item.path }} />
+                    <Image
+                      style={{
+                        height: pxToDp(120),
+                        width: pxToDp(100),
+                        borderRadius: pxToDp(8)
+                      }}
+                      source={{ uri: item.path }}
+                    />
                   </View>
                 </TouchableNativeFeedback>
                 <View
@@ -356,7 +384,7 @@ class Index extends PureComponent {
               </View>
             </View>
           ))}
-          <View style={{height:pxToDp(24)}}></View>
+          <View style={{ height: pxToDp(24) }}></View>
         </ScrollView>
       </View>
     );

@@ -120,6 +120,7 @@ export { default as HotList } from './play/hotlist'; //剧本热度榜单
 
 export { default as Talk } from './talk/home/index'; //论坛首页
 export { default as Apply } from './talk/home/live/apply'; //申请直播页
+export { default as Xieyi } from './talk/home/live/xieyi'; //申请直播页
 export { default as KaiBo } from './talk/home/live/kaibo'; //开启直播页
 export { default as KaiFang } from './talk/home/talkRoom/kaifang'; //开启合唱页
 export { default as SeeFang } from './talk/home/talkRoom/gindex'; //开启合唱页

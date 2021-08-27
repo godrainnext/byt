@@ -35,15 +35,13 @@ class Index extends PureComponent {
   }
   static contextType = NavigationContext;
   _onRefresh() {
-
     if (this.state.refreshing === false) {
       this._updateState('正在刷新......', true);
 
       //5秒后结束刷新
       setTimeout(() => {
-        this._updateState('结束状态', false)
-      }, 1000)
-
+        this._updateState('结束状态', false);
+      }, 1000);
     }
   }
 
@@ -53,7 +51,7 @@ class Index extends PureComponent {
   }
   render() {
     return (
-      <View style={{ flex: 1,backgroundColor:'#fff' }}>
+      <View style={{ flex: 1, backgroundColor: '#fff' }}>
         <Top title="越市" />
         <ScrollView
           bounces={true}
@@ -64,11 +62,12 @@ class Index extends PureComponent {
               title={'正在刷新......'}
               refreshing={this.state.refreshing}
               onRefresh={this._onRefresh.bind(this)}
-            />}
+            />
+          }
           showsVerticalScrollIndicator={false}
         >
           {/*轮播 */}
-          <View style={{ height: pxToDp(220),  }}>
+          <View style={{ height: pxToDp(220) }}>
             <Swiper
               removeClippedSubviews={false}
               showsButtons={false}
@@ -107,19 +106,38 @@ class Index extends PureComponent {
           >
             <Text style={styles.title}>长袖轻舞，越音袅袅</Text>
           </View>
-          <View style={{ flexDirection: 'row', marginLeft: pxToDp(16), marginRight: pxToDp(16), marginTop: pxToDp(8) }}>
+          <View
+            style={{
+              flexDirection: 'row',
+              marginLeft: pxToDp(16),
+              marginRight: pxToDp(16),
+              marginTop: pxToDp(8)
+            }}
+          >
             {/*线下门票 */}
-            < TouchableNativeFeedback onPress={() => this.context.navigate('ticket')}
-              useForeground={true}>
-              <View >
-                <Image style={styles.image3} source={require('../../../res/门票.jpg')} />
+            <TouchableNativeFeedback
+              onPress={() => this.context.navigate('ticket')}
+              useForeground={true}
+            >
+              <View>
+                <Image
+                  style={styles.image3}
+                  source={require('../../../res/门票.jpg')}
+                />
               </View>
             </TouchableNativeFeedback>
             {/*戏服租赁 */}
-            <View style={{ height: pxToDp(170), justifyContent: 'space-between', marginLeft: pxToDp(10) }}>
-              < TouchableNativeFeedback
+            <View
+              style={{
+                height: pxToDp(170),
+                justifyContent: 'space-between',
+                marginLeft: pxToDp(10)
+              }}
+            >
+              <TouchableNativeFeedback
                 useForeground={true}
-                onPress={() => this.context.navigate('Zulin', 0)}>
+                onPress={() => this.context.navigate('Zulin', 0)}
+              >
                 <View>
                   <Image
                     style={styles.image4}
@@ -128,11 +146,11 @@ class Index extends PureComponent {
                 </View>
               </TouchableNativeFeedback>
               {/*越剧周边 */}
-              < TouchableNativeFeedback
+              <TouchableNativeFeedback
                 onPress={() => this.context.navigate('Zhoubian', 1)}
-                useForeground={true}>
-                <View
-                >
+                useForeground={true}
+              >
+                <View>
                   <Image
                     style={styles.image4}
                     source={require('../../../res/29.jpg')}
@@ -204,13 +222,15 @@ const styles = StyleSheet.create({
     height: '100%',
     width: '92%',
     borderRadius: pxToDp(8),
-    marginLeft:pxToDp(16),
-    marginRight:pxToDp(16)
+    marginLeft: pxToDp(16),
+    marginRight: pxToDp(16)
   },
   title: {
     color: '#000000',
     fontSize: pxToDp(18),
-    fontWeight: 'bold',marginTop:pxToDp(16),marginBottom:pxToDp(16)
+    fontWeight: 'bold',
+    marginTop: pxToDp(16),
+    marginBottom: pxToDp(16)
   },
   image1: {
     height: pxToDp(100),

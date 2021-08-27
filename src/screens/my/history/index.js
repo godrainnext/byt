@@ -1,7 +1,14 @@
-import React, { PureComponent } from "react";
-import { View, Text, TouchableOpacity, StyleSheet, Image, ScrollView } from "react-native";
-import { pxToDp } from "../../../utils/styleKits";
-import Top from '../../../component/common/top'
+import React, { PureComponent } from 'react';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Image,
+  ScrollView
+} from 'react-native';
+import { pxToDp } from '../../../utils/styleKits';
+import Top from '../../../component/common/top';
 
 class Index extends PureComponent {
   render() {
@@ -10,13 +17,38 @@ class Index extends PureComponent {
         <Top icon1="arrow-back" title="历史浏览" />
         <ScrollView
           showsVerticalScrollIndicator={false}
-          style={{ backgroundColor: '#fff' }}>
-          <View style={{ marginLeft: pxToDp(16), marginRight: pxToDp(16),marginBottom:pxToDp(60) }}>
-            <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: pxToDp(8) }} >
-              <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold', color: '#333333' }}>
+          style={{ backgroundColor: '#fff' }}
+        >
+          <View
+            style={{
+              marginLeft: pxToDp(16),
+              marginRight: pxToDp(16),
+              marginBottom: pxToDp(60)
+            }}
+          >
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                marginTop: pxToDp(8)
+              }}
+            >
+              <Text
+                style={{
+                  fontSize: pxToDp(20),
+                  fontWeight: 'bold',
+                  color: '#333333'
+                }}
+              >
                 8-14
               </Text>
-              <Text style={{ fontSize: pxToDp(18), paddingLeft: 5, color: '#333333' }}>
+              <Text
+                style={{
+                  fontSize: pxToDp(18),
+                  paddingLeft: 5,
+                  color: '#333333'
+                }}
+              >
                 2021
               </Text>
             </View>
@@ -26,9 +58,9 @@ class Index extends PureComponent {
                 marginTop: pxToDp(16),
                 backgroundColor: 'white',
                 borderRadius: pxToDp(8),
-                elevation: 2,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
-                shadowColor: 'black',  //  阴影颜色
-                shadowRadius: pxToDp(10),  //  圆角
+                elevation: 2, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                shadowColor: 'black', //  阴影颜色
+                shadowRadius: pxToDp(10) //  圆角
               }}
             >
               <Image
@@ -36,7 +68,7 @@ class Index extends PureComponent {
                   height: pxToDp(90),
                   width: pxToDp(130),
                   borderRadius: pxToDp(8),
-                  margin: pxToDp(8),
+                  margin: pxToDp(8)
                 }}
                 source={require('../../../res/play/1.jpg')}
               />
@@ -44,7 +76,7 @@ class Index extends PureComponent {
                 <Text
                   style={{
                     fontSize: pxToDp(16),
-                    color: '#000000',
+                    color: '#000000'
                   }}
                 >
                   追鱼·书馆
@@ -65,9 +97,9 @@ class Index extends PureComponent {
                 marginTop: pxToDp(16),
                 backgroundColor: 'white',
                 borderRadius: pxToDp(8),
-                elevation: 2,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
-                shadowColor: 'black',  //  阴影颜色
-                shadowRadius: pxToDp(10),  //  圆角
+                elevation: 2, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                shadowColor: 'black', //  阴影颜色
+                shadowRadius: pxToDp(10) //  圆角
               }}
             >
               <Image
@@ -75,7 +107,7 @@ class Index extends PureComponent {
                   height: pxToDp(90),
                   width: pxToDp(130),
                   borderRadius: pxToDp(8),
-                  margin: pxToDp(8),
+                  margin: pxToDp(8)
                 }}
                 source={require('../../../res/play/2.jpg')}
               />
@@ -83,7 +115,7 @@ class Index extends PureComponent {
                 <Text
                   style={{
                     fontSize: pxToDp(16),
-                    color: '#000000',
+                    color: '#000000'
                   }}
                 >
                   周仁哭坟
@@ -98,11 +130,29 @@ class Index extends PureComponent {
                 </Text>
               </View>
             </View>
-            <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: pxToDp(16) }} >
-              <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold', color: '#333333' }}>
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                marginTop: pxToDp(16)
+              }}
+            >
+              <Text
+                style={{
+                  fontSize: pxToDp(20),
+                  fontWeight: 'bold',
+                  color: '#333333'
+                }}
+              >
                 8-11
               </Text>
-              <Text style={{ fontSize: pxToDp(18), paddingLeft: 5, color: '#333333' }}>
+              <Text
+                style={{
+                  fontSize: pxToDp(18),
+                  paddingLeft: 5,
+                  color: '#333333'
+                }}
+              >
                 2021
               </Text>
             </View>
@@ -112,9 +162,9 @@ class Index extends PureComponent {
                 marginTop: pxToDp(16),
                 backgroundColor: 'white',
                 borderRadius: pxToDp(8),
-                elevation: 2,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
-                shadowColor: 'black',  //  阴影颜色
-                shadowRadius: pxToDp(10),  //  圆角
+                elevation: 2, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                shadowColor: 'black', //  阴影颜色
+                shadowRadius: pxToDp(10) //  圆角
               }}
             >
               <Image
@@ -122,7 +172,7 @@ class Index extends PureComponent {
                   height: pxToDp(90),
                   width: pxToDp(130),
                   borderRadius: pxToDp(8),
-                  margin: pxToDp(8),
+                  margin: pxToDp(8)
                 }}
                 source={require('../../../res/play/3.jpg')}
               />
@@ -130,7 +180,7 @@ class Index extends PureComponent {
                 <Text
                   style={{
                     fontSize: pxToDp(16),
-                    color: '#000000',
+                    color: '#000000'
                   }}
                 >
                   梁祝·十八相送
@@ -151,9 +201,9 @@ class Index extends PureComponent {
                 marginTop: pxToDp(16),
                 backgroundColor: 'white',
                 borderRadius: pxToDp(8),
-                elevation: 2,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
-                shadowColor: 'black',  //  阴影颜色
-                shadowRadius: pxToDp(10),  //  圆角
+                elevation: 2, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                shadowColor: 'black', //  阴影颜色
+                shadowRadius: pxToDp(10) //  圆角
               }}
             >
               <Image
@@ -161,7 +211,7 @@ class Index extends PureComponent {
                   height: pxToDp(90),
                   width: pxToDp(130),
                   borderRadius: pxToDp(8),
-                  margin: pxToDp(8),
+                  margin: pxToDp(8)
                 }}
                 source={require('../../../res/play/4.jpg')}
               />
@@ -169,7 +219,7 @@ class Index extends PureComponent {
                 <Text
                   style={{
                     fontSize: pxToDp(16),
-                    color: '#000000',
+                    color: '#000000'
                   }}
                 >
                   越剧追鱼
@@ -190,9 +240,9 @@ class Index extends PureComponent {
                 marginTop: pxToDp(16),
                 backgroundColor: 'white',
                 borderRadius: pxToDp(8),
-                elevation: 2,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
-                shadowColor: 'black',  //  阴影颜色
-                shadowRadius: pxToDp(10),  //  圆角
+                elevation: 2, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                shadowColor: 'black', //  阴影颜色
+                shadowRadius: pxToDp(10) //  圆角
               }}
             >
               <Image
@@ -200,7 +250,7 @@ class Index extends PureComponent {
                   height: pxToDp(90),
                   width: pxToDp(130),
                   borderRadius: pxToDp(8),
-                  margin: pxToDp(8),
+                  margin: pxToDp(8)
                 }}
                 source={require('../../../res/play/5.jpg')}
               />
@@ -208,7 +258,7 @@ class Index extends PureComponent {
                 <Text
                   style={{
                     fontSize: pxToDp(16),
-                    color: '#000000',
+                    color: '#000000'
                   }}
                 >
                   打上一个莲花落
@@ -229,9 +279,9 @@ class Index extends PureComponent {
                 marginTop: pxToDp(16),
                 backgroundColor: 'white',
                 borderRadius: pxToDp(8),
-                elevation: 2,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
-                shadowColor: 'black',  //  阴影颜色
-                shadowRadius: pxToDp(10),  //  圆角
+                elevation: 2, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                shadowColor: 'black', //  阴影颜色
+                shadowRadius: pxToDp(10), //  圆角
                 marginBottom: pxToDp(8)
               }}
             >
@@ -240,15 +290,15 @@ class Index extends PureComponent {
                   height: pxToDp(90),
                   width: pxToDp(130),
                   borderRadius: pxToDp(8),
-                  margin: pxToDp(8),
+                  margin: pxToDp(8)
                 }}
                 source={require('../../../res/play/6.jpg')}
               />
-              <View style={{ justifyContent: 'center'}}>
+              <View style={{ justifyContent: 'center' }}>
                 <Text
                   style={{
                     fontSize: pxToDp(16),
-                    color: '#000000',
+                    color: '#000000'
                   }}
                 >
                   祥林嫂
@@ -269,6 +319,5 @@ class Index extends PureComponent {
     );
   }
 }
-const styles = StyleSheet.create({
-})
+const styles = StyleSheet.create({});
 export default Index;

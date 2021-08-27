@@ -12,28 +12,31 @@ import PulseLoader from 'react-native-pulse-loader';
 import Top from '@components/common/top';
 import LinearGradient from 'react-native-linear-gradient';
 import Mybtn from '../../../../component/common/mybtn';
+import ImagePicker from 'react-native-image-crop-picker';
 const dimensions = {
   width: Dimensions.get('window').width,
-  height: Dimensions.get('window').height,
+  height: Dimensions.get('window').height
 };
 const requestCameraAndAudioPermission = async () => {
   try {
     const granted = await PermissionsAndroid.requestMultiple([
       PermissionsAndroid.PERMISSIONS.CAMERA,
-      PermissionsAndroid.PERMISSIONS.RECORD_AUDIO,
-    ])
+      PermissionsAndroid.PERMISSIONS.RECORD_AUDIO
+    ]);
     if (
-      granted['android.permission.RECORD_AUDIO'] === PermissionsAndroid.RESULTS.GRANTED
-      && granted['android.permission.CAMERA'] === PermissionsAndroid.RESULTS.GRANTED
+      granted['android.permission.RECORD_AUDIO'] ===
+        PermissionsAndroid.RESULTS.GRANTED &&
+      granted['android.permission.CAMERA'] ===
+        PermissionsAndroid.RESULTS.GRANTED
     ) {
-      console.log('You can use the cameras & mic')
+      console.log('You can use the cameras & mic');
     } else {
-      console.log('Permission denied')
+      console.log('Permission denied');
     }
   } catch (err) {
-    console.warn(err)
+    console.warn(err);
   }
-}
+};
 
 // const { width, height } = Dimensions.get('window');
 const HTML = `

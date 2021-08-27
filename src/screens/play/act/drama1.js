@@ -41,8 +41,8 @@ class Index extends PureComponent {
             'https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20190614%2F1e3e605bfd104fe7b78a71ac22b33080.jpeg&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631924206&t=a33d3574aac710c72a8b2b7805f51081'
         }
       ]
-    }
-  };
+    };
+  }
   static contextType = NavigationContext;
   render() {
     return (
@@ -65,12 +65,10 @@ class Index extends PureComponent {
             }}
             source={{ uri: this.state.dramalist[0].path1 }}
           />
-          <Text style={styles.text}
-          >
-            {this.state.dramalist[0].title}
-          </Text>
+          <Text style={styles.text}>{this.state.dramalist[0].title}</Text>
           <Text style={styles.title}>
-            &emsp;&emsp;作者：{this.state.dramalist[0].author} &emsp;创作年代:&emsp;
+            &emsp;&emsp;作者：{this.state.dramalist[0].author}{' '}
+            &emsp;创作年代:&emsp;
             {this.state.dramalist[0].year}
           </Text>
           <View>
@@ -104,16 +102,15 @@ class Index extends PureComponent {
             </Text>
           </View>
           <View>
-            <Text style={styles.text}>
-              剧本详情
-            </Text>
+            <Text style={styles.text}>剧本详情</Text>
             <TouchableOpacity
               style={styles.book}
-              onPress={() => this.context.navigate('Screenpaly', {
-                ...this.state.dramalist,
-                title: this.state.dramalist[0].title
+              onPress={() =>
+                this.context.navigate('Screenpaly', {
+                  ...this.state.dramalist,
+                  title: this.state.dramalist[0].title
+                })
               }
-              )}
             >
               <Image
                 style={{
