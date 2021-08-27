@@ -146,6 +146,8 @@ function Nav() {
         <Stack.Screen name="Talk" component={Screens.Talk} />
         {/*申请直播*/}
         <Stack.Screen name="Apply" component={Screens.Apply} />
+        {/*直播协议*/}
+        <Stack.Screen name="Xieyi" component={Screens.Xieyi} />
         {/*创作剧本 */}
         <Stack.Screen name="Create" component={Screens.Create} />
         {/* 论坛 */}
@@ -250,6 +252,8 @@ function Nav() {
         <Stack.Screen name="Testtt" component={Screens.Testtt} />
         <Stack.Screen name="ToSing" component={Screens.ToSing} />
         <Stack.Screen name="RegInfo" component={Screens.RegInfo} />
+        <Stack.Screen name="SingOver" component={Screens.SingOver} />
+        <Stack.Screen name="SingSub" component={Screens.SingSub} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -209,7 +209,6 @@ class Login extends PureComponent {
         >
           留得千秋载
         </Animated.Text>
-
         <View
           style={{
             borderRadius: 24,

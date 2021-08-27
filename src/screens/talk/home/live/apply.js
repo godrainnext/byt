@@ -254,7 +254,7 @@ class index extends Component {
                     {
                       backgroundColor: 'white',
                       borderRadius: pxToDp(8),
-                      height: pxToDp(428)
+                      height: pxToDp(440)
                     }
                   ]}
                 >
@@ -367,7 +367,7 @@ class index extends Component {
                   style={{
                     justifyContent: 'center',
                     alignItems: 'center',
-                    height: pxToDp(88),
+                    height: pxToDp(108),
                     marginTop: pxToDp(16)
                   }}
                 >
@@ -382,9 +382,33 @@ class index extends Component {
                   >
                     根据相关政策法规要求，开通百越庭直播间需要进行实名认证。实名认证不涉及金钱账户，信息严格保密。
                   </Text>
+                  <View style={{ flexDirection: 'row' }}>
+                    <Text
+                      style={{
+                        color: '#999999',
+                        fontSize: pxToDp(12),
+                        marginBottom: pxToDp(8)
+                      }}
+                    >
+                      阅读并同意
+                    </Text>
+                    <TouchableOpacity
+                      onPress={() => this.context.navigate('Xieyi')}
+                    >
+                      <Text
+                        style={{
+                          color: '#468cd3',
+                          fontSize: pxToDp(12),
+                          marginBottom: pxToDp(8)
+                        }}
+                      >
+                        直播及支付相关协议
+                      </Text>
+                    </TouchableOpacity>
+                  </View>
                   <CheckBox
                     center
-                    title="我已阅读并接受主播协议"
+                    title="同意协议并认证"
                     checked={this.state.checked}
                     onPress={() => {
                       this.setState({

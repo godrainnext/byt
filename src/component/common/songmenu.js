@@ -9,7 +9,8 @@ import {
 import { Modalize } from "react-native-modalize";
 import { pxToDp } from "../../utils/styleKits";
 import { NavigationContext } from "@react-navigation/native";
-import Ionicons from 'react-native-vector-icons/Ionicons'
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import LottieView from 'lottie-react-native';
 
 const height = Dimensions.get("screen").height;
 export class AlwaysOpen extends PureComponent {
@@ -42,7 +43,13 @@ export class AlwaysOpen extends PureComponent {
                         <Text style={{ fontSize: pxToDp(12), color: 'grey' }}>{item.singer}</Text>
                     </View>
                 </View>
-                <TouchableOpacity onPress={() => this.context.navigate('MusicPlayer',item.id)}>
+                <LottieView
+                style={{marginLeft:pxToDp(120)}}
+                source={require('../../../lottie/播放旋转.json')}
+                autoPlay
+                loop
+              />
+                <TouchableOpacity onPress={() => this.context.navigate('MusicPlayer', item.id)}>
                     <Ionicons name="caret-forward-circle-outline" size={28} color="grey" />
                 </TouchableOpacity>
             </View>))}
@@ -103,9 +110,9 @@ const s = StyleSheet.create({
     },
     smallbox: {
         flexDirection: 'row',
-        marginLeft:pxToDp(16),
-        marginRight:pxToDp(16),
-        marginTop:pxToDp(8),
+        marginLeft: pxToDp(16),
+        marginRight: pxToDp(16),
+        marginTop: pxToDp(8),
         alignItems: 'center'
     },
 });

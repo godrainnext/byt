@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ImageFade from './imgaefade'
+import ImageFade from './imgaefade';
 import {
   View,
   Text,
@@ -81,7 +81,7 @@ class Index extends Component {
         context:
           '新版越剧《红楼梦》创作于1999年，首演于同年8月。它从调整戏剧结构入手，别样营造大悲大喜、大实大虚的舞台意境，并提高舞美空间层次，丰富音乐形象，整合流派表演，精缩演出时间，实现了一次富有创意的新编。',
         path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimage8.pinlue.com%2Fimg3%2Ftu_jpg%2FksnrPhRhOUPIvAqAbKCblUE58P73JL45ksk6RoStOt1QqsyGRULuDNlm589MJep46BicicicnEeYd9uoxplOgImkg%2F640.jpeg&refer=http%3A%2F%2Fimage8.pinlue.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631837799&t=26164c70c17997051e585d51c8be88fd',
-        icon: jinpai,
+        lottie: require('../../../../lottie/金牌.json'),
         drama: 'Drama4'
       },
       {
@@ -90,7 +90,7 @@ class Index extends Component {
         context:
           '《碧玉簪》讲述了王玉林得尚书李廷甫赏识，获许配廷甫女秀英为妻。秀英的表兄顾文友因妒生恨，骗取秀英的碧玉簪放进伪造情书里，诬陷秀英与他有染。最终玉林送凤冠请罪，夫妇冰释前嫌。',
         path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fweixin.sanbiaoge.com%2Fcunchu5%2F2021-03-05%2F6_16149534226318178.jpg&refer=http%3A%2F%2Fweixin.sanbiaoge.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631837861&t=bccaf84652f1353d90b378e7225577c7',
-        icon: yinpai,
+        lottie: require('../../../../lottie/银牌.json'),
         drama: 'Drama5'
       },
       {
@@ -99,7 +99,7 @@ class Index extends Component {
         context:
           '《周仁哭坟》越剧折子戏，选材自京剧《周仁献嫂》。由朱福侠编导。《周仁哭坟》一折专为《吴凤花越剧舞台艺术风采》专场表演而编写排演，集中演绎周仁在其妻坟前哭诉冤屈的情绪。',
         path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Finews.gtimg.com%2Fnewsapp_bt%2F0%2F10088823340%2F1000.jpg&refer=http%3A%2F%2Finews.gtimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631837909&t=641368304e82a93e756196f93fd1d805',
-        icon: tongpai,
+        lottie: require('../../../../lottie/铜牌.json'),
         drama: 'Drama6'
       }
     ]
@@ -189,9 +189,8 @@ class Index extends Component {
             style={{
               marginLeft: pxToDp(16),
               marginRight: pxToDp(16),
+              marginTop: pxToDp(8),
               flexDirection: 'row',
-              marginTop: pxToDp(-12),
-              marginBottom: pxToDp(-24),
               justifyContent: 'space-around'
             }}
           >
@@ -490,22 +489,32 @@ class Index extends Component {
                               style={{
                                 fontSize: pxToDp(16),
                                 fontWeight: 'bold',
-                                color: '#333333'
+                                color: '#333333',
+                                marginTop: pxToDp(-32)
                               }}
                             >
                               {item.title}
                             </Text>
                           </View>
                           <View>
-                            <Svg
-                              width="32"
-                              height="32"
-                              svgXmlData={item.icon}
+                            <LottieView
+                              style={{
+                                height: pxToDp(80),
+                                width: pxToDp(80),
+                                marginTop: pxToDp(-16),
+                                marginLeft: pxToDp(16)
+                              }}
+                              source={item.lottie}
+                              autoPlay={true}
                             />
                           </View>
                         </View>
                         <Text
-                          style={{ fontSize: pxToDp(14), color: '#666666' }}
+                          style={{
+                            fontSize: pxToDp(14),
+                            color: '#666666',
+                            marginTop: pxToDp(-32)
+                          }}
                           numberOfLines={3}
                         >
                           {item.context}
@@ -669,7 +678,8 @@ const styles = StyleSheet.create({
   },
   bookbox: {
     height: pxToDp(130),
-    marginLeft:pxToDp(16),marginRight:pxToDp(16)
+    marginLeft: pxToDp(16),
+    marginRight: pxToDp(16)
   },
   bookbotton: {
     height: pxToDp(110),
@@ -722,7 +732,6 @@ const styles = StyleSheet.create({
     marginTop: pxToDp(16),
     marginLeft: pxToDp(16),
     marginRight: pxToDp(16)
-    
   }
 });
 
