@@ -21,7 +21,7 @@ export default class HighLights extends PureComponent {
   }
   render() {
     return (
-      <View style={{ marginTop: pxToDp(40),marginLeft:pxToDp(16),marginRight:pxToDp(16), }}>
+      <View style={{ marginTop: pxToDp(16),marginLeft:pxToDp(16),marginRight:pxToDp(16), }}>
         <View
           style={{
             flexDirection: 'row',

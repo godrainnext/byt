@@ -9,7 +9,7 @@ import {
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { NavigationContext } from '@react-navigation/native';
 import { pxToDp, screenWidth } from '../../utils/styleKits';
-import  LinearGradient  from 'react-native-linear-gradient';
+import LinearGradient from 'react-native-linear-gradient';
 export default class HeaderHaveBack extends PureComponent {
   constructor(props) {
     super(props);
@@ -21,7 +21,7 @@ export default class HeaderHaveBack extends PureComponent {
     return (
       <LinearGradient
         style={styles.box}
-        colors={['#e2f4fe', '#e2f4fe']}
+        colors={['white', 'white']}
         start={{ x: 0, y: 0 }}
         end={{ x: 0, y: 1.6 }}
       >
@@ -76,11 +76,11 @@ const styles = StyleSheet.create({
   },
   icon1: {
     width: pxToDp(45),
-    left:pxToDp(16)
+    left: pxToDp(16)
   },
   icon2: {
     width: pxToDp(40),
-    right:pxToDp(16)
+    right: pxToDp(16)
   },
   textview: {
     flex: 1,
@@ -89,6 +89,6 @@ const styles = StyleSheet.create({
   },
   textstyle: {
     fontSize: pxToDp(18),
-    color: '#468cd3'
+    color: '#468CD3'
   }
 });
