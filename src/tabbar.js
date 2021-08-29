@@ -179,6 +179,7 @@ class Index extends PureComponent {
           </View>
         ),
         renderSelectedIcon: () => (
+         
           <LottieView
             autoPlay={true}
             loop={true}
@@ -230,7 +231,7 @@ class Index extends PureComponent {
     const { selectedTab, pages } = this.state;
     return (
       <View style={{ backgroundColor: '#fff', flex: 1 }}>
-        <TabNavigator style={{ backgroundColor: '#e2f4fe' }}>
+        <TabNavigator style={{ backgroundColor: 'red' }}>
           {pages.map((v, i) => (
             <TabNavigator.Item
               key={v.title}

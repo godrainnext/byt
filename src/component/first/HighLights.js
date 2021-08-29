@@ -129,6 +129,7 @@ export default class HighLights extends PureComponent {
                     style={{
                       flex: 1,
                       justifyContent: 'center',
+                      marginBottom:pxToDp(10)
                     }}
                   >
                     <Mybtn
@@ -139,8 +140,7 @@ export default class HighLights extends PureComponent {
                         height: pxToDp(40),
                         alignSelf: 'flex-end',
                         borderRadius: pxToDp(32),
-                        marginRight: pxToDp(16)
-
+                        marginRight: pxToDp(16),
                       }}
                       titleStyle={{
                         color:'white',

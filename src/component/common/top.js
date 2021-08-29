@@ -20,11 +20,11 @@ export default class HeaderHaveBack extends PureComponent {
   render() {
     return (
       <LinearGradient
-        style={styles.box}
-        colors={['#62bfad', '#62bfad']}
-        start={{ x: 0, y: 0 }}
-        end={{ x: 0, y: 1.6 }}
-      >
+      style={styles.box}
+      colors={[ '#37a49f','#AFE0FF']}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1.6, y: 0}}
+  >
         <View
           style={{
             marginTop: pxToDp(16),
