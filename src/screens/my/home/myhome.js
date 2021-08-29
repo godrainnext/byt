@@ -4,7 +4,8 @@ import {
   Text,
   Image,
   StyleSheet,
-  ImageBackground
+  ImageBackground,
+  TouchableOpacity
 } from 'react-native';
 import { NavigationContext } from '@react-navigation/native';
 import { pxToDp } from '@utils/styleKits';
@@ -12,6 +13,7 @@ import Top from '@components/common/top';
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 import CustormerBar from '../seetings/component/CustormerBar';
 import Dongtai from '../seetings/component/dontai';
+
 export default class hello extends Component {
   static contextType = NavigationContext;
   state = {
@@ -35,6 +37,7 @@ export default class hello extends Component {
         parallaxHeaderHeight={380}
         navBarColor="#fa9222"
         backgroundSpeed={10}
+     
         renderBackground={() => (
           <View key="background">
             <Image

@@ -269,7 +269,7 @@ class App extends Component {
       <View style={{ flex: 1 }}>{this._renderVideos(this.props.userInfo)}</View>
     ) : (
       <View style={styles.max}>
-        <Top title="开播" icon1="arrow-back" />
+        <Top title="开直播" icon1="arrow-back" />
         <View style={[styles.max, { padding: pxToDp(16) }]}>
           <View
             style={{
@@ -280,7 +280,7 @@ class App extends Component {
             }}
           >
             <Text style={{ color: '#50935E' }}>
-              请您如实准确填写本人信息，否则将认证失败
+              填写相关信息，让观众快速找到您
             </Text>
           </View>
           <View
@@ -622,7 +622,8 @@ class App extends Component {
 
 const styles = StyleSheet.create({
   max: {
-    flex: 1
+    flex: 1,
+    backgroundColor:"white"
   },
   buttonHolder: {
     height: pxToDp(100),

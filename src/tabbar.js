@@ -81,7 +81,7 @@ class Index extends PureComponent {
             <LottieView
               autoPlay={this.state.isAuto}
               loop={this.state.isLoop}
-              style={{ width: pxToDp(70), marginBottom: pxToDp(35) }}
+              style={{ width: pxToDp(70), marginBottom: pxToDp(30) }}
               source={require('../lottie/扇子.json')}
             />
             <RBSheet

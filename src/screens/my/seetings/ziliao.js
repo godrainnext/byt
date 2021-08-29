@@ -45,7 +45,7 @@ class Ziliao extends PureComponent {
       avatar: '',
       nickName: '',
       ownSay: '',
-      backgroundColor: '#acddfc'
+      backgroundColor: 'white'
     };
   }
   componentDidMount() {
@@ -149,9 +149,8 @@ class Ziliao extends PureComponent {
   };
   render() {
     const dateNow = new Date();
-    const currentDate = `${dateNow.getFullYear()}-${
-      dateNow.getMonth() + 1
-    }-${dateNow.getDate()}`;
+    const currentDate = `${dateNow.getFullYear()}-${dateNow.getMonth() + 1
+      }-${dateNow.getDate()}`;
     const { birthday } = this.state;
     return (
       <View style={{ flex: 1, backgroundColor: this.state.backgroundColor }}>
@@ -162,8 +161,8 @@ class Ziliao extends PureComponent {
         />
         <View
           style={{
-            marginLeft:pxToDp(16),
-            marginRight:pxToDp(16),
+            marginLeft: pxToDp(16),
+            marginRight: pxToDp(16),
             height: '75%',
             backgroundColor: '#fff',
             alignSelf: 'center',
@@ -193,7 +192,7 @@ class Ziliao extends PureComponent {
                 }}
               >
                 <Avatar
-                  avatarStyle={{ alignSelf: 'center' ,width:'100%'}}
+                  avatarStyle={{ alignSelf: 'center', width: '100%' }}
                   size={120}
                   rounded
                   title="越"
@@ -289,13 +288,13 @@ class Ziliao extends PureComponent {
           <View
             style={
               (s.basic,
-              [
-                {
-                  flexDirection: 'row',
-                  marginLeft: pxToDp(16),
-                  marginTop: pxToDp(20)
-                }
-              ])
+                [
+                  {
+                    flexDirection: 'row',
+                    marginLeft: pxToDp(16),
+                    marginTop: pxToDp(20)
+                  }
+                ])
             }
           >
             <Image
@@ -303,7 +302,7 @@ class Ziliao extends PureComponent {
               style={{ width: 30, height: 50 }}
             />
             <CheckBox
-              checkedColor="#01a3f8"
+              checkedColor="#62bfad"
               title="男"
               checked={this.state.sex}
               onPress={() => this.setState({ sex: 1 })}
@@ -313,6 +312,7 @@ class Ziliao extends PureComponent {
               style={{ width: 30, height: 50, marginLeft: pxToDp(40) }}
             />
             <CheckBox
+              checkedColor="#62bfad"
               title="女"
               checked={!this.state.sex}
               onPress={() => this.setState({ sex: 0 })}
@@ -320,7 +320,7 @@ class Ziliao extends PureComponent {
           </View>
 
           <View style={[s.basic, { height: 80, marginTop: pxToDp(20) }]}>
-            <View style={{ marginLeft: pxToDp(20)}}>
+            <View style={{ marginLeft: pxToDp(20) }}>
               <Text
                 style={{
                   fontSize: pxToDp(16),
