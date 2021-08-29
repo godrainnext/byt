@@ -34,11 +34,9 @@ export default class hello extends Component {
         }}
         renderStickyHeader={()=>{<View style={{backgroundColor:'#fff'}}><Text>11111</Text></View>}}
         showsVerticalScrollIndicator={false}
-        stickyHeaderHeight={40}
         parallaxHeaderHeight={380}
         navBarColor="#fa9222"
         backgroundSpeed={10}
-     
         renderBackground={() => (
           <View key="background">
             <Image

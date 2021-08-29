@@ -30,7 +30,8 @@ class Index extends PureComponent {
   // }
 
   changeVisible = () => {
-    this.setState({ isShow: !this.state.isShow });
+    this.Scrollable1.close();
+    this.context.navigate('AddMoment')
   };
   state = {
     selectedTab: 'first',
@@ -116,7 +117,7 @@ class Index extends PureComponent {
                     style={{
                       width: pxToDp(300),
                       height: '100%',
-                      backgroundColor: '#ecf6fc',
+                      backgroundColor: '#D5E8E6',
                       justifyContent: 'space-around',
                       alignItems: 'center',
                       borderRadius: pxToDp(16),
@@ -157,13 +158,6 @@ class Index extends PureComponent {
                     </TouchableOpacity>
                   </View>
                 </View>
-                <View>
-                  <Addmoment
-                    updateList={this.updateList}
-                    toggleModalProps={this.changeVisible}
-                    isModalVisible={this.state.isShow}
-                  />
-                </View>
                 <View
                   style={{
                     width: pxToDp(24),
@@ -179,7 +173,7 @@ class Index extends PureComponent {
           </View>
         ),
         renderSelectedIcon: () => (
-         
+
           <LottieView
             autoPlay={true}
             loop={true}

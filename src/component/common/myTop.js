@@ -25,16 +25,16 @@ export default class HeaderHaveBack extends PureComponent {
         return (
             <LinearGradient
                 style={styles.box}
-                colors={[ '#37a49f','#AFE0FF']}
+                colors={['#62bfad', '#62bfad']}
                 start={{ x: 0, y: 0 }}
-                end={{ x: 1.6, y: 0}}
+                end={{ x: 1.6, y: 0 }}
             >
                 <View
                     style={{
                         marginTop: pxToDp(16),
                         flexDirection: 'row',
-                        alignItems:'center',
-                        justifyContent:'center'
+                        alignItems: 'center',
+                        justifyContent: 'center'
                     }}
                 >
                     <View style={styles.icon2}>
@@ -69,13 +69,13 @@ const styles = StyleSheet.create({
     },
     icon2: {
         width: pxToDp(45),
-        marginLeft:pxToDp(16),
+        marginLeft: pxToDp(16),
         bottom: 8
     },
     textview: {
         flex: 1,
         top: pxToDp(3),
-        marginLeft:pxToDp(-10)
+        marginLeft: pxToDp(-10)
     },
     textstyle: {
         fontSize: pxToDp(18),

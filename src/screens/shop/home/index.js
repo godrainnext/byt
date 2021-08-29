@@ -100,13 +100,17 @@ class Index extends PureComponent {
             </Swiper>
           </View>
           {/*小推广 */}
-          <View
-            style={{
-              marginLeft: pxToDp(16),
-              marginTop: pxToDp(-4)
-            }}
-          >
-            <Text style={styles.title}>越剧商城</Text>
+          <View style={styles.titlebox}>
+            <View style={styles.left}>
+            </View>
+            <View style={{ marginLeft: pxToDp(6) }}>
+              <Text style={styles.titletext}>
+                越剧商城
+              </Text>
+              <Text style={styles.titlepinyin}>
+                yue ju shang cheng
+              </Text>
+            </View>
           </View>
           <View
             style={{
@@ -162,13 +166,17 @@ class Index extends PureComponent {
             </View>
           </View>
           {/*推荐模块 */}
-          <View
-            style={{
-              marginLeft: pxToDp(16),
-              marginTop: pxToDp(8)
-            }}
-          >
-            <Text style={styles.title}>猜你喜欢</Text>
+          <View style={styles.titlebox}>
+            <View style={styles.left}>
+            </View>
+            <View style={{ marginLeft: pxToDp(6) }}>
+              <Text style={styles.titletext}>
+                猜你喜欢
+              </Text>
+              <Text style={styles.titlepinyin}>
+                cai ni xi huan
+              </Text>
+            </View>
           </View>
           <View
             style={{
@@ -270,6 +278,29 @@ const styles = StyleSheet.create({
     width: pxToDp(167),
     borderRadius: pxToDp(8),
     alignSelf: 'center'
+  },
+  titlebox: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginLeft: pxToDp(16),
+    marginRight: pxToDp(16),
+    marginTop: pxToDp(8)
+  },
+  left: {
+    width: pxToDp(4),
+    height: '75%',
+    backgroundColor: '#62bfad',
+    borderRadius: pxToDp(2)
+  },
+  titletext: {
+    fontSize: pxToDp(18),
+    color: '#62bfad',
+    fontWeight: 'bold'
+  },
+  titlepinyin: {
+    fontSize: pxToDp(14),
+    color: '#999999',
+    marginTop: pxToDp(-6)
   }
 });
 export default connect(() => ({}), { getAddressListAction })(Index);

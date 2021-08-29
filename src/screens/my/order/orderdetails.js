@@ -108,7 +108,7 @@ class orderdetails extends PureComponent {
           <View
             style={{
               margin: pxToDp(2),
-              height: pxToDp(80),
+              height: pxToDp(100),
               backgroundColor: '#fff',
               borderRadius: pxToDp(8),
               elevation: 2,
@@ -189,7 +189,7 @@ class orderdetails extends PureComponent {
                 <Text
                   style={{
                     fontSize: pxToDp(18),
-                    color: 'red',
+                    color: '#62bfad',
                     fontWeight: 'bold'
                   }}
                 >
@@ -228,8 +228,8 @@ class orderdetails extends PureComponent {
                 {howPay === 0
                   ? '微信支付'
                   : howPay === 1
-                  ? '支付宝支付'
-                  : '银行卡支付'}
+                    ? '支付宝支付'
+                    : '银行卡支付'}
               </Text>
             </View>
             <View
@@ -295,7 +295,7 @@ class orderdetails extends PureComponent {
                   alignItems: 'center',
                   borderRadius: pxToDp(24),
                   marginRight: pxToDp(20),
-                  width: pxToDp(130),
+                  width: pxToDp(120),
                   height: pxToDp(40)
                 }}
                 titleStyle={{
@@ -310,7 +310,7 @@ class orderdetails extends PureComponent {
                 buttonStyle={{
                   borderRadius: pxToDp(32),
                   marginRight: pxToDp(16),
-                  width: pxToDp(130),
+                  width: pxToDp(120),
                   height: pxToDp(40),
                   justifyContent: 'center',
                   alignItems: 'center'
@@ -452,7 +452,7 @@ const styles = StyleSheet.create({
     fontSize: pxToDp(14),
     marginRight: pxToDp(8),
     fontWeight: 'bold',
-    color: 'red'
+    color: '#62bfad'
   },
   process: {
     paddingVertical: pxToDp(8),

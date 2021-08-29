@@ -4,6 +4,7 @@ import Top from '../../../component/common/top';
 import LottieView from 'lottie-react-native';
 import { pxToDp } from '../../../utils/styleKits';
 import { NavigationContext } from '@react-navigation/native';
+import Mybtn from '../../../component/common/mybtn';
 
 export default class paySuccess extends Component {
   sendOrder = () => {
@@ -65,15 +66,34 @@ export default class paySuccess extends Component {
             justifyContent: 'space-around'
           }}
         >
-          <TouchableOpacity
-            style={styles.box}
+          <Mybtn
+            title="返回首页"
             onPress={() => this.context.navigate('Tabbar')}
-          >
-            <Text style={styles.text}>返回首页</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.box} onPress={this.sendOrder}>
-            <Text style={styles.text}>查看订单</Text>
-          </TouchableOpacity>
+            buttonStyle={{
+              width: pxToDp(120),
+              height: pxToDp(40),
+              alignSelf: 'flex-end',
+              borderRadius: pxToDp(32),
+            }}
+            titleStyle={{
+              color: 'white',
+              fontSize: pxToDp(16)
+            }}
+          />
+          <Mybtn
+            title="查看订单"
+            onPress={this.sendOrder}
+            buttonStyle={{
+              width: pxToDp(120),
+              height: pxToDp(40),
+              alignSelf: 'flex-end',
+              borderRadius: pxToDp(32),
+            }}
+            titleStyle={{
+              color: 'white',
+              fontSize: pxToDp(16)
+            }}
+          />
         </View>
       </View>
     );

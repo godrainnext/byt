@@ -108,7 +108,7 @@ export default class ticketdetail extends PureComponent {
                   </Text>
                 </View>
                 <View style={{marginLeft:pxToDp(8)}}>
-                  <Text style={{ color: '#f0bb51', fontSize: pxToDp(14) }}>
+                  <Text style={{ color: '#62bfad', fontSize: pxToDp(14) }}>
                     ￥{this.props.route.params.price}
                   </Text>
                 </View>
@@ -173,13 +173,13 @@ export default class ticketdetail extends PureComponent {
                     marginBottom: pxToDp(20)
                   }}
                 >
-                  <Text style={{ fontSize: pxToDp(24), color: '#468cd3' }}>
+                  <Text style={{ fontSize: pxToDp(24), color: '#62bfad' }}>
                     8.9
                   </Text>
                   <Text
                     style={{
                       alignSelf: 'flex-end',
-                      color: '#468cd3',
+                      color: '#62bfad',
                       fontSize: pxToDp(14)
                     }}
                   >
@@ -453,7 +453,7 @@ const styles = StyleSheet.create({
   },
   smalltextbox: {
     fontSize: pxToDp(14),
-    color: '#468cd3'
+    color: '#62bfad'
   },
   mainbox: {
     marginLeft: pxToDp(16),

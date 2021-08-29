@@ -108,7 +108,7 @@ class index extends Component {
           style={{
             flex: 1,
             padding: pxToDp(16),
-            backgroundColor: '#eee'
+            backgroundColor: '#D5E8E6'
           }}
         >
           <ScrollView showsVerticalScrollIndicator={false}>
@@ -141,7 +141,7 @@ class index extends Component {
                   >
                     <Text
                       style={{
-                        color: '#f0bb51',
+                        color: '#62bfad',
                         fontSize: pxToDp(12),
                         marginBottom: pxToDp(16)
                       }}
@@ -397,7 +397,7 @@ class index extends Component {
                     >
                       <Text
                         style={{
-                          color: '#468cd3',
+                          color: '#62bfad',
                           fontSize: pxToDp(12),
                           marginBottom: pxToDp(8)
                         }}
@@ -407,7 +407,7 @@ class index extends Component {
                     </TouchableOpacity>
                   </View>
                   <CheckBox
-                    center
+                    checkedColor="#62bfad"
                     title="同意协议并认证"
                     checked={this.state.checked}
                     onPress={() => {
@@ -443,8 +443,8 @@ class index extends Component {
                 marginBottom: pxToDp(5)
               }}
               buttonStyle={{
-                width: '100%',
-                height: '100%',
+                width: pxToDp(320),
+                height: pxToDp(40),
                 alignSelf: 'flex-end',
                 display: this.state.btnOpcity ? 'none' : 'flex',
                 borderRadius: pxToDp(32)
