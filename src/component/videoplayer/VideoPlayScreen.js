@@ -11,6 +11,7 @@ import {
   StyleSheet
 } from 'react-native';
 import Video from 'react-native-video';
+import { Overlay, ModalIndicator } from 'teaset';
 // import Orientation from 'react-native-orientation
 import Orientation from 'react-native-orientation-locker';
 import { pxToDp } from '../../utils/styleKits';
@@ -80,11 +81,12 @@ export default class VideoPlayScreen extends PureComponent {
             playInBackground={false}
             ignoreSilentSwitch={'ignore'}
             progressUpdateInterval={250.0}
-            onLoadStart={this._onLoadStart}
+            onLoadStart={this.onLoadStart}
             onLoad={this._onLoaded}
+            onReadyForDisplay={this.onReadyForDisplay}
             onProgress={this._onProgressChanged}
             onEnd={this._onPlayEnd}
-            onError={this._onPlayError}
+            onError={this.videoError}
             onBuffer={this._onBuffering}
             style={{
               width: this.state.videoWidth,
@@ -195,8 +197,6 @@ export default class VideoPlayScreen extends PureComponent {
   }
 
   /// -------Video组件回调事件-------
-
-  _onLoadStart = () => {};
 
   _onBuffering = () => {};
 
@@ -355,6 +355,22 @@ export default class VideoPlayScreen extends PureComponent {
       showVideoCover: false
     });
     this.videoPlayer.seek(seekTime);
+  }
+
+  onLoadStart = (bb) => {
+    this.showVideoLoading();
+  };
+  onReadyForDisplay = (cc) => {
+    this.hideLoading();
+  };
+
+  showVideoLoading() {
+    ModalIndicator.show(`视频加载中，请稍等`);
+  }
+  hideLoading() {
+    setTimeout(() => {
+      ModalIndicator.hide();
+    }, 100);
   }
 }
 

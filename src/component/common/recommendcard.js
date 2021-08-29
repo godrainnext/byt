@@ -202,8 +202,8 @@ class index extends Component {
         testID={'modal'}
         isVisible={isModalVisible}
         // isVisible={this.isVisible()}
-        backdropColor="#B4B3DB"
-        backdropOpacity={0.8}
+        backdropColor="#000"
+        backdropOpacity={0.5}
         onBackdropPress={toggleModalProps}
         animationIn="zoomInDown"
         animationOut="zoomOutUp"
@@ -244,8 +244,8 @@ class index extends Component {
                   borderColor: 'white',
                   borderWidth: pxToDp(1),
                   height: pxToDp(80),
-                  marginTop:pxToDp(6),
-                  marginRight: pxToDp(45),
+                  marginTop: pxToDp(6),
+                  marginRight: pxToDp(45)
                 }}
               ></View>
             </View>
@@ -257,14 +257,14 @@ class index extends Component {
                     return (
                       <View style={styles.card}>
                         <TouchableOpacity
-                        activeOpacity={1}
+                          activeOpacity={1}
                           style={{
                             justifyContent: 'center',
-                            alignItems: 'center',
+                            alignItems: 'center'
                           }}
                           onPress={() => {
-                            toggleModalProps()
-                            this.context.navigate('Pagefive', 69)
+                            toggleModalProps();
+                            this.context.navigate('Pagefive', 69);
                           }}
                         >
                           <Image
@@ -281,7 +281,7 @@ class index extends Component {
                           <View
                             style={{
                               width: pxToDp(200),
-                              marginTop:pxToDp(15)
+                              marginTop: pxToDp(15)
                             }}
                           >
                             <Text
@@ -298,10 +298,15 @@ class index extends Component {
                           <View
                             style={{
                               width: pxToDp(300),
-                              marginTop:pxToDp(15)
+                              marginTop: pxToDp(15)
                             }}
                           >
-                            <Text style={{ fontSize: pxToDp(16), textAlign: 'center' }}>
+                            <Text
+                              style={{
+                                fontSize: pxToDp(16),
+                                textAlign: 'center'
+                              }}
+                            >
                               {cards[currentIndex].context}
                             </Text>
                           </View>

@@ -95,10 +95,7 @@ export default class index extends PureComponent {
     return (
       <View style={{ backgroundColor: '#ecf6fc', flex: 1 }}>
         <Top title="票务系统" icon1="arrow-back" />
-        <ScrollView
-          showsVerticalScrollIndicator={false}
-          style={{ flex: 1 }}
-        >
+        <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1 }}>
           {/* 演出盒子 */}
           <View style={styles.message}>
             <Text style={styles.boxtext1}>小百花越剧场大剧场</Text>
@@ -137,15 +134,15 @@ export default class index extends PureComponent {
                 <View
                   style={{
                     height: pxToDp(140),
-                    marginRight:pxToDp(16),
-                    marginLeft:pxToDp(16),
+                    marginRight: pxToDp(16),
+                    marginLeft: pxToDp(16),
                     flexDirection: 'row',
                     backgroundColor: 'white',
                     marginTop: pxToDp(8),
                     borderRadius: pxToDp(8),
-                    elevation: 8,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
-                    shadowColor: 'black',  //  阴影颜色
-                    shadowRadius: pxToDp(8),  //  圆角,
+                    elevation: 8, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                    shadowColor: 'black', //  阴影颜色
+                    shadowRadius: pxToDp(8), //  圆角,
                     marginBottom: pxToDp(8)
                   }}
                 >
@@ -155,8 +152,7 @@ export default class index extends PureComponent {
                       borderRadius: pxToDp(8)
                     }}
                     source={item.posters}
-                  >
-                  </ImageBackground>
+                  ></ImageBackground>
                   <View
                     style={{
                       margin: pxToDp(8),
@@ -166,15 +162,23 @@ export default class index extends PureComponent {
                   >
                     <View>
                       <Text
-                        style={{ fontSize: pxToDp(16), fontWeight: 'bold', color: '#000000' }}
+                        style={{
+                          fontSize: pxToDp(16),
+                          fontWeight: 'bold',
+                          color: '#000000'
+                        }}
                         numberOfLines={2}
                       >
                         {item.name}
                       </Text>
                     </View>
                     <View>
-                      <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>{item.date}</Text>
-                      <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>{item.place}</Text>
+                      <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
+                        {item.date}
+                      </Text>
+                      <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
+                        {item.place}
+                      </Text>
                     </View>
                     <View
                       style={{
@@ -191,13 +195,23 @@ export default class index extends PureComponent {
                           alignItems: 'center'
                         }}
                       >
-                        <Text style={{ fontSize: pxToDp(12), color: '#333333' }}>
+                        <Text
+                          style={{ fontSize: pxToDp(12), color: '#333333' }}
+                        >
                           {item.choose}
                         </Text>
                       </View>
                       <View style={{ flexDirection: 'row' }}>
-                        <Text style={{ color: '#f0bb51', fontSize: pxToDp(14) }}>￥{item.price}</Text>
-                        <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>起</Text>
+                        <Text
+                          style={{ color: '#f0bb51', fontSize: pxToDp(14) }}
+                        >
+                          ￥{item.price}
+                        </Text>
+                        <Text
+                          style={{ fontSize: pxToDp(14), color: '#333333' }}
+                        >
+                          起
+                        </Text>
                       </View>
                     </View>
                   </View>

@@ -348,7 +348,13 @@ class Index extends Component {
             <Hy />
           </View>
           {/*流派传奇 */}
-          <View style={{ marginLeft: pxToDp(16), marginTop: pxToDp(24), marginRight: pxToDp(16) }}>
+          <View
+            style={{
+              marginLeft: pxToDp(16),
+              marginTop: pxToDp(24),
+              marginRight: pxToDp(16)
+            }}
+          >
             <View
               style={{
                 flexDirection: 'row',
@@ -376,7 +382,16 @@ class Index extends Component {
                 </View>
               </TouchableOpacity>
             </View>
-            <View style={{ backgroundColor: '#f0bb51', height: pxToDp(100), width: pxToDp(100), marginBottom: pxToDp(-97), marginLeft: pxToDp(-3), borderRadius: pxToDp(8) }} />
+            <View
+              style={{
+                backgroundColor: '#f0bb51',
+                height: pxToDp(100),
+                width: pxToDp(100),
+                marginBottom: pxToDp(-97),
+                marginLeft: pxToDp(-3),
+                borderRadius: pxToDp(8)
+              }}
+            />
             <View
               style={{
                 backgroundColor: 'white',
@@ -391,7 +406,16 @@ class Index extends Component {
             >
               <Legend />
             </View>
-            <View style={{ backgroundColor: '#f0bb51', height: pxToDp(100), width: pxToDp(100), marginTop: pxToDp(-97), marginLeft: pxToDp(247), borderRadius: pxToDp(8) }} />
+            <View
+              style={{
+                backgroundColor: '#f0bb51',
+                height: pxToDp(100),
+                width: pxToDp(100),
+                marginTop: pxToDp(-97),
+                marginLeft: pxToDp(247),
+                borderRadius: pxToDp(8)
+              }}
+            />
           </View>
           {/*梨园子弟 */}
           <View
@@ -479,7 +503,12 @@ class Index extends Component {
                         <View style={styles.bookinf1}>
                           <View>
                             <Text
-                              style={{ fontSize: pxToDp(16), fontWeight: 'bold', color: '#333333', marginTop: pxToDp(-32) }}
+                              style={{
+                                fontSize: pxToDp(16),
+                                fontWeight: 'bold',
+                                color: '#333333',
+                                marginTop: pxToDp(-32)
+                              }}
                             >
                               {item.title}
                             </Text>
@@ -497,7 +526,14 @@ class Index extends Component {
                             />
                           </View>
                         </View>
-                        <Text style={{ fontSize: pxToDp(14), color: '#666666', marginTop: pxToDp(-32) }} numberOfLines={3}>
+                        <Text
+                          style={{
+                            fontSize: pxToDp(14),
+                            color: '#666666',
+                            marginTop: pxToDp(-32)
+                          }}
+                          numberOfLines={3}
+                        >
                           {item.context}
                         </Text>
                       </View>

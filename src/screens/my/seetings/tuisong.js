@@ -27,9 +27,9 @@ class Index extends PureComponent {
         <Top icon1="arrow-back" title="消息通知与推送" />
         <View
           style={{
-            marginTop:pxToDp(8),
-            marginRight:pxToDp(16),
-            marginLeft:pxToDp(16),
+            marginTop: pxToDp(8),
+            marginRight: pxToDp(16),
+            marginLeft: pxToDp(16),
             height: pxToDp(300)
           }}
         >
@@ -37,6 +37,8 @@ class Index extends PureComponent {
             <Text style={styles.kidbox1}>新消息通知</Text>
             <Switch
               style={{ marginRight: pxToDp(16) }}
+              thumbColor="#ecf6fc"
+              color="#468cd3"
               //动态改变value
               value={this.state.value1}
               //当切换开关室回调此方法
@@ -64,23 +66,41 @@ class Index extends PureComponent {
               shadowColor: 'black', //  阴影颜色
               shadowOffset: { width: 0, height: 0 }, // 阴影偏移
               shadowOpacity: 0.5, // 阴影不透明度
-              shadowRadius: pxToDp(16),
+              shadowRadius: pxToDp(16)
             }}
           >
             <View style={styles.kidbox2}>
-              <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>声音</Text>
-              <Ionicons name="chevron-forward" size={24} color="#666666" style={{ marginRight: pxToDp(8) }} />
+              <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>
+                声音
+              </Text>
+              <Ionicons
+                name="chevron-forward"
+                size={24}
+                color="#666666"
+                style={{ marginRight: pxToDp(8) }}
+              />
             </View>
             <View style={styles.kidbox2}>
-              <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>振动</Text>
-              <Ionicons name="chevron-forward" size={24} color="#666666" style={{ marginRight: pxToDp(8) }} />
+              <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>
+                振动
+              </Text>
+              <Ionicons
+                name="chevron-forward"
+                size={24}
+                color="#666666"
+                style={{ marginRight: pxToDp(8) }}
+              />
             </View>
 
             <View style={styles.kidbox2}>
-              <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>通知显示消息内容</Text>
+              <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>
+                通知显示消息内容
+              </Text>
               <Switch
                 //动态改变value
                 value={this.state.value2}
+                color="#468cd3"
+                thumbColor="#ecf6fc"
                 //当切换开关室回调此方法
                 onValueChange={(value2) => {
                   this.setState({ value2: value2 });
@@ -88,10 +108,14 @@ class Index extends PureComponent {
               />
             </View>
             <View style={styles.kidbox2}>
-              <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>锁屏显示消息弹框</Text>
+              <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>
+                锁屏显示消息弹框
+              </Text>
               <Switch
                 //动态改变value
                 value={this.state.value3}
+                thumbColor="#ecf6fc"
+                color="#468cd3"
                 //当切换开关室回调此方法
                 onValueChange={(value3) => {
                   this.setState({ value3: value3 });
@@ -99,10 +123,14 @@ class Index extends PureComponent {
               />
             </View>
             <View style={styles.kidbox2}>
-              <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>通知时指示灯闪烁</Text>
+              <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>
+                通知时指示灯闪烁
+              </Text>
               <Switch
                 //动态改变value
                 value={this.state.value4}
+                thumbColor="#ecf6fc"
+                color="#468cd3"
                 //当切换开关室回调此方法
                 onValueChange={(value4) => {
                   this.setState({ value4: value4 });
@@ -116,6 +144,8 @@ class Index extends PureComponent {
               <Switch
                 //动态改变value
                 value={this.state.value5}
+                thumbColor="#ecf6fc"
+                color="#468cd3"
                 //当切换开关室回调此方法
                 onValueChange={(value5) => {
                   this.setState({ value5: value5 });
@@ -123,10 +153,14 @@ class Index extends PureComponent {
               />
             </View>
             <View style={styles.kidbox2}>
-              <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>回复</Text>
+              <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>
+                回复
+              </Text>
               <Switch
                 //动态改变value
                 value={this.state.value6}
+                thumbColor="#ecf6fc"
+                color="#468cd3"
                 //当切换开关室回调此方法
                 onValueChange={(value6) => {
                   this.setState({ value6: value6 });
@@ -134,10 +168,14 @@ class Index extends PureComponent {
               />
             </View>
             <View style={styles.kidbox2}>
-              <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>@我</Text>
+              <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>
+                @我
+              </Text>
               <Switch
                 //动态改变value
                 value={this.state.value7}
+                thumbColor="#ecf6fc"
+                color="#468cd3"
                 //当切换开关室回调此方法
                 onValueChange={(value7) => {
                   this.setState({ value7: value7 });
@@ -145,10 +183,14 @@ class Index extends PureComponent {
               />
             </View>
             <View style={styles.kidbox2}>
-              <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>点赞</Text>
+              <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>
+                点赞
+              </Text>
               <Switch
                 //动态改变value
                 value={this.state.value8}
+                thumbColor="#ecf6fc"
+                color="#468cd3"
                 //当切换开关室回调此方法
                 onValueChange={(value8) => {
                   this.setState({ value8: value8 });
@@ -156,10 +198,14 @@ class Index extends PureComponent {
               />
             </View>
             <View style={styles.kidbox2}>
-              <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>新粉丝</Text>
+              <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>
+                新粉丝
+              </Text>
               <Switch
                 //动态改变value
                 value={this.state.value9}
+                thumbColor="#ecf6fc"
+                color="#468cd3"
                 //当切换开关室回调此方法
                 onValueChange={(value9) => {
                   this.setState({ value9: value9 });
@@ -167,10 +213,14 @@ class Index extends PureComponent {
               />
             </View>
             <View style={[styles.kidbox2, { borderBottomWidth: 0 }]}>
-              <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>聊天信息</Text>
+              <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>
+                聊天信息
+              </Text>
               <Switch
                 //动态改变value
                 value={this.state.value10}
+                thumbColor="#ecf6fc"
+                color="#468cd3"
                 //当切换开关室回调此方法
                 onValueChange={(value10) => {
                   this.setState({ value10: value10 });

@@ -18,14 +18,14 @@ import RBSheet from 'react-native-raw-bottom-sheet';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Swiper from '@components/common/Swiper';
 import { getShopInfo } from '@service/shop';
-import { EasyLoading, Loading } from '@utils/ezLoading';
 import changeImgSize from '@utils/changeImgSize';
 import Mybtn from '../../../../component/common/mybtn';
-import LinearGradient from 'react-native-linear-gradient';
+import AnimatedLoader from 'react-native-animated-loader';
 const WINDOW_WIDTH = Dimensions.get('window').width;
 class shopdetails extends PureComponent {
   state = {
     count: 1,
+    visible: true,
     //商品
     btnOpcity: false,
     products: [],
@@ -124,7 +124,7 @@ class shopdetails extends PureComponent {
   };
   componentDidMount() {
     const id = this.props.route.params;
-    EasyLoading.show('loading');
+
     getShopInfo(id)
       .then((res) => {
         this.setState({
@@ -135,7 +135,9 @@ class shopdetails extends PureComponent {
         });
       })
       .then(() => {
-        EasyLoading.dismiss();
+        this.setState({
+          visible: !this.state.visible
+        });
       });
   }
   //this.context.navigate('Myorder')acitveId
@@ -153,12 +155,18 @@ class shopdetails extends PureComponent {
     }
   };
   render() {
-    const { count, tabs, activeTab, activeSizeTab } = this.state;
+    const { count, tabs, activeTab, activeSizeTab, visible } = this.state;
     return (
       <View style={{ flex: 1, backgroundColor: '#ecf6fc' }}>
         {/* 顶部导航 */}
         <Top icon1="arrow-back" />
-        <Loading color="#468cd3" />
+        <AnimatedLoader
+          visible={visible}
+          overlayColor="rgba(255,255,255,0.75)"
+          source={require('../../../../../lottie/loading2.json')}
+          animationStyle={styles.lottie}
+          speed={1}
+        />
         <ScrollView
           showsVerticalScrollIndicator={false}
           // onMomentumScrollBegin={() => { this.setState({ btnOpcity: true }); console.log(this.state.btnOpcity); }}
@@ -598,6 +606,10 @@ const styles = StyleSheet.create({
     borderColor: '#f1f1f1',
     margin: pxToDp(8),
     marginBottom: 0
+  },
+  lottie: {
+    width: pxToDp(200),
+    height: pxToDp(200)
   }
 });
 export default shopdetails;
