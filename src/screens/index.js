@@ -156,3 +156,4 @@ export { default as Testtt } from '../testtt';
 export { default as ToSing } from './talk/home/sing';
 export { default as SingOver } from './play/study/singover';
 export { default as SingSub } from './play/study/singsub';
+export { default as Tv } from './talk/home/talkRoom/tv'

@@ -52,7 +52,7 @@ class Index extends PureComponent {
         end={{ x: 0, y: 0.8 }}
         style={{ flex: 1 }}
       >
-        <Top title="戏痴" />
+        <View style={{height:pxToDp(16),color:'white'}}></View>
         <ScrollView showsVerticalScrollIndicator={false}>
           {/*        
           <View style={{position:'absolute',width:400,height:400,bottom:350,borderRadius:100,alignSelf:'center',opacity:.4}}>

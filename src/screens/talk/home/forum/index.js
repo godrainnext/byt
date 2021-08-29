@@ -139,7 +139,7 @@ class Index extends PureComponent {
               <EZSwiper
                 style={[
                   styles.swiper,
-                  { width: width - 20, height: 180, marginLeft: pxToDp(10) }
+                  { width: width - pxToDp(32), height: 180,marginLeft:pxToDp(16) }
                 ]}
                 dataSource={[
                   {
@@ -166,10 +166,10 @@ class Index extends PureComponent {
             <Text
               style={{
                 fontSize: pxToDp(18),
-                color: '#000000',
+                color: '#468cd3',
                 fontWeight: 'bold',
                 marginTop: pxToDp(8),
-                marginLeft: pxToDp(8)
+                marginLeft: pxToDp(16)
               }}
             >
               热门话题

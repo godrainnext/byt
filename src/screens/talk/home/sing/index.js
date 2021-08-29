@@ -61,31 +61,49 @@ export default class hello extends Component {
             });
         };
         return (
-            <ScrollView style={styles.box} showsVerticalScrollIndicator = {false}>
+            <ScrollView style={styles.box} showsVerticalScrollIndicator={false}>
                 <View style={styles.touchbox}>
                     <TouchableNativeFeedback
-                    useForeground={true}
-                    onPress={() => this.context.navigate('Study')}>
+                        useForeground={true}
+                        onPress={() => this.context.navigate('Study')}>
                         <View style={styles.touch} >
-                        <Text style={styles.text1}>单人练唱</Text>
-                        <Text style={styles.text2}>个人练习</Text>
+                            <View>
+                                <Text style={styles.text1}>单人练唱</Text>
+                                <Text style={styles.text2}>个人练习</Text>
+                            </View>
+                            <Image style={styles.touchimage} source={require('../../../../res/麦.png')} />
                         </View>
                     </TouchableNativeFeedback>
-                    <TouchableNativeFeedback   
-                     useForeground={true}
-                    onPress={() => this.context.navigate('KaiFang')}>
-                    <View style={styles.touch} >
-                        <Text style={styles.text1}>创建歌房</Text>
-                        <Text style={styles.text2}>点击创建</Text>
+                    <TouchableNativeFeedback
+                        useForeground={true}
+                        onPress={() => this.context.navigate('KaiFang')}>
+                        <View style={styles.touch} >
+                            <View>
+                                <Text style={styles.text1}>创建歌房</Text>
+                                <Text style={styles.text2}>点击创建</Text>
+                            </View>
+                            <Image style={styles.touchimage} source={require('../../../../res/房子.png')} />
                         </View>
                     </TouchableNativeFeedback>
-
-                    <TouchableNativeFeedback       
-                     useForeground={true}
-                    onPress={() => this.Scrollable3.open()}>
-                     <View style={styles.touch} >
-                        <Text style={styles.text1}>加入歌房</Text>
-                        <Text style={styles.text2}>双人合唱</Text>
+                    <TouchableNativeFeedback
+                        useForeground={true}
+                        onPress={() => this.Scrollable3.open()}>
+                        <View style={styles.touch} >
+                            <View>
+                                <Text style={styles.text1}>加入歌房</Text>
+                                <Text style={styles.text2}>双人合唱</Text>
+                            </View>
+                            <Image style={styles.touchimage} source={require('../../../../res/加入.png')} />
+                        </View>
+                    </TouchableNativeFeedback>
+                    <TouchableNativeFeedback
+                        useForeground={true}>
+                        <View style={styles.touch} >
+                            <View>
+                                <Text style={styles.text1}>快速匹配</Text>
+                                <Text style={styles.text2}>随机寻找伙伴</Text>
+                            </View>
+                            <Image style={styles.touchimage} source={require('../../../../res/加入.png')} />
                         </View>
                     </TouchableNativeFeedback>
                     {/**查找房间 */}
@@ -119,7 +137,6 @@ export default class hello extends Component {
                                         ></TextInput>
                                     </View>
                                 </TouchableOpacity>
-                      
                                 <Mybtn
                                     title="进入房间"
                                     onPress={chafang}
@@ -129,7 +146,7 @@ export default class hello extends Component {
                                         height: pxToDp(40),
                                         alignSelf: 'center',
                                         borderRadius: pxToDp(32),
-                                        marginTop:pxToDp(29)
+                                        marginTop: pxToDp(29)
 
                                     }}
                                     titleStyle={{
@@ -193,69 +210,77 @@ export default class hello extends Component {
 }
 
 const styles = StyleSheet.create({
-  box: {
-    flex: 1,
-    backgroundColor: 'white',
-    padding: pxToDp(16)
-  },
-  touchbox: {
-    flexDirection: 'row',
-    justifyContent: 'space-between'
-  },
-  touch: {
-    width: '32%',
-    height: pxToDp(70),
-    backgroundColor: 'rgba(143,178,201,0.5)',
-    borderRadius: pxToDp(8),
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  text1: {
-    fontSize: pxToDp(18),
-    color: '#000000',
-    fontWeight: 'bold'
-  },
-  text2: {
-    fontSize: pxToDp(14),
-    color: '#666666'
-  },
-  linear: {
-    height: pxToDp(200),
-    marginTop: pxToDp(16),
-    borderRadius: pxToDp(8)
-  },
-  image: {
-    width: pxToDp(100),
-    height: pxToDp(100),
-    borderRadius: pxToDp(8)
-  },
-  text: {
-    fontSize: pxToDp(13),
-    color: 'white'
-  },
-  textbox: {
-    height: pxToDp(40),
-    width: pxToDp(180),
-    borderRadius: pxToDp(32),
-    backgroundColor: '#468cd3',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: pxToDp(8)
-  },
-  textinputbox: {
-    height: pxToDp(40),
-    width: pxToDp(180),
-    borderRadius: pxToDp(32),
-    backgroundColor: 'white',
-    marginTop: pxToDp(8),
-    borderColor: 'grey',
-    borderWidth: pxToDp(1)
-  },
-  gridContainer: {
-    height: '100%',
-    width: pxToDp(375),
-    alignItems: 'center',
-    alignSelf: 'center',
-    justifyContent: 'center'
-  }
+    box: {
+        flex: 1,
+        backgroundColor: 'white',
+        padding: pxToDp(16)
+    },
+    touchbox: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        justifyContent: 'space-between',
+    },
+    touch: {
+        width: pxToDp(165),
+        height: pxToDp(70),
+        backgroundColor: 'rgba(143,178,201,0.5)',
+        borderRadius: pxToDp(8),
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-around',
+        marginTop: pxToDp(8)
+    },
+    text1: {
+        fontSize: pxToDp(18),
+        color: '#000000',
+        fontWeight: 'bold'
+    },
+    text2: {
+        fontSize: pxToDp(14),
+        color: '#666666'
+    },
+    linear: {
+        height: pxToDp(200),
+        marginTop: pxToDp(16),
+        borderRadius: pxToDp(8)
+    },
+    image: {
+        width: pxToDp(100),
+        height: pxToDp(100),
+        borderRadius: pxToDp(8)
+    },
+    text: {
+        fontSize: pxToDp(13),
+        color: 'white'
+    },
+    textbox: {
+        height: pxToDp(40),
+        width: pxToDp(180),
+        borderRadius: pxToDp(32),
+        backgroundColor: '#468cd3',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: pxToDp(8)
+    },
+    textinputbox: {
+        height: pxToDp(40),
+        width: pxToDp(180),
+        borderRadius: pxToDp(32),
+        backgroundColor: 'white',
+        marginTop: pxToDp(8),
+        borderColor: 'grey',
+        borderWidth: pxToDp(1)
+    },
+    gridContainer: {
+        height: '100%',
+        width: pxToDp(375),
+        alignItems: 'center',
+        alignSelf: 'center',
+        justifyContent: 'center'
+    },
+    touchimage: {
+        height: pxToDp(50),
+        width: pxToDp(50),
+        borderRadius: pxToDp(25)
+    }
 });

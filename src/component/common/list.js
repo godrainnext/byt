@@ -8,7 +8,7 @@ class List extends PureComponent {
         return (
             <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginTop: pxToDp(8),marginRight:pxToDp(24),marginLeft:pxToDp(24)}}>
                 <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center' }}>
-                    <Ionicons name={this.props.icon} size={25} color="#468CD3" />
+                    <Ionicons name={this.props.icon} size={25} color="#62bfad" />
                     <Text style={{ fontSize: pxToDp(18), margin: pxToDp(8), marginLeft: pxToDp(16), color: '#333333' }}>{this.props.title}</Text>
                 </View>
                 <Ionicons name="chevron-forward" size={15} color="#666666" />
