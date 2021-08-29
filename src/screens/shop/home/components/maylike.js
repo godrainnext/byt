@@ -40,7 +40,7 @@ class Index extends PureComponent {
                 }}
               >
                 <View style={styles.bottext}>
-                  <Text style={{ color: '#f0bb51', fontSize: pxToDp(14) }}>
+                  <Text style={{ color: '#62bfad', fontSize: pxToDp(14) }}>
                     ￥{this.props.price}
                   </Text>
                   <Text style={{ color: '#999999', fontSize: pxToDp(12) }}>
@@ -63,10 +63,10 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     width: pxToDp(164),
     borderRadius: pxToDp(8),
-    marginTop:pxToDp(12),
-    elevation: 2,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
-    shadowColor: 'black',  //  阴影颜色
-    shadowRadius: pxToDp(8),  //  圆角
+    marginTop: pxToDp(12),
+    elevation: 2, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+    shadowColor: 'black', //  阴影颜色
+    shadowRadius: pxToDp(8) //  圆角
   },
   image: {
     height: pxToDp(170),
@@ -75,14 +75,13 @@ const styles = StyleSheet.create({
     borderTopRightRadius: pxToDp(8)
   },
   shopCar: {
-    elevation: 2,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
-    shadowColor: 'grey',  //  阴影颜色
-    shadowRadius: pxToDp(16),  //  圆角,
-    height: pxToDp(28),
-    width: pxToDp(28),
-    borderRadius: pxToDp(14),
+    height: pxToDp(32),
+    width: pxToDp(32),
+    borderRadius: pxToDp(16),
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    borderWidth: pxToDp(2),
+    borderColor: '#62bfad'
   }
 });
 
