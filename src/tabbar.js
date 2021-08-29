@@ -12,6 +12,7 @@ import LottieView from 'lottie-react-native';
 import Meun from './screens/test/test6';
 import { NavigationContext } from '@react-navigation/native';
 import Addmoment from './screens/talk/home/forum/addMoment';
+import { kaizhibo, fadongtai, kaifangjian } from './component/common/iconSvg';
 
 class Index extends PureComponent {
   static contextType = NavigationContext;
@@ -131,21 +132,27 @@ class Index extends PureComponent {
                       onPress={this.kaiBo}
                       style={{ justifyContent: 'center', alignItems: 'center' }}
                     >
-                      <View style={styles.textbox}></View>
+                      <View style={styles.textbox}>
+                        <Svg svgXmlData={kaizhibo} width="24" height="24" />
+                      </View>
                       <Text style={styles.text}>开直播</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                       onPress={this.kaiFang}
                       style={{ justifyContent: 'center', alignItems: 'center' }}
                     >
-                      <View style={styles.textbox}></View>
+                      <View style={styles.textbox}>
+                        <Svg svgXmlData={kaifangjian} width="24" height="24" />
+                      </View>
                       <Text style={styles.text}>开房间</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                       onPress={this.changeVisible}
                       style={{ justifyContent: 'center', alignItems: 'center' }}
                     >
-                      <View style={styles.textbox}></View>
+                      <View style={styles.textbox}>
+                        <Svg svgXmlData={fadongtai} width="24" height="24" />
+                      </View>
                       <Text style={styles.text}>发动态</Text>
                     </TouchableOpacity>
                   </View>
@@ -276,14 +283,10 @@ const styles = StyleSheet.create({
     height: pxToDp(40),
     width: pxToDp(40),
     borderRadius: pxToDp(30),
-
     alignItems: 'center',
-    justifyContent: 'center',
-    elevation: 2,
-    shadowColor: 'black',
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 1,
-    shadowRadius: 10
+    borderWidth: pxToDp(2),
+    borderColor: '#62bfad',
+    justifyContent: 'center'
   },
   image1: {
     height: pxToDp(160),
@@ -302,7 +305,7 @@ const styles = StyleSheet.create({
     width: pxToDp(180),
     borderRadius: pxToDp(30),
     backgroundColor: 'white',
-    marginTop: pxToDp(10),
+    marginTop: pxToDp(10)
   },
   modalView: {
     backgroundColor: 'white',
