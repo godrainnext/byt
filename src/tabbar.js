@@ -172,12 +172,13 @@ class Index extends PureComponent {
           </View>
         ),
         renderSelectedIcon: () => (
+          <View>
           <LottieView
             autoPlay={true}
             loop={true}
-            style={{ width: pxToDp(70), marginBottom: pxToDp(35) }}
+            style={{ width: pxToDp(70), marginBottom: pxToDp(35),position:'absolute'}}
             source={require('./lottie/lf30_editor_daidtw39.json')}
-          />
+          /></View>
         ),
         onPress: () => this.Scrollable1.open()
       },
@@ -223,7 +224,7 @@ class Index extends PureComponent {
     const { selectedTab, pages } = this.state;
     return (
       <View style={{ backgroundColor: '#fff', flex: 1 }}>
-        <TabNavigator style={{ backgroundColor: '#e2f4fe' }}>
+        <TabNavigator style={{ backgroundColor: 'red' }}>
           {pages.map((v, i) => (
             <TabNavigator.Item
               key={v.title}
@@ -275,7 +276,7 @@ const styles = StyleSheet.create({
     height: pxToDp(40),
     width: pxToDp(40),
     borderRadius: pxToDp(30),
-    backgroundColor: '#468cd3',
+
     alignItems: 'center',
     justifyContent: 'center',
     elevation: 2,

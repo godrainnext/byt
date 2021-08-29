@@ -50,7 +50,9 @@ export default memo(function Example(props) {
 
   return (
     <View style={styles.container}>
+      
       <ScrollTabView
+      tabBarUnderlineStyle={{backgroundColor:'#468cd3'}}
         headerHeight={headerHeight}
         renderScrollHeader={() => _renderScrollHeader(videoInfo)}
       >

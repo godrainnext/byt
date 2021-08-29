@@ -146,7 +146,7 @@ class Index extends Component {
         // }}
         renderStickyHeader={() => <Top title="越台" />}
         stickyHeaderHeight={pxToDp(50)}
-        parallaxHeaderHeight={220}
+        parallaxHeaderHeight={pxToDp(220)}
         backgroundSpeed={10}
         renderBackground={() => (
           <View style={{ padding: pxToDp(16) }}>
@@ -177,12 +177,12 @@ class Index extends Component {
           </View>
         )}
         //自定义头部内容
-        renderForeground={() => <View style={{ Top: 200, left: 100 }}></View>}
-        scrollableViewStyle={{ backgroundColor: '#fcfcfc' }}
+        renderForeground={() => <View style={{ Top: pxToDp(200), left:pxToDp(100) }}></View>}
+        scrollableViewStyle={{   backgroundColor:'acddfc'}}
       >
         <View
           style={{
-            flex: 1
+            flex: 1,
           }}
         >
           <View
