@@ -30,6 +30,7 @@ export default class hello extends Component {
               event.nativeEvent.contentOffset.y / 3
           });
         }}
+        renderStickyHeader={()=>{<View style={{backgroundColor:'#fff'}}><Text>11111</Text></View>}}
         showsVerticalScrollIndicator={false}
         stickyHeaderHeight={40}
         parallaxHeaderHeight={380}

@@ -172,7 +172,7 @@ class Index extends PureComponent {
           </View>
         ),
         renderSelectedIcon: () => (
-          <View>
+         
           <LottieView
             autoPlay={true}
             loop={true}
