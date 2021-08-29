@@ -6,7 +6,6 @@ import {
   Image,
   StyleSheet,
   ScrollView,
-  Alert,
   TouchableNativeFeedback
 } from 'react-native';
 import Top from '@components/common/top';
@@ -17,14 +16,6 @@ import Svg from 'react-native-svg-uri';
 import { shopCar } from '../../../../component/common/iconSvg';
 class Index extends PureComponent {
   static contextType = NavigationContext;
-  clicked() {
-    Alert.alert('', '加入购物车成功！', [
-      /**
-       *  注意参数名字一定不能错
-       */
-      { text: '确定', onPress: () => console.log('点击确定') }
-    ]);
-  }
   render() {
     return (
       <View style={styles.ocard}>
@@ -56,12 +47,9 @@ class Index extends PureComponent {
                     {this.props.number}人付款
                   </Text>
                 </View>
-                <TouchableOpacity
-                  style={styles.shopCar}
-                  onPress={() => this.clicked()}
-                >
+                <View style={styles.shopCar}>
                   <Svg width="24" height="24" svgXmlData={shopCar} />
-                </TouchableOpacity>
+                </View>
               </View>
             </View>
           </View>

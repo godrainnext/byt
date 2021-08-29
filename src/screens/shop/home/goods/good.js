@@ -162,7 +162,7 @@ class shopdetails extends PureComponent {
         <Top icon1="arrow-back" />
         <AnimatedLoader
           visible={visible}
-          overlayColor="rgba(255,255,255,0.75)"
+          overlayColor="rgba(0,0,0,0.75)"
           source={require('../../../../../lottie/loading2.json')}
           animationStyle={styles.lottie}
           speed={1}
@@ -182,10 +182,8 @@ class shopdetails extends PureComponent {
           style={{
             flex: 1
           }}
-          showsVerticalScrollIndicator={false}
         >
           {/* 商品图片 */}
-
           <View style={{ alignItems: 'center', marginTop: pxToDp(20) }}>
             <Swiper shopbanner={this.state.shopbanner} />
           </View>

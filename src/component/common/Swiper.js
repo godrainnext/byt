@@ -32,9 +32,6 @@ const MyCarousel = memo((props) => {
 
   return (
     <View style={styles.container}>
-      {/* <TouchableOpacity onPress={goForward}>
-                <Text>go to next slide</Text>
-            </TouchableOpacity> */}
       <Carousel
         ref={carouselRef}
         sliderWidth={pxToDp(380)}
@@ -43,13 +40,8 @@ const MyCarousel = memo((props) => {
         data={entries}
         renderItem={renderItem}
         hasParallaxImages={true}
-        // vertical={true}
         activeSlideOffset={0}
         loop={true}
-        //自动播放
-        // autoplay={true}
-        // autoplayDelay={500}
-        // autoplayInterval={3000}
       />
     </View>
   );
@@ -66,7 +58,7 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     flex: 1,
-    marginBottom: Platform.select({ ios: 0, android: 1 }), // Prevent a random Android rendering issue
+    marginBottom: Platform.select({ ios: 0, android: 1 }),
     borderRadius: 8
   },
   image: {
