@@ -129,15 +129,15 @@ export { default as Inluntan } from './talk/home/forum/inluntan';
 export { default as Forum } from './talk/home/forum/index'; //论坛页面
 export { default as Topic } from './talk/home/forum/topic'; //论坛页面
 
-export { default as Screenpaly } from './talk/home/script/screenplay'; //剧本1页面
-export { default as Screenpaly2 } from './talk/home/script/screenplay2'; //剧本2页面
-export { default as Screenpaly3 } from './talk/home/script/screenplay3'; //剧本3页面
-export { default as Screenpaly4 } from './talk/home/script/screenplay4'; //剧本4页面
-export { default as Screenpaly5 } from './talk/home/script/screenplay5'; //剧本5页面
-export { default as Screenpaly6 } from './talk/home/script/screenplay6'; //剧本6页面
-export { default as Screenpaly7 } from './talk/home/script/screenplay7'; //剧本7页面
-export { default as Screenpaly8 } from './talk/home/script/screenplay8'; //剧本8页面
-export { default as Screenpaly9 } from './talk/home/script/screenplay9'; //剧本9页面
+export { default as Screenpaly } from './talk/home/script/screenplay'; //追鱼唱词页面
+export { default as Screenpaly2 } from './talk/home/script/screenplay2'; //庵堂认母唱词页面
+export { default as Screenpaly3 } from './talk/home/script/screenplay3'; //梁祝唱词页面
+export { default as Screenpaly4 } from './talk/home/script/screenplay4'; //五女拜寿唱词页面
+export { default as Screenpaly5 } from './talk/home/script/screenplay5'; //王老虎抢亲唱词页面
+export { default as Screenpaly6 } from './talk/home/script/screenplay6'; //柳毅传书唱词页面
+export { default as Screenpaly7 } from './talk/home/script/screenplay7'; //碧玉簪唱词页面
+export { default as Screenpaly8 } from './talk/home/script/screenplay8'; //祥林嫂唱词页面
+export { default as Screenpaly9 } from './talk/home/script/screenplay9'; //山河恋唱词页面
 
 export { default as SeeZhiBo } from './talk/zhiboye/gindex';
 export { default as Video } from '../component/videoplayer/index'; //视频页
@@ -156,3 +156,4 @@ export { default as Testtt } from '../testtt';
 export { default as ToSing } from './talk/home/sing';
 export { default as SingOver } from './play/study/singover';
 export { default as SingSub } from './play/study/singsub';
+export { default as Tv } from './talk/home/talkRoom/tv'

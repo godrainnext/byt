@@ -159,11 +159,11 @@ class Login extends PureComponent {
         <Image
           source={require('./111.png')}
           style={{
-            width: pxToDp(150),
-            height: pxToDp(150),
+            width: pxToDp(200),
+            height: pxToDp(200),
             position: 'absolute',
-            left: pxToDp(120),
-            top: pxToDp(30)
+            left: pxToDp(70),
+            top: pxToDp(35)
           }}
         />
         <Animated.Text

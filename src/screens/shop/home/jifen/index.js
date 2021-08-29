@@ -9,19 +9,17 @@ import { addOrider } from '../../../../../src/service/shop/index';
 export default class index extends PureComponent {
   static contextType = NavigationContext;
   goCreateOrder = () => {
-    const { color, img, name, value } = this.props.route.params;
-    const data = {
-      color,
-      img,
-      name,
-      value
-    };
-    addOrider(data).then((res) =>
-      this.context.navigate('Jifenorder', {
-        ...data
-        //  address: this.state.defaultAddress
-      })
-    );
+    // const { color, img, name, value } = this.props.route.params;
+    // const data = {
+    //   color,
+    //   img,
+    //   name,
+    //   value
+    // };
+    // addOrider(data).then((res) =>, {
+    // ...data
+    //  address: this.state.defaultAddress);
+    this.context.navigate('Jifenorder');
   };
   render() {
     const {

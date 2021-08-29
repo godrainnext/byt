@@ -130,9 +130,8 @@ class Index extends PureComponent {
                                         width: pxToDp(100),
                                         height: pxToDp(100),
                                         marginTop: pxToDp(30),
-                                        borderRadius: pxToDp(100),
+                                        borderRadius: pxToDp(100)
                                     }}
-
                                 />
 
                                 <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-around', marginTop: pxToDp(35) }}>

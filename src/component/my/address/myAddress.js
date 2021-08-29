@@ -32,7 +32,7 @@ class MyAddress extends PureComponent {
             })
           }
         >
-          <List icon="cart-outline" title="收获地址" />
+          <List icon="cart-outline" title="收货地址" />
         </TouchableOpacity>
       </Fragment>
     );

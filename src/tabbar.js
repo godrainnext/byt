@@ -81,7 +81,7 @@ class Index extends PureComponent {
               autoPlay={this.state.isAuto}
               loop={this.state.isLoop}
               style={{ width: pxToDp(70), marginBottom: pxToDp(35) }}
-              source={require('./lottie/lf30_editor_daidtw39.json')}
+              source={require('../lottie/扇子.json')}
             />
             <RBSheet
               ref={(ref) => {
@@ -176,9 +176,9 @@ class Index extends PureComponent {
           <LottieView
             autoPlay={true}
             loop={true}
-            style={{ width: pxToDp(70), marginBottom: pxToDp(35),position:'absolute'}}
-            source={require('./lottie/lf30_editor_daidtw39.json')}
-          /></View>
+            style={{ width: pxToDp(70), marginBottom: pxToDp(35) }}
+            source={require('../lottie/扇子.json')}
+          />
         ),
         onPress: () => this.Scrollable1.open()
       },
@@ -240,7 +240,7 @@ class Index extends PureComponent {
                 borderRadius: 50
               }}
               tabStyle={{
-                backgroundColor: '#ecf6fc',
+                backgroundColor: 'white',
                 justifyContent: 'center',
                 padding: 10
               }}

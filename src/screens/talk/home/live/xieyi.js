@@ -9,6 +9,7 @@ export default class xieyi extends Component {
       <View style={{ backgroundColor: 'white', flex: 1 }}>
         <Top title="主播协议" icon1="arrow-back" />
         <ScrollView
+          showsVerticalScrollIndicator={false}
           style={{
             paddingBottom: 0,
             flex: 1
