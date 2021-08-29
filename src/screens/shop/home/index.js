@@ -7,10 +7,11 @@ import {
   StyleSheet,
   ScrollView,
   RefreshControl,
-  TouchableNativeFeedback
+  TouchableNativeFeedback,
+  TextInput
 } from 'react-native';
 
-import Top from '@components/common/top';
+import Top from '../../../component/common/myTop';
 import { pxToDp } from '@utils/styleKits';
 import Swiper from 'react-native-swiper';
 import { NavigationContext } from '@react-navigation/native';
@@ -51,8 +52,9 @@ class Index extends PureComponent {
   }
   render() {
     return (
-      <View style={{ flex: 1, backgroundColor: '#fff' }}>
-        <Top title="越市" />
+      <View style={{ flex: 1, backgroundColor: 'white' }}>
+        {/**搜索框*/}
+        <Top icon2="search" />
         <ScrollView
           bounces={true}
           refreshControl={
@@ -75,7 +77,7 @@ class Index extends PureComponent {
               autoplay={true}
               showsPagination={false}
               autoplayTimeout={3}
-              style={{ marginTop: pxToDp(8), marginBottom: pxToDp(8) }}
+              style={{ marginBottom: pxToDp(8) }}
             >
               <View style={styles.slide}>
                 <Image
@@ -104,7 +106,7 @@ class Index extends PureComponent {
               marginTop: pxToDp(-4)
             }}
           >
-            <Text style={styles.title}>长袖轻舞，越音袅袅</Text>
+            <Text style={styles.title}>越剧商城</Text>
           </View>
           <View
             style={{
@@ -166,7 +168,7 @@ class Index extends PureComponent {
               marginTop: pxToDp(8)
             }}
           >
-            <Text style={styles.title}>你可能喜欢</Text>
+            <Text style={styles.title}>猜你喜欢</Text>
           </View>
           <View
             style={{
@@ -201,6 +203,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     height: pxToDp(200),
+    marginTop: pxToDp(8),
     borderRadius: pxToDp(8)
   },
   tcard: {
@@ -226,7 +229,7 @@ const styles = StyleSheet.create({
     marginRight: pxToDp(16)
   },
   title: {
-    color: '#000000',
+    color: '#62bfad',
     fontSize: pxToDp(18),
     fontWeight: 'bold',
     marginTop: pxToDp(16),

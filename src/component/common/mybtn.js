@@ -13,7 +13,7 @@ class Mybtn extends PureComponent{
                    ViewComponent={LinearGradient}
                {...this.props}
                linearGradientProps={{
-                colors: ['#fa9222', '#ffd501'],
+                colors: ['#62bfad', '#62bfad'],
                 start: { x: 0, y: 0.5 },
                 end: { x: 1, y: 0.5 }
               }}

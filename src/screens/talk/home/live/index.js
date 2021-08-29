@@ -183,7 +183,9 @@ const styles = StyleSheet.create({
     height: pxToDp(200),
     width: pxToDp(355),
     borderRadius: pxToDp(8),
-    margin: pxToDp(10)
+    marginLeft:pxToDp(16),
+    marginRight:pxToDp(16),
+    marginTop:pxToDp(8)
   }
 });
 export default Index;

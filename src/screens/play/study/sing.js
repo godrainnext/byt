@@ -58,7 +58,7 @@ class Index extends PureComponent {
           }
           fd.append('staticId', 1);
           request.post({ url: '/uploads/music', data: fd }).then((res) => {
-            this.context.navigate('saveMusic', {
+            this.context.navigate('SingOver', {
               staticId: 1,
               sound: arr[0]
             });
@@ -228,7 +228,7 @@ class Index extends PureComponent {
         >
           <ScrollView
             showsVerticalScrollIndicator={false}
-            style={{ marginTop: pxToDp(60), marginBottom: pxToDp(60) }}
+            style={{ marginTop: pxToDp(65), marginBottom: pxToDp(65) }}
           >
             <View style={{ alignItems: 'center' }}>
               <Text

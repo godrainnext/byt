@@ -11,14 +11,13 @@ class Index extends PureComponent {
         //tabs 标题数组
         //activeTab 当前激活索引
         return (
-            <View>
-                <Top title="戏缘" />
+            <View style={{backgroundColor:'white'}}>
                 <View
                     style={{
                         flexDirection: 'row',
                         justifyContent: 'space-around',
-                        backgroundColor: '#E2F4FE',
-                        height: pxToDp(40),
+                        backgroundColor: 'white',
+                        height: pxToDp(60),
                         width:pxToDp(200)
                     }}
                 >

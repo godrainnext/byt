@@ -329,7 +329,8 @@ class Index extends PureComponent {
                   style={{
                     flexDirection: 'row',
                     justifyContent: 'space-around',
-                    marginBottom: pxToDp(10)
+                    marginBottom: pxToDp(10),
+                    alignItems:'center'
                   }}
                 >
                   <TouchableOpacity
@@ -470,7 +471,8 @@ class Index extends PureComponent {
                   style={{
                     flexDirection: 'row',
                     justifyContent: 'space-around',
-                    marginBottom: pxToDp(10)
+                    marginBottom: pxToDp(10),
+                    alignItems:'center'
                   }}
                 >
                   <TouchableOpacity

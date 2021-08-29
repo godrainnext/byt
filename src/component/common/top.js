@@ -21,7 +21,7 @@ export default class HeaderHaveBack extends PureComponent {
     return (
       <LinearGradient
         style={styles.box}
-        colors={['white', 'white']}
+        colors={['#62bfad', '#62bfad']}
         start={{ x: 0, y: 0 }}
         end={{ x: 0, y: 1.6 }}
       >
@@ -36,7 +36,7 @@ export default class HeaderHaveBack extends PureComponent {
             {this.props.icon1 ? (
               <TouchableOpacity onPress={() => this.context.goBack()}>
                 {/* <IconFont style={{ color: "#fff" }} name="iconfanhui" /> */}
-                <Ionicons name={this.props.icon1} size={25} color="#468CD3" />
+                <Ionicons name={this.props.icon1} size={25} color="white" />
               </TouchableOpacity>
             ) : null}
           </View>
@@ -89,6 +89,6 @@ const styles = StyleSheet.create({
   },
   textstyle: {
     fontSize: pxToDp(18),
-    color: '#468CD3'
+    color: 'white'
   }
 });

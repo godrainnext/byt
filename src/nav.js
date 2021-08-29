@@ -254,6 +254,7 @@ function Nav() {
         <Stack.Screen name="RegInfo" component={Screens.RegInfo} />
         <Stack.Screen name="SingOver" component={Screens.SingOver} />
         <Stack.Screen name="SingSub" component={Screens.SingSub} />
+        <Stack.Screen name="Tv" component={Screens.Tv} />
       </Stack.Navigator>
     </NavigationContainer>
   );
