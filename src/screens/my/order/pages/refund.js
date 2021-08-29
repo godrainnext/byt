@@ -1,5 +1,12 @@
 import React, { PureComponent } from 'react';
-import { View, Text, Image, TouchableOpacity, Alert } from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  Alert,
+  ScrollView
+} from 'react-native';
 import { pxToDp } from '../../../../utils/styleKits';
 import Top from '../../../../component/common/top';
 import { connect } from 'react-redux';
@@ -29,7 +36,7 @@ class Index extends PureComponent {
     return (
       <View style={{ backgroundColor: '#E2F4FE', flex: 1 }}>
         <Top icon1="arrow-back" title="售后/退款" />
-        <View>
+        <ScrollView showsVerticalScrollIndicator={false}>
           {this.state.orider?.map((item) => (
             <View
               key={item.oriderId}
@@ -110,7 +117,7 @@ class Index extends PureComponent {
               </View>
             </View>
           ))}
-        </View>
+        </ScrollView>
       </View>
     );
   }
