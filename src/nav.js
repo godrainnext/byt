@@ -10,9 +10,10 @@ const Stack = createStackNavigator();
 function Nav() {
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode="none" initialRouteName="Login">
+      <Stack.Navigator headerMode="none" initialRouteName="BootPage">
         <Stack.Screen name="NewTimeLine" component={Screens.NewTimeLine} />
-
+        <Stack.Screen name="BootPage" component={Screens.BootPage} />
+        {/*引导页 */}
         <Stack.Screen name="Tabbar" component={Tabbar} />
         {/*登录 */}
         <Stack.Screen name="Login" component={Screens.Login} />

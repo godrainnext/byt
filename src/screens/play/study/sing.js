@@ -40,7 +40,6 @@ class Index extends PureComponent {
         onPress: async () => {
           if (this.state.isrecoding) {
             await this.stopRecording();
-            this.context.navigate("SingOver")
           }
           console.log(this.state.isrecoding);
           const fd = new FormData();
@@ -144,10 +143,10 @@ class Index extends PureComponent {
           <TouchableOpacity
             style={{ alignItems: 'center' }}
             onPress={() => {
-              console.log(video.current);
+        
               this.state.status.isPlaying
-                ? video.current.pauseAsync()
-                : video.current.playAsync();
+                ? this.video.pauseAsync()
+                : this.video.playAsync();
             }}
           >
             <Ionicons name="musical-notes-outline" size={25} color="grey" />
@@ -177,7 +176,7 @@ class Index extends PureComponent {
           >
             <LottieView
               style={{ width: pxToDp(100) }}
-              source={require('../../../../lottie/练唱按钮1.json')}
+              source={require('../../../../lottie/练唱.json')}
               ref={animation => {
                 this.animation = animation;
               }}
@@ -211,7 +210,7 @@ class Index extends PureComponent {
     )
   }
   render() {
-    const video = createRef();
+
     const { showLoading } = this.state
     return (
       <View
@@ -404,7 +403,7 @@ class Index extends PureComponent {
             </View>
             <View style={{ alignItems: 'center', justifyContent: 'center' }}>
               <Video
-                ref={video}
+                ref={el=>this.video=el}
                 source={require('../study/越剧追鱼.mp3')}
                 resizeMode="contain"
                 onPlaybackStatusUpdate={(status) => this.setState({ status })}
