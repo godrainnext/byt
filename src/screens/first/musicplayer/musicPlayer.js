@@ -248,7 +248,7 @@ export default class MusicPlayer extends Component {
     // console.log(musicInfo);
     const { musicInfo, autoPlay } = this.state
     const { ArrIndex } = this.state
-
+    console.log(this.state.currentTime);
     return (
       <View style={{ width: '100%', height: '100%' }}>
         <View style={styles.bgContainer}>
@@ -260,57 +260,77 @@ export default class MusicPlayer extends Component {
               position: 'absolute',
               top: pxToDp(40),
               left: pxToDp(50),
-              transform: [{
-                rotate: this.state.spinValue.interpolate({
-                  inputRange: [0, 1],
-                  outputRange: ['0deg', '360deg']
-                })
-              }]
+              transform: [
+                {
+                  rotate: this.state.spinValue.interpolate({
+                    inputRange: [0, 1],
+                    outputRange: ['0deg', '360deg']
+                  })
+                }
+              ]
             }}
-            source={require('./CD2.png')} />
+            source={require('./CD2.png')}
+          />
           <LottieView
             style={{ marginLeft: pxToDp(-16), marginTop: pxToDp(-50) }}
             source={require('../../../../lottie/波纹效果.json')}
-            ref={animation => {
+            ref={(animation) => {
               this.animation = animation;
             }}
             loop
           />
 
-          <Image
-            style={styles.image}
-            source={{ uri: musicInfo.cover }}
-          />
+          <Image style={styles.image} source={{ uri: musicInfo.cover }} />
           <View style={{ flex: 1 }}>
-            <View style={{ justifyContent: 'space-between', height: pxToDp(230), marginTop: pxToDp(50), marginLeft: pxToDp(220), alignItems: 'center' }}>
+            <View
+              style={{
+                justifyContent: 'space-between',
+                height: pxToDp(230),
+                marginTop: pxToDp(50),
+                marginLeft: pxToDp(220),
+                alignItems: 'center'
+              }}
+            >
               {/* 喜欢 */}
-              <Icon name={'heart'} size={pxToDp(20)} color='grey' />
+              <Icon name={'heart'} size={pxToDp(20)} color="grey" />
               {/* 下载 */}
-              <Icon1 name={'file-download'} size={pxToDp(20)} color='grey' />
+              <Icon1 name={'file-download'} size={pxToDp(20)} color="grey" />
               {/* 上一首 */}
               <TouchableOpacity
                 onPress={() => this.preSong(this.state.currentIndex - 1)}
               >
-                <Icon1 name={'skip-previous'} size={pxToDp(25)} color='grey' />
+                <Icon1 name={'skip-previous'} size={pxToDp(25)} color="grey" />
               </TouchableOpacity>
               {/* 下一首 */}
               <TouchableOpacity
                 onPress={() => this.nextSong(this.state.currentIndex + 1)}
               >
-                <Icon1 name={'skip-next'} size={pxToDp(25)} color='grey' />
+                <Icon1 name={'skip-next'} size={pxToDp(25)} color="grey" />
               </TouchableOpacity>
               {/**播放暂停 */}
               <TouchableOpacity
-                style={{ width: pxToDp(46), height: pxToDp(46), borderRadius: pxToDp(24), borderWidth: pxToDp(0.5), borderColor: 'grey', justifyContent: 'center', alignItems: 'center' }}
+                style={{
+                  width: pxToDp(46),
+                  height: pxToDp(46),
+                  borderRadius: pxToDp(24),
+                  borderWidth: pxToDp(0.5),
+                  borderColor: 'grey',
+                  justifyContent: 'center',
+                  alignItems: 'center'
+                }}
                 onPress={() => {
                   this.play();
                   this.toContr();
                   // this.toPlay();
-                  this.setState({ autoPlay: !autoPlay })
+                  this.setState({ autoPlay: !autoPlay });
                   console.log(autoPlay);
                 }}
               >
-                <Icon1 name={this.state.playIcon} size={pxToDp(20)} color='grey' />
+                <Icon1
+                  name={this.state.playIcon}
+                  size={pxToDp(20)}
+                  color="grey"
+                />
               </TouchableOpacity>
             </View>
             <View style={{ marginLeft: pxToDp(40), marginTop: pxToDp(-20) }}>
@@ -318,7 +338,16 @@ export default class MusicPlayer extends Component {
               <Text style={styles.subTitle}>{musicInfo.title}</Text>
             </View>
             <View style={styles.progressStyle}>
-              <Text style={{ width: pxToDp(35), fontSize: pxToDp(12), color: '#999999', marginLeft: pxToDp(5) }}>{this.formatMediaTime(Math.floor(this.state.currentTime))}</Text>
+              <Text
+                style={{
+                  width: pxToDp(35),
+                  fontSize: pxToDp(12),
+                  color: '#999999',
+                  marginLeft: pxToDp(5)
+                }}
+              >
+                {this.formatMediaTime(Math.floor(this.state.currentTime))}
+              </Text>
               <Slider
                 style={styles.slider}
                 value={this.state.slideValue}
@@ -326,35 +355,39 @@ export default class MusicPlayer extends Component {
                 minimumTrackTintColor={commonStyle.themeColor}
                 maximumTrackTintColor={commonStyle.iconGray}
                 step={1}
-                onValueChange={value => this.setState({ currentTime: value })}
-                onSlidingComplete={value => this.player.seek(value)}
+                onValueChange={(value) => this.setState({ currentTime: value })}
+                onSlidingComplete={(value) => this.player.seek(value)}
               />
-              <View style={{ width: pxToDp(35), alignItems: 'flex-end', marginRight: pxToDp(5) }}>
-                <Text style={{ fontSize: pxToDp(12), color: '#999999' }}>{this.formatMediaTime(Math.floor(this.state.duration))}</Text>
+              <View
+                style={{
+                  width: pxToDp(35),
+                  alignItems: 'flex-end',
+                  marginRight: pxToDp(5)
+                }}
+              >
+                <Text style={{ fontSize: pxToDp(12), color: '#999999' }}>
+                  {this.formatMediaTime(Math.floor(this.state.duration))}
+                </Text>
               </View>
             </View>
           </View>
           <Video
-            ref={video => this.player = video}
+            ref={(video) => (this.player = video)}
             source={{ uri: musicInfo.url }}
             volume={1.0}
             paused={this.state.paused}
             playInBackground={true}
-            onLoadStart={this.loadStart}
-            onLoad={data => this.setDuration(data)}
+            onLoad={(data) => this.setDuration(data)}
             onProgress={(data) => this.setTime(data)}
             onEnd={(data) => this.onEnd(data)}
             onError={(data) => this.videoError(data)}
-            onBuffer={this.onBuffer}
-            onTimedMetadata={this.onTimedMetadata} />
+          />
         </View>
         <View style={{ width: '100%', flex: 1, zIndex: 9999, elevation: 9999 }}>
           <AlwaysOpen ArrData={ArrIndex} />
         </View>
       </View>
-
-
-    )
+    );
   }
 
   imageLoaded() {

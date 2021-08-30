@@ -40,10 +40,10 @@ export default class paySuccess extends Component {
     console.log(this.props.route.params);
     return (
       <View>
-        <Top title="支付状态" icon1="arrow-back" />
+        <Top title="" icon1="arrow-back" />
         <View style={{ alignSelf: 'center', marginTop: pxToDp(60) }}>
           <LottieView
-            style={{ width: pxToDp(150) }}
+            style={{ width: pxToDp(200) }}
             source={require('../../../../lottie/okey.json')}
             autoPlay
             loop={false}
@@ -53,7 +53,7 @@ export default class paySuccess extends Component {
               fontSize: pxToDp(24),
               alignSelf: 'center',
               marginTop: pxToDp(20),
-              color: '#468cd3'
+              color: '#62bfad'
             }}
           >
             支付成功
@@ -73,7 +73,7 @@ export default class paySuccess extends Component {
               width: pxToDp(120),
               height: pxToDp(40),
               alignSelf: 'flex-end',
-              borderRadius: pxToDp(32),
+              borderRadius: pxToDp(32)
             }}
             titleStyle={{
               color: 'white',
@@ -87,7 +87,7 @@ export default class paySuccess extends Component {
               width: pxToDp(120),
               height: pxToDp(40),
               alignSelf: 'flex-end',
-              borderRadius: pxToDp(32),
+              borderRadius: pxToDp(32)
             }}
             titleStyle={{
               color: 'white',

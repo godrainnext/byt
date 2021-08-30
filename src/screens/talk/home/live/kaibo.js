@@ -602,7 +602,7 @@ const styles = StyleSheet.create({
   },
   buttonHolder: {
     flex: 1,
-    marginTop: pxToDp(500)
+    marginTop: pxToDp(544)
   },
   button: {
     paddingHorizontal: 20,

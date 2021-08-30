@@ -75,7 +75,7 @@ class SwiperListItem extends PureComponent {
               width: pxToDp(320),
               height: pxToDp(40),
               alignSelf: 'center',
-              borderRadius: pxToDp(32),
+              borderRadius: pxToDp(32)
             }}
             titleStyle={{
               color: 'white',

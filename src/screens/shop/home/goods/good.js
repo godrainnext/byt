@@ -516,7 +516,6 @@ class shopdetails extends PureComponent {
           <View style={{ marginTop: 40 }}>
             <Mybtn
               title="提交订单"
-              style={{ width: pxToDp(120), height: pxToDp(40), alignSelf: 'center' }}
               onPress={this.goCreateOrider}
               containerStyle={{
                 position: 'absolute',
@@ -556,8 +555,7 @@ class shopdetails extends PureComponent {
               borderRadius: pxToDp(40),
               alignSelf: 'center',
               color: 'red',
-              display: 'none',
-              marginBottom: pxToDp(5)
+              display: 'none'
             }}
             buttonStyle={{
               width: '100%',

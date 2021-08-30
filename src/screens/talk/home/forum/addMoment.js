@@ -266,7 +266,7 @@ class index extends PureComponent {
         <View
           style={{
             alignItems: 'center',
-            marginTop: pxToDp(70)
+            marginTop: pxToDp(87)
           }}
         >
           <Mybtn
