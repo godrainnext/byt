@@ -47,10 +47,10 @@ export default class HighLights extends PureComponent {
             style={{ flexDirection: 'row', alignItems: 'center' }}
             onPress={() => this.context.navigate('Opera')}
           >
-            <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
+            <Text style={{ fontSize: pxToDp(14), color: '#666666' }}>
               查看更多
             </Text>
-            <Ionicons name="chevron-forward" size={18} color="#666666" />
+            <Ionicons name="chevron-forward" size={16} color="#666666" />
           </TouchableOpacity>
         </View>
         <ScrollView

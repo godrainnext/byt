@@ -129,7 +129,7 @@ class Index extends PureComponent {
             autoPlay={true}
             loop={false}
           />
-          <Text style={{ fontSize: pxToDp(14), color: '#000000', marginTop: pxToDp(-75), fontWeight: 'bold' }}>开始练唱</Text>
+          <Text style={{ fontSize: pxToDp(14), color: 'white', marginTop: pxToDp(-75), fontWeight: 'bold' }}>开始练唱</Text>
         </TouchableOpacity>
       </View>
     )
