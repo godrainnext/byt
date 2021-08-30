@@ -5,6 +5,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Feather from 'react-native-vector-icons/Feather';
 import { NavigationContext } from '@react-navigation/native';
 import { pxToDp, screenWidth } from '../../utils/styleKits';
+import Mybtn from './mybtn';
 export default class HeaderHaveBack extends PureComponent {
   state = {
     modalVisible: false,
@@ -71,22 +72,24 @@ export default class HeaderHaveBack extends PureComponent {
                       <Text>收藏</Text>
                     </TouchableOpacity>
                   </View>
-                  <TouchableOpacity
+                  <Mybtn
+                    title="取消"
                     onPress={() => {
                       this.setModalVisible(!modalVisible);
                     }}
-                    style={{
-                      borderWidth: pxToDp(1),
-                      borderColor: 'black',
-                      height: pxToDp(25),
-                      width: pxToDp(200),
-                      borderRadius: pxToDp(16),
-                      alignItems: 'center',
-                      marginTop: pxToDp(20)
+                    buttonStyle={{
+                      width: pxToDp(90),
+                      height: pxToDp(30),
+                      alignSelf: 'center',
+                      borderRadius: pxToDp(32),
+                      marginTop: pxToDp(32)
                     }}
-                  >
-                    <Text style={{ fontSize: pxToDp(14) }}>取消</Text>
-                  </TouchableOpacity>
+                    titleStyle={{
+                      color: 'white',
+                      marginTop: pxToDp(-3),
+                      fontSize: pxToDp(14)
+                    }}
+                  />
                 </View>
               </View>
             </View>

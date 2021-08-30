@@ -8,7 +8,8 @@ import {
   TouchableOpacity,
   ImageBackground,
   Modal,
-  Alert
+  Alert,
+  Dimensions
 } from 'react-native';
 import { pxToDp } from '@utils/styleKits';
 import { NavigationContext } from '@react-navigation/native';
@@ -28,6 +29,12 @@ import { useRef } from 'react';
 import { PureComponent } from 'react';
 import LottieView from 'lottie-react-native';
 import changeImgSize from '../../../../utils/changeImgSize';
+import Mybtn from '../../../../component/common/mybtn';
+import Lightbox from 'react-native-lightbox';
+import Carousel from 'react-native-looped-carousel';
+
+const WINDOW_WIDTH = Dimensions.get('window').width;
+
 
 const Music = memo(function (props) {
   const video = useRef();
@@ -43,14 +50,14 @@ const Music = memo(function (props) {
             width: 70,
             overflow: 'hidden',
             justifyContent: 'flex-end',
-            alignItems:'center',
+            alignItems: 'center',
             height: '100%',
             left: 20,
             bottom: 15,
           }}
         >
           <LottieView
-            style={{ height: pxToDp(20), alignSelf: 'center',justifyContent:'center' }}
+            style={{ height: pxToDp(20), alignSelf: 'center', justifyContent: 'center' }}
             source={require('../../../../../lottie/40716-musicsoundequalizer.json')}
             autoPlay={true}
             loop
@@ -66,7 +73,7 @@ const Music = memo(function (props) {
         onPlaybackStatusUpdate={props.onPlaybackStatusUpdate}
       />
       <TouchableOpacity
-        style={{ position: 'absolute', bottom:pxToDp(12), right:pxToDp(16), opacity: 0.5 }}
+        style={{ position: 'absolute', bottom: pxToDp(12), right: pxToDp(16), opacity: 0.5 }}
         onPress={() =>
           props.status.isPlaying
             ? video.current.pauseAsync()
@@ -83,24 +90,40 @@ const Music = memo(function (props) {
   );
 });
 const Article = memo((props) => {
+ const  renderCarousel = (img) => (
+    <Carousel style={{ height: WINDOW_WIDTH }}>
+        <Image
+          key={img}
+          style={{ flex: 1 }}
+          resizeMode="contain"
+          source={{ uri: img }}
+        />
+    </Carousel>
+  );
   return (
     <ScrollView
       style={{ height: pxToDp(120), marginTop: pxToDp(10) }}
       horizontal={true}
       showsHorizontalScrollIndicator={false}
-    >
+    > 
       {props.item.images?.map((item, index) => (
-        <Image
-          key={item}
-          style={{
-            width: pxToDp(155),
-            height: '100%',
-            borderRadius: pxToDp(10),
-            marginRight: pxToDp(10)
-          }}
-          source={{ uri: item }}
-        />
-      ))}
+       <Lightbox
+       springConfig={{ tension: 15, friction: 7 }}
+       swipeToDismiss={true}
+       renderContent={()=>renderCarousel(item)}
+     >
+          <Image
+            key={item}
+            style={{
+              width: pxToDp(200),
+              height: '100%',
+              borderRadius: pxToDp(10),
+              marginRight: pxToDp(10)
+            }}
+            source={{ uri: item }}
+          />
+       </Lightbox>
+      ))} 
     </ScrollView>
   );
 });
@@ -110,6 +133,7 @@ class Index extends PureComponent {
     status: {},
     count: 0
   };
+
   setModalVisible = (visible) => {
     this.setState({ modalVisible: visible });
   };
@@ -197,29 +221,30 @@ class Index extends PureComponent {
                       <Text style={{ fontSize: pxToDp(12), color: '#333333' }}>收藏</Text>
                     </TouchableOpacity>
                   </View>
-                  <TouchableOpacity
+                  <Mybtn
+                    title="取消"
                     onPress={() => {
                       this.setModalVisible(!modalVisible);
                     }}
-                    style={{
-                      borderWidth: pxToDp(1),
-                      borderColor: 'black',
-                      height: pxToDp(25),
-                      width: pxToDp(200),
-                      borderRadius: pxToDp(12),
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      marginTop: pxToDp(20)
+                    buttonStyle={{
+                      width: pxToDp(105),
+                      height: pxToDp(35),
+                      alignSelf: 'center',
+                      borderRadius: pxToDp(32),
+                      marginTop: pxToDp(32)
                     }}
-                  >
-                    <Text style={{ fontSize: pxToDp(12), color: '#333333' }}>取消</Text>
-                  </TouchableOpacity>
+                    titleStyle={{
+                      color: 'white',
+                      marginTop: pxToDp(-3),
+                      fontSize: pxToDp(14)
+                    }}
+                  />
                 </View>
               </View>
             </View>
           </Modal>
         </View>
-        <ScrollView showsVerticalScrollIndicator = {false}>
+        <ScrollView showsVerticalScrollIndicator={false}>
           <View
             style={{
               paddingLeft: pxToDp(16),
@@ -303,6 +328,7 @@ class Index extends PureComponent {
                 >
                   <TouchableOpacity
                     onPress={() => {
+                      console.log(item.id);
                       this.context.navigate('Inluntan', {
                         mid: item.id,
                         uid: item.user.id
@@ -330,7 +356,7 @@ class Index extends PureComponent {
                     flexDirection: 'row',
                     justifyContent: 'space-around',
                     marginBottom: pxToDp(10),
-                    alignItems:'center'
+                    alignItems: 'center'
                   }}
                 >
                   <TouchableOpacity
@@ -355,6 +381,7 @@ class Index extends PureComponent {
                   </TouchableOpacity>
                   <TouchableOpacity
                     onPress={() =>
+                      
                       this.context.navigate('Inluntan', {
                         mid: item.id,
                         uid: item.user.id
@@ -472,7 +499,7 @@ class Index extends PureComponent {
                     flexDirection: 'row',
                     justifyContent: 'space-around',
                     marginBottom: pxToDp(10),
-                    alignItems:'center'
+                    alignItems: 'center'
                   }}
                 >
                   <TouchableOpacity
@@ -538,7 +565,7 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-    elevation:2
+    elevation: 2
   },
   textStyle: {
     color: 'white',

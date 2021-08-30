@@ -46,6 +46,7 @@ class Index extends PureComponent {
         this.setState({ mycomment: '' });
         getMomentInnerById(this.props.route.params.mid)
           .then((res) => {
+          
             this.setState({ inner: { ...res } });
           })
           .catch((err) => console.log(err));
@@ -55,6 +56,7 @@ class Index extends PureComponent {
   componentDidMount() {
     getMomentInnerById(this.props.route.params.mid)
       .then((res) => {
+        console.log(res);
         this.setState({ inner: { ...res } });
       })
       .catch((err) => console.log(err));
@@ -217,7 +219,7 @@ class Index extends PureComponent {
                   }}
                   titleStyle={{
                     color: 'white',
-                    marginTop: pxToDp(-5),
+                    marginTop: pxToDp(-3),
                     fontSize: pxToDp(14)
                   }}
                 />

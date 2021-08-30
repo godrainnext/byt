@@ -4,8 +4,6 @@ import CustormerBar from './components/CustormerBar';
 import Live from './live';
 import Forum from './forum/index';
 import Sing from './sing/index'
-import { View } from 'react-native';
-import Top from '@components/common/top';
 import { pxToDp } from '../../../utils/styleKits';
 
 export default memo(() => {
