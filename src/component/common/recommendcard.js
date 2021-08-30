@@ -8,10 +8,10 @@ import ImagePicker from 'react-native-image-crop-picker';
 import Swiper from "react-native-deck-swiper";
 import { NavigationContext } from "@react-navigation/native";
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import Home  from '../../component/first/card/home';
 
 const { height, width } = Dimensions.get('window');
 const BASE_URI = "http://192.168.50.118:3000";
-
 class index extends Component {
   constructor(props) {
     super(props);
@@ -202,8 +202,8 @@ class index extends Component {
         testID={'modal'}
         isVisible={isModalVisible}
         // isVisible={this.isVisible()}
-        backdropColor="#B4B3DB"
-        backdropOpacity={0.8}
+        backdropColor="#000"
+        backdropOpacity={0.5}
         onBackdropPress={toggleModalProps}
         animationIn="zoomInDown"
         animationOut="zoomOutUp"
@@ -214,118 +214,7 @@ class index extends Component {
         scrollOffsetMax={400 - 300} // content height - ScrollView height
         propagateSwipe={true} //是否可滑动
       >
-        <View
-          style={{
-            flex: 1,
-            borderRadius: pxToDp(16),
-            padding: 10,
-            marginTop: pxToDp(80)
-          }}
-        >
-          <View style={{ height: '100%' }}>
-            <View style={{ alignItems: 'flex-end' }}>
-              <TouchableOpacity
-                style={{
-                  width: pxToDp(40),
-                  height: pxToDp(40),
-                  marginBottom: pxToDp(-17),
-                  marginRight: pxToDp(20)
-                }}
-                onPress={toggleModalProps}
-              >
-                <Ionicons
-                  name="md-close-circle-outline"
-                  size={30}
-                  color="white"
-                />
-              </TouchableOpacity>
-              <View
-                style={{
-                  borderColor: 'white',
-                  borderWidth: pxToDp(1),
-                  height: pxToDp(70),
-                  marginRight: pxToDp(46),
-                }}
-              ></View>
-            </View>
-            <View style={styles.container}>
-              {cards[currentIndex] ? (
-                <Swiper
-                  cards={cards}
-                  renderCard={(card) => {
-                    return (
-                      <View style={styles.card}>
-                        <TouchableOpacity
-                        activeOpacity={1}
-                          style={{
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                          }}
-                          onPress={() => {
-                            toggleModalProps()
-                            this.context.navigate('Pagefive', 69)
-                          }}
-                        >
-                          <Image
-                            style={{
-                              width: pxToDp(270),
-                              marginTop: pxToDp(-15),
-                              height: pxToDp(160),
-                              borderRadius: pxToDp(16)
-                            }}
-                            source={{ uri: cards[currentIndex].uri }}
-                          ></Image>
-                          {/* <Text style={styles.text}>{card}</Text> */}
-                          {/* 标题名 */}
-                          <View
-                            style={{
-                              width: pxToDp(200),
-                              marginTop:pxToDp(15)
-                            }}
-                          >
-                            <Text
-                              style={{
-                                fontSize: pxToDp(18),
-                                fontWeight: 'bold',
-                                textAlign: 'center'
-                              }}
-                            >
-                              {cards[currentIndex].title}
-                            </Text>
-                          </View>
-                          {/* 主题内容 */}
-                          <View
-                            style={{
-                              width: pxToDp(300),
-                              marginTop:pxToDp(15)
-                            }}
-                          >
-                            <Text style={{ fontSize: pxToDp(16), textAlign: 'center' }}>
-                              {cards[currentIndex].context}
-                            </Text>
-                          </View>
-                        </TouchableOpacity>
-                      </View>
-                    );
-                  }}
-                  // onSwiped={(cardIndex) => {console.log(cardIndex)}}
-                  onSwiped={() => {
-                    this.setState({
-                      currentIndex: this.state.currentIndex + 1
-                    });
-                  }}
-                  // cardIndex={0}
-                  cardIndex={currentIndex}
-                  backgroundColor={'transparent'}
-                  cardVerticalMargin={45}
-                  stackSize={3}
-                ></Swiper>
-              ) : (
-                <></>
-              )}
-            </View>
-          </View>
-        </View>
+        <Home />
       </Modal>
     );
   }

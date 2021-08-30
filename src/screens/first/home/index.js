@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ImageFade from './imgaefade'
+import ImageFade from './imgaefade';
 import {
   View,
   Text,
@@ -26,16 +26,9 @@ import RecommendCard from '../../../component/common/recommendcard';
 import Qiandao from '../../../component/common/qiandao';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Svg from 'react-native-svg-uri';
-import {
-  star,
-  right,
-  jinpai,
-  yinpai,
-  tongpai
-} from '../../../component/common/iconSvg';
+import { star } from '../../../component/common/iconSvg';
 import { Carousel } from '../../../component/common/teaset';
-import Animated from 'react-native-reanimated';
-import { TIME_OUT } from '../../../service/requset/config';
+import LottieView from 'lottie-react-native';
 let navHeight = 45;
 
 const width = Dimensions.get('window').width;
@@ -80,7 +73,7 @@ class Index extends Component {
         context:
           '新版越剧《红楼梦》创作于1999年，首演于同年8月。它从调整戏剧结构入手，别样营造大悲大喜、大实大虚的舞台意境，并提高舞美空间层次，丰富音乐形象，整合流派表演，精缩演出时间，实现了一次富有创意的新编。',
         path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimage8.pinlue.com%2Fimg3%2Ftu_jpg%2FksnrPhRhOUPIvAqAbKCblUE58P73JL45ksk6RoStOt1QqsyGRULuDNlm589MJep46BicicicnEeYd9uoxplOgImkg%2F640.jpeg&refer=http%3A%2F%2Fimage8.pinlue.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631837799&t=26164c70c17997051e585d51c8be88fd',
-        icon: jinpai,
+        lottie: require('../../../../lottie/金牌.json'),
         drama: 'Drama4'
       },
       {
@@ -89,7 +82,7 @@ class Index extends Component {
         context:
           '《碧玉簪》讲述了王玉林得尚书李廷甫赏识，获许配廷甫女秀英为妻。秀英的表兄顾文友因妒生恨，骗取秀英的碧玉簪放进伪造情书里，诬陷秀英与他有染。最终玉林送凤冠请罪，夫妇冰释前嫌。',
         path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fweixin.sanbiaoge.com%2Fcunchu5%2F2021-03-05%2F6_16149534226318178.jpg&refer=http%3A%2F%2Fweixin.sanbiaoge.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631837861&t=bccaf84652f1353d90b378e7225577c7',
-        icon: yinpai,
+        lottie: require('../../../../lottie/银牌.json'),
         drama: 'Drama5'
       },
       {
@@ -98,7 +91,7 @@ class Index extends Component {
         context:
           '《周仁哭坟》越剧折子戏，选材自京剧《周仁献嫂》。由朱福侠编导。《周仁哭坟》一折专为《吴凤花越剧舞台艺术风采》专场表演而编写排演，集中演绎周仁在其妻坟前哭诉冤屈的情绪。',
         path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Finews.gtimg.com%2Fnewsapp_bt%2F0%2F10088823340%2F1000.jpg&refer=http%3A%2F%2Finews.gtimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631837909&t=641368304e82a93e756196f93fd1d805',
-        icon: tongpai,
+        lottie: require('../../../../lottie/铜牌.json'),
         drama: 'Drama6'
       }
     ]
@@ -143,41 +136,63 @@ class Index extends Component {
         //       style={{color: this.state.fadeAnim < 0.2 ? 'white' : 'red',fontWeight:'bold',alignSelf:'center',fontSize:20}}>越台</Text>
         //     </View>)
         // }}
-        renderStickyHeader={() => <Top title="越台" />}
-        stickyHeaderHeight={pxToDp(50)}
-        parallaxHeaderHeight={220}
+        parallaxHeaderHeight={190}
         backgroundSpeed={10}
         renderBackground={() => (
-          <View style={{ padding: pxToDp(16) }}>
+          <View style={{ padding: pxToDp(16), backgroundColor: 'white' }}>
             <ImageFade
               style={{ margin: 16 }}
               ref="ImageFade"
               duration={800}
               delay={3000}
-              style={{ width: "100%", height: pxToDp(200) }}>
-              <Image style={{ width: "100%", height: pxToDp(200), borderRadius: pxToDp(20) }} source={require("../../../res/homeswiper1.jpg")} />
-              <Image style={{ width: "100%", height: pxToDp(200), borderRadius: pxToDp(20) }} source={require("../../../res/homeswiper2.jpg")} />
+              style={{ width: '100%', height: pxToDp(170) }}
+            >
+              <Image
+                style={{
+                  width: '100%',
+                  height: pxToDp(170),
+                  borderRadius: pxToDp(16)
+                }}
+                source={require('../../../res/homeswiper1.jpg')}
+              />
+              <Image
+                style={{
+                  width: '100%',
+                  height: pxToDp(170),
+                  borderRadius: pxToDp(16)
+                }}
+                source={require('../../../res/homeswiper2.jpg')}
+              />
             </ImageFade>
-          </View>)}
+          </View>
+        )}
         //自定义头部内容
-        renderForeground={() => <View style={{ Top: 200, left: 100 }}></View>}
-        scrollableViewStyle={{ backgroundColor: '#fcfcfc' }}
+        renderForeground={() => <View style={{ Top: pxToDp(200), left: pxToDp(100) }}></View>}
+        scrollableViewStyle={{ backgroundColor: 'acddfc' }}
       >
         <View
           style={{
-            flex: 1
+            flex: 1,
           }}
         >
-          <View style={{ marginLeft: pxToDp(16), marginRight: pxToDp(16),marginTop:pxToDp(8) ,flexDirection:'row',justifyContent:'space-around'}}>
+          <View
+            style={{
+              marginLeft: pxToDp(16),
+              marginRight: pxToDp(16),
+              flexDirection: 'row',
+              justifyContent: 'space-around'
+            }}
+          >
             {/**推荐卡片 */}
             <TouchableOpacity
               style={{
                 alignItems: 'center',
-                justifyContent: 'space-between'
+                justifyContent: 'center',
+                width: pxToDp(40)
               }}
               onPress={this.toggleModal}
             >
-              <Ionicons name="layers-outline" size={32} color="#468CD3" />
+              <Ionicons name="layers" size={32} color="#62bfad" />
               <Text
                 style={{
                   fontSize: pxToDp(16),
@@ -192,37 +207,17 @@ class Index extends Component {
               isModalVisible={this.state.isModalVisible}
               toggleModalProps={this.toggleModal}
             />
-            {/**签到 */}
-            {/**VR */}
-            <TouchableOpacity
-              style={{
-                alignItems: 'center',
-                justifyContent: 'center',
-                marginLeft: pxToDp(40)
-              }}
-              onPress={() => this.context.navigate('VR')}
-            >
-              <Ionicons name="earth-sharp" size={32} color="#468CD3" />
-              <Text
-                style={{
-                  fontSize: pxToDp(16),
-                  marginTop: pxToDp(5),
-                  color: '#333333'
-                }}
-              >
-                VR
-              </Text>
-            </TouchableOpacity>
             {/**教程 */}
             <TouchableOpacity
               style={{
                 alignItems: 'center',
                 justifyContent: 'center',
-                marginLeft: pxToDp(40)
+                marginLeft: pxToDp(40),
+                width: pxToDp(40)
               }}
               onPress={() => this.context.navigate('Course')}
             >
-              <Ionicons name="md-color-wand" size={32} color="#468CD3" />
+              <Ionicons name="easel" size={32} color="#62bfad" />
               <Text
                 style={{
                   fontSize: pxToDp(16),
@@ -233,17 +228,56 @@ class Index extends Component {
                 教学
               </Text>
             </TouchableOpacity>
+            {/**VR */}
+            <TouchableOpacity
+              style={{
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginLeft: pxToDp(40),
+                width: pxToDp(40)
+              }}
+              onPress={() => this.context.navigate('VR')}
+            >
+              <View style={{ width: pxToDp(40), overflow: 'hidden' }}>
+                <LottieView
+                  autoPlay={true}
+                  loop={true}
+                  style={{
+                    width: pxToDp(76),
+                    marginLeft: pxToDp(-9)
+                  }}
+                  source={require('../../../../lottie/VR.json')}
+                />
+              </View>
+              <Text
+                style={{
+                  fontSize: pxToDp(16),
+                  marginTop: pxToDp(5),
+                  color: '#333333',
+                  bottom: pxToDp(22)
+                }}
+              >
+                VR
+              </Text>
+            </TouchableOpacity>
             {/**图谱 */}
             <TouchableOpacity
               style={{
                 alignItems: 'center',
                 justifyContent: 'center',
-                marginLeft: pxToDp(40)
+                marginLeft: pxToDp(40),
+                width: pxToDp(40)
               }}
               onPress={() => this.context.navigate('Timeline')}
             >
-              <Entypo name="colours" size={32} color="#468CD3" />
-              <Text style={{ fontSize: pxToDp(16), marginTop: pxToDp(5), color: '#666666' }}>
+              <Entypo name="colours" size={32} color="#62bfad" />
+              <Text
+                style={{
+                  fontSize: pxToDp(16),
+                  marginTop: pxToDp(5),
+                  color: '#333333'
+                }}
+              >
                 图谱
               </Text>
             </TouchableOpacity>
@@ -252,11 +286,12 @@ class Index extends Component {
               style={{
                 alignItems: 'center',
                 justifyContent: 'center',
-                marginLeft: pxToDp(40)
+                marginLeft: pxToDp(40),
+                width: pxToDp(40)
               }}
               onPress={() => this.context.navigate('Scriptlibrary')}
             >
-              <Ionicons name="library-sharp" size={32} color="#468CD3" />
+              <Ionicons name="library-sharp" size={32} color="#62bfad" />
               <Text
                 style={{
                   fontSize: pxToDp(16),
@@ -271,167 +306,188 @@ class Index extends Component {
           {/**精选唱段 */}
           <HighLights />
           {/*俯瞰百年 */}
-          <View style={{ marginTop: pxToDp(8), height: pxToDp(263),marginBottom:50}}>
-            <View
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between', marginLeft: pxToDp(16), marginRight: pxToDp(16), marginTop: pxToDp(24), marginBottom: pxToDp(20)
-              }}
-            >
-              <Text
-                style={{
-                  fontSize: pxToDp(18),
-                  color: '#000000',
-                  fontWeight: 'bold'
-                }}
-              >
-                俯瞰百年
-              </Text>
-              <TouchableOpacity onPress={() => this.context.navigate('Card')}>
-                <View style={{ flexDirection: 'row' }}>
-                  <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
-                    查看更多
+          <View
+            style={{
+              marginTop: pxToDp(8),
+              height: pxToDp(263),
+              marginBottom: 50
+            }}
+          >
+            <View style={styles.titlebox}>
+              <View style={styles.left}>
+              </View>
+              <View>
+                <View style={{ marginLeft: pxToDp(-121) }}>
+                  <Text style={styles.titletext}>
+                    俯瞰百年
                   </Text>
-                  <Ionicons name="chevron-forward" size={24} color="#666666" />
+                  <Text style={styles.titlepinyin}>
+                    fu kan bai nian
+                  </Text>
                 </View>
+              </View>
+              <TouchableOpacity style={styles.right} onPress={() => this.context.navigate('Card')}>
+                <Text style={styles.righttext}>
+                  查看更多
+                </Text>
+                <Ionicons name="chevron-forward" size={16} color="#666666" />
               </TouchableOpacity>
             </View>
             {/* 俯瞰百年轮播图 */}
             <Hy />
           </View>
           {/*流派传奇 */}
-          <View style={{marginLeft: pxToDp(16),marginTop:20 }}>
-            <View
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                marginBottom: pxToDp(20), marginLeft: pxToDp(16), marginRight: pxToDp(16)
-              }}
-            >
-              <Text
-                style={{
-                  fontSize: pxToDp(18),
-                  color: '#000000',
-                  fontWeight: 'bold'
-                }}
-              >
-                流派传奇
-              </Text>
-              <TouchableOpacity
-                onPress={() => this.context.navigate('PageOne', 2)}
-              >
-                <View style={{ flexDirection: 'row' }}>
-                  <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
-                    查看更多
-                  </Text>
-                  <Ionicons name="chevron-forward" size={24} color="#666666" />
-                </View>
-              </TouchableOpacity>
+          <View style={styles.titlebox}>
+            <View style={styles.left}>
             </View>
-            <View
-              style={{
-                backgroundColor: 'white',
-                borderRadius: pxToDp(8),
-                elevation: 2,
-                shadowColor: 'black', //  阴影颜色
-                shadowOffset: { width: 0, height: 0 }, // 阴影偏移
-                shadowOpacity: 1, // 阴影不透明度
-                shadowRadius: 10 //  圆角
-              }}
-            >
-              <Legend />
+            <View>
+              <View style={{ marginLeft: pxToDp(-121) }}>
+                <Text style={styles.titletext}>
+                  流派传奇
+                </Text>
+                <Text style={styles.titlepinyin}>
+                  liu pai chuan qi
+                </Text>
+              </View>
             </View>
-          </View>
-          {/*梨园子弟 */}
-          <View
-            style={{
-              marginTop: pxToDp(24), marginLeft: pxToDp(16), marginRight: pxToDp(16)
-            }}
-          >
-            <View
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                marginBottom: pxToDp(8)
-
-              }}
-            >
-              <Text
-                style={{
-                  fontSize: pxToDp(18),
-                  color: '#000000',
-                  fontWeight: 'bold'
-                }}
-              >
-                梨园子弟
-              </Text>
-              <TouchableOpacity
-                onPress={() => this.context.navigate('PageThree', 2)}
-              >
-                <View style={{ flexDirection: 'row' }}>
-                  <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
-                    查看更多
-                  </Text>
-                  <Ionicons name="chevron-forward" size={24} color="#666666" />
-                </View>
-              </TouchableOpacity>
-            </View>
-          </View>
-          <Actress />
-          {/* 轮播图 */}
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              alignItems: 'center',marginLeft:pxToDp(16),marginRight:pxToDp(16)
-            }}
-          >
-            <Text
-              style={{
-                fontSize: pxToDp(18),
-                margin: pxToDp(8),
-                color: '#000000',
-                fontWeight: 'bold'
-              }}
-            >
-              本周热门
-            </Text>
-
-            <TouchableOpacity
-              style={{ flexDirection: 'row' }}
-              onPress={() => this.context.navigate('HotList')}
-            >
-              <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
+            <TouchableOpacity style={styles.right} onPress={() => this.context.navigate('PageOne', 2)}>
+              <Text style={styles.righttext}>
                 查看更多
               </Text>
-              <Ionicons name="chevron-forward" size={24} color="#666666" />
+              <Ionicons name="chevron-forward" size={18} color="#666666" />
+            </TouchableOpacity>
+          </View>
+          <View
+            style={{
+              backgroundColor: '#62bfad',
+              height: pxToDp(100),
+              width: pxToDp(100),
+              marginBottom: pxToDp(-95),
+              marginLeft: pxToDp(11),
+              marginTop: pxToDp(16),
+              borderRadius: pxToDp(8)
+            }}
+          />
+          <View
+            style={{
+              backgroundColor: 'white',
+              borderRadius: pxToDp(8),
+              elevation: 2,
+              zIndex: 9999999,
+              marginLeft: pxToDp(16),
+              marginRight: pxToDp(16),
+              shadowColor: 'black', //  阴影颜色
+              shadowOffset: { width: 0, height: 0 }, // 阴影偏移
+              shadowOpacity: 1, // 阴影不透明度
+              shadowRadius: 10 //  圆角
+            }}
+          >
+            <Legend />
+          </View>
+          <View
+            style={{
+              backgroundColor: '#62bfad',
+              height: pxToDp(100),
+              width: pxToDp(100),
+              marginTop: pxToDp(-95),
+              marginLeft: pxToDp(265),
+              borderRadius: pxToDp(8)
+            }}
+          />
+          {/*梨园子弟 */}
+          <View style={{ marginTop: pxToDp(16) }}>
+            <View style={styles.titlebox}>
+              <View style={styles.left}>
+              </View>
+              <View>
+                <View style={{ marginLeft: pxToDp(-121) }}>
+                  <Text style={styles.titletext}>
+                    梨园子弟
+                  </Text>
+                  <Text style={styles.titlepinyin}>
+                    li yuan zi di
+                  </Text>
+                </View>
+              </View>
+              <TouchableOpacity style={styles.right} onPress={() => this.context.navigate('PageThree', 2)}>
+                <Text style={styles.righttext}>
+                  查看更多
+                </Text>
+                <Ionicons name="chevron-forward" size={16} color="#666666" />
+              </TouchableOpacity>
+            </View>
+            <Actress />
+          </View>
+          {/* 轮播图 */}
+          <View style={styles.titlebox}>
+            <View style={styles.left}>
+            </View>
+            <View>
+              <View style={{ marginLeft: pxToDp(-121) }}>
+                <Text style={styles.titletext}>
+                  本周热门
+                </Text>
+                <Text style={styles.titlepinyin}>
+                  ben zhou re men
+                </Text>
+              </View>
+            </View>
+            <TouchableOpacity style={styles.right} onPress={() => this.context.navigate('HotList')}>
+              <Text style={styles.righttext}>
+                查看更多
+              </Text>
+              <Ionicons name="chevron-forward" size={16} color="#666666" />
             </TouchableOpacity>
           </View>
           <View style={styles.carousel}>
-            <Carousel control={false} style={{ height: pxToDp(166) }}>
+            <Carousel control={false} style={{ height: pxToDp(156), marginTop: pxToDp(10) }}>
               {this.state.books.map((item) => (
-
-                <View style={styles.bookbox} >
+                <View style={styles.bookbox}>
                   <TouchableNativeFeedback
                     onPress={() => this.context.navigate(item.drama)}
-                    useForeground={true}>
+                    useForeground={true}
+                  >
                     <View style={styles.bookbotton}>
                       <View
-                        style={{ marginLeft: pxToDp(120), marginTop: pxToDp(8) }}
+                        style={{
+                          marginLeft: pxToDp(120),
+                          marginTop: pxToDp(8)
+                        }}
                       >
                         <View style={styles.bookinf1}>
                           <View>
                             <Text
-                              style={{ fontSize: pxToDp(16), fontWeight: 'bold', color: '#333333' }}
+                              style={{
+                                fontSize: pxToDp(16),
+                                fontWeight: 'bold',
+                                color: '#333333',
+                                marginTop: pxToDp(-32)
+                              }}
                             >
                               {item.title}
                             </Text>
                           </View>
                           <View>
-                            <Svg width="32" height="32" svgXmlData={item.icon} />
+                            <LottieView
+                              style={{
+                                height: pxToDp(80),
+                                width: pxToDp(80),
+                                marginTop: pxToDp(-16),
+                                marginLeft: pxToDp(16)
+                              }}
+                              source={item.lottie}
+                              autoPlay={true}
+                            />
                           </View>
                         </View>
-                        <Text style={{ fontSize: pxToDp(14), color: '#666666' }} numberOfLines={3}>
+                        <Text
+                          style={{
+                            fontSize: pxToDp(14),
+                            color: '#666666',
+                            marginTop: pxToDp(-32)
+                          }}
+                          numberOfLines={3}
+                        >
                           {item.context}
                         </Text>
                       </View>
@@ -439,9 +495,9 @@ class Index extends Component {
                   </TouchableNativeFeedback>
                   <TouchableNativeFeedback
                     onPress={() => this.context.navigate(item.drama)}
-                    useForeground={true}>
+                    useForeground={true}
+                  >
                     <View style={styles.book11}>
-
                       <Image
                         style={styles.bookimage}
                         source={{ uri: item.path }}
@@ -459,36 +515,28 @@ class Index extends Component {
                     </View>
                   </TouchableNativeFeedback>
                 </View>
-
               ))}
             </Carousel>
           </View>
           {/*剧本推荐 */}
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              marginTop:pxToDp(16),marginLeft:pxToDp(16),marginRight:pxToDp(16)
-            }}
-          >
-            <Text
-              style={{
-                fontSize: pxToDp(18),
-                color: '#000000',
-                fontWeight: 'bold'
-              }}
-            >
-              剧本推荐
-            </Text>
-            <TouchableOpacity
-              style={{ flexDirection: 'row' }}
-              onPress={() => this.context.navigate('Scriptlibrary')}
-            >
-              <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
+          <View style={styles.titlebox}>
+            <View style={styles.left}>
+            </View>
+            <View>
+              <View style={{ marginLeft: pxToDp(-121) }}>
+                <Text style={styles.titletext}>
+                  剧本推荐
+                </Text>
+                <Text style={styles.titlepinyin}>
+                  ju ben tui jian
+                </Text>
+              </View>
+            </View>
+            <TouchableOpacity style={styles.right} onPress={() => this.context.navigate('Scriptlibrary')}>
+              <Text style={styles.righttext}>
                 查看更多
               </Text>
-              <Ionicons name="chevron-forward" size={24} color="#666666" />
+              <Ionicons name="chevron-forward" size={16} color="#666666" />
             </TouchableOpacity>
           </View>
           <View
@@ -499,8 +547,10 @@ class Index extends Component {
           >
             {this.state.book.map((item) => (
               <View style={styles.bookbox1}>
-                <TouchableNativeFeedback onPress={() => this.context.navigate(item.drama)}
-                  useForeground={true}>
+                <TouchableNativeFeedback
+                  onPress={() => this.context.navigate(item.drama)}
+                  useForeground={true}
+                >
                   <View style={styles.bookbotton}>
                     <View
                       style={{
@@ -510,12 +560,23 @@ class Index extends Component {
                     >
                       <View style={styles.bookinf}>
                         <Text
-                          style={{ fontSize: pxToDp(16), fontWeight: 'bold', color: '#333333' }}
+                          style={{
+                            fontSize: pxToDp(16),
+                            fontWeight: 'bold',
+                            color: '#333333'
+                          }}
                         >
                           {item.title}
                         </Text>
                       </View>
-                      <Text numberOfLines={3} style={{ color: '#666666', fontSize: pxToDp(14), marginTop: pxToDp(4) }}>
+                      <Text
+                        numberOfLines={3}
+                        style={{
+                          color: '#666666',
+                          fontSize: pxToDp(14),
+                          marginTop: pxToDp(4)
+                        }}
+                      >
                         {item.context}
                       </Text>
                       <View
@@ -524,16 +585,20 @@ class Index extends Component {
                           alignItems: 'center',
                           marginTop: pxToDp(5)
                         }}
-                      >
-                      </View>
+                      ></View>
                     </View>
                   </View>
                 </TouchableNativeFeedback>
                 <View style={styles.book}>
-                  <TouchableNativeFeedback onPress={() => this.context.navigate(item.drama)}
-                    useForeground={true}>
+                  <TouchableNativeFeedback
+                    onPress={() => this.context.navigate(item.drama)}
+                    useForeground={true}
+                  >
                     <View>
-                      <Image style={styles.bookimage} source={{ uri: item.path }} />
+                      <Image
+                        style={styles.bookimage}
+                        source={{ uri: item.path }}
+                      />
                     </View>
                   </TouchableNativeFeedback>
                   <View
@@ -575,7 +640,8 @@ const styles = StyleSheet.create({
   },
   bookbox: {
     height: pxToDp(130),
-    marginLeft:pxToDp(16),marginRight:pxToDp(16)
+    marginLeft: pxToDp(16),
+    marginRight: pxToDp(16)
   },
   bookbotton: {
     height: pxToDp(110),
@@ -628,7 +694,37 @@ const styles = StyleSheet.create({
     marginTop: pxToDp(16),
     marginLeft: pxToDp(16),
     marginRight: pxToDp(16)
-    
+  },
+  titlebox: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginLeft: pxToDp(16),
+    marginRight: pxToDp(16)
+  },
+  left: {
+    width: pxToDp(4),
+    height: '75%',
+    backgroundColor: '#62bfad',
+    borderRadius: pxToDp(2)
+  },
+  right: {
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  titletext: {
+    fontSize: pxToDp(18),
+    color: '#62bfad',
+    fontWeight: 'bold'
+  },
+  titlepinyin: {
+    fontSize: pxToDp(14),
+    color: '#999999',
+    marginTop: pxToDp(-6)
+  },
+  righttext: {
+    fontSize: pxToDp(14),
+    color: '#666666'
   }
 });
 

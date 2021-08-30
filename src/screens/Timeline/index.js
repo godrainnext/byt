@@ -32,7 +32,7 @@ export default class index extends PureComponent {
         <View
           style={{
             height: pxToDp(780),
-            backgroundColor: '#468cd3'
+            backgroundColor: '#D5E8E6'
           }}
         >
           <View
@@ -97,7 +97,7 @@ export default class index extends PureComponent {
                     <Text
                       style={{
                         fontSize: pxToDp(12),
-                        fontWeight: 'bold',
+                        fontWeight: 'bold'
                       }}
                     >
                       姚水娟
@@ -169,7 +169,7 @@ export default class index extends PureComponent {
                 marginBottom: pxToDp(20)
               }}
             >
-              <View style={[styles.box,{marginLeft:pxToDp(22)}]}>
+              <View style={[styles.box, { marginLeft: pxToDp(22) }]}>
                 <TouchableOpacity
                   onPress={() => this.setState({ ArrIndex: 1 })}
                   style={styles.smallbox}
@@ -226,7 +226,7 @@ export default class index extends PureComponent {
                   </View>
                 </TouchableOpacity>
               </View>
-              <View style={[styles.box,{marginRight:pxToDp(22)}]}>
+              <View style={[styles.box, { marginRight: pxToDp(22) }]}>
                 <TouchableOpacity
                   onPress={() => this.setState({ ArrIndex: 2 })}
                   style={styles.smallbox}

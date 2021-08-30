@@ -34,26 +34,26 @@ class index extends PureComponent {
     const { images } = this.state;
     return (
       <View
-        style={{ backgroundColor: '#ecf6fc', flex: 1 }}
+        style={{ backgroundColor: '#D5E8E6', flex: 1 }}
       >
-      <Top icon1="arrow-back" title="越文" />
-        <ScrollView style={{ padding: pxToDp(16),flex:1}} showsVerticalScrollIndicator = {false}>
+        <Top icon1="arrow-back" title="越文" />
+        <ScrollView style={{ padding: pxToDp(16), flex: 1 }} showsVerticalScrollIndicator={false}>
           <View>
             <View
               style={{
                 alignItems: 'center',
               }}
             >
-              <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold',color:'#000000' }}>
+              <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold', color: '#000000' }}>
                 {this.state.title}
               </Text>
             </View>
 
             {arr1.map((item, index) => (
-              <View style={{marginTop:pxToDp(8)}}>
+              <View style={{ marginTop: pxToDp(8) }}>
                 {item.split('/d').map((item, index) => (
                   <View>
-                    <Text style={{ fontSize: pxToDp(16),marginTop:pxToDp(4),color:'#333333'}}>
+                    <Text style={{ fontSize: pxToDp(16), marginTop: pxToDp(4), color: '#333333' }}>
                       &emsp;&emsp;{item}
                     </Text>
                   </View>
@@ -65,7 +65,7 @@ class index extends PureComponent {
                         height: pxToDp(180),
                         borderRadius: pxToDp(8),
                         marginTop: pxToDp(8),
-                        marginBottom:pxToDp(-4)
+                        marginBottom: pxToDp(-4)
                       }}
                       source={{
                         uri: images[index]

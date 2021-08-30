@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 import { pxToDp } from '@utils/styleKits';
-import Top from '../../../component/common/top';
 class Index extends PureComponent {
   render() {
     const { goToPage, tabs, activeTab } = this.props;
@@ -21,7 +20,7 @@ class Index extends PureComponent {
               onPress={() => goToPage(i)}
               style={{
                 justifyContent: 'center',
-                borderBottomColor: '#1874CD',
+                borderBottomColor: '#62bfad',
                 borderBottomWidth: activeTab === i ? pxToDp(3) : 0
               }}
             >

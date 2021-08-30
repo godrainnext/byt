@@ -38,7 +38,7 @@ class SwiperListItem extends PureComponent {
         <Top icon1="arrow-back" title="收货地址" />
 
         <ScrollView>
-          <View style={{ paddingBottom: pxToDp(105),margin:pxToDp(8)}}>
+          <View style={{ paddingBottom: pxToDp(105), margin: pxToDp(8) }}>
             {this.props.address.map((item) => (
               <SwpierItem
                 onPress={() => this.changeBtn(item.id, item)}
@@ -60,31 +60,30 @@ class SwiperListItem extends PureComponent {
             backgroundColor: '#fff',
             width: '100%',
             height: pxToDp(54),
-            justifyContent:'center'
+            justifyContent: 'center'
           }}
         >
           <Mybtn
+            title='新增收货地址'
             onPress={() =>
               this.context.navigate(
                 'newAddress',
                 this.props.route.params.orider
               )
             }
-            title='  新增收货地址'
             buttonStyle={{
-              width: pxToDp(340),
+              width: pxToDp(320),
               height: pxToDp(40),
-              borderRadius: pxToDp(32),
               alignSelf: 'center',
+              borderRadius: pxToDp(32)
             }}
-            linearGradientProps={{
-              colors: ['#fa9222', '#ffd501'],
-              start: { x: 0, y: 0.5 },
-              end: { x: 1, y: 0.5 },
+            titleStyle={{
+              color: 'white',
+              fontSize: pxToDp(16)
             }}
           />
         </View>
-</View>
+      </View>
     );
   }
 }

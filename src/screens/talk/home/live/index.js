@@ -44,7 +44,7 @@ class Index extends Component {
   render() {
     return (
       <View style={{ flex: 1, backgroundColor: 'white' }}>
-        <ScrollView showsVerticalScrollIndicator = {false}>
+        <ScrollView showsVerticalScrollIndicator={false}>
           {this.state.arr.map((item) => (
             <View key={item.id}>
               <TouchableOpacity
@@ -73,6 +73,12 @@ class Index extends Component {
                   >
                     {item.name}
                   </Text>
+                  <LottieView
+                    style={{ width: pxToDp(100), alignSelf: 'center' }}
+                    source={require('../../../../../lottie/直播live效果.json')}
+                    autoPlay
+                    loop
+                  />
                   <View
                     style={{
                       flexDirection: 'row',
@@ -97,22 +103,172 @@ class Index extends Component {
                         marginLeft: pxToDp(150)
                       }}
                     >
-                      <Icon name="eyeo" size={24} color={'grey'} />
-                      <Text style={{ color: 'white', marginLeft: pxToDp(5) }}>
+                      <Icon name="eyeo" size={24} color={'white'} />
+                      <Text style={{ color: 'white', marginRight: pxToDp(10), fontSize: pxToDp(16), marginLeft: pxToDp(5) }}>
                         66
                       </Text>
                     </View>
-                    <LottieView
-                      style={{ width: pxToDp(70) }}
-                      source={require('../../../../res/705-linear-line.json')}
-                      autoPlay
-                      loop
-                    />
                   </View>
                 </ImageBackground>
               </TouchableOpacity>
             </View>
           ))}
+          <ImageBackground
+            style={styles.image}
+            imageStyle={{ borderRadius: pxToDp(8) }}
+            source={{ uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fupload-images.jianshu.io%2Fupload_images%2F13591838-bf5bff2289afc98a.jpg&refer=http%3A%2F%2Fupload-images.jianshu.io&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632554145&t=3d2db3b9d1113caad1ac224c9177b3de' }}
+          >
+            <Text
+              style={{
+                color: 'white',
+                fontSize: pxToDp(20),
+                margin: pxToDp(10),
+                left: pxToDp(220)
+              }}
+            >
+              我爱越剧
+            </Text>
+            <LottieView
+              style={{ width: pxToDp(100), alignSelf: 'center' }}
+              source={require('../../../../../lottie/直播live效果.json')}
+              autoPlay
+              loop
+            />
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                alignItems: 'center'
+              }}
+            >
+              <Text
+                style={{
+                  color: 'white',
+                  fontSize: pxToDp(16),
+                  margin: pxToDp(10)
+                }}
+              >
+                我爱越剧
+              </Text>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  marginLeft: pxToDp(150)
+                }}
+              >
+                <Icon name="eyeo" size={24} color={'white'} />
+                <Text style={{ color: 'white', marginRight: pxToDp(10), fontSize: pxToDp(16), marginLeft: pxToDp(5) }}>
+                  66
+                </Text>
+              </View>
+            </View>
+          </ImageBackground>
+          <ImageBackground
+            style={styles.image}
+            imageStyle={{ borderRadius: pxToDp(8) }}
+            source={{ uri: 'https://img2.baidu.com/it/u=1694435942,1117519044&fm=26&fmt=auto&gp=0.jpg' }}
+          >
+            <Text
+              style={{
+                color: 'white',
+                fontSize: pxToDp(20),
+                margin: pxToDp(10),
+                left: pxToDp(220)
+              }}
+            >
+              爱越
+            </Text>
+            <LottieView
+              style={{ width: pxToDp(100), alignSelf: 'center' }}
+              source={require('../../../../../lottie/直播live效果.json')}
+              autoPlay
+              loop
+            />
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                alignItems: 'center'
+              }}
+            >
+              <Text
+                style={{
+                  color: 'white',
+                  fontSize: pxToDp(16),
+                  margin: pxToDp(10)
+                }}
+              >
+                越剧历史课堂
+              </Text>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  marginLeft: pxToDp(150)
+                }}
+              >
+                <Icon name="eyeo" size={24} color={'white'} />
+                <Text style={{ color: 'white', marginRight: pxToDp(10), fontSize: pxToDp(16), marginLeft: pxToDp(5) }}>
+                  22
+                </Text>
+              </View>
+            </View>
+          </ImageBackground>
+          <ImageBackground
+            style={styles.image}
+            imageStyle={{ borderRadius: pxToDp(8) }}
+            source={{ uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.zgfcn.com%2Fuserfiles%2Fimage%2F20190725%2F252123475fdcd234577566.jpg&refer=http%3A%2F%2Fwww.zgfcn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632881822&t=1ab4b1ed33703dff66e53259945b3c61' }}
+          >
+            <Text
+              style={{
+                color: 'white',
+                fontSize: pxToDp(20),
+                margin: pxToDp(10),
+                left: pxToDp(220)
+              }}
+            >
+              小越老师
+            </Text>
+            <LottieView
+              style={{ width: pxToDp(100), alignSelf: 'center' }}
+              source={require('../../../../../lottie/直播live效果.json')}
+              autoPlay
+              loop
+            />
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                alignItems: 'center'
+              }}
+            >
+              <Text
+                style={{
+                  color: 'white',
+                  fontSize: pxToDp(16),
+                  margin: pxToDp(10)
+                }}
+              >
+                越剧台步教学
+              </Text>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  marginLeft: pxToDp(150)
+                }}
+              >
+                <Icon name="eyeo" size={24} color={'white'} />
+                <Text style={{ color: 'white', marginRight: pxToDp(10), fontSize: pxToDp(16), marginLeft: pxToDp(5) }}>
+                  78
+                </Text>
+              </View>
+            </View>
+          </ImageBackground>
         </ScrollView>
       </View>
     );
@@ -129,9 +285,10 @@ const styles = StyleSheet.create({
     borderRadius: pxToDp(8),
     justifyContent: 'space-between',
     height: pxToDp(200),
-    width: pxToDp(355),
     borderRadius: pxToDp(8),
-    margin: pxToDp(10)
+    marginLeft: pxToDp(16),
+    marginRight: pxToDp(16),
+    marginTop: pxToDp(8)
   }
 });
 export default Index;

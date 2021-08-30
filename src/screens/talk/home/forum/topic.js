@@ -49,7 +49,8 @@ export default class topic extends Component {
             <TouchableOpacity onPress={() => this.context.goBack()}>
               <Ionicons
                 name="arrow-back"
-                size={pxToDp(30)}
+                size={25}
+                color="#62bfad"
                 style={{ paddingTop: pxToDp(16), paddingLeft: pxToDp(16) }}
               />
             </TouchableOpacity>
@@ -57,7 +58,7 @@ export default class topic extends Component {
               style={{
                 padding: pxToDp(8),
                 margin: pxToDp(16),
-                borderRadius: pxToDp(8),
+                borderRadius: pxToDp(8)
                 // backgroundColor: '#fff',
                 // elevation: 10,
                 // shadowColor: 'black', //  阴影颜色
@@ -80,8 +81,7 @@ export default class topic extends Component {
                 style={{
                   fontSize: pxToDp(16),
                   color: '#333333',
-                  lineHeight:pxToDp(22)
-                  
+                  lineHeight: pxToDp(22)
                 }}
               >
                 &emsp;&emsp;{detail}
@@ -90,8 +90,8 @@ export default class topic extends Component {
             <View
               style={{
                 alignSelf: 'flex-end',
-                marginTop: pxToDp(155),
-                marginRight: pxToDp(16)
+                marginRight: pxToDp(16),
+                marginTop: pxToDp(14)
               }}
             >
               <Text style={{ fontSize: pxToDp(16), color: '#333333' }}>
@@ -109,7 +109,6 @@ export default class topic extends Component {
               borderTopLeftRadius: pxToDp(8)
             }}
           >
-            
             {/* 评论区 */}
             <Text
               style={{
@@ -117,7 +116,7 @@ export default class topic extends Component {
                 color: '#000000',
                 fontWeight: 'bold',
                 paddingLeft: pxToDp(16),
-                marginTop:pxToDp(8)
+                marginTop: pxToDp(8)
               }}
             >
               全部

@@ -9,63 +9,17 @@ class Index extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            products: [
-                {
-                    id: 1,
-                    name: '闰先生',
-                    time: "08-02 16:00",
-                    title: "穆桂英挂帅",
-                    image: require("../../../res/播放.png")
-                },
-                {
-                    id: 2,
-                    name: '闰先生',
-                    time: "08-02 16:00",
-                    title: "穆桂英挂帅",
-                    image: require("../../../res/播放.png")
-                },
-                {
-                    id: 3,
-                    name: '闰先生',
-                    time: "08-02 16:00",
-                    title: "穆桂英挂帅",
-                    image: require("../../../res/播放.png")
-                },
-                {
-                    id: 4,
-                    name: '闰先生',
-                    time: "08-02 16:00",
-                    title: "穆桂英挂帅",
-                    image: require("../../../res/播放.png")
-                },
-                {
-                    id: 5,
-                    name: '闰先生',
-                    time: "08-02 16:00",
-                    title: "穆桂英挂帅",
-                    image: require("../../../res/播放.png")
-                },
-                {
-                    id: 6,
-                    name: '闰先生',
-                    time: "08-02 16:00",
-                    title: "穆桂英挂帅",
-                    image: require("../../../res/播放.png")
-                }
-            ],
         }
     }
     static contextType = NavigationContext;
     render() {
         return (
-            <View style={{ backgroundColor: '#E2F4FE', flex: 1 }}>
-         
-                    <Top icon1='arrow-back' title="详情" />
-             
-                <ScrollView>
+            <View style={{ backgroundColor: '#D5E8E6', flex: 1 }}>
+                <Top icon1='arrow-back' title="详情" />
+                <View>
                     <View style={styles.top}>
                         <Image style={styles.image} source={require('../../../res/6.png')}></Image>
-                        <View style={{ justifyContent: 'space-between', marginLeft: pxToDp(8), height: pxToDp(70),marginTop:pxToDp(24)}}>
+                        <View style={{ justifyContent: 'space-between', marginLeft: pxToDp(8), height: pxToDp(70), marginTop: pxToDp(24) }}>
                             <Text style={styles.text1}>穆桂英挂帅</Text>
                             <Text style={styles.text2}>猛听得金鼓响画角声震</Text>
                             <Text style={styles.text3}>1959人唱过</Text>
@@ -76,66 +30,30 @@ class Index extends PureComponent {
                             <Text style={{ fontSize: pxToDp(12), fontWeight: "bold", color: "white" }}>练唱</Text>
                         </TouchableOpacity> */}
                         <Mybtn
-                        onPress={() => this.context.navigate("Sing")}
-                        title='开始独唱'
-                        buttonStyle={{
-                            width: pxToDp(160),
-                            height: pxToDp(40),
-                            borderRadius:pxToDp(32),
-                            alignSelf:'center',
-                            marginTop:pxToDp(16)
+                            onPress={() => this.context.navigate("Sing")}
+                            title='开始独唱'
+                            buttonStyle={{
+                                width: pxToDp(160),
+                                height: pxToDp(40),
+                                borderRadius: pxToDp(32),
+                                alignSelf: 'center',
+                                marginTop: pxToDp(16)
 
-                        }}
-                        linearGradientProps={{
-                            colors: ['#fa9222', '#ffd501'],
-                            start: { x: 0, y: 0.5 },
-                            end: { x: 1, y: 0.5 }
-                        }}
-                    />
+                            }}
+                        />
                     </View>
                     <View style={styles.center}>
-                        <View style={{ borderRadius: pxToDp(8), padding:pxToDp(8),marginLeft: pxToDp(10), marginRight: pxToDp(10), marginTop: pxToDp(15), backgroundColor: "#E2F4FE" }}>
-                        <Text style={{ fontSize: pxToDp(16), fontWeight:'bold' }}>曲子简介{'\n'} </Text>
-                            <Text style={{ fontSize: pxToDp(14),lineHeight:pxToDp(24) }}>
+                        <View style={{ borderRadius: pxToDp(8), padding: pxToDp(8), marginLeft: pxToDp(10), marginRight: pxToDp(10), marginTop: pxToDp(15), backgroundColor: "#D5E8E6" }}>
+                            <Text style={{ fontSize: pxToDp(16), fontWeight: 'bold' }}>曲子简介{'\n'} </Text>
+                            <Text style={{ fontSize: pxToDp(14), lineHeight: pxToDp(24) }}>
                                 猛听得金鼓响画角声震，唤起我破天门壮志凌云。{'\n'}
                                 想当年桃花马上威风凛凛，敌血飞溅石榴裙。{'\n'}
                                 有生之日责当尽，寸土怎能够属于他人。{'\n'}
                                 番王小丑何足论，我一剑能当百万的兵。
                             </Text>
                         </View>
-                        {this.state.products.map((item, index) => (
-                            <View style={styles.box}>
-                                <View style={{ flexDirection: "row", margin: pxToDp(15), alignItems: "center", justifyContent: "space-between" }}>
-                                    <View style={{ flexDirection: "row" }}>
-                                        <Image source={require('../../../res/7.jpg')} style={{ width: pxToDp(60), height: pxToDp(60), borderRadius: pxToDp(30) }} />
-                                        <View style={{ marginLeft: pxToDp(10) }}>
-                                            <Text style={{ fontSize: pxToDp(16), fontWeight: "bold" }}>{item.name}</Text>
-                                            <Text style={{ fontSize: pxToDp(14), color: "#666", marginTop: pxToDp(5) }}>{item.time}</Text>
-                                        </View>
-                                    </View>
-                                    <TouchableOpacity style={{ backgroundColor: "white", width: pxToDp(50), height: pxToDp(25), justifyContent: "center", alignItems: "center", borderRadius: pxToDp(16) }}>
-                                        <Text style={{ fontWeight: "bold", color: "red" }}>关注</Text>
-                                    </TouchableOpacity>
-                                </View>
-                                <View style={{ width: "100%", alignItems: "center" }}>
-                                    <TouchableOpacity style={{ width: pxToDp(200), height: pxToDp(230), justifyContent: "flex-end" }}>
-                                        <ImageBackground imageStyle={{ borderRadius: pxToDp(8) }} style={{ width: "100%", height: "100%" }} source={require('../../../res/8.jpg')}>
-                                            <View style={{ width: "100%", height: "100%", justifyContent: "flex-end" }}>
-                                                <View style={{ flexDirection: "row", alignItems: "flex-end", justifyContent: "space-between", marginLeft: pxToDp(10), marginRight: pxToDp(10), marginBottom: pxToDp(10) }}>
-                                                    <Text style={{ fontSize: pxToDp(15), color: "white" }}>{item.title}</Text>
-                                                    <TouchableOpacity>
-                                                        <Image style={{ width: pxToDp(30), height: pxToDp(30) }} source={require("../../../res/播放.png")} />
-                                                    </TouchableOpacity>
-                                                </View>
-                                            </View>
-                                        </ImageBackground>
-                                    </TouchableOpacity>
-                                    <View style={{ width: "100%", height: pxToDp(20) }} />
-                                </View>
-                            </View>
-                        ))}
                     </View>
-                </ScrollView>
+                </View>
             </View>
         );
     }
@@ -160,7 +78,7 @@ const styles = StyleSheet.create({
         height: pxToDp(110),
         backgroundColor: 'white',
         flexDirection: "row",
-        alignSelf:'center'
+        alignSelf: 'center'
 
     },
     image: {
@@ -169,6 +87,7 @@ const styles = StyleSheet.create({
     },
     center: {
         width: "100%",
+        height: pxToDp(700),
         backgroundColor: "white",
         marginTop: pxToDp(15),
         borderTopLeftRadius: pxToDp(8),

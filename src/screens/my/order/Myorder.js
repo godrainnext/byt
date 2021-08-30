@@ -163,12 +163,13 @@ class orders extends PureComponent {
           >
             <Text style={{ fontSize: pxToDp(16) }}>订单状态: 待确认</Text>
           </View>
-          {/* 收获地址 */}
+          {/* 收货地址 */}
           <View
             style={{
               margin: pxToDp(2),
               marginTop: pxToDp(16),
               backgroundColor: '#fff',
+              height:pxToDp(100),
               borderRadius: pxToDp(8),
               elevation: 2,
               shadowColor: 'black', //  阴影颜色
@@ -251,7 +252,7 @@ class orders extends PureComponent {
                 <Text
                   style={{
                     fontSize: pxToDp(18),
-                    color: 'red',
+                    color: '#62bfad',
                     fontWeight: 'bold'
                   }}
                 >
@@ -296,7 +297,7 @@ class orders extends PureComponent {
               <Text
                 style={{
                   fontSize: pxToDp(18),
-                  color: 'red',
+                  color: '#62bfad',
                   fontWeight: 'bold'
                 }}
               >
@@ -324,8 +325,8 @@ class orders extends PureComponent {
                 shadowRadius: 10 //  圆角
               }}
             >
-              <Text style={{ marginLeft: pxToDp(8)}}>支付方式:</Text>
-              <Text style={{ marginLeft: pxToDp(180)}}>{this.state.way}</Text>
+              <Text style={{ marginLeft: pxToDp(8) }}>支付方式:</Text>
+              <Text style={{ marginLeft: pxToDp(180) }}>{this.state.way}</Text>
               <Image
                 style={{
                   width: pxToDp(15),
@@ -365,7 +366,7 @@ class orders extends PureComponent {
                 fontSize: pxToDp(18),
                 marginLeft: pxToDp(5),
                 fontWeight: 'bold',
-                color: 'red'
+                color: '#62bfad'
               }}
             >
               ￥{price * count}

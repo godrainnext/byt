@@ -128,11 +128,6 @@ class Index extends PureComponent {
     return (
       <View style={{ flex: 1, backgroundColor: 'white' }}>
         <View>
-          <Addmoment
-            updateList={this.updateList}
-            toggleModalProps={this.changeVisible}
-            isModalVisible={this.state.isShow}
-          />
         </View>
         <ScrollView showsVerticalScrollIndicator={false}>
           <View>
@@ -141,7 +136,7 @@ class Index extends PureComponent {
               <EZSwiper
                 style={[
                   styles.swiper,
-                  { width: width - 20, height: 180, marginLeft: pxToDp(10) }
+                  { width: width - pxToDp(32), height: 180, marginLeft: pxToDp(16) }
                 ]}
                 dataSource={[
                   {
@@ -165,25 +160,30 @@ class Index extends PureComponent {
               />
             </View>
             {/**话题 */}
-            <Text
-              style={{
-                fontSize: pxToDp(18),
-                color: '#000000',
-                fontWeight: 'bold',
-                marginTop: pxToDp(8),
-                marginLeft: pxToDp(8)
-              }}
-            >
-              热门话题
-            </Text>
+            <View style={styles.titlebox}>
+              <View style={styles.left}>
+              </View>
+              <View style={{ marginLeft: pxToDp(6) }}>
+                <Text style={styles.titletext}>
+                  热门话题
+                </Text>
+                <Text style={styles.titlepinyin}>
+                  re men hua ti
+                </Text>
+              </View>
+            </View>
             <ScrollView
               horizontal={true}
               showsHorizontalScrollIndicator={false}
+<<<<<<< HEAD
               style={{
                 height: pxToDp(88),
                 marginLeft: pxToDp(8),
                 marginRight: pxToDp(16)
               }}
+=======
+              style={{ height: pxToDp(88), marginLeft: pxToDp(8), marginRight: pxToDp(16) }}
+>>>>>>> 79e87b04b2066c4b7bf66c03ed1aa59c6ae18259
             >
               {this.state.field.map((item, index) => (
                 <TouchableNativeFeedback
@@ -191,6 +191,7 @@ class Index extends PureComponent {
                   key={item.id}
                   onPress={() => this.openTopic(index)}
                 >
+<<<<<<< HEAD
                   <View
                     style={{
                       marginTop: pxToDp(8),
@@ -200,6 +201,15 @@ class Index extends PureComponent {
                       borderRadius: pxToDp(8)
                     }}
                   >
+=======
+                  <View style={{
+                    marginTop: pxToDp(8),
+                    marginLeft: pxToDp(8),
+                    width: pxToDp(150),
+                    height: pxToDp(72),
+                    borderRadius: pxToDp(8)
+                  }}>
+>>>>>>> 79e87b04b2066c4b7bf66c03ed1aa59c6ae18259
                     <ImageBackground
                       source={{ uri: item.img }}
                       style={{
@@ -212,7 +222,7 @@ class Index extends PureComponent {
                       }}
                       imageStyle={{ borderRadius: pxToDp(8) }}
                     >
-                      <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
+                      <Text style={{ fontSize: pxToDp(16), color: '#000000', fontWeight: 'bold' }}>
                         {item.text}
                       </Text>
                     </ImageBackground>
@@ -245,6 +255,29 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center'
-  }
+  },
+  titlebox: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginLeft: pxToDp(16),
+    marginRight: pxToDp(16),
+    marginTop: pxToDp(8)
+  },
+  left: {
+    width: pxToDp(4),
+    height: '75%',
+    backgroundColor: '#62bfad',
+    borderRadius: pxToDp(2)
+  },
+  titletext: {
+    fontSize: pxToDp(18),
+    color: '#62bfad',
+    fontWeight: 'bold'
+  },
+  titlepinyin: {
+    fontSize: pxToDp(14),
+    color: '#999999',
+    marginTop: pxToDp(-6)
+  },
 });
 export default Index;

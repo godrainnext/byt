@@ -12,6 +12,7 @@ import LottieView from 'lottie-react-native';
 import Meun from './screens/test/test6';
 import { NavigationContext } from '@react-navigation/native';
 import Addmoment from './screens/talk/home/forum/addMoment';
+import { kaizhibo, fadongtai, kaifangjian } from './component/common/iconSvg';
 
 class Index extends PureComponent {
   static contextType = NavigationContext;
@@ -23,13 +24,9 @@ class Index extends PureComponent {
     this.Scrollable1.close();
     this.context.navigate('KaiFang');
   };
-  // faComment = ()=>{
-  //   this.Scrollable1.close();
-  //   this.context.navigate('')
-  // }
-
   changeVisible = () => {
-    this.setState({ isShow: !this.state.isShow });
+    this.Scrollable1.close();
+    this.context.navigate('AddMoment');
   };
   state = {
     selectedTab: 'first',
@@ -42,15 +39,26 @@ class Index extends PureComponent {
         title: '戏台',
         renderIcon: () => (
           <Image
-            style={{ width: pxToDp(30), height: pxToDp(28) }}
-            source={require('./sb11.png')}
+            style={{ width: pxToDp(28), height: pxToDp(28) }}
+            source={require('./res/戏台.png')}
           ></Image>
         ),
         renderSelectedIcon: () => (
-          <Image
-            style={{ width: pxToDp(35), height: pxToDp(28) }}
-            source={require('./sb11.png')}
-          ></Image>
+          <View
+            style={{
+              backgroundColor: 'white',
+              height: pxToDp(40),
+              width: pxToDp(40),
+              borderRadius: pxToDp(20),
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
+            <Image
+              style={{ width: pxToDp(28), height: pxToDp(28) }}
+              source={require('./res/戏台.png')}
+            ></Image>
+          </View>
         ),
         onPress: () => this.setState({ selectedTab: 'first' }),
         component: <First />
@@ -60,15 +68,26 @@ class Index extends PureComponent {
         title: '戏缘',
         renderIcon: () => (
           <Image
-            style={{ width: pxToDp(30), height: pxToDp(28) }}
-            source={require('./sb22.png')}
+            style={{ width: pxToDp(28), height: pxToDp(28) }}
+            source={require('./res/戏缘.png')}
           ></Image>
         ),
         renderSelectedIcon: () => (
-          <Image
-            style={{ width: pxToDp(35), height: pxToDp(28) }}
-            source={require('./sb22.png')}
-          ></Image>
+          <View
+            style={{
+              backgroundColor: 'white',
+              height: pxToDp(40),
+              width: pxToDp(40),
+              borderRadius: pxToDp(20),
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
+            <Image
+              style={{ width: pxToDp(28), height: pxToDp(28) }}
+              source={require('./res/戏缘.png')}
+            ></Image>
+          </View>
         ),
         onPress: () => this.setState({ selectedTab: 'talk' }),
         component: <Talk />
@@ -80,8 +99,8 @@ class Index extends PureComponent {
             <LottieView
               autoPlay={this.state.isAuto}
               loop={this.state.isLoop}
-              style={{ width: pxToDp(70), marginBottom: pxToDp(35) }}
-              source={require('./lottie/lf30_editor_daidtw39.json')}
+              style={{ width: pxToDp(70), marginBottom: pxToDp(30) }}
+              source={require('../lottie/扇子.json')}
             />
             <RBSheet
               ref={(ref) => {
@@ -115,7 +134,7 @@ class Index extends PureComponent {
                     style={{
                       width: pxToDp(300),
                       height: '100%',
-                      backgroundColor: '#ecf6fc',
+                      backgroundColor: '#D5E8E6',
                       justifyContent: 'space-around',
                       alignItems: 'center',
                       borderRadius: pxToDp(16),
@@ -131,36 +150,36 @@ class Index extends PureComponent {
                       onPress={this.kaiBo}
                       style={{ justifyContent: 'center', alignItems: 'center' }}
                     >
-                      <View style={styles.textbox}></View>
+                      <View style={styles.textbox}>
+                        <Svg svgXmlData={kaizhibo} width="22" height="22" />
+                      </View>
                       <Text style={styles.text}>开直播</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                       onPress={this.kaiFang}
                       style={{ justifyContent: 'center', alignItems: 'center' }}
                     >
-                      <View style={styles.textbox}></View>
+                      <View style={styles.textbox}>
+                        <Svg svgXmlData={kaifangjian} width="22" height="22" />
+                      </View>
                       <Text style={styles.text}>开房间</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                       onPress={this.changeVisible}
                       style={{ justifyContent: 'center', alignItems: 'center' }}
                     >
-                      <View style={styles.textbox}></View>
+                      <View style={styles.textbox}>
+                        <Svg svgXmlData={fadongtai} width="20" height="20" />
+                      </View>
                       <Text style={styles.text}>发动态</Text>
                     </TouchableOpacity>
                   </View>
-                </View>
-                <View>
-                  <Addmoment
-                    toggleModalProps={this.changeVisible}
-                    isModalVisible={this.state.isShow}
-                  />
                 </View>
                 <View
                   style={{
                     width: pxToDp(24),
                     height: pxToDp(24),
-                    backgroundColor: '#ecf6fc',
+                    backgroundColor: '#D5E8E6',
                     transform: [{ rotate: '135deg' }],
                     marginTop: pxToDp(-16),
                     borderRadius: pxToDp(4)
@@ -175,7 +194,7 @@ class Index extends PureComponent {
             autoPlay={true}
             loop={true}
             style={{ width: pxToDp(70), marginBottom: pxToDp(35) }}
-            source={require('./lottie/lf30_editor_daidtw39.json')}
+            source={require('../lottie/扇子.json')}
           />
         ),
         onPress: () => this.Scrollable1.open()
@@ -185,15 +204,26 @@ class Index extends PureComponent {
         title: '越市',
         renderIcon: () => (
           <Image
-            style={{ width: pxToDp(30), height: pxToDp(30) }}
-            source={require('./sb33.png')}
+            style={{ width: pxToDp(28), height: pxToDp(28) }}
+            source={require('./res/越市.png')}
           ></Image>
         ),
         renderSelectedIcon: () => (
-          <Image
-            style={{ width: pxToDp(35), height: pxToDp(28) }}
-            source={require('./sb33.png')}
-          ></Image>
+          <View
+            style={{
+              backgroundColor: 'white',
+              height: pxToDp(40),
+              width: pxToDp(40),
+              borderRadius: pxToDp(20),
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
+            <Image
+              style={{ width: pxToDp(28), height: pxToDp(28) }}
+              source={require('./res/越市.png')}
+            ></Image>
+          </View>
         ),
         onPress: () => this.setState({ selectedTab: 'shop' }),
         component: <Shop />
@@ -203,15 +233,26 @@ class Index extends PureComponent {
         title: '戏痴',
         renderIcon: () => (
           <Image
-            style={{ width: pxToDp(30), height: pxToDp(30) }}
-            source={require('./sb44.png')}
+            style={{ width: pxToDp(28), height: pxToDp(28) }}
+            source={require('./res/戏痴.png')}
           ></Image>
         ),
         renderSelectedIcon: () => (
-          <Image
-            style={{ width: pxToDp(35), height: pxToDp(28) }}
-            source={require('./sb44.png')}
-          ></Image>
+          <View
+            style={{
+              backgroundColor: 'white',
+              height: pxToDp(40),
+              width: pxToDp(40),
+              borderRadius: pxToDp(20),
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
+            <Image
+              style={{ width: pxToDp(28), height: pxToDp(28) }}
+              source={require('./res/戏痴.png')}
+            ></Image>
+          </View>
         ),
         onPress: () => this.setState({ selectedTab: 'my' }),
         component: <My />
@@ -222,7 +263,7 @@ class Index extends PureComponent {
     const { selectedTab, pages } = this.state;
     return (
       <View style={{ backgroundColor: '#fff', flex: 1 }}>
-        <TabNavigator style={{ backgroundColor: '#e2f4fe' }}>
+        <TabNavigator>
           {pages.map((v, i) => (
             <TabNavigator.Item
               key={v.title}
@@ -232,15 +273,14 @@ class Index extends PureComponent {
               renderSelectedIcon={v.renderSelectedIcon}
               onPress={v.onPress}
               selectedTitleStyle={{
-                color: '#dc3023',
+                color: '#62bfad',
                 height: 30,
-                fontSize: 15,
+                fontSize: pxToDp(14),
                 borderRadius: 50
               }}
               tabStyle={{
-                backgroundColor: '#ecf6fc',
-                justifyContent: 'center',
-                padding: 10
+                backgroundColor: 'white',
+                justifyContent: 'center'
               }}
             >
               {v.component}
@@ -271,17 +311,13 @@ const styles = StyleSheet.create({
     color: 'black'
   },
   textbox: {
-    height: pxToDp(40),
-    width: pxToDp(40),
+    height: pxToDp(36),
+    width: pxToDp(36),
     borderRadius: pxToDp(30),
-    backgroundColor: '#468cd3',
     alignItems: 'center',
-    justifyContent: 'center',
-    elevation: 2,
-    shadowColor: 'black',
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 1,
-    shadowRadius: 10
+    borderWidth: pxToDp(2),
+    borderColor: '#62bfad',
+    justifyContent: 'center'
   },
   image1: {
     height: pxToDp(160),

@@ -21,36 +21,43 @@ export default class HighLights extends PureComponent {
   }
   render() {
     return (
-      <View style={{ marginTop: pxToDp(40),marginLeft:pxToDp(16),marginRight:pxToDp(16), }}>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            marginBottom: pxToDp(20)
-          }}
-        >
-          <Text
-            style={{
-              fontSize: pxToDp(18),
-              color: '#000000',
-              fontWeight: 'bold'
-            }}
-          >
-            精选唱段
-          </Text>
-          <TouchableOpacity onPress={() => this.context.navigate('Opera')}>
-            <View style={{ flexDirection: 'row' }}>
-              <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
-                查看更多
+      <View style={{ marginTop: pxToDp(16), marginLeft: pxToDp(16), marginRight: pxToDp(16) }}>
+        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+          <View style={{ width: pxToDp(4), height: '75%', backgroundColor: '#62bfad', borderRadius: pxToDp(2) }}>
+          </View>
+          <View>
+            <View
+              style={{
+                marginLeft: pxToDp(-106)
+              }}
+            >
+              <Text
+                style={{
+                  fontSize: pxToDp(18),
+                  color: '#62bfad',
+                  fontWeight: 'bold'
+                }}
+              >
+                精选唱段
               </Text>
-              <Ionicons name="chevron-forward" size={24} color="#666666" />
+              <Text style={{ fontSize: pxToDp(14), color: '#999999', marginTop: pxToDp(-6) }}>jing xuan chang duan</Text>
             </View>
+          </View>
+          <TouchableOpacity
+            style={{ flexDirection: 'row', alignItems: 'center' }}
+            onPress={() => this.context.navigate('Opera')}
+          >
+            <Text style={{ fontSize: pxToDp(14), color: '#666666' }}>
+              查看更多
+            </Text>
+            <Ionicons name="chevron-forward" size={16} color="#666666" />
           </TouchableOpacity>
         </View>
         <ScrollView
           horizontal={true}
           style={{
-            height: pxToDp(220)
+            height: pxToDp(220),
+            marginTop: pxToDp(16)
           }}
           showsHorizontalScrollIndicator={false}
         >
@@ -79,35 +86,33 @@ export default class HighLights extends PureComponent {
                   shadowRadius: 10,  //  圆角
                 }}
               >
-                <View style={{ height: pxToDp(130), flexDirection: "row",}}>
-                  <View style={{ width: pxToDp(90), alignItems: 'center'}}>
+                <View style={{ height: pxToDp(130), flexDirection: "row" }}>
+                  <View style={{ width: pxToDp(90), alignItems: 'center', marginTop: pxToDp(8) }}>
                     <Text style={{ fontWeight: 'bold' }}>
                       {item.createAt.split('-')[0] +
                         '-' +
                         item.createAt.split('-')[1]}
                     </Text>
-                    <Text style={{ fontSize: pxToDp(24), fontWeight: 'bold'}}>
+                    <Text style={{ fontSize: pxToDp(24), fontWeight: 'bold' }}>
                       {item.createAt.split('-')[2].split('T')[0]}
-                      <Text/>
-                      
+                      <Text />
+
                     </Text>
-                    <View style={{ flexDirection: 'row', margin:6,justifyContent:'space-between',width:pxToDp(40),}}>
-                        <Text style={{ fontSize: pxToDp(16), width: 16, }}>
-                          辛丑年
-                        </Text>
-                        <Text style={{ fontSize: pxToDp(16), width: 16 }}>
-                          十月廿四
-                        </Text>
-                      </View>
+                    <View style={{ flexDirection: 'row', margin: 6, justifyContent: 'space-between', width: pxToDp(40), }}>
+                      <Text style={{ fontSize: pxToDp(16), width: 16, }}>
+                        辛丑年
+                      </Text>
+                      <Text style={{ fontSize: pxToDp(16), width: 16 }}>
+                        十月廿四
+                      </Text>
+                    </View>
                   </View>
-                   
+
                   <Image
                     style={{
                       height: pxToDp(130),
                       width: pxToDp(250),
-                      borderRadius: pxToDp(8),
-
-
+                      borderTopRightRadius: pxToDp(8),
                     }}
                     source={{ uri: changeImgSize(item.avatar) }}
                   />
@@ -118,12 +123,12 @@ export default class HighLights extends PureComponent {
                     <Text style={{ fontSize: pxToDp(16), marginBottom: pxToDp(8), color: '#333333', marginLeft: pxToDp(16) }}>
                       {item.title}
                     </Text>
-
                   </View>
                   <View
                     style={{
-                      flex: 1,
-                      justifyContent: 'center',
+                      height: pxToDp(40),
+                      marginLeft: pxToDp(20),
+                      marginTop: pxToDp(20)
                     }}
                   >
                     <Mybtn
@@ -134,11 +139,9 @@ export default class HighLights extends PureComponent {
                         height: pxToDp(40),
                         alignSelf: 'flex-end',
                         borderRadius: pxToDp(32),
-                        marginRight: pxToDp(16)
-
                       }}
                       titleStyle={{
-
+                        color: 'white',
                         fontSize: pxToDp(16)
                       }}
                     />

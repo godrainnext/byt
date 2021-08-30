@@ -115,9 +115,9 @@ class Index extends PureComponent {
     return (
       <View style={{ flex: 1, backgroundColor: '#fff' }}>
         <Top icon1="arrow-back" title="积分商城" />
-        <ScrollView 
-        showsVerticalScrollIndicator={false}
-        style={{ flex: 1 }}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+          style={{ flex: 1 }}>
           <ImageBackground
             source={require('../../../res/21.jpg')}
             style={{
@@ -136,7 +136,7 @@ class Index extends PureComponent {
               <Text
                 style={{
                   fontSize: pxToDp(20),
-                  color: '#f90',
+                  color: '#62bfad',
                   fontWeight: 'bold'
                 }}
               >
@@ -178,15 +178,15 @@ class Index extends PureComponent {
               积分兑换
             </Text>
             <View
-            style={{
-              flexWrap: 'wrap',
-              flexDirection: 'row',
-              marginLeft:pxToDp(16),
-              marginRight:pxToDp(16),
-              marginTop:pxToDp(-6),
-              justifyContent:'space-between'
-            }}
-          >
+              style={{
+                flexWrap: 'wrap',
+                flexDirection: 'row',
+                marginLeft: pxToDp(16),
+                marginRight: pxToDp(16),
+                marginTop: pxToDp(-6),
+                justifyContent: 'space-between'
+              }}
+            >
               {this.state.data.map((item, index) => (
                 <View style={styles.kidbox}>
                   <TouchableOpacity
@@ -221,7 +221,7 @@ class Index extends PureComponent {
               ))}
             </View>
           </View>
-          <View style={{height:pxToDp(10)}}></View>
+          <View style={{ height: pxToDp(10) }}></View>
         </ScrollView>
       </View>
     );
@@ -231,7 +231,7 @@ const styles = StyleSheet.create({
   kidbox: {
     backgroundColor: 'white',
     width: pxToDp(165.5),
-    marginTop:pxToDp(14),
+    marginTop: pxToDp(14),
     borderRadius: pxToDp(8),
     elevation: 2,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
     shadowColor: 'black',  //  阴影颜色

@@ -173,7 +173,7 @@ shadowColor: 'black',  //  阴影颜色
     const { multipleSelect, activeSections } = this.state;
     console.log('111',this.state.isRadius);
     return (
-      <View style={{ backgroundColor: '#ECF6FC', flex: 1 }}>
+      <View style={{ backgroundColor: 'white', flex: 1 }}>
         <Top icon1="arrow-back" title="越剧大师教学" />
         <ScrollView
           style={{ flex: 1, padding: pxToDp(16) }}

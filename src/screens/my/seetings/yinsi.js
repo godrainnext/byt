@@ -15,7 +15,7 @@ class Index extends PureComponent {
   }
   render() {
     return (
-      <View style={{ backgroundColor: '#e2f4fe', flex: 1 }}>
+      <View style={{ backgroundColor: '#D5E8E6', flex: 1 }}>
         <Top icon1="arrow-back" title="隐私设置" />
         <View
           style={{
@@ -38,6 +38,8 @@ class Index extends PureComponent {
             <Switch
               //动态改变value
               value={this.state.value1}
+              thumbColor="#D5E8E6"
+              color="#62bfad"
               //当切换开关室回调此方法
               onValueChange={(value1) => {
                 this.setState({ value1: value1 });
@@ -51,6 +53,8 @@ class Index extends PureComponent {
             <Switch
               //动态改变value
               value={this.state.value2}
+              thumbColor="#D5E8E6"
+              color="#62bfad"
               //当切换开关室回调此方法
               onValueChange={(value2) => {
                 this.setState({ value2: value2 });
@@ -64,6 +68,8 @@ class Index extends PureComponent {
             <Switch
               //动态改变value
               value={this.state.value3}
+              thumbColor="#D5E8E6"
+              color="#62bfad"
               //当切换开关室回调此方法
               onValueChange={(value3) => {
                 this.setState({ value3: value3 });
@@ -77,6 +83,8 @@ class Index extends PureComponent {
             <Switch
               //动态改变value
               value={this.state.value4}
+              thumbColor="#D5E8E6"
+              color="#62bfad"
               //当切换开关室回调此方法
               onValueChange={(value4) => {
                 this.setState({ value4: value4 });
@@ -92,7 +100,7 @@ const styles = StyleSheet.create({
   kidbox2: {
     marginLeft: pxToDp(16),
     marginTop: pxToDp(4),
-    marginBottom:pxToDp(4),
+    marginBottom: pxToDp(4),
     marginRight: pxToDp(16),
     height: pxToDp(40),
     alignItems: 'center',

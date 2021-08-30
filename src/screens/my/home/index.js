@@ -20,7 +20,12 @@ import UserInner from '../../../component/home/userInner';
 import LinearGradient from 'react-native-linear-gradient';
 import Address from '../../../component/my/address/myAddress';
 import SvgUri from 'react-native-svg-uri';
-import { daizhifu, dpingjia, shouhou ,shouhuo} from '../../../component/common/iconSvg';
+import {
+  daizhifu,
+  dpingjia,
+  shouhou,
+  shouhuo
+} from '../../../component/common/iconSvg';
 
 class Index extends PureComponent {
   state = { avatar: '' };
@@ -47,7 +52,7 @@ class Index extends PureComponent {
         end={{ x: 0, y: 0.8 }}
         style={{ flex: 1 }}
       >
-        <Top title="戏痴" />
+        <View style={{height:pxToDp(16),color:'white'}}></View>
         <ScrollView showsVerticalScrollIndicator={false}>
           {/*        
           <View style={{position:'absolute',width:400,height:400,bottom:350,borderRadius:100,alignSelf:'center',opacity:.4}}>
@@ -57,7 +62,7 @@ class Index extends PureComponent {
 
           <UserInner />
           <ImageBackground
-          source={require('./userback.jpg')}
+            source={require('./userback.jpg')}
             style={{
               borderRadius: pxToDp(8),
               backgroundColor: '#f0fcff',
@@ -67,7 +72,7 @@ class Index extends PureComponent {
               marginTop: pxToDp(16),
               elevation: 3,
               borderWidth: 0,
-              overflow:'hidden'
+              overflow: 'hidden'
             }}
           >
             <View
@@ -111,7 +116,7 @@ class Index extends PureComponent {
                 onPress={() => this.context.navigate('Order', 1)}
               >
                 <View style={{ alignItems: 'center' }}>
-                <SvgUri svgXmlData={daizhifu} width='20' height='20'/>
+                  <SvgUri svgXmlData={daizhifu} width="20" height="20" />
                   <Text
                     style={{
                       fontSize: pxToDp(16),
@@ -127,7 +132,7 @@ class Index extends PureComponent {
                 onPress={() => this.context.navigate('Order', 2)}
               >
                 <View style={{ alignItems: 'center' }}>
-                <SvgUri svgXmlData={shouhuo} width='20' height='20'/>
+                  <SvgUri svgXmlData={shouhuo} width="20" height="20" />
                   <Text
                     style={{
                       fontSize: pxToDp(16),
@@ -143,7 +148,7 @@ class Index extends PureComponent {
                 onPress={() => this.context.navigate('Order', 3)}
               >
                 <View style={{ alignItems: 'center' }}>
-                <SvgUri svgXmlData={dpingjia} width='20' height='20'/>
+                  <SvgUri svgXmlData={dpingjia} width="20" height="20" />
                   <Text
                     style={{
                       fontSize: pxToDp(16),
@@ -157,7 +162,7 @@ class Index extends PureComponent {
               </TouchableOpacity>
               <TouchableOpacity onPress={() => this.context.navigate('Refund')}>
                 <View style={{ alignItems: 'center' }}>
-                  <SvgUri svgXmlData={shouhou} width='20' height='20'/>
+                  <SvgUri svgXmlData={shouhou} width="20" height="20" />
                   <Text
                     style={{
                       fontSize: pxToDp(16),
@@ -172,23 +177,27 @@ class Index extends PureComponent {
             </View>
           </ImageBackground>
           <View>
-            < Address />
+            <Address />
 
             <TouchableOpacity
               onPress={() => this.context.navigate('Jifenshop')}
             >
-              <List icon="server-outline" title="积分商城"/>
+              <List icon="server-outline" title="积分商城" />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => this.context.navigate('History')}>
               <List icon="eye-outline" title="历史浏览" />
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => this.context.navigate('Apply')}>
+            {this.props.userInfo.isstream?(  
+               <View>
+              <List icon="videocam-outline" title="已认证" />
+            </View>):
+            (<TouchableOpacity onPress={() => this.context.navigate('Apply')}>
               <List icon="videocam-outline" title="直播申请" />
-            </TouchableOpacity>
+            </TouchableOpacity>)}
+          </View>
             <TouchableOpacity onPress={() => this.context.navigate('Set')}>
               <List icon="settings-outline" title="设置" />
-            </TouchableOpacity>
-          </View>
+            </TouchableOpacity> 
         </ScrollView>
       </LinearGradient>
     );

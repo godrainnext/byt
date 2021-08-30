@@ -18,7 +18,7 @@ class Index extends PureComponent {
   static contextType = NavigationContext;
   render() {
     return (
-      <View style={{ backgroundColor: '#ECF6FC', flex: 1 }}>
+      <View style={{ backgroundColor: 'white', flex: 1 }}>
         <Top icon1="arrow-back" title="越剧基本功" />
         <ScrollView
           style={{ flex: 1, padding: pxToDp(16) }}

@@ -10,9 +10,10 @@ const Stack = createStackNavigator();
 function Nav() {
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode="none" initialRouteName="Login">
+      <Stack.Navigator headerMode="none" initialRouteName="BootPage">
         <Stack.Screen name="NewTimeLine" component={Screens.NewTimeLine} />
-
+        <Stack.Screen name="BootPage" component={Screens.BootPage} />
+        {/*引导页 */}
         <Stack.Screen name="Tabbar" component={Tabbar} />
         {/*登录 */}
         <Stack.Screen name="Login" component={Screens.Login} />
@@ -32,8 +33,6 @@ function Nav() {
         <Stack.Screen name="PageTwo" component={Screens.PageTwo} />
         {/* 名角风采 */}
         <Stack.Screen name="PageThree" component={Screens.PageThree} />
-        {/* 精选唱段 */}
-        <Stack.Screen name="PageFour" component={Screens.PageFour} />
         {/* 俯瞰百年文章 */}
         <Stack.Screen name="Pagefive" component={Screens.Pagefive} />
         {/*我的 */}
@@ -146,6 +145,8 @@ function Nav() {
         <Stack.Screen name="Talk" component={Screens.Talk} />
         {/*申请直播*/}
         <Stack.Screen name="Apply" component={Screens.Apply} />
+        {/*直播协议*/}
+        <Stack.Screen name="Xieyi" component={Screens.Xieyi} />
         {/*创作剧本 */}
         <Stack.Screen name="Create" component={Screens.Create} />
         {/* 论坛 */}
@@ -250,6 +251,9 @@ function Nav() {
         <Stack.Screen name="Testtt" component={Screens.Testtt} />
         <Stack.Screen name="ToSing" component={Screens.ToSing} />
         <Stack.Screen name="RegInfo" component={Screens.RegInfo} />
+        <Stack.Screen name="SingOver" component={Screens.SingOver} />
+        <Stack.Screen name="SingSub" component={Screens.SingSub} />
+        <Stack.Screen name="AddMoment" component={Screens.AddMoment} />
       </Stack.Navigator>
     </NavigationContainer>
   );

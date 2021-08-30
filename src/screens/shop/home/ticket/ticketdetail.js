@@ -13,6 +13,7 @@ import SvgUri from 'react-native-svg-uri';
 import { location } from '../../../../component/common/iconSvg';
 import { MarqueeHorizontal, MarqueeVertical } from 'react-native-marquee-ab';
 import { dianzan, pinglun } from '../../../../component/common/iconSvg';
+import Mybtn from '../../../../component/common/mybtn';
 
 export default class ticketdetail extends PureComponent {
   constructor(props) {
@@ -64,14 +65,24 @@ export default class ticketdetail extends PureComponent {
           reply: '52',
           like: '45'
         }
-      ]
+      ],
+      btnOpcity: false
     };
   }
   render() {
     return (
       <View style={{ backgroundColor: 'white', flex: 1 }}>
         <Top icon1="arrow-back" title="门票详情" />
-        <ScrollView style={{ flex: 1 }}>
+        <ScrollView
+          onScrollBeginDrag={() => {
+            this.setState({ btnOpcity: true });
+            console.log(this.state.btnOpcity);
+          }}
+          onScrollEndDrag={() => {
+            this.setState({ btnOpcity: false });
+            console.log(this.state.btnOpcity);
+          }}
+          style={{ flex: 1 }}>
           <View style={{ marginTop: pxToDp(8), marginRight: pxToDp(16), marginLeft: pxToDp(16) }}>
             {/* 海报栏 */}
             <View
@@ -90,7 +101,7 @@ export default class ticketdetail extends PureComponent {
               <View
                 style={{
                   height: pxToDp(120),
-                  width:pxToDp(250),
+                  width: pxToDp(250),
                   justifyContent: 'space-between'
                 }}
               >
@@ -107,8 +118,8 @@ export default class ticketdetail extends PureComponent {
                     {this.props.route.params.name}
                   </Text>
                 </View>
-                <View style={{marginLeft:pxToDp(8)}}>
-                  <Text style={{ color: '#f0bb51', fontSize: pxToDp(14) }}>
+                <View style={{ marginLeft: pxToDp(8) }}>
+                  <Text style={{ color: '#62bfad', fontSize: pxToDp(14) }}>
                     ￥{this.props.route.params.price}
                   </Text>
                 </View>
@@ -156,13 +167,13 @@ export default class ticketdetail extends PureComponent {
                 }}
               >
                 <Text
-                style={{
-                  fontSize: pxToDp(18),
-                  color: '#333333',
-                  fontWeight: 'bold',
-                  marginBottom: pxToDp(20),
-                  marginTop: pxToDp(20)
-                }}
+                  style={{
+                    fontSize: pxToDp(18),
+                    color: '#333333',
+                    fontWeight: 'bold',
+                    marginBottom: pxToDp(20),
+                    marginTop: pxToDp(20)
+                  }}
                 >
                   观众评分
                 </Text>
@@ -173,13 +184,13 @@ export default class ticketdetail extends PureComponent {
                     marginBottom: pxToDp(20)
                   }}
                 >
-                  <Text style={{ fontSize: pxToDp(24), color: '#468cd3' }}>
+                  <Text style={{ fontSize: pxToDp(24), color: '#62bfad' }}>
                     8.9
                   </Text>
                   <Text
                     style={{
                       alignSelf: 'flex-end',
-                      color: '#468cd3',
+                      color: '#62bfad',
                       fontSize: pxToDp(14)
                     }}
                   >
@@ -194,7 +205,7 @@ export default class ticketdetail extends PureComponent {
                   backgroundColor: 'white',
                   height: pxToDp(70),
                   borderRadius: pxToDp(8),
-                  elevation: 5,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                  elevation: 2,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
                   shadowColor: '#000000',  //  阴影颜色
                   shadowRadius: pxToDp(10),  //  圆角
                   padding: pxToDp(8)
@@ -220,9 +231,6 @@ export default class ticketdetail extends PureComponent {
                   numberOfLines={2}
                   bgContainerStyle={{ backgroundColor: 'transparent' }}
                   textStyle={{ fontSize: pxToDp(16), color: '#333333' }}
-                  onTextClick={(item) => {
-                    alert('' + JSON.stringify(item));
-                  }}
                 />
               </View>
             </View>
@@ -422,6 +430,33 @@ export default class ticketdetail extends PureComponent {
             </View>
           ))}
         </ScrollView>
+        <View
+          style={{
+            justifyContent: 'space-evenly'
+          }}
+        >
+          <Mybtn
+            title="立刻购买"
+            containerStyle={{
+              position: 'absolute',
+              bottom: 0,
+              fontSize: 30,
+              width: pxToDp(320),
+              height: pxToDp(40),
+              borderRadius: pxToDp(40),
+              alignSelf: 'center',
+              color: 'red',
+              display: 'none'
+            }}
+            buttonStyle={{
+              width: '100%',
+              height: '100%',
+              alignSelf: 'flex-end',
+              display: this.state.btnOpcity ? 'none' : 'flex',
+              borderRadius: pxToDp(32)
+            }}
+          />
+        </View>
       </View>
     );
   }
@@ -453,7 +488,7 @@ const styles = StyleSheet.create({
   },
   smalltextbox: {
     fontSize: pxToDp(14),
-    color: '#468cd3'
+    color: '#62bfad'
   },
   mainbox: {
     marginLeft: pxToDp(16),

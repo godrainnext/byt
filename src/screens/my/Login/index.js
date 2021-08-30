@@ -9,17 +9,17 @@ import {
   StyleSheet,
   LayoutAnimation,
   UIManager,
-  ToastAndroid
+  ToastAndroid,
+  TouchableNativeFeedback
 } from 'react-native';
-
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Input } from 'react-native-elements';
-import { connect } from 'react-redux';
 import { NavigationContext } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/FontAwesome';
 import { pxToDp } from '@utils/styleKits';
 import requset from '../../../service';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Mybtn from '../../../component/common/mybtn';
 class Login extends PureComponent {
   static contextType = NavigationContext;
 
@@ -28,7 +28,7 @@ class Login extends PureComponent {
     opcitytext2: new Animated.Value(0),
     opcitytext3: new Animated.Value(0),
     opcitytext4: new Animated.Value(0),
-    loginbox: 0,
+    loginbox: 350,
     regbox: 0,
     regusername: '',
     regpassword1: '',
@@ -158,11 +158,11 @@ class Login extends PureComponent {
         <Image
           source={require('./111.png')}
           style={{
-            width: pxToDp(150),
-            height: pxToDp(150),
+            width: pxToDp(200),
+            height: pxToDp(200),
             position: 'absolute',
-            left: pxToDp(120),
-            top: pxToDp(30)
+            left: pxToDp(70),
+            top: pxToDp(35)
           }}
         />
         <Animated.Text
@@ -209,7 +209,6 @@ class Login extends PureComponent {
         >
           留得千秋载
         </Animated.Text>
-
         <View
           style={{
             borderRadius: 24,
@@ -235,7 +234,7 @@ class Login extends PureComponent {
               value={this.state.username}
             />
           </View>
-          <View style={{ width: '80%', marginLeft: pxToDp(20) }}>
+          <View style={{ width: '80%', alignSelf: 'center' }}>
             <Input
               secureTextEntry={true}
               placeholder="请输入密码"
@@ -243,11 +242,27 @@ class Login extends PureComponent {
               onChangeText={(password) => this.setState({ password })}
               value={this.state.password}
             />
+            <TouchableOpacity onPress={this.toRegister} style={{ alignSelf: 'center', top: pxToDp(-20), left: pxToDp(70) }}>
+              <Text style={{ color: '#999999', }}>去注册</Text>
+            </TouchableOpacity>
             {/*登录按钮--------------------------------*/}
           </View>
-          <TouchableOpacity style={styles.loginbtn} onPress={this.Login}>
-            <Text>登录</Text>
-          </TouchableOpacity>
+          <Mybtn
+            title="登录"
+            onPress={this.Login}
+            buttonStyle={{
+              width: pxToDp(105),
+              height: pxToDp(35),
+              alignSelf: 'center',
+              borderRadius: pxToDp(32),
+            }}
+            titleStyle={{
+              color: 'white',
+              fontSize: pxToDp(14),
+              marginTop: pxToDp(-2)
+            }}
+          />
+
           {/*第三方登录--------------------------------*/}
           <View
             style={{
@@ -312,22 +327,22 @@ class Login extends PureComponent {
               onChangeText={(regpassword2) => this.setState({ regpassword2 })}
               value={this.state.regpassword2}
             />
+            <TouchableOpacity onPress={this.SingUp} style={{ alignSelf: 'center', top: pxToDp(-20), left: pxToDp(70) }}>
+              <Text style={{ color: '#999999', }}>去登陆</Text>
+            </TouchableOpacity>
+
           </View>
-          <TouchableOpacity
-            style={styles.loginbtn}
+          <TouchableNativeFeedback
+
             onPress={this.registerSubimit}
           >
-            <Text>登录</Text>
-          </TouchableOpacity>
+            <View style={styles.loginbtn}>
+              <Text>注册</Text>
+            </View>
+          </TouchableNativeFeedback>
+
         </View>
 
-        <TouchableOpacity style={styles.login} onPress={this.SingUp}>
-          <Text style={{ fontSize: 20, color: '#fff' }}>老戏迷</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.register} onPress={this.toRegister}>
-          <Text style={{ fontSize: 20, color: '#fff' }}>新戏迷</Text>
-        </TouchableOpacity>
       </ImageBackground>
     );
   }

@@ -115,7 +115,7 @@ class Index extends PureComponent {
       <View style={{ backgroundColor: '#fff', flex: 1 }}>
         <Top icon1="arrow-back" title="流派传奇" />
         <ScrollView
-          style={{ flex: 1, padding: pxToDp(8) }}
+          style={{ marginRight: pxToDp(8), marginLeft: pxToDp(8) }}
           showsVerticalScrollIndicator={false}
         >
           <View
@@ -151,11 +151,32 @@ class Index extends PureComponent {
                   }}
                   source={{ uri: item.path }}
                 />
-                <View style={{ justifyContent: 'flex-start', width: pxToDp(240), marginTop: pxToDp(10) }}>
-                  <Text style={{ fontSize: pxToDp(16), fontWeight: 'bold', color: '#333333',marginTop:pxToDp(2)}}>
+                <View
+                  style={{
+                    justifyContent: 'flex-start',
+                    width: pxToDp(240),
+                    marginTop: pxToDp(10)
+                  }}
+                >
+                  <Text
+                    style={{
+                      fontSize: pxToDp(16),
+                      fontWeight: 'bold',
+                      color: '#333333',
+                      marginTop: pxToDp(2)
+                    }}
+                  >
                     {item.title}
                   </Text>
-                  <Text style={{ fontSize: pxToDp(14), flexWrap: 'wrap', color: '#666666', marginTop: pxToDp(16), lineHeight: pxToDp(24) }}>
+                  <Text
+                    style={{
+                      fontSize: pxToDp(14),
+                      flexWrap: 'wrap',
+                      color: '#666666',
+                      marginTop: pxToDp(16),
+                      lineHeight: pxToDp(24)
+                    }}
+                  >
                     {item.text}
                   </Text>
                 </View>

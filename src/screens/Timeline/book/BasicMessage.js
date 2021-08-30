@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { pxToDp } from '@utils/styleKits';
 import { NavigationContext } from '@react-navigation/native';
-import { abs } from 'react-native-reanimated';
+import Mybtn from '../../../component/common/mybtn';
 
 class Index extends PureComponent {
   static contextType = NavigationContext;
@@ -23,7 +23,7 @@ class Index extends PureComponent {
           }}
           showsVerticalScrollIndicator={false}
         >
-          <View style={{ flex: 1}}>
+          <View style={{ flex: 1 }}>
             <View style={styles.baiscbox}>
               <Text style={{ fontSize: pxToDp(16) }}>成书国家</Text>
               <Text style={{ fontSize: pxToDp(16) }}>中国</Text>
@@ -45,7 +45,7 @@ class Index extends PureComponent {
               <Text style={{ fontSize: pxToDp(16) }}>1368年-1644年</Text>
             </View>
             <View style={{ marginLeft: pxToDp(16) }}>
-              <Text style={{ marginBottom: pxToDp(10), fontSize: pxToDp(16),marginTop:pxToDp(8)}}>
+              <Text style={{ marginBottom: pxToDp(10), fontSize: pxToDp(16), marginTop: pxToDp(8) }}>
                 古籍原貌
               </Text>
               <Image
@@ -61,27 +61,23 @@ class Index extends PureComponent {
         </ScrollView>
         <View
           style={{
-            justifyContent: 'space-evenly'
+            justifyContent: 'space-evenly',
+            marginBottom: pxToDp(16)
           }}
         >
-          <TouchableOpacity
-            //onPress={() => this.Scrollable.open()}
-            style={{
-              position: 'absolute',
-              bottom: 0,
-              backgroundColor: '#468cd3',
+          <Mybtn
+            title="开始阅读"
+            buttonStyle={{
               width: pxToDp(320),
               height: pxToDp(40),
-              marginTop: pxToDp(4),
-              marginBottom: pxToDp(4),
-              borderRadius: pxToDp(40),
-              alignItems: 'center',
               alignSelf: 'center',
-              justifyContent: 'center'
+              borderRadius: pxToDp(32),
             }}
-          >
-            <Text>开始阅读</Text>
-          </TouchableOpacity>
+            titleStyle={{
+              color: 'white',
+              fontSize: pxToDp(16)
+            }}
+          />
         </View>
       </View>
     );

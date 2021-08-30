@@ -6,7 +6,7 @@ import Top from '../../../component/common/top';
 class Index extends PureComponent {
   render() {
     return (
-      <View style={{ backgroundColor: '#e2f4fe', flex: 1 }}>
+      <View style={{ backgroundColor: '#D5E8E6', flex: 1 }}>
         <Top icon1="arrow-back" title="关于我们" />
         <View
           style={{

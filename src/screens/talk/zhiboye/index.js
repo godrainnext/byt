@@ -9,6 +9,7 @@ import Top from '../../../component/common/top';
 import LottieView from 'lottie-react-native';
 import { NavigationContext } from '@react-navigation/native';
 import axios from 'axios';
+import SvgUri from 'react-native-svg-uri';
 const dimensions = {
   width: Dimensions.get('window').width,
   height: Dimensions.get('window').height,
@@ -389,7 +390,7 @@ export default class App extends Component {
                 autoPlay
                 loop
               />
-              <Text>40热度</Text>
+              <Text>20热度</Text>
             </View>
             <TouchableOpacity
               onPress={this.closeCall}
@@ -415,7 +416,7 @@ export default class App extends Component {
                 <Text
                   style={{ color: 'white', fontSize: 16, fontWeight: 'bold' }}
                 >
-                  X
+                  ×
                 </Text>
               </View>
             </TouchableOpacity>

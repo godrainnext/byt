@@ -18,14 +18,14 @@ import RBSheet from 'react-native-raw-bottom-sheet';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Swiper from '@components/common/Swiper';
 import { getShopInfo } from '@service/shop';
-import { EasyLoading, Loading } from '@utils/ezLoading';
 import changeImgSize from '@utils/changeImgSize';
 import Mybtn from '../../../../component/common/mybtn';
-import LinearGradient from 'react-native-linear-gradient'
+import AnimatedLoader from 'react-native-animated-loader';
 const WINDOW_WIDTH = Dimensions.get('window').width;
 class shopdetails extends PureComponent {
   state = {
     count: 1,
+    visible: true,
     //商品
     btnOpcity: false,
     products: [],
@@ -124,7 +124,7 @@ class shopdetails extends PureComponent {
   };
   componentDidMount() {
     const id = this.props.route.params;
-    EasyLoading.show('loading');
+
     getShopInfo(id)
       .then((res) => {
         this.setState({
@@ -135,7 +135,9 @@ class shopdetails extends PureComponent {
         });
       })
       .then(() => {
-        EasyLoading.dismiss();
+        this.setState({
+          visible: !this.state.visible
+        });
       });
   }
   //this.context.navigate('Myorder')acitveId
@@ -153,12 +155,18 @@ class shopdetails extends PureComponent {
     }
   };
   render() {
-    const { count, tabs, activeTab, activeSizeTab } = this.state;
+    const { count, tabs, activeTab, activeSizeTab, visible } = this.state;
     return (
-      <View style={{ flex: 1, backgroundColor: '#ecf6fc' }}>
+      <View style={{ flex: 1, backgroundColor: '#D5E8E6' }}>
         {/* 顶部导航 */}
         <Top icon1="arrow-back" />
-        <Loading color="#468cd3" />
+        <AnimatedLoader
+          visible={visible}
+          overlayColor="rgba(0,0,0,0.75)"
+          source={require('../../../../../lottie/loading2.json')}
+          animationStyle={styles.lottie}
+          speed={1}
+        />
         <ScrollView
           showsVerticalScrollIndicator={false}
           // onMomentumScrollBegin={() => { this.setState({ btnOpcity: true }); console.log(this.state.btnOpcity); }}
@@ -174,10 +182,8 @@ class shopdetails extends PureComponent {
           style={{
             flex: 1
           }}
-          showsVerticalScrollIndicator={false}
         >
           {/* 商品图片 */}
-
           <View style={{ alignItems: 'center', marginTop: pxToDp(20) }}>
             <Swiper shopbanner={this.state.shopbanner} />
           </View>
@@ -200,7 +206,7 @@ class shopdetails extends PureComponent {
                 alignItems: 'flex-end'
               }}
             >
-              <Text style={{ fontSize: pxToDp(16), color: '#f0bb51' }}>
+              <Text style={{ fontSize: pxToDp(16), color: '#62bfad' }}>
                 ￥
                 {parseInt(
                   this.state.shop.price ? this.state.shop.price * 0.8 : 0
@@ -360,10 +366,10 @@ class shopdetails extends PureComponent {
                       style={{
                         justifyContent: 'center',
                         backgroundColor:
-                          index === activeSizeTab ? '#ecf6fc' : 'white',
+                          index === activeSizeTab ? '#D5E8E6' : 'white',
                         borderRadius: pxToDp(4),
                         borderColor:
-                          index === activeSizeTab ? '#468CD3' : 'white',
+                          index === activeSizeTab ? '#62bfad' : 'white',
                         borderWidth:
                           index === activeSizeTab ? pxToDp(1) : pxToDp(0),
                         height: pxToDp(30),
@@ -378,7 +384,7 @@ class shopdetails extends PureComponent {
                           alignSelf: 'center',
                           marginTop: pxToDp(4),
                           marginBottom: pxToDp(4),
-                          color: index === activeSizeTab ? '#468CD3' : '#666666'
+                          color: index === activeSizeTab ? '#62bfad' : '#666666'
                         }}
                       >
                         {item.size}
@@ -419,8 +425,8 @@ class shopdetails extends PureComponent {
                     style={{
                       justifyContent: 'center',
                       backgroundColor:
-                        index === activeTab ? '#ecf6fc' : 'white',
-                      borderColor: index === activeTab ? '#468CD3' : 'white',
+                        index === activeTab ? '#D5E8E6' : 'white',
+                      borderColor: index === activeTab ? '#62bfad' : 'white',
                       borderWidth: 1,
                       borderRadius: pxToDp(8),
                       height: pxToDp(131),
@@ -445,7 +451,7 @@ class shopdetails extends PureComponent {
                         alignSelf: 'center',
                         marginTop: pxToDp(5),
                         marginBottom: pxToDp(5),
-                        color: index === activeTab ? '#468CD3' : '#666666'
+                        color: index === activeTab ? '#62bfad' : '#666666'
                       }}
                     >
                       {item.color}
@@ -510,7 +516,6 @@ class shopdetails extends PureComponent {
           <View style={{ marginTop: 40 }}>
             <Mybtn
               title="提交订单"
-              style={{ width: '100%', height: '100%' }}
               onPress={this.goCreateOrider}
               containerStyle={{
                 position: 'absolute',
@@ -550,8 +555,7 @@ class shopdetails extends PureComponent {
               borderRadius: pxToDp(40),
               alignSelf: 'center',
               color: 'red',
-              display: 'none',
-              marginBottom: pxToDp(5)
+              display: 'none'
             }}
             buttonStyle={{
               width: '100%',
@@ -598,6 +602,10 @@ const styles = StyleSheet.create({
     borderColor: '#f1f1f1',
     margin: pxToDp(8),
     marginBottom: 0
+  },
+  lottie: {
+    width: pxToDp(200),
+    height: pxToDp(200)
   }
 });
 export default shopdetails;

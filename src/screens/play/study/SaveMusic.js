@@ -4,6 +4,7 @@ import { Audio, Video } from 'expo-av';
 import { Button } from 'react-native-elements';
 import { getMusicById } from '@service/play';
 import { useRef } from 'react';
+import Top from '../../../component/common/top';
 export default memo(function SaveMusic(props) {
   const [music, setmusic] = useState();
   const [status, setstatus] = useState();
@@ -21,6 +22,7 @@ export default memo(function SaveMusic(props) {
   }
   return (
     <View>
+      <Top title="123" icon1="arrow-back" />
       <Video
         ref={musicRef}
         source={{ uri: music }}

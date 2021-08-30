@@ -1,4 +1,4 @@
-import React, { PureComponent } from "react";
+import React, { PureComponent } from 'react';
 import {
   View,
   Text,
@@ -15,7 +15,7 @@ import Top from '../../../component/common/top';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import { NavigationContext } from '@react-navigation/native';
 import RBSheet from 'react-native-raw-bottom-sheet';
-import Mybtn from "../../../component/common/mybtn";
+import Mybtn from '../../../component/common/mybtn';
 class orderdetails extends PureComponent {
   showAlert() {
     Alert.alert('是否确认收货？', '确认后就不可更改了哦', [
@@ -67,8 +67,8 @@ class orderdetails extends PureComponent {
     ];
     let items = [];
     invoice.map((el, index) => {
-      let colorValue = index === 0 ? '#0b74c4' : '#888';
-      let backgroundColor = index === 0 ? '#0b74c4' : '#e0e0e0';
+      let colorValue = index === 0 ? '#62bfad' : '#888';
+      let backgroundColor = index === 0 ? '#62bfad' : '#e0e0e0';
       items.push(
         <View style={styles.expressItem} key={index}>
           <View style={styles.expressRightFirst}>
@@ -108,7 +108,7 @@ class orderdetails extends PureComponent {
           <View
             style={{
               margin: pxToDp(2),
-              height: pxToDp(80),
+              height: pxToDp(100),
               backgroundColor: '#fff',
               borderRadius: pxToDp(8),
               elevation: 2,
@@ -189,7 +189,7 @@ class orderdetails extends PureComponent {
                 <Text
                   style={{
                     fontSize: pxToDp(18),
-                    color: 'red',
+                    color: '#62bfad',
                     fontWeight: 'bold'
                   }}
                 >
@@ -228,8 +228,8 @@ class orderdetails extends PureComponent {
                 {howPay === 0
                   ? '微信支付'
                   : howPay === 1
-                  ? '支付宝支付'
-                  : '银行卡支付'}
+                    ? '支付宝支付'
+                    : '银行卡支付'}
               </Text>
             </View>
             <View
@@ -286,41 +286,41 @@ class orderdetails extends PureComponent {
                 alignItems: 'center'
               }}
             >
-                  <Mybtn
-             onPress={() => this.Scrollable.open()}
-            title="查看物流"
-            buttonStyle={{
-              left: pxToDp(8),
-              justifyContent: 'center',
-              alignItems: 'center',
-              borderRadius: pxToDp(24),
-              marginRight: pxToDp(20),
-              width: pxToDp(130),
-              height: pxToDp(40)
-            }}
-            titleStyle={{
-              color: '#fcfcfc',
-              fontWeight: 'bold',
-              fontSize: pxToDp(16)
-            }}
-          />
-                   <Mybtn
-            onPress={this.showAlert.bind(this)}
-            title="确认收货"
-            buttonStyle={{
-              borderRadius: pxToDp(32),
-              marginRight: pxToDp(16),
-              width: pxToDp(130),
-              height: pxToDp(40),
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
-            titleStyle={{
-              color: '#fcfcfc',
-              fontWeight: 'bold',
-              fontSize: pxToDp(16)
-            }}
-          />
+              <Mybtn
+                onPress={() => this.Scrollable.open()}
+                title="查看物流"
+                buttonStyle={{
+                  left: pxToDp(8),
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  borderRadius: pxToDp(24),
+                  marginRight: pxToDp(20),
+                  width: pxToDp(120),
+                  height: pxToDp(40)
+                }}
+                titleStyle={{
+                  color: '#fcfcfc',
+                  fontWeight: 'bold',
+                  fontSize: pxToDp(16)
+                }}
+              />
+              <Mybtn
+                onPress={this.showAlert.bind(this)}
+                title="确认收货"
+                buttonStyle={{
+                  borderRadius: pxToDp(32),
+                  marginRight: pxToDp(16),
+                  width: pxToDp(120),
+                  height: pxToDp(40),
+                  justifyContent: 'center',
+                  alignItems: 'center'
+                }}
+                titleStyle={{
+                  color: '#fcfcfc',
+                  fontWeight: 'bold',
+                  fontSize: pxToDp(16)
+                }}
+              />
             </View>
           </View>
           <RBSheet
@@ -335,7 +335,7 @@ class orderdetails extends PureComponent {
             <ScrollView showsVerticalScrollIndicator={false}>
               <View
                 style={{
-                  backgroundColor: '#468cd3',
+                  backgroundColor: '#62bfad',
                   height: pxToDp(150),
                   paddingLeft: pxToDp(8)
                   // marginLeft: pxToDp(8),
@@ -452,7 +452,7 @@ const styles = StyleSheet.create({
     fontSize: pxToDp(14),
     marginRight: pxToDp(8),
     fontWeight: 'bold',
-    color: 'red'
+    color: '#62bfad'
   },
   process: {
     paddingVertical: pxToDp(8),

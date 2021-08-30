@@ -65,11 +65,10 @@ class Index extends PureComponent {
             }}
             source={{ uri: this.state.dramalist[0].path1 }}
           />
-          <Text style={styles.text}>
-            {this.state.dramalist[0].title}
-          </Text>
+          <Text style={styles.text}>{this.state.dramalist[0].title}</Text>
           <Text style={styles.title}>
-            &emsp;&emsp;作者：{this.state.dramalist[0].author} &emsp;创作年代:&emsp;
+            &emsp;&emsp;作者：{this.state.dramalist[0].author}{' '}
+            &emsp;创作年代:&emsp;
             {this.state.dramalist[0].year}
           </Text>
           <View>
@@ -103,17 +102,15 @@ class Index extends PureComponent {
             </Text>
           </View>
           <View>
-            <Text
-              style={styles.text}>
-              剧本详情
-            </Text>
+            <Text style={styles.text}>剧本详情</Text>
             <TouchableOpacity
               style={styles.book}
-              onPress={() => this.context.navigate('Screenpaly4', {
-                ...this.state.dramalist,
-                title: this.state.dramalist[0].title
+              onPress={() =>
+                this.context.navigate('Screenpaly4', {
+                  ...this.state.dramalist,
+                  title: this.state.dramalist[0].title
+                })
               }
-              )}
             >
               <Image
                 style={{
@@ -159,4 +156,3 @@ const styles = StyleSheet.create({
   }
 });
 export default Index;
-

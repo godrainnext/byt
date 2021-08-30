@@ -65,7 +65,7 @@ class NewAddress extends PureComponent {
   };
   render() {
     return (
-      <View style={{ backgroundColor: '#e2f4fe', flex: 1 }}>
+      <View style={{ backgroundColor: '#D5E8E6', flex: 1 }}>
         <Top icon1="arrow-back" title="新增地址" />
         <View
           style={{
@@ -101,7 +101,7 @@ class NewAddress extends PureComponent {
                 style={{
                   height: pxToDp(45),
                   paddingLeft: pxToDp(7),
-                  fontSize: pxToDp(14),
+                  fontSize: pxToDp(14)
                 }}
                 leftIcon={
                   <Text style={{ fontSize: pxToDp(16) }}>联系电话</Text>
@@ -161,6 +161,8 @@ class NewAddress extends PureComponent {
                   style={{ marginTop: pxToDp(10), marginRight: pxToDp(8) }}
                   //动态改变value
                   value={this.state.value}
+                  thumbColor="#ecf6fc"
+                  color="#468cd3"
                   //当切换开关室回调此方法
                   onValueChange={(value) => {
                     this.setState({ value: value });
@@ -173,13 +175,13 @@ class NewAddress extends PureComponent {
 
         <Mybtn
           onPress={this.saveAddress}
-          title='保存信息'
+          title="保存信息"
           buttonStyle={{
-            width: pxToDp(352),
+            width: pxToDp(340),
             height: pxToDp(40),
             borderRadius: pxToDp(32),
             alignSelf: 'center',
-            marginTop:pxToDp(64)
+            marginTop: pxToDp(400)
           }}
           linearGradientProps={{
             colors: ['#fa9222', '#ffd501'],

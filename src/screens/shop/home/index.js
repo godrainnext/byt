@@ -7,10 +7,11 @@ import {
   StyleSheet,
   ScrollView,
   RefreshControl,
-  TouchableNativeFeedback
+  TouchableNativeFeedback,
+  TextInput
 } from 'react-native';
 
-import Top from '@components/common/top';
+import Top from '../../../component/common/myTop';
 import { pxToDp } from '@utils/styleKits';
 import Swiper from 'react-native-swiper';
 import { NavigationContext } from '@react-navigation/native';
@@ -35,15 +36,13 @@ class Index extends PureComponent {
   }
   static contextType = NavigationContext;
   _onRefresh() {
-
     if (this.state.refreshing === false) {
       this._updateState('正在刷新......', true);
 
       //5秒后结束刷新
       setTimeout(() => {
-        this._updateState('结束状态', false)
-      }, 1000)
-
+        this._updateState('结束状态', false);
+      }, 1000);
     }
   }
 
@@ -53,8 +52,9 @@ class Index extends PureComponent {
   }
   render() {
     return (
-      <View style={{ flex: 1,backgroundColor:'#fff' }}>
-        <Top title="越市" />
+      <View style={{ flex: 1, backgroundColor: 'white' }}>
+        {/**搜索框*/}
+        <Top />
         <ScrollView
           bounces={true}
           refreshControl={
@@ -64,11 +64,12 @@ class Index extends PureComponent {
               title={'正在刷新......'}
               refreshing={this.state.refreshing}
               onRefresh={this._onRefresh.bind(this)}
-            />}
+            />
+          }
           showsVerticalScrollIndicator={false}
         >
           {/*轮播 */}
-          <View style={{ height: pxToDp(220),  }}>
+          <View style={{ height: pxToDp(220) }}>
             <Swiper
               removeClippedSubviews={false}
               showsButtons={false}
@@ -76,7 +77,7 @@ class Index extends PureComponent {
               autoplay={true}
               showsPagination={false}
               autoplayTimeout={3}
-              style={{ marginTop: pxToDp(8), marginBottom: pxToDp(8) }}
+              style={{ marginBottom: pxToDp(8) }}
             >
               <View style={styles.slide}>
                 <Image
@@ -99,27 +100,50 @@ class Index extends PureComponent {
             </Swiper>
           </View>
           {/*小推广 */}
+          <View style={styles.titlebox}>
+            <View style={styles.left}>
+            </View>
+            <View style={{ marginLeft: pxToDp(6) }}>
+              <Text style={styles.titletext}>
+                越剧商城
+              </Text>
+              <Text style={styles.titlepinyin}>
+                yue ju shang cheng
+              </Text>
+            </View>
+          </View>
           <View
             style={{
+              flexDirection: 'row',
               marginLeft: pxToDp(16),
-              marginTop: pxToDp(-4)
+              marginRight: pxToDp(16),
+              marginTop: pxToDp(8)
             }}
           >
-            <Text style={styles.title}>长袖轻舞，越音袅袅</Text>
-          </View>
-          <View style={{ flexDirection: 'row', marginLeft: pxToDp(16), marginRight: pxToDp(16), marginTop: pxToDp(8) }}>
             {/*线下门票 */}
-            < TouchableNativeFeedback onPress={() => this.context.navigate('ticket')}
-              useForeground={true}>
-              <View >
-                <Image style={styles.image3} source={require('../../../res/门票.jpg')} />
+            <TouchableNativeFeedback
+              onPress={() => this.context.navigate('ticket')}
+              useForeground={true}
+            >
+              <View>
+                <Image
+                  style={styles.image3}
+                  source={require('../../../res/门票.jpg')}
+                />
               </View>
             </TouchableNativeFeedback>
             {/*戏服租赁 */}
-            <View style={{ height: pxToDp(170), justifyContent: 'space-between', marginLeft: pxToDp(10) }}>
-              < TouchableNativeFeedback
+            <View
+              style={{
+                height: pxToDp(170),
+                justifyContent: 'space-between',
+                marginLeft: pxToDp(10)
+              }}
+            >
+              <TouchableNativeFeedback
                 useForeground={true}
-                onPress={() => this.context.navigate('Zulin', 0)}>
+                onPress={() => this.context.navigate('Zulin', 0)}
+              >
                 <View>
                   <Image
                     style={styles.image4}
@@ -128,11 +152,11 @@ class Index extends PureComponent {
                 </View>
               </TouchableNativeFeedback>
               {/*越剧周边 */}
-              < TouchableNativeFeedback
+              <TouchableNativeFeedback
                 onPress={() => this.context.navigate('Zhoubian', 1)}
-                useForeground={true}>
-                <View
-                >
+                useForeground={true}
+              >
+                <View>
                   <Image
                     style={styles.image4}
                     source={require('../../../res/29.jpg')}
@@ -142,13 +166,17 @@ class Index extends PureComponent {
             </View>
           </View>
           {/*推荐模块 */}
-          <View
-            style={{
-              marginLeft: pxToDp(16),
-              marginTop: pxToDp(8)
-            }}
-          >
-            <Text style={styles.title}>你可能喜欢</Text>
+          <View style={styles.titlebox}>
+            <View style={styles.left}>
+            </View>
+            <View style={{ marginLeft: pxToDp(6) }}>
+              <Text style={styles.titletext}>
+                猜你喜欢
+              </Text>
+              <Text style={styles.titlepinyin}>
+                cai ni xi huan
+              </Text>
+            </View>
           </View>
           <View
             style={{
@@ -183,6 +211,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     height: pxToDp(200),
+    marginTop: pxToDp(8),
     borderRadius: pxToDp(8)
   },
   tcard: {
@@ -204,13 +233,15 @@ const styles = StyleSheet.create({
     height: '100%',
     width: '92%',
     borderRadius: pxToDp(8),
-    marginLeft:pxToDp(16),
-    marginRight:pxToDp(16)
+    marginLeft: pxToDp(16),
+    marginRight: pxToDp(16)
   },
   title: {
-    color: '#000000',
+    color: '#62bfad',
     fontSize: pxToDp(18),
-    fontWeight: 'bold',marginTop:pxToDp(16),marginBottom:pxToDp(16)
+    fontWeight: 'bold',
+    marginTop: pxToDp(16),
+    marginBottom: pxToDp(16)
   },
   image1: {
     height: pxToDp(100),
@@ -247,6 +278,29 @@ const styles = StyleSheet.create({
     width: pxToDp(167),
     borderRadius: pxToDp(8),
     alignSelf: 'center'
+  },
+  titlebox: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginLeft: pxToDp(16),
+    marginRight: pxToDp(16),
+    marginTop: pxToDp(8)
+  },
+  left: {
+    width: pxToDp(4),
+    height: '75%',
+    backgroundColor: '#62bfad',
+    borderRadius: pxToDp(2)
+  },
+  titletext: {
+    fontSize: pxToDp(18),
+    color: '#62bfad',
+    fontWeight: 'bold'
+  },
+  titlepinyin: {
+    fontSize: pxToDp(14),
+    color: '#999999',
+    marginTop: pxToDp(-6)
   }
 });
 export default connect(() => ({}), { getAddressListAction })(Index);

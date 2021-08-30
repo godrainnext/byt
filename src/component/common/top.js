@@ -9,7 +9,7 @@ import {
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { NavigationContext } from '@react-navigation/native';
 import { pxToDp, screenWidth } from '../../utils/styleKits';
-import  LinearGradient  from 'react-native-linear-gradient';
+import LinearGradient from 'react-native-linear-gradient';
 export default class HeaderHaveBack extends PureComponent {
   constructor(props) {
     super(props);
@@ -21,14 +21,14 @@ export default class HeaderHaveBack extends PureComponent {
     return (
       <LinearGradient
         style={styles.box}
-        colors={['#e2f4fe', '#e2f4fe']}
+        colors={['#62bfad', '#62bfad']}
         start={{ x: 0, y: 0 }}
-        end={{ x: 0, y: 1.6 }}
+        end={{ x: 1.6, y: 0 }}
       >
         <View
           style={{
-            marginTop: pxToDp(16),
             justifyContent: 'space-between',
+            alignItems: 'center',
             flexDirection: 'row'
           }}
         >
@@ -36,7 +36,7 @@ export default class HeaderHaveBack extends PureComponent {
             {this.props.icon1 ? (
               <TouchableOpacity onPress={() => this.context.goBack()}>
                 {/* <IconFont style={{ color: "#fff" }} name="iconfanhui" /> */}
-                <Ionicons name={this.props.icon1} size={25} color="#468CD3" />
+                <Ionicons name={this.props.icon1} size={25} color="white" />
               </TouchableOpacity>
             ) : null}
           </View>
@@ -76,11 +76,11 @@ const styles = StyleSheet.create({
   },
   icon1: {
     width: pxToDp(45),
-    left:pxToDp(16)
+    left: pxToDp(16)
   },
   icon2: {
     width: pxToDp(40),
-    right:pxToDp(16)
+    right: pxToDp(16)
   },
   textview: {
     flex: 1,
@@ -89,6 +89,6 @@ const styles = StyleSheet.create({
   },
   textstyle: {
     fontSize: pxToDp(18),
-    color: '#468cd3'
+    color: 'white'
   }
 });

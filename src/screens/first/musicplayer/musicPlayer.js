@@ -2,13 +2,12 @@ import React, { Component } from 'react'
 import { View, Text, TouchableOpacity, StyleSheet, Image, Slider, Animated, Easing, Platform, findNodeHandle, Dimensions, } from 'react-native'
 import { commonStyle } from './commonStyle'
 import Video from 'react-native-video'
-import { VibrancyView, BlurView } from 'react-native-blur'
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import Icon1 from 'react-native-vector-icons/MaterialIcons';
 import { pxToDp } from '../../../utils/styleKits';
 import { AlwaysOpen } from "../../../component/common/songmenu";
 import Top from '../../../component/common/top';
-import { ScrollView } from 'react-native-gesture-handler'
+import LottieView from 'lottie-react-native';
 // import { Slider } from '@react-native-community/slider'
 const mockData = require('./musicList.json')
 const deviceInfo = {
@@ -44,6 +43,7 @@ export default class MusicPlayer extends Component {
       playModeIcon: 'music_cycle_o',
       musicInfo: {},
       ArrIndex: 0,
+      autoPlay: true
     }
     this.spinAnimated = Animated.timing(this.state.spinValue, {
       toValue: 1,
@@ -94,6 +94,9 @@ export default class MusicPlayer extends Component {
   componentDidMount() {
     this.spin();
     this.setState({ musicInfo: mockData.list.find(item => item.id === this.props.route.params) })
+    // this.animation.play();
+    // Or set a specific startFrame and endFrame with:
+    //  this.animation.play(30, 120);
     // fetch(musicListUrl, {
     //   method: 'GET',
     //   headers: header
@@ -109,6 +112,20 @@ export default class MusicPlayer extends Component {
     //     console.log(error)
     //   })
     //   .done()
+  }
+
+  // toStop() {
+  //   this.animation.pause();
+  // }
+  // toPlay() {
+  //   this.animation.play();
+  // }
+  toContr() {
+    if (this.state.autoPlay == true) {
+      this.animation.pause();
+    } else {
+      this.animation.play();
+    }
   }
 
   // getxiamiMusic(musicId) {
@@ -229,40 +246,91 @@ export default class MusicPlayer extends Component {
     // console.log(this.state.musicInfo);
     // let musicInfo = mockData.list[this.state.currentIndex]
     // console.log(musicInfo);
-    const { musicInfo } = this.state
-    const { ArrIndex } = this.state;
-
+    const { musicInfo, autoPlay } = this.state
+    const { ArrIndex } = this.state
+    console.log(this.state.currentTime);
     return (
-      <View style={{width:'100%',height:'100%'}}>
+      <View style={{ width: '100%', height: '100%' }}>
         <View style={styles.bgContainer}>
-          <Image
-            style={styles.image}
-            source={{ uri: musicInfo.cover }}
+          <Animated.Image
+            style={{
+              width: pxToDp(200),
+              height: pxToDp(200),
+              borderRadius: pxToDp(100),
+              position: 'absolute',
+              top: pxToDp(40),
+              left: pxToDp(50),
+              transform: [
+                {
+                  rotate: this.state.spinValue.interpolate({
+                    inputRange: [0, 1],
+                    outputRange: ['0deg', '360deg']
+                  })
+                }
+              ]
+            }}
+            source={require('./CD2.png')}
           />
+          <LottieView
+            style={{ marginLeft: pxToDp(-16), marginTop: pxToDp(-50) }}
+            source={require('../../../../lottie/波纹效果.json')}
+            ref={(animation) => {
+              this.animation = animation;
+            }}
+            loop
+          />
+
+          <Image style={styles.image} source={{ uri: musicInfo.cover }} />
           <View style={{ flex: 1 }}>
-            <View style={{ justifyContent: 'space-between', height: pxToDp(230), marginTop: pxToDp(50), marginLeft: pxToDp(180), alignItems: 'center' }}>
+            <View
+              style={{
+                justifyContent: 'space-between',
+                height: pxToDp(230),
+                marginTop: pxToDp(50),
+                marginLeft: pxToDp(220),
+                alignItems: 'center'
+              }}
+            >
               {/* 喜欢 */}
-              <Icon name={'heart'} size={pxToDp(20)} color='grey' />
+              <Icon name={'heart'} size={pxToDp(20)} color="grey" />
               {/* 下载 */}
-              <Icon1 name={'file-download'} size={pxToDp(20)} color='grey' />
+              <Icon1 name={'file-download'} size={pxToDp(20)} color="grey" />
               {/* 上一首 */}
               <TouchableOpacity
                 onPress={() => this.preSong(this.state.currentIndex - 1)}
               >
-                <Icon1 name={'skip-previous'} size={pxToDp(25)} color='grey' />
+                <Icon1 name={'skip-previous'} size={pxToDp(25)} color="grey" />
               </TouchableOpacity>
               {/* 下一首 */}
               <TouchableOpacity
                 onPress={() => this.nextSong(this.state.currentIndex + 1)}
               >
-                <Icon1 name={'skip-next'} size={pxToDp(25)} color='grey' />
+                <Icon1 name={'skip-next'} size={pxToDp(25)} color="grey" />
               </TouchableOpacity>
               {/**播放暂停 */}
               <TouchableOpacity
-                style={{ width: pxToDp(46), height: pxToDp(46), borderRadius: pxToDp(24), borderWidth:pxToDp(0.5), borderColor: 'grey', justifyContent: 'center', alignItems: 'center' }}
-                onPress={() => this.play()}
+                style={{
+                  width: pxToDp(46),
+                  height: pxToDp(46),
+                  borderRadius: pxToDp(24),
+                  borderWidth: pxToDp(0.5),
+                  borderColor: 'grey',
+                  justifyContent: 'center',
+                  alignItems: 'center'
+                }}
+                onPress={() => {
+                  this.play();
+                  this.toContr();
+                  // this.toPlay();
+                  this.setState({ autoPlay: !autoPlay });
+                  console.log(autoPlay);
+                }}
               >
-                <Icon1 name={this.state.playIcon} size={pxToDp(20)} color='grey' />
+                <Icon1
+                  name={this.state.playIcon}
+                  size={pxToDp(20)}
+                  color="grey"
+                />
               </TouchableOpacity>
             </View>
             <View style={{ marginLeft: pxToDp(40), marginTop: pxToDp(-20) }}>
@@ -270,7 +338,16 @@ export default class MusicPlayer extends Component {
               <Text style={styles.subTitle}>{musicInfo.title}</Text>
             </View>
             <View style={styles.progressStyle}>
-              <Text style={{ width: pxToDp(35), fontSize: pxToDp(12), color: '#999999', marginLeft: pxToDp(5) }}>{this.formatMediaTime(Math.floor(this.state.currentTime))}</Text>
+              <Text
+                style={{
+                  width: pxToDp(35),
+                  fontSize: pxToDp(12),
+                  color: '#999999',
+                  marginLeft: pxToDp(5)
+                }}
+              >
+                {this.formatMediaTime(Math.floor(this.state.currentTime))}
+              </Text>
               <Slider
                 style={styles.slider}
                 value={this.state.slideValue}
@@ -278,35 +355,39 @@ export default class MusicPlayer extends Component {
                 minimumTrackTintColor={commonStyle.themeColor}
                 maximumTrackTintColor={commonStyle.iconGray}
                 step={1}
-                onValueChange={value => this.setState({ currentTime: value })}
-                onSlidingComplete={value => this.player.seek(value)}
+                onValueChange={(value) => this.setState({ currentTime: value })}
+                onSlidingComplete={(value) => this.player.seek(value)}
               />
-              <View style={{ width: pxToDp(35), alignItems: 'flex-end', marginRight: pxToDp(5) }}>
-                <Text style={{ fontSize: pxToDp(12), color: '#999999' }}>{this.formatMediaTime(Math.floor(this.state.duration))}</Text>
+              <View
+                style={{
+                  width: pxToDp(35),
+                  alignItems: 'flex-end',
+                  marginRight: pxToDp(5)
+                }}
+              >
+                <Text style={{ fontSize: pxToDp(12), color: '#999999' }}>
+                  {this.formatMediaTime(Math.floor(this.state.duration))}
+                </Text>
               </View>
             </View>
           </View>
           <Video
-            ref={video => this.player = video}
+            ref={(video) => (this.player = video)}
             source={{ uri: musicInfo.url }}
             volume={1.0}
             paused={this.state.paused}
             playInBackground={true}
-            onLoadStart={this.loadStart}
-            onLoad={data => this.setDuration(data)}
+            onLoad={(data) => this.setDuration(data)}
             onProgress={(data) => this.setTime(data)}
             onEnd={(data) => this.onEnd(data)}
             onError={(data) => this.videoError(data)}
-            onBuffer={this.onBuffer}
-            onTimedMetadata={this.onTimedMetadata} />
+          />
         </View>
-        <View style={{width:'100%',flex:1,zIndex:9999,elevation:9999}}>
-        <AlwaysOpen ArrData={ArrIndex} />
+        <View style={{ width: '100%', flex: 1, zIndex: 9999, elevation: 9999 }}>
+          <AlwaysOpen ArrData={ArrIndex} />
         </View>
       </View>
-
-
-    )
+    );
   }
 
   imageLoaded() {
@@ -320,7 +401,7 @@ export default class MusicPlayer extends Component {
     return (
       data.url ?
         <View style={styles.container}>
-          <Top icon1="arrow-back"  />
+          <Top icon1="arrow-back" />
           {this.renderPlayer()}
         </View> : <View />
     )
@@ -334,9 +415,9 @@ const styles = StyleSheet.create({
   },
   bgContainer: {
     height: '50%',
-    marginLeft:pxToDp(32),
-    marginTop:pxToDp(16),
-    marginRight:pxToDp(16),
+    marginLeft: pxToDp(32),
+    marginTop: pxToDp(16),
+    marginRight: pxToDp(16),
     backgroundColor: 'white',
     borderRadius: pxToDp(8),
     elevation: 4,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
@@ -378,7 +459,9 @@ const styles = StyleSheet.create({
     height: pxToDp(200),
     borderRadius: pxToDp(8),
     position: 'absolute',
-    marginTop:pxToDp(40),
-    marginLeft:pxToDp(-16)
+    marginTop: pxToDp(40),
+    marginLeft: pxToDp(-16),
+    zIndex: 999999,
+    elevation: 9999999,
   },
 })

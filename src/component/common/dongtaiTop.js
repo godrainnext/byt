@@ -21,7 +21,7 @@ export default class HeaderHaveBack extends PureComponent {
       this.context.navigate('Jubao');
     };
     return (
-      <View style={{ backgroundColor: '#ecf6fc' }}>
+      <View style={{ backgroundColor: '#D5E8E6' }}>
         <View style={styles.centeredView}>
           <Modal
             animationType="slide"
@@ -102,7 +102,7 @@ export default class HeaderHaveBack extends PureComponent {
         >
           <View style={styles.icon1}>
             <TouchableOpacity onPress={() => this.context.goBack()}>
-              <Ionicons name={this.props.icon1} size={25} color="#468CD3" />
+              <Ionicons name={this.props.icon1} size={25} color="#62bfad" />
             </TouchableOpacity>
           </View>
 
@@ -119,7 +119,7 @@ export default class HeaderHaveBack extends PureComponent {
                 }}
               >
                 {/* <IconFont style={{ color: "#fff" }} name="iconfanhui" /> */}
-                <Feather name={this.props.icon2} size={25} color="#468CD3" />
+                <Feather name={this.props.icon2} size={25} color="#62bfad" />
               </TouchableOpacity>
             )}
           </View>
@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
   },
   textstyle: {
     fontSize: pxToDp(18),
-    color: '#468cd3'
+    color: '#62bfad'
   },
   centeredView: {
     flex: 1,

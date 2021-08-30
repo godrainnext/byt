@@ -23,7 +23,7 @@ class Index extends PureComponent {
   static contextType = NavigationContext;
   render() {
     return (
-      <View style={{ backgroundColor: '#ecf6fc', flex: 1 }}>
+      <View style={{ backgroundColor: 'white', flex: 1 }}>
         <Top icon1="arrow-back" title="教学" />
         <ScrollView
           style={{ flex: 1, padding: pxToDp(16) }}
@@ -131,7 +131,7 @@ class Index extends PureComponent {
             </TouchableOpacity>
           </View>
           {/*轮播图 */}
-          <View style={{ marginTop: pxToDp(16) }}>
+          <View style={{ marginTop: pxToDp(16)}}>
             <SnapCarousel />
           </View>
           {/* 大图视频 */}
@@ -145,7 +145,7 @@ class Index extends PureComponent {
           >
             <TouchableOpacity>
               <ImageBackground
-                style={{ height: pxToDp(180), width: pxToDp(345) }}
+                style={{ height: pxToDp(180), width: pxToDp(342) }}
                 imageStyle={{ borderRadius: pxToDp(8) }}
                 source={{
                   uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg1.doubanio.com%2Fpview%2Fevent_poster%2Fraw%2Fpublic%2Ff3283bd44eec487.jpg&refer=http%3A%2F%2Fimg1.doubanio.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631083362&t=f518e0105b6e4d70c8bd1515d98d8802'
@@ -416,7 +416,7 @@ class Index extends PureComponent {
                         numberOfLines={1}
                         style={{ fontSize: pxToDp(16), color: '#333333' }}
                       >
-                        越剧扇子的妙用
+                        越剧道具教学
                       </Text>
                     </View>
                   </View>
@@ -546,7 +546,7 @@ class Index extends PureComponent {
           >
             <TouchableOpacity>
               <ImageBackground
-                style={{ height: pxToDp(180), width: pxToDp(345) }}
+                style={{ height: pxToDp(180), width: pxToDp(342) }}
                 imageStyle={{ borderRadius: pxToDp(8) }}
                 source={{
                   uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg1.doubanio.com%2Fpview%2Fevent_poster%2Fraw%2Fpublic%2Ff3283bd44eec487.jpg&refer=http%3A%2F%2Fimg1.doubanio.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631083362&t=f518e0105b6e4d70c8bd1515d98d8802'
