@@ -16,6 +16,7 @@ import { NavigationContext } from '@react-navigation/native';
 import { getMomentListByStatus } from '@service/moment';
 import Addmoment from './addMoment';
 import EZSwiper from 'react-native-ezswiper';
+import { DeviceEventEmitter } from 'react-native';
 const images = [
   {
     uri: 'http://img05.lantingyahui.com/Img05/49/99/30/9e791ddb-a31e-4687-bf71-f21695d302df.jpg'
@@ -80,6 +81,7 @@ class Index extends PureComponent {
     };
   }
   componentDidMount() {
+    DeviceEventEmitter.addListener('changeMoment', this.updateList);
     getMomentListByStatus(0, 0, 15).then((res) => {
       this.setState({ dongtai: [...res].reverse() });
     });
@@ -132,7 +134,7 @@ class Index extends PureComponent {
             isModalVisible={this.state.isShow}
           />
         </View>
-        <ScrollView showsVerticalScrollIndicator = {false}>
+        <ScrollView showsVerticalScrollIndicator={false}>
           <View>
             {/*轮播图 */}
             <View>
@@ -177,22 +179,27 @@ class Index extends PureComponent {
             <ScrollView
               horizontal={true}
               showsHorizontalScrollIndicator={false}
-              style={{ height: pxToDp(88),marginLeft:pxToDp(8),marginRight:pxToDp(16)}}
+              style={{
+                height: pxToDp(88),
+                marginLeft: pxToDp(8),
+                marginRight: pxToDp(16)
+              }}
             >
               {this.state.field.map((item, index) => (
                 <TouchableNativeFeedback
-                useForeground={true}
+                  useForeground={true}
                   key={item.id}
                   onPress={() => this.openTopic(index)}
-                
                 >
-                  <View  style={{
-                    marginTop:pxToDp(8),
-                    marginLeft:pxToDp(8),
-                    width: pxToDp(150),
-                    height: pxToDp(72),
-                    borderRadius: pxToDp(8)
-                  }}>
+                  <View
+                    style={{
+                      marginTop: pxToDp(8),
+                      marginLeft: pxToDp(8),
+                      width: pxToDp(150),
+                      height: pxToDp(72),
+                      borderRadius: pxToDp(8)
+                    }}
+                  >
                     <ImageBackground
                       source={{ uri: item.img }}
                       style={{

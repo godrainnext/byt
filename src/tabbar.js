@@ -152,7 +152,6 @@ class Index extends PureComponent {
                 </View>
                 <View>
                   <Addmoment
-                    updateList={this.updateList}
                     toggleModalProps={this.changeVisible}
                     isModalVisible={this.state.isShow}
                   />
@@ -301,7 +300,7 @@ const styles = StyleSheet.create({
     width: pxToDp(180),
     borderRadius: pxToDp(30),
     backgroundColor: 'white',
-    marginTop: pxToDp(10),
+    marginTop: pxToDp(10)
   },
   modalView: {
     backgroundColor: 'white',

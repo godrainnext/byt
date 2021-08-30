@@ -137,7 +137,7 @@ class index extends PureComponent {
       })
       .then((res) => {
         this.handleEditingEnd();
-        this.props.updateList({
+        DeviceEventEmitter.emit('changeMoment', {
           content: text,
           cover: form[0].uri,
           createTime: dayjs(new Date()).format('YYYY MM-DD-HH-mm'),
@@ -150,11 +150,12 @@ class index extends PureComponent {
             ...this.props.userInfo
           }
         });
+
         ToastAndroid.show('发表文章成功', ToastAndroid.SHORT);
       })
       .then((ress) => {
         this.props.toggleModalProps();
-      })
+      });
   };
 
   changeTitle = (title) => {
@@ -190,7 +191,7 @@ class index extends PureComponent {
             padding: pxToDp(10)
           }}
         >
-          <ScrollView showsVerticalScrollIndicator = {false}>
+          <ScrollView showsVerticalScrollIndicator={false}>
             <View>
               <View style={{ marginTop: 4 }}>
                 <View>
