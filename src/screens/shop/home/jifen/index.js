@@ -4,7 +4,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import Top from '../../../../component/common/top';
 import { pxToDp } from '../../../../utils/styleKits';
 import { NavigationContext } from '@react-navigation/native';
-import { addOrider } from '../../../../../src/service/shop/index';
+import Mybtn from '../../../../component/common/mybtn';
 
 export default class index extends PureComponent {
   static contextType = NavigationContext;
@@ -35,15 +35,15 @@ export default class index extends PureComponent {
       detail
     } = this.props.route.params;
     return (
-      <View style={{ flex: 1,backgroundColor:'white'}}>
+      <View style={{ flex: 1, backgroundColor: 'white' }}>
         <Top title="积分兑换" icon1="arrow-back" />
         <ScrollView
           style={{
             flex: 1,
-            backgroundColor:'white',
+            backgroundColor: 'white',
             paddingBottom: pxToDp(50)
           }}
-          showsVerticalScrollIndicator = {false}
+          showsVerticalScrollIndicator={false}
         >
           <View>
             <ImageBackground
@@ -58,7 +58,7 @@ export default class index extends PureComponent {
                 }}
               >
                 <Text
-                  style={{ color: '#468cd3', fontSize: pxToDp(18), fontWeight: 'bold' }}
+                  style={{ color: '#62bfad', fontSize: pxToDp(18), fontWeight: 'bold' }}
                   numberOfLines={2}
                 >
                   百越庭
@@ -67,14 +67,14 @@ export default class index extends PureComponent {
                   {name}
                 </Text>
               </View>
-              <View style={{ marginLeft: pxToDp(8), flexDirection: 'row'}}>
+              <View style={{ marginLeft: pxToDp(8), flexDirection: 'row' }}>
                 <Text style={{ fontSize: pxToDp(18), color: '#333333' }}>{value}</Text>
                 <Text style={{ fontSize: pxToDp(16), alignSelf: 'flex-end', color: '#333333' }}>
                   积分
                 </Text>
               </View>
             </View>
-            <View style={{ margin: pxToDp(8)}}>
+            <View style={{ margin: pxToDp(8) }}>
               <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold', color: '#000000' }}>
                 商品详情
               </Text>
@@ -101,11 +101,20 @@ export default class index extends PureComponent {
             </View>
           </View>
         </ScrollView>
-        <TouchableOpacity onPress={this.goCreateOrder}>
-          <View style={styles.button}>
-            <Text style={{ fontSize: pxToDp(20) }}>立即兑换</Text>
-          </View>
-        </TouchableOpacity>
+        <Mybtn
+          title='立即兑换'
+          onPress={this.goCreateOrder}
+          buttonStyle={{
+            width: pxToDp(320),
+            height: pxToDp(40),
+            alignSelf: 'center',
+            borderRadius: pxToDp(32),
+          }}
+          titleStyle={{
+            color: 'white',
+            fontSize: pxToDp(16)
+          }}
+        />
       </View>
     );
   }

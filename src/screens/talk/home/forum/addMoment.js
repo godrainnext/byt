@@ -15,11 +15,12 @@ import {
 import { pxToDp } from '@utils/styleKits';
 import RichTextView from '../components/RichTextView';
 import { launchImageLibrary } from 'react-native-image-picker';
-import MyButton from '../components/MyButton';
 import request from '@service/index';
 import dayjs from 'dayjs';
+import Mybtn from '../../../../component/common/mybtn';
 import { Input } from 'react-native-elements/dist/input/Input';
 import { NavigationContext } from '@react-navigation/native';
+import Top from "../../../../component/common/top"
 import { connect } from 'react-redux';
 const { height, width } = Dimensions.get('window');
 const talk =
@@ -101,7 +102,7 @@ class index extends PureComponent {
     const { text, title } = this.state;
     // console.log(text)
     if (!text.trim()) {
-      ToastAndroid.show('评论不能为空', ToastAndroid.SHORT);
+      ToastAndroid.show('发布内容不能为空', ToastAndroid.SHORT);
 
       return;
     }
@@ -165,115 +166,126 @@ class index extends PureComponent {
     const { text } = this.state;
     // console.log(arr);
     return (
-      <Modal
-        testID={'modal'}
-        // isVisible={false}
-        visible={isModalVisible}
-        // isVisible={this.isVisible()}
-        backdropColor="#B4B3DB"
-        backdropOpacity={0.8}
-        onBackdropPress={toggleModalProps}
-        animationIn="zoomInDown"
-        animationOut="zoomOutUp"
-        animationInTiming={600}
-        animationOutTiming={600}
-        backdropTransitionInTiming={600}
-        backdropTransitionOutTiming={600}
-        scrollOffsetMax={400 - 300} // content height - ScrollView height
-        propagateSwipe={true} //是否可滑动
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: '#D5E8E6'
+        }}
       >
+        <Top icon1="arrow-back" title="发动态" />
         <View
           style={{
-            flex: 1,
-            backgroundColor: '#eee',
-            borderRadius: pxToDp(24),
-            padding: pxToDp(10)
+            height: pxToDp(550),
+            backgroundColor: '#D5E8E6',
+            padding: pxToDp(16)
           }}
         >
-          <ScrollView showsVerticalScrollIndicator = {false}>
-            <View>
-              <View style={{ marginTop: 4 }}>
-                <View>
-                  <Text>标题</Text>
-                </View>
-                <Input
-                  placeholder="请输入文章标题"
-                  value={this.state.title}
-                  onChangeText={(v) => this.changeTitle(v)}
+          <ScrollView showsVerticalScrollIndicator={false}>
+            <View style={{ marginTop: 4 }}>
+              <Input
+                placeholder="请输入文章标题"
+                inputStyle={{ fontSize: pxToDp(16) }}
+                value={this.state.title}
+                inputContainerStyle={{
+                  borderBottomWidth: 0
+                }}
+                onChangeText={(v) => this.changeTitle(v)}
+                leftIcon={
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      marginTop: pxToDp(4)
+                    }}
+                  >
+                    <Text
+                      style={{
+                        fontSize: pxToDp(16),
+                        color: 'red',
+                        marginBottom: pxToDp(4)
+                      }}
+                    >
+                      *
+                    </Text>
+                    <Text
+                      style={{
+                        fontSize: pxToDp(16),
+                        color: '#333333'
+                      }}
+                    >
+                      标题
+                    </Text>
+                  </View>
+                }
+              />
+              <View style={{
+                elevation: 2, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                shadowColor: 'black', //  阴影颜色
+                shadowOffset: { width: 0, height: 0 }, // 阴影偏移
+                shadowOpacity: 1, // 阴影不透明度
+                shadowRadius: 10,
+                marginBottom: pxToDp(16),
+                marginTop: pxToDp(-24)
+              }}>
+                <RichTextView
+                  inputStyle={styles.inputStyle}
+                  placeholder="记录这一刻，分享每一天..."
+                  inputValue={text}
+                  onChangeText={(t) => this.setState({ text: t })}
+                  minHeight={255} // 最小高度,默认为100
+                  maxLength={255} // 最大长度,默认为100
+                  onSubmitEditing={this.handleSubmit}
+                  showCount={true} // 展示剩余文字, 默认为true
                 />
-                <View style={{ marginBottom: pxToDp(16) }}>
-                  <RichTextView
-                    inputStyle={styles.inputStyle}
-                    placeholder="记录这一刻，分享每一天..."
-                    inputValue={text}
-                    onChangeText={(t) => this.setState({ text: t })}
-                    minHeight={255} // 最小高度,默认为100
-                    maxLength={255} // 最大长度,默认为100
-                    onSubmitEditing={this.handleSubmit}
-                    // onChangeText={(inputValue) => {
-                    //     // let desPrizes = CommonMethod.filteremoji(inputValue, 1)//表情过滤机制
-                    //     // this.setState({ desPrizes: desPrizes })
-                    // }}
-                    showCount={true} // 展示剩余文字, 默认为true
-                  />
-                </View>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    flexWrap: 'wrap'
-                  }}
-                >
-                  {this.state.arr?.map((v, k) => {
-                    return (
-                      <View style={styles.Box} key={k}>
-                        <TouchableOpacity>
-                          <Image
-                            style={{
-                              height: (width - 40) / 3,
-                              width: (width - 60) / 3
-                            }}
-                            source={{ uri: v }}
-                          />
-                        </TouchableOpacity>
-                      </View>
-                    );
-                  })}
-                </View>
-                {this.tianjia()}
-                {/* <TouchableOpacity
-                                    activeOpacity={1}
-                                    onPress={() => this._openPicker()}>
-                                    <View style={{ marginTop: pxToDp(8) }}>
-                                        <Image style={{ width: pxToDp(100), height: pxToDp(100) }} source={require("../../images/addimg.png")}></Image>
-                                    </View>
-                                </TouchableOpacity> */}
               </View>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  flexWrap: 'wrap'
+                }}
+              >
+                {this.state.arr?.map((v, k) => {
+                  return (
+                    <View style={styles.Box} key={k}>
+                      <TouchableOpacity>
+                        <Image
+                          style={{
+                            height: (width - 40) / 3,
+                            width: (width - 60) / 3
+                          }}
+                          source={{ uri: v }}
+                        />
+                      </TouchableOpacity>
+                    </View>
+                  );
+                })}
+              </View>
+              {this.tianjia()}
             </View>
           </ScrollView>
-          <View
-            style={{
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'space-around'
-            }}
-          >
-            <MyButton
-              style={{ width: pxToDp(80), height: pxToDp(40) }}
-              title="发布"
-              onPress={this.handleSubmit}
-            >
-              <Text>发布</Text>
-            </MyButton>
-            <MyButton
-              style={{ width: pxToDp(80), height: pxToDp(40) }}
-              title="取消"
-              onPress={toggleModalProps}
-            >
-              <Text>取消</Text>
-            </MyButton>
-          </View>
         </View>
-      </Modal>
+        <View
+          style={{
+            alignItems: 'center',
+            marginTop: pxToDp(70)
+          }}
+        >
+          <Mybtn
+            title="发布动态"
+            onPress={this.handleSubmit}
+            buttonStyle={{
+              width: pxToDp(320),
+              height: pxToDp(40),
+              alignSelf: 'center',
+              borderRadius: pxToDp(32)
+            }}
+            titleStyle={{
+              color: '#fcfcfc',
+              fontWeight: 'bold',
+              fontSize: pxToDp(16)
+            }}
+          />
+        </View>
+      </View>
     );
   }
 }

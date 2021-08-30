@@ -25,9 +25,9 @@ class Index extends PureComponent {
           style={{
             backgroundColor: 'white',
             borderRadius: pxToDp(8),
-            marginTop:pxToDp(8),
-            marginLeft:pxToDp(16),
-            marginRight:pxToDp(16),
+            marginTop: pxToDp(8),
+            marginLeft: pxToDp(16),
+            marginRight: pxToDp(16),
             paddingBottom: pxToDp(32),
             elevation: 4, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
             shadowColor: 'black', //  阴影颜色
@@ -37,7 +37,7 @@ class Index extends PureComponent {
           }}
         >
           <TouchableOpacity onPress={() => this.context.navigate('Tuisong')}>
-            <List title="消息与推送通知" />
+            <List title="消息通知与推送" />
           </TouchableOpacity>
           <TouchableOpacity onPress={() => this.context.navigate('Yinsi')}>
             <List title="隐私设置" />
@@ -48,23 +48,23 @@ class Index extends PureComponent {
           <TouchableOpacity onPress={() => this.context.navigate('Women')}>
             <List title="关于我们" />
           </TouchableOpacity>
-            <Mybtn
-                    title="退出登录"
-                    onPress={this.cancelToken}
-                    buttonStyle={{
-                      width: pxToDp(200),
-                      height: pxToDp(40),
-                      alignSelf: 'center',
-                      marginTop:pxToDp(16),
-                      borderRadius: pxToDp(32),
+          <Mybtn
+            title="退出登录"
+            onPress={this.cancelToken}
+            buttonStyle={{
+              width: pxToDp(120),
+              height: pxToDp(40),
+              alignSelf: 'center',
+              marginTop: pxToDp(16),
+              borderRadius: pxToDp(32),
 
-                    }}
-                    titleStyle={{
-                      color: '#fcfcfc',
-                      fontWeight: 'bold',
-                      fontSize: pxToDp(16)
-                    }}
-                  />
+            }}
+            titleStyle={{
+              color: '#fcfcfc',
+              fontWeight: 'bold',
+              fontSize: pxToDp(16)
+            }}
+          />
         </View>
       </View>
     );

@@ -26,8 +26,7 @@ import { changeAvatar } from './store/actions';
 import changeImgSize from '@utils/changeImgSize';
 import { Avatar, Button, CheckBox } from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
-import color from 'color';
-import SvgUri from 'react-native-svg-uri';
+import Mybtn from '../../../component/common/mybtn';
 const typeArr = ['男', '女'];
 const sheng =
   '<svg t="1629177999549" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9171" width="200" height="200"><path d="M511.2 34.4C201.6 34.4 161.6 289.6 161.6 512c0 105.6 39.2 225.6 105.6 320 70.4 100 159.2 157.6 244 157.6 180.8 0 350.4-268.8 350.4-477.6 0.8-236-40.8-477.6-350.4-477.6zM401.6 896c-4.8-26.4-16-103.2 16-113.6 37.6-12.8 55.2 18.4 92.8 24v0.8h3.2v-0.8c37.6-4.8 55.2-36.8 92.8-24 31.2 10.4 21.6 83.2 16 112-36.8 28-75.2 42.4-111.2 42.4s-73.6-15.2-109.6-40.8z m260.8-37.6c2.4-18.4 3.2-40 1.6-61.6-1.6-34.4-18.4-56-41.6-68v-55.2h-56.8v44c-16 0-43.2-0.8-52.8-1.6h-3.2c-9.6 0-36.8 1.6-52.8 1.6v-44H400v55.2c-23.2 12-40 32.8-41.6 68-0.8 22.4 0 45.6 2.4 64.8C278.4 780 214.4 641.6 214.4 512c0-301.6 86.4-424.8 296.8-424.8 214.4 0 297.6 119.2 297.6 424.8 0 88-36.8 196.8-95.2 283.2-16 24-32.8 44.8-51.2 63.2z" fill="#3A363A" p-id="9172"></path><path d="M511.2 120.8c-8.8 0-16 7.2-16 16v381.6c0 8.8 7.2 16 16 16s16-7.2 16-16V136.8c0-8.8-7.2-16-16-16zM756 340.8c7.2-4.8 9.6-15.2 4.8-22.4-4.8-7.2-15.2-9.6-22.4-4.8L580 420c-7.2 4.8-9.6 15.2-4.8 22.4 3.2 4.8 8 7.2 13.6 7.2 3.2 0 6.4-0.8 8.8-2.4l158.4-106.4zM781.6 465.6c-4.8-7.2-15.2-9.6-22.4-4.8L601.6 566.4c-7.2 4.8-9.6 15.2-4.8 22.4 3.2 4.8 8 7.2 13.6 7.2 3.2 0 6.4-0.8 8.8-2.4L777.6 488c7.2-4.8 8.8-15.2 4-22.4zM442.4 420L284.8 314.4c-7.2-4.8-17.6-3.2-22.4 4.8s-3.2 17.6 4.8 22.4l158.4 105.6c2.4 1.6 5.6 2.4 8.8 2.4 4.8 0 10.4-2.4 13.6-7.2 4-8 2.4-17.6-5.6-22.4zM420.8 566.4L263.2 461.6c-7.2-4.8-17.6-3.2-22.4 4.8-4.8 7.2-3.2 17.6 4.8 22.4l158.4 105.6c2.4 1.6 5.6 2.4 8.8 2.4 4.8 0 10.4-2.4 13.6-7.2 4-8 2.4-18.4-5.6-23.2z" fill="#3A363A" p-id="9173"></path></svg>';
@@ -45,7 +44,7 @@ class Ziliao extends PureComponent {
       avatar: '',
       nickName: '',
       ownSay: '',
-      backgroundColor: '#acddfc'
+      backgroundColor: 'white'
     };
   }
   componentDidMount() {
@@ -149,9 +148,8 @@ class Ziliao extends PureComponent {
   };
   render() {
     const dateNow = new Date();
-    const currentDate = `${dateNow.getFullYear()}-${
-      dateNow.getMonth() + 1
-    }-${dateNow.getDate()}`;
+    const currentDate = `${dateNow.getFullYear()}-${dateNow.getMonth() + 1
+      }-${dateNow.getDate()}`;
     const { birthday } = this.state;
     return (
       <View style={{ flex: 1, backgroundColor: this.state.backgroundColor }}>
@@ -162,8 +160,8 @@ class Ziliao extends PureComponent {
         />
         <View
           style={{
-            marginLeft:pxToDp(16),
-            marginRight:pxToDp(16),
+            marginLeft: pxToDp(16),
+            marginRight: pxToDp(16),
             height: '75%',
             backgroundColor: '#fff',
             alignSelf: 'center',
@@ -193,7 +191,7 @@ class Ziliao extends PureComponent {
                 }}
               >
                 <Avatar
-                  avatarStyle={{ alignSelf: 'center' ,width:'100%'}}
+                  avatarStyle={{ alignSelf: 'center', width: '100%' }}
                   size={120}
                   rounded
                   title="越"
@@ -289,13 +287,13 @@ class Ziliao extends PureComponent {
           <View
             style={
               (s.basic,
-              [
-                {
-                  flexDirection: 'row',
-                  marginLeft: pxToDp(16),
-                  marginTop: pxToDp(20)
-                }
-              ])
+                [
+                  {
+                    flexDirection: 'row',
+                    marginLeft: pxToDp(16),
+                    marginTop: pxToDp(20)
+                  }
+                ])
             }
           >
             <Image
@@ -303,7 +301,7 @@ class Ziliao extends PureComponent {
               style={{ width: 30, height: 50 }}
             />
             <CheckBox
-              checkedColor="#01a3f8"
+              checkedColor="#62bfad"
               title="男"
               checked={this.state.sex}
               onPress={() => this.setState({ sex: 1 })}
@@ -313,6 +311,7 @@ class Ziliao extends PureComponent {
               style={{ width: 30, height: 50, marginLeft: pxToDp(40) }}
             />
             <CheckBox
+              checkedColor="#62bfad"
               title="女"
               checked={!this.state.sex}
               onPress={() => this.setState({ sex: 0 })}
@@ -320,7 +319,7 @@ class Ziliao extends PureComponent {
           </View>
 
           <View style={[s.basic, { height: 80, marginTop: pxToDp(20) }]}>
-            <View style={{ marginLeft: pxToDp(20)}}>
+            <View style={{ marginLeft: pxToDp(20) }}>
               <Text
                 style={{
                   fontSize: pxToDp(16),
@@ -370,15 +369,18 @@ class Ziliao extends PureComponent {
               marginTop: pxToDp(50)
             }}
           >
-            <Button
+            <Mybtn
+              title="保存"
               onPress={this.saveUserInfo}
-              title="保     存"
-              ViewComponent={LinearGradient}
-              titleStyle={{ color: '#fcfcfc' }}
-              linearGradientProps={{
-                colors: ['#fa9222', '#ffd501'],
-                start: { x: 0, y: 0.5 },
-                end: { x: 1, y: 0.5 }
+              buttonStyle={{
+                width: pxToDp(120),
+                height: pxToDp(40),
+                alignSelf: 'center',
+                borderRadius: pxToDp(32),
+              }}
+              titleStyle={{
+                color: 'white',
+                fontSize: pxToDp(16)
               }}
             />
           </View>

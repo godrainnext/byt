@@ -50,7 +50,7 @@ export default class topic extends Component {
               <Ionicons
                 name="arrow-back"
                 size={25}
-                color="#468CD3"
+                color="#62bfad"
                 style={{ paddingTop: pxToDp(16), paddingLeft: pxToDp(16) }}
               />
             </TouchableOpacity>
@@ -90,8 +90,8 @@ export default class topic extends Component {
             <View
               style={{
                 alignSelf: 'flex-end',
-                marginTop: pxToDp(155),
-                marginRight: pxToDp(16)
+                marginRight: pxToDp(16),
+                marginTop: pxToDp(14)
               }}
             >
               <Text style={{ fontSize: pxToDp(16), color: '#333333' }}>

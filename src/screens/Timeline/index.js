@@ -32,7 +32,7 @@ export default class index extends PureComponent {
         <View
           style={{
             height: pxToDp(780),
-            backgroundColor: '#fff'
+            backgroundColor: '#D5E8E6'
           }}
         >
           <View

@@ -1,11 +1,11 @@
 import React, { PureComponent } from 'react';
 import {
-    View,
-    Text,
-    TouchableOpacity,
-    StyleSheet,
-    Modal,
-    Image
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Modal,
+  Image
 } from 'react-native';
 import { pxToDp } from '@utils/styleKits';
 import { NavigationContext } from '@react-navigation/native';
@@ -183,11 +183,10 @@ class Index extends PureComponent {
             borderBottomLeftRadius: pxToDp(32)
           }}
           titleStyle={{
-            color: '#fcfcfc',
-            fontWeight: 'bold',
-            fontSize: pxToDp(16),
+            color: 'white',
+            fontSize: pxToDp(14),
             height: 40,
-            marginTop: pxToDp(16)
+            marginTop: pxToDp(18)
           }}
         />
       </View>

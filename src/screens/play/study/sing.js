@@ -454,18 +454,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-around'
-  },
-  titlebox: {
-    fontSize: pxToDp(18),
-    color: '#000000',
-    fontWeight: 'bold',
-    marginTop: pxToDp(15)
-  },
-  basicbox: {
-    fontSize: pxToDp(16),
-    lineHeight: pxToDp(40),
-    alignItems: 'center',
-    color: '#333333'
   }
 });
 

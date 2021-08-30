@@ -13,7 +13,7 @@ class Index extends PureComponent {
           style={{
             flexDirection: 'row',
             justifyContent: 'space-around',
-            backgroundColor: '#E2F4FE',
+            backgroundColor: '#D5E8E6',
             height:pxToDp(50)
           }}
         >
@@ -23,7 +23,7 @@ class Index extends PureComponent {
               onPress={() => goToPage(i)}
               style={{
                 justifyContent: 'center',
-                borderBottomColor: '#1874CD',
+                borderBottomColor: '#62bfad',
                 borderBottomWidth: activeTab === i ? pxToDp(3) : 0
               }}
             >

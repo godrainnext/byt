@@ -169,6 +169,7 @@ class orders extends PureComponent {
               margin: pxToDp(2),
               marginTop: pxToDp(16),
               backgroundColor: '#fff',
+              height:pxToDp(100),
               borderRadius: pxToDp(8),
               elevation: 2,
               shadowColor: 'black', //  阴影颜色
@@ -251,7 +252,7 @@ class orders extends PureComponent {
                 <Text
                   style={{
                     fontSize: pxToDp(18),
-                    color: 'red',
+                    color: '#62bfad',
                     fontWeight: 'bold'
                   }}
                 >
@@ -296,7 +297,7 @@ class orders extends PureComponent {
               <Text
                 style={{
                   fontSize: pxToDp(18),
-                  color: 'red',
+                  color: '#62bfad',
                   fontWeight: 'bold'
                 }}
               >
@@ -365,7 +366,7 @@ class orders extends PureComponent {
                 fontSize: pxToDp(18),
                 marginLeft: pxToDp(5),
                 fontWeight: 'bold',
-                color: 'red'
+                color: '#62bfad'
               }}
             >
               ￥{price * count}

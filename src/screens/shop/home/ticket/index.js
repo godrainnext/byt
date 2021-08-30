@@ -93,7 +93,7 @@ export default class index extends PureComponent {
   render() {
     const { activeTab } = this.state;
     return (
-      <View style={{ backgroundColor: '#ecf6fc', flex: 1 }}>
+      <View style={{ backgroundColor: '#D5E8E6', flex: 1 }}>
         <Top title="票务系统" icon1="arrow-back" />
         <ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1 }}>
           {/* 演出盒子 */}
@@ -203,7 +203,7 @@ export default class index extends PureComponent {
                       </View>
                       <View style={{ flexDirection: 'row' }}>
                         <Text
-                          style={{ color: '#f0bb51', fontSize: pxToDp(14) }}
+                          style={{ color: '#62bfad', fontSize: pxToDp(14) }}
                         >
                           ￥{item.price}
                         </Text>
@@ -260,7 +260,7 @@ const styles = StyleSheet.create({
     marginTop: pxToDp(8),
     marginLeft: pxToDp(16),
     marginRight: pxToDp(16),
-    backgroundColor: '#468cd3',
+    backgroundColor: '#62bfad',
     borderRadius: pxToDp(8),
     justifyContent: 'space-around',
     overflow: 'hidden',

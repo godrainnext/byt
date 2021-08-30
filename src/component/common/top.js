@@ -23,12 +23,12 @@ export default class HeaderHaveBack extends PureComponent {
         style={styles.box}
         colors={['#62bfad', '#62bfad']}
         start={{ x: 0, y: 0 }}
-        end={{ x: 0, y: 1.6 }}
+        end={{ x: 1.6, y: 0 }}
       >
         <View
           style={{
-            marginTop: pxToDp(16),
             justifyContent: 'space-between',
+            alignItems: 'center',
             flexDirection: 'row'
           }}
         >

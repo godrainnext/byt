@@ -3,7 +3,6 @@ export { default as BootPage } from './first/bootpage/index'; //首页
 export { default as PageOne } from './first/home/pages/pageone'; //流派传奇页
 export { default as PageTwo } from './first/home/pages/pagetwo'; //俯瞰百年页
 export { default as PageThree } from './first/home/pages/pagethree'; //名角风采页
-export { default as PageFour } from './first/home/pages/pagefour'; //精选唱段页
 export { default as Pagefive } from './first/home/pages/pagefive'; //俯瞰百年文章
 export { default as School1 } from './first/school/yuanpai'; //流派页 袁派
 export { default as School2 } from './first/school/fanpai'; //流派页 范派
@@ -157,4 +156,5 @@ export { default as Testtt } from '../testtt';
 export { default as ToSing } from './talk/home/sing';
 export { default as SingOver } from './play/study/singover';
 export { default as SingSub } from './play/study/singsub';
-export { default as Tv } from './talk/home/talkRoom/tv'
+export { default as AddMoment} from './talk/home/forum/addMoment'
+

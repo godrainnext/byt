@@ -167,12 +167,12 @@ class Index extends Component {
           </View>
         )}
         //自定义头部内容
-        renderForeground={() => <View style={{ Top: 200, left: 100 }}></View>}
-        scrollableViewStyle={{ backgroundColor: '#fcfcfc' }}
+        renderForeground={() => <View style={{ Top: pxToDp(200), left:pxToDp(100) }}></View>}
+        scrollableViewStyle={{   backgroundColor:'acddfc'}}
       >
         <View
           style={{
-            flex: 1
+            flex: 1,
           }}
         >
           <View
@@ -313,32 +313,21 @@ class Index extends Component {
               marginBottom: 50
             }}
           >
-            <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', marginLeft: pxToDp(16), marginRight: pxToDp(16) }}>
-              <View style={{ width: pxToDp(4), height: '75%', backgroundColor: '#62bfad', borderRadius: pxToDp(2) }}>
+            <View style={styles.titlebox}>
+              <View style={styles.left}>
               </View>
               <View>
-                <View
-                  style={{
-                    marginLeft: pxToDp(-121)
-                  }}
-                >
-                  <Text
-                    style={{
-                      fontSize: pxToDp(18),
-                      color: '#62bfad',
-                      fontWeight: 'bold'
-                    }}
-                  >
+                <View style={{ marginLeft: pxToDp(-121) }}>
+                  <Text style={styles.titletext}>
                     俯瞰百年
                   </Text>
-                  <Text style={{ fontSize: pxToDp(14), color: '#999999', marginTop: pxToDp(-6) }}>fu kan bai nian</Text>
+                  <Text style={styles.titlepinyin}>
+                    fu kan bai nian
+                  </Text>
                 </View>
               </View>
-              <TouchableOpacity
-                style={{ flexDirection: 'row', alignItems: 'center' }}
-                onPress={() => this.context.navigate('Card')}
-              >
-                <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
+              <TouchableOpacity style={styles.right} onPress={() => this.context.navigate('Card')}>
+                <Text style={styles.righttext}>
                   查看更多
                 </Text>
                 <Ionicons name="chevron-forward" size={18} color="#666666" />
@@ -348,145 +337,110 @@ class Index extends Component {
             <Hy />
           </View>
           {/*流派传奇 */}
-          <View
-            style={{
-              marginLeft: pxToDp(16),
-              marginTop: pxToDp(24),
-              marginRight: pxToDp(16)
-            }}
-          >
-            <View
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                marginBottom: pxToDp(16)
-              }}
-            >
-              <Text
-                style={{
-                  fontSize: pxToDp(18),
-                  color: '#62bfad',
-                  fontWeight: 'bold'
-                }}
-              >
-                流派传奇
-              </Text>
-              <TouchableOpacity
-                onPress={() => this.context.navigate('PageOne', 2)}
-              >
-                <View style={{ flexDirection: 'row' }}>
-                  <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
-                    查看更多
-                  </Text>
-                  <Ionicons name="chevron-forward" size={24} color="#666666" />
-                </View>
-              </TouchableOpacity>
+          <View style={styles.titlebox}>
+            <View style={styles.left}>
             </View>
-            <View
-              style={{
-                backgroundColor: '#f0bb51',
-                height: pxToDp(100),
-                width: pxToDp(100),
-                marginBottom: pxToDp(-97),
-                marginLeft: pxToDp(-3),
-                borderRadius: pxToDp(8)
-              }}
-            />
-            <View
-              style={{
-                backgroundColor: 'white',
-                borderRadius: pxToDp(8),
-                elevation: 2,
-                zIndex: 9999999,
-                shadowColor: 'black', //  阴影颜色
-                shadowOffset: { width: 0, height: 0 }, // 阴影偏移
-                shadowOpacity: 1, // 阴影不透明度
-                shadowRadius: 10 //  圆角
-              }}
-            >
-              <Legend />
+            <View>
+              <View style={{ marginLeft: pxToDp(-121) }}>
+                <Text style={styles.titletext}>
+                  流派传奇
+                </Text>
+                <Text style={styles.titlepinyin}>
+                  liu pai chuan qi
+                </Text>
+              </View>
             </View>
-            <View
-              style={{
-                backgroundColor: '#f0bb51',
-                height: pxToDp(100),
-                width: pxToDp(100),
-                marginTop: pxToDp(-97),
-                marginLeft: pxToDp(247),
-                borderRadius: pxToDp(8)
-              }}
-            />
-          </View>
-          {/*梨园子弟 */}
-          <View
-            style={{
-              marginTop: pxToDp(24),
-              marginLeft: pxToDp(16),
-              marginRight: pxToDp(16)
-            }}
-          >
-            <View
-              style={{
-                flexDirection: 'row',
-                justifyContent: 'space-between',
-                marginBottom: pxToDp(8)
-              }}
-            >
-              <Text
-                style={{
-                  fontSize: pxToDp(18),
-                  color: '#62bfad',
-                  fontWeight: 'bold'
-                }}
-              >
-                梨园子弟
-              </Text>
-              <TouchableOpacity
-                onPress={() => this.context.navigate('PageThree', 2)}
-              >
-                <View style={{ flexDirection: 'row' }}>
-                  <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
-                    查看更多
-                  </Text>
-                  <Ionicons name="chevron-forward" size={24} color="#666666" />
-                </View>
-              </TouchableOpacity>
-            </View>
-          </View>
-          <Actress />
-          {/* 轮播图 */}
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              marginLeft: pxToDp(16),
-              marginRight: pxToDp(16)
-            }}
-          >
-            <Text
-              style={{
-                fontSize: pxToDp(18),
-                margin: pxToDp(8),
-                color: '#62bfad',
-                fontWeight: 'bold'
-              }}
-            >
-              本周热门
-            </Text>
-
-            <TouchableOpacity
-              style={{ flexDirection: 'row' }}
-              onPress={() => this.context.navigate('HotList')}
-            >
-              <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
+            <TouchableOpacity style={styles.right} onPress={() => this.context.navigate('PageOne', 2)}>
+              <Text style={styles.righttext}>
                 查看更多
               </Text>
-              <Ionicons name="chevron-forward" size={24} color="#666666" />
+              <Ionicons name="chevron-forward" size={18} color="#666666" />
+            </TouchableOpacity>
+          </View>
+          <View
+            style={{
+              backgroundColor: '#62bfad',
+              height: pxToDp(100),
+              width: pxToDp(100),
+              marginBottom: pxToDp(-95),
+              marginLeft: pxToDp(11),
+              marginTop: pxToDp(16),
+              borderRadius: pxToDp(8)
+            }}
+          />
+          <View
+            style={{
+              backgroundColor: 'white',
+              borderRadius: pxToDp(8),
+              elevation: 2,
+              zIndex: 9999999,
+              marginLeft: pxToDp(16),
+              marginRight: pxToDp(16),
+              shadowColor: 'black', //  阴影颜色
+              shadowOffset: { width: 0, height: 0 }, // 阴影偏移
+              shadowOpacity: 1, // 阴影不透明度
+              shadowRadius: 10 //  圆角
+            }}
+          >
+            <Legend />
+          </View>
+          <View
+            style={{
+              backgroundColor: '#62bfad',
+              height: pxToDp(100),
+              width: pxToDp(100),
+              marginTop: pxToDp(-95),
+              marginLeft: pxToDp(265),
+              borderRadius: pxToDp(8)
+            }}
+          />
+          {/*梨园子弟 */}
+          <View style={{ marginTop: pxToDp(16) }}>
+            <View style={styles.titlebox}>
+              <View style={styles.left}>
+              </View>
+              <View>
+                <View style={{ marginLeft: pxToDp(-121) }}>
+                  <Text style={styles.titletext}>
+                    梨园子弟
+                  </Text>
+                  <Text style={styles.titlepinyin}>
+                    li yuan zi di
+                  </Text>
+                </View>
+              </View>
+              <TouchableOpacity style={styles.right} onPress={() => this.context.navigate('PageThree', 2)}>
+                <Text style={styles.righttext}>
+                  查看更多
+                </Text>
+                <Ionicons name="chevron-forward" size={18} color="#666666" />
+              </TouchableOpacity>
+            </View>
+            <Actress />
+          </View>
+          {/* 轮播图 */}
+          <View style={styles.titlebox}>
+            <View style={styles.left}>
+            </View>
+            <View>
+              <View style={{ marginLeft: pxToDp(-121) }}>
+                <Text style={styles.titletext}>
+                  本周热门
+                </Text>
+                <Text style={styles.titlepinyin}>
+                  ben zhou re men
+                </Text>
+              </View>
+            </View>
+            <TouchableOpacity style={styles.right} onPress={() => this.context.navigate('HotList')}>
+              <Text style={styles.righttext}>
+                查看更多
+              </Text>
+              <Ionicons name="chevron-forward" size={18} color="#666666" />
             </TouchableOpacity>
           </View>
           <View style={styles.carousel}>
-            <Carousel control={false} style={{ height: pxToDp(166) }}>
+            <Carousel control={false} style={{ height: pxToDp(156),marginTop:pxToDp(10)}}>
               {this.state.books.map((item) => (
                 <View style={styles.bookbox}>
                   <TouchableNativeFeedback
@@ -565,33 +519,24 @@ class Index extends Component {
             </Carousel>
           </View>
           {/*剧本推荐 */}
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              marginTop: pxToDp(16),
-              marginLeft: pxToDp(16),
-              marginRight: pxToDp(16)
-            }}
-          >
-            <Text
-              style={{
-                fontSize: pxToDp(18),
-                color: '#62bfad',
-                fontWeight: 'bold'
-              }}
-            >
-              剧本推荐
-            </Text>
-            <TouchableOpacity
-              style={{ flexDirection: 'row' }}
-              onPress={() => this.context.navigate('Scriptlibrary')}
-            >
-              <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
+          <View style={styles.titlebox}>
+            <View style={styles.left}>
+            </View>
+            <View>
+              <View style={{ marginLeft: pxToDp(-121) }}>
+                <Text style={styles.titletext}>
+                  剧本推荐
+                </Text>
+                <Text style={styles.titlepinyin}>
+                  ju ben tui jian
+                </Text>
+              </View>
+            </View>
+            <TouchableOpacity style={styles.right} onPress={() => this.context.navigate('Scriptlibrary')}>
+              <Text style={styles.righttext}>
                 查看更多
               </Text>
-              <Ionicons name="chevron-forward" size={24} color="#666666" />
+              <Ionicons name="chevron-forward" size={18} color="#666666" />
             </TouchableOpacity>
           </View>
           <View
@@ -749,6 +694,37 @@ const styles = StyleSheet.create({
     marginTop: pxToDp(16),
     marginLeft: pxToDp(16),
     marginRight: pxToDp(16)
+  },
+  titlebox: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    marginLeft: pxToDp(16),
+    marginRight: pxToDp(16)
+  },
+  left: {
+    width: pxToDp(4),
+    height: '75%',
+    backgroundColor: '#62bfad',
+    borderRadius: pxToDp(2)
+  },
+  right: {
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
+  titletext: {
+    fontSize: pxToDp(18),
+    color: '#62bfad',
+    fontWeight: 'bold'
+  },
+  titlepinyin: {
+    fontSize: pxToDp(14),
+    color: '#999999',
+    marginTop: pxToDp(-6)
+  },
+  righttext: {
+    fontSize: pxToDp(16),
+    color: '#666666'
   }
 });
 

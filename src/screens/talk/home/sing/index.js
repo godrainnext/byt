@@ -165,7 +165,7 @@ export default class hello extends Component {
                 </View>
                 <LinearGradient
                     style={styles.linear}
-                    colors={['rgba(249,203,139,0.5)', 'white']}
+                    colors={['#D5E8E6', 'white']}
                     start={{ x: 0, y: 0 }}
                     end={{ x: 0, y: 1 }}
                 >
@@ -176,7 +176,7 @@ export default class hello extends Component {
                     <View style={{ width: '100%', borderRadius: 8, opacity: .8, marginTop: pxToDp(10), marginLeft: pxToDp(16), flexDirection: 'row' }}>
                         <Image
                             style={styles.image}
-                            source={{ uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Finews.gtimg.com%2Fnewsapp_match%2F0%2F9964797201%2F0.jpg&refer=http%3A%2F%2Finews.gtimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632126834&t=6f83c03046ff8f1731e50f76fcab6680' }} />
+                            source={{ uri: 'https://img1.baidu.com/it/u=3272800681,2524244440&fm=26&fmt=auto&gp=0.jpg' }} />
                         <View style={{ marginLeft: pxToDp(16), justifyContent: 'center' }}>
                             <Text style={styles.text1}>石斑的歌房</Text>
                             <Text style={styles.text2}>私人房间</Text>
@@ -186,7 +186,7 @@ export default class hello extends Component {
 
                 <LinearGradient
                     style={styles.linear}
-                    colors={['rgba(249,203,140,0.5)', 'white']}
+                    colors={['#D5E8E6', 'white']}
                     start={{ x: 0, y: 0 }}
                     end={{ x: 0, y: 1 }}
                 >
@@ -197,7 +197,7 @@ export default class hello extends Component {
                     <View style={{ width: '100%', borderRadius: 8, opacity: .8, marginTop: pxToDp(10), marginLeft: pxToDp(16), flexDirection: 'row' }}>
                         <Image
                             style={styles.image}
-                            source={{ uri: 'https://www.zhongguofeng.com/uploads/allimg/170621/8-1F621153120.jpg' }} />
+                            source={{ uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Faliimg.changba.com%2Fcache%2Fphoto%2F640436435_640_640.jpg&refer=http%3A%2F%2Faliimg.changba.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632834984&t=2fa2f5dc4ba460d1dcd253f529ff3e6b' }} />
                         <View style={{ marginLeft: pxToDp(16), justifyContent: 'center' }}>
                             <Text style={styles.text1}>2222的歌房</Text>
                             <Text style={styles.text2}>公开房间</Text>
@@ -223,7 +223,7 @@ const styles = StyleSheet.create({
     touch: {
         width: pxToDp(165),
         height: pxToDp(70),
-        backgroundColor: 'rgba(143,178,201,0.5)',
+        backgroundColor: '#D5E8E6',
         borderRadius: pxToDp(8),
         flexDirection: 'row',
         alignItems: 'center',

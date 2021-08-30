@@ -23,7 +23,7 @@ class Index extends PureComponent {
   }
   render() {
     return (
-      <View style={{ backgroundColor: '#e2f4fe', flex: 1 }}>
+      <View style={{ backgroundColor: '#D5E8E6', flex: 1 }}>
         <Top icon1="arrow-back" title="消息通知与推送" />
         <View
           style={{
@@ -37,8 +37,8 @@ class Index extends PureComponent {
             <Text style={styles.kidbox1}>新消息通知</Text>
             <Switch
               style={{ marginRight: pxToDp(16) }}
-              thumbColor="#ecf6fc"
-              color="#468cd3"
+              thumbColor="#D5E8E6"
+              color="#62bfad"
               //动态改变value
               value={this.state.value1}
               //当切换开关室回调此方法
@@ -99,8 +99,8 @@ class Index extends PureComponent {
               <Switch
                 //动态改变value
                 value={this.state.value2}
-                color="#468cd3"
-                thumbColor="#ecf6fc"
+                thumbColor="#D5E8E6"
+                color="#62bfad"
                 //当切换开关室回调此方法
                 onValueChange={(value2) => {
                   this.setState({ value2: value2 });
@@ -114,8 +114,8 @@ class Index extends PureComponent {
               <Switch
                 //动态改变value
                 value={this.state.value3}
-                thumbColor="#ecf6fc"
-                color="#468cd3"
+                thumbColor="#D5E8E6"
+                color="#62bfad"
                 //当切换开关室回调此方法
                 onValueChange={(value3) => {
                   this.setState({ value3: value3 });
@@ -129,8 +129,8 @@ class Index extends PureComponent {
               <Switch
                 //动态改变value
                 value={this.state.value4}
-                thumbColor="#ecf6fc"
-                color="#468cd3"
+                thumbColor="#D5E8E6"
+                color="#62bfad"
                 //当切换开关室回调此方法
                 onValueChange={(value4) => {
                   this.setState({ value4: value4 });
@@ -144,8 +144,8 @@ class Index extends PureComponent {
               <Switch
                 //动态改变value
                 value={this.state.value5}
-                thumbColor="#ecf6fc"
-                color="#468cd3"
+                thumbColor="#D5E8E6"
+                color="#62bfad"
                 //当切换开关室回调此方法
                 onValueChange={(value5) => {
                   this.setState({ value5: value5 });
@@ -159,8 +159,8 @@ class Index extends PureComponent {
               <Switch
                 //动态改变value
                 value={this.state.value6}
-                thumbColor="#ecf6fc"
-                color="#468cd3"
+                thumbColor="#D5E8E6"
+                color="#62bfad"
                 //当切换开关室回调此方法
                 onValueChange={(value6) => {
                   this.setState({ value6: value6 });
@@ -174,8 +174,8 @@ class Index extends PureComponent {
               <Switch
                 //动态改变value
                 value={this.state.value7}
-                thumbColor="#ecf6fc"
-                color="#468cd3"
+                thumbColor="#D5E8E6"
+                color="#62bfad"
                 //当切换开关室回调此方法
                 onValueChange={(value7) => {
                   this.setState({ value7: value7 });
@@ -189,8 +189,8 @@ class Index extends PureComponent {
               <Switch
                 //动态改变value
                 value={this.state.value8}
-                thumbColor="#ecf6fc"
-                color="#468cd3"
+                thumbColor="#D5E8E6"
+                color="#62bfad"
                 //当切换开关室回调此方法
                 onValueChange={(value8) => {
                   this.setState({ value8: value8 });
@@ -204,8 +204,8 @@ class Index extends PureComponent {
               <Switch
                 //动态改变value
                 value={this.state.value9}
-                thumbColor="#ecf6fc"
-                color="#468cd3"
+                thumbColor="#D5E8E6"
+                color="#62bfad"
                 //当切换开关室回调此方法
                 onValueChange={(value9) => {
                   this.setState({ value9: value9 });
@@ -219,8 +219,8 @@ class Index extends PureComponent {
               <Switch
                 //动态改变value
                 value={this.state.value10}
-                thumbColor="#ecf6fc"
-                color="#468cd3"
+                thumbColor="#D5E8E6"
+                color="#62bfad"
                 //当切换开关室回调此方法
                 onValueChange={(value10) => {
                   this.setState({ value10: value10 });

@@ -30,7 +30,8 @@ class Index extends PureComponent {
   // }
 
   changeVisible = () => {
-    this.setState({ isShow: !this.state.isShow });
+    this.Scrollable1.close();
+    this.context.navigate('AddMoment')
   };
   state = {
     selectedTab: 'first',
@@ -81,7 +82,7 @@ class Index extends PureComponent {
             <LottieView
               autoPlay={this.state.isAuto}
               loop={this.state.isLoop}
-              style={{ width: pxToDp(70), marginBottom: pxToDp(35) }}
+              style={{ width: pxToDp(70), marginBottom: pxToDp(30) }}
               source={require('../lottie/扇子.json')}
             />
             <RBSheet
@@ -116,7 +117,7 @@ class Index extends PureComponent {
                     style={{
                       width: pxToDp(300),
                       height: '100%',
-                      backgroundColor: '#ecf6fc',
+                      backgroundColor: '#D5E8E6',
                       justifyContent: 'space-around',
                       alignItems: 'center',
                       borderRadius: pxToDp(16),
@@ -157,13 +158,6 @@ class Index extends PureComponent {
                     </TouchableOpacity>
                   </View>
                 </View>
-                <View>
-                  <Addmoment
-                    updateList={this.updateList}
-                    toggleModalProps={this.changeVisible}
-                    isModalVisible={this.state.isShow}
-                  />
-                </View>
                 <View
                   style={{
                     width: pxToDp(24),
@@ -179,6 +173,7 @@ class Index extends PureComponent {
           </View>
         ),
         renderSelectedIcon: () => (
+
           <LottieView
             autoPlay={true}
             loop={true}
@@ -230,7 +225,7 @@ class Index extends PureComponent {
     const { selectedTab, pages } = this.state;
     return (
       <View style={{ backgroundColor: '#fff', flex: 1 }}>
-        <TabNavigator style={{ backgroundColor: '#e2f4fe' }}>
+        <TabNavigator style={{ backgroundColor: 'red' }}>
           {pages.map((v, i) => (
             <TabNavigator.Item
               key={v.title}

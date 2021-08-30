@@ -43,12 +43,6 @@ export class AlwaysOpen extends PureComponent {
                         <Text style={{ fontSize: pxToDp(12), color: 'grey' }}>{item.singer}</Text>
                     </View>
                 </View>
-                <LottieView
-                style={{marginLeft:pxToDp(120)}}
-                source={require('../../../lottie/播放旋转.json')}
-                autoPlay
-                loop
-              />
                 <TouchableOpacity onPress={() => this.context.navigate('MusicPlayer', item.id)}>
                     <Ionicons name="caret-forward-circle-outline" size={28} color="grey" />
                 </TouchableOpacity>

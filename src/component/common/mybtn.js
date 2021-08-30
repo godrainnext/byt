@@ -1,27 +1,27 @@
-import React,{ PureComponent } from "react";
-import { View,Text, ImagePropTypes} from "react-native";
+import React, { PureComponent } from "react";
+import { View, Text, ImagePropTypes } from "react-native";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { pxToDp } from "../../utils/styleKits";
-import { Button} from 'react-native-elements'
+import { Button } from 'react-native-elements'
 import LinearGradient from "react-native-linear-gradient";
 
-class Mybtn extends PureComponent{
-    render(){
-        return(
-           <View> 
-               <Button
-                   ViewComponent={LinearGradient}
-               {...this.props}
-               linearGradientProps={{
-                colors: ['#62bfad', '#62bfad'],
-                start: { x: 0, y: 0.5 },
-                end: { x: 1, y: 0.5 }
-              }}
+class Mybtn extends PureComponent {
+    render() {
+        return (
+            <View>
+                <Button
+                    ViewComponent={LinearGradient}
+                    {...this.props}
+                    linearGradientProps={{
+                        colors: ['#62bfad', '#62bfad'],
+                        start: { x: 0, y: 0 },
+                        end: { x: 2, y: 0 }
+                    }}
                 />
-           </View>
+            </View>
         )
     }
 }
 
 
-export default  Mybtn;
+export default Mybtn;

@@ -272,7 +272,7 @@ export default class MusicPlayer extends Component {
             source={require('./CD2.png')}
           />
           <LottieView
-            style={{ marginLeft: pxToDp(-16), marginTop: pxToDp(-34) }}
+            style={{ marginLeft: pxToDp(-16), marginTop: pxToDp(-50) }}
             source={require('../../../../lottie/波纹效果.json')}
             ref={(animation) => {
               this.animation = animation;

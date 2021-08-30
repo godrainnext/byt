@@ -157,7 +157,7 @@ class shopdetails extends PureComponent {
   render() {
     const { count, tabs, activeTab, activeSizeTab, visible } = this.state;
     return (
-      <View style={{ flex: 1, backgroundColor: '#ecf6fc' }}>
+      <View style={{ flex: 1, backgroundColor: '#D5E8E6' }}>
         {/* 顶部导航 */}
         <Top icon1="arrow-back" />
         <AnimatedLoader
@@ -206,7 +206,7 @@ class shopdetails extends PureComponent {
                 alignItems: 'flex-end'
               }}
             >
-              <Text style={{ fontSize: pxToDp(16), color: '#f0bb51' }}>
+              <Text style={{ fontSize: pxToDp(16), color: '#62bfad' }}>
                 ￥
                 {parseInt(
                   this.state.shop.price ? this.state.shop.price * 0.8 : 0
@@ -366,10 +366,10 @@ class shopdetails extends PureComponent {
                       style={{
                         justifyContent: 'center',
                         backgroundColor:
-                          index === activeSizeTab ? '#ecf6fc' : 'white',
+                          index === activeSizeTab ? '#D5E8E6' : 'white',
                         borderRadius: pxToDp(4),
                         borderColor:
-                          index === activeSizeTab ? '#468CD3' : 'white',
+                          index === activeSizeTab ? '#62bfad' : 'white',
                         borderWidth:
                           index === activeSizeTab ? pxToDp(1) : pxToDp(0),
                         height: pxToDp(30),
@@ -384,7 +384,7 @@ class shopdetails extends PureComponent {
                           alignSelf: 'center',
                           marginTop: pxToDp(4),
                           marginBottom: pxToDp(4),
-                          color: index === activeSizeTab ? '#468CD3' : '#666666'
+                          color: index === activeSizeTab ? '#62bfad' : '#666666'
                         }}
                       >
                         {item.size}
@@ -425,8 +425,8 @@ class shopdetails extends PureComponent {
                     style={{
                       justifyContent: 'center',
                       backgroundColor:
-                        index === activeTab ? '#ecf6fc' : 'white',
-                      borderColor: index === activeTab ? '#468CD3' : 'white',
+                        index === activeTab ? '#D5E8E6' : 'white',
+                      borderColor: index === activeTab ? '#62bfad' : 'white',
                       borderWidth: 1,
                       borderRadius: pxToDp(8),
                       height: pxToDp(131),
@@ -451,7 +451,7 @@ class shopdetails extends PureComponent {
                         alignSelf: 'center',
                         marginTop: pxToDp(5),
                         marginBottom: pxToDp(5),
-                        color: index === activeTab ? '#468CD3' : '#666666'
+                        color: index === activeTab ? '#62bfad' : '#666666'
                       }}
                     >
                       {item.color}
@@ -516,7 +516,7 @@ class shopdetails extends PureComponent {
           <View style={{ marginTop: 40 }}>
             <Mybtn
               title="提交订单"
-              style={{ width: '100%', height: '100%' }}
+              style={{ width: pxToDp(120), height: pxToDp(40), alignSelf: 'center' }}
               onPress={this.goCreateOrider}
               containerStyle={{
                 position: 'absolute',

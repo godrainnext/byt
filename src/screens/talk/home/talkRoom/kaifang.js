@@ -25,9 +25,9 @@ const requestCameraAndAudioPermission = async () => {
     ]);
     if (
       granted['android.permission.RECORD_AUDIO'] ===
-        PermissionsAndroid.RESULTS.GRANTED &&
+      PermissionsAndroid.RESULTS.GRANTED &&
       granted['android.permission.CAMERA'] ===
-        PermissionsAndroid.RESULTS.GRANTED
+      PermissionsAndroid.RESULTS.GRANTED
     ) {
       console.log('You can use the cameras & mic');
     } else {
@@ -229,11 +229,8 @@ export default class App extends Component {
       <View style={{ flex: 1 }}>{this._renderVideos()}</View>
     ) : (
       <View style={styles.max}>
-        <Top icon1="arrow-back" title="创建房间" />
-        <ImageBackground
-          style={{ flex: 1 }}
-          source={{ uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic.51yuansu.com%2Fbackgd%2Fcover%2F00%2F09%2F99%2F5b73d29121a93.jpg%21%2Ffw%2F780%2Fquality%2F90%2Funsharp%2Ftrue%2Fcompress%2Ftrue&refer=http%3A%2F%2Fpic.51yuansu.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632621146&t=ee04297b47ec90e5762b16ccb4077614' }}
-        >
+        <Top icon1="arrow-back" title="开房间" />
+        <View style={[styles.max, { padding: pxToDp(16) }]}>
           <View
             style={{
               justifyContent: 'center',
@@ -242,8 +239,8 @@ export default class App extends Component {
               marginBottom: pxToDp(8)
             }}
           >
-            <Text style={{ color: '#50935E' }}>
-              输入房间号，让小伙伴更快速找到您
+            <Text style={{ color: '#62bfad' }}>
+              填写相关信息，让小伙伴快速找到您
             </Text>
           </View>
           <View
@@ -253,7 +250,8 @@ export default class App extends Component {
               shadowColor: 'black', //  阴影颜色
               shadowOffset: { width: 0, height: 0 }, // 阴影偏移
               shadowOpacity: 1, // 阴影不透明度
-              shadowRadius: 10 //  圆角
+              shadowRadius: 10, //  圆角
+              backgroundColor: 'white'
             }}
           >
             <View>
@@ -262,6 +260,7 @@ export default class App extends Component {
                   placeholder="请输入房间名"
                   // rightIcon={<Text style={{ color: 'gray' }}></Text>}
                   value={roomName}
+                  inputStyle={{ fontSize: pxToDp(16) }}
                   inputContainerStyle={{
                     borderBottomWidth: 0
                   }}
@@ -296,8 +295,9 @@ export default class App extends Component {
               </View>
               <View style={{ marginBottom: pxToDp(-24) }}>
                 <Input
-                  placeholder="请选择房间号"
+                  placeholder="请输入房间号"
                   value={channelName}
+                  inputStyle={{ fontSize: pxToDp(16) }}
                   inputContainerStyle={{
                     borderBottomWidth: 0
                   }}
@@ -388,22 +388,16 @@ export default class App extends Component {
                   }
                 />
               </View>
-              {/* <TouchableOpacity
-                                    activeOpacity={1}
-                                    onPress={() => this._openPicker()}>
-                                    <View style={{ marginTop: pxToDp(8) }}>
-                                        <Image style={{ width: pxToDp(100), height: pxToDp(100) }} source={require("../../images/addimg.png")}></Image>
-                                    </View>
-                                </TouchableOpacity> */}
             </View>
           </View>
+        </View>
         <View style={styles.buttonHolder}>
           <Mybtn
             title="创建房间"
             onPress={this.startCall}
             buttonStyle={{
-              width: pxToDp(200),
-              height: pxToDp(50),
+              width: pxToDp(320),
+              height: pxToDp(40),
               alignSelf: 'center',
               borderRadius: pxToDp(32)
             }}
@@ -413,12 +407,8 @@ export default class App extends Component {
               fontSize: pxToDp(16)
             }}
           />
-          {/* <TouchableOpacity onPress={this.endCall} style={styles.button}>
-              <Text style={styles.buttonText}> 结束直播 </Text>
-            </TouchableOpacity> */}
         </View>
-        </ImageBackground>
-      </View> 
+      </View>
     );
   }
 
@@ -622,14 +612,11 @@ export default class App extends Component {
 const styles = StyleSheet.create({
   max: {
     flex: 1,
-    backgroundColor: '#fff'
+    backgroundColor: '#D5E8E6'
   },
   buttonHolder: {
-    height: pxToDp(100),
-    alignItems: 'center',
     flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-evenly'
+    marginTop: pxToDp(500)
   },
   button: {
     paddingHorizontal: 20,

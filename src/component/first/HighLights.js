@@ -28,7 +28,7 @@ export default class HighLights extends PureComponent {
           <View>
             <View
               style={{
-                marginLeft: pxToDp(-110)
+                marginLeft: pxToDp(-106)
               }}
             >
               <Text
@@ -86,8 +86,8 @@ export default class HighLights extends PureComponent {
                   shadowRadius: 10,  //  圆角
                 }}
               >
-                <View style={{ height: pxToDp(130), flexDirection: "row", }}>
-                  <View style={{ width: pxToDp(90), alignItems: 'center' }}>
+                <View style={{ height: pxToDp(130), flexDirection: "row" }}>
+                  <View style={{ width: pxToDp(90), alignItems: 'center', marginTop: pxToDp(8) }}>
                     <Text style={{ fontWeight: 'bold' }}>
                       {item.createAt.split('-')[0] +
                         '-' +
@@ -123,12 +123,12 @@ export default class HighLights extends PureComponent {
                     <Text style={{ fontSize: pxToDp(16), marginBottom: pxToDp(8), color: '#333333', marginLeft: pxToDp(16) }}>
                       {item.title}
                     </Text>
-
                   </View>
                   <View
                     style={{
-                      flex: 1,
-                      justifyContent: 'center',
+                      height: pxToDp(40),
+                      marginLeft: pxToDp(20),
+                      marginTop: pxToDp(20)
                     }}
                   >
                     <Mybtn
@@ -139,11 +139,9 @@ export default class HighLights extends PureComponent {
                         height: pxToDp(40),
                         alignSelf: 'flex-end',
                         borderRadius: pxToDp(32),
-                        marginRight: pxToDp(16)
-
                       }}
                       titleStyle={{
-                        color:'white',
+                        color: 'white',
                         fontSize: pxToDp(16)
                       }}
                     />
