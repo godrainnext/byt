@@ -12,7 +12,7 @@ class Index extends PureComponent {
       ArrIndex: 0,
       data: {
         title: '越剧袁派集锦',
-        information: '共10个节目，收藏后获取最新节目动态',
+        information: '收藏后获取最新节目动态',
         brief:
           '袁派是袁雪芬创立的越剧旦角流派,袁派十分讲究重点唱句的演唱，擅用喷口、气口、加虚词以及强音、顿音等技巧进行特殊处理，造成演唱上的高潮。'
       }
@@ -22,10 +22,10 @@ class Index extends PureComponent {
   render() {
     const { ArrIndex } = this.state;
     return (
-      <View style={{ backgroundColor: '#ecf6fc', flex: 1 }}>
+      <View style={{ backgroundColor: '#D5E8E6', flex: 1 }}>
         <Top icon1="arrow-back" />
         {/*头部信息 */}
-        <View style={{flex:1,padding:pxToDp(16)}}>
+        <View style={{ flex: 1, padding: pxToDp(16) }}>
           <View
             style={{
               flexDirection: 'row',
@@ -56,7 +56,7 @@ class Index extends PureComponent {
                   alignItems: 'center'
                 }}
               >
-                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: pxToDp(4) }}>
                   <Image
                     style={styles.image2}
                     source={require('../../../res/8.jpg')}
@@ -65,38 +65,34 @@ class Index extends PureComponent {
                     听戏
                   </Text>
                 </View>
-                <Mybtn   cisabled={this.props.disabled}
+                <View style={{ marginRight: pxToDp(13), marginTop: pxToDp(9) }}>
+                  <Mybtn
                     title="收藏"
-                
-            onPress={this.addOrder}
                     buttonStyle={{
-                      width: pxToDp(60),
-                      height: pxToDp(35),
-                      alignSelf: 'flex-end',
+                      width: pxToDp(90),
+                      height: pxToDp(30),
+                      alignSelf: 'center',
                       borderRadius: pxToDp(32),
-                      marginRight: pxToDp(8),
-                      
                     }}
                     titleStyle={{
-
+                      color: 'white',
+                      marginTop: pxToDp(-5),
                       fontSize: pxToDp(14)
                     }}
                   />
-
+                </View>
               </View>
-              
             </View>
-            
           </View>
           <View
             style={{
               backgroundColor: 'rgba(255,255,255,0.5)',
               marginTop: pxToDp(10),
-              borderRadius:pxToDp(8)
+              borderRadius: pxToDp(8)
             }}
           >
-            <Text style={{ margin: pxToDp(8), fontSize: pxToDp(12),  color:'#33333' ,lineHeight: pxToDp(14) }}>
-              {this.state.data.brief}
+            <Text style={{ margin: pxToDp(8), fontSize: pxToDp(12), color: '#33333', lineHeight: pxToDp(14) }}>
+              &emsp;&emsp;{this.state.data.brief}
             </Text>
           </View>
         </View>
@@ -120,12 +116,12 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: pxToDp(13),
-    color:'#6666'
+    color: '#6666'
   },
   image2: {
     height: pxToDp(40),
     width: pxToDp(40),
-    borderRadius: pxToDp(40)
+    borderRadius: pxToDp(20)
   },
   touch: {
     backgroundColor: '#468cd3',

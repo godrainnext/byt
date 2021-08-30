@@ -12,14 +12,13 @@ export default memo(() => {
   return (
 
     <ScrollableTabView
-    style={{backgroundColor:'#FFF'}}
-    tabUnderlineWidth='5'
-    renderTabBar={()=><CustormerBar/>}
-
-    tabUnderlineWidth={5}
-    tabBarTextStyle={{fontSize:pxToDp(18)}}
-    tabBarBackgroundColor='#fff'
- initialPage={1} >
+      style={{ backgroundColor: '#FFF' }}
+      tabUnderlineWidth='5'
+      renderTabBar={() => <CustormerBar />}
+      tabUnderlineWidth={5}
+      tabBarTextStyle={{ fontSize: pxToDp(18) }}
+      tabBarBackgroundColor='#fff'
+      initialPage={1} >
       <Sing tabLabel='百曲' />
       <Forum tabLabel="乐道" />
       <Live tabLabel="如面" />

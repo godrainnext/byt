@@ -29,24 +29,12 @@ export default class HeaderHaveBack extends PureComponent {
                 start={{ x: 0, y: 0 }}
                 end={{ x: 1.6, y: 0 }}
             >
-                <View
-                    style={{
-                        marginTop: pxToDp(16),
-                        flexDirection: 'row',
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                    }}
-                >
-                    <View style={styles.icon2}>
-                        <TouchableOpacity onPress={() => this.setState({ showTitle: !showTitle })}>
-                            {/* <IconFont style={{ color: "#fff" }} name="iconfanhui" /> */}
-                            <Ionicons name={this.props.icon2} size={25} color="white" />
+                <View style={styles.textview}>
+                    <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center", width: pxToDp(345), height: pxToDp(38), borderRadius: pxToDp(8), backgroundColor: "white" }}>
+                        <TextInput placeholder={"搜索"} style={{ fontSize: pxToDp(14), width: pxToDp(305), marginLeft: pxToDp(32) }} />
+                        <TouchableOpacity style={{ marginRight: pxToDp(32) }}>
+                            <Ionicons name='search' size={23} color="#999999" />
                         </TouchableOpacity>
-                    </View>
-                    <View style={styles.textview}>
-                        <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center", width: pxToDp(308), height: pxToDp(38), marginTop: pxToDp(-16), borderRadius: pxToDp(8), backgroundColor: "white", }}>
-                            <TextInput placeholder={"搜索"} style={{ fontSize: pxToDp(14), width: pxToDp(290), }} />
-                        </View>
                     </View>
                 </View>
             </LinearGradient>
@@ -69,13 +57,11 @@ const styles = StyleSheet.create({
     },
     icon2: {
         width: pxToDp(45),
-        marginLeft: pxToDp(16),
         bottom: 8
     },
     textview: {
         flex: 1,
-        top: pxToDp(3),
-        marginLeft: pxToDp(-10)
+        alignItems: 'center'
     },
     textstyle: {
         fontSize: pxToDp(18),

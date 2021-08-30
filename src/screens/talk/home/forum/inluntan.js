@@ -21,6 +21,7 @@ import { addFollow, cancelFollow } from '../../../../service/mine';
 import { DeviceEventEmitter } from 'react-native';
 import FollowButton from '@components/FollowButton';
 import { Video, Audio } from 'expo-av';
+import Mybtn from '../../../../component/common/mybtn';
 class Index extends PureComponent {
   state = {
     inner: {},
@@ -143,7 +144,6 @@ class Index extends PureComponent {
       comments,
       content = 123,
       createTime,
-      title = 666,
       user,
       label,
       cover
@@ -151,19 +151,19 @@ class Index extends PureComponent {
 
     return (
       <View style={{ flex: 1 }}>
-        <Top icon1="arrow-back" title={title} icon2="more-horizontal" />
+        <Top icon1="arrow-back" icon2="more-horizontal" />
         <ScrollView
           showsVerticalScrollIndicator={false}
           style={{
-            padding:pxToDp(16),
-            paddingBottom:0,
+            padding: pxToDp(16),
+            paddingBottom: 0,
           }}
         >
           <View
             style={{
               backgroundColor: 'white',
-              width:'100%',
-              alignSelf:'center',
+              width: '100%',
+              alignSelf: 'center',
               paddingBottom: pxToDp(20),
               borderRadius: pxToDp(16),
               elevation: 2,
@@ -198,19 +198,33 @@ class Index extends PureComponent {
                 }}
               >
                 {/* 昵称 */}
-                <Text style={{ fontSize: pxToDp(18), color:'#000000',fontWeight: 'bold' }}>
+                <Text style={{ fontSize: pxToDp(18), color: '#000000', fontWeight: 'bold' }}>
                   {user?.nickName}
                 </Text>
                 {/* 发布时间 */}
-                <Text style={{ color: '#333333',fontSize:pxToDp(16) }}>{createTime}</Text>
+                <Text style={{ color: '#333333', fontSize: pxToDp(16) }}>{createTime}</Text>
               </View>
               {/* 关注 */}
-              <View>
-                <FollowButton userId={this.props.route.params.uid} />
+              <View style={{ marginRight: pxToDp(10) }}>
+                <Mybtn
+                  title="关注"
+                  buttonStyle={{
+                    width: pxToDp(90),
+                    height: pxToDp(30),
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    borderRadius: pxToDp(32),
+                  }}
+                  titleStyle={{
+                    color: 'white',
+                    marginTop: pxToDp(-5),
+                    fontSize: pxToDp(14)
+                  }}
+                />
               </View>
             </View>
             <View style={{ margin: pxToDp(8) }}>
-              <Text style={{ fontSize: pxToDp(18),color:'#333333' }}>{content}</Text>
+              <Text style={{ fontSize: pxToDp(18), color: '#333333' }}>{content}</Text>
             </View>
             {label ? this.showMusic() : this.showArticle()}
           </View>
@@ -220,14 +234,14 @@ class Index extends PureComponent {
               marginTop: pxToDp(16)
             }}
           >
-            <Text style={{ fontSize: pxToDp(18),color:'#000000',margin: pxToDp(8) }}>
+            <Text style={{ fontSize: pxToDp(18), color: '#000000', margin: pxToDp(8) }}>
               评论区
             </Text>
-            <View style={{marginBottom:pxToDp(80)}}>
-            <Comments
-              inputRef={this.inputRef}
-              comments={comments ? comments : []}
-            />
+            <View style={{ marginBottom: pxToDp(80) }}>
+              <Comments
+                inputRef={this.inputRef}
+                comments={comments ? comments : []}
+              />
             </View>
           </View>
         </ScrollView>

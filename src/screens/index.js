@@ -2,7 +2,6 @@ export { default as Home } from './first/home/index'; //首页
 export { default as PageOne } from './first/home/pages/pageone'; //流派传奇页
 export { default as PageTwo } from './first/home/pages/pagetwo'; //俯瞰百年页
 export { default as PageThree } from './first/home/pages/pagethree'; //名角风采页
-export { default as PageFour } from './first/home/pages/pagefour'; //精选唱段页
 export { default as Pagefive } from './first/home/pages/pagefive'; //俯瞰百年文章
 export { default as School1 } from './first/school/yuanpai'; //流派页 袁派
 export { default as School2 } from './first/school/fanpai'; //流派页 范派

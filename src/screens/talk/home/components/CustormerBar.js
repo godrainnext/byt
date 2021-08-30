@@ -31,7 +31,7 @@ export default class SegmentTabBar extends Component {
         const backgroundColor = isTabActive ? '#62bfad' : '#fff';
         console.log(textColor)
         return <Button
-            style={{ flex: 1, height: 25, backgroundColor, borderRadius: 16, margin: 8 }}
+            style={{ flex: 1, height: 30, backgroundColor, borderRadius: 16, margin: 8 }}
             key={name}
             accessible={true}
             accessibilityLabel={name}
@@ -70,7 +70,7 @@ export default class SegmentTabBar extends Component {
 }
 const styles = StyleSheet.create({
     tabBarBox: {
-        height: 50,
+        height: 60,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',

@@ -54,7 +54,7 @@ class Index extends PureComponent {
     return (
       <View style={{ flex: 1, backgroundColor: 'white' }}>
         {/**搜索框*/}
-        <Top icon2="search" />
+        <Top />
         <ScrollView
           bounces={true}
           refreshControl={

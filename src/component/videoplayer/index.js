@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect,memo } from 'react';
+import React, { useState, useCallback, useEffect, memo } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import {
   ScrollTabView,
@@ -50,9 +50,9 @@ export default memo(function Example(props) {
 
   return (
     <View style={styles.container}>
-      
+
       <ScrollTabView
-      tabBarUnderlineStyle={{backgroundColor:'#468cd3'}}
+        tabBarUnderlineStyle={{ backgroundColor: '#62bfad' }}
         headerHeight={headerHeight}
         renderScrollHeader={() => _renderScrollHeader(videoInfo)}
       >

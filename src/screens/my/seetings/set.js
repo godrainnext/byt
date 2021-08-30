@@ -37,7 +37,7 @@ class Index extends PureComponent {
           }}
         >
           <TouchableOpacity onPress={() => this.context.navigate('Tuisong')}>
-            <List title="消息与推送通知" />
+            <List title="消息通知与推送" />
           </TouchableOpacity>
           <TouchableOpacity onPress={() => this.context.navigate('Yinsi')}>
             <List title="隐私设置" />

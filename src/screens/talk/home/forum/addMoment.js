@@ -273,7 +273,7 @@ class index extends PureComponent {
             title="发布动态"
             onPress={this.handleSubmit}
             buttonStyle={{
-              width: pxToDp(120),
+              width: pxToDp(320),
               height: pxToDp(40),
               alignSelf: 'center',
               borderRadius: pxToDp(32)

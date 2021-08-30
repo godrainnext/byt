@@ -180,7 +180,6 @@ class Index extends PureComponent {
                   useForeground={true}
                   key={item.id}
                   onPress={() => this.openTopic(index)}
-
                 >
                   <View style={{
                     marginTop: pxToDp(8),
@@ -201,7 +200,7 @@ class Index extends PureComponent {
                       }}
                       imageStyle={{ borderRadius: pxToDp(8) }}
                     >
-                      <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
+                      <Text style={{ fontSize: pxToDp(16), color: '#000000', fontWeight: 'bold' }}>
                         {item.text}
                       </Text>
                     </ImageBackground>

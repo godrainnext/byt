@@ -240,7 +240,7 @@ class App extends Component {
       this.setState({ result });
       await this._engine?.joinChannel(token, this.state.channelName, null, 0);
     } else {
-      ToastAndroid.show('请输入个人信息与封面', ToastAndroid.SHORT);
+      ToastAndroid.show('请输入房间信息与封面图', ToastAndroid.SHORT);
     }
   };
 
@@ -412,7 +412,7 @@ class App extends Component {
         </View>
         <View style={styles.buttonHolder}>
           <Mybtn
-            title="创建房间"
+            title="开始直播"
             onPress={this.startCall}
             buttonStyle={{
               width: pxToDp(320),

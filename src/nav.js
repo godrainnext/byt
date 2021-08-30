@@ -32,8 +32,6 @@ function Nav() {
         <Stack.Screen name="PageTwo" component={Screens.PageTwo} />
         {/* 名角风采 */}
         <Stack.Screen name="PageThree" component={Screens.PageThree} />
-        {/* 精选唱段 */}
-        <Stack.Screen name="PageFour" component={Screens.PageFour} />
         {/* 俯瞰百年文章 */}
         <Stack.Screen name="Pagefive" component={Screens.Pagefive} />
         {/*我的 */}

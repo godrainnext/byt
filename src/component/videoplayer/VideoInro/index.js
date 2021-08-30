@@ -1,11 +1,8 @@
 import React, { PureComponent } from 'react';
 import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { pxToDp } from '@utils/styleKits';
-import Icon from 'react-native-vector-icons/SimpleLineIcons';
-import Icon1 from 'react-native-vector-icons/MaterialIcons';
 import { ScrollView } from 'react-native-gesture-handler';
 import { NavigationContext } from '@react-navigation/native';
-
 import { getVideList } from '@service/home';
 import SvgUri from 'react-native-svg-uri';
 import { dianzan, pinglun, star, zhuanfa } from '../../common/iconSvg';
