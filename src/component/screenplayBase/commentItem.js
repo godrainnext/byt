@@ -41,7 +41,7 @@ export default class commentItem extends PureComponent {
           <View
             style={{
               flexDirection: 'row',
-              alignItems: 'center',
+              alignItems: 'center'
             }}
           >
             <Image
@@ -52,7 +52,7 @@ export default class commentItem extends PureComponent {
                 borderRadius: pxToDp(20)
               }}
               source={{
-                uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp0.qhmsg.com%2Ft01c0bee555e7f14acf.jpg&refer=http%3A%2F%2Fp0.qhmsg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631928400&t=8fa3da0873ef4c8b3fbc9f9a83582446'
+                uri: item.avatar
               }}
             />
             <View>

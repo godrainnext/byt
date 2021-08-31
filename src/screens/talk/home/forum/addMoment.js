@@ -20,7 +20,7 @@ import dayjs from 'dayjs';
 import Mybtn from '../../../../component/common/mybtn';
 import { Input } from 'react-native-elements/dist/input/Input';
 import { NavigationContext } from '@react-navigation/native';
-import Top from "../../../../component/common/top"
+import Top from '../../../../component/common/top';
 import { connect } from 'react-redux';
 const { height, width } = Dimensions.get('window');
 const talk =
@@ -155,7 +155,7 @@ class index extends PureComponent {
         ToastAndroid.show('发表文章成功', ToastAndroid.SHORT);
       })
       .then((ress) => {
-        this.props.toggleModalProps();
+        this.context.goBack();
       });
   };
 
@@ -163,7 +163,6 @@ class index extends PureComponent {
     this.setState({ title });
   };
   render() {
-    const { isModalVisible, toggleModalProps } = this.props;
     const { text } = this.state;
     // console.log(arr);
     return (
@@ -182,17 +181,6 @@ class index extends PureComponent {
           }}
         >
           <ScrollView showsVerticalScrollIndicator={false}>
-<<<<<<< HEAD
-            <View>
-              <View style={{ marginTop: 4 }}>
-                <View>
-                  <Text>标题</Text>
-                </View>
-                <Input
-                  placeholder="请输入文章标题"
-                  value={this.state.title}
-                  onChangeText={(v) => this.changeTitle(v)}
-=======
             <View style={{ marginTop: 4 }}>
               <Input
                 placeholder="请输入文章标题"
@@ -229,15 +217,17 @@ class index extends PureComponent {
                   </View>
                 }
               />
-              <View style={{
-                elevation: 2, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
-                shadowColor: 'black', //  阴影颜色
-                shadowOffset: { width: 0, height: 0 }, // 阴影偏移
-                shadowOpacity: 1, // 阴影不透明度
-                shadowRadius: 10,
-                marginBottom: pxToDp(16),
-                marginTop: pxToDp(-24)
-              }}>
+              <View
+                style={{
+                  elevation: 2, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                  shadowColor: 'black', //  阴影颜色
+                  shadowOffset: { width: 0, height: 0 }, // 阴影偏移
+                  shadowOpacity: 1, // 阴影不透明度
+                  shadowRadius: 10,
+                  marginBottom: pxToDp(16),
+                  marginTop: pxToDp(-24)
+                }}
+              >
                 <RichTextView
                   inputStyle={styles.inputStyle}
                   placeholder="记录这一刻，分享每一天..."
@@ -247,7 +237,6 @@ class index extends PureComponent {
                   maxLength={255} // 最大长度,默认为100
                   onSubmitEditing={this.handleSubmit}
                   showCount={true} // 展示剩余文字, 默认为true
->>>>>>> 79e87b04b2066c4b7bf66c03ed1aa59c6ae18259
                 />
               </View>
               <View

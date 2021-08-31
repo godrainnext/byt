@@ -21,8 +21,8 @@ class Index extends PureComponent {
       count: 0
     };
 
-    this.setState({ arr: [comment, ...this.state.arr] }, (state) => {
-      console.log(state);
+    this.setState({ arr: [comment, ...this.state.arr] }, () => {
+      console.log(this.state.arr);
     });
   };
   static contextType = NavigationContext;

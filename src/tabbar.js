@@ -175,6 +175,7 @@ class Index extends PureComponent {
                     </TouchableOpacity>
                   </View>
                 </View>
+
                 <View
                   style={{
                     width: pxToDp(24),

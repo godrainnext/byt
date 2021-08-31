@@ -103,13 +103,9 @@ class Index extends PureComponent {
                 </Text>
               </View>
 
-<<<<<<< HEAD
-              <Text style={{ color: '#fa9222', marginTop: pxToDp(24) }}>
+              <Text style={{ color: '#62bfad', marginTop: pxToDp(24) }}>
                 原创正品
               </Text>
-=======
-              <Text style={{ color: '#62bfad', marginTop: pxToDp(24) }}>原创正品</Text>
->>>>>>> 79e87b04b2066c4b7bf66c03ed1aa59c6ae18259
             </View>
           </View>
           <View
@@ -118,7 +114,6 @@ class Index extends PureComponent {
               flexDirection: 'row',
               height: pxToDp(40),
               marginLeft: pxToDp(8),
-<<<<<<< HEAD
               marginRight: pxToDp(8)
             }}
           >
@@ -201,36 +196,6 @@ class Index extends PureComponent {
             >
               ￥
             </Text>
-=======
-              marginRight: pxToDp(8),
-
-
-            }}
-
-          >
-
-            <Text style={{ fontSize: pxToDp(14), alignSelf: 'flex-end', color: '#999999' }} >总价</Text>
-            <Text style={{ fontSize: pxToDp(12), alignSelf: 'flex-end', color: '#999999' }} >￥</Text>
-            <Text style={{ fontSize: pxToDp(14), alignSelf: 'flex-end', color: '#999999' }}>
-              {item.price * item.count}
-            </Text>
-
-            <Text style={{ fontSize: pxToDp(14), alignSelf: 'flex-end', color: '#999999', marginLeft: pxToDp(16) }} >优惠</Text>
-            <Text style={{ fontSize: pxToDp(12), alignSelf: 'flex-end', color: '#999999', }} >￥</Text>
-            <Text
-              style={{
-                fontSize: pxToDp(14),
-                alignSelf: 'flex-end',
-                color: '#999999'
-              }}
-            >
-              0
-            </Text>
-
-            <Text style={{ fontSize: pxToDp(14), alignSelf: 'flex-end', color: '#333333', fontWeight: 'bold', marginLeft: pxToDp(16) }} >实付款</Text>
-
-            <Text style={{ fontSize: pxToDp(12), alignSelf: 'flex-end', color: '#333333', fontWeight: 'bold', }} >￥</Text>
->>>>>>> 79e87b04b2066c4b7bf66c03ed1aa59c6ae18259
             <Text
               style={{
                 fontSize: pxToDp(14),
@@ -242,7 +207,6 @@ class Index extends PureComponent {
               {' '}
               {item.price * item.count}
             </Text>
-<<<<<<< HEAD
             <View
               style={{
                 position: 'absolute',
@@ -259,25 +223,12 @@ class Index extends PureComponent {
                   item.status === 0
                     ? '去支付'
                     : item.status === 1
-=======
-            <View style={{ position: 'absolute', bottom: 0, right: 0, alignSelf: 'flex-end', }}>
-              <Mybtn
-                onPress={() => this.changeStatus(item.oriderId, item.status + 1)}
-                title={item.status === 0
-                  ? '去支付'
-                  : item.status === 1
->>>>>>> 79e87b04b2066c4b7bf66c03ed1aa59c6ae18259
                     ? '确认收货'
                     : '评价'
                 }
                 titleStyle={{
                   height: 30,
-<<<<<<< HEAD
-                  color: '#fcfcfc',
-                  fontWeight: 'bold',
-=======
                   color: 'white',
->>>>>>> 79e87b04b2066c4b7bf66c03ed1aa59c6ae18259
                   fontSize: pxToDp(14),
                   marginTop: pxToDp(10)
                 }}
@@ -285,13 +236,9 @@ class Index extends PureComponent {
                 buttonStyle={{
                   width: pxToDp(90),
                   height: pxToDp(30),
-<<<<<<< HEAD
-                  borderRadius: pxToDp(32)
-=======
                   borderRadius: pxToDp(32),
                   alignItems: 'center',
                   justifyContent: 'center'
->>>>>>> 79e87b04b2066c4b7bf66c03ed1aa59c6ae18259
                 }}
               />
             </View>
