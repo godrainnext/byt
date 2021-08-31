@@ -20,7 +20,7 @@ import dayjs from 'dayjs';
 import Mybtn from '../../../../component/common/mybtn';
 import { Input } from 'react-native-elements/dist/input/Input';
 import { NavigationContext } from '@react-navigation/native';
-import Top from "../../../../component/common/top"
+import Top from '../../../../component/common/top';
 import { connect } from 'react-redux';
 const { height, width } = Dimensions.get('window');
 const talk =
@@ -139,7 +139,7 @@ class index extends PureComponent {
       .then((res) => {
         console.log(res);
         this.handleEditingEnd();
-        this.props.updateList({
+        DeviceEventEmitter.emit('changeMoment', {
           content: text,
           cover: form[0].uri,
           createTime: dayjs(new Date()).format('YYYY MM-DD-HH-mm'),
@@ -152,18 +152,18 @@ class index extends PureComponent {
             ...this.props.userInfo
           }
         });
+
         ToastAndroid.show('发表文章成功', ToastAndroid.SHORT);
       })
       .then((ress) => {
-        this.props.toggleModalProps();
-      })
+        this.context.goBack();
+      });
   };
 
   changeTitle = (title) => {
     this.setState({ title });
   };
   render() {
-    const { isModalVisible, toggleModalProps } = this.props;
     const { text } = this.state;
     // console.log(arr);
     return (
@@ -218,15 +218,17 @@ class index extends PureComponent {
                   </View>
                 }
               />
-              <View style={{
-                elevation: 2, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
-                shadowColor: 'black', //  阴影颜色
-                shadowOffset: { width: 0, height: 0 }, // 阴影偏移
-                shadowOpacity: 1, // 阴影不透明度
-                shadowRadius: 10,
-                marginBottom: pxToDp(16),
-                marginTop: pxToDp(-24)
-              }}>
+              <View
+                style={{
+                  elevation: 2, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                  shadowColor: 'black', //  阴影颜色
+                  shadowOffset: { width: 0, height: 0 }, // 阴影偏移
+                  shadowOpacity: 1, // 阴影不透明度
+                  shadowRadius: 10,
+                  marginBottom: pxToDp(16),
+                  marginTop: pxToDp(-24)
+                }}
+              >
                 <RichTextView
                   inputStyle={styles.inputStyle}
                   placeholder="记录这一刻，分享每一天..."

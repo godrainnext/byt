@@ -7,17 +7,23 @@ import {
   TouchableOpacity,
   StyleSheet,
   ScrollView,
-  Alert,
-  Slider
+  Alert
 } from 'react-native';
 import Top from '@components/common/top';
+import SvgUri from 'react-native-svg-uri';
 import { pxToDp } from '@utils/styleKits';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { Video, Audio } from 'expo-av';
 import request from '@service/index';
 import LottieView from 'lottie-react-native';
 import { NavigationContext } from '@react-navigation/native';
-
+import { Slider } from 'react-native-elements';
+import {
+  start,
+  over,
+  playback,
+  voice
+} from '../../../component/common/iconSvg';
 class Index extends PureComponent {
   state = {
     status: {},
@@ -28,7 +34,9 @@ class Index extends PureComponent {
     isplay: false,
     URI: [],
     autoPlay: true,
-    showLoading: true
+    showLoading: true,
+    value: 1,
+    isClick: false
   };
   static contextType = NavigationContext;
   playSound = async () => {
@@ -69,12 +77,13 @@ class Index extends PureComponent {
   pauseSound = async () => {
     console.log('暂停');
     // this.setState({sound:undefined})
-    await this.state.playingsong.pauseAsync();
+    await this.video.pauseAsync();
     this.setState({ isplay: false });
   };
 
   startRecording = async () => {
     try {
+      this.video.playAsync();
       console.log('Requesting permissions..');
       await Audio.requestPermissionsAsync();
       await Audio.setAudioModeAsync({
@@ -93,6 +102,7 @@ class Index extends PureComponent {
     }
   };
   stopRecording = async () => {
+    await this.pauseSound();
     // this.setState({recording:undefined});
     await this.state.recording.stopAndUnloadAsync();
     const uri = this.state.recording.getURI();
@@ -115,7 +125,7 @@ class Index extends PureComponent {
   }
   //渲染加载页面
   renderLoading = () => {
-    const { showLoading } = this.state;
+    const { showLoading, value } = this.state;
     return (
       <View style={styles.bottom}>
         <TouchableOpacity
@@ -146,78 +156,105 @@ class Index extends PureComponent {
       </View>
     );
   };
+  clickVoice = () => {
+    this.setState({ isClick: !this.state.isClick });
+  };
+  reStart = () => {
+    Alert.alert('提示', '确认重唱?', [
+      { text: '取消' },
+      {
+        text: '确认',
+        onPress: async () => {
+          if (this.state.isrecoding) {
+            await this.stopRecording();
+          }
+          this.setState({
+            status: {},
+            recording: '',
+            playingsong: '',
+            sound: [],
+            URI: [],
+            autoPlay: false,
+            showLoading: false
+          });
+          await this.startRecording();
+          this.video.replayAsync();
+        }
+      }
+    ]);
+  };
   //渲染按钮页面
   renderMenu = () => {
     const { autoPlay } = this.state;
     return (
       <View style={styles.bottom}>
-        <View>
-          <TouchableOpacity
-            style={{ alignItems: 'center' }}
-            onPress={() => {
-              this.state.status.isPlaying
-                ? this.video.pauseAsync()
-                : this.video.playAsync();
+        {/* 开始 */}
+        <TouchableOpacity
+          style={{ flex: 1, alignItems: 'center' }}
+          onPress={() => {
+            this.state.status.isPlaying
+              ? this.video.pauseAsync()
+              : this.video.playAsync();
+          }}
+        >
+          <SvgUri svgXmlData={start} width="30" height="30" />
+          <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
+            {this.state.status.isPlaying ? '暂停' : '开始'}
+          </Text>
+        </TouchableOpacity>
+        {/* 音量 */}
+        <TouchableOpacity
+          style={{ flex: 1, alignItems: 'center' }}
+          onPress={this.clickVoice}
+        >
+          <SvgUri svgXmlData={voice} width="30" height="30" />
+          <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>音量</Text>
+        </TouchableOpacity>
+        {/* 练唱 */}
+        <TouchableOpacity
+          style={{ alignItems: 'center' }}
+          onPress={() => {
+            this.toContr();
+            // this.toPlay();
+            this.setState({ autoPlay: !autoPlay });
+            this.state.isrecoding
+              ? this.stopRecording()
+              : this.startRecording();
+          }}
+        >
+          <LottieView
+            style={{ width: pxToDp(100) }}
+            source={require('../../../../lottie/练唱.json')}
+            ref={(animation) => {
+              this.animation = animation;
             }}
-          >
-            <Ionicons name="musical-notes-outline" size={25} color="grey" />
-            <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
-              {this.state.status.isPlaying ? '暂停' : '播放'}
-            </Text>
-          </TouchableOpacity>
-        </View>
-        <View>
-          <TouchableOpacity style={{ alignItems: 'center' }}>
-            <Ionicons name="options-outline" size={25} color="grey" />
-            <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>音量</Text>
-          </TouchableOpacity>
-        </View>
-        <View>
-          <TouchableOpacity
-            style={{ alignItems: 'center' }}
-            onPress={() => {
-              this.toContr();
-              // this.toPlay();
-              this.setState({ autoPlay: !autoPlay });
-              console.log(autoPlay);
-              this.state.isrecoding
-                ? this.stopRecording()
-                : this.startRecording();
-            }}
-          >
-            <LottieView
-              style={{ width: pxToDp(100) }}
-              source={require('../../../../lottie/练唱.json')}
-              ref={(animation) => {
-                this.animation = animation;
-              }}
-              loop
-            />
-          </TouchableOpacity>
-        </View>
-        <View>
-          <TouchableOpacity>
-            <Ionicons name="refresh" size={25} color="grey" />
-            <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>重唱</Text>
-          </TouchableOpacity>
-        </View>
-        <View>
-          <TouchableOpacity
-            style={{ alignItems: 'center' }}
-            onPress={() => {
-              this.toPause();
-              this.state.isplay ? this.pauseSound() : this.playSound();
-            }}
-          >
-            <Ionicons name="checkmark" size={25} color="grey" />
-            <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>结束</Text>
-          </TouchableOpacity>
-        </View>
+            loop
+          />
+        </TouchableOpacity>
+        {/* 重唱 */}
+        <TouchableOpacity
+          style={{ flex: 1, alignItems: 'center' }}
+          onPress={this.reStart}
+        >
+          <SvgUri svgXmlData={playback} width="30" height="30" />
+          <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>重唱</Text>
+        </TouchableOpacity>
+        {/* 结束 */}
+        <TouchableOpacity
+          style={{ flex: 1, alignItems: 'center' }}
+          onPress={() => {
+            this.toPause();
+            this.state.isplay ? this.pauseSound() : this.playSound();
+          }}
+        >
+          <SvgUri svgXmlData={over} width="30" height="30" />
+          <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>结束</Text>
+        </TouchableOpacity>
       </View>
     );
   };
   render() {
-    const { showLoading, setVolume } = this.state;
+    const { showLoading, value } = this.state;
     return (
       <View
         style={{
@@ -262,11 +299,35 @@ class Index extends PureComponent {
                 source={require('../study/越剧追鱼.mp3')}
                 resizeMode="contain"
                 onPlaybackStatusUpdate={(status) => this.setState({ status })}
-                volume={setVolume}
+                volume={value}
               />
             </View>
           </ScrollView>
           <View>{showLoading ? this.renderLoading() : this.renderMenu()}</View>
+          <View
+            style={{
+              position: 'absolute',
+              top: pxToDp(520),
+              left: pxToDp(42),
+              width: pxToDp(30),
+              height: pxToDp(120)
+            }}
+          >
+            <Slider
+              style={{
+                height: pxToDp(10),
+                width: pxToDp(100),
+                transform: [{ rotate: '-90deg' }],
+                display: this.state.isClick ? 'flex' : 'none'
+              }}
+              thumbTintColor={'#62bfad'}
+              thumbStyle={{ width: pxToDp(14), height: pxToDp(14) }}
+              maximumTrackTintColor={'#999999'}
+              minimumTrackTintColor={'#00c06d'}
+              value={this.state.value}
+              onValueChange={(value) => this.setState({ value })}
+            />
+          </View>
         </ImageBackground>
       </View>
     );
@@ -303,11 +364,10 @@ const styles = StyleSheet.create({
     height: pxToDp(60),
     marginBottom: pxToDp(15),
     width: '100%',
-    backgroundColor: 'transparent',
-    alignSelf: 'center',
     alignItems: 'center',
     flexDirection: 'row',
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
+    backgroundColor: 'transparent'
   },
   basicbox: {
     fontSize: pxToDp(16),

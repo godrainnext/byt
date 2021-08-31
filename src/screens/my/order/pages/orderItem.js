@@ -53,8 +53,8 @@ class Index extends PureComponent {
               {item.status === 0
                 ? '待支付'
                 : item.status === 1
-                  ? '待收货'
-                  : '待评价'}
+                ? '待收货'
+                : '待评价'}
             </Text>
           </View>
           {/* 中间 */}
@@ -77,27 +77,35 @@ class Index extends PureComponent {
             <View
               style={{
                 marginLeft: pxToDp(8),
-                width: pxToDp(216),
-
+                width: pxToDp(216)
               }}
             >
               <Text style={{ fontSize: pxToDp(16) }}>{item.title}</Text>
-              <View style={{ flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop: pxToDp(16) }}>
-                <Text style={{ fontSize: pxToDp(14), color: '#999999', }}>
-
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  alignItems: 'center',
+                  marginTop: pxToDp(16)
+                }}
+              >
+                <Text style={{ fontSize: pxToDp(14), color: '#999999' }}>
                   {item.color}
                 </Text>
                 <Text
                   style={{
                     fontSize: pxToDp(14),
-                    color: '#333333', marginRight: pxToDp(8)
+                    color: '#333333',
+                    marginRight: pxToDp(8)
                   }}
                 >
                   ×{item.count}
                 </Text>
               </View>
 
-              <Text style={{ color: '#62bfad', marginTop: pxToDp(24) }}>原创正品</Text>
+              <Text style={{ color: '#62bfad', marginTop: pxToDp(24) }}>
+                原创正品
+              </Text>
             </View>
           </View>
           <View
@@ -106,21 +114,56 @@ class Index extends PureComponent {
               flexDirection: 'row',
               height: pxToDp(40),
               marginLeft: pxToDp(8),
-              marginRight: pxToDp(8),
-
-
+              marginRight: pxToDp(8)
             }}
-
           >
-
-            <Text style={{ fontSize: pxToDp(14), alignSelf: 'flex-end', color: '#999999' }} >总价</Text>
-            <Text style={{ fontSize: pxToDp(12), alignSelf: 'flex-end', color: '#999999' }} >￥</Text>
-            <Text style={{ fontSize: pxToDp(14), alignSelf: 'flex-end', color: '#999999' }}>
+            <Text
+              style={{
+                fontSize: pxToDp(14),
+                alignSelf: 'flex-end',
+                color: '#999999'
+              }}
+            >
+              总价
+            </Text>
+            <Text
+              style={{
+                fontSize: pxToDp(12),
+                alignSelf: 'flex-end',
+                color: '#999999'
+              }}
+            >
+              ￥
+            </Text>
+            <Text
+              style={{
+                fontSize: pxToDp(14),
+                alignSelf: 'flex-end',
+                color: '#999999'
+              }}
+            >
               {item.price * item.count}
             </Text>
 
-            <Text style={{ fontSize: pxToDp(14), alignSelf: 'flex-end', color: '#999999', marginLeft: pxToDp(16) }} >优惠</Text>
-            <Text style={{ fontSize: pxToDp(12), alignSelf: 'flex-end', color: '#999999', }} >￥</Text>
+            <Text
+              style={{
+                fontSize: pxToDp(14),
+                alignSelf: 'flex-end',
+                color: '#999999',
+                marginLeft: pxToDp(16)
+              }}
+            >
+              优惠
+            </Text>
+            <Text
+              style={{
+                fontSize: pxToDp(12),
+                alignSelf: 'flex-end',
+                color: '#999999'
+              }}
+            >
+              ￥
+            </Text>
             <Text
               style={{
                 fontSize: pxToDp(14),
@@ -131,9 +174,28 @@ class Index extends PureComponent {
               0
             </Text>
 
-            <Text style={{ fontSize: pxToDp(14), alignSelf: 'flex-end', color: '#333333', fontWeight: 'bold', marginLeft: pxToDp(16) }} >实付款</Text>
+            <Text
+              style={{
+                fontSize: pxToDp(14),
+                alignSelf: 'flex-end',
+                color: '#333333',
+                fontWeight: 'bold',
+                marginLeft: pxToDp(16)
+              }}
+            >
+              实付款
+            </Text>
 
-            <Text style={{ fontSize: pxToDp(12), alignSelf: 'flex-end', color: '#333333', fontWeight: 'bold', }} >￥</Text>
+            <Text
+              style={{
+                fontSize: pxToDp(12),
+                alignSelf: 'flex-end',
+                color: '#333333',
+                fontWeight: 'bold'
+              }}
+            >
+              ￥
+            </Text>
             <Text
               style={{
                 fontSize: pxToDp(14),
@@ -145,14 +207,25 @@ class Index extends PureComponent {
               {' '}
               {item.price * item.count}
             </Text>
-            <View style={{ position: 'absolute', bottom: 0, right: 0, alignSelf: 'flex-end', }}>
+            <View
+              style={{
+                position: 'absolute',
+                bottom: 0,
+                right: 0,
+                alignSelf: 'flex-end'
+              }}
+            >
               <Mybtn
-                onPress={() => this.changeStatus(item.oriderId, item.status + 1)}
-                title={item.status === 0
-                  ? '去支付'
-                  : item.status === 1
+                onPress={() =>
+                  this.changeStatus(item.oriderId, item.status + 1)
+                }
+                title={
+                  item.status === 0
+                    ? '去支付'
+                    : item.status === 1
                     ? '确认收货'
-                    : '评价'}
+                    : '评价'
+                }
                 titleStyle={{
                   height: 30,
                   color: 'white',
@@ -172,9 +245,7 @@ class Index extends PureComponent {
           </View>
         </View>
         {/* 底部 */}
-        <View style={{}}>
-
-        </View>
+        <View style={{}}></View>
         <View
           style={{
             justifyContent: 'space-between',
@@ -187,9 +258,6 @@ class Index extends PureComponent {
           {/* <Text style={{ marginLeft: pxToDp(8), fontSize: pxToDp(14) }}>
             {item.createAt}
           </Text> */}
-
-
-
         </View>
       </View>
     ));
