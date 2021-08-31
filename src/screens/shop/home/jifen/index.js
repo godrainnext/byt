@@ -57,13 +57,7 @@ export default class index extends PureComponent {
                   flexDirection: 'row',
                 }}
               >
-                <Text
-                  style={{ color: '#62bfad', fontSize: pxToDp(18), fontWeight: 'bold' }}
-                  numberOfLines={2}
-                >
-                  百越庭
-                </Text>
-                <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold', marginLeft: pxToDp(5) }}>
+                <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold', color: '#62bfad' }}>
                   {name}
                 </Text>
               </View>
@@ -75,7 +69,7 @@ export default class index extends PureComponent {
               </View>
             </View>
             <View style={{ margin: pxToDp(8) }}>
-              <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold', color: '#000000' }}>
+              <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold', color: '#62bfad' }}>
                 商品详情
               </Text>
               <View
@@ -92,7 +86,8 @@ export default class index extends PureComponent {
                 style={{
                   fontSize: pxToDp(18),
                   fontWeight: 'bold',
-                  marginTop: pxToDp(8)
+                  marginTop: pxToDp(8),
+                  color: '#62bfad'
                 }}
               >
                 具体介绍

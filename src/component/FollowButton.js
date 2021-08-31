@@ -4,6 +4,7 @@ import useFollow from '../utils/useFollow';
 import { Button } from 'react-native-elements';
 import { addFollow, cancelFollow } from '@service/mine';
 import { pxToDp } from '../utils/styleKits';
+import Mybtn from './common/mybtn';
 
 export default memo(function FollowButton(props) {
   const [isFollow, setIsFollow] = useState(useFollow(props.userId));
@@ -22,16 +23,22 @@ export default memo(function FollowButton(props) {
     }
   };
   return (
-    <Button
-      buttonStyle={{
-        borderColor: isFollow ? '#fff' : 'pink',
-        backgroundColor: isFollow ? '#ccc' : '#fff',
-        width: pxToDp(100)
-      }}
-      titleStyle={{ color: isFollow ? '#fff' : 'pink' }}
+    <Mybtn
       title={isFollow ? '取消关注' : '关注'}
       onPress={() => addFollows(props.userId)}
-      
+      buttonStyle={{
+        width: pxToDp(100),
+        height: pxToDp(33),
+        borderTopLeftRadius: pxToDp(32),
+        borderBottomLeftRadius: pxToDp(32)
+      }}
+      titleStyle={{
+        color: 'white',
+        fontSize: pxToDp(16),
+        height: 40,
+        marginTop: pxToDp(14),
+        marginLeft:pxToDp(-8)
+      }}
     />
   );
 });

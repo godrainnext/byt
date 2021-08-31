@@ -118,9 +118,9 @@ class Index extends PureComponent {
         <ScrollView
           showsVerticalScrollIndicator={false}
           style={{ flex: 1 }}>
-          <ImageBackground
-            source={require('../../../res/21.jpg')}
+          <View
             style={{
+              backgroundColor: '#D5E8E6',
               marginTop: pxToDp(8),
               marginLeft: pxToDp(16),
               marginRight: pxToDp(16),
@@ -128,20 +128,11 @@ class Index extends PureComponent {
               flexDirection: 'row',
               alignItems: 'center',
               justifyContent: 'space-between',
-              opacity: 0.8
+              opacity: 0.8,
+              borderRadius: pxToDp(8)
             }}
-            imageStyle={{ borderRadius: pxToDp(8) }}
           >
             <View style={{ flexDirection: 'row', marginLeft: pxToDp(16) }}>
-              <Text
-                style={{
-                  fontSize: pxToDp(20),
-                  color: '#62bfad',
-                  fontWeight: 'bold'
-                }}
-              >
-                110
-              </Text>
               <Ionicons
                 style={{ marginTop: pxToDp(10), marginLeft: pxToDp(4) }}
                 name="server-outline"
@@ -164,7 +155,7 @@ class Index extends PureComponent {
               </Text>
               <AntDesign name="right" size={pxToDp(15)} color="#666666" />
             </TouchableOpacity>
-          </ImageBackground>
+          </View>
           <View>
             <Text
               style={{
@@ -210,7 +201,7 @@ class Index extends PureComponent {
                       </Text>
                       <View style={styles.bottext}>
                         <Text
-                          style={{ fontSize: pxToDp(14), color: '#333333' }}
+                          style={{ fontSize: pxToDp(14), color: '#62bfad' }}
                         >
                           {item.value}积分
                         </Text>

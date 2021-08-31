@@ -49,7 +49,7 @@ export default class HeaderHaveBack extends PureComponent {
             <View style={styles.icon2}>
               <TouchableOpacity onPress={this.props.rightCallback}>
                 {/* <IconFont style={{ color: "#fff" }} name="iconfanhui" /> */}
-                <Text> {this.props.rightTitle}</Text>
+                <Text style={{ fontSize: pxToDp(16), color: 'white' }}> {this.props.rightTitle}</Text>
               </TouchableOpacity>
             </View>
           ) : (
@@ -85,7 +85,6 @@ const styles = StyleSheet.create({
   textview: {
     flex: 1,
     alignItems: 'center',
-    top: pxToDp(3)
   },
   textstyle: {
     fontSize: pxToDp(18),

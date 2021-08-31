@@ -391,7 +391,7 @@ const s = StyleSheet.create({
   alertBox: {
     width: pxToDp(300),
     height: pxToDp(250),
-    backgroundColor: '#e2f4fe',
+    backgroundColor: '#D5E8E6',
     justifyContent: 'space-evenly',
     borderRadius: pxToDp(32)
   },

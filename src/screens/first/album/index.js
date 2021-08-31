@@ -46,7 +46,6 @@ class Index extends PureComponent {
             >
               <View>
                 <Text style={styles.title}>{this.state.data.title}</Text>
-                <Text style={styles.text}>{this.state.data.information}</Text>
               </View>
               <View
                 style={{
@@ -64,22 +63,6 @@ class Index extends PureComponent {
                   <Text style={{ marginLeft: pxToDp(5), fontSize: pxToDp(13) }}>
                     听戏
                   </Text>
-                </View>
-                <View style={{ marginRight: pxToDp(13), marginTop: pxToDp(9) }}>
-                  <Mybtn
-                    title="收藏"
-                    buttonStyle={{
-                      width: pxToDp(90),
-                      height: pxToDp(30),
-                      alignSelf: 'center',
-                      borderRadius: pxToDp(32),
-                    }}
-                    titleStyle={{
-                      color: 'white',
-                      marginTop: pxToDp(-3),
-                      fontSize: pxToDp(14)
-                    }}
-                  />
                 </View>
               </View>
             </View>

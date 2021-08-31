@@ -156,8 +156,8 @@ class index extends PureComponent {
         ToastAndroid.show('发表文章成功', ToastAndroid.SHORT);
       })
       .then((ress) => {
-        this.context.goBack();
-      });
+        this.context.goBack()
+      })
   };
 
   changeTitle = (title) => {

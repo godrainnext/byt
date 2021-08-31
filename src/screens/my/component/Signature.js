@@ -22,7 +22,7 @@ export default class Signature extends PureComponent {
   };
   render() {
     return (
-      <View style={{ flex: 1, backgroundColor: '#e2f4fe' }}>
+      <View style={{ flex: 1, backgroundColor: '#D5E8E6' }}>
         <Top
           icon1="arrow-back"
           title="个性签名"
@@ -30,6 +30,7 @@ export default class Signature extends PureComponent {
           rightCallback={this.goback}
         />
         <View>
+          <Text style={{ alignSelf: 'center', fontSize: pxToDp(14), marginTop: pxToDp(8),color:'#62bfad' }}>介绍一下自己吧</Text>
           <Input
             style={{
               height: pxToDp(150),
@@ -39,7 +40,7 @@ export default class Signature extends PureComponent {
               backgroundColor: 'white',
               borderRadius: pxToDp(16),
               marginTop: pxToDp(8),
-              elevation: 10,
+              elevation: 2,
               shadowColor: 'black', //  阴影颜色
               shadowOffset: { width: 0, height: 0 }, // 阴影偏移
               shadowOpacity: 1, // 阴影不透明度
