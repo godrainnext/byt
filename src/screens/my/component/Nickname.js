@@ -20,7 +20,7 @@ export default class Nickname extends PureComponent {
   };
   render() {
     return (
-      <View style={{ flex: 1, backgroundColor: '#e2f4fe' }}>
+      <View style={{ flex: 1, backgroundColor: '#D5E8E6' }}>
         <Top
           icon1="arrow-back"
           title="昵称"
@@ -34,9 +34,9 @@ export default class Nickname extends PureComponent {
           }}
         >
           <Input
-            style={{ height: pxToDp(60), fontSize: pxToDp(20) }}
+            style={{ height: pxToDp(50), fontSize: pxToDp(18) }}
             placeholder="请填写您的昵称"
-            placeholderTextColor="gray"
+            placeholderTextColor="#999999"
             onChangeText={(nickName) => this.getNickName(nickName)}
             value={this.state.nickName}
           ></Input>

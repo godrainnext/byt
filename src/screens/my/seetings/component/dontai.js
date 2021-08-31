@@ -7,7 +7,8 @@ import {
   ScrollView,
   TouchableOpacity,
   ImageBackground,
-  Modal
+  Modal,
+  Dimensions
 } from 'react-native';
 import { pxToDp } from '@utils/styleKits';
 import { NavigationContext } from '@react-navigation/native';
@@ -23,7 +24,12 @@ import { Audio } from 'expo-av';
 import { Video } from 'expo-av';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import Lightbox from 'react-native-lightbox';
+import Carousel from 'react-native-looped-carousel';
+import Mybtn from '../../../../component/common/mybtn';
+import { connect } from 'react-redux';
 
+const WINDOW_WIDTH = Dimensions.get('window').width;
 class Index extends PureComponent {
   state = {
     contentArr: [],
@@ -88,7 +94,7 @@ class Index extends PureComponent {
           onPlaybackStatusUpdate={(status) => this.setState({ status })}
         />
         <TouchableOpacity
-          style={{ position: 'absolute', bottom: 10, right: 10, opacity: 0.5}}
+          style={{ position: 'absolute', bottom: 10, right: 10, opacity: 0.5 }}
           onPress={() =>
             this.state.status.isPlaying
               ? video.current.pauseAsync()
@@ -105,6 +111,16 @@ class Index extends PureComponent {
     );
   };
   showArticle = (obj) => {
+    const renderCarousel = (img) => (
+      <Carousel style={{ height: WINDOW_WIDTH }}>
+        <Image
+          key={img}
+          style={{ flex: 1 }}
+          resizeMode="contain"
+          source={{ uri: img }}
+        />
+      </Carousel>
+    );
     return (
       <ScrollView
         style={{ flex: 1, height: pxToDp(120), marginTop: pxToDp(8) }}
@@ -112,16 +128,22 @@ class Index extends PureComponent {
         showsHorizontalScrollIndicator={false}
       >
         {obj.images?.map((item, index) => (
-          <Image
-            key={index}
-            style={{
-              width: pxToDp(155),
-              height: '100%',
-              borderRadius: pxToDp(10),
-              marginRight: pxToDp(10)
-            }}
-            source={{ uri: item }}
-          />
+          <Lightbox
+            springConfig={{ tension: 15, friction: 7 }}
+            swipeToDismiss={true}
+            renderContent={() => renderCarousel(item)}
+          >
+            <Image
+              key={index}
+              style={{
+                width: pxToDp(155),
+                height: '100%',
+                borderRadius: pxToDp(10),
+                marginRight: pxToDp(10)
+              }}
+              source={{ uri: item }}
+            />
+          </Lightbox>
         ))}
       </ScrollView>
     );
@@ -130,11 +152,8 @@ class Index extends PureComponent {
   static contextType = NavigationContext;
 
   render() {
+    console.log(this.props.userInfo);
     const { modalVisible } = this.state;
-    const jubao = () => {
-      this.setModalVisible(!modalVisible);
-      this.context.navigate('Jubao');
-    };
     return (
       <View
         style={{
@@ -144,7 +163,7 @@ class Index extends PureComponent {
           backgroundColor: 'rgba(255,255,255,0.5)',
           borderRadius: pxToDp(8),
           elevation: 2,
-         
+
         }}
       >
         <View style={styles.centeredView}>
@@ -180,136 +199,140 @@ class Index extends PureComponent {
                       <FontAwesome name="weibo" size={25} color="#FA8072" />
                       <Text>微博</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity
-                      style={{ alignItems: 'center' }}
-                      onPress={jubao}
-                    >
-                      <FontAwesome
-                        name="exclamation"
-                        size={25}
-                        color="#DC143C"
-                      />
-                      <Text>举报</Text>
+                    <TouchableOpacity style={{ alignItems: 'center' }}>
+                      <FontAwesome name="trash-o" size={25} color="#DC143C" />
+                      <Text>删除</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={{ alignItems: 'center' }}>
-                      <Ionicons name="star" size={25} color="#FFD700" />
-                      <Text>收藏</Text>
+                      <FontAwesome name="hand-o-up" size={25} color="#FFD700" />
+                      <Text>置顶</Text>
                     </TouchableOpacity>
                   </View>
-                  <TouchableOpacity
+                  <Mybtn
+                    title="取消"
                     onPress={() => {
                       this.setModalVisible(!modalVisible);
                     }}
-                    style={{
-                      borderWidth: pxToDp(1),
-                      borderColor: 'black',
-                      height: pxToDp(25),
-                      width: pxToDp(200),
-                      borderRadius: pxToDp(16),
-                      alignItems: 'center',
-                      marginTop: pxToDp(20)
+                    buttonStyle={{
+                      width: pxToDp(90),
+                      height: pxToDp(30),
+                      alignSelf: 'center',
+                      borderRadius: pxToDp(32),
+                      marginTop: pxToDp(32)
                     }}
-                  >
-                    <Text style={{ fontSize: pxToDp(14) }}>取消</Text>
-                  </TouchableOpacity>
+                    titleStyle={{
+                      color: 'white',
+                      marginTop: pxToDp(-3),
+                      fontSize: pxToDp(14)
+                    }}
+                  />
                 </View>
               </View>
             </View>
           </Modal>
         </View>
-        {this.state.contentArr ? (
-          this.state.contentArr.map((item) => (
-            <View key={item.momentId}>
-              <BottomSheet
-                isVisible={this.state.isShow}
-                containerStyle={{
-                  backgroundColor: 'rgba(0.5, 0.25, 0, 0.2)'
-                }}
-              >
-                {this.state.list.map((l, i) => (
-                  <ListItem
-                    key={i}
-                    containerStyle={l.containerStyle}
-                    onPress={l.onPress}
-                  >
-                    <ListItem.Content>
-                      <ListItem.Title style={l.titleStyle}>
-                        {l.title}
-                      </ListItem.Title>
-                    </ListItem.Content>
-                  </ListItem>
-                ))}
-              </BottomSheet>
-              <TouchableOpacity
-                style={{ position: 'absolute', top: pxToDp(15), right: pxToDp(24) }}
-                onPress={() => this.setModalVisible(!modalVisible)}
-              >
-                <SvgUri svgXmlData={sandian} width="20" height="20" />
-              </TouchableOpacity>
-              <View
-                style={{
-                  flexDirection: 'row',
-                  alignItems: 'flex-end',
-                  marginTop: pxToDp(8),
-                  marginLeft: pxToDp(16),
-                  marginRight: pxToDp(16),
-               
-                }}
-              >
-                <Text style={{ fontSize: pxToDp(24), fontWeight: 'bold', color: '#000000' }}>
-                  {item.createAt.substr(6, 5)}
-                </Text>
-                <Text style={{ fontSize: pxToDp(18), color: '#333333',marginBottom:pxToDp(4),marginLeft:pxToDp(4) }}>
-                  {item.createAt.substr(0, 4)}
-                </Text>
-              </View>
-              <View
-                style={{
-                  elevation:.5,
-                  borderWidth: 0,
-                  marginRight: pxToDp(16),
-                  borderRadius: pxToDp(8),
-                  marginLeft: pxToDp(16),   marginBottom:pxToDp(12)
-                }}
-              >
-                <View
-                  style={{
-                    marginLeft: pxToDp(30),
-                    flexDirection: 'row',
-                    alignItems: 'flex-end'
-                  }}
-                ></View>
-                <View
-                  style={{ flexDirection: 'row', margin: pxToDp(10) }}
-                ></View>
-                <View
-                  style={{
-                    width: '90%',
-                    marginBottom: pxToDp(30),
-                    alignSelf: 'center'
-                  }}
-                >
-                  <Text
-                    style={{
-                      fontSize: pxToDp(18),
-                      marginBottom: pxToDp(10),
-                      marginTop: pxToDp(10),
-                      color: '#333333'
+        {
+          this.state.contentArr ? (
+            this.state.contentArr.map((item) => (
+              <TouchableOpacity key={item.momentId}  onPress={() =>
+                this.context.navigate('Indongtai', {
+                  mid: item.momentId,
+                  uid: this.props.userInfo.id
+                })
+              }>
+                <View >
+                  <BottomSheet
+                    isVisible={this.state.isShow}
+                    containerStyle={{
+                      backgroundColor: 'rgba(0.5, 0.25, 0, 0.2)'
                     }}
                   >
-                    {item.content}
-                  </Text>
-                  {item.label ? this.showMusic(item) : this.showArticle(item)}
+                    {this.state.list.map((l, i) => (
+                      <ListItem
+                        key={i}
+                        containerStyle={l.containerStyle}
+                        onPress={l.onPress}
+                      >
+                        <ListItem.Content>
+                          <ListItem.Title style={l.titleStyle}>
+                            {l.title}
+                          </ListItem.Title>
+                        </ListItem.Content>
+                      </ListItem>
+                    ))}
+                  </BottomSheet>
+                  <TouchableOpacity
+                    style={{ position: 'absolute', top: pxToDp(15), right: pxToDp(24) }}
+                    onPress={() => this.setModalVisible(!modalVisible)}
+                  >
+                    <SvgUri svgXmlData={sandian} width="20" height="20" />
+                  </TouchableOpacity>
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      alignItems: 'flex-end',
+                      marginTop: pxToDp(8),
+                      marginLeft: pxToDp(16),
+                      marginRight: pxToDp(16),
+
+                    }}
+                  >
+                    <Text style={{ fontSize: pxToDp(24), fontWeight: 'bold', color: '#000000' }}>
+                      {item.createAt.substr(6, 5)}
+                    </Text>
+                    <Text style={{ fontSize: pxToDp(18), color: '#333333', marginBottom: pxToDp(4), marginLeft: pxToDp(4) }}>
+                      {item.createAt.substr(0, 4)}
+                    </Text>
+                  </View>
+                  <View
+                    style={{
+                      elevation: .5,
+                      borderWidth: 0,
+                      marginRight: pxToDp(16),
+                      borderRadius: pxToDp(8),
+                      marginLeft: pxToDp(16), marginBottom: pxToDp(12)
+                    }}
+                  >
+                    <View
+                      style={{
+                        marginLeft: pxToDp(30),
+                        flexDirection: 'row',
+                        alignItems: 'flex-end'
+                      }}
+                    ></View>
+                    <View
+                      style={{ flexDirection: 'row', margin: pxToDp(10) }}
+                    ></View>
+                    <View
+                      style={{
+                        width: '90%',
+                        marginBottom: pxToDp(30),
+                        alignSelf: 'center'
+                      }}
+                    >
+                      <Text
+                        style={{
+                          fontSize: pxToDp(18),
+                          marginBottom: pxToDp(10),
+                          marginTop: pxToDp(10),
+                          color: '#333333'
+                        }}
+                      >
+                        {item.content}
+                      </Text>
+                      {item.label ? this.showMusic(item) : this.showArticle(item)}
+                    </View>
+                  </View>
                 </View>
-              </View>
+              </TouchableOpacity>
+            ))
+          ) : (
+            <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+              <Text>暂无发表文章</Text>
             </View>
-          ))
-        ) : (
-          <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-            <Text>暂无发表文章</Text>
-          </View>
-        )}
-      </View>
+          )
+        }
+      </View >
     );
   }
 }
@@ -319,7 +342,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    
+
   },
   modalView: {
     margin: pxToDp(20),
@@ -334,4 +357,6 @@ const styles = StyleSheet.create({
     }
   }
 });
-export default Index;
+export default  connect((state)=>({
+  userInfo:state.getIn(['homeReducer','userInfo'])
+})) (Index) ;

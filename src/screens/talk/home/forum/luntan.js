@@ -90,14 +90,14 @@ const Music = memo(function (props) {
   );
 });
 const Article = memo((props) => {
- const  renderCarousel = (img) => (
+  const renderCarousel = (img) => (
     <Carousel style={{ height: WINDOW_WIDTH }}>
-        <Image
-          key={img}
-          style={{ flex: 1 }}
-          resizeMode="contain"
-          source={{ uri: img }}
-        />
+      <Image
+        key={img}
+        style={{ flex: 1 }}
+        resizeMode="contain"
+        source={{ uri: img }}
+      />
     </Carousel>
   );
   return (
@@ -105,13 +105,13 @@ const Article = memo((props) => {
       style={{ height: pxToDp(120), marginTop: pxToDp(10) }}
       horizontal={true}
       showsHorizontalScrollIndicator={false}
-    > 
+    >
       {props.item.images?.map((item, index) => (
-       <Lightbox
-       springConfig={{ tension: 15, friction: 7 }}
-       swipeToDismiss={true}
-       renderContent={()=>renderCarousel(item)}
-     >
+        <Lightbox
+          springConfig={{ tension: 15, friction: 7 }}
+          swipeToDismiss={true}
+          renderContent={() => renderCarousel(item)}
+        >
           <Image
             key={item}
             style={{
@@ -122,8 +122,8 @@ const Article = memo((props) => {
             }}
             source={{ uri: item }}
           />
-       </Lightbox>
-      ))} 
+        </Lightbox>
+      ))}
     </ScrollView>
   );
 });
@@ -360,7 +360,7 @@ class Index extends PureComponent {
                   }}
                 >
                   <TouchableOpacity
-                    style={{ flexDirection: 'row' }}
+                    style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center' }}
                     onPress={() =>
                       this.setState({ count: this.state.count + 1 })
                     }
@@ -369,7 +369,6 @@ class Index extends PureComponent {
                     <Text
                       style={{
                         position: 'absolute',
-                        bottom: pxToDp(5),
                         left: pxToDp(30),
                         fontSize: pxToDp(12),
                         color: '#666666'
@@ -381,7 +380,6 @@ class Index extends PureComponent {
                   </TouchableOpacity>
                   <TouchableOpacity
                     onPress={() =>
-                      
                       this.context.navigate('Inluntan', {
                         mid: item.id,
                         uid: item.user.id

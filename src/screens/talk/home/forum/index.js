@@ -16,17 +16,6 @@ import { NavigationContext } from '@react-navigation/native';
 import { getMomentListByStatus } from '@service/moment';
 import Addmoment from './addMoment';
 import EZSwiper from 'react-native-ezswiper';
-const images = [
-  {
-    uri: 'http://img05.lantingyahui.com/Img05/49/99/30/9e791ddb-a31e-4687-bf71-f21695d302df.jpg'
-  },
-  {
-    uri: 'http://img03.lantingyahui.com/Img03/79/30/34/3f1ff8ca-2a76-4d9b-88a2-21e6498816b6.jpg'
-  },
-  {
-    uri: 'http://img04.lantingyahui.com/Img04/44/03/69/36c6859e-3854-4b33-9863-d7da7666c5f5.jpg'
-  }
-];
 const { height, width } = Dimensions.get('window');
 class Index extends PureComponent {
   constructor(props) {

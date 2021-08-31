@@ -21,6 +21,7 @@ import { addFollow, cancelFollow } from '../../../../service/mine';
 import { DeviceEventEmitter } from 'react-native';
 import FollowButton from '@components/FollowButton';
 import { Video, Audio } from 'expo-av';
+import { connect } from 'react-redux'
 import Mybtn from '../../../../component/common/mybtn';
 class Index extends PureComponent {
   state = {
@@ -46,7 +47,7 @@ class Index extends PureComponent {
         this.setState({ mycomment: '' });
         getMomentInnerById(this.props.route.params.mid)
           .then((res) => {
-          
+
             this.setState({ inner: { ...res } });
           })
           .catch((err) => console.log(err));
@@ -150,7 +151,7 @@ class Index extends PureComponent {
       label,
       cover
     } = this.state.inner;
-
+    console.log(user);
     return (
       <View style={{ flex: 1 }}>
         <Top icon1="arrow-back" icon2="more-horizontal" />
@@ -181,8 +182,7 @@ class Index extends PureComponent {
                 width: '100%',
                 height: pxToDp(80),
                 marginTop: pxToDp(20),
-                flexDirection: 'row',
-                justifyContent: 'space-between'
+                flexDirection: 'row'
               }}
             >
               <Image
@@ -196,7 +196,8 @@ class Index extends PureComponent {
               />
               <View
                 style={{
-                  marginTop: pxToDp(16)
+                  marginTop: pxToDp(16),
+                  marginLeft: pxToDp(8)
                 }}
               >
                 {/* 昵称 */}
@@ -204,25 +205,11 @@ class Index extends PureComponent {
                   {user?.nickName}
                 </Text>
                 {/* 发布时间 */}
-                <Text style={{ color: '#333333', fontSize: pxToDp(16) }}>{createTime}</Text>
+                <Text style={{ color: '#333333', fontSize: pxToDp(16) }}> {createTime?.split('T')[0]}</Text>
               </View>
               {/* 关注 */}
-              <View style={{ marginRight: pxToDp(10) }}>
-                <Mybtn
-                  title="关注"
-                  buttonStyle={{
-                    width: pxToDp(90),
-                    height: pxToDp(30),
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    borderRadius: pxToDp(32),
-                  }}
-                  titleStyle={{
-                    color: 'white',
-                    marginTop: pxToDp(-3),
-                    fontSize: pxToDp(14)
-                  }}
-                />
+              <View style={{ marginLeft: pxToDp(53), marginTop: pxToDp(24) }}>
+                {this.props.userInfo.id === user?.id ? <View></View> : <FollowButton />}
               </View>
             </View>
             <View style={{ margin: pxToDp(8) }}>
@@ -281,4 +268,6 @@ class Index extends PureComponent {
   }
 }
 
-export default Index;
+export default connect((state) => ({
+  userInfo: state.getIn(['homeReducer', 'userInfo'])
+}))(Index);

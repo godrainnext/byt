@@ -187,7 +187,8 @@ class shopdetails extends PureComponent {
         >
           {/* 商品图片 */}
           <View style={{ alignItems: 'center', marginTop: pxToDp(20) }}>
-            <Swiper shopbanner={this.state.shopbanner} />
+            <Swiper
+              shopbanner={this.state.shopbanner} />
           </View>
 
           {/* 品名 价格 */}
@@ -287,20 +288,31 @@ class shopdetails extends PureComponent {
                 swipeToDismiss={true}
                 renderContent={this.renderCarousel}
               >
-                <Image
-                  style={{
-                    width: pxToDp(60),
-                    height: pxToDp(60),
-                    margin: pxToDp(16),
-                    borderRadius: pxToDp(8)
-                  }}
+                {activeTab == -1 ? (<Image style={{
+                  width: pxToDp(60),
+                  height: pxToDp(60),
+                  margin: pxToDp(16),
+                  borderRadius: pxToDp(8)
+                }}
                   source={{
                     uri: changeImgSize(
-                      this.state.products[activeTab]?.img,
+                      this.state.products[0]?.img,
                       'small'
                     )
-                  }}
-                />
+                  }} />) : (<Image
+                    style={{
+                      width: pxToDp(60),
+                      height: pxToDp(60),
+                      margin: pxToDp(16),
+                      borderRadius: pxToDp(8)
+                    }}
+                    source={{
+                      uri: changeImgSize(
+                        this.state.products[activeTab]?.img,
+                        'small'
+                      )
+                    }}
+                  />)}
               </Lightbox>
               <View
                 style={{
@@ -310,9 +322,12 @@ class shopdetails extends PureComponent {
                 }}
               >
                 <View>
-                  <Text style={{ fontSize: pxToDp(16), marginTop: pxToDp(16) }}>
-                    ￥{this.state.products[activeTab]?.price}
-                  </Text>
+                  {activeTab == -1 ? (
+                    <Text style={{ fontSize: pxToDp(16), marginTop: pxToDp(16), color: '#62bfad' }}>
+                      ￥{this.state.shop.price * 0.8}—{this.state.shop.price}
+                    </Text>) : (<Text style={{ fontSize: pxToDp(16), marginTop: pxToDp(16), color: '#62bfad' }}>
+                      ￥{this.state.products[activeTab]?.price}
+                    </Text>)}
                   <Text
                     style={{
                       fontSize: pxToDp(16),

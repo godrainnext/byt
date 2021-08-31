@@ -215,13 +215,13 @@ class Ziliao extends PureComponent {
                     <View style={s.alertBox}>
                       <Text style={s.modalTitle}>请选择</Text>
                       <TouchableHighlight
-                        underlayColor={'#F5F5F5'}
+                        underlayColor={'#D5E8E6'}
                         onPress={this.openImagePickerAsync}
                       >
                         <Text style={s.modalItem}>打开相册</Text>
                       </TouchableHighlight>
                       <TouchableHighlight
-                        underlayColor={'#F5F5F5'}
+                        underlayColor={'#D5E8E6'}
                         onPress={() => this._changeModal()}
                       >
                         <Text style={s.modalItem}>取消</Text>
@@ -356,9 +356,6 @@ class Ziliao extends PureComponent {
                 }}
               />
             </View>
-            {/* <View style={{ marginTop: pxToDp(60) }}>
-                <AntDesign name="right" size={pxToDp(18)} color="#000" />
-              </View> */}
           </View>
           <View
             style={{
@@ -396,7 +393,7 @@ const s = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     borderBottomWidth: 1,
-    borderBottomColor: '#e2f4fe',
+    borderBottomColor: '#D5E8E6',
     marginLeft: pxToDp(15),
     height: 90,
     width: '90%'
@@ -415,7 +412,7 @@ const s = StyleSheet.create({
   alertBox: {
     width: pxToDp(300),
     height: pxToDp(250),
-    backgroundColor: '#e2f4fe',
+    backgroundColor: '#D5E8E6',
     justifyContent: 'space-evenly',
     borderRadius: pxToDp(32)
   },
