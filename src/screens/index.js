@@ -1,4 +1,5 @@
 export { default as Home } from './first/home/index'; //首页
+export { default as BootPage } from './first/bootpage/index'; //首页
 export { default as PageOne } from './first/home/pages/pageone'; //流派传奇页
 export { default as PageTwo } from './first/home/pages/pagetwo'; //俯瞰百年页
 export { default as PageThree } from './first/home/pages/pagethree'; //名角风采页

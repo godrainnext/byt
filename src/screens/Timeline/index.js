@@ -97,7 +97,7 @@ export default class index extends PureComponent {
                     <Text
                       style={{
                         fontSize: pxToDp(12),
-                        fontWeight: 'bold',
+                        fontWeight: 'bold'
                       }}
                     >
                       姚水娟

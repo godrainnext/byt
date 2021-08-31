@@ -48,7 +48,7 @@ class Index extends PureComponent {
                   </Text>
                 </View>
                 <View style={styles.shopCar}>
-                  <Svg width="24" height="24" svgXmlData={shopCar} />
+                  <Svg width="20" height="20" svgXmlData={shopCar} />
                 </View>
               </View>
             </View>
@@ -75,9 +75,9 @@ const styles = StyleSheet.create({
     borderTopRightRadius: pxToDp(8)
   },
   shopCar: {
-    height: pxToDp(32),
-    width: pxToDp(32),
-    borderRadius: pxToDp(16),
+    height: pxToDp(30),
+    width: pxToDp(30),
+    borderRadius: pxToDp(15),
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: pxToDp(2),

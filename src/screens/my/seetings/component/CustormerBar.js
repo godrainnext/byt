@@ -62,7 +62,7 @@ class Index extends PureComponent {
         <View>
           <ImageBackground
             style={{
-              height: pxToDp(320)
+              height: pxToDp(300)
             }}
           >
             <View
@@ -71,7 +71,7 @@ class Index extends PureComponent {
                 marginTop: pxToDp(24),
                 borderRadius: pxToDp(100),
                 alignSelf: 'center',
-                elevation: 10,
+                elevation: 2,
                 shadowColor: 'black', //  阴影颜色
                 shadowOffset: { width: 0, height: 0 }, // 阴影偏移
                 shadowOpacity: 1, // 阴影不透明度
@@ -115,7 +115,7 @@ class Index extends PureComponent {
                 justifyContent: 'center'
               }}
             >
-              <View style={{ marginRight: pxToDp(8) }}>
+              <View style={{ marginRight: pxToDp(8), flexDirection: 'row', alignItems: 'center' }}>
                 <Text
                   style={{
                     fontSize: pxToDp(18),
@@ -126,11 +126,11 @@ class Index extends PureComponent {
                 >
                   {fansCount}
                 </Text>
-                <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
+                <Text style={{ fontSize: pxToDp(16), color: '#666666', marginLeft: pxToDp(8) }}>
                   粉丝
                 </Text>
               </View>
-              <View style={{ marginLeft: pxToDp(8) }}>
+              <View style={{ marginLeft: pxToDp(8), flexDirection: 'row', alignItems: 'center' }}>
                 <Text
                   style={{
                     fontSize: pxToDp(18),
@@ -141,7 +141,7 @@ class Index extends PureComponent {
                 >
                   {followCount}
                 </Text>
-                <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
+                <Text style={{ fontSize: pxToDp(16), color: '#666666', marginLeft: pxToDp(8) }}>
                   关注
                 </Text>
               </View>
@@ -175,10 +175,13 @@ class Index extends PureComponent {
                 height: pxToDp(40),
                 alignSelf: 'center',
                 borderRadius: pxToDp(32),
+                marginTop: pxToDp(8)
               }}
               titleStyle={{
                 color: 'white',
-                fontSize: pxToDp(16)
+                fontSize: pxToDp(16),
+                marginLeft: pxToDp(2),
+                marginTop: pxToDp(-2)
               }}
             />
           </ImageBackground>

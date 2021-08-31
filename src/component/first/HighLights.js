@@ -47,10 +47,10 @@ export default class HighLights extends PureComponent {
             style={{ flexDirection: 'row', alignItems: 'center' }}
             onPress={() => this.context.navigate('Opera')}
           >
-            <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
+            <Text style={{ fontSize: pxToDp(14), color: '#666666' }}>
               查看更多
             </Text>
-            <Ionicons name="chevron-forward" size={18} color="#666666" />
+            <Ionicons name="chevron-forward" size={16} color="#666666" />
           </TouchableOpacity>
         </View>
         <ScrollView
@@ -96,7 +96,6 @@ export default class HighLights extends PureComponent {
                     <Text style={{ fontSize: pxToDp(24), fontWeight: 'bold' }}>
                       {item.createAt.split('-')[2].split('T')[0]}
                       <Text />
-
                     </Text>
                     <View style={{ flexDirection: 'row', margin: 6, justifyContent: 'space-between', width: pxToDp(40), }}>
                       <Text style={{ fontSize: pxToDp(16), width: 16, }}>
@@ -107,10 +106,9 @@ export default class HighLights extends PureComponent {
                       </Text>
                     </View>
                   </View>
-
                   <Image
                     style={{
-                      height: pxToDp(130),
+                      height: pxToDp(140),
                       width: pxToDp(250),
                       borderTopRightRadius: pxToDp(8),
                     }}
@@ -119,8 +117,7 @@ export default class HighLights extends PureComponent {
                 </View>
                 <View style={{ height: pxToDp(90), width: '100%', flexDirection: "row" }}>
                   <View style={{ width: pxToDp(180), height: '100%', justifyContent: "center" }}>
-
-                    <Text style={{ fontSize: pxToDp(16), marginBottom: pxToDp(8), color: '#333333', marginLeft: pxToDp(16) }}>
+                    <Text style={{ fontSize: pxToDp(16), color: '#333333', marginBottom: pxToDp(-9), marginLeft: pxToDp(8) }}>
                       {item.title}
                     </Text>
                   </View>
@@ -128,7 +125,7 @@ export default class HighLights extends PureComponent {
                     style={{
                       height: pxToDp(40),
                       marginLeft: pxToDp(20),
-                      marginTop: pxToDp(20)
+                      marginTop: pxToDp(25)
                     }}
                   >
                     <Mybtn

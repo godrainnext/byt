@@ -8,7 +8,8 @@ import {
   TouchableOpacity,
   ImageBackground,
   Modal,
-  Alert
+  Alert,
+  Dimensions
 } from 'react-native';
 import { pxToDp } from '@utils/styleKits';
 import { NavigationContext } from '@react-navigation/native';
@@ -29,6 +30,13 @@ import { useRef } from 'react';
 import { PureComponent } from 'react';
 import LottieView from 'lottie-react-native';
 import changeImgSize from '../../../../utils/changeImgSize';
+import Mybtn from '../../../../component/common/mybtn';
+import Lightbox from 'react-native-lightbox';
+import Carousel from 'react-native-looped-carousel';
+import ActressItem from './ActressItem';
+import MusicItem from './MusicItem';
+
+const WINDOW_WIDTH = Dimensions.get('window').width;
 
 const Music = memo(function (props) {
   const video = useRef();
@@ -113,12 +121,11 @@ class Index extends PureComponent {
     modaldata: [],
     count: 0
   };
+
   setModalVisible = (visible) => {
     this.setState({ modalVisible: visible });
   };
-  onPlaybackStatusUpdate = (status) => {
-    this.setState({ status });
-  };
+
   playSound = async () => {
     if (this.state.sound.length) {
       for (const sound of this.state.sound) {
@@ -245,48 +252,59 @@ class Index extends PureComponent {
                   >
                     <TouchableOpacity style={{ alignItems: 'center' }}>
                       <Ionicons name="qq" size={25} color="#87CEFA" />
-                      <Text style={{ fontSize: pxToDp(12), color: '#333333' }}>qq</Text>
+                      <Text style={{ fontSize: pxToDp(12), color: '#333333' }}>
+                        qq
+                      </Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={{ alignItems: 'center' }}>
                       <Ionicons name="wechat" size={25} color="#32CD32" />
-                      <Text style={{ fontSize: pxToDp(12), color: '#333333' }}>微信</Text>
+                      <Text style={{ fontSize: pxToDp(12), color: '#333333' }}>
+                        微信
+                      </Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={{ alignItems: 'center' }}>
                       <Ionicons name="weibo" size={25} color="#FA8072" />
-                      <Text style={{ fontSize: pxToDp(12), color: '#333333' }}>微博</Text>
+                      <Text style={{ fontSize: pxToDp(12), color: '#333333' }}>
+                        微博
+                      </Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                       style={{ alignItems: 'center' }}
                       onPress={() => {
                         this.setModalVisible(!modalVisible);
-                        this.context.navigate('Jubao')
+                        this.context.navigate('Jubao');
                       }}
                     >
                       <Ionicons name="exclamation" size={25} color="#DC143C" />
-                      <Text style={{ fontSize: pxToDp(12), color: '#333333' }} >举报</Text>
+                      <Text style={{ fontSize: pxToDp(12), color: '#333333' }}>
+                        举报
+                      </Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={{ alignItems: 'center' }}>
                       <Ionicons name="star" size={25} color="#FFD700" />
-                      <Text style={{ fontSize: pxToDp(12), color: '#333333' }}>收藏</Text>
+                      <Text style={{ fontSize: pxToDp(12), color: '#333333' }}>
+                        收藏
+                      </Text>
                     </TouchableOpacity>
                   </View>
-                  <TouchableOpacity
+                  <Mybtn
+                    title="取消"
                     onPress={() => {
                       this.setModalVisible(!modalVisible);
                     }}
-                    style={{
-                      borderWidth: pxToDp(1),
-                      borderColor: 'black',
-                      height: pxToDp(25),
-                      width: pxToDp(200),
-                      borderRadius: pxToDp(12),
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      marginTop: pxToDp(20)
+                    buttonStyle={{
+                      width: pxToDp(105),
+                      height: pxToDp(35),
+                      alignSelf: 'center',
+                      borderRadius: pxToDp(32),
+                      marginTop: pxToDp(32)
                     }}
-                  >
-                    <Text style={{ fontSize: pxToDp(12), color: '#333333' }}>取消</Text>
-                  </TouchableOpacity>
+                    titleStyle={{
+                      color: 'white',
+                      marginTop: pxToDp(-3),
+                      fontSize: pxToDp(14)
+                    }}
+                  />
                 </View>
               </View>
             </View>
@@ -297,7 +315,7 @@ class Index extends PureComponent {
             style={{
               paddingLeft: pxToDp(16),
               paddingRight: pxToDp(16),
-              paddingTop: pxToDp(8),
+              paddingTop: pxToDp(8)
             }}
           >
             {actress.map((item) => (

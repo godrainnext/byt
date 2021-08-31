@@ -26,6 +26,10 @@ class Index extends PureComponent {
         text: '确认',
         onPress: () => {
           deleteOrider(id).then((res) => {
+            const newrefund = this.state.orider.filter(
+              (item) => item.oriderId !== id
+            );
+            this.setState({ orider: newrefund });
             ToastAndroid.show('删除订单成功', ToastAndroid.SHORT);
           });
         }

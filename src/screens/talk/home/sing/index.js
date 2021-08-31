@@ -146,8 +146,7 @@ export default class hello extends Component {
                                         height: pxToDp(40),
                                         alignSelf: 'center',
                                         borderRadius: pxToDp(32),
-                                        marginTop: pxToDp(29)
-
+                                        marginTop: pxToDp(16)
                                     }}
                                     titleStyle={{
                                         color: '#fcfcfc',

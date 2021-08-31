@@ -31,7 +31,7 @@ export default class HeaderHaveBack extends PureComponent {
             >
                 <View style={styles.textview}>
                     <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center", width: pxToDp(345), height: pxToDp(38), borderRadius: pxToDp(8), backgroundColor: "white" }}>
-                        <TextInput placeholder={"搜索"} style={{ fontSize: pxToDp(14), width: pxToDp(305), marginLeft: pxToDp(32) }} />
+                        <TextInput placeholder={"搜索"} style={{ fontSize: pxToDp(14), width: pxToDp(305), marginLeft: pxToDp(32), marginBottom: pxToDp(-2) }} />
                         <TouchableOpacity style={{ marginRight: pxToDp(32) }}>
                             <Ionicons name='search' size={23} color="#999999" />
                         </TouchableOpacity>

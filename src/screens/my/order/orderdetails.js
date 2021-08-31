@@ -67,8 +67,8 @@ class orderdetails extends PureComponent {
     ];
     let items = [];
     invoice.map((el, index) => {
-      let colorValue = index === 0 ? '#0b74c4' : '#888';
-      let backgroundColor = index === 0 ? '#0b74c4' : '#e0e0e0';
+      let colorValue = index === 0 ? '#62bfad' : '#888';
+      let backgroundColor = index === 0 ? '#62bfad' : '#e0e0e0';
       items.push(
         <View style={styles.expressItem} key={index}>
           <View style={styles.expressRightFirst}>
@@ -335,7 +335,7 @@ class orderdetails extends PureComponent {
             <ScrollView showsVerticalScrollIndicator={false}>
               <View
                 style={{
-                  backgroundColor: '#468cd3',
+                  backgroundColor: '#62bfad',
                   height: pxToDp(150),
                   paddingLeft: pxToDp(8)
                   // marginLeft: pxToDp(8),

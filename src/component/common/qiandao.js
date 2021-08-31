@@ -178,15 +178,15 @@ class Index extends PureComponent {
           buttonStyle={{
             width: pxToDp(80),
             height: pxToDp(30),
-            alignSelf: 'flex-end',
             borderTopLeftRadius: pxToDp(32),
             borderBottomLeftRadius: pxToDp(32)
           }}
           titleStyle={{
             color: 'white',
-            fontSize: pxToDp(14),
+            fontSize: pxToDp(16),
             height: 40,
-            marginTop: pxToDp(18)
+            marginTop: pxToDp(16),
+            marginLeft: pxToDp(8)
           }}
         />
       </View>

@@ -9,7 +9,6 @@ import {
 } from 'react-native';
 import { NavigationContext } from '@react-navigation/native';
 import { pxToDp } from '@utils/styleKits';
-import Top from '@components/common/top';
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 import CustormerBar from '../seetings/component/CustormerBar';
 import Dongtai from '../seetings/component/dontai';
@@ -34,7 +33,7 @@ export default class hello extends Component {
         }}
         renderStickyHeader={()=>{<View style={{backgroundColor:'#fff'}}><Text>11111</Text></View>}}
         showsVerticalScrollIndicator={false}
-        parallaxHeaderHeight={380}
+        parallaxHeaderHeight={300}
         navBarColor="#fa9222"
         backgroundSpeed={10}
         renderBackground={() => (
@@ -69,10 +68,10 @@ export default class hello extends Component {
                 justifyContent: 'center'
               }}
             >
-              <Image
+              {/* <Image
                 source={require('./3.png')}
                 style={{ width: pxToDp(40), height: pxToDp(40) }}
-              />
+              /> */}
               <Text style={{ fontSize: pxToDp(18), color: '#333333' }}>
                 我的动态
               </Text>

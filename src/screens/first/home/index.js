@@ -167,8 +167,8 @@ class Index extends Component {
           </View>
         )}
         //自定义头部内容
-        renderForeground={() => <View style={{ Top: pxToDp(200), left:pxToDp(100) }}></View>}
-        scrollableViewStyle={{   backgroundColor:'acddfc'}}
+        renderForeground={() => <View style={{ Top: pxToDp(200), left: pxToDp(100) }}></View>}
+        scrollableViewStyle={{ backgroundColor: 'acddfc' }}
       >
         <View
           style={{
@@ -330,7 +330,7 @@ class Index extends Component {
                 <Text style={styles.righttext}>
                   查看更多
                 </Text>
-                <Ionicons name="chevron-forward" size={18} color="#666666" />
+                <Ionicons name="chevron-forward" size={16} color="#666666" />
               </TouchableOpacity>
             </View>
             {/* 俯瞰百年轮播图 */}
@@ -413,7 +413,7 @@ class Index extends Component {
                 <Text style={styles.righttext}>
                   查看更多
                 </Text>
-                <Ionicons name="chevron-forward" size={18} color="#666666" />
+                <Ionicons name="chevron-forward" size={16} color="#666666" />
               </TouchableOpacity>
             </View>
             <Actress />
@@ -436,11 +436,11 @@ class Index extends Component {
               <Text style={styles.righttext}>
                 查看更多
               </Text>
-              <Ionicons name="chevron-forward" size={18} color="#666666" />
+              <Ionicons name="chevron-forward" size={16} color="#666666" />
             </TouchableOpacity>
           </View>
           <View style={styles.carousel}>
-            <Carousel control={false} style={{ height: pxToDp(156),marginTop:pxToDp(10)}}>
+            <Carousel control={false} style={{ height: pxToDp(156), marginTop: pxToDp(10) }}>
               {this.state.books.map((item) => (
                 <View style={styles.bookbox}>
                   <TouchableNativeFeedback
@@ -536,7 +536,7 @@ class Index extends Component {
               <Text style={styles.righttext}>
                 查看更多
               </Text>
-              <Ionicons name="chevron-forward" size={18} color="#666666" />
+              <Ionicons name="chevron-forward" size={16} color="#666666" />
             </TouchableOpacity>
           </View>
           <View
@@ -723,7 +723,7 @@ const styles = StyleSheet.create({
     marginTop: pxToDp(-6)
   },
   righttext: {
-    fontSize: pxToDp(16),
+    fontSize: pxToDp(14),
     color: '#666666'
   }
 });

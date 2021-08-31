@@ -131,77 +131,8 @@ class Index extends PureComponent {
             </TouchableOpacity>
           </View>
           {/*轮播图 */}
-          <View style={{ marginTop: pxToDp(16)}}>
+          <View style={{ marginTop: pxToDp(16) }}>
             <SnapCarousel />
-          </View>
-          {/* 大图视频 */}
-          <View
-            style={{
-              height: pxToDp(180),
-              flexDirection: 'row',
-              alignItems: 'center',
-              marginTop: pxToDp(16)
-            }}
-          >
-            <TouchableOpacity>
-              <ImageBackground
-                style={{ height: pxToDp(180), width: pxToDp(342) }}
-                imageStyle={{ borderRadius: pxToDp(8) }}
-                source={{
-                  uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg1.doubanio.com%2Fpview%2Fevent_poster%2Fraw%2Fpublic%2Ff3283bd44eec487.jpg&refer=http%3A%2F%2Fimg1.doubanio.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631083362&t=f518e0105b6e4d70c8bd1515d98d8802'
-                }}
-              >
-                <View
-                  style={{
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    flex: 1
-                  }}
-                ></View>
-                <View
-                  style={{
-                    backgroundColor: '#D2DFD5',
-                    opacity: 0.8,
-                    height: pxToDp(48),
-                    borderRadius: pxToDp(8),
-                    paddingLeft: pxToDp(8),
-                    justifyContent: 'center'
-                  }}
-                >
-                  <View>
-                    <Text
-                      numberOfLines={1}
-                      style={{
-                        fontSize: pxToDp(16)
-                      }}
-                    >
-                      跟沈歆雯学越剧
-                    </Text>
-                  </View>
-                  <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                    <Icon name="control-play" size={12} color={'#333333'} />
-                    <Text
-                      style={{
-                        marginLeft: pxToDp(4),
-                        fontSize: pxToDp(12)
-                      }}
-                    >
-                      96.7万
-                    </Text>
-                    <View style={{ width: pxToDp(20) }}></View>
-                    <Icon name="clock" size={12} color={'#333333'} />
-                    <Text
-                      style={{
-                        marginLeft: pxToDp(4),
-                        fontSize: pxToDp(12)
-                      }}
-                    >
-                      02:12
-                    </Text>
-                  </View>
-                </View>
-              </ImageBackground>
-            </TouchableOpacity>
           </View>
           {/*专栏 */}
           <View
@@ -540,7 +471,145 @@ class Index extends PureComponent {
               height: pxToDp(180),
               flexDirection: 'row',
               alignItems: 'center',
-              marginTop: pxToDp(8),
+              marginTop: pxToDp(8)
+            }}
+          >
+            <TouchableOpacity>
+              <ImageBackground
+                style={{ height: pxToDp(180), width: pxToDp(342) }}
+                imageStyle={{ borderRadius: pxToDp(8) }}
+                source={{
+                  uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg1.doubanio.com%2Fpview%2Fevent_poster%2Fraw%2Fpublic%2Ff3283bd44eec487.jpg&refer=http%3A%2F%2Fimg1.doubanio.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631083362&t=f518e0105b6e4d70c8bd1515d98d8802'
+                }}
+              >
+                <View
+                  style={{
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    flex: 1
+                  }}
+                ></View>
+                <View
+                  style={{
+                    backgroundColor: '#D5E8E6',
+                    opacity: 0.8,
+                    height: pxToDp(48),
+                    borderRadius: pxToDp(8),
+                    paddingLeft: pxToDp(8),
+                    justifyContent: 'center'
+                  }}
+                >
+                  <View>
+                    <Text
+                      numberOfLines={1}
+                      style={{
+                        fontSize: pxToDp(16)
+                      }}
+                    >
+                      跟沈歆雯学越剧
+                    </Text>
+                  </View>
+                  <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    <Icon name="control-play" size={12} color={'#333333'} />
+                    <Text
+                      style={{
+                        marginLeft: pxToDp(4),
+                        fontSize: pxToDp(12)
+                      }}
+                    >
+                      96.7万
+                    </Text>
+                    <View style={{ width: pxToDp(20) }}></View>
+                    <Icon name="clock" size={12} color={'#333333'} />
+                    <Text
+                      style={{
+                        marginLeft: pxToDp(4),
+                        fontSize: pxToDp(12)
+                      }}
+                    >
+                      02:12
+                    </Text>
+                  </View>
+                </View>
+              </ImageBackground>
+            </TouchableOpacity>
+          </View>
+          {/* 大图视频 */}
+          <View
+            style={{
+              height: pxToDp(180),
+              flexDirection: 'row',
+              alignItems: 'center',
+              marginTop: pxToDp(16)
+            }}
+          >
+            <TouchableOpacity>
+              <ImageBackground
+                style={{ height: pxToDp(180), width: pxToDp(342) }}
+                imageStyle={{ borderRadius: pxToDp(8) }}
+                source={{
+                  uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg1.doubanio.com%2Fpview%2Fevent_poster%2Fraw%2Fpublic%2Ff3283bd44eec487.jpg&refer=http%3A%2F%2Fimg1.doubanio.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631083362&t=f518e0105b6e4d70c8bd1515d98d8802'
+                }}
+              >
+                <View
+                  style={{
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    flex: 1
+                  }}
+                ></View>
+                <View
+                  style={{
+                    backgroundColor: '#D5E8E6',
+                    opacity: 0.8,
+                    height: pxToDp(48),
+                    borderRadius: pxToDp(8),
+                    paddingLeft: pxToDp(8),
+                    justifyContent: 'center'
+                  }}
+                >
+                  <View>
+                    <Text
+                      numberOfLines={1}
+                      style={{
+                        fontSize: pxToDp(16)
+                      }}
+                    >
+                      跟沈歆雯学越剧
+                    </Text>
+                  </View>
+                  <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    <Icon name="control-play" size={12} color={'#333333'} />
+                    <Text
+                      style={{
+                        marginLeft: pxToDp(4),
+                        fontSize: pxToDp(12)
+                      }}
+                    >
+                      96.7万
+                    </Text>
+                    <View style={{ width: pxToDp(20) }}></View>
+                    <Icon name="clock" size={12} color={'#333333'} />
+                    <Text
+                      style={{
+                        marginLeft: pxToDp(4),
+                        fontSize: pxToDp(12)
+                      }}
+                    >
+                      02:12
+                    </Text>
+                  </View>
+                </View>
+              </ImageBackground>
+            </TouchableOpacity>
+          </View>
+          {/* 大图视频 */}
+          <View
+            style={{
+              height: pxToDp(180),
+              flexDirection: 'row',
+              alignItems: 'center',
+              marginTop: pxToDp(16),
               marginBottom: pxToDp(32)
             }}
           >
@@ -561,7 +630,7 @@ class Index extends PureComponent {
                 ></View>
                 <View
                   style={{
-                    backgroundColor: '#D2DFD5',
+                    backgroundColor: '#D5E8E6',
                     opacity: 0.8,
                     height: pxToDp(48),
                     borderRadius: pxToDp(8),

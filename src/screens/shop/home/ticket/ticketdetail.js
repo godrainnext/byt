@@ -432,8 +432,7 @@ export default class ticketdetail extends PureComponent {
         </ScrollView>
         <View
           style={{
-            justifyContent: 'space-evenly',
-            marginBottom: pxToDp(8)
+            justifyContent: 'space-evenly'
           }}
         >
           <Mybtn
@@ -447,8 +446,7 @@ export default class ticketdetail extends PureComponent {
               borderRadius: pxToDp(40),
               alignSelf: 'center',
               color: 'red',
-              display: 'none',
-              marginBottom: pxToDp(5)
+              display: 'none'
             }}
             buttonStyle={{
               width: '100%',
