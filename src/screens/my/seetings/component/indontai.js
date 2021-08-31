@@ -22,6 +22,10 @@ import { DeviceEventEmitter } from 'react-native';
 import FollowButton from '@components/FollowButton';
 import { Video, Audio } from 'expo-av';
 import Mybtn from '../../../../component/common/mybtn';
+import Lightbox from 'react-native-lightbox';
+import Carousel from 'react-native-looped-carousel';
+
+const WINDOW_WIDTH = Dimensions.get('window').width;
 class Index extends PureComponent {
   state = {
     inner: {},
@@ -77,6 +81,16 @@ class Index extends PureComponent {
 
   showArticle = () => {
     const { images } = this.state.inner;
+    const renderCarousel = (img) => (
+      <Carousel style={{ height: WINDOW_WIDTH }}>
+        <Image
+          key={img}
+          style={{ flex: 1 }}
+          resizeMode="contain"
+          source={{ uri: img }}
+        />
+      </Carousel>
+    );
     return (
       <ScrollView
         style={{
@@ -89,17 +103,23 @@ class Index extends PureComponent {
       >
         {images?.map((item, index) => (
           <View key={index} style={{ marginBottom: pxToDp(10) }}>
-            <Image
-              style={{
-                width: pxToDp(155),
-                height: pxToDp(150),
-                borderRadius: pxToDp(16),
-                marginLeft: pxToDp(10),
-                marginTop: pxToDp(10),
-                marginBottom: pxToDp(10)
-              }}
-              source={{ uri: item }}
-            />
+            <Lightbox
+              springConfig={{ tension: 15, friction: 7 }}
+              swipeToDismiss={true}
+              renderContent={() => renderCarousel(item)}
+            >
+              <Image
+                style={{
+                  width: pxToDp(155),
+                  height: pxToDp(150),
+                  borderRadius: pxToDp(16),
+                  marginLeft: pxToDp(10),
+                  marginTop: pxToDp(10),
+                  marginBottom: pxToDp(10)
+                }}
+                source={{ uri: item }}
+              />
+            </Lightbox>
           </View>
         ))}
       </ScrollView>
