@@ -185,7 +185,7 @@ class Index extends PureComponent {
             color: 'white',
             fontSize: pxToDp(16),
             height: 40,
-            marginTop: pxToDp(10),
+            marginTop: pxToDp(16),
             marginLeft: pxToDp(8)
           }}
         />

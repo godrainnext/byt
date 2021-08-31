@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   ImageBackground,
   Dimensions,
+  DeviceEventEmitter,
   TouchableNativeFeedback
 } from 'react-native';
 import { pxToDp } from '@utils/styleKits';
@@ -69,6 +70,7 @@ class Index extends PureComponent {
     };
   }
   componentDidMount() {
+    DeviceEventEmitter.addListener('changeMoment', this.updateList);
     getMomentListByStatus(0, 0, 15).then((res) => {
       this.setState({ dongtai: [...res].reverse() });
     });
@@ -114,8 +116,7 @@ class Index extends PureComponent {
   render() {
     return (
       <View style={{ flex: 1, backgroundColor: 'white' }}>
-        <View>
-        </View>
+        <View></View>
         <ScrollView showsVerticalScrollIndicator={false}>
           <View>
             {/*轮播图 */}
@@ -123,7 +124,11 @@ class Index extends PureComponent {
               <EZSwiper
                 style={[
                   styles.swiper,
-                  { width: width - pxToDp(32), height: 180, marginLeft: pxToDp(16) }
+                  {
+                    width: width - pxToDp(32),
+                    height: 180,
+                    marginLeft: pxToDp(16)
+                  }
                 ]}
                 dataSource={[
                   {
@@ -148,21 +153,20 @@ class Index extends PureComponent {
             </View>
             {/**话题 */}
             <View style={styles.titlebox}>
-              <View style={styles.left}>
-              </View>
+              <View style={styles.left}></View>
               <View style={{ marginLeft: pxToDp(6) }}>
-                <Text style={styles.titletext}>
-                  热门话题
-                </Text>
-                <Text style={styles.titlepinyin}>
-                  re men hua ti
-                </Text>
+                <Text style={styles.titletext}>热门话题</Text>
+                <Text style={styles.titlepinyin}>re men hua ti</Text>
               </View>
             </View>
             <ScrollView
               horizontal={true}
               showsHorizontalScrollIndicator={false}
-              style={{ height: pxToDp(88), marginLeft: pxToDp(8), marginRight: pxToDp(16) }}
+              style={{
+                height: pxToDp(88),
+                marginLeft: pxToDp(8),
+                marginRight: pxToDp(16)
+              }}
             >
               {this.state.field.map((item, index) => (
                 <TouchableNativeFeedback
@@ -170,13 +174,15 @@ class Index extends PureComponent {
                   key={item.id}
                   onPress={() => this.openTopic(index)}
                 >
-                  <View style={{
-                    marginTop: pxToDp(8),
-                    marginLeft: pxToDp(8),
-                    width: pxToDp(150),
-                    height: pxToDp(72),
-                    borderRadius: pxToDp(8)
-                  }}>
+                  <View
+                    style={{
+                      marginTop: pxToDp(8),
+                      marginLeft: pxToDp(8),
+                      width: pxToDp(150),
+                      height: pxToDp(72),
+                      borderRadius: pxToDp(8)
+                    }}
+                  >
                     <ImageBackground
                       source={{ uri: item.img }}
                       style={{
@@ -189,7 +195,13 @@ class Index extends PureComponent {
                       }}
                       imageStyle={{ borderRadius: pxToDp(8) }}
                     >
-                      <Text style={{ fontSize: pxToDp(16), color: '#000000', fontWeight: 'bold' }}>
+                      <Text
+                        style={{
+                          fontSize: pxToDp(16),
+                          color: '#000000',
+                          fontWeight: 'bold'
+                        }}
+                      >
                         {item.text}
                       </Text>
                     </ImageBackground>
@@ -245,6 +257,6 @@ const styles = StyleSheet.create({
     fontSize: pxToDp(14),
     color: '#999999',
     marginTop: pxToDp(-6)
-  },
+  }
 });
 export default Index;

@@ -26,7 +26,7 @@ class Index extends PureComponent {
   };
   changeVisible = () => {
     this.Scrollable1.close();
-    this.context.navigate('AddMoment')
+    this.context.navigate('AddMoment');
   };
   state = {
     selectedTab: 'first',
@@ -44,7 +44,16 @@ class Index extends PureComponent {
           ></Image>
         ),
         renderSelectedIcon: () => (
-          <View style={{ backgroundColor: 'white', height: pxToDp(40), width: pxToDp(40), borderRadius: pxToDp(20), alignItems: 'center', justifyContent: 'center' }}>
+          <View
+            style={{
+              backgroundColor: 'white',
+              height: pxToDp(40),
+              width: pxToDp(40),
+              borderRadius: pxToDp(20),
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
             <Image
               style={{ width: pxToDp(28), height: pxToDp(28) }}
               source={require('./res/戏台.png')}
@@ -64,7 +73,16 @@ class Index extends PureComponent {
           ></Image>
         ),
         renderSelectedIcon: () => (
-          <View style={{ backgroundColor: 'white', height: pxToDp(40), width: pxToDp(40), borderRadius: pxToDp(20), alignItems: 'center', justifyContent: 'center' }}>
+          <View
+            style={{
+              backgroundColor: 'white',
+              height: pxToDp(40),
+              width: pxToDp(40),
+              borderRadius: pxToDp(20),
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
             <Image
               style={{ width: pxToDp(28), height: pxToDp(28) }}
               source={require('./res/戏缘.png')}
@@ -157,6 +175,7 @@ class Index extends PureComponent {
                     </TouchableOpacity>
                   </View>
                 </View>
+
                 <View
                   style={{
                     width: pxToDp(24),
@@ -172,7 +191,6 @@ class Index extends PureComponent {
           </View>
         ),
         renderSelectedIcon: () => (
-
           <LottieView
             autoPlay={true}
             loop={true}
@@ -192,7 +210,16 @@ class Index extends PureComponent {
           ></Image>
         ),
         renderSelectedIcon: () => (
-          <View style={{ backgroundColor: 'white', height: pxToDp(40), width: pxToDp(40), borderRadius: pxToDp(20), alignItems: 'center', justifyContent: 'center' }}>
+          <View
+            style={{
+              backgroundColor: 'white',
+              height: pxToDp(40),
+              width: pxToDp(40),
+              borderRadius: pxToDp(20),
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
             <Image
               style={{ width: pxToDp(28), height: pxToDp(28) }}
               source={require('./res/越市.png')}
@@ -212,7 +239,16 @@ class Index extends PureComponent {
           ></Image>
         ),
         renderSelectedIcon: () => (
-          <View style={{ backgroundColor: 'white', height: pxToDp(40), width: pxToDp(40), borderRadius: pxToDp(20), alignItems: 'center', justifyContent: 'center' }}>
+          <View
+            style={{
+              backgroundColor: 'white',
+              height: pxToDp(40),
+              width: pxToDp(40),
+              borderRadius: pxToDp(20),
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
             <Image
               style={{ width: pxToDp(28), height: pxToDp(28) }}
               source={require('./res/戏痴.png')}
@@ -245,7 +281,7 @@ class Index extends PureComponent {
               }}
               tabStyle={{
                 backgroundColor: 'white',
-                justifyContent: 'center',
+                justifyContent: 'center'
               }}
             >
               {v.component}

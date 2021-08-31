@@ -179,7 +179,9 @@ class Index extends PureComponent {
               }}
               titleStyle={{
                 color: 'white',
-                fontSize: pxToDp(16)
+                fontSize: pxToDp(16),
+                marginLeft: pxToDp(2),
+                marginTop: pxToDp(-2)
               }}
             />
           </ImageBackground>

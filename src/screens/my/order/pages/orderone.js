@@ -10,7 +10,7 @@ class Index extends PureComponent {
       <View style={{ flex: 1 }}>
         {this.props.orider.length ? (
           <ScrollView
-            style={{ backgroundColor: '#D5E8E6',}}
+            style={{ backgroundColor: '#D5E8E6' }}
             showsVerticalScrollIndicator={false}
           >
             <Orderitem page={this.props.orider} />

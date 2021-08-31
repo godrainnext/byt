@@ -200,11 +200,11 @@ class Index extends PureComponent {
                       <Text>微博</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={{ alignItems: 'center' }}>
-                      <FontAwesome name="trash-o" size={25} color="#DC143C" />
+                      <FontAwesome name="trash-o" size={25} color="#F08080" />
                       <Text>删除</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={{ alignItems: 'center' }}>
-                      <FontAwesome name="hand-o-up" size={25} color="#FFD700" />
+                      <FontAwesome name="hand-o-up" size={25} color="#F0E68C" />
                       <Text>置顶</Text>
                     </TouchableOpacity>
                   </View>
@@ -222,7 +222,7 @@ class Index extends PureComponent {
                     }}
                     titleStyle={{
                       color: 'white',
-                      marginTop: pxToDp(-3),
+                      marginTop: pxToDp(-5),
                       fontSize: pxToDp(14)
                     }}
                   />

@@ -29,7 +29,7 @@ class Index extends PureComponent {
     isplay: false,
     URI: [],
     autoPlay: true,
-    showLoading: true,
+    showLoading: true
   };
   static contextType = NavigationContext;
   playSound = async () => {
@@ -70,12 +70,13 @@ class Index extends PureComponent {
   pauseSound = async () => {
     console.log('Stopping Sound');
     // this.setState({sound:undefined})
-    await this.state.playingsong.pauseAsync();
+    await this.video.pauseAsync();
     this.setState({ isplay: false });
   };
 
   startRecording = async () => {
     try {
+      this.video.playAsync();
       console.log('Requesting permissions..');
       await Audio.requestPermissionsAsync();
       await Audio.setAudioModeAsync({
@@ -94,6 +95,7 @@ class Index extends PureComponent {
     }
   };
   stopRecording = async () => {
+    await this.pauseSound();
     // this.setState({recording:undefined});
     await this.state.recording.stopAndUnloadAsync();
     const uri = this.state.recording.getURI();
@@ -120,7 +122,11 @@ class Index extends PureComponent {
     return (
       <View style={styles.bottom}>
         <TouchableOpacity
-          style={{ flexDirection: 'column', marginBottom: pxToDp(120), alignItems: 'center' }}
+          style={{
+            flexDirection: 'column',
+            marginBottom: pxToDp(120),
+            alignItems: 'center'
+          }}
           onPress={() => this.setState({ showLoading: false })}
         >
           <LottieView
@@ -129,11 +135,44 @@ class Index extends PureComponent {
             autoPlay={true}
             loop={false}
           />
-          <Text style={{ fontSize: pxToDp(14), color: 'white', marginTop: pxToDp(-75), fontWeight: 'bold' }}>开始练唱</Text>
+          <Text
+            style={{
+              fontSize: pxToDp(14),
+              color: 'white',
+              marginTop: pxToDp(-75),
+              fontWeight: 'bold'
+            }}
+          >
+            开始练唱
+          </Text>
         </TouchableOpacity>
       </View>
-    )
-  }
+    );
+  };
+  reStart = () => {
+    Alert.alert('提示', '确认重唱?', [
+      { text: '取消' },
+      {
+        text: '确认',
+        onPress: async () => {
+          if (this.state.isrecoding) {
+            await this.stopRecording();
+          }
+          this.setState({
+            status: {},
+            recording: '',
+            playingsong: '',
+            sound: [],
+            URI: [],
+            autoPlay: false,
+            showLoading: false
+          });
+          await this.startRecording();
+          this.video.replayAsync();
+        }
+      }
+    ]);
+  };
   //渲染按钮页面
   renderMenu = () => {
     const { autoPlay } = this.state;
@@ -143,7 +182,6 @@ class Index extends PureComponent {
           <TouchableOpacity
             style={{ alignItems: 'center' }}
             onPress={() => {
-        
               this.state.status.isPlaying
                 ? this.video.pauseAsync()
                 : this.video.playAsync();
@@ -151,16 +189,14 @@ class Index extends PureComponent {
           >
             <Ionicons name="musical-notes-outline" size={25} color="grey" />
             <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
-              {this.state.status.isPlaying ? '暂停' : '播放'}
+              {this.state.status.isPlaying ? '暂停' : '开始'}
             </Text>
           </TouchableOpacity>
         </View>
         <View>
           <TouchableOpacity style={{ alignItems: 'center' }}>
             <Ionicons name="options-outline" size={25} color="grey" />
-            <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
-              音量
-            </Text>
+            <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>音量</Text>
           </TouchableOpacity>
         </View>
         <View>
@@ -169,15 +205,16 @@ class Index extends PureComponent {
             onPress={() => {
               this.toContr();
               // this.toPlay();
-              this.setState({ autoPlay: !autoPlay })
-              console.log(autoPlay);
-              this.state.isrecoding ? this.stopRecording() : this.startRecording()
+              this.setState({ autoPlay: !autoPlay });
+              this.state.isrecoding
+                ? this.stopRecording()
+                : this.startRecording();
             }}
           >
             <LottieView
               style={{ width: pxToDp(100) }}
               source={require('../../../../lottie/练唱.json')}
-              ref={animation => {
+              ref={(animation) => {
                 this.animation = animation;
               }}
               loop
@@ -185,11 +222,12 @@ class Index extends PureComponent {
           </TouchableOpacity>
         </View>
         <View>
-          <TouchableOpacity style={{ alignItems: 'center' }}>
+          <TouchableOpacity
+            style={{ alignItems: 'center' }}
+            onPress={this.reStart}
+          >
             <Ionicons name="refresh" size={25} color="grey" />
-            <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
-              重唱
-            </Text>
+            <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>重唱</Text>
           </TouchableOpacity>
         </View>
         <View>
@@ -197,21 +235,18 @@ class Index extends PureComponent {
             style={{ alignItems: 'center' }}
             onPress={() => {
               this.toPause();
-              this.state.isplay ? this.pauseSound() : this.playSound()
+              this.state.isplay ? this.pauseSound() : this.playSound();
             }}
           >
             <Ionicons name="checkmark" size={25} color="grey" />
-            <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
-              结束
-            </Text>
+            <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>结束</Text>
           </TouchableOpacity>
         </View>
       </View>
-    )
-  }
+    );
+  };
   render() {
-
-    const { showLoading } = this.state
+    const { showLoading } = this.state;
     return (
       <View
         style={{
@@ -223,7 +258,9 @@ class Index extends PureComponent {
         <Top icon1="arrow-back" title="穆桂英挂帅" />
         <ImageBackground
           style={{ flex: 1 }}
-          source={{ uri: 'https://img0.baidu.com/it/u=1585654361,1964181034&fm=26&fmt=auto&gp=0.jpg' }}
+          source={{
+            uri: 'https://img0.baidu.com/it/u=1585654361,1964181034&fm=26&fmt=auto&gp=0.jpg'
+          }}
         >
           <ScrollView
             showsVerticalScrollIndicator={false}
@@ -403,16 +440,14 @@ class Index extends PureComponent {
             </View>
             <View style={{ alignItems: 'center', justifyContent: 'center' }}>
               <Video
-                ref={el=>this.video=el}
+                ref={(el) => (this.video = el)}
                 source={require('../study/越剧追鱼.mp3')}
                 resizeMode="contain"
                 onPlaybackStatusUpdate={(status) => this.setState({ status })}
               />
             </View>
           </ScrollView>
-          <View>
-            {showLoading ? this.renderLoading() : this.renderMenu()}
-          </View>
+          <View>{showLoading ? this.renderLoading() : this.renderMenu()}</View>
         </ImageBackground>
       </View>
     );

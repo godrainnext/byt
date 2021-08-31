@@ -45,74 +45,85 @@ class Index extends Component {
     return (
       <View style={{ flex: 1, backgroundColor: 'white' }}>
         <ScrollView showsVerticalScrollIndicator={false}>
-          {this.state.arr.map((item) => (
-            <View key={item.id}>
-              <TouchableOpacity
-                onPress={() =>
-                  this.context.navigate('SeeZhiBo', {
-                    roomName: item.name,
-                    channelName: item.cannalName,
-                    token: item.token,
-                    peerIds: this.state.peerIds,
-                    user: item.user
-                  })
-                }
-              >
-                <ImageBackground
-                  style={styles.image}
-                  imageStyle={{ borderRadius: pxToDp(8) }}
-                  source={{ uri: item.avatar }}
+          {this.state.arr ? (
+            this.state.arr.map((item) => (
+              <View key={item.id}>
+                <TouchableOpacity
+                  onPress={() =>
+                    this.context.navigate('SeeZhiBo', {
+                      roomName: item.name,
+                      channelName: item.cannalName,
+                      token: item.token,
+                      peerIds: this.state.peerIds,
+                      user: item.user
+                    })
+                  }
                 >
-                  <Text
-                    style={{
-                      color: 'white',
-                      fontSize: pxToDp(20),
-                      margin: pxToDp(10),
-                      left: pxToDp(220)
-                    }}
-                  >
-                    {item.name}
-                  </Text>
-                  <LottieView
-                    style={{ width: pxToDp(100), alignSelf: 'center' }}
-                    source={require('../../../../../lottie/直播live效果.json')}
-                    autoPlay
-                    loop
-                  />
-                  <View
-                    style={{
-                      flexDirection: 'row',
-                      justifyContent: 'space-between',
-                      alignItems: 'center'
-                    }}
+                  <ImageBackground
+                    style={styles.image}
+                    imageStyle={{ borderRadius: pxToDp(8) }}
+                    source={{ uri: item.avatar }}
                   >
                     <Text
                       style={{
                         color: 'white',
-                        fontSize: pxToDp(15),
-                        margin: pxToDp(10)
+                        fontSize: pxToDp(20),
+                        margin: pxToDp(10),
+                        left: pxToDp(220)
                       }}
                     >
-                      {item.user?.nickName}
+                      {item.name}
                     </Text>
+                    <LottieView
+                      style={{ width: pxToDp(100), alignSelf: 'center' }}
+                      source={require('../../../../../lottie/直播live效果.json')}
+                      autoPlay
+                      loop
+                    />
                     <View
                       style={{
                         flexDirection: 'row',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        marginLeft: pxToDp(150)
+                        justifyContent: 'space-between',
+                        alignItems: 'center'
                       }}
                     >
-                      <Icon name="eyeo" size={24} color={'white'} />
-                      <Text style={{ color: 'white', marginRight: pxToDp(10), fontSize: pxToDp(16), marginLeft: pxToDp(5) }}>
-                        66
+                      <Text
+                        style={{
+                          color: 'white',
+                          fontSize: pxToDp(15),
+                          margin: pxToDp(10)
+                        }}
+                      >
+                        {item.user?.nickName}
                       </Text>
+                      <View
+                        style={{
+                          flexDirection: 'row',
+                          justifyContent: 'center',
+                          alignItems: 'center',
+                          marginLeft: pxToDp(150)
+                        }}
+                      >
+                        <Icon name="eyeo" size={24} color={'white'} />
+                        <Text
+                          style={{
+                            color: 'white',
+                            marginRight: pxToDp(10),
+                            fontSize: pxToDp(16),
+                            marginLeft: pxToDp(5)
+                          }}
+                        >
+                          66
+                        </Text>
+                      </View>
                     </View>
-                  </View>
-                </ImageBackground>
-              </TouchableOpacity>
-            </View>
-          ))}
+                  </ImageBackground>
+                </TouchableOpacity>
+              </View>
+            ))
+          ) : (
+            <View>暂无主播开播，看看别的吧</View>
+          )}
           <ImageBackground
             style={styles.image}
             imageStyle={{ borderRadius: pxToDp(8) }}
@@ -159,7 +170,14 @@ class Index extends Component {
                 }}
               >
                 <Icon name="eyeo" size={24} color={'white'} />
-                <Text style={{ color: 'white', marginRight: pxToDp(10), fontSize: pxToDp(16), marginLeft: pxToDp(5) }}>
+                <Text
+                  style={{
+                    color: 'white',
+                    marginRight: pxToDp(10),
+                    fontSize: pxToDp(16),
+                    marginLeft: pxToDp(5)
+                  }}
+                >
                   66
                 </Text>
               </View>
@@ -211,7 +229,14 @@ class Index extends Component {
                 }}
               >
                 <Icon name="eyeo" size={24} color={'white'} />
-                <Text style={{ color: 'white', marginRight: pxToDp(10), fontSize: pxToDp(16), marginLeft: pxToDp(5) }}>
+                <Text
+                  style={{
+                    color: 'white',
+                    marginRight: pxToDp(10),
+                    fontSize: pxToDp(16),
+                    marginLeft: pxToDp(5)
+                  }}
+                >
                   22
                 </Text>
               </View>
@@ -263,7 +288,14 @@ class Index extends Component {
                 }}
               >
                 <Icon name="eyeo" size={24} color={'white'} />
-                <Text style={{ color: 'white', marginRight: pxToDp(10), fontSize: pxToDp(16), marginLeft: pxToDp(5) }}>
+                <Text
+                  style={{
+                    color: 'white',
+                    marginRight: pxToDp(10),
+                    fontSize: pxToDp(16),
+                    marginLeft: pxToDp(5)
+                  }}
+                >
                   78
                 </Text>
               </View>

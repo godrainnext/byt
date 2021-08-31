@@ -27,8 +27,8 @@ export default memo(function FollowButton(props) {
       title={isFollow ? '取消关注' : '关注'}
       onPress={() => addFollows(props.userId)}
       buttonStyle={{
-        width: pxToDp(80),
-        height: pxToDp(30),
+        width: pxToDp(100),
+        height: pxToDp(33),
         borderTopLeftRadius: pxToDp(32),
         borderBottomLeftRadius: pxToDp(32)
       }}
@@ -36,8 +36,8 @@ export default memo(function FollowButton(props) {
         color: 'white',
         fontSize: pxToDp(16),
         height: 40,
-        marginTop: pxToDp(10),
-        marginLeft: pxToDp(8)
+        marginTop: pxToDp(14),
+        marginLeft:pxToDp(-8)
       }}
     />
   );
