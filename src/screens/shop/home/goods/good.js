@@ -78,7 +78,9 @@ class shopdetails extends PureComponent {
           style={{ flex: 1 }}
           resizeMode="contain"
           source={{
-            uri: item.imgurl
+            uri: changeImgSize(
+              this.state.products[this.state.activeTab]?.img,
+            )
           }}
         />
       ))}

@@ -95,13 +95,14 @@ class Index extends PureComponent {
             <Text style={{ fontSize: pxToDp(14), color: 'white' }}>
               点击阅读量为准</Text>
           </View>
-          <View style={{width:pxToDp(150),height:pxToDp(70),marginTop:pxToDp(-50)}}>
-          <LottieView
-          style={{position:'absolute',width:pxToDp(550),left:pxToDp(-42),top:pxToDp(-18)}}
-            source={require('../../../../lottie/826/lf20_rukjet2z.json')}
-            autoPlay={true}
-            loop={false}
-          />
+          <View style={{ width: pxToDp(150), height: pxToDp(70), marginTop: pxToDp(-50) }}>
+            <LottieView
+              style={{ position: 'absolute', width: pxToDp(550), left: pxToDp(-42), top: pxToDp(-18) }}
+              source={require('../../../../lottie/826/lf20_rukjet2z.json')}
+              autoPlay={true}
+              loop={false}
+              speed={0.5}
+            />
           </View>
         </ImageBackground>
         {/**榜单第一 */}
@@ -239,7 +240,7 @@ class Index extends PureComponent {
 const styles = StyleSheet.create({
   title: {
     alignItems: 'center',
-    marginTop:pxToDp(12)
+    marginTop: pxToDp(12)
   },
   paihang: {
     fontSize: pxToDp(20),
