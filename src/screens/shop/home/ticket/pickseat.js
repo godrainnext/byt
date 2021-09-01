@@ -13,6 +13,7 @@ import { pxToDp } from '../../../../utils/styleKits';
 import { seat1, seat2, seat3 } from '../../../../component/common/iconSvg';
 import Mybtn from '../../../../component/common/mybtn';
 import Seat from './Seat';
+import { NavigationContext } from '@react-navigation/native';
 
 export default class pickseat extends Component {
   constructor(props) {
@@ -279,6 +280,7 @@ export default class pickseat extends Component {
       count: 0
     };
   }
+  static contextType = NavigationContext;
   onPress = () => {
     this.setState({
       count: this.state.count + 1
@@ -382,7 +384,7 @@ export default class pickseat extends Component {
           </View>
         </ScrollView>
         <Mybtn
-          // onPress={() => this.Scrollable.open()}
+          onPress={() => this.context.navigate('MyTicket')}
           title="立刻购买"
           containerStyle={{
             position: 'absolute',
