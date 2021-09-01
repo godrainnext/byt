@@ -48,8 +48,8 @@ class Index extends PureComponent {
             style={styles.image}
           ></Image>
           <Text style={styles.welcome}>
-            医生叫我进行光合作用{'\n'}
-            不要熬夜了
+            梁山伯与祝英台{'\n'}
+            我家有个小九妹/聪明伶俐人钦佩
           </Text>
         </View>
         <View style={styles.container}>
@@ -58,8 +58,8 @@ class Index extends PureComponent {
             style={styles.image}
           ></Image>
           <Text style={styles.welcome}>
-            人生不断向前的秘诀{'\n'}
-            就是忘记从那里来 记得到哪里去
+            红楼梦{'\n'}
+            天上掉下个林妹妹，似一朵轻云刚出岫
           </Text>
         </View>
         <View style={styles.container}>
@@ -68,8 +68,8 @@ class Index extends PureComponent {
             style={styles.image}
           ></Image>
           <Text style={styles.welcome}>
-            人生路虽漫长{'\n'}
-            但是关键的就那几步
+            西厢记{'\n'}
+            兰闺深寂寞 无计度芳春/料得行吟者 应怜长叹人
           </Text>
         </View>
         <TouchableOpacity
