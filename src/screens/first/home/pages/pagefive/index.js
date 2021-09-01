@@ -34,7 +34,7 @@ class index extends PureComponent {
     const { images } = this.state;
     return (
       <View
-        style={{ backgroundColor: '#D5E8E6', flex: 1 }}
+        style={{ backgroundColor: 'white', flex: 1 }}
       >
         <Top icon1="arrow-back" title="越文" />
         <ScrollView style={{ padding: pxToDp(16), flex: 1 }} showsVerticalScrollIndicator={false}>

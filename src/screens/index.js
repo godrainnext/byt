@@ -148,13 +148,11 @@ export { default as Test2 } from './test/test2';
 export { default as Test3 } from './test/test3';
 export { default as Test4 } from './test/test4';
 export { default as Test6 } from './test/test8';
-
 export { default as WaterButton } from '../component/common/waterbutton'; //波纹按钮
-
 export { default as NewTimeLine } from './test/test5';
 export { default as Testtt } from '../testtt';
 export { default as ToSing } from './talk/home/sing';
 export { default as SingOver } from './play/study/singover';
 export { default as SingSub } from './play/study/singsub';
-export { default as AddMoment} from './talk/home/forum/addMoment'
+export { default as AddMoment } from './talk/home/forum/addMoment'
 

@@ -186,7 +186,7 @@ class Index extends Component {
           <ImageBackground
             style={styles.image}
             imageStyle={{ borderRadius: pxToDp(8) }}
-            source={{ uri: 'https://tse3-mm.cn.bing.net/th/id/OIP-C.2Dp9JuaV5Wi476ybeMrbdQHaEo?w=235&h=180&c=7&r=0&o=5&dpr=1.75&pid=1.7' }}
+            source={{ uri: 'https://tse1-mm.cn.bing.net/th/id/R-C.6303ecdf9b2a51b2092b670566920aed?rik=elZ4bgqd15w05w&riu=http%3a%2f%2fn.sinaimg.cn%2fsinakd202157s%2f361%2fw1255h706%2f20210507%2f83e0-kpuunnc1916367.jpg&ehk=IKBnYsnaTz5Ve8Sttwadw5s4V9jKdfZUl0SbkxY62qg%3d&risl=&pid=ImgRaw&r=0' }}
           >
             <Text
               style={{
@@ -267,7 +267,7 @@ class Index extends Component {
               style={{
                 flexDirection: 'row',
                 justifyContent: 'space-between',
-                alignItems: 'center'
+                alignItems: 'center',
               }}
             >
               <Text
@@ -301,6 +301,7 @@ class Index extends Component {
               </View>
             </View>
           </ImageBackground>
+          <View style={{ height: pxToDp(10) }}></View>
         </ScrollView>
       </View>
     );

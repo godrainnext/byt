@@ -65,8 +65,10 @@ class Index extends PureComponent {
             {this.state.dramalist[0].title}
           </Text>
           <Text style={styles.title}>
-          &emsp;&emsp;作者：{this.state.dramalist[0].author} &emsp;创作年代:&emsp;
-            {this.state.dramalist[0].year}
+            &emsp;&emsp;作者：{this.state.dramalist[0].author}
+          </Text>
+          <Text style={styles.title}>
+            &emsp;&emsp;创作年代：{this.state.dramalist[0].year}
           </Text>
           <View>
             <Text style={styles.text}>剧情简介</Text>

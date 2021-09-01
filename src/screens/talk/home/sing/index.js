@@ -103,7 +103,7 @@ export default class hello extends Component {
                                 <Text style={styles.text1}>快速匹配</Text>
                                 <Text style={styles.text2}>随机寻找伙伴</Text>
                             </View>
-                            <Image style={styles.touchimage} source={require('../../../../res/加入.png')} />
+                            <Image style={styles.touchimage} source={{uri:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Faliimg.changba.com%2Fcache%2Fphoto%2F677bba3e-3e42-44a4-8d8d-e62bba23a33f_640_640.jpg&refer=http%3A%2F%2Faliimg.changba.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1633071391&t=34f2e0dd061f1b5868dc7c0cead335e0'}} />
                         </View>
                     </TouchableNativeFeedback>
                     {/**查找房间 */}

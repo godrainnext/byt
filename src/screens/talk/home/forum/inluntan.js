@@ -112,11 +112,11 @@ class Index extends PureComponent {
             >
               <Image
                 style={{
-                  width: pxToDp(155),
-                  height: pxToDp(150),
-                  borderRadius: pxToDp(16),
+                  width: pxToDp(200),
+                  height: '90%',
+                  borderRadius: pxToDp(8),
                   marginLeft: pxToDp(10),
-                  marginTop: pxToDp(10),
+                  marginTop: pxToDp(8),
                   marginBottom: pxToDp(10)
                 }}
                 source={{ uri: item }}
@@ -189,7 +189,7 @@ class Index extends PureComponent {
               width: '100%',
               alignSelf: 'center',
               paddingBottom: pxToDp(20),
-              borderRadius: pxToDp(16),
+              borderRadius: pxToDp(8),
               elevation: 2,
               shadowColor: 'black', //  阴影颜色
               shadowOffset: { width: 0, height: 0 }, // 阴影偏移
@@ -230,10 +230,10 @@ class Index extends PureComponent {
               </View>
               {/* 关注 */}
               <View style={{ marginLeft: pxToDp(53), marginTop: pxToDp(24) }}>
-                {this.props.userInfo.id === user?.id ? <View></View> : <FollowButton />}
+                {this.props.userInfo.id === user?.id ? null : <FollowButton />}
               </View>
             </View>
-            <View style={{ margin: pxToDp(8) }}>
+            <View style={{ marginLeft: pxToDp(22) }}>
               <Text style={{ fontSize: pxToDp(18), color: '#333333' }}>{content}</Text>
             </View>
             {label ? this.showMusic() : this.showArticle()}

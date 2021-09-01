@@ -317,13 +317,16 @@ class Index extends Component {
               <View style={styles.left}>
               </View>
               <View>
-                <View style={{ marginLeft: pxToDp(-121) }}>
+                <View style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}>
                   <Text style={styles.titletext}>
                     俯瞰百年
                   </Text>
-                  <Text style={styles.titlepinyin}>
-                    fu kan bai nian
-                  </Text>
+                  <LottieView
+                    style={{ width: pxToDp(80) }}
+                    source={require('../../../../lottie/标题底部.json')}
+                    autoPlay={true}
+                    loop={true}
+                  />
                 </View>
               </View>
               <TouchableOpacity style={styles.right} onPress={() => this.context.navigate('Card')}>
@@ -341,13 +344,16 @@ class Index extends Component {
             <View style={styles.left}>
             </View>
             <View>
-              <View style={{ marginLeft: pxToDp(-121) }}>
+              <View style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}>
                 <Text style={styles.titletext}>
                   流派传奇
                 </Text>
-                <Text style={styles.titlepinyin}>
-                  liu pai chuan qi
-                </Text>
+                <LottieView
+                  style={{ width: pxToDp(80) }}
+                  source={require('../../../../lottie/标题底部.json')}
+                  autoPlay={true}
+                  loop={true}
+                />
               </View>
             </View>
             <TouchableOpacity style={styles.right} onPress={() => this.context.navigate('PageOne', 2)}>
@@ -400,13 +406,16 @@ class Index extends Component {
               <View style={styles.left}>
               </View>
               <View>
-                <View style={{ marginLeft: pxToDp(-121) }}>
+                <View style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}>
                   <Text style={styles.titletext}>
                     梨园子弟
                   </Text>
-                  <Text style={styles.titlepinyin}>
-                    li yuan zi di
-                  </Text>
+                  <LottieView
+                    style={{ width: pxToDp(80) }}
+                    source={require('../../../../lottie/标题底部.json')}
+                    autoPlay={true}
+                    loop={true}
+                  />
                 </View>
               </View>
               <TouchableOpacity style={styles.right} onPress={() => this.context.navigate('PageThree', 2)}>
@@ -423,13 +432,16 @@ class Index extends Component {
             <View style={styles.left}>
             </View>
             <View>
-              <View style={{ marginLeft: pxToDp(-121) }}>
+              <View style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}>
                 <Text style={styles.titletext}>
                   本周热门
                 </Text>
-                <Text style={styles.titlepinyin}>
-                  ben zhou re men
-                </Text>
+                <LottieView
+                  style={{ width: pxToDp(80) }}
+                  source={require('../../../../lottie/标题底部.json')}
+                  autoPlay={true}
+                  loop={true}
+                />
               </View>
             </View>
             <TouchableOpacity style={styles.right} onPress={() => this.context.navigate('HotList')}>
@@ -523,13 +535,16 @@ class Index extends Component {
             <View style={styles.left}>
             </View>
             <View>
-              <View style={{ marginLeft: pxToDp(-121) }}>
+              <View style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}>
                 <Text style={styles.titletext}>
                   剧本推荐
                 </Text>
-                <Text style={styles.titlepinyin}>
-                  ju ben tui jian
-                </Text>
+                <LottieView
+                  style={{ width: pxToDp(80) }}
+                  source={require('../../../../lottie/标题底部.json')}
+                  autoPlay={true}
+                  loop={true}
+                />
               </View>
             </View>
             <TouchableOpacity style={styles.right} onPress={() => this.context.navigate('Scriptlibrary')}>
@@ -610,7 +625,7 @@ class Index extends Component {
                       borderBottomRightRadius: pxToDp(8)
                     }}
                   >
-                    <Svg width="20" height="20" svgXmlData={star} />
+                    <Svg width="24" height="24" svgXmlData={star} />
                   </View>
                 </View>
               </View>
@@ -698,7 +713,6 @@ const styles = StyleSheet.create({
   titlebox: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between',
     marginLeft: pxToDp(16),
     marginRight: pxToDp(16)
   },
@@ -710,17 +724,15 @@ const styles = StyleSheet.create({
   },
   right: {
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
+    marginLeft: pxToDp(180)
   },
   titletext: {
     fontSize: pxToDp(18),
     color: '#62bfad',
-    fontWeight: 'bold'
-  },
-  titlepinyin: {
-    fontSize: pxToDp(14),
-    color: '#999999',
-    marginTop: pxToDp(-6)
+    fontWeight: 'bold',
+    marginLeft: pxToDp(3),
+    marginBottom: pxToDp(-15)
   },
   righttext: {
     fontSize: pxToDp(14),

@@ -15,8 +15,8 @@ import { pxToDp } from '@utils/styleKits';
 import Tiebar from './luntan';
 import { NavigationContext } from '@react-navigation/native';
 import { getMomentListByStatus } from '@service/moment';
-import Addmoment from './addMoment';
-import EZSwiper from 'react-native-ezswiper';
+import BetterBanner from 'react-native-better-banner';
+import LottieView from 'lottie-react-native';
 const { height, width } = Dimensions.get('window');
 class Index extends PureComponent {
   constructor(props) {
@@ -120,43 +120,33 @@ class Index extends PureComponent {
         <ScrollView showsVerticalScrollIndicator={false}>
           <View>
             {/*轮播图 */}
-            <View>
-              <EZSwiper
-                style={[
-                  styles.swiper,
-                  {
-                    width: width - pxToDp(32),
-                    height: 180,
-                    marginLeft: pxToDp(16)
-                  }
+            {/* <View style={{ height: pxToDp(220), width: pxToDp(330) }}>
+              <BetterBanner
+                bannerImages={[
+                  { uri: "https://tse1-mm.cn.bing.net/th/id/R-C.0af272b33dccaedb8315e297545f7121?rik=xcW6aMTUsV3mNw&riu=http%3a%2f%2f5b0988e595225.cdn.sohucs.com%2fimages%2f20190416%2fd38fb783eae2475ab2148dd3fdaf0c90.jpeg&ehk=2YJLKFqQj2cPRYqB6r3VNxY2qqUwCLp%2b6EBxc4s7Rrk%3d&risl=&pid=ImgRaw&r=0" },
+                  { uri: "http://5b0988e595225.cdn.sohucs.com/images/20190416/388406a312e9444d93bdfb94096c88b9.jpeg" },
+                  { uri: "http://5b0988e595225.cdn.sohucs.com/images/20190416/42695a14b85a4474a65366b3776b15cc.jpeg" },
+                  { uri: "http://5b0988e595225.cdn.sohucs.com/images/20190416/08bce251e29f45ecaac5003067eb1acf.jpeg" },
                 ]}
-                dataSource={[
-                  {
-                    uri: 'http://img05.lantingyahui.com/Img05/49/99/30/9e791ddb-a31e-4687-bf71-f21695d302df.jpg'
-                  },
-                  {
-                    uri: 'http://img03.lantingyahui.com/Img03/79/30/34/3f1ff8ca-2a76-4d9b-88a2-21e6498816b6.jpg'
-                  },
-                  {
-                    uri: 'http://img04.lantingyahui.com/Img04/44/03/69/36c6859e-3854-4b33-9863-d7da7666c5f5.jpg'
-                  }
-                ]}
-                width={width - 20}
-                height={180}
-                renderRow={this.renderRow}
-                ratio={0.867}
-                loop={true}
-                index={0}
-                onPress={this.onPressRow}
-                autoplayTimeout={2}
+                onPress={(index) => alert('you pressed index is : ' + index)}
+                isSeamlessScroll={true}
+                indicatorGroupPosition={'center'}
+                bannerHeight={pxToDp(220)}
               />
-            </View>
+            </View> */}
             {/**话题 */}
             <View style={styles.titlebox}>
               <View style={styles.left}></View>
-              <View style={{ marginLeft: pxToDp(6) }}>
-                <Text style={styles.titletext}>热门话题</Text>
-                <Text style={styles.titlepinyin}>re men hua ti</Text>
+              <View style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}>
+                <Text style={styles.titletext}>
+                  热门话题
+                </Text>
+                <LottieView
+                  style={{ width: pxToDp(80) }}
+                  source={require('../../../../../lottie/标题底部.json')}
+                  autoPlay={true}
+                  loop={true}
+                />
               </View>
             </View>
             <ScrollView
@@ -251,12 +241,9 @@ const styles = StyleSheet.create({
   titletext: {
     fontSize: pxToDp(18),
     color: '#62bfad',
-    fontWeight: 'bold'
-  },
-  titlepinyin: {
-    fontSize: pxToDp(14),
-    color: '#999999',
-    marginTop: pxToDp(-6)
+    fontWeight: 'bold',
+    marginLeft: pxToDp(3),
+    marginBottom: pxToDp(-15)
   }
 });
 export default Index;
