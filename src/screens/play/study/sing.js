@@ -10,15 +10,20 @@ import {
   Alert
 } from 'react-native';
 import Top from '@components/common/top';
+import SvgUri from 'react-native-svg-uri';
 import { pxToDp } from '@utils/styleKits';
-import Slider from '@components/common/slider';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import { Video } from 'expo-av';
-import { Audio } from 'expo-av';
+import { Video, Audio } from 'expo-av';
 import request from '@service/index';
 import LottieView from 'lottie-react-native';
 import { NavigationContext } from '@react-navigation/native';
-
+import { Slider } from 'react-native-elements';
+import {
+  start,
+  over,
+  playback,
+  voice
+} from '../../../component/common/iconSvg';
 class Index extends PureComponent {
   state = {
     status: {},
@@ -29,7 +34,9 @@ class Index extends PureComponent {
     isplay: false,
     URI: [],
     autoPlay: true,
-    showLoading: true
+    showLoading: true,
+    value: 1,
+    isClick: false
   };
   static contextType = NavigationContext;
   playSound = async () => {
@@ -68,7 +75,7 @@ class Index extends PureComponent {
   };
 
   pauseSound = async () => {
-    console.log('Stopping Sound');
+    console.log('暂停');
     // this.setState({sound:undefined})
     await this.video.pauseAsync();
     this.setState({ isplay: false });
@@ -118,7 +125,7 @@ class Index extends PureComponent {
   }
   //渲染加载页面
   renderLoading = () => {
-    const { showLoading } = this.state;
+    const { showLoading, value } = this.state;
     return (
       <View style={styles.bottom}>
         <TouchableOpacity
@@ -149,6 +156,9 @@ class Index extends PureComponent {
       </View>
     );
   };
+  clickVoice = () => {
+    this.setState({ isClick: !this.state.isClick });
+  };
   reStart = () => {
     Alert.alert('提示', '确认重唱?', [
       { text: '取消' },
@@ -178,75 +188,73 @@ class Index extends PureComponent {
     const { autoPlay } = this.state;
     return (
       <View style={styles.bottom}>
-        <View>
-          <TouchableOpacity
-            style={{ alignItems: 'center' }}
-            onPress={() => {
-              this.state.status.isPlaying
-                ? this.video.pauseAsync()
-                : this.video.playAsync();
+        {/* 开始 */}
+        <TouchableOpacity
+          style={{ flex: 1, alignItems: 'center' }}
+          onPress={() => {
+            this.state.status.isPlaying
+              ? this.video.pauseAsync()
+              : this.video.playAsync();
+          }}
+        >
+          <SvgUri svgXmlData={start} width="30" height="30" />
+          <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
+            {this.state.status.isPlaying ? '暂停' : '开始'}
+          </Text>
+        </TouchableOpacity>
+        {/* 音量 */}
+        <TouchableOpacity
+          style={{ flex: 1, alignItems: 'center' }}
+          onPress={this.clickVoice}
+        >
+          <SvgUri svgXmlData={voice} width="30" height="30" />
+          <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>音量</Text>
+        </TouchableOpacity>
+        {/* 练唱 */}
+        <TouchableOpacity
+          style={{ alignItems: 'center' }}
+          onPress={() => {
+            this.toContr();
+            // this.toPlay();
+            this.setState({ autoPlay: !autoPlay });
+            this.state.isrecoding
+              ? this.stopRecording()
+              : this.startRecording();
+          }}
+        >
+          <LottieView
+            style={{ width: pxToDp(100) }}
+            source={require('../../../../lottie/练唱.json')}
+            ref={(animation) => {
+              this.animation = animation;
             }}
-          >
-            <Ionicons name="musical-notes-outline" size={25} color="grey" />
-            <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
-              {this.state.status.isPlaying ? '暂停' : '开始'}
-            </Text>
-          </TouchableOpacity>
-        </View>
-        <View>
-          <TouchableOpacity style={{ alignItems: 'center' }}>
-            <Ionicons name="options-outline" size={25} color="grey" />
-            <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>音量</Text>
-          </TouchableOpacity>
-        </View>
-        <View>
-          <TouchableOpacity
-            style={{ alignItems: 'center' }}
-            onPress={() => {
-              this.toContr();
-              // this.toPlay();
-              this.setState({ autoPlay: !autoPlay });
-              this.state.isrecoding
-                ? this.stopRecording()
-                : this.startRecording();
-            }}
-          >
-            <LottieView
-              style={{ width: pxToDp(100) }}
-              source={require('../../../../lottie/练唱.json')}
-              ref={(animation) => {
-                this.animation = animation;
-              }}
-              loop
-            />
-          </TouchableOpacity>
-        </View>
-        <View>
-          <TouchableOpacity
-            style={{ alignItems: 'center' }}
-            onPress={this.reStart}
-          >
-            <Ionicons name="refresh" size={25} color="grey" />
-            <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>重唱</Text>
-          </TouchableOpacity>
-        </View>
-        <View>
-          <TouchableOpacity
-            style={{ alignItems: 'center' }}
-            onPress={() => {
-              this.toPause();
-              this.state.isplay ? this.pauseSound() : this.playSound();
-            }}
-          >
-            <Ionicons name="checkmark" size={25} color="grey" />
-            <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>结束</Text>
-          </TouchableOpacity>
-        </View>
+            loop
+          />
+        </TouchableOpacity>
+        {/* 重唱 */}
+        <TouchableOpacity
+          style={{ flex: 1, alignItems: 'center' }}
+          onPress={this.reStart}
+        >
+          <SvgUri svgXmlData={playback} width="30" height="30" />
+          <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>重唱</Text>
+        </TouchableOpacity>
+        {/* 结束 */}
+        <TouchableOpacity
+          style={{ flex: 1, alignItems: 'center' }}
+          onPress={() => {
+            this.toPause();
+            this.state.isplay ? this.pauseSound() : this.playSound();
+          }}
+        >
+          <SvgUri svgXmlData={over} width="30" height="30" />
+          <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>结束</Text>
+        </TouchableOpacity>
       </View>
     );
   };
   render() {
-    const { showLoading } = this.state;
+    const { showLoading, value } = this.state;
     return (
       <View
         style={{
@@ -267,176 +275,23 @@ class Index extends PureComponent {
             style={{ marginTop: pxToDp(65), marginBottom: pxToDp(65) }}
           >
             <View style={{ alignItems: 'center' }}>
-              <Text
-                style={{
-                  fontSize: pxToDp(16),
-                  lineHeight: pxToDp(40),
-                  alignItems: 'center',
-                  color: '#333333'
-                }}
-              >
-                《穆桂英挂帅》选段
-              </Text>
-              <Text
-                style={{
-                  fontSize: pxToDp(16),
-                  lineHeight: pxToDp(40),
-                  alignItems: 'center',
-                  color: '#333333'
-                }}
-              >
-                猛听得金鼓响画角声震
-              </Text>
-              <Text
-                style={{
-                  fontSize: pxToDp(16),
-                  lineHeight: pxToDp(40),
-                  alignItems: 'center',
-                  color: '#333333'
-                }}
-              >
-                唤起我破天门壮志凌云
-              </Text>
-              <Text
-                style={{
-                  fontSize: pxToDp(16),
-                  lineHeight: pxToDp(40),
-                  alignItems: 'center',
-                  color: '#333333'
-                }}
-              >
-                想当年桃花马上威风凛凛
-              </Text>
-              <Text
-                style={{
-                  fontSize: pxToDp(16),
-                  lineHeight: pxToDp(40),
-                  alignItems: 'center',
-                  color: '#333333'
-                }}
-              >
-                敌血飞溅石榴裙
-              </Text>
-              <Text
-                style={{
-                  fontSize: pxToDp(16),
-                  lineHeight: pxToDp(40),
-                  alignItems: 'center',
-                  color: '#333333'
-                }}
-              >
-                有生之日责当尽
-              </Text>
-              <Text
-                style={{
-                  fontSize: pxToDp(16),
-                  lineHeight: pxToDp(40),
-                  alignItems: 'center',
-                  color: '#333333'
-                }}
-              >
-                寸土怎能够属于他人
-              </Text>
-              <Text
-                style={{
-                  fontSize: pxToDp(16),
-                  lineHeight: pxToDp(40),
-                  alignItems: 'center',
-                  color: '#333333'
-                }}
-              >
-                番王小丑何足论
-              </Text>
-              <Text
-                style={{
-                  fontSize: pxToDp(16),
-                  lineHeight: pxToDp(40),
-                  alignItems: 'center',
-                  color: '#333333'
-                }}
-              >
-                我一剑能当百万的兵
-              </Text>
-              <Text
-                style={{
-                  fontSize: pxToDp(16),
-                  lineHeight: pxToDp(40),
-                  alignItems: 'center',
-                  color: '#333333'
-                }}
-              >
-                猛听得金鼓响画角声震
-              </Text>
-              <Text
-                style={{
-                  fontSize: pxToDp(16),
-                  lineHeight: pxToDp(40),
-                  alignItems: 'center',
-                  color: '#333333'
-                }}
-              >
-                唤起我破天门壮志凌云
-              </Text>
-              <Text
-                style={{
-                  fontSize: pxToDp(16),
-                  lineHeight: pxToDp(40),
-                  alignItems: 'center',
-                  color: '#333333'
-                }}
-              >
-                想当年桃花马上威风凛凛
-              </Text>
-              <Text
-                style={{
-                  fontSize: pxToDp(16),
-                  lineHeight: pxToDp(40),
-                  alignItems: 'center',
-                  color: '#333333'
-                }}
-              >
-                敌血飞溅石榴裙
-              </Text>
-              <Text
-                style={{
-                  fontSize: pxToDp(16),
-                  lineHeight: pxToDp(40),
-                  alignItems: 'center',
-                  color: '#333333'
-                }}
-              >
-                有生之日责当尽
-              </Text>
-              <Text
-                style={{
-                  fontSize: pxToDp(16),
-                  lineHeight: pxToDp(40),
-                  alignItems: 'center',
-                  color: '#333333'
-                }}
-              >
-                寸土怎能够属于他人
-              </Text>
-              <Text
-                style={{
-                  fontSize: pxToDp(16),
-                  lineHeight: pxToDp(40),
-                  alignItems: 'center',
-                  color: '#333333'
-                }}
-              >
-                番王小丑何足论
-              </Text>
-              <Text
-                style={{
-                  fontSize: pxToDp(16),
-                  lineHeight: pxToDp(40),
-                  alignItems: 'center',
-                  color: '#333333'
-                }}
-              >
-                我一剑能当百万的兵
-              </Text>
+              <Text style={styles.basicbox}>《穆桂英挂帅》选段</Text>
+              <Text style={styles.basicbox}>猛听得金鼓响画角声震</Text>
+              <Text style={styles.basicbox}>唤起我破天门壮志凌云</Text>
+              <Text style={styles.basicbox}>想当年桃花马上威风凛凛</Text>
+              <Text style={styles.basicbox}>敌血飞溅石榴裙</Text>
+              <Text style={styles.basicbox}>有生之日责当尽</Text>
+              <Text style={styles.basicbox}>寸土怎能够属于他人</Text>
+              <Text style={styles.basicbox}>番王小丑何足论</Text>
+              <Text style={styles.basicbox}>我一剑能当百万的兵</Text>
+              <Text style={styles.basicbox}>猛听得金鼓响画角声震</Text>
+              <Text style={styles.basicbox}>唤起我破天门壮志凌云</Text>
+              <Text style={styles.basicbox}>想当年桃花马上威风凛凛</Text>
+              <Text style={styles.basicbox}>敌血飞溅石榴裙</Text>
+              <Text style={styles.basicbox}>有生之日责当尽</Text>
+              <Text style={styles.basicbox}>寸土怎能够属于他人</Text>
+              <Text style={styles.basicbox}>番王小丑何足论</Text>
+              <Text style={styles.basicbox}>我一剑能当百万的兵</Text>
             </View>
             <View style={{ alignItems: 'center', justifyContent: 'center' }}>
               <Video
@@ -444,10 +299,35 @@ class Index extends PureComponent {
                 source={require('../study/越剧追鱼.mp3')}
                 resizeMode="contain"
                 onPlaybackStatusUpdate={(status) => this.setState({ status })}
+                volume={value}
               />
             </View>
           </ScrollView>
           <View>{showLoading ? this.renderLoading() : this.renderMenu()}</View>
+          <View
+            style={{
+              position: 'absolute',
+              top: pxToDp(520),
+              left: pxToDp(42),
+              width: pxToDp(30),
+              height: pxToDp(120)
+            }}
+          >
+            <Slider
+              style={{
+                height: pxToDp(10),
+                width: pxToDp(100),
+                transform: [{ rotate: '-90deg' }],
+                display: this.state.isClick ? 'flex' : 'none'
+              }}
+              thumbTintColor={'#62bfad'}
+              thumbStyle={{ width: pxToDp(14), height: pxToDp(14) }}
+              maximumTrackTintColor={'#999999'}
+              minimumTrackTintColor={'#00c06d'}
+              value={this.state.value}
+              onValueChange={(value) => this.setState({ value })}
+            />
+          </View>
         </ImageBackground>
       </View>
     );
@@ -484,11 +364,16 @@ const styles = StyleSheet.create({
     height: pxToDp(60),
     marginBottom: pxToDp(15),
     width: '100%',
-    backgroundColor: 'transparent',
-    alignSelf: 'center',
     alignItems: 'center',
     flexDirection: 'row',
-    justifyContent: 'space-around'
+    justifyContent: 'space-around',
+    backgroundColor: 'transparent'
+  },
+  basicbox: {
+    fontSize: pxToDp(16),
+    lineHeight: pxToDp(40),
+    alignItems: 'center',
+    color: '#333333'
   }
 });
 
