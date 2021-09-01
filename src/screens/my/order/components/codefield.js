@@ -1,5 +1,5 @@
-import {Animated, Image, SafeAreaView, Text, View,StyleSheet, TouchableNativeFeedback, TouchableOpacity} from 'react-native';
-import React, {useState} from 'react';
+import { Animated, Image, SafeAreaView, Text, View, StyleSheet, TouchableNativeFeedback, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
 
 import {
   CodeField,
@@ -8,7 +8,7 @@ import {
   useClearByFocusCell,
 } from 'react-native-confirmation-code-field';
 
-const {Value, Text: AnimatedText} = Animated;
+const { Value, Text: AnimatedText } = Animated;
 
 const CELL_COUNT = 4;
 const source = {
@@ -18,7 +18,7 @@ const source = {
 
 const animationsColor = [...new Array(CELL_COUNT)].map(() => new Value(0));
 const animationsScale = [...new Array(CELL_COUNT)].map(() => new Value(1));
-const animateCell = ({hasValue, index, isFocused}) => {
+const animateCell = ({ hasValue, index, isFocused }) => {
   Animated.parallel([
     Animated.timing(animationsColor[index], {
       useNativeDriver: false,
@@ -35,24 +35,24 @@ const animateCell = ({hasValue, index, isFocused}) => {
 
 const AnimatedExample = (prop) => {
   const [value, setValue] = useState('');
-  const ref = useBlurOnFulfill({value, cellCount: CELL_COUNT});
+  const ref = useBlurOnFulfill({ value, cellCount: CELL_COUNT });
   const [props, getCellOnLayoutHandler] = useClearByFocusCell({
     value,
     setValue,
   });
 
-  const renderCell = ({index, symbol, isFocused}) => {
+  const renderCell = ({ index, symbol, isFocused }) => {
     const hasValue = Boolean(symbol);
     const animatedCellStyle = {
       backgroundColor: hasValue
         ? animationsScale[index].interpolate({
-            inputRange: [0, 1],
-            outputRange: [NOT_EMPTY_CELL_BG_COLOR, ACTIVE_CELL_BG_COLOR],
-          })
+          inputRange: [0, 1],
+          outputRange: [NOT_EMPTY_CELL_BG_COLOR, ACTIVE_CELL_BG_COLOR],
+        })
         : animationsColor[index].interpolate({
-            inputRange: [0, 1],
-            outputRange: [DEFAULT_CELL_BG_COLOR, ACTIVE_CELL_BG_COLOR],
-          }),
+          inputRange: [0, 1],
+          outputRange: [DEFAULT_CELL_BG_COLOR, ACTIVE_CELL_BG_COLOR],
+        }),
       borderRadius: animationsScale[index].interpolate({
         inputRange: [0, 1],
         outputRange: [CELL_SIZE, CELL_BORDER_RADIUS],
@@ -70,7 +70,7 @@ const AnimatedExample = (prop) => {
     // Run animation on next event loop tik
     // Because we need first return new style prop and then animate this value
     setTimeout(() => {
-      animateCell({hasValue, index, isFocused});
+      animateCell({ hasValue, index, isFocused });
     }, 0);
 
     return (
@@ -98,15 +98,15 @@ const AnimatedExample = (prop) => {
         textContentType="oneTimeCode"
         renderCell={renderCell}
       />
-   {   value.length==4?
-      (<TouchableOpacity onPress={prop.onPress}>
-      <View style={styles.nextButton}>
-        <Text style={styles.nextButtonText}>确认支付</Text>
-      </View>
-      </TouchableOpacity> ):(null)
-}
+      {value.length == 4 ?
+        (<TouchableOpacity onPress={prop.onPress}>
+          <View style={styles.nextButton}>
+            <Text style={styles.nextButtonText}>确认支付</Text>
+          </View>
+        </TouchableOpacity>) : (null)
+      }
     </SafeAreaView>
-   
+
   );
 };
 export const CELL_SIZE = 55;
@@ -149,8 +149,8 @@ const styles = StyleSheet.create({
 
   root: {
 
-    height:300,
-    width:260,
+    height: 300,
+    width: 260,
   },
   title: {
 
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
     height: 158 / 2.4,
     marginLeft: 'auto',
     marginRight: 'auto',
-    marginBottom:30
+    marginBottom: 30
   },
   subTitle: {
     paddingTop: 30,
@@ -173,9 +173,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   nextButton: {
-marginTop:40,
+    marginTop: 40,
     borderRadius: 60,
-    height: 60,
+    height: 45,
     backgroundColor: '#62bfad',
     justifyContent: 'center',
     minWidth: 200,

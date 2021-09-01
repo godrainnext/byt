@@ -7068,8 +7068,8 @@ react-native-collapsible@^1.6.0:
 
 react-native-confirmation-code-field@^7.1.0:
   version "7.1.0"
-  resolved "https://registry.nlark.com/react-native-confirmation-code-field/download/react-native-confirmation-code-field-7.1.0.tgz#2394e80ad399cbbcfc7f87bb2eb8bc34eaa43a55"
-  integrity sha1-I5ToCtOZy7z8f4e7Lri8NOqkOlU=
+  resolved "https://registry.yarnpkg.com/react-native-confirmation-code-field/-/react-native-confirmation-code-field-7.1.0.tgz#2394e80ad399cbbcfc7f87bb2eb8bc34eaa43a55"
+  integrity sha512-cGE36gnyQR9inqQwHghPhBiMj8PZOmW4n/bUtv+xnDxf4/gTv7ga6v3DSCREfQXRyeCmHZ7iRzj7diJzAgvxFg==
 
 react-native-datepicker@^1.7.2:
   version "1.7.2"
