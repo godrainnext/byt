@@ -187,8 +187,7 @@ class shopdetails extends PureComponent {
         >
           {/* 商品图片 */}
           <View style={{ alignItems: 'center', marginTop: pxToDp(20) }}>
-            <Swiper
-              shopbanner={this.state.shopbanner} />
+            <Swiper shopbanner={this.state.shopbanner} />
           </View>
 
           {/* 品名 价格 */}

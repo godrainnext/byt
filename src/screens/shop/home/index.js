@@ -19,6 +19,7 @@ import Maylike from './components/maylike';
 import { getShopList } from '@service/shop';
 import { connect } from 'react-redux';
 import { getAddressListAction } from '../../my/address/store/actions';
+import LottieView from 'lottie-react-native';
 
 class Index extends PureComponent {
   state = {
@@ -103,13 +104,16 @@ class Index extends PureComponent {
           <View style={styles.titlebox}>
             <View style={styles.left}>
             </View>
-            <View style={{ marginLeft: pxToDp(6) }}>
+            <View style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}>
               <Text style={styles.titletext}>
                 越剧商城
               </Text>
-              <Text style={styles.titlepinyin}>
-                yue ju shang cheng
-              </Text>
+              <LottieView
+                style={{ width: pxToDp(80) }}
+                source={require('../../../../lottie/标题底部.json')}
+                autoPlay={true}
+                loop={true}
+              />
             </View>
           </View>
           <View
@@ -169,13 +173,16 @@ class Index extends PureComponent {
           <View style={styles.titlebox}>
             <View style={styles.left}>
             </View>
-            <View style={{ marginLeft: pxToDp(6) }}>
+            <View style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}>
               <Text style={styles.titletext}>
                 猜你喜欢
               </Text>
-              <Text style={styles.titlepinyin}>
-                cai ni xi huan
-              </Text>
+              <LottieView
+                style={{ width: pxToDp(80) }}
+                source={require('../../../../lottie/标题底部.json')}
+                autoPlay={true}
+                loop={true}
+              />
             </View>
           </View>
           <View
@@ -283,6 +290,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginLeft: pxToDp(16),
+    height: pxToDp(30),
     marginRight: pxToDp(16),
     marginTop: pxToDp(8)
   },
@@ -295,12 +303,9 @@ const styles = StyleSheet.create({
   titletext: {
     fontSize: pxToDp(18),
     color: '#62bfad',
-    fontWeight: 'bold'
-  },
-  titlepinyin: {
-    fontSize: pxToDp(14),
-    color: '#999999',
-    marginTop: pxToDp(-6)
+    fontWeight: 'bold',
+    marginLeft: pxToDp(3),
+    marginBottom: pxToDp(-15)
   }
 });
 export default connect(() => ({}), { getAddressListAction })(Index);

@@ -12,6 +12,7 @@ import { pxToDp } from '@utils/styleKits';
 import ParallaxScrollView from 'react-native-parallax-scroll-view';
 import CustormerBar from '../seetings/component/CustormerBar';
 import Dongtai from '../seetings/component/dontai';
+import LottieView from 'lottie-react-native';
 
 export default class hello extends Component {
   static contextType = NavigationContext;
@@ -31,7 +32,7 @@ export default class hello extends Component {
               event.nativeEvent.contentOffset.y / 3
           });
         }}
-        renderStickyHeader={()=>{<View style={{backgroundColor:'#fff'}}><Text>11111</Text></View>}}
+        renderStickyHeader={() => { <View style={{ backgroundColor: '#fff' }}><Text>11111</Text></View> }}
         showsVerticalScrollIndicator={false}
         parallaxHeaderHeight={300}
         navBarColor="#fa9222"
@@ -72,6 +73,12 @@ export default class hello extends Component {
                 source={require('./3.png')}
                 style={{ width: pxToDp(40), height: pxToDp(40) }}
               /> */}
+              <LottieView
+                style={{ marginRight: pxToDp(60) }}
+                source={require('../../../../lottie/房车.json')}
+                autoPlay
+                loop={false}
+              />
               <Text style={{ fontSize: pxToDp(18), color: '#333333' }}>
                 我的动态
               </Text>

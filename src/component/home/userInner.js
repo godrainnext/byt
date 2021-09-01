@@ -54,7 +54,7 @@ class UserInner extends PureComponent {
     this.removeFollows.remove();
   }
   render() {
-    const { nickName, avatar, id } = this.props.userInfo;
+    const { nickName, avatar, id, ownSay } = this.props.userInfo;
     const { fansCount = 0, followCount = 0 } = this.state;
     return (
       <ImageBackground
@@ -123,53 +123,53 @@ class UserInner extends PureComponent {
               <Text
                 style={{
                   marginLeft: pxToDp(8),
-                  fontSize: pxToDp(12),
+                  fontSize: pxToDp(14),
                   color: '#666666',
                 }}
               >
-                我爱越剧
+                {ownSay}
               </Text>
             </View>
-            <View style={{ flexDirection: 'row', marginTop: pxToDp(6), alignItems: 'center', marginLeft: pxToDp(8) }}>
-              <View style={{ flexDirection: 'row', paddingRight: pxToDp(8), }}>
-                {/* <TouchableOpacity
-              onPress={() => {
-                this.context.navigate('Follow', id);
-              }}
-              
-            > */}
-
-                <Text style={{ fontSize: pxToDp(12), color: '#333333' }}>关注</Text><Text
-                  style={{
-                    fontSize: pxToDp(12),
-                    color: '#333333',
-                    alignItems: 'center',
-                  }}
-                >
-                  {followCount}
-                </Text>
-                {/* </TouchableOpacity> */}
+            <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: pxToDp(8) }}>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
+              >
+                <View style={{ marginRight: pxToDp(4), flexDirection: 'row', alignItems: 'center' }}>
+                  <Text
+                    style={{
+                      fontSize: pxToDp(16),
+                      fontWeight: 'bold',
+                      color: '#333333',
+                      alignSelf: 'center',
+                      marginLeft: pxToDp(8)
+                    }}
+                  >
+                    {fansCount}
+                  </Text>
+                  <Text style={{ fontSize: pxToDp(14), color: '#666666', marginLeft: pxToDp(4) }}>
+                    粉丝
+                  </Text>
+                </View>
+                <View style={{ marginLeft: pxToDp(4), flexDirection: 'row', alignItems: 'center' }}>
+                  <Text
+                    style={{
+                      fontSize: pxToDp(16),
+                      fontWeight: 'bold',
+                      color: '#333333',
+                      alignSelf: 'center'
+                    }}
+                  >
+                    {followCount}
+                  </Text>
+                  <Text style={{ fontSize: pxToDp(14), color: '#666666', marginLeft: pxToDp(4) }}>
+                    关注
+                  </Text>
+                </View>
               </View>
-              <View style={{ height: pxToDp(12), borderWidth: .5, margin: pxToDp(4), marginRight: pxToDp(12), borderColor: '#333333' }}></View>
-              <View style={{ flexDirection: 'row', alignItems: 'center', }}>
-                {/* <TouchableOpacity
-              onPress={() => {
-                this.context.navigate('Fan', id);
-              }}
-            > */}
-                <Text style={{ fontSize: pxToDp(12), color: '#333333' }}>粉丝</Text>
-                <Text
-                  style={{
-                    fontSize: pxToDp(12),
-                    color: '#33333',
-                    alignSelf: 'center'
-                  }}
-                >
-                  {fansCount}
-                </Text>
-                {/* </TouchableOpacity> */}
-              </View>
-
             </View>
           </View>
         </View>

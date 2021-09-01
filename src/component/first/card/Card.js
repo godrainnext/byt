@@ -19,12 +19,13 @@ class Card extends Component {
     ViewHeight: new Animated.Value(450),
     textTop: new Animated.Value(20),
     closeBtnOpacity: new Animated.Value(0),
-    isShow: true
+    isShow: true,
+    infoTextHight:pxToDp(480)
   }
   
  
   render() {
-    const { ViewHeight, ViewWidth, textTop, closeBtnOpacity, isShow } = this.state
+    const { ViewHeight, ViewWidth, textTop, closeBtnOpacity, isShow ,infoTextHight} = this.state
     return (
       <View>
         {isShow ? (
@@ -51,7 +52,7 @@ class Card extends Component {
               </AnimatedCloseVtn>
             </TouchableNativeFeedback>
             <Start>Star {this.props.startNum}K+</Start>
-            <Info>{this.props.info}</Info>
+            <Info style={{height:infoTextHight}}>{this.props.info}</Info>
             <LinearGradient
               colors={["rgba(255,255,255,0.2)", "rgba(255,255,255,0.8)"]}
               style={{
@@ -73,6 +74,9 @@ class Card extends Component {
     this.AnimatedSpring(this.state.ViewHeight, screenHeight - 80)
     this.AnimatedSpring(this.state.textTop, 60)
     this.AnimatedSpring(this.state.closeBtnOpacity, 1)
+    this.setState({infoTextHight:pxToDp(1200)})
+    // this.AnimatedSpring(this.state.infoTextHight, 1200)
+
     let seconds = 3;
     let timeId = setInterval(() => {
       seconds--;
@@ -99,6 +103,9 @@ class Card extends Component {
     this.AnimatedSpring(this.state.ViewHeight, 450)
     this.AnimatedSpring(this.state.textTop, 20)
     this.AnimatedSpring(this.state.closeBtnOpacity, 0)
+    this.setState({infoTextHight:pxToDp(480)})
+    // this.AnimatedSpring(this.state.infoTextHight, 480)
+
     // StatusBar.setHidden(false)
     // this.props.closeCard()
   }
