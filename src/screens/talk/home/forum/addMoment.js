@@ -107,7 +107,6 @@ class index extends PureComponent {
     // console.log(text)
     if (!text.trim()) {
       ToastAndroid.show('发布内容不能为空', ToastAndroid.SHORT);
-
       return;
     }
     if (!this.state.form.length) {
