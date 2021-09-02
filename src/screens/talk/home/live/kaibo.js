@@ -43,9 +43,9 @@ const requestCameraAndAudioPermission = async () => {
     ]);
     if (
       granted['android.permission.RECORD_AUDIO'] ===
-      PermissionsAndroid.RESULTS.GRANTED &&
+        PermissionsAndroid.RESULTS.GRANTED &&
       granted['android.permission.CAMERA'] ===
-      PermissionsAndroid.RESULTS.GRANTED
+        PermissionsAndroid.RESULTS.GRANTED
     ) {
       console.log('You can use the cameras & mic');
     } else {
@@ -295,15 +295,22 @@ class App extends Component {
               backgroundColor: 'white'
             }}
           >
-            <View>
-              <View style={{ marginBottom: pxToDp(-24) }}>
+            <View
+              style={{
+                flexDirection: 'column',
+                justifyContent: 'space-evenly',
+                height: pxToDp(240)
+              }}
+            >
+              <View>
                 <Input
                   placeholder="请输入房间名"
                   // rightIcon={<Text style={{ color: 'gray' }}></Text>}
                   value={roomName}
                   inputStyle={{ fontSize: pxToDp(16) }}
                   inputContainerStyle={{
-                    borderBottomWidth: 0
+                    borderBottomWidth: 0,
+                    width: 200
                   }}
                   onChangeText={(roomName) => this.setState({ roomName })}
                   leftIcon={
@@ -334,7 +341,7 @@ class App extends Component {
                   }
                 />
               </View>
-              <View style={{ marginBottom: pxToDp(-24) }}>
+              <View>
                 <Input
                   placeholder="请输入房间号"
                   value={channelName}
@@ -372,9 +379,9 @@ class App extends Component {
                   }
                 />
               </View>
-              <View style={{ marginBottom: pxToDp(-16) }}>
+              <View>
                 <Input
-                  rightIcon={<View>{this.tianjia()}</View>}
+                  rightIcon={this.tianjia()}
                   disabled={true}
                   inputContainerStyle={{
                     borderBottomWidth: 0
@@ -409,6 +416,14 @@ class App extends Component {
               </View>
             </View>
           </View>
+          {this.state.image?.uri ? (
+            <Image
+              source={{ uri: this.state.image?.uri }}
+              style={{ height: pxToDp(240) }}
+            />
+          ) : (
+            <View></View>
+          )}
         </View>
         <View style={styles.buttonHolder}>
           <Mybtn
@@ -451,8 +466,8 @@ class App extends Component {
     return (
       <View
         style={styles.remoteContainer}
-      // contentContainerStyle={{ paddingHorizontal: 2.5 }}
-      // horizontal={true}
+        // contentContainerStyle={{ paddingHorizontal: 2.5 }}
+        // horizontal={true}
       >
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
           <View
@@ -586,9 +601,19 @@ class App extends Component {
             '接收h5页面传过来的消息';
           }}
         />
-        <TouchableOpacity onPress={() => this._engine.switchCamera()} style={{ position: "absolute", bottom: pxToDp(20), right: pxToDp(40) }}>
-          <SvgUri svgXmlData='<svg t="1630203432296" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2320" width="200" height="200"><path d="M909.232 160l-159.6 0c-3.584-32-33.856-48-70.672-48L352.256 112c-36.832 0-67.088 16-70.656 48L129.088 160C89.568 160 48 196.88 48 236.096l0 539.76C48 815.072 89.568 848 129.088 848l780.144 0C948.752 848 976 815.072 976 775.856L976 236.096C976 196.88 948.752 160 909.232 160zM514.128 769.008c-141.136-0.816-255.968-116.288-255.968-257.408 0-60.912 21.696-119.824 61.056-166.304l-28.864-26.624 155.184-48.608-35.92 158.608-38.032-35.088c-27.28 33.28-42.384 74.928-42.384 118.016 0 102.176 83.152 185.808 185.344 186.4L514.128 769.008zM758.144 690.336l-153.76 52.96 30.752-159.312 35.6 30.768c20.432-30.592 31.328-66.048 31.328-103.136 0-95.856-74.72-177.408-170.096-185.664l6.128-70.752c131.76 11.424 234.992 124.064 234.992 256.432 0 54.224-16.72 105.968-48.272 149.904L758.144 690.336z" p-id="2321" fill="#515151"></path></svg>'
-            width='30' height='30' />
+        <TouchableOpacity
+          onPress={() => this._engine.switchCamera()}
+          style={{
+            position: 'absolute',
+            bottom: pxToDp(20),
+            right: pxToDp(40)
+          }}
+        >
+          <SvgUri
+            svgXmlData='<svg t="1630203432296" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2320" width="200" height="200"><path d="M909.232 160l-159.6 0c-3.584-32-33.856-48-70.672-48L352.256 112c-36.832 0-67.088 16-70.656 48L129.088 160C89.568 160 48 196.88 48 236.096l0 539.76C48 815.072 89.568 848 129.088 848l780.144 0C948.752 848 976 815.072 976 775.856L976 236.096C976 196.88 948.752 160 909.232 160zM514.128 769.008c-141.136-0.816-255.968-116.288-255.968-257.408 0-60.912 21.696-119.824 61.056-166.304l-28.864-26.624 155.184-48.608-35.92 158.608-38.032-35.088c-27.28 33.28-42.384 74.928-42.384 118.016 0 102.176 83.152 185.808 185.344 186.4L514.128 769.008zM758.144 690.336l-153.76 52.96 30.752-159.312 35.6 30.768c20.432-30.592 31.328-66.048 31.328-103.136 0-95.856-74.72-177.408-170.096-185.664l6.128-70.752c131.76 11.424 234.992 124.064 234.992 256.432 0 54.224-16.72 105.968-48.272 149.904L758.144 690.336z" p-id="2321" fill="#515151"></path></svg>'
+            width="30"
+            height="30"
+          />
         </TouchableOpacity>
       </View>
     );
@@ -598,11 +623,13 @@ class App extends Component {
 const styles = StyleSheet.create({
   max: {
     flex: 1,
-    backgroundColor: '#D5E8E6',
+    backgroundColor: '#D5E8E6'
   },
   buttonHolder: {
-    flex: 1,
-    marginTop: pxToDp(544)
+    position: 'absolute',
+    bottom: 15,
+    left: 0,
+    right: 0
   },
   button: {
     paddingHorizontal: 20,

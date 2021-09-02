@@ -55,11 +55,15 @@ const Music = memo(function (props) {
             alignItems: 'center',
             height: '100%',
             left: 20,
-            bottom: 15,
+            bottom: 15
           }}
         >
           <LottieView
-            style={{ height: pxToDp(20), alignSelf: 'center', justifyContent: 'center' }}
+            style={{
+              height: pxToDp(20),
+              alignSelf: 'center',
+              justifyContent: 'center'
+            }}
             source={require('../../../../../lottie/40716-musicsoundequalizer.json')}
             autoPlay={true}
             loop
@@ -75,7 +79,12 @@ const Music = memo(function (props) {
         onPlaybackStatusUpdate={props.onPlaybackStatusUpdate}
       />
       <TouchableOpacity
-        style={{ position: 'absolute', bottom: pxToDp(12), right: pxToDp(16), opacity: 0.5 }}
+        style={{
+          position: 'absolute',
+          bottom: pxToDp(12),
+          right: pxToDp(16),
+          opacity: 0.5
+        }}
         onPress={() =>
           props.status.isPlaying
             ? video.current.pauseAsync()
@@ -153,10 +162,12 @@ class Index extends PureComponent {
     this.setState({ isplay: false });
   };
   showModel1 = (data) => {
-    const { modalVisible1, modaldata } = this.state
+    const { modalVisible1, modaldata } = this.state;
 
-    return (modaldata.user == undefined ? (<View></View>) :
-      (<View style={styles.centeredView1}>
+    return modaldata.user == undefined ? (
+      <View></View>
+    ) : (
+      <View style={styles.centeredView1}>
         <Modal
           animationType="slide"
           transparent={true}
@@ -167,65 +178,130 @@ class Index extends PureComponent {
         >
           <View style={styles.centeredView1}>
             <View style={styles.modalView1}>
-              <TouchableOpacity onPress={()=>{this.setState({modalVisible1:false})}}  style={{position:'absolute',right:5,top:0}}>
-            <Ionicon
+              <TouchableOpacity
+                onPress={() => {
+                  this.setState({ modalVisible1: false });
+                }}
+                style={{ position: 'absolute', right: 5, top: 0 }}
+              >
+                <Ionicon
                   name="md-close-circle-outline"
                   size={30}
                   color="grey"
-                 
                 />
-                </TouchableOpacity>
-              <Image source={{ uri: modaldata.images[0] }} style={{ width: '120%', height: pxToDp(200), alignSelf: 'center' }} />
-              <View style={{ flexDirection: 'row', borderRadius: pxToDp(50), justifyContent: 'flex-start', marginTop: pxToDp(20) }}>
-                <Image source={{ uri: modaldata.user.avatar }} style={{ width: pxToDp(80), height: pxToDp(80), borderRadius: pxToDp(80) }} />
-                <View>
-                  <Text style={{ marginLeft: pxToDp(16), fontWeight: 'bold', fontSize: pxToDp(16) }}>{modaldata.user.nickName}</Text>
-                  <Text style={{ marginLeft: pxToDp(16), fontSize: pxToDp(14) }}> {modaldata.createTime}</Text>
-                </View>
-              </View>
-              <Text style={{ marginLeft: pxToDp(16), fontSize: pxToDp(18), marginTop: pxToDp(10) }}>{modaldata.content}</Text>
-              <View style={{justifyContent:'space-around',height:160,width:'120%',alignSelf:'center'}}>
-              <Text style={{alignSelf:'center',fontSize:pxToDp(18),}}>分享至</Text>
-              <View style={{borderWidth:.3,width:'100%',alignSelf:'center',borderColor:'#999999'}}></View>
+              </TouchableOpacity>
+              <Image
+                source={{ uri: modaldata.images[0] }}
+                style={{
+                  width: '120%',
+                  height: pxToDp(200),
+                  alignSelf: 'center'
+                }}
+              />
               <View
                 style={{
                   flexDirection: 'row',
-                  justifyContent: 'space-around',
-                  width: pxToDp(280),
-                  alignSelf:'center'
-  
+                  borderRadius: pxToDp(50),
+                  justifyContent: 'flex-start',
+                  marginTop: pxToDp(20)
                 }}
               >
-                <TouchableOpacity style={{ alignItems: 'center' }}>
-                  <Ionicons name="qq" size={25} color="#87CEFA" />
-                  <Text style={{ fontSize: pxToDp(12), color: '#333333' }}>qq</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={{ alignItems: 'center' }}>
-                  <Ionicons name="wechat" size={25} color="#32CD32" />
-                  <Text style={{ fontSize: pxToDp(12), color: '#333333' }}>微信</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={{ alignItems: 'center' }}>
-                  <Ionicons name="weibo" size={25} color="#FA8072" />
-                  <Text style={{ fontSize: pxToDp(12), color: '#333333' }}>微博</Text>
-                </TouchableOpacity>
+                <Image
+                  source={{ uri: modaldata.user.avatar }}
+                  style={{
+                    width: pxToDp(80),
+                    height: pxToDp(80),
+                    borderRadius: pxToDp(80)
+                  }}
+                />
+                <View>
+                  <Text
+                    style={{
+                      marginLeft: pxToDp(16),
+                      fontWeight: 'bold',
+                      fontSize: pxToDp(16)
+                    }}
+                  >
+                    {modaldata.user.nickName}
+                  </Text>
+                  <Text
+                    style={{ marginLeft: pxToDp(16), fontSize: pxToDp(14) }}
+                  >
+                    {' '}
+                    {modaldata.createTime}
+                  </Text>
+                </View>
               </View>
+              <Text
+                style={{
+                  marginLeft: pxToDp(16),
+                  fontSize: pxToDp(18),
+                  marginTop: pxToDp(10)
+                }}
+              >
+                {modaldata.content}
+              </Text>
+              <View
+                style={{
+                  justifyContent: 'space-around',
+                  height: 160,
+                  width: '120%',
+                  alignSelf: 'center'
+                }}
+              >
+                <Text style={{ alignSelf: 'center', fontSize: pxToDp(18) }}>
+                  分享至
+                </Text>
+                <View
+                  style={{
+                    borderWidth: 0.3,
+                    width: '100%',
+                    alignSelf: 'center',
+                    borderColor: '#999999'
+                  }}
+                ></View>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    justifyContent: 'space-around',
+                    width: pxToDp(280),
+                    alignSelf: 'center'
+                  }}
+                >
+                  <TouchableOpacity style={{ alignItems: 'center' }}>
+                    <Ionicons name="qq" size={25} color="#87CEFA" />
+                    <Text style={{ fontSize: pxToDp(12), color: '#333333' }}>
+                      qq
+                    </Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity style={{ alignItems: 'center' }}>
+                    <Ionicons name="wechat" size={25} color="#32CD32" />
+                    <Text style={{ fontSize: pxToDp(12), color: '#333333' }}>
+                      微信
+                    </Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity style={{ alignItems: 'center' }}>
+                    <Ionicons name="weibo" size={25} color="#FA8072" />
+                    <Text style={{ fontSize: pxToDp(12), color: '#333333' }}>
+                      微博
+                    </Text>
+                  </TouchableOpacity>
+                </View>
               </View>
             </View>
           </View>
-
         </Modal>
-      </View>)
-
-    )
-  }
+      </View>
+    );
+  };
   static contextType = NavigationContext;
 
   render() {
     console.log(this.state.modaldata);
-    console.log(typeof (this.state.modaldata.user));
+    console.log(typeof this.state.modaldata.user);
     const music = this.props.dongtai.filter((item) => item.label);
     const actress = this.props.dongtai.filter((item) => !item.label);
-    const { modalVisible, modalVisible1, } = this.state;
+    const { modalVisible, modalVisible1 } = this.state;
     return (
       <View>
         <View style={styles.centeredView}>
@@ -238,7 +314,6 @@ class Index extends PureComponent {
               this.setModalVisible(!modalVisible);
             }}
           >
-
             <View style={styles.centeredView}>
               <View style={styles.modalView}>
                 <View style={{ alignItems: 'center' }}>
@@ -319,295 +394,10 @@ class Index extends PureComponent {
             }}
           >
             {actress.map((item) => (
-              <View
-                key={item.id}
-                style={{
-                  elevation: 2,
-                  shadowColor: 'black', //  阴影颜色
-                  shadowOffset: { width: 0, height: 0 }, // 阴影偏移
-                  shadowOpacity: 1, // 阴影不透明度
-                  shadowRadius: 10, //  圆角
-                  borderWidth: 0,
-                  marginBottom: pxToDp(20),
-                  backgroundColor: 'white',
-                  borderRadius: pxToDp(8)
-                }}
-              >
-
-                <TouchableOpacity
-                  style={{
-                    right: pxToDp(16),
-                    top: pxToDp(24),
-                    position: 'absolute',
-                  }}
-                  onPress={() => {
-                    this.setModalVisible(true);
-                  }}
-                >
-                  <SvgUri svgXmlData={sandian} width="20" height="20" />
-                </TouchableOpacity>
-                <View style={{ flexDirection: 'row', alignItems: 'center', margin: pxToDp(8) }}>
-                  <Image
-                    source={{ uri: changeImgSize(item.user.avatar) }}
-                    style={{
-                      width: pxToDp(60),
-                      height: pxToDp(60),
-                      borderRadius: pxToDp(30)
-                    }}
-                  />
-                  <TouchableOpacity
-                    onPress={() =>
-                      this.context.navigate('Inluntan', {
-                        mid: item.id,
-                        uid: item.user.id
-                      })
-                    }
-                  >
-                    <View>
-                      <Text
-                        style={{
-                          fontSize: pxToDp(18),
-                          color: '#000000',
-                          fontWeight: 'bold',
-                          marginLeft: pxToDp(8)
-                        }}
-                      >
-                        {item.user.nickName}
-                      </Text>
-                      <Text
-                        style={{
-                          fontSize: pxToDp(16),
-                          color: '#333333',
-                          marginLeft: pxToDp(8)
-                        }}
-                      >
-                        {item.createTime}
-                      </Text>
-                    </View>
-                  </TouchableOpacity>
-                </View>
-                <View
-                  style={{
-                    marginLeft: pxToDp(16),
-                    marginRight: pxToDp(16),
-                    marginBottom: pxToDp(16),
-                  }}
-                >
-                  <TouchableOpacity
-                    onPress={() => {
-                      this.context.navigate('Inluntan', {
-                        mid: item.id,
-                        uid: item.user.id
-                      });
-                    }}
-                  >
-                    <Text
-                      style={{
-                        fontSize: pxToDp(18),
-                        color: '#333333',
-                      }}
-                    >
-                      {item.content}
-                    </Text>
-                  </TouchableOpacity>
-
-                  <Article
-                    status={this.state.status}
-                    item={item}
-                    onPlaybackStatusUpdate={this.onPlaybackStatusUpdate}
-                  />
-                </View>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    justifyContent: 'space-around',
-                    marginBottom: pxToDp(10),
-                    alignItems: 'center'
-                  }}
-                >
-                  <TouchableOpacity
-                    style={{ flexDirection: 'row' }}
-                    onPress={() =>
-                      this.setState({ count: this.state.count + 1 })
-                    }
-                  >
-                    <SvgUri svgXmlData={dianzan} width="20" height="20" />
-                    <Text
-                      style={{
-                        position: 'absolute',
-                        bottom: pxToDp(5),
-                        left: pxToDp(30),
-                        fontSize: pxToDp(12),
-                        color: '#666666'
-                      }}
-                    >
-                      {this.state.count}
-                      {item.dz}
-                    </Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity
-                    onPress={() =>
-                      this.context.navigate('Inluntan', {
-                        mid: item.id,
-                        uid: item.user.id
-                      })
-                    }
-                  >
-                    <SvgUri svgXmlData={pinglun} width="20" height="20" />
-                  </TouchableOpacity>
-                  <TouchableOpacity onPress={() => {
-                    this.setState({ modaldata: item });
-                    this.setState({ modalVisible1: !modalVisible1 });
-
-
-                  }}
-                  >
-                    <SvgUri svgXmlData={zhuanfa} width="25" height="25" />
-                  </TouchableOpacity>
-                </View>
-              </View>
+              <ActressItem item={item} />
             ))}
             {music.map((item) => (
-              <View
-                key={item.id}
-                style={{
-                  elevation: 2,
-                  shadowColor: 'black', //  阴影颜色
-                  shadowOffset: { width: 0, height: 0 }, // 阴影偏移
-                  shadowOpacity: 1, // 阴影不透明度
-                  shadowRadius: 10, //  圆角
-                  borderWidth: 0,
-                  marginBottom: pxToDp(20),
-                  backgroundColor: 'white',
-                  borderRadius: pxToDp(8)
-                }}
-              >
-                <TouchableOpacity
-                  style={{
-                    position: 'absolute',
-                    top: pxToDp(16),
-                    right: pxToDp(24)
-                  }}
-                  onPress={() => {
-                    this.setModalVisible(true);
-                  }}
-                >
-                  <SvgUri svgXmlData={sandian} width="20" height="20" />
-                </TouchableOpacity>
-                <View style={{ flexDirection: 'row', alignItems: 'center', margin: pxToDp(8) }}>
-                  <Image
-                    source={{ uri: changeImgSize(item.user.avatar) }}
-                    style={{
-                      width: pxToDp(60),
-                      height: pxToDp(60),
-                      borderRadius: pxToDp(30)
-                    }}
-                  />
-                  <TouchableOpacity
-                    onPress={() =>
-                      this.context.navigate('Inluntan', {
-                        mid: item.id,
-                        uid: item.user.id
-                      })
-                    }
-                  >
-                    <View>
-                      <Text
-                        style={{
-                          fontSize: pxToDp(18),
-                          color: '#000000',
-                          fontWeight: 'bold',
-                          marginLeft: pxToDp(8)
-                        }}
-                      >
-                        {item.user.nickName}
-                      </Text>
-                      <Text
-                        style={{
-                          fontSize: pxToDp(16),
-                          color: '#333333',
-                          marginLeft: pxToDp(8)
-                        }}
-                      >
-                        {item.createTime}
-                      </Text>
-                    </View>
-                  </TouchableOpacity>
-                </View>
-                <View
-                  style={{
-                    marginLeft: pxToDp(16),
-                    marginRight: pxToDp(16),
-                    marginBottom: pxToDp(16),
-                  }}
-                >
-                  <TouchableOpacity
-                    onPress={() => {
-                      this.context.navigate('Inluntan', {
-                        mid: item.id,
-                        uid: item.user.id
-                      });
-                    }}
-                  >
-                    <Text
-                      style={{
-                        fontSize: pxToDp(18),
-                        color: '#333333',
-                      }}
-                    >
-                      {item.content}
-                    </Text>
-                  </TouchableOpacity>
-
-                  <Music
-                    status={this.state.status}
-                    item={item}
-                    onPlaybackStatusUpdate={this.onPlaybackStatusUpdate}
-                  />
-                </View>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                    justifyContent: 'space-around',
-                    marginBottom: pxToDp(10),
-                    alignItems: 'center'
-                  }}
-                >
-                  <TouchableOpacity
-                    style={{ flexDirection: 'row' }}
-                    onPress={() =>
-                      this.setState({ count: this.state.count + 1 })
-                    }
-                  >
-                    <SvgUri svgXmlData={dianzan} width="20" height="20" />
-                    <Text
-                      style={{
-                        position: 'absolute',
-                        bottom: pxToDp(5),
-                        left: pxToDp(30),
-                        fontSize: pxToDp(12),
-                        color: '#666666'
-                      }}
-                    >
-                      {this.state.count}
-                      {item.dz}
-                    </Text>
-                  </TouchableOpacity>
-                  <TouchableOpacity
-                    onPress={() =>
-                      this.context.navigate('Inluntan', {
-                        mid: item.id,
-                        uid: item.user.id
-                      })
-                    }
-                  >
-                    <SvgUri svgXmlData={pinglun} width="20" height="20" />
-                  </TouchableOpacity>
-                  <TouchableOpacity>
-                    <SvgUri svgXmlData={zhuanfa} width="25" height="25" />
-                  </TouchableOpacity>
-                </View>
-              </View>
+              <MusicItem item={item} />
             ))}
           </View>
         </ScrollView>
@@ -641,15 +431,14 @@ const styles = StyleSheet.create({
   },
   centeredView1: {
     flex: 1,
-    marginTop: 22,
-
+    marginTop: 22
   },
   modalView1: {
     margin: 20,
-    backgroundColor: "white",
+    backgroundColor: 'white',
     borderRadius: 20,
     padding: 35,
-    shadowColor: "#000",
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
       height: 2

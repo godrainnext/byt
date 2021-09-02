@@ -27,6 +27,7 @@ export default memo(function ActressItem(props) {
   const navigation = useNavigation();
   const [status, setStatus] = useState({ isPlaying: false });
   const [count, setCount] = useState(0);
+  const [isClick, setClick] = useState(false);
   const onPlaybackStatusUpdate = (status) => {
     setStatus(status);
   };
@@ -103,6 +104,7 @@ export default memo(function ActressItem(props) {
           </View>
         </TouchableOpacity>
       </View>
+
       <View
         style={{
           marginLeft: pxToDp(16),
@@ -195,7 +197,12 @@ export default memo(function ActressItem(props) {
       >
         <TouchableOpacity
           style={{ flexDirection: 'row' }}
-          onPress={() => setCount(count + 1)}
+          onPress={() => {
+            console.log(isClick);
+            console.log(count);
+            setClick(!isClick);
+            isClick ? setCount(count - 1) : setCount(count + 1);
+          }}
         >
           <SvgUri svgXmlData={dianzan} width="20" height="20" />
           <Text
@@ -208,7 +215,6 @@ export default memo(function ActressItem(props) {
             }}
           >
             {count}
-            {item.dz}
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
