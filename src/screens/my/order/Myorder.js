@@ -159,13 +159,11 @@ class orders extends PureComponent {
 
     return (
       <View style={{ backgroundColor: '#fff', flex: 1 }}>
-
         <Top icon1="arrow-back" title="确认订单" />
         <ScrollView
           style={{ flex: 1, padding: pxToDp(14) }}
           showsVerticalScrollIndicator={false}
         >
-
           {/* 订单状态 */}
           <View
             style={{
@@ -327,37 +325,35 @@ class orders extends PureComponent {
             </View>
           </View>
           {/* 支付方式 */}
-          <View>
-            <TouchableOpacity
-              onPress={() => this.Scrollable.open()}
+          <TouchableOpacity
+            onPress={() => this.Scrollable.open()}
+            style={{
+              margin: pxToDp(2),
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              height: pxToDp(40),
+              flexDirection: 'row',
+              backgroundColor: 'white',
+              marginTop: pxToDp(16),
+              borderRadius: pxToDp(8),
+              elevation: 2,
+              shadowColor: 'black', //  阴影颜色
+              shadowOffset: { width: 0, height: 0 }, // 阴影偏移
+              shadowOpacity: 1, // 阴影不透明度
+              shadowRadius: 10 //  圆角
+            }}
+          >
+            <Text style={{ marginLeft: pxToDp(8) }}>支付方式:</Text>
+            <Text style={{ marginLeft: pxToDp(180) }}>{this.state.way}</Text>
+            <Image
               style={{
-                margin: pxToDp(2),
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                height: pxToDp(40),
-                flexDirection: 'row',
-                backgroundColor: 'white',
-                marginTop: pxToDp(16),
-                borderRadius: pxToDp(8),
-                elevation: 2,
-                shadowColor: 'black', //  阴影颜色
-                shadowOffset: { width: 0, height: 0 }, // 阴影偏移
-                shadowOpacity: 1, // 阴影不透明度
-                shadowRadius: 10 //  圆角
+                width: pxToDp(15),
+                height: pxToDp(15),
+                marginRight: pxToDp(16)
               }}
-            >
-              <Text style={{ marginLeft: pxToDp(8) }}>支付方式:</Text>
-              <Text style={{ marginLeft: pxToDp(180) }}>{this.state.way}</Text>
-              <Image
-                style={{
-                  width: pxToDp(15),
-                  height: pxToDp(15),
-                  marginRight: pxToDp(16)
-                }}
-                source={require('../../../res/箭头.png')}
-              />
-            </TouchableOpacity>
-          </View>
+              source={require('../../../res/箭头.png')}
+            />
+          </TouchableOpacity>
         </ScrollView>
 
         <View
@@ -397,21 +393,22 @@ class orders extends PureComponent {
             <Modal
               animationType="slide"
               transparent={true}
-              visible={ this.state.isvisiable}
+              visible={this.state.isvisiable}
             >
-
               <View style={styles.centeredView}>
                 <View style={styles.modalView}>
                   <View style={{ alignItems: 'center' }}>
-                    <TouchableOpacity onPress={()=>this.setState({isvisiable:false})} style={{position:'absolute',top:-20,left:-20}}>
-                    <SvgUri svgXmlData={back} width='30' height='30'/>
+                    <TouchableOpacity
+                      onPress={() => this.setState({ isvisiable: false })}
+                      style={{ position: 'absolute', top: -20, left: -20 }}
+                    >
+                      <SvgUri svgXmlData={back} width="30" height="30" />
                     </TouchableOpacity>
-                    <CodeFieldzz  onPress={this.addOrder}/>
+                    <CodeFieldzz onPress={this.addOrder} />
                   </View>
                 </View>
               </View>
             </Modal>
-
           </View>
           <Mybtn
             cisabled={this.props.disabled}

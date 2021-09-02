@@ -17,6 +17,8 @@ import Mybtn from '../../../../component/common/mybtn';
 export default class myticket extends Component {
   static contextType = NavigationContext;
   render() {
+    console.log('123', this.props.route.params);
+    const { chooseCount, create_time } = this.props.route.params;
     return (
       <View style={{ flex: 1 }}>
         <Top title="票据详情" icon1="arrow-back" />
@@ -29,20 +31,6 @@ export default class myticket extends Component {
           <View style={{ alignSelf: 'center' }}>
             <Text style={{ fontSize: pxToDp(18) }}>未开始演出</Text>
           </View>
-          <TouchableOpacity
-            style={{
-              alignSelf: 'center',
-              marginTop: pxToDp(8),
-              width: pxToDp(80),
-              height: pxToDp(40),
-              borderWidth: pxToDp(1.1),
-              borderRadius: pxToDp(20),
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}
-          >
-            <Text style={{ fontSize: pxToDp(16) }}>查看剧评</Text>
-          </TouchableOpacity>
           <ImageBackground
             source={require('../../../../res/ticket.png')}
             style={{ width: '100%', height: pxToDp(1400) }}
@@ -160,13 +148,12 @@ export default class myticket extends Component {
               }}
             >
               <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold' }}>
-                实付金额：￥60
+                实付金额：￥{chooseCount * 30}
               </Text>
               <Text style={{ fontSize: pxToDp(16) }}>订单号:1817592456164</Text>
               <Text style={{ fontSize: pxToDp(16) }}>
-                购买时间:2021-10-1 18:09:27
+                购买时间:{create_time}
               </Text>
-              <Text style={{ fontSize: pxToDp(16) }}>手机号:132****8685</Text>
               <Text style={{ fontSize: pxToDp(16) }}>
                 剧票由百越亭有限公司提供
               </Text>
