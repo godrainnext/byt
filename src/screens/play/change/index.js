@@ -5,7 +5,8 @@ import {
   Image,
   TouchableOpacity,
   Dimensions,
-  StyleSheet
+  StyleSheet,
+  ToastAndroid
 } from 'react-native';
 import Top from '@components/common/top';
 import { pxToDp } from '@utils/styleKits';
@@ -32,7 +33,11 @@ class Index extends PureComponent {
     launchImageLibrary(
       { selectionLimit: 1, mediaType: 'photo' },
       (response) => {
-        this.setState({ choiceImg: response.assets[0].uri });
+        try {
+          this.setState({ choiceImg: response.assets[0].uri });
+        } catch (error) {
+          ToastAndroid.show('请选择正确的图片', ToastAndroid.SHORT);
+        }
       }
     );
 

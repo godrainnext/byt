@@ -1,9 +1,5 @@
 import React, { PureComponent } from 'react';
-import {
-  View,
-  StyleSheet,
-  ScrollView,
-} from 'react-native';
+import { View, StyleSheet, ScrollView } from 'react-native';
 import { pxToDp } from '@utils/styleKits';
 import { NavigationContext } from '@react-navigation/native';
 import { Audio } from 'expo-av';
@@ -51,7 +47,7 @@ class Index extends PureComponent {
 
   render() {
     console.log(this.state.modaldata);
-    console.log(typeof (this.state.modaldata.user));
+    console.log(typeof this.state.modaldata.user);
     const music = this.props.dongtai.filter((item) => item.label);
     const actress = this.props.dongtai.filter((item) => !item.label);
     return (
@@ -66,9 +62,11 @@ class Index extends PureComponent {
             }}
           >
             {actress.map((item) => (
-              <ActressItem item={item} />))}
+              <ActressItem item={item} />
+            ))}
             {music.map((item) => (
-              <MusicItem item={item} />))}
+              <MusicItem item={item} />
+            ))}
           </View>
         </ScrollView>
       </View>

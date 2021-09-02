@@ -8,7 +8,8 @@ import {
   StyleSheet,
   TouchableHighlight,
   TouchableOpacity,
-  Dimensions
+  Dimensions,
+  ToastAndroid
 } from 'react-native';
 import { pxToDp } from '../../../../utils/styleKits';
 import { Input } from 'react-native-elements/dist/input/Input';
@@ -16,7 +17,6 @@ import { launchImageLibrary } from 'react-native-image-picker';
 import { NavigationContext } from '@react-navigation/native';
 import Top from '../../../../component/common/top';
 import { CheckBox } from 'react-native-elements';
-import { ToastAndroid } from 'react-native';
 import { apply } from '../../../../service/mine';
 import Mybtn from '../../../../component/common/mybtn';
 
@@ -45,19 +45,23 @@ class index extends Component {
           ToastAndroid.show('图片选择失败', ToastAndroid.SHORT);
           console.log(response.error);
         } else {
-          const pickerResult = response.assets[0];
-          let file = {
-            uri: pickerResult.uri,
-            type: 'multipart/form-data',
-            name: pickerResult.type
-          };
+          try {
+            const pickerResult = response?.assets[0];
+            let file = {
+              uri: pickerResult.uri,
+              type: 'multipart/form-data',
+              name: pickerResult.type
+            };
 
-          if (this.state.people) {
-            this.setState({ back: pickerResult.uri });
-          } else {
-            this.setState({ people: pickerResult.uri });
+            if (this.state.people) {
+              this.setState({ back: pickerResult.uri });
+            } else {
+              this.setState({ people: pickerResult.uri });
+            }
+            this.setState({ arr: [...this.state.arr, file] });
+          } catch (error) {
+            ToastAndroid.show('请选择正确的图片', ToastAndroid.SHORT);
           }
-          this.setState({ arr: [...this.state.arr, file] });
         }
       }
     );
@@ -104,12 +108,14 @@ class index extends Component {
     return (
       <View style={{ flex: 1 }}>
         <Top title="直播申请" icon1="arrow-back" />
-        <ScrollView showsVerticalScrollIndicator={false}
+        <ScrollView
+          showsVerticalScrollIndicator={false}
           style={{
             flex: 1,
             padding: pxToDp(16),
             backgroundColor: '#D5E8E6'
-          }}>
+          }}
+        >
           <View
             style={{
               justifyContent: 'center',
@@ -163,9 +169,7 @@ class index extends Component {
                       borderColor: 'white',
                       marginLeft: pxToDp(8)
                     }}
-                    onChangeText={(value) =>
-                      this.setState({ username: value })
-                    }
+                    onChangeText={(value) => this.setState({ username: value })}
                     value={this.state.username}
                     leftIcon={
                       <View
@@ -209,9 +213,7 @@ class index extends Component {
                       }}
                       value={this.state.fayan}
                       placeholderTextColor="#999999"
-                      onChangeText={(value) =>
-                        this.setState({ fayan: value })
-                      }
+                      onChangeText={(value) => this.setState({ fayan: value })}
                       maxLength={18}
                       keyboardType="number-pad"
                       leftIcon={

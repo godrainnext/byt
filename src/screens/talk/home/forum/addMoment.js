@@ -64,12 +64,16 @@ class index extends PureComponent {
         selectionLimit: 9
       },
       (response) => {
-        const arr = [];
-        response.assets.forEach((item) => {
-          arr.push(item.uri);
-        });
-        this.setState({ arr: arr });
-        this.setState({ form: response.assets });
+        try {
+          const arr = [];
+          response.assets.forEach((item) => {
+            arr.push(item.uri);
+          });
+          this.setState({ arr: arr });
+          this.setState({ form: response.assets });
+        } catch (error) {
+          ToastAndroid.show('请选择正确的图片', ToastAndroid.SHORT);
+        }
       }
     );
   }
@@ -103,7 +107,6 @@ class index extends PureComponent {
     // console.log(text)
     if (!text.trim()) {
       ToastAndroid.show('发布内容不能为空', ToastAndroid.SHORT);
-
       return;
     }
     if (!this.state.form.length) {
@@ -156,8 +159,8 @@ class index extends PureComponent {
         ToastAndroid.show('发表文章成功', ToastAndroid.SHORT);
       })
       .then((ress) => {
-        this.context.goBack()
-      })
+        this.context.goBack();
+      });
   };
 
   changeTitle = (title) => {
@@ -268,8 +271,10 @@ class index extends PureComponent {
         </View>
         <View
           style={{
-            alignItems: 'center',
-            marginTop: pxToDp(87)
+            position: 'absolute',
+            bottom: pxToDp(8),
+            left: 0,
+            right: 0
           }}
         >
           <Mybtn

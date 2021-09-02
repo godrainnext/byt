@@ -127,7 +127,9 @@ class Index extends Component {
           <ImageBackground
             style={styles.image}
             imageStyle={{ borderRadius: pxToDp(8) }}
-            source={{ uri: 'https://tse1-mm.cn.bing.net/th/id/R-C.1f124b07017ea1ae5d5fea45391b145a?rik=pAKVDV0sF%2fu2Yw&riu=http%3a%2f%2fpic4.nipic.com%2f20091113%2f1103621_145232061016_2.jpg&ehk=czCnkpJNiHZNwMVAiTvVs7rzXGbyHQvlYBNIdl26QLs%3d&risl=&pid=ImgRaw&r=0' }}
+            source={{
+              uri: 'https://tse1-mm.cn.bing.net/th/id/R-C.1f124b07017ea1ae5d5fea45391b145a?rik=pAKVDV0sF%2fu2Yw&riu=http%3a%2f%2fpic4.nipic.com%2f20091113%2f1103621_145232061016_2.jpg&ehk=czCnkpJNiHZNwMVAiTvVs7rzXGbyHQvlYBNIdl26QLs%3d&risl=&pid=ImgRaw&r=0'
+            }}
           >
             <Text
               style={{
@@ -186,7 +188,9 @@ class Index extends Component {
           <ImageBackground
             style={styles.image}
             imageStyle={{ borderRadius: pxToDp(8) }}
-            source={{ uri: 'https://tse1-mm.cn.bing.net/th/id/R-C.6303ecdf9b2a51b2092b670566920aed?rik=elZ4bgqd15w05w&riu=http%3a%2f%2fn.sinaimg.cn%2fsinakd202157s%2f361%2fw1255h706%2f20210507%2f83e0-kpuunnc1916367.jpg&ehk=IKBnYsnaTz5Ve8Sttwadw5s4V9jKdfZUl0SbkxY62qg%3d&risl=&pid=ImgRaw&r=0' }}
+            source={{
+              uri: 'https://tse3-mm.cn.bing.net/th/id/OIP-C.2Dp9JuaV5Wi476ybeMrbdQHaEo?w=235&h=180&c=7&r=0&o=5&dpr=1.75&pid=1.7'
+            }}
           >
             <Text
               style={{
@@ -245,7 +249,9 @@ class Index extends Component {
           <ImageBackground
             style={styles.image}
             imageStyle={{ borderRadius: pxToDp(8) }}
-            source={{ uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fqqpublic.qpic.cn%2Fqq_public%2F0%2F0-2396530489-3402ABF06273663A185D56AF38A11A26%2F0%3Ffmt%3Djpg%26size%3D92%26h%3D642%26w%3D900%26ppv%3D1.jpg&refer=http%3A%2F%2Fqqpublic.qpic.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632926403&t=32ea82f43d2c0bce5a73869b01dc3c62' }}
+            source={{
+              uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fqqpublic.qpic.cn%2Fqq_public%2F0%2F0-2396530489-3402ABF06273663A185D56AF38A11A26%2F0%3Ffmt%3Djpg%26size%3D92%26h%3D642%26w%3D900%26ppv%3D1.jpg&refer=http%3A%2F%2Fqqpublic.qpic.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632926403&t=32ea82f43d2c0bce5a73869b01dc3c62'
+            }}
           >
             <Text
               style={{
@@ -267,7 +273,7 @@ class Index extends Component {
               style={{
                 flexDirection: 'row',
                 justifyContent: 'space-between',
-                alignItems: 'center',
+                alignItems: 'center'
               }}
             >
               <Text
