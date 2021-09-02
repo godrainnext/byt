@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import TabNavigator from 'react-native-tab-navigator';
-import { Image, TouchableOpacity, View, StyleSheet, Text } from 'react-native';
+import { Image, TouchableOpacity, View, StyleSheet, Text, Alert ,ToastAndroid} from 'react-native';
 import Svg from 'react-native-svg-uri';
 import First from './screens/first/home';
 import Talk from './screens/talk/home';
@@ -13,12 +13,12 @@ import Meun from './screens/test/test6';
 import { NavigationContext } from '@react-navigation/native';
 import Addmoment from './screens/talk/home/forum/addMoment';
 import { kaizhibo, fadongtai, kaifangjian } from './component/common/iconSvg';
-
+import { connect } from 'react-redux';
 class Index extends PureComponent {
   static contextType = NavigationContext;
   kaiBo = () => {
     this.Scrollable1.close();
-    this.context.navigate('KaiBo');
+    this.context.navigate('KaiBo')
   };
   kaiFang = () => {
     this.Scrollable1.close();
@@ -147,7 +147,22 @@ class Index extends PureComponent {
                     }}
                   >
                     <TouchableOpacity
-                      onPress={this.kaiBo}
+                      onPress={    
+                        this.props.userInfo.isStream?this.kaiBo:()=>{Alert.alert('温馨提醒','请先完成实名认证',
+                        [
+                         {
+                              text: '去认证',
+                              onPress: () => { this.Scrollable1.close();this.context.navigate('Apply')}
+                          },
+                          {
+                              text: '取消',
+                              onPress: () => ToastAndroid.show('Cancel', ToastAndroid.SHORT),
+                              style: 'cancel'
+                          },
+                          
+                      ],
+             )}
+                     }
                       style={{ justifyContent: 'center', alignItems: 'center' }}
                     >
                       <View style={styles.textbox}>
@@ -428,4 +443,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   }
 });
-export default Index;
+export default connect(
+  (state) => ({ userInfo: state.getIn(['homeReducer', 'userInfo']) }),
+
+)(Index);

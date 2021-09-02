@@ -426,7 +426,7 @@ class index extends Component {
           }}
         >
           <Mybtn
-            onPress={() => this.Scrollable.open()}
+            onPress={this.submit}
             title="提交申请"
             containerStyle={{
               position: 'absolute',
