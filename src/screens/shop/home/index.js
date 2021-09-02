@@ -2,18 +2,16 @@ import React, { PureComponent } from 'react';
 import {
   View,
   Text,
-  TouchableOpacity,
   Image,
   StyleSheet,
   ScrollView,
   RefreshControl,
   TouchableNativeFeedback,
-  TextInput
+  SafeAreaView,
+  ImageBackground
 } from 'react-native';
-
 import Top from '../../../component/common/myTop';
 import { pxToDp } from '@utils/styleKits';
-import Swiper from 'react-native-swiper';
 import { NavigationContext } from '@react-navigation/native';
 import Maylike from './components/maylike';
 import { getShopList } from '@service/shop';
@@ -21,7 +19,8 @@ import { connect } from 'react-redux';
 import { getAddressListAction } from '../../my/address/store/actions';
 import LottieView from 'lottie-react-native';
 import BetterBanner from 'react-native-better-banner';
-
+import Mybtn from '../../../component/common/mybtn';
+import SwiperCard from './swiperCard/index';
 class Index extends PureComponent {
   state = {
     arr: [],
@@ -108,7 +107,26 @@ class Index extends PureComponent {
               isSeamlessScroll={true}
             />
           </View>
-          {/*小推广 */}
+          {/*今日上新 */}
+          <View style={styles.titlebox}>
+            <View style={styles.left}>
+            </View>
+            <View style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}>
+              <Text style={styles.titletext}>
+                今日上新
+              </Text>
+              <LottieView
+                style={{ width: pxToDp(80) }}
+                source={require('../../../../lottie/标题底部.json')}
+                autoPlay={true}
+                loop={true}
+              />
+            </View>
+          </View>
+          <SafeAreaView style={{ marginLeft: pxToDp(16), marginRight: pxToDp(16), marginTop: pxToDp(8) }}>
+            <SwiperCard />
+          </SafeAreaView>
+          {/*主版块 */}
           <View style={styles.titlebox}>
             <View style={styles.left}>
             </View>
@@ -300,7 +318,7 @@ const styles = StyleSheet.create({
     marginLeft: pxToDp(16),
     height: pxToDp(30),
     marginRight: pxToDp(16),
-    marginTop: pxToDp(8)
+    marginTop: pxToDp(14)
   },
   left: {
     width: pxToDp(4),
@@ -320,6 +338,16 @@ const styles = StyleSheet.create({
     width: pxToDp(347),
     borderRadius: pxToDp(8),
     marginTop: pxToDp(-32)
+  },
+  newimage: {
+    height: pxToDp(100),
+    width: pxToDp(200),
+    borderRadius: pxToDp(8),
+  },
+  new: {
+    height: pxToDp(100),
+    width: pxToDp(200),
+    marginRight: pxToDp(8)
   }
 });
 export default connect(() => ({}), { getAddressListAction })(Index);

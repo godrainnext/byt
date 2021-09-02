@@ -17,6 +17,7 @@ import { NavigationContext } from '@react-navigation/native';
 import { getMomentListByStatus } from '@service/moment';
 import BetterBanner from 'react-native-better-banner';
 import LottieView from 'lottie-react-native';
+import SwiperCard from '../swiperCard/index'
 const { height, width } = Dimensions.get('window');
 class Index extends PureComponent {
   constructor(props) {
@@ -120,20 +121,7 @@ class Index extends PureComponent {
         <ScrollView showsVerticalScrollIndicator={false}>
           <View>
             {/*轮播图 */}
-            {/* <View style={{ height: pxToDp(220), width: pxToDp(330) }}>
-              <BetterBanner
-                bannerImages={[
-                  { uri: "https://tse1-mm.cn.bing.net/th/id/R-C.0af272b33dccaedb8315e297545f7121?rik=xcW6aMTUsV3mNw&riu=http%3a%2f%2f5b0988e595225.cdn.sohucs.com%2fimages%2f20190416%2fd38fb783eae2475ab2148dd3fdaf0c90.jpeg&ehk=2YJLKFqQj2cPRYqB6r3VNxY2qqUwCLp%2b6EBxc4s7Rrk%3d&risl=&pid=ImgRaw&r=0" },
-                  { uri: "http://5b0988e595225.cdn.sohucs.com/images/20190416/388406a312e9444d93bdfb94096c88b9.jpeg" },
-                  { uri: "http://5b0988e595225.cdn.sohucs.com/images/20190416/42695a14b85a4474a65366b3776b15cc.jpeg" },
-                  { uri: "http://5b0988e595225.cdn.sohucs.com/images/20190416/08bce251e29f45ecaac5003067eb1acf.jpeg" },
-                ]}
-                onPress={(index) => alert('you pressed index is : ' + index)}
-                isSeamlessScroll={true}
-                indicatorGroupPosition={'center'}
-                bannerHeight={pxToDp(220)}
-              />
-            </View> */}
+            <SwiperCard />
             {/**话题 */}
             <View style={styles.titlebox}>
               <View style={styles.left}></View>
