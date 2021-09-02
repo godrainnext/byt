@@ -75,6 +75,7 @@ export { default as GoodsList } from './shop/home/goods/good'; //商品详情页
 export { default as Zhoubian } from './shop/home/zhoubian'; //周边页
 export { default as Zulin } from './shop/home/zulin'; //服装租赁页
 export { default as ticket } from './shop/home/ticket/index'; //票务系统
+export { default as PickSeat } from './shop/home/ticket/pickseat'; //票务系统
 export { default as ticketdetail } from './shop/home/ticket/ticketdetail'; //票务系统详情
 export { default as Lease } from './shop/home/goods/lease'; //新增收货地址
 export { default as pointshop } from './shop/home/jifen/index'; //积分商城详情

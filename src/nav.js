@@ -104,6 +104,8 @@ function Nav() {
         <Stack.Screen name="ticket" component={Screens.ticket} />
         {/* 票务系统详情页 */}
         <Stack.Screen name="ticketdetail" component={Screens.ticketdetail} />
+        {/* 选座位 */}
+        <Stack.Screen name="PickSeat" component={Screens.PickSeat} />
         {/**增加新地址 */}
         <Stack.Screen name="Lease" component={Screens.Lease} />
         {/*游玩 */}

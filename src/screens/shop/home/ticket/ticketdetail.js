@@ -14,6 +14,7 @@ import { location } from '../../../../component/common/iconSvg';
 import { MarqueeHorizontal, MarqueeVertical } from 'react-native-marquee-ab';
 import { dianzan, pinglun } from '../../../../component/common/iconSvg';
 import Mybtn from '../../../../component/common/mybtn';
+import { NavigationContext } from '@react-navigation/native';
 
 export default class ticketdetail extends PureComponent {
   constructor(props) {
@@ -69,6 +70,7 @@ export default class ticketdetail extends PureComponent {
       btnOpcity: false
     };
   }
+  static contextType = NavigationContext;
   render() {
     return (
       <View style={{ backgroundColor: 'white', flex: 1 }}>
@@ -76,14 +78,19 @@ export default class ticketdetail extends PureComponent {
         <ScrollView
           onScrollBeginDrag={() => {
             this.setState({ btnOpcity: true });
-            console.log(this.state.btnOpcity);
           }}
           onScrollEndDrag={() => {
             this.setState({ btnOpcity: false });
-            console.log(this.state.btnOpcity);
           }}
-          style={{ flex: 1 }}>
-          <View style={{ marginTop: pxToDp(8), marginRight: pxToDp(16), marginLeft: pxToDp(16) }}>
+          style={{ flex: 1 }}
+        >
+          <View
+            style={{
+              marginTop: pxToDp(8),
+              marginRight: pxToDp(16),
+              marginLeft: pxToDp(16)
+            }}
+          >
             {/* 海报栏 */}
             <View
               style={{
@@ -205,11 +212,12 @@ export default class ticketdetail extends PureComponent {
                   backgroundColor: 'white',
                   height: pxToDp(70),
                   borderRadius: pxToDp(8),
-                  elevation: 2,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
-                  shadowColor: '#000000',  //  阴影颜色
-                  shadowRadius: pxToDp(10),  //  圆角
+                  elevation: 2, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+                  shadowColor: '#000000', //  阴影颜色
+                  shadowRadius: pxToDp(10), //  圆角
                   padding: pxToDp(8)
-                }}>
+                }}
+              >
                 <MarqueeVertical
                   textList={[
                     {
@@ -304,7 +312,7 @@ export default class ticketdetail extends PureComponent {
                 color: '#000000',
                 fontWeight: 'bold',
                 marginLeft: pxToDp(16),
-                marginTop: pxToDp(8),
+                marginTop: pxToDp(8)
               }}
             >
               观众热评
@@ -437,6 +445,7 @@ export default class ticketdetail extends PureComponent {
         >
           <Mybtn
             title="立刻购买"
+            onPress={() => this.context.navigate('PickSeat')}
             containerStyle={{
               position: 'absolute',
               bottom: 0,
