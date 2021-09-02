@@ -207,11 +207,6 @@ export default class index extends PureComponent {
                         >
                           ￥{item.price}
                         </Text>
-                        <Text
-                          style={{ fontSize: pxToDp(14), color: '#333333' }}
-                        >
-                          起
-                        </Text>
                       </View>
                     </View>
                   </View>

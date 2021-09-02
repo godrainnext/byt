@@ -5,7 +5,8 @@ import {
   TouchableOpacity,
   StyleSheet,
   ScrollView,
-  Image
+  Image,
+  Modal
 } from 'react-native';
 import Top from '../../../../component/common/top';
 import SvgUri from 'react-native-svg-uri';
@@ -13,7 +14,10 @@ import { pxToDp } from '../../../../utils/styleKits';
 import { seat1, seat2, seat3 } from '../../../../component/common/iconSvg';
 import Mybtn from '../../../../component/common/mybtn';
 import Seat from './Seat';
-
+import { NavigationContext } from '@react-navigation/native';
+import CodeFieldzz from '../../../my/order/components/codefield';
+const back =
+  '<svg t="1630480820345" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2172" width="200" height="200"><path d="M759.3984 276.6848a25.6 25.6 0 0 1 0 36.181333L560.298667 512l199.099733 199.168a25.6 25.6 0 0 1 0 36.181333l-12.0832 12.0832a25.6 25.6 0 0 1-36.181333 0L512 560.264533l-199.168 199.133867a25.6 25.6 0 0 1-36.181333 0l-12.0832-12.0832a25.6 25.6 0 0 1 0-36.181333l199.133866-199.168-199.133866-199.099734a25.6 25.6 0 0 1 0-36.181333l12.0832-12.0832a25.6 25.6 0 0 1 36.181333 0l199.168 199.099733 199.099733-199.099733a25.6 25.6 0 0 1 36.181334 0l12.0832 12.0832z" p-id="2173" fill="#8a8a8a"></path></svg>';
 export default class pickseat extends Component {
   constructor(props) {
     super(props);
@@ -276,16 +280,31 @@ export default class pickseat extends Component {
           seat: seat3
         }
       ],
-      count: 0
+      isvisiable: false,
+      chooseArr: [],
+      chooseCount: 0
     };
   }
-  onPress = () => {
-    this.setState({
-      count: this.state.count + 1
-    });
+
+  addOrder = () => {
+    this.setState({ isvisiable: false });
+    this.context.navigate('MyTicket');
   };
+  addSeat = (id) => {
+    this.setState({ chooseArr: [...this.state.chooseArr, id] });
+    this.setState({ chooseCount: this.state.chooseCount + 1 });
+  };
+  removeSeat = (id) => {
+    this.setState({
+      chooseArr: [...this.state.chooseArr.filter((item) => item !== id)]
+    });
+    this.setState({ chooseCount: this.state.chooseCount - 1 });
+  };
+  static contextType = NavigationContext;
   render() {
-    console.log(this.state.count);
+    console.log(this.state.chooseCount);
+    console.log(this.state.chooseArr);
+    const { chooseCount } = this.state;
     return (
       <View style={{ flex: 1 }}>
         <Top icon1="arrow-back" />
@@ -334,7 +353,12 @@ export default class pickseat extends Component {
               }}
             >
               {this.state.Seat.map((item, index) => (
-                <Seat item={item} count={this.state.count} />
+                <Seat
+                  key={item.id}
+                  item={item}
+                  addSeat={this.addSeat}
+                  removeSeat={this.removeSeat}
+                />
               ))}
             </View>
             <View
@@ -380,10 +404,32 @@ export default class pickseat extends Component {
               </Text>
             </View>
           </View>
+
+          <Modal
+            animationType="slide"
+            transparent={true}
+            visible={this.state.isvisiable}
+          >
+            <View style={styles.centeredView}>
+              <View style={styles.modalView}>
+                <View style={{ alignItems: 'center' }}>
+                  <TouchableOpacity
+                    onPress={() => this.setState({ isvisiable: false })}
+                    style={{ position: 'absolute', top: -20, left: -20 }}
+                  >
+                    <SvgUri svgXmlData={back} width="30" height="30" />
+                  </TouchableOpacity>
+                  <CodeFieldzz onPress={this.addOrder} />
+                </View>
+              </View>
+            </View>
+          </Modal>
         </ScrollView>
         <Mybtn
-          // onPress={() => this.Scrollable.open()}
-          title="立刻购买"
+          onPress={() => this.setState({ isvisiable: true })}
+          title={
+            chooseCount === 0 ? '选择座位' : chooseCount * 30 + '元    确认选座'
+          }
           containerStyle={{
             position: 'absolute',
             bottom: 0,
@@ -396,6 +442,7 @@ export default class pickseat extends Component {
             borderRadius: pxToDp(32)
           }}
         />
+        {/* <CodeFieldzz  onPress={this.addOrder}/> */}
       </View>
     );
   }
@@ -406,5 +453,27 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     height: pxToDp(30),
     marginTop: pxToDp(13.5)
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: pxToDp(16)
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 35,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    backgroundColor: '#fff'
   }
 });
