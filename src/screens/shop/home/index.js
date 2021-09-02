@@ -2,24 +2,25 @@ import React, { PureComponent } from 'react';
 import {
   View,
   Text,
-  TouchableOpacity,
   Image,
   StyleSheet,
   ScrollView,
   RefreshControl,
   TouchableNativeFeedback,
-  TextInput
+  SafeAreaView,
+  ImageBackground
 } from 'react-native';
-
 import Top from '../../../component/common/myTop';
 import { pxToDp } from '@utils/styleKits';
-import Swiper from 'react-native-swiper';
 import { NavigationContext } from '@react-navigation/native';
 import Maylike from './components/maylike';
 import { getShopList } from '@service/shop';
 import { connect } from 'react-redux';
 import { getAddressListAction } from '../../my/address/store/actions';
-
+import LottieView from 'lottie-react-native';
+import BetterBanner from 'react-native-better-banner';
+import Mybtn from '../../../component/common/mybtn';
+import SwiperCard from './swiperCard/index';
 class Index extends PureComponent {
   state = {
     arr: [],
@@ -69,47 +70,76 @@ class Index extends PureComponent {
           showsVerticalScrollIndicator={false}
         >
           {/*轮播 */}
-          <View style={{ height: pxToDp(220) }}>
-            <Swiper
-              removeClippedSubviews={false}
-              showsButtons={false}
-              loop={true}
-              autoplay={true}
-              showsPagination={false}
-              autoplayTimeout={3}
-              style={{ marginBottom: pxToDp(8) }}
-            >
-              <View style={styles.slide}>
-                <Image
-                  style={styles.lunboimage}
-                  source={require('../../../res/19.jpg')}
-                />
-              </View>
-              <View style={styles.slide}>
-                <Image
-                  style={styles.lunboimage}
-                  source={require('../../../res/19-1.jpg')}
-                />
-              </View>
-              <View style={styles.slide}>
-                <Image
-                  style={styles.lunboimage}
-                  source={require('../../../res/19-2.jpg')}
-                />
-              </View>
-            </Swiper>
+          <View style={{ height: pxToDp(260) }}>
+            <BetterBanner
+              bannerComponents={[
+                <View style={{
+                  width: '100%',
+                  height: '100%',
+                  backgroundColor: 'white',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}>
+                  <Image style={styles.luoboimage} source={require('../../../res/0901/商城轮播1.png')} />
+                </View>,
+                <View style={{
+                  width: '100%',
+                  height: '100%',
+                  backgroundColor: 'white',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}>
+                  <Image style={styles.luoboimage} source={require('../../../res/0901/商城轮播2.png')} />
+                </View>,
+                <View style={{
+                  width: '100%',
+                  height: '100%',
+                  backgroundColor: 'white',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}>
+                  <Image style={styles.luoboimage} source={require('../../../res/0901/商城轮播3.png')} />
+                </View>,
+              ]}
+              bannerTitles={[" 双十一购物节 快来囤货吧", " 国潮+越剧 潮流风暴来袭", " 越剧周边商城已上新"]}
+              onPress={(index) => alert('you pressed index is : ' + index)}
+              indicatorContainerBackgroundColor={'#62bfad'}
+              isSeamlessScroll={true}
+            />
           </View>
-          {/*小推广 */}
+          {/*今日上新 */}
           <View style={styles.titlebox}>
             <View style={styles.left}>
             </View>
-            <View style={{ marginLeft: pxToDp(6) }}>
+            <View style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}>
+              <Text style={styles.titletext}>
+                今日上新
+              </Text>
+              <LottieView
+                style={{ width: pxToDp(80) }}
+                source={require('../../../../lottie/标题底部.json')}
+                autoPlay={true}
+                loop={true}
+              />
+            </View>
+          </View>
+          <SafeAreaView style={{ marginLeft: pxToDp(16), marginRight: pxToDp(16), marginTop: pxToDp(8) }}>
+            <SwiperCard />
+          </SafeAreaView>
+          {/*主版块 */}
+          <View style={styles.titlebox}>
+            <View style={styles.left}>
+            </View>
+            <View style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}>
               <Text style={styles.titletext}>
                 越剧商城
               </Text>
-              <Text style={styles.titlepinyin}>
-                yue ju shang cheng
-              </Text>
+              <LottieView
+                style={{ width: pxToDp(80) }}
+                source={require('../../../../lottie/标题底部.json')}
+                autoPlay={true}
+                loop={true}
+              />
             </View>
           </View>
           <View
@@ -169,13 +199,16 @@ class Index extends PureComponent {
           <View style={styles.titlebox}>
             <View style={styles.left}>
             </View>
-            <View style={{ marginLeft: pxToDp(6) }}>
+            <View style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}>
               <Text style={styles.titletext}>
                 猜你喜欢
               </Text>
-              <Text style={styles.titlepinyin}>
-                cai ni xi huan
-              </Text>
+              <LottieView
+                style={{ width: pxToDp(80) }}
+                source={require('../../../../lottie/标题底部.json')}
+                autoPlay={true}
+                loop={true}
+              />
             </View>
           </View>
           <View
@@ -283,8 +316,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     marginLeft: pxToDp(16),
+    height: pxToDp(30),
     marginRight: pxToDp(16),
-    marginTop: pxToDp(8)
+    marginTop: pxToDp(14)
   },
   left: {
     width: pxToDp(4),
@@ -295,12 +329,25 @@ const styles = StyleSheet.create({
   titletext: {
     fontSize: pxToDp(18),
     color: '#62bfad',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    marginLeft: pxToDp(3),
+    marginBottom: pxToDp(-15)
   },
-  titlepinyin: {
-    fontSize: pxToDp(14),
-    color: '#999999',
-    marginTop: pxToDp(-6)
+  luoboimage: {
+    height: pxToDp(200),
+    width: pxToDp(347),
+    borderRadius: pxToDp(8),
+    marginTop: pxToDp(-32)
+  },
+  newimage: {
+    height: pxToDp(100),
+    width: pxToDp(200),
+    borderRadius: pxToDp(8),
+  },
+  new: {
+    height: pxToDp(100),
+    width: pxToDp(200),
+    marginRight: pxToDp(8)
   }
 });
 export default connect(() => ({}), { getAddressListAction })(Index);

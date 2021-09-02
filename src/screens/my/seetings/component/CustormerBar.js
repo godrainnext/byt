@@ -110,6 +110,25 @@ class Index extends PureComponent {
             </Text>
             <View
               style={{
+                alignSelf: 'center',
+                width: '80%',
+                height: pxToDp(30)
+              }}
+            >
+              <Text
+                style={{
+                  color: '#333333',
+                  fontSize: pxToDp(16),
+                  alignSelf: 'center',
+                  marginTop: pxToDp(4)
+                }}
+                numberOfLines={1}
+              >
+                {ownSay}
+              </Text>
+            </View>
+            <View
+              style={{
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'center'
@@ -145,25 +164,6 @@ class Index extends PureComponent {
                   关注
                 </Text>
               </View>
-            </View>
-            <View
-              style={{
-                alignSelf: 'center',
-                width: '80%',
-                height: pxToDp(30)
-              }}
-            >
-              <Text
-                style={{
-                  color: '#333333',
-                  fontSize: pxToDp(16),
-                  alignSelf: 'center',
-                  marginTop: pxToDp(4)
-                }}
-                numberOfLines={1}
-              >
-                {ownSay}
-              </Text>
             </View>
             <Mybtn
               title="编辑资料"

@@ -35,13 +35,10 @@ function Nav() {
         <Stack.Screen name="PageThree" component={Screens.PageThree} />
         {/* 俯瞰百年文章 */}
         <Stack.Screen name="Pagefive" component={Screens.Pagefive} />
-        {/*我的 */}
         {/**已改字体大小和颜色 */}
         <Stack.Screen name="My" component={Screens.My} />
-
         {/*设置 */}
         <Stack.Screen name="Set" component={Screens.Set} />
-
         {/*具体的设置内容 关于我们、推送、意见、隐私 */}
         <Stack.Screen name="Women" component={Screens.Women} />
         <Stack.Screen name="Tuisong" component={Screens.Tuisong} />
@@ -107,6 +104,10 @@ function Nav() {
         <Stack.Screen name="ticket" component={Screens.ticket} />
         {/* 票务系统详情页 */}
         <Stack.Screen name="ticketdetail" component={Screens.ticketdetail} />
+        {/* 选座位 */}
+        <Stack.Screen name="PickSeat" component={Screens.PickSeat} />
+        {/* 我的剧票 */}
+        <Stack.Screen name="MyTicket" component={Screens.MyTicket} />
         {/**增加新地址 */}
         <Stack.Screen name="Lease" component={Screens.Lease} />
         {/*游玩 */}
@@ -237,13 +238,11 @@ function Nav() {
         <Stack.Screen name="Video" component={Screens.Video} />
         {/*举报页*/}
         <Stack.Screen name="Jubao" component={Screens.Jubao} />
-
         <Stack.Screen name="Test1" component={Screens.Test1} />
         <Stack.Screen name="Test2" component={Screens.Test2} />
         <Stack.Screen name="Test3" component={Screens.Test3} />
         <Stack.Screen name="Test4" component={Screens.Test4} />
         <Stack.Screen name="Test6" component={Screens.Test6} />
-
         {/**波纹按钮 */}
         <Stack.Screen name="WaterButton" component={Screens.WaterButton} />
         {/*剧本热度榜单 */}

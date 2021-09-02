@@ -9,7 +9,9 @@ import {
   ScrollView,
   StyleSheet,
   ToastAndroid,
-  DeviceEventEmitter
+  DeviceEventEmitter,
+  Modal,
+  ImageBackground
 } from 'react-native';
 import Top from '../../../component/common/top';
 import { pxToDp } from '@utils/styleKits';
@@ -21,6 +23,9 @@ import { addOrider } from '../../../service/shop';
 import { connect } from 'react-redux';
 import { getUserOriderListAction } from '../../first/home/store/actions';
 import Mybtn from '../../../component/common/mybtn';
+import SvgUri from 'react-native-svg-uri';
+import CodeFieldzz from './components/codefield'
+const back='<svg t="1630480820345" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2172" width="200" height="200"><path d="M759.3984 276.6848a25.6 25.6 0 0 1 0 36.181333L560.298667 512l199.099733 199.168a25.6 25.6 0 0 1 0 36.181333l-12.0832 12.0832a25.6 25.6 0 0 1-36.181333 0L512 560.264533l-199.168 199.133867a25.6 25.6 0 0 1-36.181333 0l-12.0832-12.0832a25.6 25.6 0 0 1 0-36.181333l199.133866-199.168-199.133866-199.099734a25.6 25.6 0 0 1 0-36.181333l12.0832-12.0832a25.6 25.6 0 0 1 36.181333 0l199.168 199.099733 199.099733-199.099733a25.6 25.6 0 0 1 36.181334 0l12.0832 12.0832z" p-id="2173" fill="#8a8a8a"></path></svg>'
 class orders extends PureComponent {
   constructor(props) {
     super(props);
@@ -45,7 +50,8 @@ class orders extends PureComponent {
       ],
       activeTab: -1,
       way: '',
-      addressId: -1
+      addressId: -1,
+      isvisiable:false
     };
   }
   static defaultProps = {
@@ -119,12 +125,25 @@ class orders extends PureComponent {
       };
       addOrider(data)
         .then((res) => this.props.getUserOriderListAction())
-        .then((ress) =>
+        .then((ress) =>{
+          this.setState({isvisiable:false})
           this.context.navigate('paySuccess', {
             ...data,
             address: this.state.defaultAddress
-          })
+          })}
         );
+    } else {
+      ToastAndroid.show('请选择支付方式', ToastAndroid.SHORT);
+    }
+  };
+
+  addOrder1= () => {
+  
+    if (this.state.addressId !== -1 && this.state.activeTab !== -1) {
+ 
+
+         this.setState({isvisiable:!this.state.isvisiable})
+        
     } else {
       ToastAndroid.show('请选择支付方式', ToastAndroid.SHORT);
     }
@@ -140,11 +159,13 @@ class orders extends PureComponent {
 
     return (
       <View style={{ backgroundColor: '#fff', flex: 1 }}>
+
         <Top icon1="arrow-back" title="确认订单" />
         <ScrollView
           style={{ flex: 1, padding: pxToDp(14) }}
           showsVerticalScrollIndicator={false}
         >
+
           {/* 订单状态 */}
           <View
             style={{
@@ -169,7 +190,7 @@ class orders extends PureComponent {
               margin: pxToDp(2),
               marginTop: pxToDp(16),
               backgroundColor: '#fff',
-              height:pxToDp(100),
+              height: pxToDp(100),
               borderRadius: pxToDp(8),
               elevation: 2,
               shadowColor: 'black', //  阴影颜色
@@ -372,10 +393,30 @@ class orders extends PureComponent {
               ￥{price * count}
             </Text>
           </View>
+          <View style={styles.centeredView}>
+            <Modal
+              animationType="slide"
+              transparent={true}
+              visible={ this.state.isvisiable}
+            >
+
+              <View style={styles.centeredView}>
+                <View style={styles.modalView}>
+                  <View style={{ alignItems: 'center' }}>
+                    <TouchableOpacity onPress={()=>this.setState({isvisiable:false})} style={{position:'absolute',top:-20,left:-20}}>
+                    <SvgUri svgXmlData={back} width='30' height='30'/>
+                    </TouchableOpacity>
+                    <CodeFieldzz  onPress={this.addOrder}/>
+                  </View>
+                </View>
+              </View>
+            </Modal>
+
+          </View>
           <Mybtn
             cisabled={this.props.disabled}
             title="提交订单"
-            onPress={this.addOrder}
+            onPress={this.addOrder1}
             buttonStyle={{
               width: pxToDp(120),
               height: pxToDp(40),
@@ -473,6 +514,30 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#ffffff',
     backgroundColor: 'transparent'
-  }
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: pxToDp(16),
+
+
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    padding: 35,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
+    backgroundColor: "#fff"
+  },
 });
 export default connect(() => ({}, { getUserOriderListAction }))(orders);

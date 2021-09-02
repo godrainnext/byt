@@ -170,7 +170,7 @@ class Index extends PureComponent {
             <Text
               style={{
                 fontSize: pxToDp(18),
-                color: '#000',
+                color: '#62bfad',
                 fontWeight: 'bold',
                 marginBottom: pxToDp(8),
                 marginTop: pxToDp(8)
@@ -201,7 +201,7 @@ class Index extends PureComponent {
             <Text
               style={{
                 fontSize: pxToDp(18),
-                color: '#000',
+                color: '#62bfad',
                 fontWeight: 'bold',
                 marginTop: pxToDp(8)
               }}
@@ -263,7 +263,7 @@ class Index extends PureComponent {
           <Text
             style={{
               fontSize: pxToDp(18),
-              color: '#000000',
+              color: '#62bfad',
               fontWeight: 'bold',
               marginLeft: pxToDp(16),
               marginTop: pxToDp(8),

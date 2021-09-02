@@ -173,7 +173,7 @@ class Index extends PureComponent {
 
     return (
       <View style={{ flex: 1 }}>
-        <Top icon1="arrow-back" icon2="more-horizontal" />
+        <Top icon1="arrow-back"/>
         <ScrollView
           showsVerticalScrollIndicator={false}
           style={{

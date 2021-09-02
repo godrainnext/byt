@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { Text, View, StyleSheet, TouchableOpacity, Modal } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import Feather from 'react-native-vector-icons/Feather';
 import { NavigationContext } from '@react-navigation/native';
 import { pxToDp, screenWidth } from '../../utils/styleKits';
@@ -45,16 +46,8 @@ export default class HeaderHaveBack extends PureComponent {
                     }}
                   >
                     <TouchableOpacity style={{ alignItems: 'center' }}>
-                      <FontAwesome name="qq" size={25} color="#87CEFA" />
-                      <Text>qq</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={{ alignItems: 'center' }}>
-                      <FontAwesome name="wechat" size={25} color="#32CD32" />
-                      <Text>微信</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={{ alignItems: 'center' }}>
-                      <FontAwesome name="weibo" size={25} color="#FA8072" />
-                      <Text>微博</Text>
+                      <FontAwesome5 name="heart-broken" size={25} color="#999999" />
+                      <Text>不感兴趣</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                       style={{ alignItems: 'center' }}

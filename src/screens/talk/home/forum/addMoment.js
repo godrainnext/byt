@@ -64,12 +64,16 @@ class index extends PureComponent {
         selectionLimit: 9
       },
       (response) => {
-        const arr = [];
-        response.assets.forEach((item) => {
-          arr.push(item.uri);
-        });
-        this.setState({ arr: arr });
-        this.setState({ form: response.assets });
+        try {
+          const arr = [];
+          response.assets.forEach((item) => {
+            arr.push(item.uri);
+          });
+          this.setState({ arr: arr });
+          this.setState({ form: response.assets });
+        } catch (error) {
+          ToastAndroid.show('请选择正确的图片', ToastAndroid.SHORT);
+        }
       }
     );
   }

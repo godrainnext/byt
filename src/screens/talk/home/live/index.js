@@ -307,6 +307,7 @@ class Index extends Component {
               </View>
             </View>
           </ImageBackground>
+          <View style={{ height: pxToDp(10) }}></View>
         </ScrollView>
       </View>
     );

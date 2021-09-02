@@ -107,6 +107,7 @@ export default class MusicPlayer extends Component {
 
   componentDidMount() {
     this.spin();
+    this.animation.play();
     this.setState({
       musicInfo: mockData.list.find(
         (item) => item.id === this.props.route.params
@@ -450,7 +451,7 @@ export default class MusicPlayer extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ecf6fc'
+    backgroundColor: '#D5E8E6'
   },
   bgContainer: {
     height: '50%',

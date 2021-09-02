@@ -24,10 +24,16 @@ import { connect } from 'react-redux';
 import { getUserInfoAction } from '../../first/home/store/actions';
 import { changeAvatar } from './store/actions';
 import changeImgSize from '@utils/changeImgSize';
-import { Avatar, Button, CheckBox,Input,ListItem } from 'react-native-elements';
+import {
+  Avatar,
+  Button,
+  CheckBox,
+  Input,
+  ListItem
+} from 'react-native-elements';
 import LinearGradient from 'react-native-linear-gradient';
 
-import {  } from 'react-native-elements'
+import {} from 'react-native-elements';
 
 const typeArr = ['男', '女'];
 const sheng =
@@ -46,7 +52,7 @@ class index extends PureComponent {
       avatar: '',
       nickName: '',
       ownSay: '',
-      backgroundColor: '#acddfc',
+      backgroundColor: '#acddfc'
     };
   }
   componentDidMount() {
@@ -150,11 +156,14 @@ class index extends PureComponent {
   // };
   render() {
     const dateNow = new Date();
-    const currentDate = `${dateNow.getFullYear()}-${dateNow.getMonth() + 1
-      }-${dateNow.getDate()}`;
+    const currentDate = `${dateNow.getFullYear()}-${
+      dateNow.getMonth() + 1
+    }-${dateNow.getDate()}`;
     const { birthday } = this.state;
     return (
-      <View style={{ height: '100%', backgroundColor: this.state.backgroundColor }}>
+      <View
+        style={{ height: '100%', backgroundColor: this.state.backgroundColor }}
+      >
         <Top
           title="个人信息"
           icon1="arrow-back"
@@ -180,8 +189,7 @@ class index extends PureComponent {
               style={{
                 position: 'absolute',
                 left: pxToDp(105),
-                top: pxToDp(-60),
-              
+                top: pxToDp(-60)
               }}
             >
               <View
@@ -194,17 +202,17 @@ class index extends PureComponent {
               >
                 <Avatar
                   small
-                  avatarStyle={{ alignSelf: 'center',backgroundColor:'#ccc' }}
+                  avatarStyle={{ alignSelf: 'center', backgroundColor: '#ccc' }}
                   size={100}
                   rounded={true}
                   title="越"
                   onPress={() => this._changeModal()}
                   activeOpacity={0.7}
-                // source={{
-                //   uri: this.props.avatar
-                //     ? this.props.avatar
-                //     : changeImgSize(this.state.avatar, 'small')
-                // }}
+                  // source={{
+                  //   uri: this.props.avatar
+                  //     ? this.props.avatar
+                  //     : changeImgSize(this.state.avatar, 'small')
+                  // }}
                 />
               </View>
               <View>
@@ -219,7 +227,7 @@ class index extends PureComponent {
                       <Text style={s.modalTitle}>请选择</Text>
                       <TouchableHighlight
                         underlayColor={'#F5F5F5'}
-                      // onPress={this.openImagePickerAsync}
+                        // onPress={this.openImagePickerAsync}
                       >
                         <Text style={s.modalItem}>打开相册</Text>
                       </TouchableHighlight>
@@ -237,12 +245,12 @@ class index extends PureComponent {
           </View>
           <View style={[s.basic, { marginTop: pxToDp(60) }]}>
             <View style={{ width: '100%', alignSelf: 'center' }}>
-              <Text style={{ fontSize: pxToDp(16), color: '#aaa', }}>
-                昵称
-              </Text>
-              <Input style={{ width: 200 }} 
-                onChangeText={(nickName)=>this.setState({nickName})}
-                value={this.state.nickName}/>
+              <Text style={{ fontSize: pxToDp(16), color: '#aaa' }}>昵称</Text>
+              <Input
+                style={{ width: 200 }}
+                onChangeText={(nickName) => this.setState({ nickName })}
+                value={this.state.nickName}
+              />
             </View>
             {/* <View style={{ marginTop: pxToDp(60) }}>
                 <AntDesign name="right" size={pxToDp(18)} color="#000" />
@@ -254,9 +262,13 @@ class index extends PureComponent {
                 <Text style={{ fontSize: pxToDp(16), color: '#aaa' }}>
                   个性签名
                 </Text>
-                <Input 
-                onChangeText={(ownSay)=>{this.setState({ownSay});console.log(this.state.ownSay);}}
-                value={this.state.ownSay} />
+                <Input
+                  onChangeText={(ownSay) => {
+                    this.setState({ ownSay });
+                    console.log(this.state.ownSay);
+                  }}
+                  value={this.state.ownSay}
+                />
               </View>
             </View>
             {/* <View style={{ marginTop: pxToDp(60) }}>
@@ -267,13 +279,13 @@ class index extends PureComponent {
           <View
             style={
               (s.basic,
-                [
-                  {
-                    flexDirection: 'row',
-                    marginLeft: pxToDp(20),
-                    marginTop: pxToDp(20)
-                  }
-                ])
+              [
+                {
+                  flexDirection: 'row',
+                  marginLeft: pxToDp(20),
+                  marginTop: pxToDp(20)
+                }
+              ])
             }
           >
             <Image
@@ -317,9 +329,7 @@ class index extends PureComponent {
                 confirmBtnText="确定"
                 cancelBtnText="取消"
                 customStyles={{
-                  dateIcon: {
-
-                  },
+                  dateIcon: {},
                   dateInput: {
                     borderWidth: 0,
                     alignItems: 'flex-start'
@@ -373,9 +383,7 @@ const s = StyleSheet.create({
     justifyContent: 'space-between',
     marginLeft: pxToDp(15),
     height: 90,
-    width: '90%',
-
-
+    width: '90%'
   },
   button: {
     marginTop: pxToDp(20),
@@ -414,7 +422,7 @@ const s = StyleSheet.create({
     borderColor: '#000'
   }
 });
-export default index
+export default index;
 //  connect(
 //   (state) => ({
 //     token: state.getIn(['LoginReducer', 'token']),

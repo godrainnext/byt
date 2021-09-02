@@ -5,7 +5,8 @@ import {
   TouchableOpacity,
   StyleSheet,
   Modal,
-  Image
+  Image,
+  Alert
 } from 'react-native';
 import { pxToDp } from '@utils/styleKits';
 import { NavigationContext } from '@react-navigation/native';
@@ -134,6 +135,8 @@ class Index extends PureComponent {
                   title={this.state.isclick ? '已签到' : '签到'}
                   titleStyle={{ color: '#fff' }}
                   disabled={this.state.isclick}
+                  disabledStyle={{backgroundColor:'gray' ,color:'white',}}
+                  disabledTitleStyle={{color:'white'}}
                   buttonStyle={{
                     width: pxToDp(100),
                     height: pxToDp(100),

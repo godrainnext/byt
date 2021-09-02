@@ -7040,6 +7040,11 @@ react-native-animated-loader@^0.0.9:
   dependencies:
     prop-types "^15.6.2"
 
+react-native-better-banner@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/react-native-better-banner/-/react-native-better-banner-1.1.3.tgz#2ad1825581258ac9dec127400f68f80146a52862"
+  integrity sha512-3sv+gaOw5Ign1IxILsjQHTedEtbRZVhZNISERe0g+DsmOnaBV4Ntx50/NyLtGTCEADedANWyPsQ56H2gGMgUVg==
+
 react-native-blur@^3.2.2:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/react-native-blur/-/react-native-blur-3.2.2.tgz#5bfb50638d148982c9560436554ed01d77d6d07d"
@@ -7060,6 +7065,11 @@ react-native-collapsible@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/react-native-collapsible/-/react-native-collapsible-1.6.0.tgz#ca261ffff16914f872059bb0972e3a78c4b37f9c"
   integrity sha512-beZjdgbT9Y/Pg591Xy5XkKG20HffJiVad4n9bfcUF/f783A+tvOVXnqvbS58Lkaym93mi4jcDPMuW9Vc1t6rqg==
+
+react-native-confirmation-code-field@^7.1.0:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-confirmation-code-field/-/react-native-confirmation-code-field-7.1.0.tgz#2394e80ad399cbbcfc7f87bb2eb8bc34eaa43a55"
+  integrity sha512-cGE36gnyQR9inqQwHghPhBiMj8PZOmW4n/bUtv+xnDxf4/gTv7ga6v3DSCREfQXRyeCmHZ7iRzj7diJzAgvxFg==
 
 react-native-datepicker@^1.7.2:
   version "1.7.2"

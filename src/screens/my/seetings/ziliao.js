@@ -14,7 +14,6 @@ import {
 import { NavigationContext } from '@react-navigation/native';
 import CustomAlertDialog from '../component/CustomAlertDialog';
 import { pxToDp } from '../../../utils/styleKits';
-// import * as ImagePicker from 'expo-image-picker';
 import { launchImageLibrary } from 'react-native-image-picker';
 import DatePicker from 'react-native-datepicker';
 import Top from '@components/common/top';
@@ -87,35 +86,39 @@ class Ziliao extends PureComponent {
         if (response.error) {
           console.log(response.error);
         } else {
-          const pickerResult = response.assets[0];
+          try {
+            const pickerResult = response.assets[0];
 
-          const fd = new FormData();
-          let file = {
-            uri: pickerResult.uri,
-            type: 'multipart/form-data',
-            name: pickerResult.type
-          };
-          fd.append('file', file);
-          requset
-            .post({
-              url: URL.UPDATE_AVATER,
-              data: fd,
-              headers: {
-                Accept: 'Application/json',
-                'content-type': 'multipart/form-data'
-              }
-            })
-            .then((res) => {
-              this.props.changeAvatar(pickerResult.uri);
-              ToastAndroid.show(res, ToastAndroid.SHORT);
-            })
-            .catch((err) => {
-              console.log(err);
+            const fd = new FormData();
+            let file = {
+              uri: pickerResult.uri,
+              type: 'multipart/form-data',
+              name: pickerResult.type
+            };
+            fd.append('file', file);
+            requset
+              .post({
+                url: URL.UPDATE_AVATER,
+                data: fd,
+                headers: {
+                  Accept: 'Application/json',
+                  'content-type': 'multipart/form-data'
+                }
+              })
+              .then((res) => {
+                this.props.changeAvatar(pickerResult.uri);
+                ToastAndroid.show(res, ToastAndroid.SHORT);
+              })
+              .catch((err) => {
+                console.log(err);
+              });
+            this.setState({
+              avatar: pickerResult.uri,
+              modalVisible: false
             });
-          this.setState({
-            avatar: pickerResult.uri,
-            modalVisible: false
-          });
+          } catch (error) {
+            ToastAndroid.show('请选择正确的图片', ToastAndroid.SHORT);
+          }
           // this.setState({ avatar: response.uri });
         }
       }
@@ -148,8 +151,9 @@ class Ziliao extends PureComponent {
   };
   render() {
     const dateNow = new Date();
-    const currentDate = `${dateNow.getFullYear()}-${dateNow.getMonth() + 1
-      }-${dateNow.getDate()}`;
+    const currentDate = `${dateNow.getFullYear()}-${
+      dateNow.getMonth() + 1
+    }-${dateNow.getDate()}`;
     const { birthday } = this.state;
     return (
       <View style={{ flex: 1, backgroundColor: this.state.backgroundColor }}>
@@ -287,13 +291,13 @@ class Ziliao extends PureComponent {
           <View
             style={
               (s.basic,
-                [
-                  {
-                    flexDirection: 'row',
-                    marginLeft: pxToDp(16),
-                    marginTop: pxToDp(20)
-                  }
-                ])
+              [
+                {
+                  flexDirection: 'row',
+                  marginLeft: pxToDp(16),
+                  marginTop: pxToDp(20)
+                }
+              ])
             }
           >
             <Image
@@ -373,7 +377,7 @@ class Ziliao extends PureComponent {
                 width: pxToDp(120),
                 height: pxToDp(40),
                 alignSelf: 'center',
-                borderRadius: pxToDp(32),
+                borderRadius: pxToDp(32)
               }}
               titleStyle={{
                 color: 'white',

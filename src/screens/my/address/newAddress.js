@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
 import React, { PureComponent } from 'react';
-import { Text, View, StyleSheet, TouchableOpacity, Switch } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity, Switch, Alert } from 'react-native';
 import Top from '../../../component/common/top';
 import { Input } from 'react-native-elements';
 import Picker from 'react-native-picker';
@@ -12,6 +12,7 @@ import requset from '@service/index';
 import { connect } from 'react-redux';
 import { getAddressListAction } from './store/actions';
 import Mybtn from '../../../component/common/mybtn';
+import styled from 'styled-components';
 class NewAddress extends PureComponent {
   constructor(props) {
     super(props);
@@ -20,9 +21,13 @@ class NewAddress extends PureComponent {
       phone: '',
       Buttonvalue: false,
       address: ''
-    };
+    }; 
   }
   saveAddress = () => {
+ const {person,phone,address}=this.state
+ if(person==''||phone==''||address=='')
+ Alert.alert('温馨提示','请输入完整信息')
+ else{
     requset
       .post({
         url: '/user/address',
@@ -41,7 +46,7 @@ class NewAddress extends PureComponent {
           ? this.context.navigate('Myorder', this.props.route.params)
           : this.context.goBack();
       });
-  };
+  }};
   static contextType = NavigationContext;
   //选择地区
   showCityPicker = () => {
@@ -72,7 +77,7 @@ class NewAddress extends PureComponent {
             backgroundColor: 'white',
             margin: pxToDp(8),
             borderRadius: pxToDp(16),
-            elevation: 10,
+            elevation: 2,
             shadowColor: 'black', //  阴影颜色
             shadowOffset: { width: 0, height: 0 }, // 阴影偏移
             shadowOpacity: 1, // 阴影不透明度
@@ -181,7 +186,7 @@ class NewAddress extends PureComponent {
             height: pxToDp(40),
             borderRadius: pxToDp(32),
             alignSelf: 'center',
-            marginTop: pxToDp(400)
+            marginTop: pxToDp(300)
           }}
           linearGradientProps={{
             colors: ['#fa9222', '#ffd501'],

@@ -5,8 +5,7 @@ import { NavigationContext } from '@react-navigation/native';
 import { getVideList } from '../../service/home';
 import { pxToDp } from '@utils/styleKits';
 import changeImgSize from '@utils/changeImgSize';
-import { Button } from 'react-native-elements';
-import LinearGradient from 'react-native-linear-gradient';
+import LottieView from 'lottie-react-native';
 import { PureComponent } from 'react';
 import Mybtn from '../../component/common/mybtn'
 
@@ -21,30 +20,31 @@ export default class HighLights extends PureComponent {
   }
   render() {
     return (
-      <View style={{ marginTop: pxToDp(16), marginLeft: pxToDp(16), marginRight: pxToDp(16) }}>
-        <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
+      <View style={{ marginLeft: pxToDp(16), marginRight: pxToDp(16), marginTop: pxToDp(-4) }}>
+        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
           <View style={{ width: pxToDp(4), height: '75%', backgroundColor: '#62bfad', borderRadius: pxToDp(2) }}>
           </View>
           <View>
-            <View
-              style={{
-                marginLeft: pxToDp(-106)
-              }}
-            >
-              <Text
-                style={{
-                  fontSize: pxToDp(18),
-                  color: '#62bfad',
-                  fontWeight: 'bold'
-                }}
-              >
+            <View style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}>
+              <Text style={{
+                fontSize: pxToDp(18),
+                color: '#62bfad',
+                fontWeight: 'bold',
+                marginLeft: pxToDp(3),
+                marginBottom: pxToDp(-15)
+              }}>
                 精选唱段
               </Text>
-              <Text style={{ fontSize: pxToDp(14), color: '#999999', marginTop: pxToDp(-6) }}>jing xuan chang duan</Text>
+              <LottieView
+                style={{ width: pxToDp(80) }}
+                source={require('../../../lottie/标题底部.json')}
+                autoPlay={true}
+                loop={true}
+              />
             </View>
           </View>
           <TouchableOpacity
-            style={{ flexDirection: 'row', alignItems: 'center' }}
+            style={{ flexDirection: 'row', alignItems: 'center', marginLeft: pxToDp(180) }}
             onPress={() => this.context.navigate('Opera')}
           >
             <Text style={{ fontSize: pxToDp(14), color: '#666666' }}>
@@ -79,7 +79,7 @@ export default class HighLights extends PureComponent {
                   marginLeft: 1.5,
                   marginTop: 2,
                   borderRadius: pxToDp(8),
-                  elevation: 4,
+                  elevation: 2,
                   shadowColor: 'black',  //  阴影颜色
                   shadowOffset: { width: 0, height: 0 },  // 阴影偏移
                   shadowOpacity: 1,  // 阴影不透明度

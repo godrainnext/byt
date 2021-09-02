@@ -75,6 +75,8 @@ export { default as GoodsList } from './shop/home/goods/good'; //商品详情页
 export { default as Zhoubian } from './shop/home/zhoubian'; //周边页
 export { default as Zulin } from './shop/home/zulin'; //服装租赁页
 export { default as ticket } from './shop/home/ticket/index'; //票务系统
+export { default as PickSeat } from './shop/home/ticket/pickseat'; //票务系统
+export { default as MyTicket } from './shop/home/ticket/myticket'; //票务系统
 export { default as ticketdetail } from './shop/home/ticket/ticketdetail'; //票务系统详情
 export { default as Lease } from './shop/home/goods/lease'; //新增收货地址
 export { default as pointshop } from './shop/home/jifen/index'; //积分商城详情
@@ -148,13 +150,11 @@ export { default as Test2 } from './test/test2';
 export { default as Test3 } from './test/test3';
 export { default as Test4 } from './test/test4';
 export { default as Test6 } from './test/test8';
-
 export { default as WaterButton } from '../component/common/waterbutton'; //波纹按钮
-
 export { default as NewTimeLine } from './test/test5';
 export { default as Testtt } from '../testtt';
 export { default as ToSing } from './talk/home/sing';
 export { default as SingOver } from './play/study/singover';
 export { default as SingSub } from './play/study/singsub';
-export { default as AddMoment} from './talk/home/forum/addMoment'
+export { default as AddMoment } from './talk/home/forum/addMoment'
 

@@ -23,6 +23,7 @@ const MyCarousel = memo((props) => {
           source={{ uri: changeImgSize(item.imgrl, 'small') }}
           containerStyle={styles.imageContainer}
           style={styles.image}
+          
           parallaxFactor={0.4}
           {...parallaxProps}
         />
@@ -42,6 +43,8 @@ const MyCarousel = memo((props) => {
         hasParallaxImages={true}
         activeSlideOffset={0}
         loop={true}
+        
+        // autoplay={true}
       />
     </View>
   );

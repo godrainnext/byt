@@ -83,14 +83,6 @@ class Index extends PureComponent {
                 <Text style={{ marginTop: pxToDp(16), fontSize: pxToDp(14), color: '#333333', fontWeight: 'bold' }}>
                   {item.user.nickName}
                 </Text>
-                <TouchableOpacity
-                  style={{ position: 'absolute', right: 20, top: 20 }}
-                  onPress={() => {
-                    this.setState({ isvisible: true });
-                  }}
-                >
-                  <SvgUri svgXmlData={sandian} width="20" height="20" />
-                </TouchableOpacity>
               </View>
               <View style={{ marginLeft: pxToDp(60) }}>
                 <Text
@@ -111,7 +103,7 @@ class Index extends PureComponent {
                     marginTop: pxToDp(-10)
                   }}
                 >
-                  {item.createTime}
+                  {item.createTime?.split(' ')[0]}
                 </Text>
                 <View
                   style={{
@@ -228,7 +220,7 @@ class Index extends PureComponent {
                                 marginTop: pxToDp(-15)
                               }}
                             >
-                              {items.createAt}
+                              {items.createAt?.split(' ')[0]}
                             </Text>
                             <View
                               style={{

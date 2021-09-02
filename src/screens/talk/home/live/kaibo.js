@@ -134,10 +134,15 @@ class App extends Component {
         if (response.error) {
           console.log(response.error);
         } else {
-          const pickerResult = response.assets[0];
+          try{
+          const pickerResult = response?.assets[0];
           console.log(pickerResult);
           this.setState({ image: pickerResult });
+           } catch (error) {
+            ToastAndroid.show('请选择正确的图片',ToastAndroid.SHORT)
+          }
         }
+        
       }
     );
   }

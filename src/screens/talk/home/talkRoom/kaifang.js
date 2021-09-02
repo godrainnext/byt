@@ -9,7 +9,8 @@ import {
   Image,
   Dimensions,
   StyleSheet,
-  ImageBackground
+  ImageBackground,
+  ToastAndroid
 } from 'react-native';
 import { Input } from 'react-native-elements';
 import RtcEngine, {
@@ -141,9 +142,13 @@ export default class App extends Component {
         if (response.error) {
           console.log(response.error);
         } else {
-          const pickerResult = response.assets[0];
-          console.log(pickerResult);
-          this.setState({ image: pickerResult });
+          try {
+            const pickerResult = response?.assets[0];
+            console.log(pickerResult);
+            this.setState({ image: pickerResult });
+          } catch (error) {
+            ToastAndroid.show('请选择正确的图片', ToastAndroid.SHORT);
+          }
         }
       }
     );
