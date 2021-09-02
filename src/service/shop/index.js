@@ -25,4 +25,4 @@ export const getShopListByStatus = (status, offset = 0, top = 5) =>
 export const addOrider = (data) => request.post({ url: `/user/orider`, data });
 
 export const getStreamList = (status = 0) =>
-  request.get({ url: '/stream', data: { status } });
+  request.get({ url: `/stream/${status}` });
