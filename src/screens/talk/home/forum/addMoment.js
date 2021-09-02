@@ -156,8 +156,8 @@ class index extends PureComponent {
         ToastAndroid.show('发表文章成功', ToastAndroid.SHORT);
       })
       .then((ress) => {
-        this.context.goBack()
-      })
+        this.context.goBack();
+      });
   };
 
   changeTitle = (title) => {
@@ -268,8 +268,10 @@ class index extends PureComponent {
         </View>
         <View
           style={{
-            alignItems: 'center',
-            marginTop: pxToDp(87)
+            position: 'absolute',
+            bottom: pxToDp(8),
+            left: 0,
+            right: 0
           }}
         >
           <Mybtn

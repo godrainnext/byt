@@ -29,7 +29,6 @@ import { launchImageLibrary } from 'react-native-image-picker';
 import request from '@service/index';
 import { connect } from 'react-redux';
 import Mybtn from '../../../../component/common/mybtn';
-import ImagePicker from 'react-native-image-crop-picker';
 import SvgUri from 'react-native-svg-uri';
 const dimensions = {
   width: Dimensions.get('window').width,
@@ -254,7 +253,6 @@ class App extends Component {
   };
 
   closeCall = () => {
-    console.log(this.state.result.insertId);
     request
       .delete({ url: `/stream/${this.state.result.insertId}` })
       .then((res) => {
@@ -627,7 +625,7 @@ const styles = StyleSheet.create({
   },
   buttonHolder: {
     position: 'absolute',
-    bottom: 15,
+    bottom: pxToDp(8),
     left: 0,
     right: 0
   },
