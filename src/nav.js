@@ -10,7 +10,7 @@ const Stack = createStackNavigator();
 function Nav() {
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode="none" initialRouteName="BootPage">
+      <Stack.Navigator headerMode="none" initialRouteName="Login">
         <Stack.Screen name="NewTimeLine" component={Screens.NewTimeLine} />
         <Stack.Screen name="BootPage" component={Screens.BootPage} />
         {/*引导页 */}
@@ -253,6 +253,8 @@ function Nav() {
         <Stack.Screen name="SingOver" component={Screens.SingOver} />
         <Stack.Screen name="SingSub" component={Screens.SingSub} />
         <Stack.Screen name="AddMoment" component={Screens.AddMoment} />
+        {/**积分明细 */}
+        <Stack.Screen name="JifenMingxi" component={Screens.JifenMingxi} />
       </Stack.Navigator>
     </NavigationContainer>
   );

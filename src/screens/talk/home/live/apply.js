@@ -84,7 +84,8 @@ class index extends Component {
     if (
       this.state.arr.length === 2 &&
       this.state.username &&
-      this.state.fayan
+      this.state.fayan &&
+      this.state.checked
     ) {
       const fd = new FormData();
       for (const file of this.state.arr) {

@@ -157,4 +157,5 @@ export { default as ToSing } from './talk/home/sing';
 export { default as SingOver } from './play/study/singover';
 export { default as SingSub } from './play/study/singsub';
 export { default as AddMoment } from './talk/home/forum/addMoment'
+export { default as JifenMingxi } from './my/jifenshop/jifenmingxi'
 
