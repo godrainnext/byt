@@ -20,7 +20,7 @@ export default class HighLights extends PureComponent {
   }
   render() {
     return (
-      <View style={{ marginTop: pxToDp(16), marginLeft: pxToDp(16), marginRight: pxToDp(16) }}>
+      <View style={{ marginLeft: pxToDp(16), marginRight: pxToDp(16), marginTop: pxToDp(-4) }}>
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
           <View style={{ width: pxToDp(4), height: '75%', backgroundColor: '#62bfad', borderRadius: pxToDp(2) }}>
           </View>
@@ -79,7 +79,7 @@ export default class HighLights extends PureComponent {
                   marginLeft: 1.5,
                   marginTop: 2,
                   borderRadius: pxToDp(8),
-                  elevation: 4,
+                  elevation: 2,
                   shadowColor: 'black',  //  阴影颜色
                   shadowOffset: { width: 0, height: 0 },  // 阴影偏移
                   shadowOpacity: 1,  // 阴影不透明度

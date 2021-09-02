@@ -27,7 +27,7 @@ export default class HeaderHaveBack extends PureComponent {
                 style={styles.box}
                 colors={['#62bfad', '#62bfad']}
                 start={{ x: 0, y: 0 }}
-                end={{ x: 1.6, y: 0 }}
+                end={{ x: 0, y: 0 }}
             >
                 <View style={styles.textview}>
                     <View style={{ flexDirection: "row", justifyContent: "center", alignItems: "center", width: pxToDp(345), height: pxToDp(38), borderRadius: pxToDp(8), backgroundColor: "white" }}>

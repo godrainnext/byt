@@ -11,6 +11,7 @@ import { connect } from 'react-redux';
 import { deleteAddressAction } from '@screens/my/address/store/actions';
 import { deleteAddress } from '@service/mine';
 import { pxToDp } from '../../utils/styleKits';
+import LottieView from 'lottie-react-native';
 class SwpierItem extends PureComponent {
   state = {
     // isClick: false,
@@ -30,7 +31,7 @@ class SwpierItem extends PureComponent {
   };
   render() {
     return (
-      <View style={{ marginBottom: 10,margin:pxToDp(8) }}>
+      <View style={{ marginBottom: 10, margin: pxToDp(8) }}>
         <Card style={{ width: '100%' }} elevation={2}>
           <SwipeRow
             leftOpenValue={75}
@@ -53,17 +54,17 @@ class SwpierItem extends PureComponent {
               </View>
             </View>
 
-            <View style={{ backgroundColor: '#fff', height: 120, width: '100%' ,borderRadius:6,overflow:'hidden'}}>
+            <View style={{ backgroundColor: '#fff', height: 120, width: '100%', borderRadius: 6, overflow: 'hidden' }}>
               <View
-                style={{ width: 200, flexDirection: 'row', marginRight: 225,alignItems:'center'}}
+                style={{ width: 200, flexDirection: 'row', marginRight: 225, alignItems: 'center' }}
               >
                 {/* 姓名 */}
                 <Text
                   style={{
                     fontSize: 16,
-                    color:'#333333',
+                    color: '#333333',
                     opacity: 0.8,
-                    padding:16
+                    padding: 16
                   }}
                 >
                   {this.props.item.name}
@@ -72,14 +73,21 @@ class SwpierItem extends PureComponent {
                 <Text
                   style={{
                     fontSize: 12,
-                    marginLeft:pxToDp(8),
+                    marginLeft: pxToDp(8),
                     width: 120,
-                    color:'#666666',
+                    color: '#666666',
                     opacity: 0.8
                   }}
                 >
                   {this.props.item.phoneNum}
                 </Text>
+              </View>
+              <View style={{ marginLeft: pxToDp(270), marginTop: pxToDp(-100) }}>
+                <LottieView
+                  style={{ height: pxToDp(130), width: pxToDp(130), right: pxToDp(10) }}
+                  source={require('../../../lottie/收货地址.json')}
+                  autoPlay={true}
+                />
               </View>
               {/* 地址等其他信息 */}
               <View
@@ -87,14 +95,14 @@ class SwpierItem extends PureComponent {
                   position: 'absolute',
                   top: pxToDp(54),
                   width: '90%',
-                  paddingBottom:pxToDp(12),
-                  marginLeft:pxToDp(16),
-                  borderBottomWidth:0.2,
-                  borderColor:'#666666'
+                  paddingBottom: pxToDp(12),
+                  marginLeft: pxToDp(16),
+                  borderBottomWidth: 0.2,
+                  borderColor: '#666666'
                 }}
               >
                 <Text
-                  style={{ color:'#333333',opacity: 0.5 }}
+                  style={{ color: '#333333', opacity: 0.5 }}
                   numberOfLines={1}
                 >
                   {this.props.address}
@@ -106,7 +114,7 @@ class SwpierItem extends PureComponent {
                   onPress={this.props.onPress}
                   style={{
                     width: pxToDp(22),
-                    height:  pxToDp(22),
+                    height: pxToDp(22),
                     borderWidth: 0.1,
                     borderRadius: 32,
                     borderColor: '#666666'
@@ -119,7 +127,7 @@ class SwpierItem extends PureComponent {
                     style={{ right: 2, bottom: 2 }}
                   />
                 </TouchableOpacity>
-                <Text style={{ left: 35, bottom: 20, opacity: 0.5 ,color:'#666666',fontSize:12}}>
+                <Text style={{ left: 35, bottom: 20, opacity: 0.5, color: '#666666', fontSize: 12 }}>
                   默认地址
                 </Text>
               </View>
@@ -136,7 +144,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#f8726f',
     height: 120,
     width: 80,
-    borderRadius:6,
+    borderRadius: 6,
     alignItems: 'center',
     justifyContent: 'center',
     position: 'absolute',

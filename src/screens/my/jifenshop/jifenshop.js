@@ -6,14 +6,15 @@ import {
   StyleSheet,
   Image,
   ScrollView,
-  ImageBackground
+  ImageBackground,
+  Dimensions,
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import { pxToDp } from '../../../utils/styleKits';
 import Top from '../../../component/common/top';
+import { WebView } from 'react-native-webview';
 import { NavigationContext } from '@react-navigation/native';
-
 class Index extends PureComponent {
   constructor(props) {
     super(props);
@@ -133,11 +134,24 @@ class Index extends PureComponent {
             }}
           >
             <View style={{ flexDirection: 'row', marginLeft: pxToDp(16) }}>
+              <View style={{ height: pxToDp(50), width: pxToDp(50), marginTop: pxToDp(35) }}>
+                <WebView
+                  style={{ width: '100%', height: '100%', backgroundColor: 'transparent', }}
+                  source={{ uri: "file:///android_asset/static.bundle/number.html" }}
+                  originWhitelist={['*']}
+                  javaScriptEnabled={true}//是否开启js
+                  domStorageEnabled={true}//是否开启存储
+                  scalesPageToFit={false}//用户是否可以改变页面
+                  scrollEnabled={false}
+                  // injectedJavaScript={`	`}
+                  onMessage={event => { '接收h5页面传过来的消息' }}
+                />
+              </View>
               <Ionicons
-                style={{ marginTop: pxToDp(10), marginLeft: pxToDp(4) }}
+                style={{ marginTop: pxToDp(40), marginLeft: pxToDp(-14) }}
                 name="server-outline"
                 size={pxToDp(15)}
-                color="#000"
+                color="#62bfad"
               />
             </View>
             <TouchableOpacity
