@@ -10,7 +10,7 @@ import {
   LayoutAnimation,
   UIManager,
   ToastAndroid,
-  TouchableNativeFeedback
+  TouchableNativeFeedback, Dimensions,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Input } from 'react-native-elements';
@@ -20,12 +20,14 @@ import { pxToDp } from '@utils/styleKits';
 import requset from '../../../service';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Mybtn from '../../../component/common/mybtn';
+const Screewidth = Dimensions.get('window').width
+const Screeheight = Dimensions.get('window').height
 class Login extends PureComponent {
   static contextType = NavigationContext;
 
   state = {
-    opcitytext1: new Animated.Value(0),
-    opcitytext2: new Animated.Value(0),
+    opcitytext1: new Animated.Value(1),
+    opcitytext2: new Animated.Value(1),
     opcitytext3: new Animated.Value(0),
     opcitytext4: new Animated.Value(0),
     loginbox: 350,
@@ -46,7 +48,7 @@ class Login extends PureComponent {
     }).start();
     Animated.timing(this.state.opcitytext2, {
       toValue: 1,
-      duration: 3000,
+      duration: 2500,
       useNativeDriver: true // Add this
     }).start();
     Animated.timing(this.state.opcitytext3, {
@@ -56,7 +58,7 @@ class Login extends PureComponent {
     }).start();
     Animated.timing(this.state.opcitytext4, {
       toValue: 0,
-      duration: 3000,
+      duration: 2500,
       useNativeDriver: true // Add this
     }).start();
     this.setState({ loginbox: 350 });
@@ -75,7 +77,7 @@ class Login extends PureComponent {
     }).start();
     Animated.timing(this.state.opcitytext2, {
       toValue: 0,
-      duration: 3000,
+      duration: 2500,
       useNativeDriver: true // Add this
     }).start();
     Animated.timing(this.state.opcitytext3, {
@@ -85,7 +87,7 @@ class Login extends PureComponent {
     }).start();
     Animated.timing(this.state.opcitytext4, {
       toValue: 1,
-      duration: 3000,
+      duration: 2500,
       useNativeDriver: true // Add this
     }).start();
     this.setState({ loginbox: 0 });
@@ -151,16 +153,18 @@ class Login extends PureComponent {
     UIManager.setLayoutAnimationEnabledExperimental &&
       UIManager.setLayoutAnimationEnabledExperimental(true);
     return (
+
       <ImageBackground
-        source={require('./11.jpg')}
-        style={{ width: '100%', height: '100%' }}
+        source={{ uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201808%2F10%2F20180810212724_kgibb.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1633089252&t=a03d7329a73f30004439f130fca71807' }}
+        style={{ width: Screewidth, height: Screeheight }}
       >
+
         <Image
           source={require('./111.png')}
           style={{
             width: pxToDp(200),
             height: pxToDp(200),
-            position: 'absolute',
+
             left: pxToDp(70),
             top: pxToDp(35)
           }}
@@ -228,7 +232,7 @@ class Login extends PureComponent {
             }}
           >
             <Input
-              placeholder="请输入用户名"
+              placeholder="请输入账号"
               leftIcon={<Icon name="user" size={24} />}
               onChangeText={(username) => this.setState({ username })}
               value={this.state.username}
@@ -304,7 +308,7 @@ class Login extends PureComponent {
             }}
           >
             <Input
-              placeholder="恁是我爹"
+              placeholder="请输入账号"
               leftIcon={<Icon name="user" size={24} />}
               onChangeText={(regusername) => this.setState({ regusername })}
               value={this.state.regusername}
@@ -313,7 +317,7 @@ class Login extends PureComponent {
           <View style={{ width: '80%', marginLeft: pxToDp(20) }}>
             <Input
               secureTextEntry={true}
-              placeholder="我是恁爹"
+              placeholder="请输入密码"
               leftIcon={{ type: 'font-awesome', name: 'lock' }}
               onChangeText={(regpassword1) => this.setState({ regpassword1 })}
               value={this.state.regpassword1}
@@ -322,7 +326,7 @@ class Login extends PureComponent {
           <View style={{ width: '80%', marginLeft: pxToDp(20) }}>
             <Input
               secureTextEntry={true}
-              placeholder="我是恁爹"
+              placeholder="请再次输入密码"
               leftIcon={{ type: 'font-awesome', name: 'lock' }}
               onChangeText={(regpassword2) => this.setState({ regpassword2 })}
               value={this.state.regpassword2}
@@ -330,20 +334,26 @@ class Login extends PureComponent {
             <TouchableOpacity onPress={this.SingUp} style={{ alignSelf: 'center', top: pxToDp(-20), left: pxToDp(70) }}>
               <Text style={{ color: '#999999', }}>去登陆</Text>
             </TouchableOpacity>
-
+            <Mybtn
+              title="注册"
+              onPress={this.registerSubimit}
+              buttonStyle={{
+                width: pxToDp(105),
+                height: pxToDp(35),
+                alignSelf: 'center',
+                borderRadius: pxToDp(32),
+              }}
+              titleStyle={{
+                color: 'white',
+                fontSize: pxToDp(14),
+                marginTop: pxToDp(-2)
+              }}
+            />
           </View>
-          <TouchableNativeFeedback
-
-            onPress={this.registerSubimit}
-          >
-            <View style={styles.loginbtn}>
-              <Text>注册</Text>
-            </View>
-          </TouchableNativeFeedback>
-
         </View>
 
       </ImageBackground>
+
     );
   }
 }

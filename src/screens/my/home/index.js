@@ -187,7 +187,7 @@ class Index extends PureComponent {
             <TouchableOpacity onPress={() => this.context.navigate('History')}>
               <List icon="eye-outline" title="历史浏览" />
             </TouchableOpacity>
-            {this.props.userInfo.isstream?(  
+            {this.props.userInfo.isStream?(  
                <View>
               <List icon="videocam-outline" title="已认证" />
             </View>):

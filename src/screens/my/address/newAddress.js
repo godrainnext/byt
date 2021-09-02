@@ -72,7 +72,7 @@ class NewAddress extends PureComponent {
             backgroundColor: 'white',
             margin: pxToDp(8),
             borderRadius: pxToDp(16),
-            elevation: 10,
+            elevation: 2,
             shadowColor: 'black', //  阴影颜色
             shadowOffset: { width: 0, height: 0 }, // 阴影偏移
             shadowOpacity: 1, // 阴影不透明度

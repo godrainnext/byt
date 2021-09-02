@@ -136,7 +136,7 @@ class Index extends Component {
         //       style={{color: this.state.fadeAnim < 0.2 ? 'white' : 'red',fontWeight:'bold',alignSelf:'center',fontSize:20}}>越台</Text>
         //     </View>)
         // }}
-        parallaxHeaderHeight={190}
+        parallaxHeaderHeight={211}
         backgroundSpeed={10}
         renderBackground={() => (
           <View style={{ padding: pxToDp(16), backgroundColor: 'white' }}>
@@ -145,23 +145,23 @@ class Index extends Component {
               ref="ImageFade"
               duration={800}
               delay={3000}
-              style={{ width: '100%', height: pxToDp(170) }}
+              style={{ width: '100%', height: pxToDp(200) }}
             >
               <Image
                 style={{
                   width: '100%',
-                  height: pxToDp(170),
+                  height: pxToDp(200),
                   borderRadius: pxToDp(16)
                 }}
-                source={require('../../../res/homeswiper1.jpg')}
+                source={require('../../../res/0901/首页轮播1.png')}
               />
               <Image
                 style={{
                   width: '100%',
-                  height: pxToDp(170),
+                  height: pxToDp(200),
                   borderRadius: pxToDp(16)
                 }}
-                source={require('../../../res/homeswiper2.jpg')}
+                source={require('../../../res/0901/首页轮播2.png')}
               />
             </ImageFade>
           </View>
@@ -173,6 +173,7 @@ class Index extends Component {
         <View
           style={{
             flex: 1,
+            marginTop: pxToDp(-10)
           }}
         >
           <View
@@ -310,7 +311,7 @@ class Index extends Component {
             style={{
               marginTop: pxToDp(8),
               height: pxToDp(263),
-              marginBottom: 50
+              marginBottom: 30
             }}
           >
             <View style={styles.titlebox}>

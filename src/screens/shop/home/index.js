@@ -20,6 +20,7 @@ import { getShopList } from '@service/shop';
 import { connect } from 'react-redux';
 import { getAddressListAction } from '../../my/address/store/actions';
 import LottieView from 'lottie-react-native';
+import BetterBanner from 'react-native-better-banner';
 
 class Index extends PureComponent {
   state = {
@@ -70,35 +71,42 @@ class Index extends PureComponent {
           showsVerticalScrollIndicator={false}
         >
           {/*轮播 */}
-          <View style={{ height: pxToDp(220) }}>
-            <Swiper
-              removeClippedSubviews={false}
-              showsButtons={false}
-              loop={true}
-              autoplay={true}
-              showsPagination={false}
-              autoplayTimeout={3}
-              style={{ marginBottom: pxToDp(8) }}
-            >
-              <View style={styles.slide}>
-                <Image
-                  style={styles.lunboimage}
-                  source={require('../../../res/19.jpg')}
-                />
-              </View>
-              <View style={styles.slide}>
-                <Image
-                  style={styles.lunboimage}
-                  source={require('../../../res/19-1.jpg')}
-                />
-              </View>
-              <View style={styles.slide}>
-                <Image
-                  style={styles.lunboimage}
-                  source={require('../../../res/19-2.jpg')}
-                />
-              </View>
-            </Swiper>
+          <View style={{ height: pxToDp(260) }}>
+            <BetterBanner
+              bannerComponents={[
+                <View style={{
+                  width: '100%',
+                  height: '100%',
+                  backgroundColor: 'white',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}>
+                  <Image style={styles.luoboimage} source={require('../../../res/0901/商城轮播1.png')} />
+                </View>,
+                <View style={{
+                  width: '100%',
+                  height: '100%',
+                  backgroundColor: 'white',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}>
+                  <Image style={styles.luoboimage} source={require('../../../res/0901/商城轮播2.png')} />
+                </View>,
+                <View style={{
+                  width: '100%',
+                  height: '100%',
+                  backgroundColor: 'white',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}>
+                  <Image style={styles.luoboimage} source={require('../../../res/0901/商城轮播3.png')} />
+                </View>,
+              ]}
+              bannerTitles={[" 双十一购物节 快来囤货吧", " 国潮+越剧 潮流风暴来袭", " 越剧周边商城已上新"]}
+              onPress={(index) => alert('you pressed index is : ' + index)}
+              indicatorContainerBackgroundColor={'#62bfad'}
+              isSeamlessScroll={true}
+            />
           </View>
           {/*小推广 */}
           <View style={styles.titlebox}>
@@ -306,6 +314,12 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     marginLeft: pxToDp(3),
     marginBottom: pxToDp(-15)
+  },
+  luoboimage: {
+    height: pxToDp(200),
+    width: pxToDp(347),
+    borderRadius: pxToDp(8),
+    marginTop: pxToDp(-32)
   }
 });
 export default connect(() => ({}), { getAddressListAction })(Index);
