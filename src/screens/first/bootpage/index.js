@@ -36,7 +36,7 @@ class Index extends PureComponent {
     let page = this.state.page;
     return (
       <View>
-        {page == 3 ? null : <View style={{ height: pxToDp(50), backgroundColor: '#d5e8e6' }} >
+        {page == 3 ? <View style={{ height: pxToDp(50), backgroundColor: '#d5e8e6' }} /> : <View style={{ height: pxToDp(50), backgroundColor: '#d5e8e6' }} >
           <TouchableOpacity
             onPress={() => this.context.navigate(Login)}
             style={styles.tiaoguo}>
@@ -95,7 +95,6 @@ class Index extends PureComponent {
           <View
             style={styles.container}
           >
-            <View style={{ height: pxToDp(25) }}></View>
             <View style={styles.shandow}>
               <Image
                 source={require('../../../res/welcome4.png')}

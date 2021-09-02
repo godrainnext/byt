@@ -29,7 +29,7 @@ export default memo(function Seat(props) {
         alignItems: 'center',
         flexDirection: 'row',
         marginTop: pxToDp(16),
-        marginLeft: pxToDp(12)
+        marginLeft: pxToDp(8)
       }}
     >
       <SvgUri

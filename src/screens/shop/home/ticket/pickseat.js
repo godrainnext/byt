@@ -328,7 +328,7 @@ export default class pickseat extends Component {
           >
             <Image
               source={require('../../../../res/screen.png')}
-              style={{ height: pxToDp(50), marginLeft: pxToDp(12) }}
+              style={{ height: pxToDp(50), marginLeft: pxToDp(-28), resizeMode: 'contain' }}
             />
           </View>
           {/* 座位 */}
@@ -377,7 +377,8 @@ export default class pickseat extends Component {
           <View
             style={{
               flexDirection: 'row',
-              justifyContent: 'space-around'
+              justifyContent: 'space-around',
+              marginTop: pxToDp(48)
             }}
           >
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
@@ -401,7 +402,7 @@ export default class pickseat extends Component {
           </View>
         </ScrollView>
         <Mybtn
-          onPress={() => this.context.navigate('ConfirmTicket',{chooseCount})}
+          onPress={() => this.context.navigate('ConfirmTicket', { chooseCount })}
           title={
             chooseCount === 0 ? '选择座位' : chooseCount * 30 + '元    确认选座'
           }
@@ -427,7 +428,7 @@ const styles = StyleSheet.create({
     fontSize: pxToDp(18),
     fontWeight: 'bold',
     height: pxToDp(30),
-    marginTop: pxToDp(13.5)
+    marginTop: pxToDp(17.5)
   },
   centeredView: {
     flex: 1,
