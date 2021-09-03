@@ -110,7 +110,9 @@ export default class myticket extends Component {
                   flexDirection: 'row'
                 }}
               >
-                <Text style={{ fontSize: pxToDp(16) }}>取票号：</Text>
+                <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
+                  取票号：
+                </Text>
                 <Text style={{ fontSize: pxToDp(20) }}>2414158814</Text>
               </View>
             </View>
@@ -126,7 +128,13 @@ export default class myticket extends Component {
                 <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold' }}>
                   杭州 鼓楼剧场
                 </Text>
-                <Text style={{ fontSize: pxToDp(16), marginTop: pxToDp(16) }}>
+                <Text
+                  style={{
+                    fontSize: pxToDp(16),
+                    marginTop: pxToDp(16),
+                    color: '#666666'
+                  }}
+                >
                   中山南路501号鼓楼城墙二楼
                 </Text>
               </View>
@@ -150,11 +158,13 @@ export default class myticket extends Component {
               <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold' }}>
                 实付金额：￥{chooseCount * 30}
               </Text>
-              <Text style={{ fontSize: pxToDp(16) }}>订单号:1817592456164</Text>
-              <Text style={{ fontSize: pxToDp(16) }}>
+              <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
+                订单号:1817592456164
+              </Text>
+              <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
                 购买时间:{create_time}
               </Text>
-              <Text style={{ fontSize: pxToDp(16) }}>
+              <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
                 剧票由百越亭有限公司提供
               </Text>
             </View>
@@ -169,22 +179,22 @@ export default class myticket extends Component {
               <Text style={{ fontSize: pxToDp(20), fontWeight: 'bold' }}>
                 观剧须知
               </Text>
-              <Text style={{ fontSize: pxToDp(16) }}>
+              <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
                 1.请提前到达剧院现场，找到自助取票机，打印纸质剧票，完成取票。
               </Text>
-              <Text style={{ fontSize: pxToDp(16) }}>
+              <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
                 2.如到达自助取票机无法打印剧票，请联系剧院工作人员处理。
               </Text>
-              <Text style={{ fontSize: pxToDp(16) }}>
+              <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
                 3.凭打印好的纸质剧票，检票入场观剧。
               </Text>
-              <Text style={{ fontSize: pxToDp(16) }}>
+              <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
                 4.如果订单购买了特殊场次，暂不支持退票和改签。
               </Text>
-              <Text style={{ fontSize: pxToDp(16) }}>
+              <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
                 5.如有开具所购越剧发票的需求，请保留好剧票票根，尽量在观影当天联系剧院工作人员进行开具，如遇特殊情况请及时联系百越亭人工客服咨询。
               </Text>
-              <Text style={{ fontSize: pxToDp(16) }}>
+              <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
                 6.改签，退票服务由剧院决定。
               </Text>
             </View>

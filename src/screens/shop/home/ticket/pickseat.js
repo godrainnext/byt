@@ -299,6 +299,11 @@ export default class pickseat extends Component {
   render() {
     console.log(this.state.chooseCount);
     console.log(this.state.chooseArr);
+    console.log(
+      this.state.chooseArr.map(
+        (item) => `第${Math.floor(item / 8) + 1}排第${item % 8}座`
+      )
+    );
     const { chooseCount } = this.state;
     return (
       <View style={{ flex: 1 }}>
@@ -328,7 +333,11 @@ export default class pickseat extends Component {
           >
             <Image
               source={require('../../../../res/screen.png')}
-              style={{ height: pxToDp(50), marginLeft: pxToDp(-28), resizeMode: 'contain' }}
+              style={{
+                height: pxToDp(50),
+                marginLeft: pxToDp(-28),
+                resizeMode: 'contain'
+              }}
             />
           </View>
           {/* 座位 */}
@@ -378,31 +387,64 @@ export default class pickseat extends Component {
             style={{
               flexDirection: 'row',
               justifyContent: 'space-around',
-              marginTop: pxToDp(48)
+              marginTop: pxToDp(8)
             }}
           >
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
               <SvgUri svgXmlData={seat3} width="30" height="30" />
-              <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
+              <Text style={{ fontSize: pxToDp(16), color: '#333333' }}>
                 可选
               </Text>
             </View>
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
               <SvgUri svgXmlData={seat1} width="30" height="30" />
-              <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
+              <Text style={{ fontSize: pxToDp(16), color: '#333333' }}>
                 已售
               </Text>
             </View>
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
               <SvgUri svgXmlData={seat2} width="30" height="30" />
-              <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
+              <Text style={{ fontSize: pxToDp(16), color: '#333333' }}>
                 已选
               </Text>
             </View>
           </View>
+          {/* 选中座位信息 */}
+          <View
+            style={{
+              marginTop: pxToDp(16),
+              height: pxToDp(40),
+              alignItems: 'center',
+              flexDirection: 'row',
+              alignSelf: 'center'
+            }}
+          >
+            {this.state.chooseArr.map((item) => (
+              <View
+                style={{
+                  width: pxToDp(60),
+                  height: pxToDp(40),
+                  borderWidth: pxToDp(1),
+                  borderColor: '#62bfad',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  margin: pxToDp(4),
+                  borderRadius: pxToDp(8),
+                  backgroundColor: '#D5E8E6'
+                }}
+              >
+                <Text style={{ fontSize: pxToDp(16), color: '#333333' }}>
+                  {Math.floor(item / 8) + 1}排{item % 8}座
+                </Text>
+              </View>
+            ))}
+          </View>
         </ScrollView>
+        {/* 底部按钮 */}
         <Mybtn
-          onPress={() => this.context.navigate('ConfirmTicket', { chooseCount })}
+          onPress={() =>
+            this.context.navigate('ConfirmTicket', { chooseCount })
+          }
           title={
             chooseCount === 0 ? '选择座位' : chooseCount * 30 + '元    确认选座'
           }
