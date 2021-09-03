@@ -46,8 +46,6 @@ class Index extends PureComponent {
   static contextType = NavigationContext;
 
   render() {
-    console.log(this.state.modaldata);
-    console.log(typeof this.state.modaldata.user);
     const music = this.props.dongtai.filter((item) => item.label);
     const actress = this.props.dongtai.filter((item) => !item.label);
     return (

@@ -112,7 +112,7 @@ export default memo(function ActressItem(props) {
                   marginLeft: pxToDp(8)
                 }}
               >
-                {item.createTime.split('T')[0]}
+                {item.createTime?.split('T')[0]}
               </Text>
             </View>
           </TouchableOpacity>
@@ -317,7 +317,7 @@ export default memo(function ActressItem(props) {
                       style={{ marginLeft: pxToDp(16), fontSize: pxToDp(14) }}
                     >
                       {' '}
-                      {modaldata.createTime.split('T')[0]}
+                      {modaldata.createTime?.split('T')[0]}
                     </Text>
                   </View>
                 </View>
