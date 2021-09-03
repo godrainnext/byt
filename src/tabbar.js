@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import TabNavigator from 'react-native-tab-navigator';
-import { Image, TouchableOpacity, View, StyleSheet, Text, Alert, ToastAndroid } from 'react-native';
+import { Image, TouchableOpacity, View, StyleSheet, Text, ToastAndroid } from 'react-native';
 import Svg from 'react-native-svg-uri';
 import First from './screens/first/home';
 import Talk from './screens/talk/home';

@@ -1,19 +1,11 @@
 import React, { PureComponent } from 'react';
 import {
-  Platform,
   StyleSheet,
   Text,
   View,
-  Dimensions,
   ScrollView,
   Image,
-  TouchableOpacity,
-  TextInput,
-  Alert,
-  Button
 } from 'react-native';
-
-import EZSwiper from 'react-native-ezswiper';
 import { pxToDp } from './styleKits';
 
 export default class page extends PureComponent {
