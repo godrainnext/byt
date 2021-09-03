@@ -9,7 +9,8 @@ import {
   Image,
   Dimensions,
   StyleSheet,
-  ToastAndroid
+  ToastAndroid,
+  Modal,
 } from 'react-native';
 import { Input } from 'react-native-elements';
 import RtcEngine, {
@@ -42,9 +43,9 @@ const requestCameraAndAudioPermission = async () => {
     ]);
     if (
       granted['android.permission.RECORD_AUDIO'] ===
-        PermissionsAndroid.RESULTS.GRANTED &&
+      PermissionsAndroid.RESULTS.GRANTED &&
       granted['android.permission.CAMERA'] ===
-        PermissionsAndroid.RESULTS.GRANTED
+      PermissionsAndroid.RESULTS.GRANTED
     ) {
       console.log('You can use the cameras & mic');
     } else {
@@ -104,7 +105,8 @@ class App extends Component {
       roomName: '',
       roomImg: '',
       image: {},
-      result: {}
+      result: {},
+      modalVisible: false
     };
     if (Platform.OS === 'android') {
       // Request required permissions from Android
@@ -134,15 +136,15 @@ class App extends Component {
         if (response.error) {
           console.log(response.error);
         } else {
-          try{
-          const pickerResult = response?.assets[0];
-          console.log(pickerResult);
-          this.setState({ image: pickerResult });
-           } catch (error) {
-            ToastAndroid.show('请选择正确的图片',ToastAndroid.SHORT)
+          try {
+            const pickerResult = response?.assets[0];
+            console.log(pickerResult);
+            this.setState({ image: pickerResult });
+          } catch (error) {
+            ToastAndroid.show('请选择正确的图片', ToastAndroid.SHORT)
           }
         }
-        
+
       }
     );
   }
@@ -267,8 +269,12 @@ class App extends Component {
       .then(() => this.context.navigate('Tabbar'));
   };
 
+  setModalVisible = (visible) => {
+    this.setState({ modalVisible: visible });
+  };
+
   render() {
-    const { roomName, channelName, roomImg, joinSucceed } = this.state;
+    const { roomName, channelName, roomImg, joinSucceed, modalVisible } = this.state;
     return joinSucceed ? (
       <View style={{ flex: 1 }}>{this._renderVideos(this.props.userInfo)}</View>
     ) : (
@@ -431,7 +437,8 @@ class App extends Component {
         <View style={styles.buttonHolder}>
           <Mybtn
             title="开始直播"
-            onPress={this.startCall}
+            onPress={
+              this.props.userInfo.isStream ? this.startCall : () => this.setModalVisible(!modalVisible)}
             buttonStyle={{
               width: pxToDp(320),
               height: pxToDp(40),
@@ -444,6 +451,67 @@ class App extends Component {
               fontSize: pxToDp(16)
             }}
           />
+        </View>
+        <View style={styles.centeredView}>
+          <Modal
+            animationType="slide"
+            transparent={true}
+            visible={modalVisible}
+            onRequestClose={() => {
+              Alert.alert('Modal has been closed.');
+              this.setModalVisible(!modalVisible);
+            }}
+          >
+            <View style={styles.centeredView}>
+              <View style={styles.modalView}>
+                <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>温馨提示</Text>
+                <Text style={{ fontSize: pxToDp(14), color: '#666666' }}>请先完成实名认证</Text>
+                <View style={{ alignItems: 'center', justifyContent: 'center', flexDirection: 'row', marginTop: pxToDp(32) }}>
+                  <Mybtn
+                    title="取消"
+                    onPress={() => {
+                      this.setModalVisible(!modalVisible);
+                    }}
+                    buttonStyle={{
+                      width: pxToDp(90),
+                      height: pxToDp(30),
+                      borderRadius: pxToDp(32),
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      marginRight: pxToDp(8)
+                    }}
+                    titleStyle={{
+                      height: 30,
+                      color: 'white',
+                      fontSize: pxToDp(14),
+                      marginTop: pxToDp(10)
+                    }}
+                  />
+                  <Mybtn
+                    title="去认证"
+                    onPress={() => {
+                      this.setModalVisible(!modalVisible);
+                      this.context.navigate('Apply')
+                    }}
+                    buttonStyle={{
+                      width: pxToDp(90),
+                      height: pxToDp(30),
+                      borderRadius: pxToDp(32),
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      marginLeft: pxToDp(8)
+                    }}
+                    titleStyle={{
+                      height: 30,
+                      color: 'white',
+                      fontSize: pxToDp(14),
+                      marginTop: pxToDp(10)
+                    }}
+                  />
+                </View>
+              </View>
+            </View>
+          </Modal>
         </View>
       </View>
     );
@@ -469,8 +537,8 @@ class App extends Component {
     return (
       <View
         style={styles.remoteContainer}
-        // contentContainerStyle={{ paddingHorizontal: 2.5 }}
-        // horizontal={true}
+      // contentContainerStyle={{ paddingHorizontal: 2.5 }}
+      // horizontal={true}
       >
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
           <View
@@ -662,6 +730,23 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 5,
     color: '#0093E9'
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  modalView: {
+    margin: pxToDp(20),
+    backgroundColor: 'white',
+    borderRadius: pxToDp(24),
+    padding: pxToDp(35),
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2
+    }
   }
 });
 export default connect((state) => ({

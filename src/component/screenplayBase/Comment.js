@@ -27,7 +27,7 @@ class Comment extends PureComponent {
   };
   render() {
     return (
-      <View style={{ backgroundColor: '#ecf6fc', flex: 1 }}>
+      <View style={{ backgroundColor: 'white', flex: 1 }}>
         <ScrollView
           showsVerticalScrollIndicator={false}
           scrollbars="none"
