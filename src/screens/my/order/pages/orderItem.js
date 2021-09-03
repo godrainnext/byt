@@ -109,16 +109,15 @@ class Index extends PureComponent {
           </View>
           <View
             style={{
-              marginRight: pxToDp(10),
               flexDirection: 'row',
-              height: pxToDp(40),
-              marginLeft: pxToDp(8),
-              marginRight: pxToDp(8)
+              marginTop: pxToDp(10),
+              alignItems: 'center'
             }}
           >
             <Text
               style={{
                 fontSize: pxToDp(14),
+                marginLeft: pxToDp(10),
                 color: '#999999'
               }}
             >
@@ -200,9 +199,8 @@ class Index extends PureComponent {
             <View
               style={{
                 position: 'absolute',
-                bottom: 0,
+                bottom: -2,
                 right: 0,
-                alignSelf: 'flex-end'
               }}
             >
               <Mybtn
@@ -225,6 +223,7 @@ class Index extends PureComponent {
                 container
                 buttonStyle={{
                   width: pxToDp(90),
+                  marginRight: pxToDp(8),
                   height: pxToDp(30),
                   borderRadius: pxToDp(32),
                   alignItems: 'center',

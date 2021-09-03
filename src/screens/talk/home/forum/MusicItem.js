@@ -437,14 +437,17 @@ export default memo(function ActressItem(props) {
                   buttonStyle={{
                     width: pxToDp(90),
                     height: pxToDp(30),
-                    alignSelf: 'center',
                     borderRadius: pxToDp(32),
-                    marginTop: pxToDp(32)
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginLeft: pxToDp(8),
+                    marginTop: pxToDp(24)
                   }}
                   titleStyle={{
+                    height: 30,
                     color: 'white',
-                    marginTop: pxToDp(-3),
-                    fontSize: pxToDp(14)
+                    fontSize: pxToDp(14),
+                    marginTop: pxToDp(10)
                   }}
                 />
               </View>

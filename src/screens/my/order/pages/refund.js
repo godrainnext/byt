@@ -185,77 +185,77 @@ class Index extends PureComponent {
                 />
               </View>
               <View style={styles.centeredView}>
-          <Modal
-            animationType="slide"
-            transparent={true}
-            visible={modalVisible}
-            onRequestClose={() => {
-              Alert.alert('Modal has been closed.');
-              this.setModalVisible(!modalVisible);
-            }}
-          >
-            <View style={styles.centeredView}>
-              <View style={styles.modalView}>
-                <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>是否确认删除订单</Text>
-                <Text style={{ fontSize: pxToDp(14), color: '#666666' }}>删除后无法恢复</Text>
-                <View style={{ alignItems: 'center', justifyContent: 'center', flexDirection: 'row', marginTop: pxToDp(32) }}>
-                  <Mybtn
-                    title="取消"
-                    onPress={() => {
-                      this.setModalVisible(!modalVisible);
-                    }}
-                    buttonStyle={{
-                      width: pxToDp(90),
-                      height: pxToDp(30),
-                      borderRadius: pxToDp(32),
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      marginRight: pxToDp(8)
-                    }}
-                    titleStyle={{
-                      height: 30,
-                      color: 'white',
-                      fontSize: pxToDp(14),
-                      marginTop: pxToDp(10)
-                    }}
-                  />
-                  <Mybtn
-                    title="确认"
-                    onPress={() => {
-                      this.setModalVisible(!modalVisible);
-                      deleteOrider(item.oriderId).then((res) => {
-                        const newrefund = this.state.orider.filter(
-                          (item2) => item2.oriderId !== item.oriderId
-                        );
-                        this.setState({ orider: newrefund });
-                        ToastAndroid.show('删除订单成功', ToastAndroid.SHORT);
-                      })
-                    }}
-                    buttonStyle={{
-                      width: pxToDp(90),
-                      height: pxToDp(30),
-                      borderRadius: pxToDp(32),
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      marginLeft: pxToDp(8)
-                    }}
-                    titleStyle={{
-                      height: 30,
-                      color: 'white',
-                      fontSize: pxToDp(14),
-                      marginTop: pxToDp(10)
-                    }}
-                  />
-                </View>
+                <Modal
+                  animationType="slide"
+                  transparent={true}
+                  visible={modalVisible}
+                  onRequestClose={() => {
+                    Alert.alert('Modal has been closed.');
+                    this.setModalVisible(!modalVisible);
+                  }}
+                >
+                  <View style={styles.centeredView}>
+                    <View style={styles.modalView}>
+                      <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>是否确认删除订单</Text>
+                      <Text style={{ fontSize: pxToDp(14), color: '#666666' }}>删除后无法恢复</Text>
+                      <View style={{ alignItems: 'center', justifyContent: 'center', flexDirection: 'row', marginTop: pxToDp(32) }}>
+                        <Mybtn
+                          title="取消"
+                          onPress={() => {
+                            this.setModalVisible(!modalVisible);
+                          }}
+                          buttonStyle={{
+                            width: pxToDp(90),
+                            height: pxToDp(30),
+                            borderRadius: pxToDp(32),
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            marginRight: pxToDp(8)
+                          }}
+                          titleStyle={{
+                            height: 30,
+                            color: 'white',
+                            fontSize: pxToDp(14),
+                            marginTop: pxToDp(10)
+                          }}
+                        />
+                        <Mybtn
+                          title="确认"
+                          onPress={() => {
+                            this.setModalVisible(!modalVisible);
+                            deleteOrider(item.oriderId).then((res) => {
+                              const newrefund = this.state.orider.filter(
+                                (item2) => item2.oriderId !== item.oriderId
+                              );
+                              this.setState({ orider: newrefund });
+                              ToastAndroid.show('删除订单成功', ToastAndroid.SHORT);
+                            })
+                          }}
+                          buttonStyle={{
+                            width: pxToDp(90),
+                            height: pxToDp(30),
+                            borderRadius: pxToDp(32),
+                            alignItems: 'center',
+                            justifyContent: 'center',
+                            marginLeft: pxToDp(8)
+                          }}
+                          titleStyle={{
+                            height: 30,
+                            color: 'white',
+                            fontSize: pxToDp(14),
+                            marginTop: pxToDp(10)
+                          }}
+                        />
+                      </View>
+                    </View>
+                  </View>
+                </Modal>
               </View>
-            </View>
-          </Modal>
-        </View>
-   
+
             </View>
           ))}
         </ScrollView>
-     </View>
+      </View>
     );
   }
 }
