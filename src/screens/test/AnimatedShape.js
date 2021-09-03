@@ -1,17 +1,16 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import {
   Animated,
   StyleSheet,
   ViewStyle,
-  LayoutChangeEvent,
+  LayoutChangeEvent
 } from 'react-native';
-
 
 const randomNumber = () => {
   return Math.round(Math.random() * range + from);
 };
 
-export default class AnimatedShape extends Component {
+export default class AnimatedShape extends PureComponent {
   color = `rgb(${randomNumber(0, 255)},${randomNumber(0, 255)},${randomNumber(
     0,
     255
@@ -28,14 +27,14 @@ export default class AnimatedShape extends Component {
     this.state = {
       spring: new Animated.Value(0),
       position: new Animated.Value(0),
-      width: 0,
+      width: 0
     };
   }
 
   onLayoutHandler = () => {
     const { width } = event.nativeEvent.layout;
     this.setState({
-      width: width,
+      width: width
     });
   };
 
@@ -44,14 +43,14 @@ export default class AnimatedShape extends Component {
       Animated.spring(this.state.spring, {
         toValue: 1,
         friction: 3,
-        useNativeDriver: true,
+        useNativeDriver: true
       }),
 
       Animated.timing(this.state.position, {
         duration: this.duration,
         toValue: this.position,
-        useNativeDriver: true,
-      }),
+        useNativeDriver: true
+      })
     ]).start(this.props.onCompleteAnimation);
   }
 
@@ -61,26 +60,26 @@ export default class AnimatedShape extends Component {
         {
           translateY: this.state.position.interpolate({
             inputRange: [0, this.position],
-            outputRange: [0, -this.position],
-          }),
+            outputRange: [0, -this.position]
+          })
         },
         {
           translateX: this.state.position.interpolate({
             inputRange: Array.from({ length: 6 }).map(
               (_x, index) => (this.position / 5) * index
             ),
-            outputRange: this.positionX,
-          }),
+            outputRange: this.positionX
+          })
         },
         {
-          rotate: this.rotate,
+          rotate: this.rotate
         },
-        { scale: this.state.spring },
+        { scale: this.state.spring }
       ],
       opacity: this.state.position.interpolate({
         inputRange: [0, this.position],
-        outputRange: [1, 0],
-      }),
+        outputRange: [1, 0]
+      })
     };
   }
 
@@ -91,7 +90,7 @@ export default class AnimatedShape extends Component {
           styles.shapeWrapper,
           this.props.style,
           { left: -this.state.width / 2 },
-          this.getAnimationStyle(),
+          this.getAnimationStyle()
         ]}
         onLayout={this.onLayoutHandler}
       >
@@ -105,6 +104,6 @@ const styles = StyleSheet.create({
   shapeWrapper: {
     position: 'absolute',
     backgroundColor: 'transparent',
-    bottom: 0,
-  },
+    bottom: 0
+  }
 });

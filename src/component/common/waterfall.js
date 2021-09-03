@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { PureComponent } from 'react';
 import {
   StyleSheet,
   Text,
@@ -172,7 +173,7 @@ const data3 = [
 
 const appendData = [data1, data2, data3];
 
-export default class example extends Component {
+export default class example extends PureComponent {
   constructor() {
     super();
 
@@ -203,7 +204,7 @@ export default class example extends Component {
         {/* <View style={[styles.center, styles.header]}>
 					<Text style={{ fontWeight: '800', fontSize: 20 }}>市集</Text>
 				</View> */}
-        <View style={{ flex: 1,padding:pxToDp(16) }}>
+        <View style={{ flex: 1, padding: pxToDp(16) }}>
           <Masonry
             bricks={this.state.data}
             columns={this.state.columns}

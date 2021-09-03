@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import {
   Text,
   View,
@@ -15,7 +15,7 @@ import { phone, right } from '../../../../component/common/iconSvg';
 import Mybtn from '../../../../component/common/mybtn';
 import AnimatedLoader from 'react-native-animated-loader';
 
-export default class myticket extends Component {
+export default class myticket extends PureComponent {
   state = {
     visible: true
   };

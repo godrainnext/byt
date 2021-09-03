@@ -2,38 +2,46 @@
 
 'use strict';
 
-import React, {Component} from "react";
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import {Text} from 'react-native';
+import { Text } from 'react-native';
 
 import Theme from 'teaset/themes/Theme';
 
-export default class Label extends Component {
-
+export default class Label extends PureComponent {
   static propTypes = {
     ...Text.propTypes,
     type: PropTypes.oneOf(['default', 'title', 'detail', 'danger']),
     size: PropTypes.oneOf(['xl', 'lg', 'md', 'sm', 'xs']),
-    text: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    text: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
   };
 
   static defaultProps = {
     ...Text.defaultProps,
     type: 'default',
     size: 'md',
-    numberOfLines: 1,
+    numberOfLines: 1
   };
 
   buildStyle() {
-    let {type, size, style} = this.props;
+    let { type, size, style } = this.props;
 
     let color, fontSize;
     switch (size) {
-      case 'xl': fontSize = Theme.labelFontSizeXL; break;
-      case 'lg': fontSize = Theme.labelFontSizeLG; break;
-      case 'sm': fontSize = Theme.labelFontSizeSM; break;
-      case 'xs': fontSize = Theme.labelFontSizeXS; break;
-      default: fontSize = Theme.labelFontSizeMD;
+      case 'xl':
+        fontSize = Theme.labelFontSizeXL;
+        break;
+      case 'lg':
+        fontSize = Theme.labelFontSizeLG;
+        break;
+      case 'sm':
+        fontSize = Theme.labelFontSizeSM;
+        break;
+      case 'xs':
+        fontSize = Theme.labelFontSizeXS;
+        break;
+      default:
+        fontSize = Theme.labelFontSizeMD;
     }
     switch (type) {
       case 'title':
@@ -51,21 +59,23 @@ export default class Label extends Component {
       default:
         color = Theme.labelTextColor;
     }
-    style = [{
-      backgroundColor: 'rgba(0, 0, 0, 0)',
-      color: color,
-      fontSize: fontSize,
-      overflow: 'hidden',
-    }].concat(style);
+    style = [
+      {
+        backgroundColor: 'rgba(0, 0, 0, 0)',
+        color: color,
+        fontSize: fontSize,
+        overflow: 'hidden'
+      }
+    ].concat(style);
 
     return style;
   }
 
   render() {
-    let {style, type, size, text, children, ...others} = this.props;
+    let { style, type, size, text, children, ...others } = this.props;
     return (
       <Text style={this.buildStyle()} {...others}>
-        {(text || text === '' || text === 0) ? text : children}
+        {text || text === '' || text === 0 ? text : children}
       </Text>
     );
   }

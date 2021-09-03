@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import {
   View,
   Text,
@@ -39,7 +39,7 @@ const musicListUrl = 'http://v3.wufazhuce.com:8000/api/music/bymonth/2017-10';
 const musicDetail =
   'http://xiamirun.avosapps.com/run?song=http://www.xiami.com/song/';
 
-export default class MusicPlayer extends Component {
+export default class MusicPlayer extends PureComponent {
   constructor(props) {
     super(props);
     this.player = '';

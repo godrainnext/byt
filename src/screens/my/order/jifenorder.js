@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 import Top from '../../../component/common/top';
 import AnimatedLoader from 'react-native-animated-loader';
 
-export default class jifenorder extends Component {
+export default class jifenorder extends PureComponent {
   constructor(props) {
     super(props);
     this.state = { visible: true };

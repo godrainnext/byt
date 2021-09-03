@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Text, View } from 'react-native';
 import Waterfall from '../../component/common/waterfall';
 import Top from '../../component/common/top';
 
-export default class relatedImg extends Component {
+export default class relatedImg extends PureComponent {
   render() {
     return (
       <View style={{ flex: 1 }}>
