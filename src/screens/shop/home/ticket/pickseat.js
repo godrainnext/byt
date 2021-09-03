@@ -280,16 +280,11 @@ export default class pickseat extends Component {
           seat: seat3
         }
       ],
-      isvisiable: false,
       chooseArr: [],
       chooseCount: 0
     };
   }
 
-  addOrder = () => {
-    this.setState({ isvisiable: false });
-    this.context.navigate('MyTicket');
-  };
   addSeat = (id) => {
     this.setState({ chooseArr: [...this.state.chooseArr, id] });
     this.setState({ chooseCount: this.state.chooseCount + 1 });
@@ -333,7 +328,7 @@ export default class pickseat extends Component {
           >
             <Image
               source={require('../../../../res/screen.png')}
-              style={{ height: pxToDp(50), marginLeft: pxToDp(12) }}
+              style={{ height: pxToDp(50), marginLeft: pxToDp(-28), resizeMode: 'contain' }}
             />
           </View>
           {/* 座位 */}
@@ -382,7 +377,8 @@ export default class pickseat extends Component {
           <View
             style={{
               flexDirection: 'row',
-              justifyContent: 'space-around'
+              justifyContent: 'space-around',
+              marginTop: pxToDp(48)
             }}
           >
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
@@ -404,29 +400,9 @@ export default class pickseat extends Component {
               </Text>
             </View>
           </View>
-
-          <Modal
-            animationType="slide"
-            transparent={true}
-            visible={this.state.isvisiable}
-          >
-            <View style={styles.centeredView}>
-              <View style={styles.modalView}>
-                <View style={{ alignItems: 'center' }}>
-                  <TouchableOpacity
-                    onPress={() => this.setState({ isvisiable: false })}
-                    style={{ position: 'absolute', top: -20, left: -20 }}
-                  >
-                    <SvgUri svgXmlData={back} width="30" height="30" />
-                  </TouchableOpacity>
-                  <CodeFieldzz onPress={this.addOrder} />
-                </View>
-              </View>
-            </View>
-          </Modal>
         </ScrollView>
         <Mybtn
-          onPress={() => this.setState({ isvisiable: true })}
+          onPress={() => this.context.navigate('ConfirmTicket', { chooseCount })}
           title={
             chooseCount === 0 ? '选择座位' : chooseCount * 30 + '元    确认选座'
           }
@@ -452,7 +428,7 @@ const styles = StyleSheet.create({
     fontSize: pxToDp(18),
     fontWeight: 'bold',
     height: pxToDp(30),
-    marginTop: pxToDp(13.5)
+    marginTop: pxToDp(17.5)
   },
   centeredView: {
     flex: 1,

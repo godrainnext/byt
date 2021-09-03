@@ -10,9 +10,11 @@ const Stack = createStackNavigator();
 function Nav() {
   return (
     <NavigationContainer>
-      <Stack.Navigator headerMode="none" initialRouteName="BootPage">
+      <Stack.Navigator headerMode="none" initialRouteName="Tabbar">
         <Stack.Screen name="NewTimeLine" component={Screens.NewTimeLine} />
         <Stack.Screen name="BootPage" component={Screens.BootPage} />
+        <Stack.Screen name="GiftedChat" component={Screens.GiftedChat} />
+
         {/*引导页 */}
         <Stack.Screen name="Tabbar" component={Tabbar} />
         {/*登录 */}
@@ -106,6 +108,8 @@ function Nav() {
         <Stack.Screen name="ticketdetail" component={Screens.ticketdetail} />
         {/* 选座位 */}
         <Stack.Screen name="PickSeat" component={Screens.PickSeat} />
+        {/* 确认订单 */}
+        <Stack.Screen name="ConfirmTicket" component={Screens.ConfirmTicket} />
         {/* 我的剧票 */}
         <Stack.Screen name="MyTicket" component={Screens.MyTicket} />
         {/**增加新地址 */}
@@ -253,6 +257,8 @@ function Nav() {
         <Stack.Screen name="SingOver" component={Screens.SingOver} />
         <Stack.Screen name="SingSub" component={Screens.SingSub} />
         <Stack.Screen name="AddMoment" component={Screens.AddMoment} />
+        {/**积分明细 */}
+        <Stack.Screen name="JifenMingxi" component={Screens.JifenMingxi} />
       </Stack.Navigator>
     </NavigationContainer>
   );

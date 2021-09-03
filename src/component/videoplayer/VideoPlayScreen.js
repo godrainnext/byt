@@ -15,6 +15,7 @@ import { Overlay, ModalIndicator } from 'teaset';
 // import Orientation from 'react-native-orientation
 import Orientation from 'react-native-orientation-locker';
 import { pxToDp } from '../../utils/styleKits';
+import AnimatedLoader from 'react-native-animated-loader';
 
 const screenWidth = Dimensions.get('window').width;
 
@@ -54,12 +55,26 @@ export default class VideoPlayScreen extends PureComponent {
       duration: 0, // 视频的总时长
       isFullScreen: false, // 当前是否全屏显示
       isClick: false,
-      playFromBeginning: false // 是否从头开始播放
+      playFromBeginning: false, // 是否从头开始播放
+      visible: true
     };
+  }
+
+  omponentDidMount() {
+    new Promise((res, rej) => {
+      setTimeout(() => {
+        res(123);
+      }, 1000);
+    }).then((res) =>
+      this.setState({
+        visible: !this.state.visible
+      })
+    );
   }
 
   render() {
     const { videoinfo = { avatar: '', video: '' } } = this.props;
+    const { visible } = this.state;
     return (
       <View style={styles.container} onLayout={this._onLayout}>
         <View
@@ -93,6 +108,7 @@ export default class VideoPlayScreen extends PureComponent {
               height: this.state.videoHeight
             }}
           />
+
           {this.state.showVideoCover ? (
             <Image
               style={{
@@ -407,5 +423,9 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 0,
     left: 0
+  },
+  lottie: {
+    width: pxToDp(200),
+    height: pxToDp(200)
   }
 });

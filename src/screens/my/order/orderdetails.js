@@ -239,19 +239,14 @@ class orderdetails extends PureComponent {
                 flex: 1
               }}
             >
-              <TouchableOpacity style={styles.smallbox1}>
+              <TouchableOpacity style={styles.smallbox1} 
+              onPress={()=>this.context.navigate('GiftedChat')}
+              >
                 <Image
                   style={{ width: pxToDp(25), height: pxToDp(25) }}
                   source={require('../../../res/客服.png')}
                 />
                 <Text>我的客服</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.smallbox2}>
-                <Image
-                  style={{ width: pxToDp(25), height: pxToDp(25) }}
-                  source={require('../../../res/电话.png')}
-                />
-                <Text>拨打电话</Text>
               </TouchableOpacity>
             </View>
           </View>

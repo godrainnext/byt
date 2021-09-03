@@ -75,8 +75,9 @@ export { default as GoodsList } from './shop/home/goods/good'; //商品详情页
 export { default as Zhoubian } from './shop/home/zhoubian'; //周边页
 export { default as Zulin } from './shop/home/zulin'; //服装租赁页
 export { default as ticket } from './shop/home/ticket/index'; //票务系统
-export { default as PickSeat } from './shop/home/ticket/pickseat'; //票务系统
-export { default as MyTicket } from './shop/home/ticket/myticket'; //票务系统
+export { default as PickSeat } from './shop/home/ticket/pickseat'; //选座
+export { default as ConfirmTicket } from './shop/home/ticket/confirmTicket'; //选座
+export { default as MyTicket } from './shop/home/ticket/myticket'; //我的飘
 export { default as ticketdetail } from './shop/home/ticket/ticketdetail'; //票务系统详情
 export { default as Lease } from './shop/home/goods/lease'; //新增收货地址
 export { default as pointshop } from './shop/home/jifen/index'; //积分商城详情
@@ -156,5 +157,7 @@ export { default as Testtt } from '../testtt';
 export { default as ToSing } from './talk/home/sing';
 export { default as SingOver } from './play/study/singover';
 export { default as SingSub } from './play/study/singsub';
-export { default as AddMoment } from './talk/home/forum/addMoment'
+export { default as AddMoment } from './talk/home/forum/addMoment';
+export { default as JifenMingxi } from './my/jifenshop/jifenmingxi';
+export { default as GiftedChat } from './shop/home/giftedChat/index';
 

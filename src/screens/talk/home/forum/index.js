@@ -121,7 +121,7 @@ class Index extends PureComponent {
         <ScrollView showsVerticalScrollIndicator={false}>
           <View>
             {/*轮播图 */}
-            {/* <SwiperCard /> */}
+            <SwiperCard />
             {/**话题 */}
             <View style={styles.titlebox}>
               <View style={styles.left}></View>

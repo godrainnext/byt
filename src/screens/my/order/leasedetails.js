@@ -261,13 +261,6 @@ class orderdetails extends PureComponent {
                 bottom: pxToDp(10)
               }}
             />
-            <TouchableOpacity style={{ flexDirection: 'row' }}>
-              <Image
-                style={{ width: pxToDp(25), height: pxToDp(20) }}
-                source={require('../../../res/电话.png')}
-              />
-              <Text>拨打电话</Text>
-            </TouchableOpacity>
           </View>
         </View>
         <View
