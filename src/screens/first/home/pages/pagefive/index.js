@@ -9,10 +9,12 @@ const RenderInner = (props) => {
   useEffect(() => {
     getMomentById(props.route.params).then((res) => {
       setState({ ...res });
+      console.log(res);
     });
-  });
+  },[props.route.params]);
   const arr1 = state.content?.split('/img');
   const { images } = state;
+  console.log(images);
   return (
     <Fragment>
       <View>
@@ -47,7 +49,7 @@ const RenderInner = (props) => {
                 </Text>
               </View>
             ))}
-            {images[index] ? (
+            {images?.length ? (
               <View>
                 <Image
                   style={{
@@ -57,7 +59,7 @@ const RenderInner = (props) => {
                     marginBottom: pxToDp(-4)
                   }}
                   source={{
-                    uri: images[index]
+                    uri: images.shift()
                   }}
                 ></Image>
               </View>
