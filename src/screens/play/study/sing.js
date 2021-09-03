@@ -64,9 +64,11 @@ class Index extends PureComponent {
           }
           fd.append('staticId', 1);
           request.post({ url: '/uploads/music', data: fd }).then((res) => {
+            console.log(res);
             this.context.navigate('SingOver', {
               staticId: 1,
-              sound: arr[0]
+              sound: arr[0],
+              id: res.insertId
             });
           });
         }

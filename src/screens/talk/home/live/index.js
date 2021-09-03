@@ -1,23 +1,21 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import {
   StyleSheet,
   View,
   Text,
-  Image,
   ScrollView,
   TouchableOpacity,
   ImageBackground
 } from 'react-native';
 import { pxToDp } from '@utils/styleKits';
 import { NavigationContext } from '@react-navigation/native';
-import { FAB } from 'react-native-elements';
+
 import LottieView from 'lottie-react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
-import SvgUri from 'react-native-svg-uri';
-import { live } from '../../../../component/common/iconSvg';
+
 import { getStreamList } from '../../../../service/shop';
 
-class Index extends Component {
+class Index extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {

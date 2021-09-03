@@ -43,7 +43,6 @@ export default memo(function ActressItem(props) {
     setModalVisible1(!modalVisible1);
     navigation.navigate('Jubao');
   };
-  console.log(modaldata);
   return (
     <View>
       <View

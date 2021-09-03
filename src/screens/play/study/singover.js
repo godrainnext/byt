@@ -1,4 +1,4 @@
-import React, { Component, createRef } from 'react';
+import React from 'react';
 import {
   View,
   Text,
@@ -22,7 +22,8 @@ import Mybtn from '../../../component/common/mybtn';
 import Top from '@components/common/top';
 import { getMusicById } from '@service/play';
 import { NavigationContext } from '@react-navigation/native';
-export default class hello extends Component {
+import { PureComponent } from 'react';
+export default class hello extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -240,6 +241,9 @@ export default class hello extends Component {
               justifyContent: 'center',
               alignItems: 'center'
             }}
+            onPress={() =>
+              this.context.navigate('SingSub', this.props.route.params.id)
+            }
           >
             <SvgUri
               svgXmlData='<svg t="1629962047710" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6596" width="200" height="200"><path d="M663.495111 728.433778a142.222222 142.222222 0 1 1-29.468444 48.64l-249.514667-152.775111a170.666667 170.666667 0 1 1 0.398222-224.142223l249.457778-152.32a142.222222 142.222222 0 1 1 29.809778 48.440889l-249.628445 152.462223c7.822222 19.541333 12.117333 40.903111 12.117334 63.260444 0 22.584889-4.380444 44.117333-12.344889 63.857778l249.173333 152.576z" p-id="6597" fill="#468CD3"></path></svg>'
