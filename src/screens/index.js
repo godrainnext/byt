@@ -160,4 +160,8 @@ export { default as SingSub } from './play/study/singsub';
 export { default as AddMoment } from './talk/home/forum/addMoment';
 export { default as JifenMingxi } from './my/jifenshop/jifenmingxi';
 export { default as GiftedChat } from './shop/home/giftedChat/index';
+export { default as Map } from '../component/map/map';
+export { default as MapToGo } from '../component/map/mapToGo';
+
+
 

@@ -5,7 +5,8 @@ import {
   StyleSheet,
   ImageBackground,
   ScrollView,
-  Image
+  Image,
+  TouchableOpacity
 } from 'react-native';
 import Top from '../../../../component/common/top';
 import { pxToDp } from '../../../../utils/styleKits';
@@ -151,12 +152,12 @@ export default class ticketdetail extends PureComponent {
                   {this.props.route.params.detail}
                 </Text>
               </View>
-              <View style={{ alignItems: 'center' }}>
+              <TouchableOpacity onPress={()=>this.context.navigate('Map')} style={{ alignItems: 'center' }}>
                 <SvgUri svgXmlData={location} width="22" height="22" />
                 <Text style={{ fontSize: pxToDp(12), color: '#999999' }}>
                   9.1km
                 </Text>
-              </View>
+              </TouchableOpacity>
             </View>
             {/* 观众评分 */}
             <View
