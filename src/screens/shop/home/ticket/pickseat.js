@@ -6,7 +6,8 @@ import {
   StyleSheet,
   ScrollView,
   Image,
-  Modal
+  Modal,
+  ToastAndroid
 } from 'react-native';
 import Top from '../../../../component/common/top';
 import SvgUri from 'react-native-svg-uri';
@@ -296,6 +297,15 @@ export default class pickseat extends Component {
     this.setState({ chooseCount: this.state.chooseCount - 1 });
   };
   static contextType = NavigationContext;
+  add = () => {
+    if (this.state.chooseCount > 0) {
+      this.context.navigate('ConfirmTicket', {
+        chooseCount: this.state.chooseCount
+      });
+    } else {
+      ToastAndroid.show('请选择座位', ToastAndroid.SHORT);
+    }
+  };
   render() {
     console.log(this.state.chooseCount);
     console.log(this.state.chooseArr);
@@ -442,9 +452,7 @@ export default class pickseat extends Component {
         </ScrollView>
         {/* 底部按钮 */}
         <Mybtn
-          onPress={() =>
-            this.context.navigate('ConfirmTicket', { chooseCount })
-          }
+          onPress={() => this.add()}
           title={
             chooseCount === 0 ? '选择座位' : chooseCount * 30 + '元    确认选座'
           }

@@ -60,6 +60,7 @@
     "react-native-safe-area-context": "^3.3.0",
     "react-native-scroll-head-tab-view": "^1.0.9",
     "react-native-scrollable-tab-view": "^1.0.0",
+    "react-native-search-header": "^0.3.5",
     "react-native-shadow-cards": "^1.0.2",
     "react-native-snap-carousel": "^3.9.1",
     "react-native-step-indicator": "^1.0.3",
