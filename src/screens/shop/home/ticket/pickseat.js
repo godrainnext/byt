@@ -317,7 +317,7 @@ export default class pickseat extends Component {
     const { chooseCount } = this.state;
     return (
       <View style={{ flex: 1 }}>
-        <Top icon1="arrow-back" />
+        <Top icon1="arrow-back" title="钱塘戏社越剧专场" />
         <ScrollView style={{ padding: pxToDp(16), backgroundColor: '#fff' }}>
           {/* 顶部场次信息 */}
           <View>
