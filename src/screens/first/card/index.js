@@ -19,91 +19,108 @@ class history extends Component {
   state = { HYlist: [] };
   componentDidMount() {
     getListByStatus(1, 0, 20).then((res) => {
-      console.log(res);
       this.setState({ HYlist: res });
     });
   }
+  sortByFirstCode = () => {
+    this.setState({
+      HYlist: this.state.HYlist.sort((a, b) => {
+        return a.title > b.title;
+      })
+    });
+  };
+  sortByFirstCoder = () => {
+    this.setState({
+      HYlist: this.state.HYlist.sort((a, b) => {
+        return a.title < b.title;
+      })
+    });
+  };
   render() {
-    ;
     return (
-      <View style={{ backgroundColor: '#fff',flex:1}}>
+      <View style={{ backgroundColor: '#fff', flex: 1 }}>
         <Top icon1="arrow-back" title="俯瞰百年" />
-        <View style={{padding:pxToDp(16),flex:1,paddingTop:0}}>
-        <FlatList
-        showsVerticalScrollIndicator = {false}
-          data={this.state.HYlist}
-          renderItem={({ item }) => (
-            // 视频大图  开始
-            <View
-              key={item.id}
-              style={{
-                flex:1,
-                elevation: 2,
-                borderRadius:pxToDp(8),
-                borderWidth:0,
-                marginTop:pxToDp(16),
-                shadowColor: 'black',
-                shadowOffset: { width: 0, height: 0 },
-                shadowOpacity: 1,
-                shadowRadius: 16,
-              }}
-            >
-              <View>
-                <TouchableNativeFeedback
-                useForeground={true}
-                  onPress={() => this.context.navigate('Pagefive', item.id)}
-                >
-                  <View>
-                  <ImageBackground
-                    style={{height: pxToDp(180)}}
-                    imageStyle={{ borderRadius: pxToDp(8) }}
-                    source={{ uri: item.picurl }}
+        <View style={{ padding: pxToDp(16), flex: 1, paddingTop: 0 }}>
+          <Button title="点击" onPress={this.sortByFirstCode}></Button>
+          <Button title="点击" onPress={this.sortByFirstCoder}></Button>
+          <FlatList
+            showsVerticalScrollIndicator={false}
+            data={this.state.HYlist}
+            renderItem={({ item }) => (
+              // 视频大图  开始
+              <View
+                key={item.id}
+                style={{
+                  flex: 1,
+                  elevation: 2,
+                  borderRadius: pxToDp(8),
+                  borderWidth: 0,
+                  marginTop: pxToDp(16),
+                  shadowColor: 'black',
+                  shadowOffset: { width: 0, height: 0 },
+                  shadowOpacity: 1,
+                  shadowRadius: 16
+                }}
+              >
+                <View>
+                  <TouchableNativeFeedback
+                    useForeground={true}
+                    onPress={() => this.context.navigate('Pagefive', item.id)}
                   >
-                    <View
-                      style={{
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        flex:1,
-                      }}
-                    ></View>
-                    <View
-                      style={{
-                        backgroundColor: '#fff',
-                        opacity: 0.8,
-                        height: pxToDp(48),
-                        borderRadius: pxToDp(8),
-                        alignItems:'center',
-                        flexDirection:'row',
-                        padding:pxToDp(8)
-                      }}
-                    >
+                    <View>
+                      <ImageBackground
+                        style={{ height: pxToDp(180) }}
+                        imageStyle={{ borderRadius: pxToDp(8) }}
+                        source={{ uri: item.picurl }}
+                      >
+                        <View
+                          style={{
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            flex: 1
+                          }}
+                        ></View>
+                        <View
+                          style={{
+                            backgroundColor: '#fff',
+                            opacity: 0.8,
+                            height: pxToDp(48),
+                            borderRadius: pxToDp(8),
+                            alignItems: 'center',
+                            flexDirection: 'row',
+                            padding: pxToDp(8)
+                          }}
+                        >
                           <Text
                             numberOfLines={1}
                             style={{
-                              fontSize: pxToDp(16),
+                              fontSize: pxToDp(16)
                             }}
                           >
                             {item.title}
                           </Text>
-                        <View
-                          style={{ flexDirection: 'row', alignItems: 'center' }}
-                        >
-                          <Text
-                            numberOfLines={2}
-                            style={{ marginLeft: pxToDp(8) }}
+                          <View
+                            style={{
+                              flexDirection: 'row',
+                              alignItems: 'center'
+                            }}
                           >
-                            {item.ezcontent}
-                          </Text>
+                            <Text
+                              numberOfLines={2}
+                              style={{ marginLeft: pxToDp(8) }}
+                            >
+                              {item.ezcontent}
+                            </Text>
+                          </View>
                         </View>
+                      </ImageBackground>
                     </View>
-                  </ImageBackground>
-                  </View>
-                </TouchableNativeFeedback>
+                  </TouchableNativeFeedback>
+                </View>
               </View>
-            </View>
-          )}
-          keyExtractor={(item) => item.id}
-        />
+            )}
+            keyExtractor={(item) => item.id}
+          />
         </View>
       </View>
     );
