@@ -3,8 +3,6 @@ import {
   View,
   Text,
   Image,
-  TouchableOpacity,
-  Alert,
   ScrollView,
   Modal,
   StyleSheet
@@ -24,23 +22,6 @@ class Index extends PureComponent {
   componentDidMount() {
     const refund = this.props.orider.filter((item) => item.status === 3);
     this.setState({ orider: refund });
-  }
-  deleteOrider(id) {
-    Alert.alert('是否确认删除订单？', '确认后就不可更改了哦', [
-      { text: '取消' },
-      {
-        text: '确认',
-        onPress: () => {
-          deleteOrider(id).then((res) => {
-            const newrefund = this.state.orider.filter(
-              (item) => item.oriderId !== id
-            );
-            this.setState({ orider: newrefund });
-            ToastAndroid.show('删除订单成功', ToastAndroid.SHORT);
-          });
-        }
-      }
-    ]);
   }
   setModalVisible = (visible) => {
     this.setState({ modalVisible: visible });

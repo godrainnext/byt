@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
 import React, { PureComponent } from 'react';
-import { Text, View, StyleSheet, TouchableOpacity, Switch, Alert, ToastAndroid } from 'react-native';
+import { Text, View, StyleSheet, Switch, ToastAndroid } from 'react-native';
 import Top from '../../../component/common/top';
 import { Input } from 'react-native-elements';
 import Picker from 'react-native-picker';

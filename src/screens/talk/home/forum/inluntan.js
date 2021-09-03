@@ -7,7 +7,8 @@ import {
   TouchableOpacity,
   ImageBackground,
   TextInput,
-  Dimensions
+  Dimensions,
+  ToastAndroid
 } from 'react-native';
 import { pxToDp } from '@utils/styleKits';
 import { NavigationContext } from '@react-navigation/native';
@@ -38,7 +39,8 @@ class Index extends PureComponent {
   };
   _submit = () => {
     if (!this.state.mycomment) {
-      return alert('留言不能为空');
+      ToastAndroid.show('留言内容不能为空', ToastAndroid.SHORT);
+      return;
     }
 
     request
