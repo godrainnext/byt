@@ -11,14 +11,14 @@ import {
   Dimensions,
   ToastAndroid
 } from 'react-native';
-import { pxToDp } from '../../../../utils/styleKits';
+import { pxToDp } from '@utils/styleKits';
 import { Input } from 'react-native-elements/dist/input/Input';
 import { launchImageLibrary } from 'react-native-image-picker';
 import { NavigationContext } from '@react-navigation/native';
-import Top from '../../../../component/common/top';
+import Top from '@components/common/top';
 import { CheckBox } from 'react-native-elements';
-import { apply } from '../../../../service/mine';
-import Mybtn from '../../../../component/common/mybtn';
+import { apply } from '@service/mine';
+import Mybtn from '@components/common/mybtn';
 
 const { height, width } = Dimensions.get('window');
 
@@ -84,7 +84,8 @@ class index extends Component {
     if (
       this.state.arr.length === 2 &&
       this.state.username &&
-      this.state.fayan
+      this.state.fayan &&
+      this.state.checked
     ) {
       const fd = new FormData();
       for (const file of this.state.arr) {

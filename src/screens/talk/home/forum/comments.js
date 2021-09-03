@@ -152,7 +152,8 @@ class Index extends PureComponent {
                   </View>
                 </View>
               ) : (
-                <View></View>
+                <View>
+                </View>
               )}
               <View>
                 <RBSheet
@@ -162,8 +163,8 @@ class Index extends PureComponent {
                   height={495}
                   openDuration={0}
                 >
-                  <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator = {false}>
-                    {this.state.reply?.map((items) => (
+                  <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
+                    {this.state.reply.length ? this.state.reply.map((items) => (
                       <View key={items.id}>
                         <View
                           style={{
@@ -208,7 +209,7 @@ class Index extends PureComponent {
                               {items.content}
                             </Text>
                           </View>
-                          <View style={{marginTop:pxToDp(-10)}}>
+                          <View style={{ marginTop: pxToDp(-10) }}>
                             <Text
                               style={{
                                 marginBottom: pxToDp(10),
@@ -225,7 +226,7 @@ class Index extends PureComponent {
                                 flexDirection: 'row',
                                 position: 'absolute',
                                 right: pxToDp(20),
-                                bottom:15,
+                                bottom: 15,
                                 backgroundColor: '#fff'
                               }}
                             >
@@ -244,7 +245,9 @@ class Index extends PureComponent {
                           </View>
                         </View>
                       </View>
-                    ))}
+                    )) : <View style={{ alignItems: 'center', marginTop: pxToDp(200) }}>
+                      <Text style={{ fontSize: pxToDp(18), fontWeight: '900' }}>发一条评论吧~</Text>
+                    </View>}
                   </ScrollView>
 
                   <View
@@ -290,7 +293,7 @@ class Index extends PureComponent {
               opacity: 0.5
             }}
           >
-            <Text style={{ fontSize: 20, fontWeight: '900' }}>
+            <Text style={{ fontSize: pxToDp(18), fontWeight: '900' }}>
               发一条评论吧~
             </Text>
           </View>

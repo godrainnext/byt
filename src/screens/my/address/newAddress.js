@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
 import React, { PureComponent } from 'react';
-import { Text, View, StyleSheet, TouchableOpacity, Switch, Alert } from 'react-native';
+import { Text, View, StyleSheet, TouchableOpacity, Switch, Alert, ToastAndroid } from 'react-native';
 import Top from '../../../component/common/top';
 import { Input } from 'react-native-elements';
 import Picker from 'react-native-picker';
@@ -21,32 +21,43 @@ class NewAddress extends PureComponent {
       phone: '',
       Buttonvalue: false,
       address: ''
-    }; 
+    };
   }
   saveAddress = () => {
- const {person,phone,address}=this.state
- if(person==''||phone==''||address=='')
- Alert.alert('温馨提示','请输入完整信息')
- else{
-    requset
-      .post({
-        url: '/user/address',
-        data: {
-          name: this.state.person,
-          address: this.state.address,
-          phoneNum: this.state.phone
-        }
-      })
-      .then((res) => {
-        this.props.getAddressListAction();
-      })
-      .then(() => {
-        console.log(this.props.route.params);
-        this.props.route.params
-          ? this.context.navigate('Myorder', this.props.route.params)
-          : this.context.goBack();
-      });
-  }};
+    const { person, phone, address } = this.state
+    if (!person.trim()) {
+      ToastAndroid.show('姓名不能为空', ToastAndroid.SHORT);
+      return;
+    }
+    if (!phone.trim()) {
+      ToastAndroid.show('电话号码不能为空', ToastAndroid.SHORT);
+      return;
+    }
+    if (!address.trim()) {
+      ToastAndroid.show('地址信息不能为空', ToastAndroid.SHORT);
+      return;
+    }
+    else {
+      requset
+        .post({
+          url: '/user/address',
+          data: {
+            name: this.state.person,
+            address: this.state.address,
+            phoneNum: this.state.phone
+          }
+        })
+        .then((res) => {
+          this.props.getAddressListAction();
+        })
+        .then(() => {
+          console.log(this.props.route.params);
+          this.props.route.params
+            ? this.context.navigate('Myorder', this.props.route.params)
+            : this.context.goBack();
+        });
+    }
+  };
   static contextType = NavigationContext;
   //选择地区
   showCityPicker = () => {

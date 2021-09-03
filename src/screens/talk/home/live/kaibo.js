@@ -9,7 +9,8 @@ import {
   Image,
   Dimensions,
   StyleSheet,
-  ToastAndroid
+  ToastAndroid,
+  Alert
 } from 'react-native';
 import { Input } from 'react-native-elements';
 import RtcEngine, {
@@ -431,7 +432,22 @@ class App extends Component {
         <View style={styles.buttonHolder}>
           <Mybtn
             title="开始直播"
-            onPress={this.startCall}
+            onPress={    
+              this.props.userInfo.isStream?this.startCall:()=>{Alert.alert('温馨提醒','请先完成实名认证',
+              [
+               {
+                    text: '去认证',
+                    onPress: () => { this.Scrollable1.close();this.context.navigate('Apply')}
+                },
+                {
+                    text: '取消',
+                    onPress: () => ToastAndroid.show('Cancel', ToastAndroid.SHORT),
+                    style: 'cancel'
+                },
+                
+            ],
+   )}
+           }
             buttonStyle={{
               width: pxToDp(320),
               height: pxToDp(40),

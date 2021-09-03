@@ -17,7 +17,7 @@ import { NavigationContext } from '@react-navigation/native';
 import { getMomentListByStatus } from '@service/moment';
 import BetterBanner from 'react-native-better-banner';
 import LottieView from 'lottie-react-native';
-import SwiperCard from '../swiperCard/index'
+import SwiperCard from '../swiperCard/index';
 const { height, width } = Dimensions.get('window');
 class Index extends PureComponent {
   constructor(props) {
@@ -33,7 +33,7 @@ class Index extends PureComponent {
             '一个民族有一个民族的艺术，而一种艺术形式也必有其相应的一群观众，戏剧亦然。你第一次听戏是在什么时候呢？'
         },
         {
-          id: '2',
+          id: '3',
           text: '#再忆王文娟',
           number: '130199',
           img: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.mianfeiwendang.com%2Fpic%2F95773e4129b6446a7711a3fd9e413107aae15567%2F1-810-jpg_6-1440-0-0-1440.jpg&refer=http%3A%2F%2Fwww.mianfeiwendang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631867284&t=ee820d8f13574c0a4707b8745ffa490d',
@@ -41,7 +41,7 @@ class Index extends PureComponent {
             '王文娟先生于2021年8月6日凌晨0时25分去世，享年95岁。林黛玉扮演者已重返太虚幻境，天上还会再掉下个林妹妹吗？'
         },
         {
-          id: '3',
+          id: '4',
           text: '#心目中的Top1',
           number: '303',
           img: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpicnew13.photophoto.cn%2F20190116%2Fsecaijianbianxiaoqingxinshejijianyuehaibaobeijing-32355330_1.jpg&refer=http%3A%2F%2Fpicnew13.photophoto.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631867331&t=4185ef7ea0a06a45306ef8a0b8f95899',
@@ -49,7 +49,7 @@ class Index extends PureComponent {
             '仁者见仁智者见智，越剧众多流派中，你最喜欢哪个流派呢？众多越剧演员中，谁又是你心目中的Top1呢？'
         },
         {
-          id: '4',
+          id: '5',
           text: '#剧本观后感',
           number: '32',
           img: 'https://img1.baidu.com/it/u=931923788,4075714914&fm=26&fmt=auto&gp=0.jpg',
@@ -57,7 +57,7 @@ class Index extends PureComponent {
             '你是否从作品中领悟出什么道理或精湛的思想呢？或是受作品中的内容启发而引起出什么思考与联想呢？赶紧来分享自己的感悟和大家一起讨论吧！'
         },
         {
-          id: '5',
+          id: '6',
           text: '#七夕',
           number: '79912',
           img: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fbpic.588ku.com%2Fback_pic%2F05%2F61%2F16%2F945b47292be3a73.jpg&refer=http%3A%2F%2Fbpic.588ku.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631867662&t=a010ff43b91886f4438adc77b7d7e3d4',
@@ -73,6 +73,7 @@ class Index extends PureComponent {
   componentDidMount() {
     DeviceEventEmitter.addListener('changeMoment', this.updateList);
     getMomentListByStatus(0, 0, 15).then((res) => {
+      console.log(res);
       this.setState({ dongtai: [...res].reverse() });
     });
   }
@@ -125,10 +126,10 @@ class Index extends PureComponent {
             {/**话题 */}
             <View style={styles.titlebox}>
               <View style={styles.left}></View>
-              <View style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}>
-                <Text style={styles.titletext}>
-                  热门话题
-                </Text>
+              <View
+                style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}
+              >
+                <Text style={styles.titletext}>热门话题</Text>
                 <LottieView
                   style={{ width: pxToDp(80) }}
                   source={require('../../../../../lottie/标题底部.json')}

@@ -167,6 +167,7 @@ export default class hello extends PureComponent {
         </View>
         {this.state.arr.map((item) => (
           <LinearGradient
+            key={item.id}
             style={styles.linear}
             colors={['#D5E8E6', 'white']}
             start={{ x: 0, y: 0 }}

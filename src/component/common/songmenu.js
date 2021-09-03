@@ -62,7 +62,7 @@ export class AlwaysOpen extends PureComponent {
               this.props.changeIndex(item.id);
             }}
           >
-            {item.id==2?(<Text>yew</Text>):null}
+            {item.id == 2 ? null : null}
             <Ionicons
               name="caret-forward-circle-outline"
               size={28}

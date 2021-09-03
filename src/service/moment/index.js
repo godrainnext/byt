@@ -13,3 +13,5 @@ export const getCommentInnerById = (id) =>
 
 export const getMomentListByUserId = (id) =>
   request.get({ url: `/moment/getUserMomentById/${id}` });
+export const getMomentListByTagId = (id) =>
+  request.get({ url: `/moment/listByTag/${id}` });

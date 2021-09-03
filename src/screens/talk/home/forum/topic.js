@@ -11,7 +11,7 @@ import { pxToDp } from '../../../../utils/styleKits';
 import { NavigationContext } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import { getMomentListByStatus } from '@service/moment';
+import { getMomentListByTagId } from '@service/moment';
 import Tiebar from './luntan';
 import { linear } from 'react-native/Libraries/Animated/Easing';
 
@@ -24,12 +24,14 @@ export default class topic extends Component {
     dongtai: []
   };
   componentDidMount() {
+    console.log(this.props.route.params.id);
     this.changeListener = DeviceEventEmitter.addListener('momentChange', () => {
-      getMomentListByStatus(0, 0, 10).then((res) => {
+      getMomentListByTagId(this.props.route.params.id).then((res) => {
         this.setState({ dongtai: [...res].reverse() });
       });
     });
-    getMomentListByStatus(0, 0, 10).then((res) => {
+    getMomentListByTagId(this.props.route.params.id).then((res) => {
+      console.log(res);
       this.setState({ dongtai: [...res].reverse() });
     });
   }
@@ -122,7 +124,13 @@ export default class topic extends Component {
               全部
             </Text>
             <View style={{ marginTop: pxToDp(-12) }}>
-              <Tiebar dongtai={this.state.dongtai} />
+              {this.state.dongtai[0]?.id ? (
+                <Tiebar dongtai={this.state.dongtai} />
+              ) : (
+                <View style={{marginTop:pxToDp(16)}}>
+                  <Text>暂无人讨论该话题，成为第一个吧</Text>
+                </View>
+              )}
             </View>
           </View>
         </ScrollView>

@@ -148,13 +148,15 @@ class Index extends PureComponent {
                 />
               </View>
               <Ionicons
-                style={{ marginTop: pxToDp(40), marginLeft: pxToDp(-14) }}
+                style={{ marginTop: pxToDp(38), marginLeft: pxToDp(-14) }}
                 name="server-outline"
                 size={pxToDp(15)}
                 color="#62bfad"
               />
             </View>
             <TouchableOpacity
+              onPress={() =>
+                this.context.navigate('JifenMingxi')}
               style={{
                 height: pxToDp(35),
                 width: pxToDp(90),

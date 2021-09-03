@@ -13,6 +13,8 @@ function Nav() {
       <Stack.Navigator headerMode="none" initialRouteName="BootPage">
         <Stack.Screen name="NewTimeLine" component={Screens.NewTimeLine} />
         <Stack.Screen name="BootPage" component={Screens.BootPage} />
+        <Stack.Screen name="GiftedChat" component={Screens.GiftedChat} />
+
         {/*引导页 */}
         <Stack.Screen name="Tabbar" component={Tabbar} />
         {/*登录 */}
@@ -255,6 +257,8 @@ function Nav() {
         <Stack.Screen name="SingOver" component={Screens.SingOver} />
         <Stack.Screen name="SingSub" component={Screens.SingSub} />
         <Stack.Screen name="AddMoment" component={Screens.AddMoment} />
+        {/**积分明细 */}
+        <Stack.Screen name="JifenMingxi" component={Screens.JifenMingxi} />
       </Stack.Navigator>
     </NavigationContainer>
   );

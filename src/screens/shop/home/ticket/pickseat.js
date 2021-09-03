@@ -333,7 +333,11 @@ export default class pickseat extends Component {
           >
             <Image
               source={require('../../../../res/screen.png')}
-              style={{ height: pxToDp(50), marginLeft: pxToDp(12) }}
+              style={{
+                height: pxToDp(50),
+                marginLeft: pxToDp(-28),
+                resizeMode: 'contain'
+              }}
             />
           </View>
           {/* 座位 */}
@@ -382,7 +386,8 @@ export default class pickseat extends Component {
           <View
             style={{
               flexDirection: 'row',
-              justifyContent: 'space-around'
+              justifyContent: 'space-around',
+              marginTop: pxToDp(8)
             }}
           >
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
@@ -428,7 +433,7 @@ export default class pickseat extends Component {
                   backgroundColor: '#D5E8E6'
                 }}
               >
-                <Text style={{ fontSize: pxToDp(16),color:'#333333' }}>
+                <Text style={{ fontSize: pxToDp(16), color: '#333333' }}>
                   {Math.floor(item / 8) + 1}排{item % 8}座
                 </Text>
               </View>
@@ -465,7 +470,7 @@ const styles = StyleSheet.create({
     fontSize: pxToDp(18),
     fontWeight: 'bold',
     height: pxToDp(30),
-    marginTop: pxToDp(13.5)
+    marginTop: pxToDp(17.5)
   },
   centeredView: {
     flex: 1,
