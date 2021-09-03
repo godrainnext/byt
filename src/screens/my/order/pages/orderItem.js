@@ -53,12 +53,11 @@ class Index extends PureComponent {
               {item.status === 0
                 ? '待支付'
                 : item.status === 1
-                ? '待收货'
-                : '待评价'}
+                  ? '待收货'
+                  : '待评价'}
             </Text>
           </View>
           {/* 中间 */}
-
           <View
             style={{
               flexDirection: 'row',
@@ -120,7 +119,6 @@ class Index extends PureComponent {
             <Text
               style={{
                 fontSize: pxToDp(14),
-                alignSelf: 'flex-end',
                 color: '#999999'
               }}
             >
@@ -129,7 +127,6 @@ class Index extends PureComponent {
             <Text
               style={{
                 fontSize: pxToDp(12),
-                alignSelf: 'flex-end',
                 color: '#999999'
               }}
             >
@@ -138,7 +135,6 @@ class Index extends PureComponent {
             <Text
               style={{
                 fontSize: pxToDp(14),
-                alignSelf: 'flex-end',
                 color: '#999999'
               }}
             >
@@ -148,7 +144,6 @@ class Index extends PureComponent {
             <Text
               style={{
                 fontSize: pxToDp(14),
-                alignSelf: 'flex-end',
                 color: '#999999',
                 marginLeft: pxToDp(16)
               }}
@@ -158,7 +153,6 @@ class Index extends PureComponent {
             <Text
               style={{
                 fontSize: pxToDp(12),
-                alignSelf: 'flex-end',
                 color: '#999999'
               }}
             >
@@ -167,7 +161,6 @@ class Index extends PureComponent {
             <Text
               style={{
                 fontSize: pxToDp(14),
-                alignSelf: 'flex-end',
                 color: '#999999'
               }}
             >
@@ -177,7 +170,6 @@ class Index extends PureComponent {
             <Text
               style={{
                 fontSize: pxToDp(14),
-                alignSelf: 'flex-end',
                 color: '#333333',
                 fontWeight: 'bold',
                 marginLeft: pxToDp(16)
@@ -189,7 +181,6 @@ class Index extends PureComponent {
             <Text
               style={{
                 fontSize: pxToDp(12),
-                alignSelf: 'flex-end',
                 color: '#333333',
                 fontWeight: 'bold'
               }}
@@ -200,7 +191,6 @@ class Index extends PureComponent {
               style={{
                 fontSize: pxToDp(14),
                 fontWeight: 'bold',
-                alignSelf: 'flex-end',
                 color: '#333333'
               }}
             >
@@ -223,8 +213,8 @@ class Index extends PureComponent {
                   item.status === 0
                     ? '去支付'
                     : item.status === 1
-                    ? '确认收货'
-                    : '评价'
+                      ? '确认收货'
+                      : '评价'
                 }
                 titleStyle={{
                   height: 30,

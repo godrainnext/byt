@@ -8,7 +8,9 @@ import {
   StyleSheet,
   ScrollView,
   Dimensions,
-  Alert
+  Alert,
+  Modal,
+  ToastAndroid
 } from 'react-native';
 import { pxToDp } from '../../../utils/styleKits';
 import Top from '../../../component/common/top';
@@ -37,16 +39,19 @@ class orderdetails extends PureComponent {
     way: '',
     Application: '确认收货',
     colors: '#ecf6fc',
-    isshoushuo: false
+    isshoushuo: false,
+    modalVisible: false
   };
   static defaultProps = {
     style: {},
     textStyle: {},
     cisabled: false
   };
+  setModalVisible = (visible) => {
+    this.setState({ modalVisible: visible });
+  };
   static contextType = NavigationContext;
   render() {
-    console.log('new', this.props.route.params);
     let invoice = [
       { id: 7, content: '已签收,签收人：门卫', ctime: '2021-9-1 16:00' },
       { id: 6, content: '派送中,您的快递即将送达', ctime: '2021-9-1 15:41' },
@@ -100,6 +105,7 @@ class orderdetails extends PureComponent {
       create_time
     } = this.props.route.params;
     const { name, address, phoneNum } = this.props.route.params.address;
+    const { modalVisible } = this.state;
     return (
       <View style={{ backgroundColor: '#fff', flex: 1 }}>
         <Top title="我的订单" icon1="arrow-back" />
@@ -239,8 +245,8 @@ class orderdetails extends PureComponent {
                 flex: 1
               }}
             >
-              <TouchableOpacity style={styles.smallbox1} 
-              onPress={()=>this.context.navigate('GiftedChat')}
+              <TouchableOpacity style={styles.smallbox1}
+                onPress={() => this.context.navigate('GiftedChat')}
               >
                 <Image
                   style={{ width: pxToDp(25), height: pxToDp(25) }}
@@ -300,7 +306,7 @@ class orderdetails extends PureComponent {
                 }}
               />
               <Mybtn
-                onPress={this.showAlert.bind(this)}
+                onPress={() => this.setModalVisible(!modalVisible)}
                 title="确认收货"
                 buttonStyle={{
                   borderRadius: pxToDp(32),
@@ -401,6 +407,66 @@ class orderdetails extends PureComponent {
               </View>
             </ScrollView>
           </RBSheet>
+          <Modal
+            animationType="slide"
+            transparent={true}
+            visible={modalVisible}
+            onRequestClose={() => {
+              Alert.alert('Modal has been closed.');
+              this.setModalVisible(!modalVisible);
+            }}
+          >
+            <View style={styles.centeredView}>
+              <View style={styles.modalView}>
+                <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>是否确认收货</Text>
+                <Text style={{ fontSize: pxToDp(14), color: '#666666' }}>收货后可在订单页查看</Text>
+                <View style={{ alignItems: 'center', justifyContent: 'center', flexDirection: 'row', marginTop: pxToDp(32) }}>
+                  <Mybtn
+                    title="取消"
+                    onPress={() => {
+                      this.setModalVisible(!modalVisible);
+                    }}
+                    buttonStyle={{
+                      width: pxToDp(90),
+                      height: pxToDp(30),
+                      borderRadius: pxToDp(32),
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      marginRight: pxToDp(8)
+                    }}
+                    titleStyle={{
+                      height: 30,
+                      color: 'white',
+                      fontSize: pxToDp(14),
+                      marginTop: pxToDp(10)
+                    }}
+                  />
+                  <Mybtn
+                    title="确认"
+                    onPress={() => {
+                      this.setModalVisible(!modalVisible);
+                      this.context.navigate('Tabbar');
+                      ToastAndroid.show('已确认收货', ToastAndroid.SHORT);
+                    }}
+                    buttonStyle={{
+                      width: pxToDp(90),
+                      height: pxToDp(30),
+                      borderRadius: pxToDp(32),
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      marginLeft: pxToDp(8)
+                    }}
+                    titleStyle={{
+                      height: 30,
+                      color: 'white',
+                      fontSize: pxToDp(14),
+                      marginTop: pxToDp(10)
+                    }}
+                  />
+                </View>
+              </View>
+            </View>
+          </Modal>
         </View>
       </View>
     );
@@ -476,6 +542,23 @@ const styles = StyleSheet.create({
     position: 'relative',
     right: Dimensions.get('window').width + 4,
     top: pxToDp(20)
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  modalView: {
+    margin: pxToDp(20),
+    backgroundColor: 'white',
+    borderRadius: pxToDp(24),
+    padding: pxToDp(35),
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2
+    }
   }
 });
 export default orderdetails;

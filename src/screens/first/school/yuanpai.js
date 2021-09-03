@@ -117,14 +117,14 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: pxToDp(18),
-    color: '#000000',
+    color: '#62bfad',
     fontWeight: 'bold',
     marginTop: pxToDp(24),
     marginLeft: pxToDp(16)
   },
   title1: {
     fontSize: pxToDp(18),
-    color: '#000000',
+    color: '#62bfad',
     fontWeight: 'bold',
     marginTop: pxToDp(24),
     marginLeft: pxToDp(16)
