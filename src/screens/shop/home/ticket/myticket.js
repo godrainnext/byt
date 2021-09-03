@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import {
   Text,
   View,
@@ -14,7 +14,7 @@ import SvgUri from 'react-native-svg-uri';
 import { phone, right } from '../../../../component/common/iconSvg';
 import Mybtn from '../../../../component/common/mybtn';
 
-export default class myticket extends Component {
+export default class myticket extends PureComponent {
   static contextType = NavigationContext;
   render() {
     console.log('123', this.props.route.params);

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import {
   View,
   Text,
@@ -14,7 +14,7 @@ import { NavigationContext } from '@react-navigation/native';
 import Top from '../../../component/common/top';
 import { getListByStatus } from '@service/home';
 import changeImgSize from '@utils/changeImgSize';
-class history extends Component {
+class history extends PureComponent {
   static contextType = NavigationContext;
   state = { HYlist: [] };
   componentDidMount() {

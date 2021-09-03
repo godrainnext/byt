@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import {
   ImageBackground,
   Text,
@@ -15,7 +15,7 @@ import { getMomentListByTagId } from '@service/moment';
 import Tiebar from './luntan';
 import { linear } from 'react-native/Libraries/Animated/Easing';
 
-export default class topic extends Component {
+export default class topic extends PureComponent {
   static contextType = NavigationContext;
   changeVisible = () => {
     this.setState({ isShow: !this.state.isShow });
@@ -127,7 +127,7 @@ export default class topic extends Component {
               {this.state.dongtai[0]?.id ? (
                 <Tiebar dongtai={this.state.dongtai} />
               ) : (
-                <View style={{marginTop:pxToDp(16)}}>
+                <View style={{ marginTop: pxToDp(16) }}>
                   <Text>暂无人讨论该话题，成为第一个吧</Text>
                 </View>
               )}

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import {
   View,
   Text,
@@ -14,12 +14,12 @@ import CustormerBar from '../seetings/component/CustormerBar';
 import Dongtai from '../seetings/component/dontai';
 import LottieView from 'lottie-react-native';
 
-export default class hello extends Component {
+export default class hello extends PureComponent {
   static contextType = NavigationContext;
   state = {
     sctop: 0
   };
-  componentDidMount() { }
+  componentDidMount() {}
 
   render() {
     const { userinfo } = this.state;
@@ -32,7 +32,11 @@ export default class hello extends Component {
               event.nativeEvent.contentOffset.y / 3
           });
         }}
-        renderStickyHeader={() => { <View style={{ backgroundColor: '#fff' }}><Text>11111</Text></View> }}
+        renderStickyHeader={() => {
+          <View style={{ backgroundColor: '#fff' }}>
+            <Text>11111</Text>
+          </View>;
+        }}
         showsVerticalScrollIndicator={false}
         parallaxHeaderHeight={300}
         navBarColor="#fa9222"

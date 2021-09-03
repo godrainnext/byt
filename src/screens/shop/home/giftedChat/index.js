@@ -5,374 +5,341 @@
  */
 import React from 'react';
 import {
-    Platform,
-    StyleSheet,
-    Text,
-    View,
-    Keyboard,
-    Button,
-    TouchableOpacity,
-    TextInput
+  Platform,
+  StyleSheet,
+  Text,
+  View,
+  Keyboard,
+  Button,
+  TouchableOpacity,
+  TextInput
 } from 'react-native';
 
-import {GiftedChat, Actions, Bubble, ActionsRight, IconButton} from 'react-native-gifted-chat';
+import {
+  GiftedChat,
+  Actions,
+  Bubble,
+  ActionsRight,
+  IconButton
+} from 'react-native-gifted-chat';
 import CustomView from './CustomView';
-import Composer from './Composer'
+import Composer from './Composer';
 
-export default class Example extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            messages: [],
-            loadEarlier: true,
-            typingText: null,
-            isLoadingEarlier: false,
-            showSlideBar: false,
-        };
+export default class Example extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      messages: [],
+      loadEarlier: true,
+      typingText: null,
+      isLoadingEarlier: false,
+      showSlideBar: false
+    };
 
-        this._isMounted = false;
-        this.onSend = this.onSend.bind(this);
-        this.onReceive = this.onReceive.bind(this);
-        this.renderCustomActions = this.renderCustomActions.bind(this);
-        this.renderBubble = this.renderBubble.bind(this);
-        this.renderFooter = this.renderFooter.bind(this);
-        this.onLoadEarlier = this.onLoadEarlier.bind(this);
+    this._isMounted = false;
+    this.onSend = this.onSend.bind(this);
+    this.onReceive = this.onReceive.bind(this);
+    this.renderCustomActions = this.renderCustomActions.bind(this);
+    this.renderBubble = this.renderBubble.bind(this);
+    this.renderFooter = this.renderFooter.bind(this);
+    this.onLoadEarlier = this.onLoadEarlier.bind(this);
 
-        this._isAlright = null;
-        this.show = false;
-    }
+    this._isAlright = null;
+    this.show = false;
+  }
 
-    componentWillMount() {
-        this._isMounted = true;
-        this.setState(() => {
-            return {
-                messages: require('./data/messages.js'),
-            };
-        });
-    }
+  componentWillMount() {
+    this._isMounted = true;
+    this.setState(() => {
+      return {
+        messages: require('./data/messages.js')
+      };
+    });
+  }
 
-    componentWillUnmount() {
-        this._isMounted = false;
-    }
+  componentWillUnmount() {
+    this._isMounted = false;
+  }
 
-    onLoadEarlier() {
+  onLoadEarlier() {
+    this.setState((previousState) => {
+      return {
+        isLoadingEarlier: true
+      };
+    });
+
+    setTimeout(() => {
+      if (this._isMounted === true) {
         this.setState((previousState) => {
-            return {
-                isLoadingEarlier: true,
-            };
+          return {
+            messages: GiftedChat.prepend(
+              previousState.messages,
+              require('./data/old_messages.js')
+            ),
+            loadEarlier: false,
+            isLoadingEarlier: false
+          };
         });
+      }
+    }, 1000); // simulating network
+  }
 
-        setTimeout(() => {
-            if (this._isMounted === true) {
-                this.setState((previousState) => {
-                    return {
-                        messages: GiftedChat.prepend(previousState.messages, require('./data/old_messages.js')),
-                        loadEarlier: false,
-                        isLoadingEarlier: false,
-                    };
-                });
-            }
-        }, 1000); // simulating network
-    }
+  onSend(messages = []) {
+    this.setState((previousState) => {
+      return {
+        messages: GiftedChat.append(previousState.messages, messages)
+      };
+    });
+    // for demo purpose
+    this.answerDemo(messages);
+  }
 
-    onSend(messages = []) {
+  answerDemo(messages) {
+    if (messages.length > 0) {
+      if (messages[0].image || messages[0].location || !this._isAlright) {
         this.setState((previousState) => {
-            return {
-                messages: GiftedChat.append(previousState.messages, messages),
-            };
+          return {
+            typingText: '对方正在输入中...'
+          };
         });
-        // for demo purpose
-        this.answerDemo(messages);
+      }
     }
 
-    answerDemo(messages) {
+    setTimeout(() => {
+      if (this._isMounted === true) {
         if (messages.length > 0) {
-            if ((messages[0].image || messages[0].location) || !this._isAlright) {
-                this.setState((previousState) => {
-                    return {
-                        typingText: '对方正在输入中...'
-                    };
-                });
+          // console.log(messages[0].text)
+          if (messages[0].text.match(/发货/)) {
+            this.onReceive('我们会尽快安排的');
+          } else if (messages[0].text.match(/身高/ || /体重/)) {
+            this.onReceive('这边建议你穿M码的哦');
+          } else if (messages[0].text.match(/亲/)) {
+            this.onReceive('不可以哦');
+          } else if (messages[0].text.match(/亲/)) {
+            this.onReceive('2');
+          } else {
+            if (!this._isAlright) {
+              this._isAlright = true;
+              this.onReceive('当前询问人数过多，请耐心等待');
             }
+          }
         }
+      }
 
-        setTimeout(() => {
-            if (this._isMounted === true) {
-                if (messages.length > 0) {
-                    // console.log(messages[0].text)
-                    if (messages[0].text.match(/发货/)) {
-                        this.onReceive('我们会尽快安排的');
-                    } else if (messages[0].text.match(/身高/||/体重/)) {
-                        this.onReceive('这边建议你穿M码的哦');
-                    } else if (messages[0].text.match(/亲/)) {
-                        this.onReceive('不可以哦');
-                    }else if (messages[0].text.match(/亲/)) {
-                        this.onReceive('2');
-                    }else {
-                        if (!this._isAlright) {
-                            this._isAlright = true;
-                            this.onReceive('当前询问人数过多，请耐心等待');
-                        }
-                    }
-                }
-            }
+      this.setState((previousState) => {
+        return {
+          typingText: null
+        };
+      });
+    }, 2000);
+  }
 
-            this.setState((previousState) => {
-                return {
-                    typingText: null,
-                };
-            });
-        }, 2000);
+  onReceive(text) {
+    this.setState((previousState) => {
+      return {
+        messages: GiftedChat.append(previousState.messages, {
+          _id: Math.round(Math.random() * 1000000),
+          text: text,
+          createdAt: new Date(),
+          user: {
+            _id: 2,
+            name: '百越',
+            avatar: require('../../../../res/logo.png')
+          }
+        })
+      };
+    });
+  }
+
+  renderCustomActions(props) {
+    return <Actions {...props} />;
+  }
+
+  renderBubble(props) {
+    return (
+      <Bubble
+        {...props}
+        wrapperStyle={{
+          left: {
+            backgroundColor: '#f0f0f0'
+          }
+        }}
+      />
+    );
+  }
+
+  renderCustomView(props) {
+    return <CustomView {...props} />;
+  }
+
+  renderFooter(props) {
+    if (this.state.typingText) {
+      return (
+        <View style={styles.footerContainer}>
+          <Text style={styles.footerText}>{this.state.typingText}</Text>
+        </View>
+      );
     }
+    return null;
+  }
 
-    onReceive(text) {
-        this.setState((previousState) => {
-            return {
-                messages: GiftedChat.append(previousState.messages, {
-                    _id: Math.round(Math.random() * 1000000),
-                    text: text,
-                    createdAt: new Date(),
-                    user: {
-                        _id: 2,
-                        name: '百越',
-                        avatar: require('../../../../res/logo.png'),
-                    },
-                }),
-            };
-        });
-    }
+  render() {
+    return (
+      <GiftedChat
+        ref="chat"
+        messages={this.state.messages}
+        onSend={this.onSend}
+        loadEarlier={this.state.loadEarlier}
+        onLoadEarlier={this.onLoadEarlier}
+        isLoadingEarlier={this.state.isLoadingEarlier}
+        renderRig
+        user={{
+          _id: 1 // sent messages should have same user._id
+        }}
+        renderBubble={this.renderBubble}
+        renderCustomView={this.renderCustomView}
+        renderFooter={this.renderFooter}
+        renderActionsRight={this.renderRightAction.bind(this)}
+        renderCustomMenu={this.renderCustomMenu.bind(this)}
+        renderHoldToTalkButton={this.renderHoldToTalk.bind(this)}
+        renderAudioButton={this.renderAudioButton}
+        renderKeyboardButton={this.renderKeyboardButton}
+        renderClarifyStateNormal={this.renderKeyboardButton}
+        renderClarifyStateInput={this.renderClarifyStateInput}
+        renderComposer={this.renderComposer}
+        customMenuHeight={200}
+        renderSnapChatBtn={this.renderSnapChatBtn.bind(this)}
+        renderSnapChatSlideBar={this.renderSnapChatSlideBar}
+      />
+    );
+  }
 
-    renderCustomActions(props) {
-        return (
-            <Actions
-                {...props}
-            />
-        );
-    }
+  renderSnapChatSlideBar() {
+    return <View style={{ backgroundColor: 'yellow', height: 50 }}></View>;
+  }
 
-    renderBubble(props) {
-        return (
-            <Bubble
-                {...props}
-                wrapperStyle={{
-                    left: {
-                        backgroundColor: '#f0f0f0',
-                    }
-                }}
-            />
-        );
-    }
+  renderSnapChatBtn() {
+    return this.renderClarifyStateInput();
+  }
 
-    renderCustomView(props) {
-        return (
-            <CustomView
-                {...props}
-            />
-        );
-    }
+  renderComposer(props) {
+    return <Composer {...props} />;
+  }
 
-    renderFooter(props) {
-        if (this.state.typingText) {
-            return (
-                <View style={styles.footerContainer}>
-                    <Text style={styles.footerText}>
-                        {this.state.typingText}
-                    </Text>
-                </View>
-            );
-        }
-        return null;
-    }
+  renderClarifyItems() {
+    return (
+      <View style={[styles.clarifyContainer]}>
+        <View style={styles.line}>
+          <View style={[styles.line, { flex: 1, borderLeftWidth: 0.3 }]}></View>
+        </View>
 
-    render() {
-        return (
-            <GiftedChat
-                ref="chat"
-                messages={this.state.messages}
-                onSend={this.onSend}
-                loadEarlier={this.state.loadEarlier}
-                onLoadEarlier={this.onLoadEarlier}
-                isLoadingEarlier={this.state.isLoadingEarlier}
-                renderRig
-                user={{
-                    _id: 1, // sent messages should have same user._id
-                }}
-                renderBubble={this.renderBubble}
-                renderCustomView={this.renderCustomView}
-                renderFooter={this.renderFooter}
-                renderActionsRight={this.renderRightAction.bind(this)}
-                renderCustomMenu={this.renderCustomMenu.bind(this)}
-                renderHoldToTalkButton={this.renderHoldToTalk.bind(this)}
-                renderAudioButton={this.renderAudioButton}
-                renderKeyboardButton={this.renderKeyboardButton}
-                renderClarifyStateNormal={this.renderKeyboardButton}
-                renderClarifyStateInput={this.renderClarifyStateInput}
-                renderComposer={this.renderComposer}
-                customMenuHeight={200}
-                renderSnapChatBtn={this.renderSnapChatBtn.bind(this)}
-                renderSnapChatSlideBar={this.renderSnapChatSlideBar}
-            />
-        );
-    }
+        <TouchableOpacity style={styles.clarifyItem}>
+          <IconButton textIcon="-" />
+          <Text style={styles.clarifyText}>服务</Text>
+        </TouchableOpacity>
 
-    renderSnapChatSlideBar() {
-        return (
-            <View style={{backgroundColor: 'yellow', height: 50}}>
+        <View style={styles.line}>
+          <View style={[styles.line, { flex: 1, borderLeftWidth: 0.3 }]}></View>
+        </View>
 
-            </View>
-        )
-    }
+        <TouchableOpacity style={styles.clarifyItem}>
+          <IconButton textIcon="-" />
+          <Text style={styles.clarifyText}>我的</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  }
 
-    renderSnapChatBtn() {
-        return this.renderClarifyStateInput();
-    }
+  renderHoldToTalk() {
+    return (
+      <Button
+        title="按住说话"
+        onPress={() => {
+          console.log('on press');
+          this.refs.chat.onShowSnapChat(!this.show);
+          this.show = !this.show;
+        }}
+      />
+    );
+  }
 
-    renderComposer(props) {
-        return (
-            <Composer
-                {...props}
-            />
-        )
-    }
+  renderAudioButton() {
+    return <IconButton textIcon=")))" />;
+  }
 
-    renderClarifyItems() {
-        return (
-            <View style={[styles.clarifyContainer]}>
+  renderClarifyStateInput() {
+    return <IconButton textIcon="6" />;
+  }
 
-                <View style={styles.line}>
-                    <View style={[styles.line, {flex: 1, borderLeftWidth: 0.3,}]}>
-                    </View>
-                </View>
+  renderKeyboardButton() {
+    return <IconButton textIcon="三" />;
+  }
 
-                <TouchableOpacity style={styles.clarifyItem}>
-                    <IconButton
-                        textIcon='-'
-                    />
-                    <Text style={styles.clarifyText}>
-                        服务
-                    </Text>
-                </TouchableOpacity>
+  renderCustomMenu(props) {
+    return (
+      <IconButton
+        onIconClick={() => {
+          this.refs.chat.hideCustomMenu();
+        }}
+        textIcon="+"
+      />
+    );
+  }
 
-                <View style={styles.line}>
-                    <View style={[styles.line, {flex: 1, borderLeftWidth: 0.3,}]}>
-                    </View>
-                </View>
-
-                <TouchableOpacity style={styles.clarifyItem}>
-                    <IconButton
-                        textIcon='-'
-                    />
-                    <Text style={styles.clarifyText}>
-                        我的
-                    </Text>
-                </TouchableOpacity>
-            </View>
-        )
-    }
-
-    renderHoldToTalk() {
-        return (
-            <Button title='按住说话' onPress={() => {
-                console.log('on press')
-                this.refs.chat.onShowSnapChat(!this.show);
-                this.show = !this.show;
-            }}/>
-        )
-    }
-
-    renderAudioButton() {
-        return (
-            <IconButton
-                textIcon=')))'
-            />
-        );
-    }
-
-    renderClarifyStateInput() {
-        return (
-            <IconButton
-                textIcon='6'
-            />
-        );
-    }
-
-    renderKeyboardButton() {
-        return (
-            <IconButton
-                textIcon='三'
-            />
-        );
-    }
-
-    renderCustomMenu(props) {
-        return (
-            <IconButton
-                onIconClick={() => {
-                    this.refs.chat.hideCustomMenu();
-                }}
-                textIcon='+'
-            />
-        );
-    }
-
-    renderRightAction(props) {
-        return (
-            <TouchableOpacity
-                onPress={() => {
-                    this.refs.chat.changeCustomMenu();
-                }}
-                style={{marginRight: 8}}
-            >
-                <IconButton
-                    textIcon='+'
-                />
-            </TouchableOpacity>
-
-        );
-    }
+  renderRightAction(props) {
+    return (
+      <TouchableOpacity
+        onPress={() => {
+          this.refs.chat.changeCustomMenu();
+        }}
+        style={{ marginRight: 8 }}
+      >
+        <IconButton textIcon="+" />
+      </TouchableOpacity>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
-    footerContainer: {
-        marginTop: 5,
-        marginLeft: 10,
-        marginRight: 10,
-        marginBottom: 10,
-    },
-    footerText: {
-        fontSize: 14,
-        color: '#aaa',
-    },
-    clarifyContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        flex: 1,
-    },
-    clarifyItem: {
-        flex: 1,
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-    line: {
-        borderLeftColor: 'rgba(0,0,0,0.8)',
-    },
-    clarifyText: {
-        fontSize: 16,
-        padding: 8,
-    },
-    textInput: {
-        flex: 1,
-        fontSize: 16,
-        lineHeight: 16,
-        marginTop: Platform.select({
-            ios: 6,
-            android: 0,
-        }),
-        marginBottom: Platform.select({
-            ios: 5,
-            android: 3,
-        }),
-    },
-
+  footerContainer: {
+    marginTop: 5,
+    marginLeft: 10,
+    marginRight: 10,
+    marginBottom: 10
+  },
+  footerText: {
+    fontSize: 14,
+    color: '#aaa'
+  },
+  clarifyContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    flex: 1
+  },
+  clarifyItem: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  line: {
+    borderLeftColor: 'rgba(0,0,0,0.8)'
+  },
+  clarifyText: {
+    fontSize: 16,
+    padding: 8
+  },
+  textInput: {
+    flex: 1,
+    fontSize: 16,
+    lineHeight: 16,
+    marginTop: Platform.select({
+      ios: 6,
+      android: 0
+    }),
+    marginBottom: Platform.select({
+      ios: 5,
+      android: 3
+    })
+  }
 });

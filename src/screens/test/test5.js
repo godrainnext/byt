@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { View, Dimensions, StyleSheet, } from 'react-native';
+import React, { PureComponent } from 'react';
+import { View, Dimensions, StyleSheet } from 'react-native';
 import { WebView } from 'react-native-webview';
 import { NavigationContext } from '@react-navigation/native';
 import { pxToDp } from '../../utils/styleKits';
@@ -23,14 +23,13 @@ const HTML = `
 </html>
 
 `;
-export default class App extends Component {
+export default class App extends PureComponent {
   //   _engine?: RtcEngine;
   static contextType = NavigationContext;
 
   constructor(props) {
     super(props);
-    this.state = {
-    };
+    this.state = {};
   }
 
   render() {
@@ -64,15 +63,14 @@ export default class App extends Component {
 }
 
 const styles = StyleSheet.create({
-    max: {
-        flex: 1,
-    },
-    buttonHolder: {
-        height: pxToDp(100),
-        alignItems: 'center',
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'space-evenly',
-    },
-    
+  max: {
+    flex: 1
+  },
+  buttonHolder: {
+    height: pxToDp(100),
+    alignItems: 'center',
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-evenly'
+  }
 });
