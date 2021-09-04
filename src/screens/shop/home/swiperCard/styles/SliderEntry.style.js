@@ -10,7 +10,7 @@ function wp(percentage) {
 }
 
 const slideHeight = viewportHeight * 0.36;
-const slideWidth = wp(75);
+const slideWidth = wp(65);
 const itemHorizontalMargin = wp(2);
 
 export const sliderWidth = viewportWidth;
@@ -24,8 +24,8 @@ export default StyleSheet.create({
         width: pxToDp(270),
         height: pxToDp(140),
         paddingHorizontal: itemHorizontalMargin,
-        paddingBottom: 4 ,// needed for shadow
-        marginTop:pxToDp(-8)
+        paddingBottom: 4,// needed for shadow
+        marginTop: pxToDp(-8)
     },
     shadow: {
         position: 'absolute',
@@ -73,13 +73,19 @@ export default StyleSheet.create({
         borderTopRightRadius: entryBorderRadius,
         borderBottomRightRadius: entryBorderRadius
     },
-
     title: {
         flexWrap: "wrap",
         color: colors.black,
-        fontSize: 13,
+        fontSize: pxToDp(16),
         fontWeight: 'bold',
-        letterSpacing: 0.5
+        letterSpacing: 0.5,
+        margin: pxToDp(8)
+    },
+    money: {
+        color: '#62b4ad',
+        fontSize: pxToDp(16),
+        fontWeight: 'bold',
+        letterSpacing: 0.5,
     },
 
     subtitle: {

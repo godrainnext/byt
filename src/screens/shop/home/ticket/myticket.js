@@ -13,15 +13,46 @@ import { NavigationContext } from '@react-navigation/native';
 import SvgUri from 'react-native-svg-uri';
 import { phone, right } from '../../../../component/common/iconSvg';
 import Mybtn from '../../../../component/common/mybtn';
+import AnimatedLoader from 'react-native-animated-loader';
 
 export default class myticket extends PureComponent {
+  state = {
+    visible: true
+  };
+  componentDidMount() {
+    new Promise((res, rej) => {
+      setTimeout(() => {
+        res(123);
+      }, 1500);
+    }).then((res) =>
+      this.setState({
+        visible: !this.state.visible
+      })
+    );
+  }
+
   static contextType = NavigationContext;
   render() {
     console.log('123', this.props.route.params);
     const { chooseCount, create_time } = this.props.route.params;
+    const { visible } = this.state;
     return (
       <View style={{ flex: 1 }}>
         <Top title="票据详情" icon1="arrow-back" />
+        <AnimatedLoader
+          visible={visible}
+          overlayColor="rgba(255,255,255,1)"
+          source={require('../../../../../lottie/paysuccess.json')}
+          animationStyle={{
+            width: 100,
+            height: 100
+          }}
+          speed={1}
+        >
+          <Text style={{ fontSize: pxToDp(24), marginTop: pxToDp(16) }}>
+            购票成功
+          </Text>
+        </AnimatedLoader>
         <ScrollView
           style={{
             flex: 1,
