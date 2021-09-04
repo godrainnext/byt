@@ -1,18 +1,14 @@
 import React, { PureComponent } from 'react';
 import { Platform, ImageBackground, ScrollView, Text, TouchableOpacity, View, PermissionsAndroid, Image, Dimensions, StyleSheet } from 'react-native';
-import { Input } from 'react-native-elements';
 import RtcEngine, { ChannelProfile, ClientRole, } from 'react-native-agora'
-import { WebView } from 'react-native-webview';
-import { MarqueeHorizontal, MarqueeVertical } from 'react-native-marquee-ab';
 import { pxToDp } from '@utils/styleKits';
-import LottieView from 'lottie-react-native';
 import { NavigationContext } from '@react-navigation/native';
 import Swiper from 'react-native-swiper';
 import Top from '@components/common/top';
 import { playmusic } from '../../../../component/common/iconSvg';
 import SvgUri from 'react-native-svg-uri';
 import VideoPlayScreen from '../../../../component/videoplayer/VideoPlayScreen';
-import Tv from './tv';
+
 const dimensions = {
   width: Dimensions.get('window').width,
   height: Dimensions.get('window').height,
