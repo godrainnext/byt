@@ -364,6 +364,7 @@ class Index extends PureComponent {
             ))}
           </View>
           <View style={styles.tcard}></View>
+          <View style={{ height: pxToDp(4) }} />
         </ScrollView>
       </View>
     );

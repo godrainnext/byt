@@ -20,10 +20,8 @@ import Hy from '@components/first/hy';
 import Legend from '@components/first/legend';
 import Actress from '@components/first/actress';
 import { connect } from 'react-redux';
-import Swiper from 'react-native-swiper';
 import { getUserInfoAction } from './store/actions';
 import RecommendCard from '../../../component/common/recommendcard';
-import Qiandao from '../../../component/common/qiandao';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Svg from 'react-native-svg-uri';
 import { star } from '../../../component/common/iconSvg';
@@ -175,7 +173,8 @@ class Index extends PureComponent {
         <View
           style={{
             flex: 1,
-            marginTop: pxToDp(-10)
+            marginTop: pxToDp(-10),
+            marginBottom: pxToDp(16)
           }}
         >
           <View

@@ -267,7 +267,12 @@ export default class hello extends PureComponent {
         </LinearGradient>
 
         <LinearGradient
-          style={styles.linear}
+          style={{
+            height: pxToDp(200),
+            marginTop: pxToDp(16),
+            borderRadius: pxToDp(8),
+            marginBottom: pxToDp(16)
+          }}
           colors={['#D5E8E6', 'white']}
           start={{ x: 0, y: 0 }}
           end={{ x: 0, y: 1 }}

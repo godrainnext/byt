@@ -15,3 +15,5 @@ export const getMomentListByUserId = (id) =>
   request.get({ url: `/moment/getUserMomentById/${id}` });
 export const getMomentListByTagId = (id) =>
   request.get({ url: `/moment/listByTag/${id}` });
+export const addTag = (id, tags) =>
+  request.post({ url: `/moment/${id}/momentTags`, data: { tags } });

@@ -155,6 +155,7 @@ const Text1 = styled.Text`
 const AnimatedText = Animated.createAnimatedComponent(Text)
 const Start = styled(Text)`
   position: absolute;
+  font-size: 20px;
   top: 250px;
   text-transform: uppercase;
   text-shadow: 0 4px 10px #000
