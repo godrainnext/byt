@@ -3,7 +3,9 @@ import { View, Text, Image, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import { ParallaxImage } from 'react-native-snap-carousel';
 import styles from '../styles/SliderEntry.style';
-
+import Svg from 'react-native-svg-uri';
+import { shopCar } from '../../../../../component/common/iconSvg';
+import { pxToDp } from '../../../../../utils/styleKits';
 export default class SliderEntry extends Component {
 
     static propTypes = {
@@ -35,17 +37,23 @@ export default class SliderEntry extends Component {
     }
 
     render() {
-        const { data: { title, subtitle }, even } = this.props;
+        const { data: { title, subtitle, money }, even } = this.props;
 
         const uppercaseTitle = title ? (
             <Text
                 style={[styles.title, even ? styles.titleEven : {}]}
-                numberOfLines={2}
+                numberOfLines={3}
             >
                 {title.toUpperCase()}
             </Text>
         ) : false;
-
+        const uppercaseMoney = money ? (<Text
+            style={[styles.money, even ? styles.titleEven : {}]}
+            numberOfLines={1}
+        >
+            {money.toUpperCase()}
+        </Text>
+        ) : false;
         return (
             <TouchableOpacity
                 activeOpacity={1}
@@ -58,12 +66,27 @@ export default class SliderEntry extends Component {
                 </View>
                 <View style={[styles.textContainer, even ? styles.textContainerEven : {}]}>
                     {uppercaseTitle}
-                    <Text
-                        style={[styles.subtitle, even ? styles.subtitleEven : {}]}
-                        numberOfLines={2}
-                    >
-                     
-                    </Text>
+                    <View style={{ flexDirection: 'row', marginTop: pxToDp(16) }}>
+                        <Text
+                            style={[styles.subtitle, even ? styles.subtitleEven : {}]}
+                            numberOfLines={2}
+                        >
+                            {uppercaseMoney}
+                        </Text>
+                        <View
+                            style={{
+                                height: pxToDp(30),
+                                width: pxToDp(30),
+                                borderRadius: pxToDp(15),
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                borderWidth: pxToDp(2),
+                                borderColor: '#62bfad',
+                                marginLeft: pxToDp(16)
+                            }}>
+                            <Svg width="20" height="20" svgXmlData={shopCar} />
+                        </View>
+                    </View>
                 </View>
             </TouchableOpacity>
         );

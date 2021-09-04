@@ -18,6 +18,7 @@ import { NavigationContext } from '@react-navigation/native';
 import Top from '@components/common/top';
 import { CheckBox } from 'react-native-elements';
 import { apply } from '@service/mine';
+import LottieView from 'lottie-react-native';
 import Mybtn from '@components/common/mybtn';
 
 const { height, width } = Dimensions.get('window');
@@ -33,7 +34,9 @@ class index extends Component {
       showTypePop: false,
       checked: false,
       back: '',
-      people: ''
+      people: '',
+      isShenQing: false,
+      isShow: false
     };
   }
   openImagePickerAsync = async () => {
@@ -95,363 +98,421 @@ class index extends Component {
       fd.append('idCard', this.state.fayan);
 
       apply(fd).then(() => {
-        ToastAndroid.show('申请成功，2-4个工作日内生效', ToastAndroid.LONG);
+        ToastAndroid.show('申请成功，请耐心等待申请结果', ToastAndroid.LONG);
         this.init();
-        this.context.goBack();
+        this.setState({ isShenQing: true });
+        this.time()
       });
     } else {
       ToastAndroid.show('请完善个人信息', ToastAndroid.SHORT);
     }
   };
-
+  time = () => {
+    console.log(123);
+    let seconds = 5;
+    let timeId = setInterval(() => {
+      seconds--;
+      if (seconds === 0) {
+        clearInterval(timeId);
+        this.setState({ isShow: true });
+      }
+    }, 1000);
+  }
   render() {
-    // console.log(arr);
+    const { isShenQing, isShow } = this.state;
     return (
       <View style={{ flex: 1 }}>
         <Top title="直播申请" icon1="arrow-back" />
-        <ScrollView
-          showsVerticalScrollIndicator={false}
-          style={{
-            flex: 1,
-            padding: pxToDp(16),
-            backgroundColor: '#D5E8E6'
-          }}
-        >
-          <View
-            style={{
-              justifyContent: 'center',
-              alignItems: 'center'
-            }}
-          >
-            <Text
+        {isShenQing ? (
+          <View style={{ flex: 1, backgroundColor: '#D5E8E6' }}>
+            <View style={{
+              backgroundColor: 'white',
+              height: pxToDp(150),
+              marginLeft: pxToDp(16),
+              marginTop: pxToDp(8),
+              marginRight: pxToDp(16),
+              borderRadius: pxToDp(8),
+              elevation: 2,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+              shadowColor: 'black',  //  阴影颜色
+              shadowRadius: pxToDp(8),
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}>
+              {isShow ? (<View style={{
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}>
+                <LottieView
+                  style={{ width: pxToDp(100) }}
+                  source={require('../../../../../lottie/审核完成.json')}
+                  autoPlay={true}
+                />
+                <Text style={{ fontSize: pxToDp(16), color: '#62bfad' }}>
+                  审核已完成
+                </Text>
+              </View>) : (
+                <View style={{
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}>
+                  <LottieView
+                    style={{ width: pxToDp(100) }}
+                    source={require('../../../../../lottie/审核中.json')}
+                    autoPlay={true}
+                    loop={true}
+                  />
+                  <Text style={{ fontSize: pxToDp(16), color: '#62bfad' }}>
+                    审核中...
+                  </Text>
+                </View>)}
+            </View>
+          </View>) : (
+          <View style={{ flex: 1 }}>
+            <ScrollView
+              showsVerticalScrollIndicator={false}
               style={{
-                fontSize: pxToDp(20),
-                fontWeight: 'bold',
-                color: '#000000'
+                flex: 1,
+                padding: pxToDp(16),
+                backgroundColor: '#D5E8E6'
               }}
             >
-              个人信息验证
-            </Text>
-          </View>
-          <View style={{ marginBottom: pxToDp(60) }}>
-            <View>
-              <View style={{ marginBottom: pxToDp(16) }}>
-                <View
-                  style={{
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    marginTop: pxToDp(8)
-                  }}
-                >
-                  <Text
-                    style={{
-                      color: '#62bfad',
-                      fontSize: pxToDp(12),
-                      marginBottom: pxToDp(16)
-                    }}
-                  >
-                    请您如实准确填写本人信息，否则将认证失败
-                  </Text>
-                </View>
-                <View
-                  style={[
-                    s.basicstyle,
-                    {
-                      backgroundColor: '#fff',
-                      borderRadius: pxToDp(8)
-                    }
-                  ]}
-                >
-                  <Input
-                    placeholder="请输入真实姓名"
-                    inputStyle={{ fontSize: pxToDp(16), color: '#333333' }}
-                    placeholderTextColor="#999999"
-                    inputContainerStyle={{
-                      borderColor: 'white',
-                      marginLeft: pxToDp(8)
-                    }}
-                    onChangeText={(value) => this.setState({ username: value })}
-                    value={this.state.username}
-                    leftIcon={
-                      <View
-                        style={{
-                          flexDirection: 'row',
-                          marginTop: pxToDp(4)
-                        }}
-                      >
-                        <Text
-                          style={{
-                            fontSize: pxToDp(16),
-                            color: 'red',
-                            marginBottom: pxToDp(4)
-                          }}
-                        >
-                          *
-                        </Text>
-                        <Text
-                          style={{
-                            fontSize: pxToDp(16),
-                            color: '#333333'
-                          }}
-                        >
-                          真实姓名
-                        </Text>
-                      </View>
-                    }
-                  />
-                  <View
-                    style={{
-                      marginTop: pxToDp(-32),
-                      marginBottom: pxToDp(-24)
-                    }}
-                  >
-                    <Input
-                      placeholder="请输入身份证号码"
-                      inputStyle={{ fontSize: pxToDp(16), color: '#333333' }}
-                      inputContainerStyle={{
-                        borderColor: 'white',
-                        marginLeft: pxToDp(8)
-                      }}
-                      value={this.state.fayan}
-                      placeholderTextColor="#999999"
-                      onChangeText={(value) => this.setState({ fayan: value })}
-                      maxLength={18}
-                      keyboardType="number-pad"
-                      leftIcon={
-                        <View
-                          style={{
-                            flexDirection: 'row',
-                            marginTop: pxToDp(4)
-                          }}
-                        >
-                          <Text
-                            style={{
-                              fontSize: pxToDp(16),
-                              color: 'red',
-                              marginBottom: pxToDp(4)
-                            }}
-                          >
-                            *
-                          </Text>
-                          <Text
-                            style={{
-                              fontSize: pxToDp(16),
-                              color: '#333333'
-                            }}
-                          >
-                            身份证号
-                          </Text>
-                        </View>
-                      }
-                    />
-                  </View>
-                </View>
-              </View>
-              {/* 身份证照片上传 */}
-              <View
-                style={[
-                  s.basicstyle,
-                  {
-                    backgroundColor: 'white',
-                    borderRadius: pxToDp(8),
-                    height: pxToDp(440)
-                  }
-                ]}
-              >
-                <TouchableOpacity
-                  onPress={() => this._changeModal()}
-                  style={{ alignItems: 'center', marginTop: pxToDp(8) }}
-                >
-                  <Text
-                    style={{
-                      fontSize: pxToDp(20),
-                      fontWeight: 'bold',
-                      color: '#000000'
-                    }}
-                  >
-                    身份证人像面照片
-                  </Text>
-                  <View
-                    style={{
-                      justifyContent: 'center',
-                      alignItems: 'center'
-                    }}
-                  >
-                    <Image
-                      style={{ width: pxToDp(200), height: pxToDp(150) }}
-                      source={
-                        this.state.people
-                          ? { uri: this.state.people }
-                          : require('../../../../res/s3.png')
-                      }
-                    ></Image>
-                  </View>
-                  <Text
-                    style={{
-                      color: '#666666',
-                      marginTop: pxToDp(8),
-                      marginBottom: pxToDp(8),
-                      fontSize: pxToDp(12)
-                    }}
-                  >
-                    请上传身份证人像面照片
-                  </Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  onPress={() => this._changeModal()}
-                  style={{ alignItems: 'center' }}
-                >
-                  <Text
-                    style={{
-                      fontSize: pxToDp(20),
-                      fontWeight: 'bold',
-                      color: '#000000'
-                    }}
-                  >
-                    身份证国徽面照片
-                  </Text>
-                  <View
-                    style={{
-                      justifyContent: 'center',
-                      alignItems: 'center'
-                    }}
-                  >
-                    <Image
-                      style={{ width: pxToDp(200), height: pxToDp(150) }}
-                      source={
-                        this.state.back
-                          ? { uri: this.state.back }
-                          : require('../../../../res/s4.png')
-                      }
-                    ></Image>
-                  </View>
-                  <Text
-                    style={{
-                      color: '#666666',
-                      marginBottom: pxToDp(8),
-                      fontSize: pxToDp(12)
-                    }}
-                  >
-                    请上传身份证国徽面照片
-                  </Text>
-                </TouchableOpacity>
-                <View>
-                  {/* Modal组件实现弹窗显示图片选择 */}
-                  <Modal
-                    visible={this.state.modalVisible}
-                    animationType={'fade'}
-                    transparent={true}
-                    onRequestClose={() => this.onRequestClose()}
-                  >
-                    <View style={s.alertBackground}>
-                      <View style={s.alertBox}>
-                        <Text style={s.modalTitle}>请选择</Text>
-                        <TouchableHighlight
-                          underlayColor={'#F5F5F5'}
-                          onPress={this.openImagePickerAsync}
-                        >
-                          <Text style={s.modalItem}>打开相册</Text>
-                        </TouchableHighlight>
-                        <TouchableHighlight
-                          underlayColor={'#F5F5F5'}
-                          onPress={() => this._changeModal()}
-                        >
-                          <Text style={s.modalItem}>取消</Text>
-                        </TouchableHighlight>
-                      </View>
-                    </View>
-                  </Modal>
-                </View>
-              </View>
               <View
                 style={{
                   justifyContent: 'center',
-                  alignItems: 'center',
-                  height: pxToDp(108),
-                  marginTop: pxToDp(16),
-                  marginBottom: pxToDp(16)
+                  alignItems: 'center'
                 }}
               >
                 <Text
                   style={{
-                    color: '#999999',
-                    fontSize: pxToDp(12),
-                    marginBottom: pxToDp(8),
-                    paddingLeft: pxToDp(8),
-                    paddingRight: pxToDp(8)
+                    fontSize: pxToDp(20),
+                    fontWeight: 'bold',
+                    color: '#000000'
                   }}
                 >
-                  根据相关政策法规要求，开通百越庭直播间需要进行实名认证。实名认证不涉及金钱账户，信息严格保密。
+                  个人信息验证
                 </Text>
-                <View style={{ flexDirection: 'row' }}>
-                  <Text
-                    style={{
-                      color: '#999999',
-                      fontSize: pxToDp(12),
-                      marginBottom: pxToDp(8)
-                    }}
+              </View>
+              <View style={{ marginBottom: pxToDp(60) }}>
+                <View>
+                  <View style={{ marginBottom: pxToDp(16) }}>
+                    <View
+                      style={{
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        marginTop: pxToDp(8)
+                      }}
+                    >
+                      <Text
+                        style={{
+                          color: '#62bfad',
+                          fontSize: pxToDp(12),
+                          marginBottom: pxToDp(16)
+                        }}
+                      >
+                        请您如实准确填写本人信息，否则将认证失败
+                      </Text>
+                    </View>
+                    <View
+                      style={[
+                        s.basicstyle,
+                        {
+                          backgroundColor: '#fff',
+                          borderRadius: pxToDp(8)
+                        }
+                      ]}
+                    >
+                      <Input
+                        placeholder="请输入真实姓名"
+                        inputStyle={{ fontSize: pxToDp(16), color: '#333333' }}
+                        placeholderTextColor="#999999"
+                        inputContainerStyle={{
+                          borderColor: 'white',
+                          marginLeft: pxToDp(8)
+                        }}
+                        onChangeText={(value) => this.setState({ username: value })}
+                        value={this.state.username}
+                        leftIcon={
+                          <View
+                            style={{
+                              flexDirection: 'row',
+                              marginTop: pxToDp(4)
+                            }}
+                          >
+                            <Text
+                              style={{
+                                fontSize: pxToDp(16),
+                                color: 'red',
+                                marginBottom: pxToDp(4)
+                              }}
+                            >
+                              *
+                            </Text>
+                            <Text
+                              style={{
+                                fontSize: pxToDp(16),
+                                color: '#333333'
+                              }}
+                            >
+                              真实姓名
+                            </Text>
+                          </View>
+                        }
+                      />
+                      <View
+                        style={{
+                          marginTop: pxToDp(-32),
+                          marginBottom: pxToDp(-24)
+                        }}
+                      >
+                        <Input
+                          placeholder="请输入身份证号码"
+                          inputStyle={{ fontSize: pxToDp(16), color: '#333333' }}
+                          inputContainerStyle={{
+                            borderColor: 'white',
+                            marginLeft: pxToDp(8)
+                          }}
+                          value={this.state.fayan}
+                          placeholderTextColor="#999999"
+                          onChangeText={(value) => this.setState({ fayan: value })}
+                          maxLength={18}
+                          keyboardType="number-pad"
+                          leftIcon={
+                            <View
+                              style={{
+                                flexDirection: 'row',
+                                marginTop: pxToDp(4)
+                              }}
+                            >
+                              <Text
+                                style={{
+                                  fontSize: pxToDp(16),
+                                  color: 'red',
+                                  marginBottom: pxToDp(4)
+                                }}
+                              >
+                                *
+                              </Text>
+                              <Text
+                                style={{
+                                  fontSize: pxToDp(16),
+                                  color: '#333333'
+                                }}
+                              >
+                                身份证号
+                              </Text>
+                            </View>
+                          }
+                        />
+                      </View>
+                    </View>
+                  </View>
+                  {/* 身份证照片上传 */}
+                  <View
+                    style={[
+                      s.basicstyle,
+                      {
+                        backgroundColor: 'white',
+                        borderRadius: pxToDp(8),
+                        height: pxToDp(440)
+                      }
+                    ]}
                   >
-                    阅读并同意
-                  </Text>
-                  <TouchableOpacity
-                    onPress={() => this.context.navigate('Xieyi')}
+                    <TouchableOpacity
+                      onPress={() => this._changeModal()}
+                      style={{ alignItems: 'center', marginTop: pxToDp(8) }}
+                    >
+                      <Text
+                        style={{
+                          fontSize: pxToDp(20),
+                          fontWeight: 'bold',
+                          color: '#000000'
+                        }}
+                      >
+                        身份证人像面照片
+                      </Text>
+                      <View
+                        style={{
+                          justifyContent: 'center',
+                          alignItems: 'center'
+                        }}
+                      >
+                        <Image
+                          style={{ width: pxToDp(200), height: pxToDp(150) }}
+                          source={
+                            this.state.people
+                              ? { uri: this.state.people }
+                              : require('../../../../res/s3.png')
+                          }
+                        ></Image>
+                      </View>
+                      <Text
+                        style={{
+                          color: '#666666',
+                          marginTop: pxToDp(8),
+                          marginBottom: pxToDp(8),
+                          fontSize: pxToDp(12)
+                        }}
+                      >
+                        请上传身份证人像面照片
+                      </Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                      onPress={() => this._changeModal()}
+                      style={{ alignItems: 'center' }}
+                    >
+                      <Text
+                        style={{
+                          fontSize: pxToDp(20),
+                          fontWeight: 'bold',
+                          color: '#000000'
+                        }}
+                      >
+                        身份证国徽面照片
+                      </Text>
+                      <View
+                        style={{
+                          justifyContent: 'center',
+                          alignItems: 'center'
+                        }}
+                      >
+                        <Image
+                          style={{ width: pxToDp(200), height: pxToDp(150) }}
+                          source={
+                            this.state.back
+                              ? { uri: this.state.back }
+                              : require('../../../../res/s4.png')
+                          }
+                        ></Image>
+                      </View>
+                      <Text
+                        style={{
+                          color: '#666666',
+                          marginBottom: pxToDp(8),
+                          fontSize: pxToDp(12)
+                        }}
+                      >
+                        请上传身份证国徽面照片
+                      </Text>
+                    </TouchableOpacity>
+                    <View>
+                      {/* Modal组件实现弹窗显示图片选择 */}
+                      <Modal
+                        visible={this.state.modalVisible}
+                        animationType={'fade'}
+                        transparent={true}
+                        onRequestClose={() => this.onRequestClose()}
+                      >
+                        <View style={s.alertBackground}>
+                          <View style={s.alertBox}>
+                            <Text style={s.modalTitle}>请选择</Text>
+                            <TouchableHighlight
+                              underlayColor={'#F5F5F5'}
+                              onPress={this.openImagePickerAsync}
+                            >
+                              <Text style={s.modalItem}>打开相册</Text>
+                            </TouchableHighlight>
+                            <TouchableHighlight
+                              underlayColor={'#F5F5F5'}
+                              onPress={() => this._changeModal()}
+                            >
+                              <Text style={s.modalItem}>取消</Text>
+                            </TouchableHighlight>
+                          </View>
+                        </View>
+                      </Modal>
+                    </View>
+                  </View>
+                  <View
+                    style={{
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      height: pxToDp(108),
+                      marginTop: pxToDp(16),
+                      marginBottom: pxToDp(16)
+                    }}
                   >
                     <Text
                       style={{
-                        color: '#62bfad',
+                        color: '#999999',
                         fontSize: pxToDp(12),
-                        marginBottom: pxToDp(8)
+                        marginBottom: pxToDp(8),
+                        paddingLeft: pxToDp(8),
+                        paddingRight: pxToDp(8)
                       }}
                     >
-                      直播及支付相关协议
+                      根据相关政策法规要求，开通百越庭直播间需要进行实名认证。实名认证不涉及金钱账户，信息严格保密。
                     </Text>
-                  </TouchableOpacity>
+                    <View style={{ flexDirection: 'row' }}>
+                      <Text
+                        style={{
+                          color: '#999999',
+                          fontSize: pxToDp(12),
+                          marginBottom: pxToDp(8)
+                        }}
+                      >
+                        阅读并同意
+                      </Text>
+                      <TouchableOpacity
+                        onPress={() => this.context.navigate('Xieyi')}
+                      >
+                        <Text
+                          style={{
+                            color: '#62bfad',
+                            fontSize: pxToDp(12),
+                            marginBottom: pxToDp(8)
+                          }}
+                        >
+                          直播及支付相关协议
+                        </Text>
+                      </TouchableOpacity>
+                    </View>
+                    <CheckBox
+                      checkedColor="#62bfad"
+                      title="同意协议并认证"
+                      checked={this.state.checked}
+                      onPress={() => {
+                        this.setState({
+                          checked: !this.state.checked
+                        });
+                      }}
+                    />
+                  </View>
                 </View>
-                <CheckBox
-                  checkedColor="#62bfad"
-                  title="同意协议并认证"
-                  checked={this.state.checked}
-                  onPress={() => {
-                    this.setState({
-                      checked: !this.state.checked
-                    });
-                  }}
-                />
               </View>
+            </ScrollView>
+            <View
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                justifyContent: 'space-around'
+              }}
+            >
+              <Mybtn
+                onPress={this.submit}
+                title="提交申请"
+                containerStyle={{
+                  position: 'absolute',
+                  bottom: 0,
+                  fontSize: 30,
+                  width: pxToDp(320),
+                  height: pxToDp(40),
+                  borderRadius: pxToDp(40),
+                  alignSelf: 'center',
+                  color: 'red',
+                  display: 'none',
+                  marginBottom: pxToDp(5)
+                }}
+                buttonStyle={{
+                  width: pxToDp(320),
+                  height: pxToDp(40),
+                  alignSelf: 'flex-end',
+                  display: this.state.btnOpcity ? 'none' : 'flex',
+                  borderRadius: pxToDp(32)
+                }}
+              />
             </View>
-          </View>
-        </ScrollView>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'space-around'
-          }}
-        >
-          <Mybtn
-            onPress={this.submit}
-            title="提交申请"
-            containerStyle={{
-              position: 'absolute',
-              bottom: 0,
-              fontSize: 30,
-              width: pxToDp(320),
-              height: pxToDp(40),
-              borderRadius: pxToDp(40),
-              alignSelf: 'center',
-              color: 'red',
-              display: 'none',
-              marginBottom: pxToDp(5)
-            }}
-            buttonStyle={{
-              width: pxToDp(320),
-              height: pxToDp(40),
-              alignSelf: 'flex-end',
-              display: this.state.btnOpcity ? 'none' : 'flex',
-              borderRadius: pxToDp(32)
-            }}
-          />
-        </View>
+          </View>)
+        }
       </View>
     );
   }

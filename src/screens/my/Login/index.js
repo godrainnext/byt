@@ -309,7 +309,7 @@ class Login extends PureComponent {
           >
             <Input
               placeholder="请输入账号"
-              leftIcon={<Icon name="user" size={24} />}
+              leftIcon={<Icon name="user" size={24} style={{ marginBottom: pxToDp(8) }} />}
               onChangeText={(regusername) => this.setState({ regusername })}
               value={this.state.regusername}
             />
@@ -351,7 +351,6 @@ class Login extends PureComponent {
             />
           </View>
         </View>
-
       </ImageBackground>
 
     );

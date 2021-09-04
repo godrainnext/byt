@@ -5,12 +5,9 @@ import {
   TouchableOpacity,
   Image,
   StyleSheet,
-  ScrollView,
   TouchableNativeFeedback
 } from 'react-native';
-import Top from '@components/common/top';
 import { pxToDp } from '@utils/styleKits';
-import Swiper from 'react-native-swiper';
 import { NavigationContext } from '@react-navigation/native';
 import Svg from 'react-native-svg-uri';
 import { shopCar } from '../../../../component/common/iconSvg';
