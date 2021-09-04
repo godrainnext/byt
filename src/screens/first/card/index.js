@@ -7,13 +7,14 @@ import {
   TouchableOpacity,
   Button,
   Image,
-  TouchableNativeFeedback
+  TouchableNativeFeedback,
+  ScrollView
 } from 'react-native';
 import { pxToDp } from '../../../utils/styleKits';
 import { NavigationContext } from '@react-navigation/native';
 import Top from '../../../component/common/top';
 import { getListByStatus } from '@service/home';
-import changeImgSize from '@utils/changeImgSize';
+import Mybtn from '../../../component/common/mybtn';
 class history extends PureComponent {
   static contextType = NavigationContext;
   state = { HYlist: [] };
@@ -24,16 +25,16 @@ class history extends PureComponent {
   }
   sortByFirstCode = () => {
     this.setState({
-      HYlist: this.state.HYlist.sort((a, b) => {
+      HYlist: [...this.state.HYlist.sort((a, b) => {
         return a.title > b.title;
-      })
+      })]
     });
   };
   sortByFirstCoder = () => {
     this.setState({
-      HYlist: this.state.HYlist.sort((a, b) => {
+      HYlist: [...this.state.HYlist.sort((a, b) => {
         return a.title < b.title;
-      })
+      })]
     });
   };
   render() {
@@ -41,8 +42,45 @@ class history extends PureComponent {
       <View style={{ backgroundColor: '#fff', flex: 1 }}>
         <Top icon1="arrow-back" title="俯瞰百年" />
         <View style={{ padding: pxToDp(16), flex: 1, paddingTop: 0 }}>
-          <Button title="点击" onPress={this.sortByFirstCode}></Button>
-          <Button title="点击" onPress={this.sortByFirstCoder}></Button>
+          <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+            <Mybtn
+              title="按发布时间排序"
+              onPress={this.sortByFirstCoder}
+              buttonStyle={{
+                width: pxToDp(120),
+                height: pxToDp(40),
+                borderRadius: pxToDp(32),
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginTop: pxToDp(10),
+                marginRight: pxToDp(50)
+              }}
+              titleStyle={{
+                height: 30,
+                color: 'white',
+                fontSize: pxToDp(14),
+                marginTop: pxToDp(4)
+              }}
+            />
+            <Mybtn
+              title="按阅读量排序"
+              onPress={this.sortByFirstCode}
+              buttonStyle={{
+                width: pxToDp(120),
+                height: pxToDp(40),
+                borderRadius: pxToDp(32),
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginTop: pxToDp(10)
+              }}
+              titleStyle={{
+                height: 30,
+                color: 'white',
+                fontSize: pxToDp(14),
+                marginTop: pxToDp(4)
+              }}
+            />
+          </View>
           <FlatList
             showsVerticalScrollIndicator={false}
             data={this.state.HYlist}
@@ -55,11 +93,11 @@ class history extends PureComponent {
                   elevation: 2,
                   borderRadius: pxToDp(8),
                   borderWidth: 0,
-                  marginTop: pxToDp(16),
+                  marginTop: pxToDp(10),
                   shadowColor: 'black',
                   shadowOffset: { width: 0, height: 0 },
                   shadowOpacity: 1,
-                  shadowRadius: 16
+                  shadowRadius: 16,
                 }}
               >
                 <View>

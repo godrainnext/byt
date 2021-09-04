@@ -263,6 +263,8 @@ function Nav() {
         {/**积分明细 */}
         <Stack.Screen name="JifenMingxi" component={Screens.JifenMingxi} />
         <Stack.Screen name="Search" component={Screens.Search} />
+        {/**定制 */}
+        <Stack.Screen name="TBox" component={Screens.TBox} />
       </Stack.Navigator>
     </NavigationContainer>
   );

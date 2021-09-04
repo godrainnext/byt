@@ -313,22 +313,24 @@ class Index extends PureComponent {
             </View>
           </View>
           {/*活动板块 */}
-          <View
-            style={{
+          <TouchableNativeFeedback
+            onPress={() => this.context.navigate('TBox')}
+            useForeground={true}>
+            <View style={{
               marginLeft: pxToDp(16),
               marginRight: pxToDp(16),
-              marginTop: pxToDp(16)
-            }}
-          >
-            <Image
-              style={{
-                height: pxToDp(130),
-                width: '100%',
-                borderRadius: pxToDp(8)
-              }}
-              source={require('../../../res/0901/商城轮播2.png')}
-            />
-          </View>
+              marginTop: pxToDp(8)
+            }}>
+              <Image
+                style={{
+                  height: pxToDp(130),
+                  borderRadius: pxToDp(8),
+                  width: '100%'
+                }}
+                source={require('../../../res/0901/商城轮播2.png')}
+              />
+            </View>
+          </TouchableNativeFeedback>
           {/*推荐模块 */}
           <View style={styles.titlebox}>
             <View style={styles.left}></View>

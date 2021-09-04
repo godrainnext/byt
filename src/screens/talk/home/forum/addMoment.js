@@ -65,19 +65,19 @@ class index extends PureComponent {
         },
         {
           id: '5',
-          text: '#剧本观后感',
-          number: '32',
-          img: 'https://img1.baidu.com/it/u=931923788,4075714914&fm=26&fmt=auto&gp=0.jpg',
-          detail:
-            '你是否从作品中领悟出什么道理或精湛的思想呢？或是受作品中的内容启发而引起出什么思考与联想呢？赶紧来分享自己的感悟和大家一起讨论吧！'
-        },
-        {
-          id: '6',
           text: '#七夕',
           number: '79912',
           img: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fbpic.588ku.com%2Fback_pic%2F05%2F61%2F16%2F945b47292be3a73.jpg&refer=http%3A%2F%2Fbpic.588ku.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631867662&t=a010ff43b91886f4438adc77b7d7e3d4',
           detail:
             '七夕节，是中国民间的传统节日，被称为“东方的情人节”。越剧舞台上，又有那些我们熟悉的情侣角色呢？'
+        },
+        {
+          id: '6',
+          text: '#剧本观后感',
+          number: '32',
+          img: 'https://img1.baidu.com/it/u=931923788,4075714914&fm=26&fmt=auto&gp=0.jpg',
+          detail:
+            '你是否从作品中领悟出什么道理或精湛的思想呢？或是受作品中的内容启发而引起出什么思考与联想呢？赶紧来分享自己的感悟和大家一起讨论吧！'
         }
       ]
     };
@@ -186,7 +186,7 @@ class index extends PureComponent {
         DeviceEventEmitter.emit('changeMoment', {
           content: text,
           cover: form[0].uri,
-          createTime: dayjs(new Date()).format('YYYY MM-DD-HH-mm'),
+          createTime: dayjs(new Date()).format('YYYY-MM-DD -HH-mm'),
           id: res.id,
           images: images,
           label: 0,
@@ -222,7 +222,7 @@ class index extends PureComponent {
         <Top icon1="arrow-back" title="发动态" />
         <View
           style={{
-            height: pxToDp(550),
+            height: pxToDp(650),
             backgroundColor: '#D5E8E6',
             padding: pxToDp(16)
           }}
@@ -286,29 +286,33 @@ class index extends PureComponent {
                   showCount={true} // 展示剩余文字, 默认为true
                 />
               </View>
-              {this.state.field.map((item) => (
-                <CheckBox
-                  title={item.text.replace('#', '')}
-                  onPress={(v) => {
-                    if (
-                      this.state.checkedArr.find((items) => items === item.id)
-                    ) {
-                      this.setState({
-                        checkedArr: this.state.checkedArr.filter(
-                          (items) => items !== item.id
-                        )
-                      });
-                    } else {
-                      this.setState({
-                        checkedArr: [...this.state.checkedArr, item.id]
-                      });
-                    }
-                  }}
-                  checked={this.state.checkedArr.find(
-                    (items) => items === item.id
-                  )}
-                />
-              ))}
+              <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
+                {this.state.field.map((item) => (
+                  <CheckBox
+                    containerStyle={{ borderRadius: pxToDp(8) }}
+                    checkedColor="#62bfad"
+                    title={item.text.replace('#', '')}
+                    onPress={(v) => {
+                      if (
+                        this.state.checkedArr.find((items) => items === item.id)
+                      ) {
+                        this.setState({
+                          checkedArr: this.state.checkedArr.filter(
+                            (items) => items !== item.id
+                          )
+                        });
+                      } else {
+                        this.setState({
+                          checkedArr: [...this.state.checkedArr, item.id]
+                        });
+                      }
+                    }}
+                    checked={this.state.checkedArr.find(
+                      (items) => items === item.id
+                    )}
+                  />
+                ))}
+              </View>
               <View
                 style={{
                   flexDirection: 'row',
