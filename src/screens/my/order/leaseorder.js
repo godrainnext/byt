@@ -67,8 +67,6 @@ class orders extends PureComponent {
         this.props.route.params.leaseprice *
         1;
     const { count, tabs, activeTab, way, leaseprice } = this.state;
-    console.log('day', this.props.route.params);
-    console.log('message', this.props.route.params.count);
     return (
       <View style={{ backgroundColor: '#e2f4fe' }}>
         <Top icon1="arrow-back" title="确认订单" />

@@ -9,12 +9,10 @@ const RenderInner = (props) => {
   useEffect(() => {
     getMomentById(props.route.params).then((res) => {
       setState({ ...res });
-      console.log(res);
     });
-  },[props.route.params]);
+  }, [props.route.params]);
   const arr1 = state.content?.split('/img');
   const { images } = state;
-  console.log(images);
   return (
     <Fragment>
       <View>

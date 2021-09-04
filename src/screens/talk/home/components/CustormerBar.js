@@ -27,7 +27,6 @@ export default class SegmentTabBar extends PureComponent {
   renderTab(name, page, isTabActive, onPressHandler) {
     const textColor = isTabActive ? '#fff' : '#62bfad';
     const backgroundColor = isTabActive ? '#62bfad' : '#fff';
-    console.log(textColor);
     return (
       <Button
         style={{

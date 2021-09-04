@@ -307,13 +307,6 @@ export default class pickseat extends PureComponent {
     }
   };
   render() {
-    console.log(this.state.chooseCount);
-    console.log(this.state.chooseArr);
-    console.log(
-      this.state.chooseArr.map(
-        (item) => `第${Math.floor(item / 8) + 1}排第${item % 8}座`
-      )
-    );
     const { chooseCount } = this.state;
     return (
       <View style={{ flex: 1 }}>

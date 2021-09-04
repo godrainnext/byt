@@ -175,11 +175,11 @@ class shopdetails extends PureComponent {
           // onMomentumScrollEnd={() => { this.setState({ btnOpcity: false }); console.log(this.state.btnOpcity); }}
           onScrollBeginDrag={() => {
             this.setState({ btnOpcity: true });
-            console.log(this.state.btnOpcity);
+            console.log("good",this.state.btnOpcity);
           }}
           onScrollEndDrag={() => {
             this.setState({ btnOpcity: false });
-            console.log(this.state.btnOpcity);
+            console.log("good",this.state.btnOpcity);
           }}
           style={{
             flex: 1

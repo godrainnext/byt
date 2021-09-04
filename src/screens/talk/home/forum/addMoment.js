@@ -138,7 +138,6 @@ class index extends PureComponent {
         }
       })
       .then((res) => {
-        console.log(res);
         this.handleEditingEnd();
         DeviceEventEmitter.emit('changeMoment', {
           content: text,

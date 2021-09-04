@@ -152,7 +152,6 @@ class Index extends PureComponent {
   static contextType = NavigationContext;
 
   render() {
-    console.log(this.props.userInfo);
     const { modalVisible } = this.state;
     return (
       <View

@@ -33,7 +33,6 @@ export default class myticket extends PureComponent {
 
   static contextType = NavigationContext;
   render() {
-    console.log('123', this.props.route.params);
     const { chooseCount, create_time } = this.props.route.params;
     const { visible } = this.state;
     return (

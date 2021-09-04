@@ -20,7 +20,6 @@ export default class paySuccess extends PureComponent {
       img,
       create_time
     } = this.props.route.params;
-    console.log(this.props.route.params);
     const data = {
       shopId,
       shopCarId,
@@ -37,7 +36,6 @@ export default class paySuccess extends PureComponent {
   };
   static contextType = NavigationContext;
   render() {
-    console.log(this.props.route.params);
     return (
       <View>
         <Top title="" icon1="arrow-back" />
