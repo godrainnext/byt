@@ -22,8 +22,6 @@ export default class jifenorder extends PureComponent {
 
   render() {
     const { visible } = this.state;
-    console.log(visible);
-    console.log(this.props.route.params);
     return (
       <View>
         <Top title="订单详情" icon1="arrow-back" />

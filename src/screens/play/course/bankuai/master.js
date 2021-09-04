@@ -80,7 +80,8 @@ export default class Index extends PureComponent {
 
   setSections = (sections) => {
     this.setState({
-      activeSections: sections.includes(undefined) ? [] : sections,isRadius:!this.state.isRadius
+      activeSections: sections.includes(undefined) ? [] : sections,
+      isRadius: !this.state.isRadius
     });
   };
   static contextType = NavigationContext;
@@ -88,20 +89,20 @@ export default class Index extends PureComponent {
     return (
       <View
         style={{
-          height:pxToDp(72),
+          height: pxToDp(72),
           marginTop: pxToDp(16),
           alignItems: 'center',
-          justifyContent:"center",
+          justifyContent: 'center',
           backgroundColor: '#fff',
           borderTopLeftRadius: pxToDp(8),
           borderTopRightRadius: pxToDp(8),
-          borderBottomLeftRadius: this.state.isRadius?pxToDp(8):0,
-          borderBottomRightRadius: this.state.isRadius?pxToDp(8):0,
+          borderBottomLeftRadius: this.state.isRadius ? pxToDp(8) : 0,
+          borderBottomRightRadius: this.state.isRadius ? pxToDp(8) : 0,
           elevation: 2,
-shadowColor: 'black',  //  阴影颜色
- shadowOffset: { width: 0, height: 0 },  // 阴影偏移
- shadowOpacity: 1,  // 阴影不透明度
- shadowRadius: 10,  //  圆角
+          shadowColor: 'black', //  阴影颜色
+          shadowOffset: { width: 0, height: 0 }, // 阴影偏移
+          shadowOpacity: 1, // 阴影不透明度
+          shadowRadius: 10 //  圆角
         }}
       >
         <View style={styles.box}>
@@ -165,13 +166,11 @@ shadowColor: 'black',  //  阴影颜色
       </ScrollView>
     );
   };
-  changeState=()=> {
-    console.log(123);
-    this.setState({isRadius:!this.state.isRadius});
+  changeState = () => {
+    this.setState({ isRadius: !this.state.isRadius });
   };
   render() {
     const { multipleSelect, activeSections } = this.state;
-    console.log('111',this.state.isRadius);
     return (
       <View style={{ backgroundColor: 'white', flex: 1 }}>
         <Top icon1="arrow-back" title="越剧大师教学" />

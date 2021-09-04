@@ -25,14 +25,12 @@ export default class topic extends PureComponent {
     dongtai: []
   };
   componentDidMount() {
-    console.log(this.props.route.params.id);
     this.changeListener = DeviceEventEmitter.addListener('momentChange', () => {
       getMomentListByTagId(this.props.route.params.id).then((res) => {
         this.setState({ dongtai: [...res].reverse() });
       });
     });
     getMomentListByTagId(this.props.route.params.id).then((res) => {
-      console.log(res);
       this.setState({ dongtai: [...res].reverse() });
     });
   }

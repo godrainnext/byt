@@ -430,7 +430,6 @@ export default class Exswiper extends PureComponent {
   }
   render() {
     const modalizeRef = createRef();
-    console.log(this.state.swiperShow);
     return (
       <View style={{ flex: 1 }}>
         <Top title="时空地图" icon1="arrow-back" />

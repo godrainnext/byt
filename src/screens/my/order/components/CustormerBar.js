@@ -4,7 +4,6 @@ import { pxToDp } from '../../../../utils/styleKits';
 import Top from '../../../../component/common/top';
 class Index extends PureComponent {
   render() {
-    console.log(this.props);
     const { goToPage, tabs, activeTab } = this.props;
     return (
       <View>
@@ -14,7 +13,7 @@ class Index extends PureComponent {
             flexDirection: 'row',
             justifyContent: 'space-around',
             backgroundColor: '#D5E8E6',
-            height:pxToDp(50)
+            height: pxToDp(50)
           }}
         >
           {tabs.map((v, i) => (

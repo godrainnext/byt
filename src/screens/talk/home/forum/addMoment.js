@@ -197,8 +197,6 @@ class index extends PureComponent {
           }
         });
         addTag(res.id, this.state.checkedArr).then((ress) => {
-          console.log(this.state.checkedArr);
-          console.log(ress);
           this.handleEditingEnd();
           ToastAndroid.show('发表文章成功', ToastAndroid.SHORT);
           this.context.goBack();

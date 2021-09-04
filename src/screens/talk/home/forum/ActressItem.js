@@ -143,7 +143,6 @@ export default memo(function ActressItem(props) {
         >
           <TouchableOpacity
             onPress={() => {
-              console.log(item.id);
               navigation.navigate('Inluntan', {
                 mid: item.id,
                 uid: item.user.id

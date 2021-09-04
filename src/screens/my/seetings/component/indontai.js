@@ -62,7 +62,6 @@ class Index extends PureComponent {
   componentDidMount() {
     getMomentInnerById(this.props.route.params.mid)
       .then((res) => {
-        console.log(res);
         this.setState({ inner: { ...res } });
       })
       .catch((err) => console.log(err));

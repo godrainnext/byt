@@ -124,7 +124,6 @@ class Login extends PureComponent {
     }
   };
   Login = () => {
-    console.log(this.state.username);
     requset
       .post({
         url: '/user/login',
@@ -137,7 +136,6 @@ class Login extends PureComponent {
         }
       })
       .then(async (res) => {
-        console.log(res);
         if (!res) {
           ToastAndroid.show('用户名或密码错误', ToastAndroid.SHORT);
         } else {
@@ -153,12 +151,12 @@ class Login extends PureComponent {
     UIManager.setLayoutAnimationEnabledExperimental &&
       UIManager.setLayoutAnimationEnabledExperimental(true);
     return (
-
       <ImageBackground
-        source={{ uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201808%2F10%2F20180810212724_kgibb.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1633089252&t=a03d7329a73f30004439f130fca71807' }}
+        source={{
+          uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201808%2F10%2F20180810212724_kgibb.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1633089252&t=a03d7329a73f30004439f130fca71807'
+        }}
         style={{ width: Screewidth, height: Screeheight }}
       >
-
         <Image
           source={require('./111.png')}
           style={{
@@ -246,8 +244,15 @@ class Login extends PureComponent {
               onChangeText={(password) => this.setState({ password })}
               value={this.state.password}
             />
-            <TouchableOpacity onPress={this.toRegister} style={{ alignSelf: 'center', top: pxToDp(-20), left: pxToDp(70) }}>
-              <Text style={{ color: '#999999', }}>去注册</Text>
+            <TouchableOpacity
+              onPress={this.toRegister}
+              style={{
+                alignSelf: 'center',
+                top: pxToDp(-20),
+                left: pxToDp(70)
+              }}
+            >
+              <Text style={{ color: '#999999' }}>去注册</Text>
             </TouchableOpacity>
             {/*登录按钮--------------------------------*/}
           </View>
@@ -258,7 +263,7 @@ class Login extends PureComponent {
               width: pxToDp(105),
               height: pxToDp(35),
               alignSelf: 'center',
-              borderRadius: pxToDp(32),
+              borderRadius: pxToDp(32)
             }}
             titleStyle={{
               color: 'white',
@@ -331,8 +336,15 @@ class Login extends PureComponent {
               onChangeText={(regpassword2) => this.setState({ regpassword2 })}
               value={this.state.regpassword2}
             />
-            <TouchableOpacity onPress={this.SingUp} style={{ alignSelf: 'center', top: pxToDp(-20), left: pxToDp(70) }}>
-              <Text style={{ color: '#999999', }}>去登陆</Text>
+            <TouchableOpacity
+              onPress={this.SingUp}
+              style={{
+                alignSelf: 'center',
+                top: pxToDp(-20),
+                left: pxToDp(70)
+              }}
+            >
+              <Text style={{ color: '#999999' }}>去登陆</Text>
             </TouchableOpacity>
             <Mybtn
               title="注册"
@@ -341,7 +353,7 @@ class Login extends PureComponent {
                 width: pxToDp(105),
                 height: pxToDp(35),
                 alignSelf: 'center',
-                borderRadius: pxToDp(32),
+                borderRadius: pxToDp(32)
               }}
               titleStyle={{
                 color: 'white',
@@ -352,7 +364,6 @@ class Login extends PureComponent {
           </View>
         </View>
       </ImageBackground>
-
     );
   }
 }
