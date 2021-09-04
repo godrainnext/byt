@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import {
   Text,
   View,
@@ -6,7 +6,8 @@ import {
   StyleSheet,
   ScrollView,
   Image,
-  Modal
+  Modal,
+  ToastAndroid
 } from 'react-native';
 import Top from '../../../../component/common/top';
 import SvgUri from 'react-native-svg-uri';
@@ -18,7 +19,7 @@ import { NavigationContext } from '@react-navigation/native';
 import CodeFieldzz from '../../../my/order/components/codefield';
 const back =
   '<svg t="1630480820345" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2172" width="200" height="200"><path d="M759.3984 276.6848a25.6 25.6 0 0 1 0 36.181333L560.298667 512l199.099733 199.168a25.6 25.6 0 0 1 0 36.181333l-12.0832 12.0832a25.6 25.6 0 0 1-36.181333 0L512 560.264533l-199.168 199.133867a25.6 25.6 0 0 1-36.181333 0l-12.0832-12.0832a25.6 25.6 0 0 1 0-36.181333l199.133866-199.168-199.133866-199.099734a25.6 25.6 0 0 1 0-36.181333l12.0832-12.0832a25.6 25.6 0 0 1 36.181333 0l199.168 199.099733 199.099733-199.099733a25.6 25.6 0 0 1 36.181334 0l12.0832 12.0832z" p-id="2173" fill="#8a8a8a"></path></svg>';
-export default class pickseat extends Component {
+export default class pickseat extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -296,6 +297,15 @@ export default class pickseat extends Component {
     this.setState({ chooseCount: this.state.chooseCount - 1 });
   };
   static contextType = NavigationContext;
+  add = () => {
+    if (this.state.chooseCount > 0) {
+      this.context.navigate('ConfirmTicket', {
+        chooseCount: this.state.chooseCount
+      });
+    } else {
+      ToastAndroid.show('请选择座位', ToastAndroid.SHORT);
+    }
+  };
   render() {
     console.log(this.state.chooseCount);
     console.log(this.state.chooseArr);
@@ -307,7 +317,7 @@ export default class pickseat extends Component {
     const { chooseCount } = this.state;
     return (
       <View style={{ flex: 1 }}>
-        <Top icon1="arrow-back" />
+        <Top icon1="arrow-back" title="钱塘戏社越剧专场" />
         <ScrollView style={{ padding: pxToDp(16), backgroundColor: '#fff' }}>
           {/* 顶部场次信息 */}
           <View>
@@ -442,9 +452,7 @@ export default class pickseat extends Component {
         </ScrollView>
         {/* 底部按钮 */}
         <Mybtn
-          onPress={() =>
-            this.context.navigate('ConfirmTicket', { chooseCount })
-          }
+          onPress={() => this.add()}
           title={
             chooseCount === 0 ? '选择座位' : chooseCount * 30 + '元    确认选座'
           }

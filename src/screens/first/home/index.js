@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import ImageFade from './imgaefade';
 import {
   View,
@@ -30,7 +30,7 @@ import LottieView from 'lottie-react-native';
 let navHeight = 45;
 
 const width = Dimensions.get('window').width;
-class Index extends Component {
+class Index extends PureComponent {
   static contextType = NavigationContext;
   state = {
     arr: [],
@@ -165,7 +165,9 @@ class Index extends Component {
           </View>
         )}
         //自定义头部内容
-        renderForeground={() => <View style={{ Top: pxToDp(200), left: pxToDp(100) }}></View>}
+        renderForeground={() => (
+          <View style={{ Top: pxToDp(200), left: pxToDp(100) }}></View>
+        )}
         scrollableViewStyle={{ backgroundColor: 'acddfc' }}
       >
         <View
@@ -314,13 +316,12 @@ class Index extends Component {
             }}
           >
             <View style={styles.titlebox}>
-              <View style={styles.left}>
-              </View>
+              <View style={styles.left}></View>
               <View>
-                <View style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}>
-                  <Text style={styles.titletext}>
-                    俯瞰百年
-                  </Text>
+                <View
+                  style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}
+                >
+                  <Text style={styles.titletext}>俯瞰百年</Text>
                   <LottieView
                     style={{ width: pxToDp(80) }}
                     source={require('../../../../lottie/标题底部.json')}
@@ -329,10 +330,11 @@ class Index extends Component {
                   />
                 </View>
               </View>
-              <TouchableOpacity style={styles.right} onPress={() => this.context.navigate('Card')}>
-                <Text style={styles.righttext}>
-                  查看更多
-                </Text>
+              <TouchableOpacity
+                style={styles.right}
+                onPress={() => this.context.navigate('Card')}
+              >
+                <Text style={styles.righttext}>查看更多</Text>
                 <Ionicons name="chevron-forward" size={16} color="#666666" />
               </TouchableOpacity>
             </View>
@@ -341,13 +343,12 @@ class Index extends Component {
           </View>
           {/*流派传奇 */}
           <View style={styles.titlebox}>
-            <View style={styles.left}>
-            </View>
+            <View style={styles.left}></View>
             <View>
-              <View style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}>
-                <Text style={styles.titletext}>
-                  流派传奇
-                </Text>
+              <View
+                style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}
+              >
+                <Text style={styles.titletext}>流派传奇</Text>
                 <LottieView
                   style={{ width: pxToDp(80) }}
                   source={require('../../../../lottie/标题底部.json')}
@@ -356,10 +357,11 @@ class Index extends Component {
                 />
               </View>
             </View>
-            <TouchableOpacity style={styles.right} onPress={() => this.context.navigate('PageOne', 2)}>
-              <Text style={styles.righttext}>
-                查看更多
-              </Text>
+            <TouchableOpacity
+              style={styles.right}
+              onPress={() => this.context.navigate('PageOne', 2)}
+            >
+              <Text style={styles.righttext}>查看更多</Text>
               <Ionicons name="chevron-forward" size={18} color="#666666" />
             </TouchableOpacity>
           </View>
@@ -403,13 +405,12 @@ class Index extends Component {
           {/*梨园子弟 */}
           <View style={{ marginTop: pxToDp(16) }}>
             <View style={styles.titlebox}>
-              <View style={styles.left}>
-              </View>
+              <View style={styles.left}></View>
               <View>
-                <View style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}>
-                  <Text style={styles.titletext}>
-                    梨园子弟
-                  </Text>
+                <View
+                  style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}
+                >
+                  <Text style={styles.titletext}>梨园子弟</Text>
                   <LottieView
                     style={{ width: pxToDp(80) }}
                     source={require('../../../../lottie/标题底部.json')}
@@ -418,10 +419,11 @@ class Index extends Component {
                   />
                 </View>
               </View>
-              <TouchableOpacity style={styles.right} onPress={() => this.context.navigate('PageThree', 2)}>
-                <Text style={styles.righttext}>
-                  查看更多
-                </Text>
+              <TouchableOpacity
+                style={styles.right}
+                onPress={() => this.context.navigate('PageThree', 2)}
+              >
+                <Text style={styles.righttext}>查看更多</Text>
                 <Ionicons name="chevron-forward" size={16} color="#666666" />
               </TouchableOpacity>
             </View>
@@ -429,13 +431,12 @@ class Index extends Component {
           </View>
           {/* 轮播图 */}
           <View style={styles.titlebox}>
-            <View style={styles.left}>
-            </View>
+            <View style={styles.left}></View>
             <View>
-              <View style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}>
-                <Text style={styles.titletext}>
-                  本周热门
-                </Text>
+              <View
+                style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}
+              >
+                <Text style={styles.titletext}>本周热门</Text>
                 <LottieView
                   style={{ width: pxToDp(80) }}
                   source={require('../../../../lottie/标题底部.json')}
@@ -444,15 +445,19 @@ class Index extends Component {
                 />
               </View>
             </View>
-            <TouchableOpacity style={styles.right} onPress={() => this.context.navigate('HotList')}>
-              <Text style={styles.righttext}>
-                查看更多
-              </Text>
+            <TouchableOpacity
+              style={styles.right}
+              onPress={() => this.context.navigate('HotList')}
+            >
+              <Text style={styles.righttext}>查看更多</Text>
               <Ionicons name="chevron-forward" size={16} color="#666666" />
             </TouchableOpacity>
           </View>
           <View style={styles.carousel}>
-            <Carousel control={false} style={{ height: pxToDp(156), marginTop: pxToDp(10) }}>
+            <Carousel
+              control={false}
+              style={{ height: pxToDp(156), marginTop: pxToDp(10) }}
+            >
               {this.state.books.map((item) => (
                 <View style={styles.bookbox}>
                   <TouchableNativeFeedback
@@ -532,13 +537,12 @@ class Index extends Component {
           </View>
           {/*剧本推荐 */}
           <View style={styles.titlebox}>
-            <View style={styles.left}>
-            </View>
+            <View style={styles.left}></View>
             <View>
-              <View style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}>
-                <Text style={styles.titletext}>
-                  剧本推荐
-                </Text>
+              <View
+                style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}
+              >
+                <Text style={styles.titletext}>剧本推荐</Text>
                 <LottieView
                   style={{ width: pxToDp(80) }}
                   source={require('../../../../lottie/标题底部.json')}
@@ -547,10 +551,11 @@ class Index extends Component {
                 />
               </View>
             </View>
-            <TouchableOpacity style={styles.right} onPress={() => this.context.navigate('Scriptlibrary')}>
-              <Text style={styles.righttext}>
-                查看更多
-              </Text>
+            <TouchableOpacity
+              style={styles.right}
+              onPress={() => this.context.navigate('Scriptlibrary')}
+            >
+              <Text style={styles.righttext}>查看更多</Text>
               <Ionicons name="chevron-forward" size={16} color="#666666" />
             </TouchableOpacity>
           </View>

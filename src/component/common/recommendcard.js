@@ -1,18 +1,29 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Modal from 'react-native-modal';
-import { ScrollView, View, Text, Image, Button, StyleSheet, ImageBackground, TouchableOpacity, Dimensions } from 'react-native';
+import {
+  ScrollView,
+  View,
+  Text,
+  Image,
+  Button,
+  StyleSheet,
+  ImageBackground,
+  TouchableOpacity,
+  Dimensions
+} from 'react-native';
 import { pxToDp } from '../../utils/styleKits';
 import FlipCard from 'react-native-flip-card';
 import ImagePicker from 'react-native-image-crop-picker';
 //import MyButton from '../MyButton/index';
-import Swiper from "react-native-deck-swiper";
-import { NavigationContext } from "@react-navigation/native";
+import Swiper from 'react-native-deck-swiper';
+import { NavigationContext } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import Home  from '../../component/first/card/home';
+import Home from '../../component/first/card/home';
+import { PureComponent } from 'react';
 
 const { height, width } = Dimensions.get('window');
-const BASE_URI = "http://192.168.50.118:3000";
-class index extends Component {
+const BASE_URI = 'http://192.168.50.118:3000';
+class index extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {

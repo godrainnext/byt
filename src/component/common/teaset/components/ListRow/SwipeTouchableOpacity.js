@@ -2,25 +2,24 @@
 
 'use strict';
 
-import React, {Component} from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import {StyleSheet, View, Text, Animated} from 'react-native';
+import { StyleSheet, View, Text, Animated } from 'react-native';
 
 import Theme from 'teaset/themes/Theme';
 
 import TouchableOpacity from './TouchableOpacity';
 
 export default class SwipeTouchableOpacity extends TouchableOpacity {
-  
   static propTypes = {
     swipeable: PropTypes.bool,
     swipeWidth: PropTypes.number,
-    onSwipeStsChange: PropTypes.func, //(swipeSts), - none, - moving, - closing, - opening, - opened
+    onSwipeStsChange: PropTypes.func //(swipeSts), - none, - moving, - closing, - opening, - opened
   };
 
   static defaultProps = {
     swipeable: true,
-    swipeWidth: 100,
+    swipeWidth: 100
   };
 
   constructor(props) {
@@ -31,7 +30,7 @@ export default class SwipeTouchableOpacity extends TouchableOpacity {
     this.replaceSuperFunction();
     this.state = {
       ...this.state,
-      translateX: new Animated.Value(0),
+      translateX: new Animated.Value(0)
     };
   }
 
@@ -49,24 +48,23 @@ export default class SwipeTouchableOpacity extends TouchableOpacity {
     this.touchableHandleResponderMove = (e) => {
       touchableHandleResponderMove.call(this, e);
       this.swiping(e);
-    }
+    };
 
     let touchableHandleActivePressOut = this.touchableHandleActivePressOut;
     this.touchableHandleActivePressOut = (e) => {
       this.swipeOver();
       touchableHandleActivePressOut.call(this, e);
-    }
+    };
 
     let touchableHandlePress = this.touchableHandlePress;
     this.touchableHandlePress = (e) => {
       if (!this.checkPress()) touchableHandlePress.call(this, e);
-    }
+    };
 
     let touchableHandleLongPress = this.touchableHandleLongPress;
     this.touchableHandleLongPress = (e) => {
       if (!this.checkPress()) touchableHandleLongPress.call(this, e);
-    }
-
+    };
   }
 
   swiping(e) {
@@ -74,7 +72,7 @@ export default class SwipeTouchableOpacity extends TouchableOpacity {
       return;
     }
 
-    let {touches} = e.nativeEvent;
+    let { touches } = e.nativeEvent;
     let prevTouches = this.prevTouches;
     this.prevTouches = touches;
 
@@ -88,7 +86,7 @@ export default class SwipeTouchableOpacity extends TouchableOpacity {
     }
 
     let dx = touches[0].pageX - prevTouches[0].pageX;
-    if (Math.abs(this.translateX) > this.props.swipeWidth){
+    if (Math.abs(this.translateX) > this.props.swipeWidth) {
       this.translateX += dx / 3;
     } else {
       this.translateX += dx;
@@ -101,7 +99,9 @@ export default class SwipeTouchableOpacity extends TouchableOpacity {
       this.state.translateX.setValue(this.translateX);
     } else if (Math.abs(this.translateX) > 5) {
       let childStyle = StyleSheet.flatten(this.props.style) || {};
-      this.state.anim.setValue(childStyle.opacity === undefined ? 1 : childStyle.opacity); //TouchableOpacity
+      this.state.anim.setValue(
+        childStyle.opacity === undefined ? 1 : childStyle.opacity
+      ); //TouchableOpacity
       this.state.translateX.setValue(this.translateX);
       this.swipeSts = 'moving';
     }
@@ -112,12 +112,15 @@ export default class SwipeTouchableOpacity extends TouchableOpacity {
     if (this.swipeSts === 'moving') {
       if (this.translateX > 0) {
         this.springClose();
-      } else if (-this.translateX > 40 || -this.translateX > this.props.swipeWidth / 2) {
+      } else if (
+        -this.translateX > 40 ||
+        -this.translateX > this.props.swipeWidth / 2
+      ) {
         this.timingOpen();
       } else {
         this.timingClose();
       }
-    }    
+    }
   }
 
   checkPress() {
@@ -133,7 +136,7 @@ export default class SwipeTouchableOpacity extends TouchableOpacity {
     Animated.spring(this.state.translateX, {
       toValue: this.translateX,
       friction: 5,
-      useNativeDriver: true,
+      useNativeDriver: true
     }).start(() => {
       this.swipeSts = 'none';
     });
@@ -145,7 +148,7 @@ export default class SwipeTouchableOpacity extends TouchableOpacity {
     Animated.timing(this.state.translateX, {
       toValue: this.translateX,
       duration: 150,
-      useNativeDriver: true,
+      useNativeDriver: true
     }).start(() => {
       this.swipeSts = 'none';
     });
@@ -157,7 +160,7 @@ export default class SwipeTouchableOpacity extends TouchableOpacity {
     Animated.timing(this.state.translateX, {
       toValue: this.translateX,
       duration: 150,
-      useNativeDriver: true,
+      useNativeDriver: true
     }).start(() => {
       this.swipeSts = 'opened';
     });
@@ -165,6 +168,10 @@ export default class SwipeTouchableOpacity extends TouchableOpacity {
 
   render() {
     let view = super.render();
-    return React.cloneElement(view, {style: view.props.style.concat({transform: [{translateX: this.state.translateX}]})});
+    return React.cloneElement(view, {
+      style: view.props.style.concat({
+        transform: [{ translateX: this.state.translateX }]
+      })
+    });
   }
 }

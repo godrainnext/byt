@@ -1,4 +1,4 @@
-import React, { Component, FunctionComponent } from 'react';
+import React, { PureComponent, FunctionComponent } from 'react';
 import {
   TouchableOpacity,
   Image,
@@ -17,7 +17,7 @@ const randomNumber = () => {
   return Math.round(Math.random() * range + from);
 };
 
-export default class GiveALike extends Component {
+export default class GiveALike extends PureComponent {
   animating = false;
 
   constructor() {

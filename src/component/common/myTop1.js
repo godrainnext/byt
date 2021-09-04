@@ -1,11 +1,11 @@
 import React, { PureComponent } from 'react';
 import {
-    Text,
-    View,
-    StyleSheet,
-    TouchableOpacity,
-    BVLinearGradient,
-    TextInput
+  Text,
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  BVLinearGradient,
+  TextInput
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { NavigationContext } from '@react-navigation/native';
@@ -38,14 +38,13 @@ export default class HeaderHaveBack extends PureComponent {
               alignItems: 'center',
               width: pxToDp(345),
               height: pxToDp(44),
-              borderRadius: pxToDp(8),
               backgroundColor: 'white',
               zIndex: 1
             }}
           >
             <TextInput
               placeholder={'搜索'}
-              onFocus={() => this.context.navigate('Search')}
+              onFocus={() => this.searchHeader.show()}
               style={{
                 fontSize: pxToDp(16),
                 width: pxToDp(305),
@@ -56,9 +55,11 @@ export default class HeaderHaveBack extends PureComponent {
             />
             <TouchableOpacity
               style={{ marginRight: pxToDp(32) }}
-              onPress={() => this.context.navigate('Search')}
+              onPress={() => this.context.goBack()}
             >
-              <Ionicons name="search" size={23} color="#999999" />
+              <Text style={{ fontSize: pxToDp(16), color: '#333333' }}>
+                取消
+              </Text>
             </TouchableOpacity>
             <SearchHeader
               placeholder={'输入搜索值'}

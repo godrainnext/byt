@@ -2,28 +2,36 @@
 
 'use strict';
 
-import React, {Component} from 'react';
+import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import {StyleSheet, View, Text, TouchableOpacity, ViewPropTypes} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+  ViewPropTypes
+} from 'react-native';
 
 import Theme from 'teaset/themes/Theme';
 
-export default class CarouselControl extends Component {
-
+export default class CarouselControl extends PureComponent {
   static propTypes = {
     ...ViewPropTypes,
     dot: PropTypes.element,
-    activeDot: PropTypes.element,
+    activeDot: PropTypes.element
   };
 
   static defaultProps = {
-    ...View.defaultProps,
+    ...View.defaultProps
   };
 
   renderDot(dotIndex) {
-    let {dot, carousel} = this.props;
+    let { dot, carousel } = this.props;
     if (React.isValidElement(dot)) {
-      dot = React.cloneElement(dot, {key: dotIndex, onPress: () => carousel && carousel.scrollToPage(dotIndex)});
+      dot = React.cloneElement(dot, {
+        key: dotIndex,
+        onPress: () => carousel && carousel.scrollToPage(dotIndex)
+      });
       return dot;
     }
     return (
@@ -33,7 +41,7 @@ export default class CarouselControl extends Component {
           width: Theme.carouselDotUseSize,
           height: Theme.carouselDotUseSize,
           alignItems: 'center',
-          justifyContent: 'center',
+          justifyContent: 'center'
         }}
         onPress={() => carousel && carousel.scrollToPage(dotIndex)}
       >
@@ -42,17 +50,17 @@ export default class CarouselControl extends Component {
             backgroundColor: Theme.carouselDotColor,
             width: Theme.carouselDotSize,
             height: Theme.carouselDotSize,
-            borderRadius: Theme.carouselDotSize / 2,
+            borderRadius: Theme.carouselDotSize / 2
           }}
-          />
+        />
       </TouchableOpacity>
     );
   }
 
   renderActiveDot(dotIndex) {
-    let {activeDot, carousel} = this.props;
+    let { activeDot, carousel } = this.props;
     if (React.isValidElement(activeDot)) {
-      activeDot = React.cloneElement(activeDot, {key: dotIndex});
+      activeDot = React.cloneElement(activeDot, { key: dotIndex });
       return activeDot;
     }
     return (
@@ -62,7 +70,7 @@ export default class CarouselControl extends Component {
           width: Theme.carouselDotUseSize,
           height: Theme.carouselDotUseSize,
           alignItems: 'center',
-          justifyContent: 'center',
+          justifyContent: 'center'
         }}
       >
         <View
@@ -70,15 +78,15 @@ export default class CarouselControl extends Component {
             backgroundColor: Theme.carouselActiveDotColor,
             width: Theme.carouselDotSize,
             height: Theme.carouselDotSize,
-            borderRadius: Theme.carouselDotSize / 2,
+            borderRadius: Theme.carouselDotSize / 2
           }}
-          />
+        />
       </TouchableOpacity>
     );
   }
 
   renderDots() {
-    let {index, total} = this.props;
+    let { index, total } = this.props;
     let dots = [];
     for (let i = 0; i < total; ++i) {
       if (i == index) dots.push(this.renderActiveDot(i));
@@ -88,16 +96,13 @@ export default class CarouselControl extends Component {
   }
 
   render() {
-    let {style, index, total, ...others} = this.props;
+    let { style, index, total, ...others } = this.props;
     return (
-      <View style={[styles.container, style]} pointerEvents='box-none'>
-        <View style={{flexDirection: 'row'}}>
-          {this.renderDots()}
-        </View>
+      <View style={[styles.container, style]} pointerEvents="box-none">
+        <View style={{ flexDirection: 'row' }}>{this.renderDots()}</View>
       </View>
     );
   }
-
 }
 
 var styles = StyleSheet.create({
@@ -110,6 +115,6 @@ var styles = StyleSheet.create({
     padding: 4,
     flexDirection: 'column',
     justifyContent: 'flex-end',
-    alignItems: 'center',
-  },
+    alignItems: 'center'
+  }
 });

@@ -6,7 +6,8 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-  TouchableNativeFeedback
+  TouchableNativeFeedback,
+  ToastAndroid
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { NavigationContext } from '@react-navigation/native';
@@ -17,6 +18,7 @@ import { TextInput } from 'react-native-gesture-handler';
 import Mybtn from '../../../../component/common/mybtn';
 import { getStreamList } from '@service/shop';
 import { PureComponent } from 'react';
+import { findRoomByCannalName } from '../../../../service/play';
 export default class hello extends PureComponent {
   static contextType = NavigationContext;
   state = {
@@ -35,14 +37,27 @@ export default class hello extends PureComponent {
       this.setState({ arr: res });
     });
   }
-  chafang = () => {
-    this.Scrollable3.close();
+  chafang = (item) => {
     this.context.navigate('SeeFang', {
-      roomName: this.state.arr[0].roomName,
-      channelName: this.state.text,
-      token: this.state.arr[0].token,
-      startCall: this.startCall,
-      peerIds: this.state.peerIds
+      roomName: item.name,
+      channelName: item.cannalName,
+      token: item.token,
+      user: item.user
+    });
+  };
+  chafangByCannalName = () => {
+    this.Scrollable3.close();
+    findRoomByCannalName(this.state.text).then((res) => {
+      if (res.length) {
+        this.context.navigate('SeeFang', {
+          roomName: res[0].name,
+          channelName: res[0].cannalName,
+          token: res[0].token,
+          user: res[0].user
+        });
+      } else {
+        ToastAndroid.show('请输入正确的房间号', ToastAndroid.SHORT);
+      }
     });
   };
   render() {
@@ -96,7 +111,21 @@ export default class hello extends PureComponent {
               />
             </View>
           </TouchableNativeFeedback>
-          <TouchableNativeFeedback useForeground={true}>
+          <TouchableNativeFeedback
+            useForeground={true}
+            onPress={() => {
+              const item =
+                this.state.arr[
+                  Math.floor(Math.random() * this.state.arr.length)
+                ];
+              this.context.navigate('SeeFang', {
+                roomName: item.name,
+                channelName: item.cannalName,
+                token: item.token,
+                user: item.user
+              });
+            }}
+          >
             <View style={styles.touch}>
               <View>
                 <Text style={styles.text1}>快速匹配</Text>
@@ -141,7 +170,7 @@ export default class hello extends PureComponent {
                 </TouchableOpacity>
                 <Mybtn
                   title="进入房间"
-                  onPress={this.chafang}
+                  onPress={() => this.chafangByCannalName()}
                   ViewComponent={LinearGradient}
                   buttonStyle={{
                     width: pxToDp(180),
@@ -177,7 +206,7 @@ export default class hello extends PureComponent {
               <Text style={styles.text1}>{item.name}</Text>
               <Text style={styles.text2}>{item.cannalName}</Text>
             </View>
-            <TouchableOpacity onPress={this.chafang}>
+            <TouchableOpacity onPress={() => this.chafang(item)}>
               <View
                 style={{
                   width: '100%',

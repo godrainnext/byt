@@ -537,7 +537,9 @@ const s = StyleSheet.create({
     borderBottomColor: '#ccc'
   },
   alertBackground: {
-    flex: 1,
+    width: pxToDp(376),
+    left: pxToDp(-19),
+    height: pxToDp(710),
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'rgba(0, 0, 0, 0.5)' // 如果要遮罩要显示成半透明状态，这里一定要设置，reba中的a控制透明度，取值在 0.0 ～ 1.0 范围内。
@@ -556,6 +558,7 @@ const s = StyleSheet.create({
     color: '#000000',
     alignSelf: 'center',
     textAlign: 'center',
+    paddingBottom: pxToDp(8),
     borderBottomWidth: 1.1,
     borderBottomColor: '#AFAFAF'
   },
