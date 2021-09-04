@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import {
   View,
   Text,
@@ -18,7 +18,7 @@ import ParallaxScrollView from 'react-native-parallax-scroll-view';
 
 import CustormerBar2 from '../seetings/component/CustomerBar2';
 import Dongtai from '../seetings/component/dontai';
-import { PureComponent } from 'react';
+
 export default class hello extends PureComponent {
   static contextType = NavigationContext;
   state = {

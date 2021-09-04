@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Platform, ScrollView, Text, TouchableOpacity, View, PermissionsAndroid, Image, Dimensions, StyleSheet } from 'react-native';
 import { Input } from 'react-native-elements';
 import RtcEngine, { RtcLocalView, RtcRemoteView, VideoRenderMode, ChannelProfile, ClientRole, } from 'react-native-agora'
@@ -64,7 +64,7 @@ const HTML = `
 //   joinSucceed: boolean;
 //   peerIds: number[];
 // }
-export default class App extends Component {
+export default class App extends PureComponent {
   //   _engine?: RtcEngine;
   static contextType = NavigationContext;
 

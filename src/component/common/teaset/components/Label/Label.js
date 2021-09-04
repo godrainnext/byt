@@ -2,13 +2,13 @@
 
 'use strict';
 
-import React, {Component} from "react";
+import React, {PureComponent} from "react";
 import PropTypes from 'prop-types';
 import {Text} from 'react-native';
 
 import Theme from 'teaset/themes/Theme';
 
-export default class Label extends Component {
+export default class Label extends PureComponent {
 
   static propTypes = {
     ...Text.propTypes,

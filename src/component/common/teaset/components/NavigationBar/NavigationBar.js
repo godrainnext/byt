@@ -2,7 +2,7 @@
 
 'use strict';
 
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {StyleSheet, Platform, StatusBar, View, Text, Animated, ViewPropTypes, Dimensions} from 'react-native';
 
@@ -13,7 +13,7 @@ import NavigationLinkButton from './NavigationLinkButton';
 import NavigationIconButton from './NavigationIconButton';
 import NavigationBackButton from './NavigationBackButton';
 
-export default class NavigationBar extends Component {
+export default class NavigationBar extends PureComponent {
 
   static propTypes = {
     ...ViewPropTypes,

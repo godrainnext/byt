@@ -2,13 +2,13 @@
 
 'use strict';
 
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {StyleSheet, TextInput} from 'react-native';
 
 import Theme from 'teaset/themes/Theme';
 
-export default class Input extends Component {
+export default class Input extends PureComponent {
 
   static propTypes = {
     size: PropTypes.oneOf(['lg', 'md', 'sm']),

@@ -1,5 +1,5 @@
 import React, {
-    Component
+    PureComponent
 } from 'react';
 
 import {
@@ -27,7 +27,7 @@ function formatTime(second) {
     return zero(s);
 }
 
-export default class VideoScreen extends Component {
+export default class VideoScreen extends PureComponent {
 
     static navigationOptions = {
         header: null

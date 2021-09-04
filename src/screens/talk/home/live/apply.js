@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import Modal from 'react-native-modal';
 import {
   ScrollView,
@@ -22,7 +22,7 @@ import Mybtn from '@components/common/mybtn';
 
 const { height, width } = Dimensions.get('window');
 
-class index extends Component {
+class index extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {

@@ -2,13 +2,13 @@
 
 'use strict';
 
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {StyleSheet, Text, Image, TouchableOpacity} from 'react-native';
 
 import Theme from 'teaset/themes/Theme';
 
-export default class Checkbox extends Component {
+export default class Checkbox extends PureComponent {
   
   static propTypes = {
     checked: PropTypes.bool,

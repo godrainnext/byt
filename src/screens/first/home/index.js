@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import ImageFade from './imgaefade';
 import {
   View,
@@ -32,7 +32,7 @@ import LottieView from 'lottie-react-native';
 let navHeight = 45;
 
 const width = Dimensions.get('window').width;
-class Index extends Component {
+class Index extends PureComponent {
   static contextType = NavigationContext;
   state = {
     arr: [],

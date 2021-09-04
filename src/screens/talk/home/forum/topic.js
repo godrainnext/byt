@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import {
   ImageBackground,
   Text,
@@ -15,7 +15,7 @@ import { getMomentListByTagId } from '@service/moment';
 import Tiebar from './luntan';
 import { linear } from 'react-native/Libraries/Animated/Easing';
 
-export default class topic extends Component {
+export default class topic extends PureComponent {
   static contextType = NavigationContext;
   changeVisible = () => {
     this.setState({ isShow: !this.state.isShow });

@@ -2,13 +2,13 @@
 
 'use strict';
 
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {View, Text, TouchableOpacity} from 'react-native';
 
 import Theme from 'teaset/themes/Theme';
 
-export default class SwipeActionButton extends Component {
+export default class SwipeActionButton extends PureComponent {
   
   static propTypes = {
     type: PropTypes.oneOf(['default', 'danger']),

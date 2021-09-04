@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Platform, View, ScrollView, Text, StatusBar, SafeAreaView } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import { sliderWidth, itemWidth } from './styles/SliderEntry.style';
@@ -10,7 +10,7 @@ import { scrollInterpolators, animatedStyles } from './utils/animations';
 const IS_ANDROID = Platform.OS === 'android';
 const SLIDER_1_FIRST_ITEM = 1;
 
-export default class example extends Component {
+export default class example extends PureComponent {
 
     constructor(props) {
         super(props);

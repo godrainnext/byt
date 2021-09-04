@@ -2,7 +2,7 @@
  * 创建： jiaojiao on 2018/10/29.
  * 功能：SegmentTabBar
  */
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import {
     View,
     Text,
@@ -19,7 +19,7 @@ const Button = (props) => {
         </TouchableOpacity>
     )
 };
-export default class SegmentTabBar extends Component {
+export default class SegmentTabBar extends PureComponent {
 
     constructor(props) {
         super(props);

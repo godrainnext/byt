@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Text, View, ScrollView, Image } from 'react-native';
 import Top from '../../component/common/top';
 import { pxToDp } from '../../utils/styleKits';
@@ -7,7 +7,7 @@ import JianJie from './book/JianJie';
 import BasicMessage from './book/BasicMessage';
 import CustormerBar from './book/CustormerBar';
 
-export default class bookDetail extends Component {
+export default class bookDetail extends PureComponent {
   render() {
     return (
       <View style={{ flex: 1,backgroundColor:'white' }}>

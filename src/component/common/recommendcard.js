@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import Modal from 'react-native-modal';
 import { ScrollView, View, Text, Image, Button, StyleSheet, ImageBackground, TouchableOpacity, Dimensions } from 'react-native';
 import { pxToDp } from '../../utils/styleKits';
@@ -12,7 +12,7 @@ import Home  from '../../component/first/card/home';
 
 const { height, width } = Dimensions.get('window');
 const BASE_URI = "http://192.168.50.118:3000";
-class index extends Component {
+class index extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {

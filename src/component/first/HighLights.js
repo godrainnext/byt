@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Text, View, TouchableOpacity, ScrollView, Image } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { NavigationContext } from '@react-navigation/native';
@@ -6,7 +6,6 @@ import { getVideList } from '../../service/home';
 import { pxToDp } from '@utils/styleKits';
 import changeImgSize from '@utils/changeImgSize';
 import LottieView from 'lottie-react-native';
-import { PureComponent } from 'react';
 import Mybtn from '../../component/common/mybtn'
 
 

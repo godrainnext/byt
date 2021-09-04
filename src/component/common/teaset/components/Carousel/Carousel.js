@@ -2,14 +2,14 @@
 
 'use strict';
 
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
 import {StyleSheet, View, ScrollView} from 'react-native';
 
 import Theme from 'teaset/themes/Theme';
 import CarouselControl from './CarouselControl';
 
-export default class Carousel extends Component {
+export default class Carousel extends PureComponent {
 
   static propTypes = {
     ...ScrollView.propTypes,

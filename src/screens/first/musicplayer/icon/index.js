@@ -1,7 +1,7 @@
 /**
  * Created by guangqiang on 2017/9/14.
  */
-import React, {Component} from 'react'
+import React, {PureComponent} from 'react'
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import {OIcon} from './oneIconFont'
 import PropTypes from 'prop-types'
@@ -10,7 +10,7 @@ const iconMap = {
   oneIcon: OIcon
 }
 
-class Icon extends Component {
+class Icon extends PureComponent {
 
   render() {
     const {name, size, color} = this.props

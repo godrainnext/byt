@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Platform, TouchableOpacity, View, Image, Dimensions, StyleSheet, ImageBackground } from 'react-native';
 import { WebView } from 'react-native-webview';
 import { NavigationContext } from '@react-navigation/native';
@@ -22,7 +22,7 @@ const HTML = `
 </html>
 
 `;
-export default class App extends Component {
+export default class App extends PureComponent {
     //   _engine?: RtcEngine;
     static contextType = NavigationContext;
 
