@@ -9,7 +9,6 @@ import {
   Dimensions
 } from 'react-native';
 import { PureComponent } from 'react';
-import MapView from 'react-native-maps';
 export default class timeline extends PureComponent {
   render() {
     const modalizeRef = createRef();

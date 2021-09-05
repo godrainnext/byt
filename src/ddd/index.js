@@ -2,9 +2,10 @@ import React, { PureComponent, createRef } from 'react';
 import { StyleSheet, Text, View, Dimensions, Image } from 'react-native';
 import Page from './page';
 import { Modalize } from 'react-native-modalize';
-import EZSwiper from 'react-native-ezswiper';
+
 import { pxToDp } from './styleKits';
 import Top from '../component/common/top';
+import { SwiperFlatList } from 'react-native-swiper-flatlist';
 const screenWidth = Dimensions.get('window').width;
 const imgzz =
   'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F01b5d25e437bd7a801216518a5dfcc.jpg%401280w_1l_2o_100sh.jpg&refer=http%3A%2F%2Fimg.zcool.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631521402&t=fb184d02ab6406a9632bc6918240d82d';
@@ -83,7 +84,7 @@ export default class Exswiper extends PureComponent {
         introduce:
           '1906年，与李世泉等人在草台上试验演出，这是越剧第一次试验演出',
         img: [gaobinghuo],
-        titleimg: [imgzz]
+        
       },
       {
         id: 2,
@@ -368,6 +369,7 @@ export default class Exswiper extends PureComponent {
 
   changepage = (obj) => {
     this.setState({ currentPage: obj });
+    console.log(this.state.currentPage);
   };
   renderRow(obj) {
     if (this.state.swiperShow) {
@@ -430,17 +432,12 @@ export default class Exswiper extends PureComponent {
   }
   render() {
     const modalizeRef = createRef();
+    console.log(this.state.swiperShow);
     return (
       <View style={{ flex: 1 }}>
         <Top title="时空地图" icon1="arrow-back" />
-        <View style={{ padding: pxToDp(16), flex: 1 }}>
-          {this.state.currentPage.titleimg.map((item, id) => (
-            <Image
-              key={id}
-              style={{ height: pxToDp(200), marginBottom: pxToDp(10) }}
-              source={{ uri: item }}
-            />
-          ))}
+        <View style={{ padding: pxToDp(16), flex: 1}}>
+        
         </View>
         <Modalize
           ref={modalizeRef}
@@ -451,22 +448,19 @@ export default class Exswiper extends PureComponent {
           <View style={{ marginBottom: pxToDp(200) }}>
             <View style={{ flex: 1 }}>
               <View style={styles.container}>
-                <EZSwiper
+                <SwiperFlatList
                   style={[styles.swiper, { width: '100%' }]}
-                  dataSource={this.state.pagedata}
-                  width={pxToDp(375)}
-                  height={pxToDp(100)}
-                  renderRow={this.renderRow.bind(this)}
-                  ratio={1}
+                  data={this.state.pagedata}
+                  renderItem={({item})=>this.renderRow(item)}
                   index={0}
-                  horizontal={true}
+                vertical={false}
                   loop={false}
-                  onWillChange={(index) => this.changepage(index)}
+                  onChangeIndex={( {index})=>{this.setState({ currentPage: this.state.pagedata[index]})}}
                   // autoplayTimeout={false}
                 />
               </View>
               {/* <Image source={require('./blue.jpg')} style={styles.image}/> */}
-              <Page pagedata={this.state.currentPage} />
+              <Page currentdata={this.state.currentPage} />
             </View>
           </View>
         </Modalize>
@@ -492,7 +486,7 @@ const styles = StyleSheet.create({
     borderColor: '#468cd3',
     borderRadius: pxToDp(8),
     padding: pxToDp(10),
-    margin: pxToDp(16)
+    margin: pxToDp(15),
   },
   content__modal: {
     shadowColor: '#000',

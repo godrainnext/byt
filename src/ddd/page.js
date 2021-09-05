@@ -23,7 +23,7 @@ export default class page extends PureComponent {
             shadowRadius: 10, //  圆角
           }}
         >
-          <Text style={styles.big}>{this.props.pagedata.name}</Text>
+          <Text style={styles.big}>{this.props.currentdata.name}</Text>
           <View
             style={{
               flexDirection: 'row',
@@ -32,18 +32,18 @@ export default class page extends PureComponent {
               marginBottom: pxToDp(4),
             }}
           >
-            <Text>{this.props.pagedata.local}</Text>
+            <Text>{this.props.currentdata.local}</Text>
             <Text style={{ paddingLeft: pxToDp(20) }}>
-              {this.props.pagedata.year2}
+              {this.props.currentdata.year2}
             </Text>
           </View>
           <View>
             <Text style={{ marginLeft: pxToDp(10), marginBottom: pxToDp(8),marginRight:pxToDp(10) }}>
-              {this.props.pagedata.introduce}
+              {this.props.currentdata.introduce}
             </Text>
           </View>
           <View style={{ flex: 1 }}>
-            {this.props.pagedata.img.map((item, id) => (
+            {this.props.currentdata.img.map((item, id) => (
               <View key={id} style={{ flex: 1 }}>
                 <Image
                   key={id}
