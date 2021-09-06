@@ -4,20 +4,20 @@
  */
 import React, { PureComponent } from 'react'
 import {
-    View,
-    Text,
-    StyleSheet,
-    TouchableOpacity,
-    Dimensions,
+  View,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+  Dimensions
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 const PhoneWidth = Dimensions.get('window').width;
 const Button = (props) => {
-    return (
-        <TouchableOpacity {...props} activeOpacity={0.95}>
-            {props.children}
-        </TouchableOpacity>
-    )
+  return (
+    <TouchableOpacity {...props} activeOpacity={0.95}>
+      {props.children}
+    </TouchableOpacity>
+  );
 };
 export default class SegmentTabBar extends PureComponent {
 
@@ -67,32 +67,51 @@ export default class SegmentTabBar extends PureComponent {
         );
     }
 
+  render() {
+    return (
+      <LinearGradient
+        style={styles.box}
+        colors={['#D5E8E6', '#D5E8E6']}
+        start={{ x: 0, y: 0 }}
+        end={{ x: 1.6, y: 0 }}
+      >
+        <View style={styles.tabBarBox}>
+          <View style={{ flexDirection: 'row', width: 300 }}>
+            {this.props.tabs.map((name, page) => {
+              const isTabActive = this.props.activeTab === page;
+              const renderTab = this.props.renderTab || this.renderTab;
+              return renderTab(name, page, isTabActive, this.props.goToPage);
+            })}
+          </View>
+        </View>
+      </LinearGradient>
+    );
+  }
 }
 const styles = StyleSheet.create({
-    tabBarBox: {
-        height: 60,
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center',
-
-    },
-    iconBox: {
-        margin: 15
-    },
-    tab: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    tabs: {
-        borderRadius: 2,
-        borderColor: '#0086E5',
-        borderWidth: 1,
-        width: PhoneWidth / 3,
-        flexDirection: 'row',
-        alignItems: 'center',
-        alignContent: 'center',
-        marginLeft: 20,
-        justifyContent: 'space-around',
-    },
+  tabBarBox: {
+    height: 60,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  iconBox: {
+    margin: 15
+  },
+  tab: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  tabs: {
+    borderRadius: 2,
+    borderColor: '#0086E5',
+    borderWidth: 1,
+    width: PhoneWidth / 3,
+    flexDirection: 'row',
+    alignItems: 'center',
+    alignContent: 'center',
+    marginLeft: 20,
+    justifyContent: 'space-around'
+  }
 });

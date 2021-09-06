@@ -20,10 +20,8 @@ import Hy from '@components/first/hy';
 import Legend from '@components/first/legend';
 import Actress from '@components/first/actress';
 import { connect } from 'react-redux';
-import Swiper from 'react-native-swiper';
 import { getUserInfoAction } from './store/actions';
 import RecommendCard from '../../../component/common/recommendcard';
-import Qiandao from '../../../component/common/qiandao';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Svg from 'react-native-svg-uri';
 import { star } from '../../../component/common/iconSvg';
@@ -167,13 +165,16 @@ class Index extends PureComponent {
           </View>
         )}
         //自定义头部内容
-        renderForeground={() => <View style={{ Top: pxToDp(200), left: pxToDp(100) }}></View>}
+        renderForeground={() => (
+          <View style={{ Top: pxToDp(200), left: pxToDp(100) }}></View>
+        )}
         scrollableViewStyle={{ backgroundColor: 'acddfc' }}
       >
         <View
           style={{
             flex: 1,
-            marginTop: pxToDp(-10)
+            marginTop: pxToDp(-10),
+            marginBottom: pxToDp(16)
           }}
         >
           <View
@@ -315,13 +316,12 @@ class Index extends PureComponent {
             }}
           >
             <View style={styles.titlebox}>
-              <View style={styles.left}>
-              </View>
+              <View style={styles.left}></View>
               <View>
-                <View style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}>
-                  <Text style={styles.titletext}>
-                    俯瞰百年
-                  </Text>
+                <View
+                  style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}
+                >
+                  <Text style={styles.titletext}>俯瞰百年</Text>
                   <LottieView
                     style={{ width: pxToDp(80) }}
                     source={require('../../../../lottie/标题底部.json')}
@@ -330,10 +330,11 @@ class Index extends PureComponent {
                   />
                 </View>
               </View>
-              <TouchableOpacity style={styles.right} onPress={() => this.context.navigate('Card')}>
-                <Text style={styles.righttext}>
-                  查看更多
-                </Text>
+              <TouchableOpacity
+                style={styles.right}
+                onPress={() => this.context.navigate('Card')}
+              >
+                <Text style={styles.righttext}>查看更多</Text>
                 <Ionicons name="chevron-forward" size={16} color="#666666" />
               </TouchableOpacity>
             </View>
@@ -342,13 +343,12 @@ class Index extends PureComponent {
           </View>
           {/*流派传奇 */}
           <View style={styles.titlebox}>
-            <View style={styles.left}>
-            </View>
+            <View style={styles.left}></View>
             <View>
-              <View style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}>
-                <Text style={styles.titletext}>
-                  流派传奇
-                </Text>
+              <View
+                style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}
+              >
+                <Text style={styles.titletext}>流派传奇</Text>
                 <LottieView
                   style={{ width: pxToDp(80) }}
                   source={require('../../../../lottie/标题底部.json')}
@@ -357,10 +357,11 @@ class Index extends PureComponent {
                 />
               </View>
             </View>
-            <TouchableOpacity style={styles.right} onPress={() => this.context.navigate('PageOne', 2)}>
-              <Text style={styles.righttext}>
-                查看更多
-              </Text>
+            <TouchableOpacity
+              style={styles.right}
+              onPress={() => this.context.navigate('PageOne', 2)}
+            >
+              <Text style={styles.righttext}>查看更多</Text>
               <Ionicons name="chevron-forward" size={18} color="#666666" />
             </TouchableOpacity>
           </View>
@@ -404,13 +405,12 @@ class Index extends PureComponent {
           {/*梨园子弟 */}
           <View style={{ marginTop: pxToDp(16) }}>
             <View style={styles.titlebox}>
-              <View style={styles.left}>
-              </View>
+              <View style={styles.left}></View>
               <View>
-                <View style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}>
-                  <Text style={styles.titletext}>
-                    梨园子弟
-                  </Text>
+                <View
+                  style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}
+                >
+                  <Text style={styles.titletext}>梨园子弟</Text>
                   <LottieView
                     style={{ width: pxToDp(80) }}
                     source={require('../../../../lottie/标题底部.json')}
@@ -419,10 +419,11 @@ class Index extends PureComponent {
                   />
                 </View>
               </View>
-              <TouchableOpacity style={styles.right} onPress={() => this.context.navigate('PageThree', 2)}>
-                <Text style={styles.righttext}>
-                  查看更多
-                </Text>
+              <TouchableOpacity
+                style={styles.right}
+                onPress={() => this.context.navigate('PageThree', 2)}
+              >
+                <Text style={styles.righttext}>查看更多</Text>
                 <Ionicons name="chevron-forward" size={16} color="#666666" />
               </TouchableOpacity>
             </View>
@@ -430,13 +431,12 @@ class Index extends PureComponent {
           </View>
           {/* 轮播图 */}
           <View style={styles.titlebox}>
-            <View style={styles.left}>
-            </View>
+            <View style={styles.left}></View>
             <View>
-              <View style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}>
-                <Text style={styles.titletext}>
-                  本周热门
-                </Text>
+              <View
+                style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}
+              >
+                <Text style={styles.titletext}>本周热门</Text>
                 <LottieView
                   style={{ width: pxToDp(80) }}
                   source={require('../../../../lottie/标题底部.json')}
@@ -445,15 +445,19 @@ class Index extends PureComponent {
                 />
               </View>
             </View>
-            <TouchableOpacity style={styles.right} onPress={() => this.context.navigate('HotList')}>
-              <Text style={styles.righttext}>
-                查看更多
-              </Text>
+            <TouchableOpacity
+              style={styles.right}
+              onPress={() => this.context.navigate('HotList')}
+            >
+              <Text style={styles.righttext}>查看更多</Text>
               <Ionicons name="chevron-forward" size={16} color="#666666" />
             </TouchableOpacity>
           </View>
           <View style={styles.carousel}>
-            <Carousel control={false} style={{ height: pxToDp(156), marginTop: pxToDp(10) }}>
+            <Carousel
+              control={false}
+              style={{ height: pxToDp(156), marginTop: pxToDp(10) }}
+            >
               {this.state.books.map((item) => (
                 <View style={styles.bookbox}>
                   <TouchableNativeFeedback
@@ -533,13 +537,12 @@ class Index extends PureComponent {
           </View>
           {/*剧本推荐 */}
           <View style={styles.titlebox}>
-            <View style={styles.left}>
-            </View>
+            <View style={styles.left}></View>
             <View>
-              <View style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}>
-                <Text style={styles.titletext}>
-                  剧本推荐
-                </Text>
+              <View
+                style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}
+              >
+                <Text style={styles.titletext}>剧本推荐</Text>
                 <LottieView
                   style={{ width: pxToDp(80) }}
                   source={require('../../../../lottie/标题底部.json')}
@@ -548,10 +551,11 @@ class Index extends PureComponent {
                 />
               </View>
             </View>
-            <TouchableOpacity style={styles.right} onPress={() => this.context.navigate('Scriptlibrary')}>
-              <Text style={styles.righttext}>
-                查看更多
-              </Text>
+            <TouchableOpacity
+              style={styles.right}
+              onPress={() => this.context.navigate('Scriptlibrary')}
+            >
+              <Text style={styles.righttext}>查看更多</Text>
               <Ionicons name="chevron-forward" size={16} color="#666666" />
             </TouchableOpacity>
           </View>

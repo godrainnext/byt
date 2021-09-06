@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-// import Modal from 'react-native-modal';
 import {
   ScrollView,
   View,
@@ -28,7 +27,6 @@ const talk =
 
 class index extends PureComponent {
   static contextType = NavigationContext;
-
   constructor(props) {
     super(props);
     this.state = {

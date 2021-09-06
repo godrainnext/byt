@@ -127,7 +127,7 @@ export default class topic extends PureComponent {
               {this.state.dongtai[0]?.id ? (
                 <Tiebar dongtai={this.state.dongtai} />
               ) : (
-                <View style={{marginTop:pxToDp(16)}}>
+                <View style={{ marginTop: pxToDp(16) }}>
                   <Text>暂无人讨论该话题，成为第一个吧</Text>
                 </View>
               )}

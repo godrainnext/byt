@@ -135,9 +135,13 @@ export default class confirmTicket extends PureComponent {
             }}
           >
             <Text style={{ fontSize: pxToDp(18) }}>钱塘戏社越剧专场</Text>
-            <Text style={{ fontSize: pxToDp(16) }}>2021.08.15-10.01</Text>
-            <Text style={{ fontSize: pxToDp(16) }}>单价：￥30</Text>
-            <Text style={{ fontSize: pxToDp(16) }}>
+            <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
+              2021.08.15-10.01
+            </Text>
+            <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
+              单价：￥30
+            </Text>
+            <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
               总价：￥{chooseCount * 30}
             </Text>
           </View>
@@ -155,16 +159,16 @@ export default class confirmTicket extends PureComponent {
             }}
           >
             <Text style={{ fontSize: pxToDp(20) }}>购票须知</Text>
-            <Text style={{ fontSize: pxToDp(16) }}>
+            <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
               1.请确认场次和时间无误，购买成功后将不予退换
             </Text>
-            <Text style={{ fontSize: pxToDp(16) }}>
+            <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
               2.由于设备故障等不可抗力因素，存在少量场次取消的情况，会进行退票退款
             </Text>
-            <Text style={{ fontSize: pxToDp(16) }}>
+            <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
               3.由于剧院系统不稳定等因素，存在出票失败的情况，会进行退款
             </Text>
-            <Text style={{ fontSize: pxToDp(16) }}>
+            <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
               4.取票码可以在“票据详情”中查看
             </Text>
           </View>
@@ -235,7 +239,8 @@ export default class confirmTicket extends PureComponent {
                 style={{
                   marginLeft: pxToDp(25),
                   fontSize: pxToDp(16),
-                  marginTop: pxToDp(10)
+                  marginTop: pxToDp(10),
+                  color: '#666666'
                 }}
               >
                 支付方式

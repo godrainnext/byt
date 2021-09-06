@@ -8,7 +8,6 @@ import {
   StyleSheet,
   ScrollView,
   Dimensions,
-  Alert,
   Modal,
   ToastAndroid
 } from 'react-native';
@@ -19,22 +18,6 @@ import { NavigationContext } from '@react-navigation/native';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import Mybtn from '../../../component/common/mybtn';
 class orderdetails extends PureComponent {
-  showAlert() {
-    Alert.alert('是否确认收货？', '确认后就不可更改了哦', [
-      { text: '取消', onPress: this.opntion1Selected },
-      {
-        text: '确认',
-
-        onPress: () =>
-          this.setState({
-            colors: '#aaa',
-            Application: '已收货',
-            isshoushuo: true
-          })
-      }
-    ]);
-  }
-
   state = {
     way: '',
     Application: '确认收货',

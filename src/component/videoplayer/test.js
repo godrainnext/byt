@@ -3,28 +3,30 @@ import React, {
 } from 'react';
 
 import {
-    StyleSheet,
-    Text,
-    TouchableOpacity,
-    View,
-    Button,
-    BackHandler
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  Button,
+  BackHandler
 } from 'react-native';
 
 import Video from 'react-native-video';
 
 function formatTime(second) {
-    let h = 0, i = 0, s = parseInt(second);
-    if (s > 60) {
-        i = parseInt(s / 60);
-        s = parseInt(s % 60);
-    }
-    // 补零
-    let zero = function (v) {
-        return (v >> 0) < 10 ? "0" + v : v;
-    };
-    // return [zero(h), zero(i), zero(s)].join(":");
-    return zero(s);
+  let h = 0,
+    i = 0,
+    s = parseInt(second);
+  if (s > 60) {
+    i = parseInt(s / 60);
+    s = parseInt(s % 60);
+  }
+  // 补零
+  let zero = function (v) {
+    return v >> 0 < 10 ? '0' + v : v;
+  };
+  // return [zero(h), zero(i), zero(s)].join(":");
+  return zero(s);
 }
 
 export default class VideoScreen extends PureComponent {
@@ -51,137 +53,182 @@ export default class VideoScreen extends PureComponent {
         BackHandler.removeEventListener('hardwareBackPress', this.onBackAndroid);
     }
 
-    onBackAndroid = () => {
-        this.props.navigation.goBack();
-        return true;
-    };
+  state = {
+    rate: 1,
+    volume: 1,
+    muted: false,
+    resizeMode: 'contain',
+    duration: 0.0,
+    currentTime: 0.0,
+    paused: true
+  };
 
+  componentWillMount() {
+    BackHandler.addEventListener('hardwareBackPress', this.onBackAndroid);
+  }
 
-    onLoad = (data) => {
-        this.setState({duration: data.duration});
-    };
+  componentWillUnmount() {
+    BackHandler.removeEventListener('hardwareBackPress', this.onBackAndroid);
+  }
 
-    onProgress = (data) => {
-        this.setState({currentTime: data.currentTime});
-    };
+  onBackAndroid = () => {
+    this.props.navigation.goBack();
+    return true;
+  };
 
-    onEnd = () => {
-        this.setState({paused: true})
-        this.video.seek(0)
-    };
+  onLoad = (data) => {
+    this.setState({ duration: data.duration });
+  };
 
-    onAudioBecomingNoisy = () => {
-        this.setState({paused: true})
-    };
+  onProgress = (data) => {
+    this.setState({ currentTime: data.currentTime });
+  };
 
-    onAudioFocusChanged = () => {
-        this.setState({paused: !event.hasAudioFocus})
-    };
+  onEnd = () => {
+    this.setState({ paused: true });
+    this.video.seek(0);
+  };
 
-    getCurrentTimePercentage() {
-        if (this.state.currentTime > 0) {
-            return parseFloat(this.state.currentTime) / parseFloat(this.state.duration);
-        }
-        return 0;
-    };
+  onAudioBecomingNoisy = () => {
+    this.setState({ paused: true });
+  };
 
-    renderRateControl(rate) {
-        const isSelected = (this.state.rate === rate);
+  onAudioFocusChanged = () => {
+    this.setState({ paused: !event.hasAudioFocus });
+  };
 
-        return (
-            <TouchableOpacity onPress={() => {
-                this.setState({rate})
-            }}>
-                <Text style={[styles.controlOption, {fontWeight: isSelected ? 'bold' : 'normal'}]}>
-                    {rate}x
-                </Text>
-            </TouchableOpacity>
-        );
+  getCurrentTimePercentage() {
+    if (this.state.currentTime > 0) {
+      return (
+        parseFloat(this.state.currentTime) / parseFloat(this.state.duration)
+      );
     }
+    return 0;
+  }
 
-    renderResizeModeControl(resizeMode) {
-        const isSelected = (this.state.resizeMode === resizeMode);
+  renderRateControl(rate) {
+    const isSelected = this.state.rate === rate;
 
-        return (
-            <TouchableOpacity onPress={() => {
-                this.setState({resizeMode})
-            }}>
-                <Text style={[styles.controlOption, {fontWeight: isSelected ? 'bold' : 'normal'}]}>
-                    {resizeMode}
-                </Text>
-            </TouchableOpacity>
-        )
-    }
+    return (
+      <TouchableOpacity
+        onPress={() => {
+          this.setState({ rate });
+        }}
+      >
+        <Text
+          style={[
+            styles.controlOption,
+            { fontWeight: isSelected ? 'bold' : 'normal' }
+          ]}
+        >
+          {rate}x
+        </Text>
+      </TouchableOpacity>
+    );
+  }
 
-    renderVolumeControl(volume) {
-        const isSelected = (this.state.volume === volume);
+  renderResizeModeControl(resizeMode) {
+    const isSelected = this.state.resizeMode === resizeMode;
 
-        return (
-            <TouchableOpacity onPress={() => {
-                this.setState({volume})
-            }}>
-                <Text style={[styles.controlOption, {fontWeight: isSelected ? 'bold' : 'normal'}]}>
-                    {volume * 100}%
-                </Text>
-            </TouchableOpacity>
-        )
-    }
+    return (
+      <TouchableOpacity
+        onPress={() => {
+          this.setState({ resizeMode });
+        }}
+      >
+        <Text
+          style={[
+            styles.controlOption,
+            { fontWeight: isSelected ? 'bold' : 'normal' }
+          ]}
+        >
+          {resizeMode}
+        </Text>
+      </TouchableOpacity>
+    );
+  }
 
-    render() {
-        const flexCompleted = this.getCurrentTimePercentage() * 100;
-        const flexRemaining = (1 - this.getCurrentTimePercentage()) * 100;
+  renderVolumeControl(volume) {
+    const isSelected = this.state.volume === volume;
 
-        return (
-            <View style={styles.container}>
-                <TouchableOpacity
-                    style={styles.fullScreen}
-                    onPress={() => this.setState({paused: !this.state.paused})}>
-                    <Video
-                    
-                        /* For ExoPlayer */
-                        source={require('../.././images/1.mp4')}
-                        style={styles.fullScreen}
-                        rate={this.state.rate}
-                        paused={this.state.paused}
-                        volume={this.state.volume}
-                        muted={this.state.muted}
-                        resizeMode={this.state.resizeMode}
-                        onLoad={this.onLoad}
-                        onProgress={this.onProgress}
-                        onEnd={this.onEnd}
-                        onAudioBecomingNoisy={this.onAudioBecomingNoisy}
-                        onAudioFocusChanged={this.onAudioFocusChanged}
-                        repeat={false}
-                    />
-                </TouchableOpacity>
-                <View style={styles.textStyle}>
-                    <Text style={styles.volumeControl}>
-                        {formatTime(this.state.duration - this.state.currentTime)}
-                    </Text>
+    return (
+      <TouchableOpacity
+        onPress={() => {
+          this.setState({ volume });
+        }}
+      >
+        <Text
+          style={[
+            styles.controlOption,
+            { fontWeight: isSelected ? 'bold' : 'normal' }
+          ]}
+        >
+          {volume * 100}%
+        </Text>
+      </TouchableOpacity>
+    );
+  }
 
-                    <Button style={styles.btnStyle} title={'关闭广告'} color={'#73808080'}
-                            onPress={() => {
-                                this.props.navigation.goBack()
-                            }}/>
-                </View>
+  render() {
+    const flexCompleted = this.getCurrentTimePercentage() * 100;
+    const flexRemaining = (1 - this.getCurrentTimePercentage()) * 100;
 
-                <View style={styles.controls}>
-                    <View style={styles.generalControls}>
+    return (
+      <View style={styles.container}>
+        <TouchableOpacity
+          style={styles.fullScreen}
+          onPress={() => this.setState({ paused: !this.state.paused })}
+        >
+          <Video
+            /* For ExoPlayer */
+            source={require('../.././images/1.mp4')}
+            style={styles.fullScreen}
+            rate={this.state.rate}
+            paused={this.state.paused}
+            volume={this.state.volume}
+            muted={this.state.muted}
+            resizeMode={this.state.resizeMode}
+            onLoad={this.onLoad}
+            onProgress={this.onProgress}
+            onEnd={this.onEnd}
+            onAudioBecomingNoisy={this.onAudioBecomingNoisy}
+            onAudioFocusChanged={this.onAudioFocusChanged}
+            repeat={false}
+          />
+        </TouchableOpacity>
+        <View style={styles.textStyle}>
+          <Text style={styles.volumeControl}>
+            {formatTime(this.state.duration - this.state.currentTime)}
+          </Text>
 
-                    </View>
+          <Button
+            style={styles.btnStyle}
+            title={'关闭广告'}
+            color={'#73808080'}
+            onPress={() => {
+              this.props.navigation.goBack();
+            }}
+          />
+        </View>
 
-                    <View style={styles.trackingControls}>
-                        <View style={styles.progress}>
-                            <View style={[styles.innerProgressCompleted, {flex: flexCompleted}]}/>
-                            <View style={[styles.innerProgressRemaining, {flex: flexRemaining}]}/>
-                        </View>
-                    </View>
-                </View>
+        <View style={styles.controls}>
+          <View style={styles.generalControls}></View>
+
+          <View style={styles.trackingControls}>
+            <View style={styles.progress}>
+              <View
+                style={[styles.innerProgressCompleted, { flex: flexCompleted }]}
+              />
+              <View
+                style={[styles.innerProgressRemaining, { flex: flexRemaining }]}
+              />
             </View>
-        );
-    }
+          </View>
+        </View>
+      </View>
+    );
+  }
 }
-
 
 const styles = StyleSheet.create({
   container: {

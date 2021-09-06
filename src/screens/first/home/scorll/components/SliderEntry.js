@@ -52,7 +52,6 @@ export default class SliderEntry extends PureComponent {
             <TouchableOpacity
                 activeOpacity={1}
                 style={styles.slideInnerContainer}
-                //   onPress={() => { alert(`You've clicked '${title}'`); }}
                 onPress={() => this.context.navigate("Pagefive")}
             >
                 <View style={styles.shadow} />

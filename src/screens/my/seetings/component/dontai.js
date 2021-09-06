@@ -44,7 +44,7 @@ class Index extends PureComponent {
     ],
     status: {},
     isShow: false,
-    modalVisible: false,
+    modalVisible: false
   };
   componentDidMount() {
     getMomentListByUserId(this.props.userId).then((res) => {
@@ -162,8 +162,7 @@ class Index extends PureComponent {
           marginBottom: pxToDp(20),
           backgroundColor: 'rgba(255,255,255,0.5)',
           borderRadius: pxToDp(8),
-          elevation: 2,
-
+          elevation: 2
         }}
       >
         <View style={styles.centeredView}>
@@ -199,14 +198,6 @@ class Index extends PureComponent {
                       <FontAwesome name="weibo" size={25} color="#FA8072" />
                       <Text>微博</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{ alignItems: 'center' }}>
-                      <FontAwesome name="trash-o" size={25} color="#F08080" />
-                      <Text>删除</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={{ alignItems: 'center' }}>
-                      <FontAwesome name="hand-o-up" size={25} color="#F0E68C" />
-                      <Text>置顶</Text>
-                    </TouchableOpacity>
                   </View>
                   <Mybtn
                     title="取消"
@@ -231,108 +222,126 @@ class Index extends PureComponent {
             </View>
           </Modal>
         </View>
-        {
-          this.state.contentArr ? (
-            this.state.contentArr.map((item) => (
-              <TouchableOpacity key={item.momentId}  onPress={() =>
+        {this.state.contentArr ? (
+          this.state.contentArr.map((item) => (
+            <TouchableOpacity
+              key={item.momentId}
+              onPress={() =>
                 this.context.navigate('Indongtai', {
                   mid: item.momentId,
                   uid: this.props.userInfo.id
                 })
-              }>
-                <View >
-                  <BottomSheet
-                    isVisible={this.state.isShow}
-                    containerStyle={{
-                      backgroundColor: 'rgba(0.5, 0.25, 0, 0.2)'
+              }
+            >
+              <View>
+                <BottomSheet
+                  isVisible={this.state.isShow}
+                  containerStyle={{
+                    backgroundColor: 'rgba(0.5, 0.25, 0, 0.2)'
+                  }}
+                >
+                  {this.state.list.map((l, i) => (
+                    <ListItem
+                      key={i}
+                      containerStyle={l.containerStyle}
+                      onPress={l.onPress}
+                    >
+                      <ListItem.Content>
+                        <ListItem.Title style={l.titleStyle}>
+                          {l.title}
+                        </ListItem.Title>
+                      </ListItem.Content>
+                    </ListItem>
+                  ))}
+                </BottomSheet>
+                <TouchableOpacity
+                  style={{
+                    position: 'absolute',
+                    top: pxToDp(15),
+                    right: pxToDp(24)
+                  }}
+                  onPress={() => this.setModalVisible(!modalVisible)}
+                >
+                  <SvgUri svgXmlData={sandian} width="20" height="20" />
+                </TouchableOpacity>
+                <View
+                  style={{
+                    flexDirection: 'row',
+                    alignItems: 'flex-end',
+                    marginTop: pxToDp(8),
+                    marginLeft: pxToDp(16),
+                    marginRight: pxToDp(16)
+                  }}
+                >
+                  <Text
+                    style={{
+                      fontSize: pxToDp(24),
+                      fontWeight: 'bold',
+                      color: '#000000'
                     }}
                   >
-                    {this.state.list.map((l, i) => (
-                      <ListItem
-                        key={i}
-                        containerStyle={l.containerStyle}
-                        onPress={l.onPress}
-                      >
-                        <ListItem.Content>
-                          <ListItem.Title style={l.titleStyle}>
-                            {l.title}
-                          </ListItem.Title>
-                        </ListItem.Content>
-                      </ListItem>
-                    ))}
-                  </BottomSheet>
-                  <TouchableOpacity
-                    style={{ position: 'absolute', top: pxToDp(15), right: pxToDp(24) }}
-                    onPress={() => this.setModalVisible(!modalVisible)}
+                    {item.createAt.substr(6, 5)}
+                  </Text>
+                  <Text
+                    style={{
+                      fontSize: pxToDp(18),
+                      color: '#333333',
+                      marginBottom: pxToDp(4),
+                      marginLeft: pxToDp(4)
+                    }}
                   >
-                    <SvgUri svgXmlData={sandian} width="20" height="20" />
-                  </TouchableOpacity>
+                    {item.createAt.substr(0, 4)}
+                  </Text>
+                </View>
+                <View
+                  style={{
+                    elevation: 0.5,
+                    borderWidth: 0,
+                    marginRight: pxToDp(16),
+                    borderRadius: pxToDp(8),
+                    marginLeft: pxToDp(16),
+                    marginBottom: pxToDp(12)
+                  }}
+                >
                   <View
                     style={{
+                      marginLeft: pxToDp(30),
                       flexDirection: 'row',
-                      alignItems: 'flex-end',
-                      marginTop: pxToDp(8),
-                      marginLeft: pxToDp(16),
-                      marginRight: pxToDp(16),
-
+                      alignItems: 'flex-end'
                     }}
-                  >
-                    <Text style={{ fontSize: pxToDp(24), fontWeight: 'bold', color: '#000000' }}>
-                      {item.createAt.substr(6, 5)}
-                    </Text>
-                    <Text style={{ fontSize: pxToDp(18), color: '#333333', marginBottom: pxToDp(4), marginLeft: pxToDp(4) }}>
-                      {item.createAt.substr(0, 4)}
-                    </Text>
-                  </View>
+                  ></View>
+                  <View
+                    style={{ flexDirection: 'row', margin: pxToDp(10) }}
+                  ></View>
                   <View
                     style={{
-                      elevation: .5,
-                      borderWidth: 0,
-                      marginRight: pxToDp(16),
-                      borderRadius: pxToDp(8),
-                      marginLeft: pxToDp(16), marginBottom: pxToDp(12)
+                      width: '90%',
+                      marginBottom: pxToDp(30),
+                      alignSelf: 'center'
                     }}
                   >
-                    <View
+                    <Text
                       style={{
-                        marginLeft: pxToDp(30),
-                        flexDirection: 'row',
-                        alignItems: 'flex-end'
-                      }}
-                    ></View>
-                    <View
-                      style={{ flexDirection: 'row', margin: pxToDp(10) }}
-                    ></View>
-                    <View
-                      style={{
-                        width: '90%',
-                        marginBottom: pxToDp(30),
-                        alignSelf: 'center'
+                        fontSize: pxToDp(18),
+                        marginBottom: pxToDp(10),
+                        marginTop: pxToDp(10),
+                        color: '#333333'
                       }}
                     >
-                      <Text
-                        style={{
-                          fontSize: pxToDp(18),
-                          marginBottom: pxToDp(10),
-                          marginTop: pxToDp(10),
-                          color: '#333333'
-                        }}
-                      >
-                        {item.content}
-                      </Text>
-                      {item.label ? this.showMusic(item) : this.showArticle(item)}
-                    </View>
+                      {item.content}
+                    </Text>
+                    {item.label ? this.showMusic(item) : this.showArticle(item)}
                   </View>
                 </View>
-              </TouchableOpacity>
-            ))
-          ) : (
-            <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-              <Text>暂无发表文章</Text>
-            </View>
-          )
-        }
-      </View >
+              </View>
+            </TouchableOpacity>
+          ))
+        ) : (
+          <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+            <Text>暂无发表文章</Text>
+          </View>
+        )}
+      </View>
     );
   }
 }
@@ -341,8 +350,7 @@ const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-
+    alignItems: 'center'
   },
   modalView: {
     margin: pxToDp(20),
@@ -357,6 +365,6 @@ const styles = StyleSheet.create({
     }
   }
 });
-export default  connect((state)=>({
-  userInfo:state.getIn(['homeReducer','userInfo'])
-})) (Index) ;
+export default connect((state) => ({
+  userInfo: state.getIn(['homeReducer', 'userInfo'])
+}))(Index);

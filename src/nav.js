@@ -14,6 +14,9 @@ function Nav() {
         <Stack.Screen name="NewTimeLine" component={Screens.NewTimeLine} />
         <Stack.Screen name="BootPage" component={Screens.BootPage} />
         <Stack.Screen name="GiftedChat" component={Screens.GiftedChat} />
+        <Stack.Screen name="Map" component={Screens.Map} />
+        <Stack.Screen name="MapToGo" component={Screens.MapToGo} />
+
 
         {/*引导页 */}
         <Stack.Screen name="Tabbar" component={Tabbar} />
@@ -259,6 +262,7 @@ function Nav() {
         <Stack.Screen name="AddMoment" component={Screens.AddMoment} />
         {/**积分明细 */}
         <Stack.Screen name="JifenMingxi" component={Screens.JifenMingxi} />
+        <Stack.Screen name="Search" component={Screens.Search} />
       </Stack.Navigator>
     </NavigationContainer>
   );

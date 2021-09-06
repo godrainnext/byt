@@ -356,66 +356,83 @@ export default class Exswiper extends PureComponent {
         img: [hesaifei1, hesaifei2],
         titleimg: [imgzz]
       }
-    ]
+    ],
+    swiperShow: false
   };
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        swiperShow: true
+      });
+    }, 100);
+  }
 
   changepage = (obj) => {
     this.setState({ currentPage: obj });
     console.log(this.state.currentPage);
   };
   renderRow(obj) {
-    return (
-      <View key={obj.id} style={styles.cell}>
-        <View>
-          <Text
-            style={{ fontWeight: 'bold', fontSize: pxToDp(16), color: '#000' }}
-          >
-            {obj.year}
-          </Text>
-          <Text
-            style={{
-              color: '#333',
-              fontWeight: 'bold',
-              fontSize: pxToDp(14)
-            }}
-          >
-            {obj.name}
-          </Text>
-          <Text style={{ color: '#666', fontSize: pxToDp(14) }}>
-            {obj.local}
-          </Text>
-          <View
-            style={{
-              position: 'absolute',
-              top: 0,
-              right: pxToDp(10),
-              flexDirection: 'row'
-            }}
-          >
+    if (this.state.swiperShow) {
+      return (
+        <View key={obj.id} style={styles.cell}>
+          <View>
             <Text
               style={{
-                fontSize: pxToDp(20),
                 fontWeight: 'bold',
-                color: '#333',
-                top: pxToDp(-5)
+                fontSize: pxToDp(16),
+                color: '#000'
               }}
             >
-              {obj.id}
+              {obj.year}
             </Text>
             <Text
               style={{
-                fontSize: pxToDp(16)
+                color: '#333',
+                fontWeight: 'bold',
+                fontSize: pxToDp(14)
               }}
             >
-              / {this.state.pagedata.length}
+              {obj.name}
             </Text>
+            <Text style={{ color: '#666', fontSize: pxToDp(14) }}>
+              {obj.local}
+            </Text>
+            <View
+              style={{
+                position: 'absolute',
+                top: 0,
+                right: pxToDp(10),
+                flexDirection: 'row'
+              }}
+            >
+              <Text
+                style={{
+                  fontSize: pxToDp(20),
+                  fontWeight: 'bold',
+                  color: '#333',
+                  top: pxToDp(-5)
+                }}
+              >
+                {obj.id}
+              </Text>
+              <Text
+                style={{
+                  fontSize: pxToDp(16)
+                }}
+              >
+                / {this.state.pagedata.length}
+              </Text>
+            </View>
           </View>
         </View>
-      </View>
-    );
+      );
+    } else {
+      return <View></View>;
+    }
   }
   render() {
     const modalizeRef = createRef();
+    console.log(this.state.swiperShow);
     return (
       <View style={{ flex: 1 }}>
         <Top title="时空地图" icon1="arrow-back" />
@@ -455,7 +472,6 @@ export default class Exswiper extends PureComponent {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'transparent',
-
     // top:300
     height: pxToDp(100)
   },

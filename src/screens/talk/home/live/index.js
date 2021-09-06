@@ -187,7 +187,7 @@ class Index extends PureComponent {
             style={styles.image}
             imageStyle={{ borderRadius: pxToDp(8) }}
             source={{
-              uri: 'https://tse3-mm.cn.bing.net/th/id/OIP-C.2Dp9JuaV5Wi476ybeMrbdQHaEo?w=235&h=180&c=7&r=0&o=5&dpr=1.75&pid=1.7'
+              uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimage.xinmin.cn%2Fxmwb%2F2016%2F11%2FNEM1_20161108_C0321024741_A323350.jpg&refer=http%3A%2F%2Fimage.xinmin.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1633265945&t=13f7f4f3be47ec7224fbc49716325d48'
             }}
           >
             <Text
@@ -245,7 +245,7 @@ class Index extends PureComponent {
             </View>
           </ImageBackground>
           <ImageBackground
-            style={styles.image}
+            style={[styles.image, { marginBottom: pxToDp(16) }]}
             imageStyle={{ borderRadius: pxToDp(8) }}
             source={{
               uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fqqpublic.qpic.cn%2Fqq_public%2F0%2F0-2396530489-3402ABF06273663A185D56AF38A11A26%2F0%3Ffmt%3Djpg%26size%3D92%26h%3D642%26w%3D900%26ppv%3D1.jpg&refer=http%3A%2F%2Fqqpublic.qpic.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632926403&t=32ea82f43d2c0bce5a73869b01dc3c62'
@@ -307,7 +307,7 @@ class Index extends PureComponent {
           </ImageBackground>
           <View style={{ height: pxToDp(10) }}></View>
         </ScrollView>
-      </View>
+      </View >
     );
   }
 }

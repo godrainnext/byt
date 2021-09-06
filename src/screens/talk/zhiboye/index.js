@@ -70,7 +70,6 @@ export default class App extends PureComponent {
 
   constructor(props) {
     super(props);
-    console.log(this.props.route.params)
 
     this.state = {
       appId: '29792ec3eded410facd609fb7ad76fef',
@@ -115,7 +114,6 @@ export default class App extends PureComponent {
       multiple: true,
       maxFiles: 9,
     }).then(image => {
-      console.log('imag', image);
       this.setState({
         arr: image,
       });

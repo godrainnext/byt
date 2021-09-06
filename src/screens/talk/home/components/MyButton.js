@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import { pxToDp } from '@utils/styleKits';
-class Index extends Component {
+class Index extends PureComponent {
   static defaultProps = {
     style: {},
     textStyle: {},
