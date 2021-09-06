@@ -163,3 +163,4 @@ export { default as GiftedChat } from './shop/home/giftedChat/index';
 export { default as Search } from './shop/search/index';
 export { default as Map } from '../component/map/map';
 export { default as MapToGo } from '../component/map/mapToGo';
+export { default as TBox } from './shop/tBox/index';

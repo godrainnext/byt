@@ -20,52 +20,34 @@ const Button = (props) => {
   );
 };
 export default class SegmentTabBar extends PureComponent {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-        };
-    }
-    renderTab(name, page, isTabActive, onPressHandler) {
-        const textColor = isTabActive ? '#fff' : '#62bfad';
-        const backgroundColor = isTabActive ? '#62bfad' : '#fff';
-        console.log(textColor)
-        return <Button
-            style={{ flex: 1, height: 30, backgroundColor, borderRadius: 16, margin: 8 }}
-            key={name}
-            accessible={true}
-            accessibilityLabel={name}
-            accessibilityTraits='button'
-            onPress={() => onPressHandler(page)}
-        >
-            <View style={[styles.tab]}>
-                <Text style={[{ color: textColor, },]}>
-                    {name}
-                </Text>
-            </View>
-        </Button>;
-    }
-
-    render() {
-        return (
-            <LinearGradient
-                style={styles.box}
-                colors={['#D5E8E6', '#D5E8E6']}
-                start={{ x: 0, y: 0 }}
-                end={{ x: 1.6, y: 0 }}
-            >
-                <View style={styles.tabBarBox}>
-                    <View style={{ flexDirection: 'row', width: 300 }}>
-                        {this.props.tabs.map((name, page) => {
-                            const isTabActive = this.props.activeTab === page;
-                            const renderTab = this.props.renderTab || this.renderTab;
-                            return renderTab(name, page, isTabActive, this.props.goToPage);
-                        })}
-                    </View>
-                </View>
-            </LinearGradient>
-        );
-    }
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+  renderTab(name, page, isTabActive, onPressHandler) {
+    const textColor = isTabActive ? '#fff' : '#62bfad';
+    const backgroundColor = isTabActive ? '#62bfad' : '#fff';
+    return (
+      <Button
+        style={{
+          flex: 1,
+          height: 30,
+          backgroundColor,
+          borderRadius: 16,
+          margin: 8
+        }}
+        key={name}
+        accessible={true}
+        accessibilityLabel={name}
+        accessibilityTraits="button"
+        onPress={() => onPressHandler(page)}
+      >
+        <View style={[styles.tab]}>
+          <Text style={[{ color: textColor }]}>{name}</Text>
+        </View>
+      </Button>
+    );
+  }
 
   render() {
     return (

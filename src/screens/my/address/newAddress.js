@@ -51,7 +51,6 @@ class NewAddress extends PureComponent {
           this.props.getAddressListAction();
         })
         .then(() => {
-          console.log(this.props.route.params);
           this.props.route.params
             ? this.context.navigate('Myorder', this.props.route.params)
             : this.context.goBack();
@@ -193,11 +192,21 @@ class NewAddress extends PureComponent {
           onPress={this.saveAddress}
           title="保存信息"
           buttonStyle={{
-            width: pxToDp(340),
-            height: pxToDp(40),
+            width: '100%',
+            height: '100%',
+            alignSelf: 'flex-end',
             borderRadius: pxToDp(32),
+            marginRight: pxToDp(8)
+          }}
+          containerStyle={{
+            position: 'absolute',
+            bottom: pxToDp(-430),
+            width: pxToDp(320),
+            height: pxToDp(40),
+            borderRadius: pxToDp(40),
             alignSelf: 'center',
-            marginTop: pxToDp(300)
+            color: 'red',
+            display: 'none'
           }}
           linearGradientProps={{
             colors: ['#fa9222', '#ffd501'],

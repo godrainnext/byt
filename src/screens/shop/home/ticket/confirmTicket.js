@@ -114,7 +114,6 @@ export default class confirmTicket extends PureComponent {
     this.Scrollable.close();
   };
   render() {
-    console.log(this.props.route.params);
     const { chooseCount } = this.props.route.params;
     return (
       <View style={{ flex: 1 }}>

@@ -48,6 +48,7 @@ export default memo(function ActressItem(props) {
     setModalVisible1(!modalVisible1);
     navigation.navigate('Jubao');
   };
+  console.log(item);
   return (
     <View>
       <View
@@ -117,11 +118,22 @@ export default memo(function ActressItem(props) {
                   marginLeft: pxToDp(8)
                 }}
               >
-                {item.createTime?.split('T')[0]}
+                {item.createTime?.split('T')[1] ? item.createTime?.split('T')[0] : item.createTime?.split(' ')[0]}
               </Text>
             </View>
           </TouchableOpacity>
         </View>
+        {item.tags ? (
+          <View style={{ backgroundColor: '#d5e8e6', width: pxToDp(120), alignItems: 'center', justifyContent: 'center', borderRadius: pxToDp(8), marginLeft: pxToDp(16), marginBottom: pxToDp(8) }}>
+            <Text
+              style={{
+                fontSize: pxToDp(14),
+                color: '#62bfad'
+              }}
+            >
+              {'#' + item.tags[0].name}
+            </Text>
+          </View>) : null}
         <View
           style={{
             marginLeft: pxToDp(16),
@@ -131,7 +143,6 @@ export default memo(function ActressItem(props) {
         >
           <TouchableOpacity
             onPress={() => {
-              console.log(item.id);
               navigation.navigate('Inluntan', {
                 mid: item.id,
                 uid: item.user.id

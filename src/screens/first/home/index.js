@@ -179,8 +179,8 @@ class Index extends PureComponent {
         >
           <View
             style={{
-              marginLeft: pxToDp(16),
-              marginRight: pxToDp(16),
+              marginLeft: pxToDp(28),
+              marginRight: pxToDp(28),
               flexDirection: 'row',
               justifyContent: 'space-around'
             }}

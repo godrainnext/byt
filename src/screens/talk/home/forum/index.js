@@ -54,7 +54,7 @@ class Index extends PureComponent {
           number: '32',
           img: 'https://img1.baidu.com/it/u=931923788,4075714914&fm=26&fmt=auto&gp=0.jpg',
           detail:
-            '你是否从作品中领悟出什么道理或精湛的思想呢？或是受作品中的内容启发而引起出什么思考与联想呢？赶紧来分享自己的感悟和大家一起讨论吧！'
+            '你是否从作品中领悟出什么道理或思想呢？或是受作品中的内容启发而引出什么思考或联想呢？快和大家分享吧！'
         },
         {
           id: '6',
@@ -73,7 +73,6 @@ class Index extends PureComponent {
   componentDidMount() {
     DeviceEventEmitter.addListener('changeMoment', this.updateList);
     getMomentListByStatus(0, 0, 15).then((res) => {
-      console.log(res);
       this.setState({ dongtai: [...res].reverse() });
     });
   }

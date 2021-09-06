@@ -51,7 +51,7 @@ class orders extends PureComponent {
       activeTab: -1,
       way: '',
       addressId: -1,
-      isvisiable:false
+      isvisiable: false
     };
   }
   static defaultProps = {
@@ -125,25 +125,21 @@ class orders extends PureComponent {
       };
       addOrider(data)
         .then((res) => this.props.getUserOriderListAction())
-        .then((ress) =>{
-          this.setState({isvisiable:false})
+        .then((ress) => {
+          this.setState({ isvisiable: false });
           this.context.navigate('paySuccess', {
             ...data,
             address: this.state.defaultAddress
-          })}
-        );
+          });
+        });
     } else {
       ToastAndroid.show('请选择支付方式', ToastAndroid.SHORT);
     }
   };
 
-  addOrder1= () => {
-  
+  addOrder1 = () => {
     if (this.state.addressId !== -1 && this.state.activeTab !== -1) {
- 
-
-         this.setState({isvisiable:!this.state.isvisiable})
-        
+      this.setState({ isvisiable: !this.state.isvisiable });
     } else {
       ToastAndroid.show('请选择支付方式', ToastAndroid.SHORT);
     }
@@ -154,7 +150,6 @@ class orders extends PureComponent {
     this.setState({ defaultAddress: payload });
   };
   render() {
-    console.log(this.props.route.params);
     const { count, title, color, img, price } = this.props.route.params;
 
     return (

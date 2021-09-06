@@ -14,6 +14,7 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import { getMomentListByTagId } from '@service/moment';
 import Tiebar from './luntan';
 import { linear } from 'react-native/Libraries/Animated/Easing';
+import ActionButton from 'react-native-action-button';
 
 export default class topic extends PureComponent {
   static contextType = NavigationContext;
@@ -24,14 +25,12 @@ export default class topic extends PureComponent {
     dongtai: []
   };
   componentDidMount() {
-    console.log(this.props.route.params.id);
     this.changeListener = DeviceEventEmitter.addListener('momentChange', () => {
       getMomentListByTagId(this.props.route.params.id).then((res) => {
         this.setState({ dongtai: [...res].reverse() });
       });
     });
     getMomentListByTagId(this.props.route.params.id).then((res) => {
-      console.log(res);
       this.setState({ dongtai: [...res].reverse() });
     });
   }
@@ -41,8 +40,10 @@ export default class topic extends PureComponent {
   render() {
     const { id, text, img, detail, number } = this.props.route.params;
     return (
-      <View style={{ flex: 1 }}>
-        <ScrollView>
+      <View style={{ flex: 1, backgroundColor: 'white' }}>
+        <ScrollView
+          showsVerticalScrollIndicator={false}
+        >
           {/* 头部背景 */}
           <ImageBackground
             style={{ height: pxToDp(250) }}
@@ -61,12 +62,6 @@ export default class topic extends PureComponent {
                 padding: pxToDp(8),
                 margin: pxToDp(16),
                 borderRadius: pxToDp(8)
-                // backgroundColor: '#fff',
-                // elevation: 10,
-                // shadowColor: 'black', //  阴影颜色
-                // shadowOffset: { width: 0, height: 0 }, // 阴影偏移
-                // shadowOpacity: 1, // 阴影不透明度
-                // shadowRadius: 10 //  圆角
               }}
             >
               <Text
@@ -91,9 +86,8 @@ export default class topic extends PureComponent {
             </View>
             <View
               style={{
-                alignSelf: 'flex-end',
-                marginRight: pxToDp(16),
-                marginTop: pxToDp(14)
+                alignItems: 'flex-end',
+                marginRight: pxToDp(16)
               }}
             >
               <Text style={{ fontSize: pxToDp(16), color: '#333333' }}>
@@ -127,14 +121,18 @@ export default class topic extends PureComponent {
               {this.state.dongtai[0]?.id ? (
                 <Tiebar dongtai={this.state.dongtai} />
               ) : (
-                <View style={{ marginTop: pxToDp(16) }}>
-                  <Text>暂无人讨论该话题，成为第一个吧</Text>
+                <View style={{ marginTop: pxToDp(16), backgroundColor: 'white', height: pxToDp(450) }}>
+                  <Text style={{ marginLeft: pxToDp(16), fontSize: pxToDp(14) }}>暂无人讨论该话题，成为第一个吧</Text>
                 </View>
               )}
             </View>
           </View>
         </ScrollView>
-      </View>
+        <ActionButton
+          buttonColor="#62bfad"
+          onPress={() => this.context.navigate('AddMoment')}
+        />
+      </View >
     );
   }
 }

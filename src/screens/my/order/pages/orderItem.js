@@ -7,7 +7,6 @@ import { connect } from 'react-redux';
 import Mybtn from '../../../../component/common/mybtn';
 class Index extends PureComponent {
   changeStatus(id, status) {
-    console.log(status);
     changeOriderStatus(id, status).then(() => {
       this.props.getUserOriderListAction();
     });
@@ -53,8 +52,8 @@ class Index extends PureComponent {
               {item.status === 0
                 ? '待支付'
                 : item.status === 1
-                  ? '待收货'
-                  : '待评价'}
+                ? '待收货'
+                : '待评价'}
             </Text>
           </View>
           {/* 中间 */}
@@ -200,7 +199,7 @@ class Index extends PureComponent {
               style={{
                 position: 'absolute',
                 bottom: -2,
-                right: 0,
+                right: 0
               }}
             >
               <Mybtn
@@ -211,8 +210,8 @@ class Index extends PureComponent {
                   item.status === 0
                     ? '去支付'
                     : item.status === 1
-                      ? '确认收货'
-                      : '评价'
+                    ? '确认收货'
+                    : '评价'
                 }
                 titleStyle={{
                   height: 30,

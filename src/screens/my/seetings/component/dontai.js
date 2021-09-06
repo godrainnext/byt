@@ -152,7 +152,6 @@ class Index extends PureComponent {
   static contextType = NavigationContext;
 
   render() {
-    console.log(this.props.userInfo);
     const { modalVisible } = this.state;
     return (
       <View
@@ -337,8 +336,8 @@ class Index extends PureComponent {
             </TouchableOpacity>
           ))
         ) : (
-          <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-            <Text>暂无发表文章</Text>
+          <View style={{ justifyContent: 'center', alignItems: 'center', height: pxToDp(500) }}>
+            <Text style={{ fontSize: pxToDp(16) }}>暂无发表文章</Text>
           </View>
         )}
       </View>

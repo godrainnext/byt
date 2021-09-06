@@ -355,6 +355,7 @@ class App extends Component {
                   placeholder="请输入房间号"
                   value={channelName}
                   inputStyle={{ fontSize: pxToDp(16) }}
+                  keyboardType="number-pad"
                   inputContainerStyle={{
                     borderBottomWidth: 0
                   }}
@@ -438,7 +439,10 @@ class App extends Component {
           <Mybtn
             title="开始直播"
             onPress={
-              this.props.userInfo.isStream ? this.startCall : () => this.setModalVisible(!modalVisible)}
+              this.props.userInfo.isStream
+                ? this.startCall
+                : () => this.setModalVisible(!modalVisible)
+            }
             buttonStyle={{
               width: pxToDp(320),
               height: pxToDp(40),
@@ -464,9 +468,20 @@ class App extends Component {
           >
             <View style={styles.centeredView}>
               <View style={styles.modalView}>
-                <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>温馨提示</Text>
-                <Text style={{ fontSize: pxToDp(14), color: '#666666' }}>请先完成实名认证</Text>
-                <View style={{ alignItems: 'center', justifyContent: 'center', flexDirection: 'row', marginTop: pxToDp(32) }}>
+                <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>
+                  温馨提示
+                </Text>
+                <Text style={{ fontSize: pxToDp(14), color: '#666666' }}>
+                  请先完成实名认证
+                </Text>
+                <View
+                  style={{
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexDirection: 'row',
+                    marginTop: pxToDp(32)
+                  }}
+                >
                   <Mybtn
                     title="取消"
                     onPress={() => {
@@ -491,7 +506,7 @@ class App extends Component {
                     title="去认证"
                     onPress={() => {
                       this.setModalVisible(!modalVisible);
-                      this.context.navigate('Apply')
+                      this.context.navigate('Apply');
                     }}
                     buttonStyle={{
                       width: pxToDp(90),

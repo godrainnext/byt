@@ -64,7 +64,6 @@ class Index extends PureComponent {
   componentDidMount() {
     getMomentInnerById(this.props.route.params.mid)
       .then((res) => {
-        console.log(res);
         this.setState({ inner: { ...res } });
       })
       .catch((err) => console.log(err));
@@ -174,7 +173,6 @@ class Index extends PureComponent {
       label,
       cover
     } = this.state.inner;
-    console.log(user);
     return (
       <View style={{ flex: 1 }}>
         <Top icon1="arrow-back" icon2="more-horizontal" />
@@ -205,33 +203,36 @@ class Index extends PureComponent {
                 width: '100%',
                 height: pxToDp(80),
                 marginTop: pxToDp(20),
-                flexDirection: 'row'
+                flexDirection: 'row',
+                justifyContent: 'space-between'
               }}
             >
-              <Image
-                source={{ uri: user?.avatarUrl }}
-                style={{
-                  height: pxToDp(60),
-                  width: pxToDp(60),
-                  borderRadius: pxToDp(64),
-                  margin: pxToDp(8)
-                }}
-              />
-              <View
-                style={{
-                  marginTop: pxToDp(16),
-                  marginLeft: pxToDp(8)
-                }}
-              >
-                {/* 昵称 */}
-                <Text style={{ fontSize: pxToDp(18), color: '#000000', fontWeight: 'bold' }}>
-                  {user?.nickName}
-                </Text>
-                {/* 发布时间 */}
-                <Text style={{ color: '#333333', fontSize: pxToDp(16) }}> {createTime?.split('T')[0]}</Text>
+              <View style={{ flexDirection: 'row' }}>
+                <Image
+                  source={{ uri: user?.avatarUrl }}
+                  style={{
+                    height: pxToDp(60),
+                    width: pxToDp(60),
+                    borderRadius: pxToDp(64),
+                    margin: pxToDp(8)
+                  }}
+                />
+                <View
+                  style={{
+                    marginTop: pxToDp(16),
+                    marginLeft: pxToDp(8)
+                  }}
+                >
+                  {/* 昵称 */}
+                  <Text style={{ fontSize: pxToDp(18), color: '#000000', fontWeight: 'bold' }}>
+                    {user?.nickName}
+                  </Text>
+                  {/* 发布时间 */}
+                  <Text style={{ color: '#333333', fontSize: pxToDp(16) }}> {createTime?.split('T')[0]}</Text>
+                </View>
               </View>
               {/* 关注 */}
-              <View style={{ marginLeft: pxToDp(53), marginTop: pxToDp(24) }}>
+              <View style={{ marginTop: pxToDp(24),width:pxToDp(80)}}>
                 {this.props.userInfo.id === user?.id ? null : <FollowButton />}
               </View>
             </View>
