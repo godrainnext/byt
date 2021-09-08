@@ -36,7 +36,7 @@ export default memo(function FollowButton(props) {
         color: 'white',
         fontSize: pxToDp(16),
         height: 40,
-        marginTop: pxToDp(14),
+        marginTop: pxToDp(10),
         marginLeft:pxToDp(-8)
       }}
     />

@@ -83,7 +83,7 @@ export default class Exswiper extends PureComponent {
         introduce:
           '1906年，与李世泉等人在草台上试验演出，这是越剧第一次试验演出',
         img: [gaobinghuo],
-
+        
       },
       {
         id: 2,
@@ -435,8 +435,8 @@ export default class Exswiper extends PureComponent {
     return (
       <View style={{ flex: 1 }}>
         <Top title="时空地图" icon1="arrow-back" />
-        <View style={{ padding: pxToDp(16), flex: 1 }}>
-
+        <View style={{ padding: pxToDp(16), flex: 1}}>
+        
         </View>
         <Modalize
           ref={modalizeRef}
@@ -448,13 +448,14 @@ export default class Exswiper extends PureComponent {
             <View style={{ flex: 1 }}>
               <View style={styles.container}>
                 <SwiperFlatList
+                  style={[styles.swiper, { width: '100%' }]}
                   data={this.state.pagedata}
-                  renderItem={({ item }) => this.renderRow(item)}
+                  renderItem={({item})=>this.renderRow(item)}
                   index={0}
-                  renderAll={true}
+                vertical={false}
                   loop={false}
-                  onChangeIndex={({ index }) => { this.setState({ currentPage: this.state.pagedata[index] }) }}
-                // autoplayTimeout={false}
+                  onChangeIndex={( {index})=>{this.setState({ currentPage: this.state.pagedata[index]})}}
+                  // autoplayTimeout={false}
                 />
               </View>
               {/* <Image source={require('./blue.jpg')} style={styles.image}/> */}

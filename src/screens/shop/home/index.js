@@ -125,6 +125,7 @@ class Index extends PureComponent {
               onPress={(index) => alert('you pressed index is : ' + index)}
               indicatorContainerBackgroundColor={'#62bfad'}
               isSeamlessScroll={true}
+              activeIndicatorColor={'red'}
             />
           </View>
           {/*本周新品 */}

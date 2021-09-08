@@ -265,7 +265,6 @@ class index extends PureComponent {
                 <Input
                   onChangeText={(ownSay) => {
                     this.setState({ ownSay });
-                    console.log(this.state.ownSay);
                   }}
                   value={this.state.ownSay}
                 />
@@ -340,7 +339,6 @@ class index extends PureComponent {
                   }
                 }}
                 onDateChange={(birthday) => {
-                  console.log(birthday);
                   this.setState({ birthday });
                 }}
               />

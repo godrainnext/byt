@@ -29,7 +29,7 @@ export default class hello extends PureComponent {
     this.state = {
       status: {},
       music: '',
-      isPlaying: true,
+      isPlaying: false,
       duration: 0.0,
       slideValue: 0.0,
       currentTime: 0.0
@@ -43,8 +43,9 @@ export default class hello extends PureComponent {
   }
   static contextType = NavigationContext;
   componentDidMount() {
+    console.log(this.props.route.params.sound);
     getMusicById(this.props.route.params.staticId).then((res) => {
-      console.log(res);
+  
       this.setState({ music: res });
     });
   }
@@ -65,7 +66,6 @@ export default class hello extends PureComponent {
   }
   playmusic = () => {
     this.props.route.params.sound.playAsync();
-
     this.setState({ isPlaying: true });
   };
   parseMusic = async () => {
@@ -82,6 +82,7 @@ export default class hello extends PureComponent {
   }
 
   render() {
+    console.log('888', this.props.route.params);
     return (
       <ScrollView style={{ flex: 1 }}>
         <Top icon1="arrow-back" title="穆桂英挂帅" />

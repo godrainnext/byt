@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable prettier/prettier */
 import React, { PureComponent } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity,} from 'react-native';
 import { SwipeListView, SwipeRow } from 'react-native-swipe-list-view';
 import SvgUri from 'react-native-svg-uri';
 import { Card } from 'react-native-shadow-cards';

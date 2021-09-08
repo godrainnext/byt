@@ -502,7 +502,6 @@ export default class Example extends PureComponent {
   }
 
   render() {
-    console.log(this.props.route);
     return (
       <View style={styles.container}>
         {this.renderSelected()}

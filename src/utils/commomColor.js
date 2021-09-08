@@ -1,6 +1,4 @@
-const backgroundColor='#ecf6fc'
-const iconColor = '#468cd3'
+const backgroundColor = '#D5E8E6';
+const iconColor = '#62bfad';
 
-export {
-  iconColor,backgroundColor
-}
+export { iconColor, backgroundColor };

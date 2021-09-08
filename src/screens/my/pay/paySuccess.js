@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Text, TouchableOpacity, View, StyleSheet } from 'react-native';
 import Top from '../../../component/common/top';
 import LottieView from 'lottie-react-native';
@@ -6,7 +6,7 @@ import { pxToDp } from '../../../utils/styleKits';
 import { NavigationContext } from '@react-navigation/native';
 import Mybtn from '../../../component/common/mybtn';
 
-export default class paySuccess extends Component {
+export default class paySuccess extends PureComponent {
   sendOrder = () => {
     const {
       count,
@@ -20,7 +20,6 @@ export default class paySuccess extends Component {
       img,
       create_time
     } = this.props.route.params;
-    console.log(this.props.route.params);
     const data = {
       shopId,
       shopCarId,
@@ -37,7 +36,6 @@ export default class paySuccess extends Component {
   };
   static contextType = NavigationContext;
   render() {
-    console.log(this.props.route.params);
     return (
       <View>
         <Top title="" icon1="arrow-back" />

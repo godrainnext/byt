@@ -12,7 +12,6 @@ import {
 } from 'react-native';
 // import AntDesign from 'react-native-vector-icons/AntDesign';
 import { NavigationContext } from '@react-navigation/native';
-import CustomAlertDialog from '../component/CustomAlertDialog';
 import { pxToDp } from '../../../utils/styleKits';
 import { launchImageLibrary } from 'react-native-image-picker';
 import DatePicker from 'react-native-datepicker';
@@ -24,7 +23,6 @@ import { getUserInfoAction } from '../../first/home/store/actions';
 import { changeAvatar } from './store/actions';
 import changeImgSize from '@utils/changeImgSize';
 import { Avatar, Button, CheckBox } from 'react-native-elements';
-import LinearGradient from 'react-native-linear-gradient';
 import Mybtn from '../../../component/common/mybtn';
 const typeArr = ['男', '女'];
 const sheng =
