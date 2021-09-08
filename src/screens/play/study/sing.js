@@ -36,8 +36,24 @@ class Index extends PureComponent {
     autoPlay: true,
     showLoading: true,
     value: 1,
-    isClick: false
+    isClick: false,
+    data1: this.props.route.params
   };
+  // SingOver = () => {
+  //   const { detail, title, mp3 } = this.props.route.params;
+  //   console.log(this.props.route.params);
+  //   const data1 = {
+  //     detail,
+  //     title,
+  //     mp3
+  //   };
+  //   this.context.navigate('SingOver', {
+  //     staticId: 1,
+  //     sound: arr[0],
+  //     id: res.insertId,
+  //     data1
+  //   });
+  // };
   static contextType = NavigationContext;
   playSound = async () => {
     Alert.alert('是否确认结束练唱?', '保存音频', [
@@ -257,6 +273,8 @@ class Index extends PureComponent {
   };
   render() {
     const { showLoading, value } = this.state;
+    const { detail, title, mp3 } = this.props.route.params;
+    console.log('999', this.props.route.params);
     return (
       <View
         style={{
@@ -265,7 +283,7 @@ class Index extends PureComponent {
           justifyContent: 'space-between'
         }}
       >
-        <Top icon1="arrow-back" title="穆桂英挂帅" />
+        <Top icon1="arrow-back" title={title} />
         <ImageBackground
           style={{ flex: 1 }}
           source={{
@@ -276,29 +294,19 @@ class Index extends PureComponent {
             showsVerticalScrollIndicator={false}
             style={{ marginTop: pxToDp(65), marginBottom: pxToDp(65) }}
           >
-            <View style={{ alignItems: 'center' }}>
-              <Text style={styles.basicbox}>《穆桂英挂帅》选段</Text>
-              <Text style={styles.basicbox}>猛听得金鼓响画角声震</Text>
-              <Text style={styles.basicbox}>唤起我破天门壮志凌云</Text>
-              <Text style={styles.basicbox}>想当年桃花马上威风凛凛</Text>
-              <Text style={styles.basicbox}>敌血飞溅石榴裙</Text>
-              <Text style={styles.basicbox}>有生之日责当尽</Text>
-              <Text style={styles.basicbox}>寸土怎能够属于他人</Text>
-              <Text style={styles.basicbox}>番王小丑何足论</Text>
-              <Text style={styles.basicbox}>我一剑能当百万的兵</Text>
-              <Text style={styles.basicbox}>猛听得金鼓响画角声震</Text>
-              <Text style={styles.basicbox}>唤起我破天门壮志凌云</Text>
-              <Text style={styles.basicbox}>想当年桃花马上威风凛凛</Text>
-              <Text style={styles.basicbox}>敌血飞溅石榴裙</Text>
-              <Text style={styles.basicbox}>有生之日责当尽</Text>
-              <Text style={styles.basicbox}>寸土怎能够属于他人</Text>
-              <Text style={styles.basicbox}>番王小丑何足论</Text>
-              <Text style={styles.basicbox}>我一剑能当百万的兵</Text>
+            <View
+              style={{
+                alignSelf: 'center',
+                width: pxToDp(250),
+                justifyContent: 'center'
+              }}
+            >
+              <Text style={styles.basicbox}>{detail}</Text>
             </View>
             <View style={{ alignItems: 'center', justifyContent: 'center' }}>
               <Video
                 ref={(el) => (this.video = el)}
-                source={require('../study/越剧追鱼.mp3')}
+                source={mp3}
                 resizeMode="contain"
                 onPlaybackStatusUpdate={(status) => this.setState({ status })}
                 volume={value}
@@ -374,8 +382,10 @@ const styles = StyleSheet.create({
   basicbox: {
     fontSize: pxToDp(16),
     lineHeight: pxToDp(40),
+    color: '#333333',
+    justifyContent: 'center',
     alignItems: 'center',
-    color: '#333333'
+    textAlign: 'center'
   }
 });
 

@@ -82,6 +82,7 @@ export default class hello extends PureComponent {
   }
 
   render() {
+    console.log('888', this.props.route.params);
     return (
       <ScrollView style={{ flex: 1 }}>
         <Top icon1="arrow-back" title="穆桂英挂帅" />

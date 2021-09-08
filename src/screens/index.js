@@ -117,7 +117,7 @@ export { default as bookDetail } from './Timeline/bookDetail'; //相关书籍详
 export { default as Course } from './play/course'; //教程页面
 export { default as Basic } from './play/course/bankuai/basic'; //越剧基本功板块
 export { default as Master } from './play/course/bankuai/master'; //越剧大师教学板块
-export { default as Timemap } from '../ddd/index'; //时空地图
+export { default as Timemap } from './Timeline/index'; //时空地图
 export { default as Timeline } from './Timeline/index';
 export { default as HotList } from './play/hotlist'; //剧本热度榜单
 
@@ -160,4 +160,6 @@ export { default as SingSub } from './play/study/singsub';
 export { default as AddMoment } from './talk/home/forum/addMoment';
 export { default as JifenMingxi } from './my/jifenshop/jifenmingxi';
 export { default as GiftedChat } from './shop/home/giftedChat/index';
-
+export { default as Map } from '../component/map/map';
+export { default as MapToGo } from '../component/map/mapToGo';
+export { default as TBox } from './shop/tBox/index';
