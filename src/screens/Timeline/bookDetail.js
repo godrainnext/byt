@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Text, View, ScrollView, Image } from 'react-native';
 import Top from '../../component/common/top';
 import { pxToDp } from '../../utils/styleKits';
@@ -7,16 +7,16 @@ import JianJie from './book/JianJie';
 import BasicMessage from './book/BasicMessage';
 import CustormerBar from './book/CustormerBar';
 
-export default class bookDetail extends Component {
+export default class bookDetail extends PureComponent {
   render() {
     return (
-      <View style={{ flex: 1,backgroundColor:'white' }}>
+      <View style={{ flex: 1, backgroundColor: 'white' }}>
         <Top icon1="arrow-back" title="追鱼" />
         <View
           style={{
             backgroundColor: 'white',
-            marginTop:pxToDp(8),
-            marginLeft:pxToDp(16),
+            marginTop: pxToDp(8),
+            marginLeft: pxToDp(16),
             flexDirection: 'row'
           }}
         >
@@ -24,7 +24,7 @@ export default class bookDetail extends Component {
             style={{
               width: pxToDp(100),
               height: pxToDp(120),
-              borderRadius:pxToDp(8),
+              borderRadius: pxToDp(8),
               backgroundColor: '#ecf6fc'
             }}
             source={require('../../res/play/1.jpg')}
@@ -32,14 +32,31 @@ export default class bookDetail extends Component {
           <View
             style={{
               marginLeft: pxToDp(8),
-              justifyContent: 'flex-start',
+              justifyContent: 'flex-start'
             }}
           >
-            <Text style={{ fontWeight: 'bold', fontSize: pxToDp(20),color:'#000000',marginTop:pxToDp(2) }}>
+            <Text
+              style={{
+                fontWeight: 'bold',
+                fontSize: pxToDp(20),
+                color: '#000000',
+                marginTop: pxToDp(2)
+              }}
+            >
               追鱼
             </Text>
-            <Text style={{ color: '#666666',fontSize:pxToDp(14) }}>Chasing fish</Text>
-            <Text style={{ fontSize: pxToDp(16),color:'#333333',marginTop:pxToDp(10)}}>佚名</Text>
+            <Text style={{ color: '#666666', fontSize: pxToDp(14) }}>
+              Chasing fish
+            </Text>
+            <Text
+              style={{
+                fontSize: pxToDp(16),
+                color: '#333333',
+                marginTop: pxToDp(10)
+              }}
+            >
+              佚名
+            </Text>
           </View>
         </View>
         <ScrollableTabView

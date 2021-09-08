@@ -1,12 +1,25 @@
-import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableWithoutFeedback, TouchableOpacity, Dimensions, Image, textarea, Button, FlatList, TextInput, ScrollView } from 'react-native';
+import React, { PureComponent } from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableWithoutFeedback,
+  TouchableOpacity,
+  Dimensions,
+  Image,
+  textarea,
+  Button,
+  FlatList,
+  TextInput,
+  ScrollView
+} from 'react-native';
 //导入Video组件
 import Video from 'react-native-video';
 // 导入 Silder组件
 import Slider from '@react-native-community/slider';
 // 屏幕方向锁定: 他需要改变 原来Android文件代码，当然适配两端的话，IOS也是需要更改的。
 import Orientation from 'react-native-orientation-locker';
-import SvgUri from 'react-native-svg-uri'
+import SvgUri from 'react-native-svg-uri';
 let screenWidth = Dimensions.get('window').width;
 let screenHeight = Dimensions.get('window').height;
 
@@ -61,7 +74,7 @@ const mockBooks = [
   }
 ];
 
-export default class videoplayer extends React.Component {
+export default class videoplayer extends React.PureComponent {
   constructor(props) {
     super(props);
     this.changePausedState = this.changePausedState.bind(this);

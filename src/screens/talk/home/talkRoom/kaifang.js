@@ -14,23 +14,19 @@ import {
 } from 'react-native';
 import { Input } from 'react-native-elements';
 import RtcEngine, {
-  RtcLocalView,
-  RtcRemoteView,
-  VideoRenderMode,
   ChannelProfile,
   ClientRole
 } from 'react-native-agora';
-import { WebView } from 'react-native-webview';
-import { MarqueeHorizontal, MarqueeVertical } from 'react-native-marquee-ab';
 import { pxToDp } from '../../../../utils/styleKits';
-import LottieView from 'lottie-react-native';
 import { NavigationContext } from '@react-navigation/native';
-import axios from 'axios';
-import PulseLoader from 'react-native-pulse-loader';
 import Top from '@components/common/top';
 import { launchImageLibrary } from 'react-native-image-picker';
 import Mybtn from '../../../../component/common/mybtn';
 import request from '@service/index';
+import { playmusic } from '../../../../component/common/iconSvg';
+import SvgUri from 'react-native-svg-uri';
+import Swiper from 'react-native-swiper';
+import VideoPlayScreen from '../../../../component/videoplayer/VideoPlayScreen';
 
 const dimensions = {
   width: Dimensions.get('window').width,
@@ -44,9 +40,9 @@ const requestCameraAndAudioPermission = async () => {
     ]);
     if (
       granted['android.permission.RECORD_AUDIO'] ===
-        PermissionsAndroid.RESULTS.GRANTED &&
+      PermissionsAndroid.RESULTS.GRANTED &&
       granted['android.permission.CAMERA'] ===
-        PermissionsAndroid.RESULTS.GRANTED
+      PermissionsAndroid.RESULTS.GRANTED
     ) {
       console.log('You can use the cameras & mic');
     } else {
@@ -107,7 +103,43 @@ export default class App extends Component {
       roomName: '',
       roomImg: '',
       image: {},
-      result: {}
+      result: {},
+      data1: [
+        { id: '1', title: '梁祝 十八相送', autor: '吴凤花 单仰萍' },
+        { id: '2', title: '何文秀 哭牌算命', autor: '王君安 李敏' },
+        { id: '3', title: '沉香扇', autor: '丁赛君 王文娟' },
+        { id: '4', title: '春香传', autor: ' 王文娟 徐玉兰' },
+        { id: '5', title: '孔雀东南飞', autor: '陈颖 吴凤花' },
+        { id: '6', title: '打金枝', autor: '吴凤花 吴素英' },
+        { id: '7', title: '宋弘传奇 和诗', autor: '王君安' },
+        { id: '8', title: '杜十娘 沉宝', autor: '陈飞 吴凤花' },
+        { id: '9', title: '吴王悲歌 刺王', autor: '吴凤花 董鉴鸿' },
+        { id: '10', title: '双烈记 夸夫', autor: '吴凤花 方亚芬' },
+      ],
+      data2: [
+        { id: '1', title: '梁祝 楼台会', autor: '章瑞虹 方亚芬' },
+        { id: '2', title: '何文秀 算命', autor: '赵志刚 方亚芬' },
+        { id: '3', title: '祥林嫂 洞房', autor: '方亚芬 许杰' },
+        { id: '4', title: '白蛇传 合钵', autor: '戚雅仙 毕春芳' },
+        { id: '5', title: '沉香扇 书房会', autor: '毕春芳 王文娟' },
+        { id: '6', title: '玉蜻蜓 认子', autor: '戚雅仙 毕春芳' },
+        { id: '7', title: '盘夫索夫', autor: '陆锦花 金采风' },
+        { id: '8', title: '红楼梦 调包计', autor: '金采风 周宝奎' },
+        { id: '9', title: '劈山救母', autor: '连玉澜 张国华' },
+        { id: '10', title: '红花曲', autor: '金采风' },
+      ],
+      data3: [
+        { id: '1', title: '宝莲灯 对月思家', autor: '吴凤花' },
+        { id: '2', title: '孔雀东南飞 殉情', autor: '傅全香 范瑞娟' },
+        { id: '3', title: '一缕麻', autor: '徐铭' },
+        { id: '4', title: '红楼梦 试玉', autor: '郑国凤 盛舒扬' },
+        { id: '5', title: '李娃传 剔目', autor: '盛舒扬 王舒雯' },
+        { id: '6', title: '千里送京娘', autor: '盛舒扬 王柔桑' },
+        { id: '7', title: '十八相送', autor: '钱惠丽 单仰萍' },
+        { id: '8', title: '紫玉钗 洞房', autor: '钱惠丽 单仰萍' },
+        { id: '9', title: '家 幻觉', autor: '赵志刚 孙智君' },
+        { id: '10', title: '春香传 心歌', autor: '王文娟' },
+      ],
     };
     if (Platform.OS === 'android') {
       // Request required permissions from Android
@@ -458,9 +490,6 @@ export default class App extends Component {
     return joinSucceed ? (
       <ImageBackground
         style={{ width: '100%', height: '100%' }}
-        source={{
-          uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic.vjshi.com%2F2015-07-03%2F1435906279772_102%2F00002.jpg%3Fx-oss-process%3Dstyle%2Fwatermark&refer=http%3A%2F%2Fpic.vjshi.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631528779&t=9aa6e3fc4a10ebf05c0ad6f581c2c98e'
-        }}
       >
         <View style={styles.fullView}>{this._renderRemoteVideos()}</View>
       </ImageBackground>
@@ -470,109 +499,142 @@ export default class App extends Component {
   _renderRemoteVideos = () => {
     const { peerIds } = this.state;
     return (
-      <View style={styles.remoteContainer}>
-        <TouchableOpacity
-          onPress={this.closeCall}
-          style={{
-            backgroundColor: 'rgba(0,0,0,0.4)',
-            height: pxToDp(24),
-            width: pxToDp(24),
-            flexDirection: 'row',
-            justifyContent: 'center',
-            alignItems: 'center',
-            borderRadius: pxToDp(24),
-            padding: pxToDp(4)
-          }}
-        >
-          <View
-            style={{
-              height: pxToDp(20),
-              width: pxToDp(20),
-              justifyContent: 'center',
-              alignItems: 'center'
-            }}
-          >
-            <Text style={{ color: 'white', fontSize: 16, fontWeight: 'bold' }}>
-              X
-            </Text>
+      <View
+        style={styles.remoteContainer}
+      >
+        <Top title='小剧场' icon1="arrow-back" />
+        <View style={{ width: '100%' }}>
+          <Image style={{ height: pxToDp(115), width: '100%', resizeMode: 'contain', zIndex: 9999 }} source={require('../../../../res/tv2.png')} />
+          <Image style={{ height: pxToDp(225), width: pxToDp(42), resizeMode: 'contain', zIndex: 9999, marginLeft: pxToDp(1.7), marginTop: pxToDp(-12) }} source={require('../../../../res/tv1.png')} />
+          <Image style={{ height: pxToDp(230), width: pxToDp(134), resizeMode: 'contain', zIndex: 9999, marginLeft: pxToDp(264), marginTop: pxToDp(-225) }} source={require('../../../../res/tv3.png')} />
+          <Image style={{ height: pxToDp(45), width: '100%', resizeMode: 'contain', zIndex: 9999, marginLeft: pxToDp(-20), marginTop: pxToDp(-40.5) }} source={require('../../../../res/tv4.png')} />
+          <View style={{ height: pxToDp(210), width: pxToDp(300), marginLeft: pxToDp(18), marginTop: pxToDp(-250) }}>
+            <VideoPlayScreen videoInfo={{ video: this.state.video }} />
           </View>
-        </TouchableOpacity>
-        <View style={{ height: pxToDp(412) }}>
-          <WebView
-            style={{
-              width: '100%',
-              height: pxToDp(320),
-              backgroundColor: 'transparent'
-            }}
-            // source={{ html: HTML }}
-            source={{ uri: 'file:///android_asset/static.bundle/music.html' }}
-            originWhitelist={['*']}
-            javaScriptEnabled={true} //是否开启js
-            domStorageEnabled={true} //是否开启存储
-            scalesPageToFit={false} //用户是否可以改变页面
-            scrollEnabled={false}
-            // injectedJavaScript={`	`}
-            onMessage={(event) => {
-              '接收h5页面传过来的消息';
-            }}
-          />
-          <View
-            style={{
-              flexDirection: 'row',
-              justifyContent: 'space-around',
-              alignItems: 'center'
-            }}
-          >
+          <View style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', marginTop: pxToDp(50) }}>
             <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-              <Image
-                style={{
-                  width: pxToDp(65),
-                  height: pxToDp(65),
-                  borderRadius: pxToDp(24)
-                }}
-                source={{
-                  uri: 'https://pics2.baidu.com/feed/bd315c6034a85edf1a928e0e0da87425dc547587.jpeg?token=119b3f2abe0889ed0753ea8c3e8b288d'
-                }}
-              ></Image>
+              <Image style={{ width: pxToDp(65), height: pxToDp(65), borderRadius: pxToDp(24) }} source={{ uri: 'https://pics2.baidu.com/feed/bd315c6034a85edf1a928e0e0da87425dc547587.jpeg?token=119b3f2abe0889ed0753ea8c3e8b288d' }}></Image>
               <Text style={{ fontSize: pxToDp(16) }}>野原新之助</Text>
             </View>
-            <TouchableOpacity
-              style={{
-                width: pxToDp(80),
-                height: pxToDp(40),
-                borderRadius: pxToDp(32),
-                backgroundColor: '#468cd3',
-                justifyContent: 'center',
-                alignItems: 'center'
-              }}
-            >
-              <Text style={{ fontSize: pxToDp(16) }}>开始演唱</Text>
+            <TouchableOpacity style={{ width: pxToDp(80), height: pxToDp(40), borderRadius: pxToDp(32), backgroundColor: '#468cd3', justifyContent: 'center', alignItems: 'center' }}>
+              <Text style={{ fontSize: pxToDp(16) }}>
+                开始演唱
+              </Text>
             </TouchableOpacity>
             <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-              <Image
-                style={{
-                  width: pxToDp(65),
-                  height: pxToDp(65),
-                  borderRadius: pxToDp(24)
-                }}
-                source={{
-                  uri: 'https://img0.baidu.com/it/u=4203889072,870375471&fm=26&fmt=auto&gp=0.jpg'
-                }}
-              ></Image>
+              <Image style={{ width: pxToDp(65), height: pxToDp(65), borderRadius: pxToDp(24) }} source={{ uri: 'https://img0.baidu.com/it/u=4203889072,870375471&fm=26&fmt=auto&gp=0.jpg' }}></Image>
               <Text style={{ fontSize: pxToDp(16) }}>蜡笔小新</Text>
             </View>
           </View>
         </View>
-        <View
-          style={{
-            justifyContent: 'center',
-            alignItems: 'center',
-            margin: pxToDp(8)
-          }}
-        >
-          <Text style={{ fontSize: pxToDp(14), color: '#468cd3' }}>
-            开始演唱啦，请留意各自演唱的分段哦
-          </Text>
+        <View style={styles.songbox}>
+          <Swiper
+            removeClippedSubviews={false}
+            showsButtons={false}
+            showsPagination={true}
+            loop={false}
+            autoplay={false}
+            paginationStyle={{ bottom: pxToDp(-15) }} //dot的位置
+          >
+            <View>
+              <ScrollView showsVerticalScrollIndicator={false}>
+                {this.state.data1.map((item) => (
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      justifyContent: 'space-between',
+                      marginBottom: pxToDp(10),
+                      alignItems: 'center'
+                    }}
+                  >
+                    <View>
+                      <Text
+                        style={{
+                          fontSize: pxToDp(16),
+                          fontWeight: 'bold',
+                          color: '#333333'
+                        }}
+                      >
+                        {item.title}
+                      </Text>
+                      <Text style={{ fontSize: pxToDp(14), color: '#999999' }}>
+                        {item.autor}
+                      </Text>
+                    </View>
+                    <TouchableOpacity
+                      onPress={() => this.setState({ showSong: false })}
+                    >
+                      <SvgUri svgXmlData={playmusic} width="30" height="30" />
+                    </TouchableOpacity>
+                  </View>
+                ))}
+              </ScrollView>
+            </View>
+            <View>
+              <ScrollView showsVerticalScrollIndicator={false}>
+                {this.state.data2.map((item) => (
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      justifyContent: 'space-between',
+                      marginBottom: pxToDp(10),
+                      alignItems: 'center'
+                    }}
+                  >
+                    <View>
+                      <Text
+                        style={{
+                          fontSize: pxToDp(16),
+                          fontWeight: 'bold',
+                          color: '#333333'
+                        }}
+                      >
+                        {item.title}
+                      </Text>
+                      <Text style={{ fontSize: pxToDp(14), color: '#999999' }}>
+                        {item.autor}
+                      </Text>
+                    </View>
+                    <TouchableOpacity>
+                      <SvgUri svgXmlData={playmusic} width="30" height="30" />
+                    </TouchableOpacity>
+                  </View>
+                ))}
+              </ScrollView>
+            </View>
+            <View>
+              <ScrollView showsVerticalScrollIndicator={false}>
+                {this.state.data3.map((item) => (
+                  <View
+                    style={{
+                      flexDirection: 'row',
+                      justifyContent: 'space-between',
+                      marginBottom: pxToDp(10),
+                      alignItems: 'center'
+                    }}
+                  >
+                    <View>
+                      <Text
+                        style={{
+                          fontSize: pxToDp(16),
+                          fontWeight: 'bold',
+                          color: '#333333'
+                        }}
+                      >
+                        {item.title}
+                      </Text>
+                      <Text style={{ fontSize: pxToDp(14), color: '#999999' }}>
+                        {item.autor}
+                      </Text>
+                    </View>
+                    <TouchableOpacity>
+                      <SvgUri svgXmlData={playmusic} width="30" height="30" />
+                    </TouchableOpacity>
+                  </View>
+                ))}
+              </ScrollView>
+            </View>
+          </Swiper>
         </View>
       </View>
     );
@@ -606,7 +668,7 @@ const styles = StyleSheet.create({
   remoteContainer: {
     width: '100%',
     height: dimensions.height,
-    position: 'absolute'
+    position: 'absolute',
     // marginTop:80
   },
   remote: {
@@ -618,5 +680,16 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     paddingVertical: 5,
     color: '#0093E9'
+  },
+  songbox: {
+    height: pxToDp(280),
+    padding: pxToDp(16),
+    marginTop: pxToDp(16),
+    backgroundColor: 'white',
+    borderBottomLeftRadius: pxToDp(16),
+    borderBottomRightRadius: pxToDp(16),
+    elevation: 8,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+    shadowColor: 'black',  //  阴影颜色
+    shadowRadius: pxToDp(10),  //  圆角
   }
 });

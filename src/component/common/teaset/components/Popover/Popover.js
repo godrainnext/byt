@@ -2,13 +2,13 @@
 
 'use strict';
 
-import React, {Component} from "react";
+import React, {PureComponent} from "react";
 import PropTypes from 'prop-types';
 import {StyleSheet, View, ViewPropTypes} from 'react-native';
 
 import Theme from 'teaset/themes/Theme';
 
-export default class Popover extends Component {
+export default class Popover extends PureComponent {
 
   static propTypes = {
     ...ViewPropTypes,

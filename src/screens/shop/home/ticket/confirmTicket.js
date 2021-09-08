@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import {
   Text,
   View,
@@ -19,7 +19,7 @@ import CodeFieldzz from '../../../my/order/components/codefield';
 import { NavigationContext } from '@react-navigation/native';
 const back =
   '<svg t="1630480820345" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2172" width="200" height="200"><path d="M759.3984 276.6848a25.6 25.6 0 0 1 0 36.181333L560.298667 512l199.099733 199.168a25.6 25.6 0 0 1 0 36.181333l-12.0832 12.0832a25.6 25.6 0 0 1-36.181333 0L512 560.264533l-199.168 199.133867a25.6 25.6 0 0 1-36.181333 0l-12.0832-12.0832a25.6 25.6 0 0 1 0-36.181333l199.133866-199.168-199.133866-199.099734a25.6 25.6 0 0 1 0-36.181333l12.0832-12.0832a25.6 25.6 0 0 1 36.181333 0l199.168 199.099733 199.099733-199.099733a25.6 25.6 0 0 1 36.181334 0l12.0832 12.0832z" p-id="2173" fill="#8a8a8a"></path></svg>';
-export default class confirmTicket extends Component {
+export default class confirmTicket extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -114,7 +114,6 @@ export default class confirmTicket extends Component {
     this.Scrollable.close();
   };
   render() {
-    console.log(this.props.route.params);
     const { chooseCount } = this.props.route.params;
     return (
       <View style={{ flex: 1 }}>
@@ -135,9 +134,13 @@ export default class confirmTicket extends Component {
             }}
           >
             <Text style={{ fontSize: pxToDp(18) }}>钱塘戏社越剧专场</Text>
-            <Text style={{ fontSize: pxToDp(16) }}>2021.08.15-10.01</Text>
-            <Text style={{ fontSize: pxToDp(16) }}>单价：￥30</Text>
-            <Text style={{ fontSize: pxToDp(16) }}>
+            <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
+              2021.08.15-10.01
+            </Text>
+            <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
+              单价：￥30
+            </Text>
+            <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
               总价：￥{chooseCount * 30}
             </Text>
           </View>
@@ -155,16 +158,16 @@ export default class confirmTicket extends Component {
             }}
           >
             <Text style={{ fontSize: pxToDp(20) }}>购票须知</Text>
-            <Text style={{ fontSize: pxToDp(16) }}>
+            <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
               1.请确认场次和时间无误，购买成功后将不予退换
             </Text>
-            <Text style={{ fontSize: pxToDp(16) }}>
+            <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
               2.由于设备故障等不可抗力因素，存在少量场次取消的情况，会进行退票退款
             </Text>
-            <Text style={{ fontSize: pxToDp(16) }}>
+            <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
               3.由于剧院系统不稳定等因素，存在出票失败的情况，会进行退款
             </Text>
-            <Text style={{ fontSize: pxToDp(16) }}>
+            <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
               4.取票码可以在“票据详情”中查看
             </Text>
           </View>
@@ -235,7 +238,8 @@ export default class confirmTicket extends Component {
                 style={{
                   marginLeft: pxToDp(25),
                   fontSize: pxToDp(16),
-                  marginTop: pxToDp(10)
+                  marginTop: pxToDp(10),
+                  color: '#666666'
                 }}
               >
                 支付方式
