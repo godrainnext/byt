@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import ImageFade from './imgaefade';
 import {
   View,
@@ -20,10 +20,8 @@ import Hy from '@components/first/hy';
 import Legend from '@components/first/legend';
 import Actress from '@components/first/actress';
 import { connect } from 'react-redux';
-import Swiper from 'react-native-swiper';
 import { getUserInfoAction } from './store/actions';
 import RecommendCard from '../../../component/common/recommendcard';
-import Qiandao from '../../../component/common/qiandao';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Svg from 'react-native-svg-uri';
 import { star } from '../../../component/common/iconSvg';
@@ -32,7 +30,7 @@ import LottieView from 'lottie-react-native';
 let navHeight = 45;
 
 const width = Dimensions.get('window').width;
-class Index extends Component {
+class Index extends PureComponent {
   static contextType = NavigationContext;
   state = {
     arr: [],
@@ -45,7 +43,7 @@ class Index extends Component {
         id: '1',
         title: '追鱼',
         context:
-          '追鱼,其主要剧情为：北宋嘉佑年间，应天府（今商丘）学子张珍之父与开封府金牡丹小姐之父金丞相原本乃是同窗好友，自幼指腹为婚。张珍父母去世后，家道衰败，金丞相嫌他贫穷便冷眼相待，让他独居后苑碧波亭，并以“金家三代不招白衣婿”为由，命张珍独居后花园碧波潭畔草庐读书，伺机退婚。鲤鱼精不甘水府寂寥，见张珍纯朴，就变成牡丹小姐每晚和他相会，不料被真牡丹小姐发现被赶出金门。假牡丹与张珍在回乡路上，被金丞相见到误以为其女与张私奔。到府内真假牡丹难辨，特请包公，鲤鱼精又闹个真假包公。后鲤鱼精转为凡人，与张珍结为夫妻。',
+          '《追鱼》讲述了北宋嘉佑年间，应天府（今商丘）学子张珍之父与开封府金牡丹小姐之父金丞相原本乃是同窗好友，自幼指腹为婚。张珍父母去世后，家道衰败，金丞相嫌他贫穷便冷眼相待，让他独居后苑碧波亭，并以“金家三代不招白衣婿”为由，命张珍独居后花园碧波潭畔草庐读书，伺机退婚。鲤鱼精不甘水府寂寥，见张珍纯朴，就变成牡丹小姐每晚和他相会，不料被真牡丹小姐发现被赶出金门。假牡丹与张珍在回乡路上，被金丞相见到误以为其女与张私奔。到府内真假牡丹难辨，特请包公，鲤鱼精又闹个真假包公。后鲤鱼精转为凡人，与张珍结为夫妻。',
         path: 'https://tse1-mm.cn.bing.net/th/id/R-C.09c6e90235b64a74e410e32c0b066740?rik=NXUt3kmSNer%2fVA&riu=http%3a%2f%2fi1.hdslb.com%2fbfs%2farchive%2feb476a0eed8d390ccbb89a76ec9eba802412b473.jpg&ehk=H7uDdyzqoosCQAGzv2tmz240YETTBtixjDqyWGBeXZg%3d&risl=&pid=ImgRaw&r=0',
         drama: 'Drama1'
       },
@@ -53,7 +51,7 @@ class Index extends Component {
         id: '2',
         title: '五女拜寿',
         context:
-          '该剧讲述的是尚书杨继康做寿，五个女儿女婿前来祝寿，因养女三春及婿邹应龙贫贱，杨夫人不悦赶出府去。后杨因得罪严嵩革职，诸女皆不能依靠，唯三春将其收留。后邹中状元，扳倒严嵩，杨沉冤得雪，诸女又来拜寿。一番沉浮，杨夫人方知人间冷暖。',
+          '《五女拜寿》讲述了尚书杨继康做寿，五个女儿女婿前来祝寿，因养女三春及婿邹应龙贫贱，杨夫人不悦赶出府去。后杨因得罪严嵩革职，诸女皆不能依靠，唯三春将其收留。后邹中状元，扳倒严嵩，杨沉冤得雪，诸女又来拜寿。一番沉浮，杨夫人方知人间冷暖。',
         path: 'https://img1.baidu.com/it/u=838358760,1964554786&fm=26&fmt=auto&gp=0.jpg',
         drama: 'Drama2'
       },
@@ -167,13 +165,16 @@ class Index extends Component {
           </View>
         )}
         //自定义头部内容
-        renderForeground={() => <View style={{ Top: pxToDp(200), left: pxToDp(100) }}></View>}
+        renderForeground={() => (
+          <View style={{ Top: pxToDp(200), left: pxToDp(100) }}></View>
+        )}
         scrollableViewStyle={{ backgroundColor: 'acddfc' }}
       >
         <View
           style={{
             flex: 1,
-            marginTop: pxToDp(-10)
+            marginTop: pxToDp(-10),
+            marginBottom: pxToDp(16)
           }}
         >
           <View
@@ -193,7 +194,7 @@ class Index extends Component {
               }}
               onPress={this.toggleModal}
             >
-              <Ionicons name="layers" size={32} color="#62bfad" />
+              <Ionicons name="layers" size={32} color="#FE9E9F" />
               <Text
                 style={{
                   fontSize: pxToDp(16),
@@ -218,7 +219,7 @@ class Index extends Component {
               }}
               onPress={() => this.context.navigate('Course')}
             >
-              <Ionicons name="easel" size={32} color="#62bfad" />
+              <Ionicons name="easel" size={32} color="#FDCF97" />
               <Text
                 style={{
                   fontSize: pxToDp(16),
@@ -271,7 +272,7 @@ class Index extends Component {
               }}
               onPress={() => this.context.navigate('Timeline')}
             >
-              <Entypo name="colours" size={32} color="#62bfad" />
+              <Entypo name="colours" size={32} color="#6CE6FC" />
               <Text
                 style={{
                   fontSize: pxToDp(16),
@@ -292,7 +293,7 @@ class Index extends Component {
               }}
               onPress={() => this.context.navigate('Scriptlibrary')}
             >
-              <Ionicons name="library-sharp" size={32} color="#62bfad" />
+              <Ionicons name="library-sharp" size={32} color="#C1F6F1" />
               <Text
                 style={{
                   fontSize: pxToDp(16),
@@ -315,13 +316,12 @@ class Index extends Component {
             }}
           >
             <View style={styles.titlebox}>
-              <View style={styles.left}>
-              </View>
+              <View style={styles.left}></View>
               <View>
-                <View style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}>
-                  <Text style={styles.titletext}>
-                    俯瞰百年
-                  </Text>
+                <View
+                  style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}
+                >
+                  <Text style={styles.titletext}>俯瞰百年</Text>
                   <LottieView
                     style={{ width: pxToDp(80) }}
                     source={require('../../../../lottie/标题底部.json')}
@@ -330,10 +330,11 @@ class Index extends Component {
                   />
                 </View>
               </View>
-              <TouchableOpacity style={styles.right} onPress={() => this.context.navigate('Card')}>
-                <Text style={styles.righttext}>
-                  查看更多
-                </Text>
+              <TouchableOpacity
+                style={styles.right}
+                onPress={() => this.context.navigate('Card')}
+              >
+                <Text style={styles.righttext}>查看更多</Text>
                 <Ionicons name="chevron-forward" size={16} color="#666666" />
               </TouchableOpacity>
             </View>
@@ -342,13 +343,12 @@ class Index extends Component {
           </View>
           {/*流派传奇 */}
           <View style={styles.titlebox}>
-            <View style={styles.left}>
-            </View>
+            <View style={styles.left}></View>
             <View>
-              <View style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}>
-                <Text style={styles.titletext}>
-                  流派传奇
-                </Text>
+              <View
+                style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}
+              >
+                <Text style={styles.titletext}>流派传奇</Text>
                 <LottieView
                   style={{ width: pxToDp(80) }}
                   source={require('../../../../lottie/标题底部.json')}
@@ -357,10 +357,11 @@ class Index extends Component {
                 />
               </View>
             </View>
-            <TouchableOpacity style={styles.right} onPress={() => this.context.navigate('PageOne', 2)}>
-              <Text style={styles.righttext}>
-                查看更多
-              </Text>
+            <TouchableOpacity
+              style={styles.right}
+              onPress={() => this.context.navigate('PageOne', 2)}
+            >
+              <Text style={styles.righttext}>查看更多</Text>
               <Ionicons name="chevron-forward" size={18} color="#666666" />
             </TouchableOpacity>
           </View>
@@ -404,13 +405,12 @@ class Index extends Component {
           {/*梨园子弟 */}
           <View style={{ marginTop: pxToDp(16) }}>
             <View style={styles.titlebox}>
-              <View style={styles.left}>
-              </View>
+              <View style={styles.left}></View>
               <View>
-                <View style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}>
-                  <Text style={styles.titletext}>
-                    梨园子弟
-                  </Text>
+                <View
+                  style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}
+                >
+                  <Text style={styles.titletext}>梨园子弟</Text>
                   <LottieView
                     style={{ width: pxToDp(80) }}
                     source={require('../../../../lottie/标题底部.json')}
@@ -419,10 +419,11 @@ class Index extends Component {
                   />
                 </View>
               </View>
-              <TouchableOpacity style={styles.right} onPress={() => this.context.navigate('PageThree', 2)}>
-                <Text style={styles.righttext}>
-                  查看更多
-                </Text>
+              <TouchableOpacity
+                style={styles.right}
+                onPress={() => this.context.navigate('PageThree', 2)}
+              >
+                <Text style={styles.righttext}>查看更多</Text>
                 <Ionicons name="chevron-forward" size={16} color="#666666" />
               </TouchableOpacity>
             </View>
@@ -430,13 +431,12 @@ class Index extends Component {
           </View>
           {/* 轮播图 */}
           <View style={styles.titlebox}>
-            <View style={styles.left}>
-            </View>
+            <View style={styles.left}></View>
             <View>
-              <View style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}>
-                <Text style={styles.titletext}>
-                  本周热门
-                </Text>
+              <View
+                style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}
+              >
+                <Text style={styles.titletext}>本周热门</Text>
                 <LottieView
                   style={{ width: pxToDp(80) }}
                   source={require('../../../../lottie/标题底部.json')}
@@ -445,15 +445,19 @@ class Index extends Component {
                 />
               </View>
             </View>
-            <TouchableOpacity style={styles.right} onPress={() => this.context.navigate('HotList')}>
-              <Text style={styles.righttext}>
-                查看更多
-              </Text>
+            <TouchableOpacity
+              style={styles.right}
+              onPress={() => this.context.navigate('HotList')}
+            >
+              <Text style={styles.righttext}>查看更多</Text>
               <Ionicons name="chevron-forward" size={16} color="#666666" />
             </TouchableOpacity>
           </View>
           <View style={styles.carousel}>
-            <Carousel control={false} style={{ height: pxToDp(156), marginTop: pxToDp(10) }}>
+            <Carousel
+              control={false}
+              style={{ height: pxToDp(156), marginTop: pxToDp(10) }}
+            >
               {this.state.books.map((item) => (
                 <View style={styles.bookbox}>
                   <TouchableNativeFeedback
@@ -533,13 +537,12 @@ class Index extends Component {
           </View>
           {/*剧本推荐 */}
           <View style={styles.titlebox}>
-            <View style={styles.left}>
-            </View>
+            <View style={styles.left}></View>
             <View>
-              <View style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}>
-                <Text style={styles.titletext}>
-                  剧本推荐
-                </Text>
+              <View
+                style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}
+              >
+                <Text style={styles.titletext}>剧本推荐</Text>
                 <LottieView
                   style={{ width: pxToDp(80) }}
                   source={require('../../../../lottie/标题底部.json')}
@@ -548,10 +551,11 @@ class Index extends Component {
                 />
               </View>
             </View>
-            <TouchableOpacity style={styles.right} onPress={() => this.context.navigate('Scriptlibrary')}>
-              <Text style={styles.righttext}>
-                查看更多
-              </Text>
+            <TouchableOpacity
+              style={styles.right}
+              onPress={() => this.context.navigate('Scriptlibrary')}
+            >
+              <Text style={styles.righttext}>查看更多</Text>
               <Ionicons name="chevron-forward" size={16} color="#666666" />
             </TouchableOpacity>
           </View>
@@ -726,7 +730,8 @@ const styles = StyleSheet.create({
   right: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginLeft: pxToDp(180)
+    marginLeft: pxToDp(180),
+    marginBottom: pxToDp(10)
   },
   titletext: {
     fontSize: pxToDp(18),

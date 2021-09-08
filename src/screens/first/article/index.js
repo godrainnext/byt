@@ -7,7 +7,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 class Index extends PureComponent {
     render() {
         return (
-          <View style={{ backgroundColor: '#E2F4FE' }}>
+          <View style={{ backgroundColor: '#D5E8E6' }}>
             <Top
               icon1="arrow-back"
               title="文章详情"

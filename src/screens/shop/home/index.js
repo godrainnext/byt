@@ -74,48 +74,64 @@ class Index extends PureComponent {
           <View style={{ height: pxToDp(260) }}>
             <BetterBanner
               bannerComponents={[
-                <View style={{
-                  width: '100%',
-                  height: '100%',
-                  backgroundColor: 'white',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}>
-                  <Image style={styles.luoboimage} source={require('../../../res/0901/商城轮播1.png')} />
+                <View
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    backgroundColor: 'white',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}
+                >
+                  <Image
+                    style={styles.luoboimage}
+                    source={require('../../../res/0901/商城轮播1.png')}
+                  />
                 </View>,
-                <View style={{
-                  width: '100%',
-                  height: '100%',
-                  backgroundColor: 'white',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}>
-                  <Image style={styles.luoboimage} source={require('../../../res/0901/商城轮播2.png')} />
+                <View
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    backgroundColor: 'white',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}
+                >
+                  <Image
+                    style={styles.luoboimage}
+                    source={require('../../../res/0901/商城轮播2.png')}
+                  />
                 </View>,
-                <View style={{
-                  width: '100%',
-                  height: '100%',
-                  backgroundColor: 'white',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}>
-                  <Image style={styles.luoboimage} source={require('../../../res/0901/商城轮播3.png')} />
-                </View>,
+                <View
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    backgroundColor: 'white',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}
+                >
+                  <Image
+                    style={styles.luoboimage}
+                    source={require('../../../res/0901/商城轮播3.png')}
+                  />
+                </View>
               ]}
-              bannerTitles={[" 双十一购物节 快来囤货吧", " 国潮+越剧 潮流风暴来袭", " 越剧周边商城已上新"]}
+              bannerTitles={[
+                ' 双十一购物节 快来囤货吧',
+                ' 国潮+越剧 潮流风暴来袭',
+                ' 越剧周边商城已上新'
+              ]}
               onPress={(index) => alert('you pressed index is : ' + index)}
               indicatorContainerBackgroundColor={'#62bfad'}
               isSeamlessScroll={true}
             />
           </View>
-          {/*今日上新 */}
+          {/*本周新品 */}
           <View style={styles.titlebox}>
-            <View style={styles.left}>
-            </View>
+            <View style={styles.left}></View>
             <View style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}>
-              <Text style={styles.titletext}>
-                本周新品
-              </Text>
+              <Text style={styles.titletext}>本周新品</Text>
               <LottieView
                 style={{ width: pxToDp(80) }}
                 source={require('../../../../lottie/标题底部.json')}
@@ -124,17 +140,20 @@ class Index extends PureComponent {
               />
             </View>
           </View>
-          <SafeAreaView style={{ marginLeft: pxToDp(16), marginRight: pxToDp(16), marginTop: pxToDp(8) }}>
+          <SafeAreaView
+            style={{
+              marginLeft: pxToDp(16),
+              marginRight: pxToDp(16),
+              marginTop: pxToDp(8)
+            }}
+          >
             <SwiperCard />
           </SafeAreaView>
           {/*主版块 */}
           <View style={styles.titlebox}>
-            <View style={styles.left}>
-            </View>
+            <View style={styles.left}></View>
             <View style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}>
-              <Text style={styles.titletext}>
-                越剧商城
-              </Text>
+              <Text style={styles.titletext}>越剧商城</Text>
               <LottieView
                 style={{ width: pxToDp(80) }}
                 source={require('../../../../lottie/标题底部.json')}
@@ -198,12 +217,9 @@ class Index extends PureComponent {
           </View>
           {/**精品推荐*/}
           <View style={styles.titlebox}>
-            <View style={styles.left}>
-            </View>
+            <View style={styles.left}></View>
             <View style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}>
-              <Text style={styles.titletext}>
-                精品推荐
-              </Text>
+              <Text style={styles.titletext}>精品推荐</Text>
               <LottieView
                 style={{ width: pxToDp(80) }}
                 source={require('../../../../lottie/标题底部.json')}
@@ -214,11 +230,26 @@ class Index extends PureComponent {
           </View>
           <View style={styles.jing}>
             <View style={{ flexDirection: 'row' }}>
-              <Image style={styles.jingimage} source={require('../../../res/shop/13.jpg')} />
-              <View style={{ alignSelf: 'center', marginLeft: pxToDp(8), width: pxToDp(190) }}>
-                <Text style={{ fontSize: pxToDp(16), color: '#000000' }}>越剧人物折扇</Text>
-                <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>以越剧经典剧目人物形象为基础，将其画入扇中。</Text>
-                <Text style={{ fontSize: pxToDp(14), color: '#62bfad' }}>￥45</Text>
+              <Image
+                style={styles.jingimage}
+                source={require('../../../res/shop/13.jpg')}
+              />
+              <View
+                style={{
+                  alignSelf: 'center',
+                  marginLeft: pxToDp(8),
+                  width: pxToDp(190)
+                }}
+              >
+                <Text style={{ fontSize: pxToDp(16), color: '#000000' }}>
+                  越剧人物折扇
+                </Text>
+                <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
+                  以越剧经典剧目人物形象为基础，将其画入扇中。
+                </Text>
+                <Text style={{ fontSize: pxToDp(14), color: '#62bfad' }}>
+                  ￥45
+                </Text>
               </View>
             </View>
             <View style={styles.shopcar}>
@@ -227,11 +258,26 @@ class Index extends PureComponent {
           </View>
           <View style={styles.jing}>
             <View style={{ flexDirection: 'row' }}>
-              <Image style={styles.jingimage} source={require('../../../res/shop/14.jpg')} />
-              <View style={{ alignSelf: 'center', marginLeft: pxToDp(8), width: pxToDp(190) }}>
-                <Text style={{ fontSize: pxToDp(16), color: '#000000' }}>越剧人物书签</Text>
-                <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>以越剧经典剧目人物形象头部作为金属书签的元素。</Text>
-                <Text style={{ fontSize: pxToDp(14), color: '#62bfad' }}>￥10</Text>
+              <Image
+                style={styles.jingimage}
+                source={require('../../../res/shop/14.jpg')}
+              />
+              <View
+                style={{
+                  alignSelf: 'center',
+                  marginLeft: pxToDp(8),
+                  width: pxToDp(190)
+                }}
+              >
+                <Text style={{ fontSize: pxToDp(16), color: '#000000' }}>
+                  越剧人物书签
+                </Text>
+                <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
+                  以越剧经典剧目人物形象头部作为金属书签的元素。
+                </Text>
+                <Text style={{ fontSize: pxToDp(14), color: '#62bfad' }}>
+                  ￥10
+                </Text>
               </View>
             </View>
             <View style={styles.shopcar}>
@@ -240,11 +286,26 @@ class Index extends PureComponent {
           </View>
           <View style={styles.jing}>
             <View style={{ flexDirection: 'row' }}>
-              <Image style={styles.jingimage} source={require('../../../res/shop/15.jpg')} />
-              <View style={{ alignSelf: 'center', marginLeft: pxToDp(8), width: pxToDp(190) }}>
-                <Text style={{ fontSize: pxToDp(16), color: '#000000' }}>越剧竺派唱片</Text>
-                <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>收录了竺派越剧创始人竺水招先生经典唱段的音频。</Text>
-                <Text style={{ fontSize: pxToDp(14), color: '#62bfad' }}>￥299</Text>
+              <Image
+                style={styles.jingimage}
+                source={require('../../../res/shop/15.jpg')}
+              />
+              <View
+                style={{
+                  alignSelf: 'center',
+                  marginLeft: pxToDp(8),
+                  width: pxToDp(190)
+                }}
+              >
+                <Text style={{ fontSize: pxToDp(16), color: '#000000' }}>
+                  越剧竺派唱片
+                </Text>
+                <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
+                  收录了竺派越剧创始人竺水招先生经典唱段的音频。
+                </Text>
+                <Text style={{ fontSize: pxToDp(14), color: '#62bfad' }}>
+                  ￥299
+                </Text>
               </View>
             </View>
             <View style={styles.shopcar}>
@@ -252,17 +313,29 @@ class Index extends PureComponent {
             </View>
           </View>
           {/*活动板块 */}
-          <View style={{ marginLeft: pxToDp(16), marginRight: pxToDp(16), marginTop: pxToDp(16) }}>
-            <Image style={{ height: pxToDp(130), width: '100%', borderRadius: pxToDp(8) }} source={require('../../../res/0901/商城轮播2.png')} />
-          </View>
+          <TouchableNativeFeedback
+            onPress={() => this.context.navigate('TBox')}
+            useForeground={true}>
+            <View style={{
+              marginLeft: pxToDp(16),
+              marginRight: pxToDp(16),
+              marginTop: pxToDp(8)
+            }}>
+              <Image
+                style={{
+                  height: pxToDp(130),
+                  borderRadius: pxToDp(8),
+                  width: '100%'
+                }}
+                source={require('../../../res/0901/商城轮播2.png')}
+              />
+            </View>
+          </TouchableNativeFeedback>
           {/*推荐模块 */}
           <View style={styles.titlebox}>
-            <View style={styles.left}>
-            </View>
+            <View style={styles.left}></View>
             <View style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}>
-              <Text style={styles.titletext}>
-                你可能喜欢
-              </Text>
+              <Text style={styles.titletext}>你可能喜欢</Text>
               <LottieView
                 style={{ width: pxToDp(80) }}
                 source={require('../../../../lottie/标题底部.json')}
@@ -293,6 +366,7 @@ class Index extends PureComponent {
             ))}
           </View>
           <View style={styles.tcard}></View>
+          <View style={{ height: pxToDp(4) }} />
         </ScrollView>
       </View>
     );
@@ -402,7 +476,7 @@ const styles = StyleSheet.create({
   newimage: {
     height: pxToDp(100),
     width: pxToDp(200),
-    borderRadius: pxToDp(8),
+    borderRadius: pxToDp(8)
   },
   new: {
     height: pxToDp(100),
@@ -416,8 +490,8 @@ const styles = StyleSheet.create({
     marginRight: pxToDp(16),
     marginLeft: pxToDp(16),
     backgroundColor: 'white',
-    elevation: 2,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
-    shadowColor: 'black',  //  阴影颜色
+    elevation: 2, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+    shadowColor: 'black', //  阴影颜色
     shadowRadius: pxToDp(8),
     padding: pxToDp(8),
     borderRadius: pxToDp(8),

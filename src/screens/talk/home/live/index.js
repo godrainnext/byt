@@ -305,7 +305,7 @@ class Index extends PureComponent {
               </View>
             </View>
           </ImageBackground>
-          <View style={{ height: pxToDp(10) }}></View>
+          <View style={{ height: pxToDp(25) }}></View>
         </ScrollView>
       </View>
     );

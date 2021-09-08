@@ -33,7 +33,7 @@ class Index extends PureComponent {
         text4:
           '1961年计大为、叶至诚改编为戏曲电影本，由长春电影制片厂摄制成彩色戏曲片。',
         path1:
-          'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fi3.bbs.fd.zol-img.com.cn%2Ft_s1200x5000%2Fg1%2FM04%2F04%2F03%2FCg-4jVMi2fSIFRb7AAi6FyW6nLoAALQlgJ4K9gACLov423.jpg&refer=http%3A%2F%2Fi3.bbs.fd.zol-img.com.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632206702&t=e707e61becf73bb6f505a3958ca2936c',
+          'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg8.zol.com.cn%2Fbbs%2Fupload%2F18089%2F18088946.JPG&refer=http%3A%2F%2Fimg8.zol.com.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1633584652&t=b5e3ae6950779f32c69f8fcbd46ad9eb',
         path2:
           'https://tse1-mm.cn.bing.net/th/id/OIP-C.TNwJ5j-KDcx4UKfxkLwPoQHaFZ?pid=ImgDet&rs=1'
       }

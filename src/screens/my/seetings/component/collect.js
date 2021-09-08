@@ -102,7 +102,7 @@ class Index extends PureComponent {
                   color="grey"
                   ViewComponent={LinearGradient} // Don't forget this!
                   linearGradientProps={{
-                    colors: ['pink', '#e2f4fe'],
+                    colors: ['pink', '#D5E8E6'],
                     start: { x: 0, y: 0.5 },
                     end: { x: 1, y: 0.5 }
                   }}

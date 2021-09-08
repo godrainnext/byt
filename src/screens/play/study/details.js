@@ -19,7 +19,7 @@ class Index extends PureComponent {
                 <View>
                     <View style={styles.top}>
                         <Image style={styles.image} source={require('../../../res/6.png')}></Image>
-                        <View style={{ justifyContent: 'space-between', marginLeft: pxToDp(8), height: pxToDp(70), marginTop: pxToDp(24) }}>
+                        <View style={{ justifyContent: 'space-between', marginLeft: pxToDp(8), height: pxToDp(70), marginTop: pxToDp(24), marginRight: pxToDp(8) }}>
                             <Text style={styles.text1}>穆桂英挂帅</Text>
                             <Text style={styles.text2}>猛听得金鼓响画角声震</Text>
                             <Text style={styles.text3}>1959人唱过</Text>
@@ -43,9 +43,9 @@ class Index extends PureComponent {
                         />
                     </View>
                     <View style={styles.center}>
-                        <View style={{ borderRadius: pxToDp(8), padding: pxToDp(8), marginLeft: pxToDp(10), marginRight: pxToDp(10), marginTop: pxToDp(15), backgroundColor: "#D5E8E6" }}>
-                            <Text style={{ fontSize: pxToDp(16), fontWeight: 'bold' }}>曲子简介{'\n'} </Text>
-                            <Text style={{ fontSize: pxToDp(14), lineHeight: pxToDp(24) }}>
+                        <View style={{ borderRadius: pxToDp(8), marginLeft: pxToDp(10), marginRight: pxToDp(10), marginTop: pxToDp(16), backgroundColor: "#D5E8E6" }}>
+                            <Text style={{ fontSize: pxToDp(16), fontWeight: 'bold', marginLeft: pxToDp(8), marginTop: pxToDp(8) }}>曲子简介</Text>
+                            <Text style={{ fontSize: pxToDp(14), lineHeight: pxToDp(24), marginLeft: pxToDp(8), marginTop: pxToDp(6), marginBottom: pxToDp(8) }}>
                                 猛听得金鼓响画角声震，唤起我破天门壮志凌云。{'\n'}
                                 想当年桃花马上威风凛凛，敌血飞溅石榴裙。{'\n'}
                                 有生之日责当尽，寸土怎能够属于他人。{'\n'}
@@ -78,12 +78,14 @@ const styles = StyleSheet.create({
         height: pxToDp(110),
         backgroundColor: 'white',
         flexDirection: "row",
-        alignSelf: 'center'
-
+        alignSelf: 'center',
+        marginTop: pxToDp(8),
+        borderRadius: pxToDp(8)
     },
     image: {
         height: pxToDp(100),
         width: pxToDp(130),
+        marginLeft: pxToDp(8)
     },
     center: {
         width: "100%",

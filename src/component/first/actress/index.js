@@ -89,7 +89,7 @@ export default class index extends PureComponent {
                   <View
                     style={{
                       width: pxToDp(100),
-                      height: pxToDp(160),
+                      height: pxToDp(170),
                       borderRadius: pxToDp(8),
                       marginRight: pxToDp(20),
                       marginBottom: pxToDp(4)
@@ -113,11 +113,9 @@ export default class index extends PureComponent {
                         elevation: 1,
                         borderBottomLeftRadius: pxToDp(8),
                         borderBottomRightRadius: pxToDp(8),
-
-
                       }}
                     >
-                      <Text style={{ fontSize: pxToDp(14) }}>{item.name}</Text>
+                      <Text style={{ fontSize: pxToDp(16)}}>{item.name}</Text>
                     </View>
                   </View>
                 </TouchableNativeFeedback>
