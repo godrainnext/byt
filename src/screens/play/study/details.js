@@ -21,12 +21,13 @@ class Index extends PureComponent {
     };
   }
   OpenSing = () => {
-    const { detail, title, mp3 } = this.props.route.params;
+    const { detail, title, mp3, staticId } = this.props.route.params;
     console.log(this.props.route.params);
     const data = {
       detail,
       title,
-      mp3
+      mp3,
+      staticId
     };
     this.context.navigate('Sing', data);
   };

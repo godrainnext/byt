@@ -85,11 +85,11 @@ class Index extends PureComponent {
       arr.push(sound);
     }
     console.log(arr);
-    fd.append('staticId', 1);
+    fd.append('staticId', this.props.route.params.staticId);
     request.post({ url: '/uploads/music', data: fd }).then((res) => {
       console.log(res);
       this.context.navigate('SingOver', {
-        staticId: 1,
+        staticId: this.props.route.params.staticId,
         sound: arr[0],
         id: res.insertId
       });
