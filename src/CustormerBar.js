@@ -15,7 +15,7 @@ class Index extends PureComponent {
           style={{
             flexDirection: 'row',
             justifyContent: 'space-around',
-            backgroundColor: '#E2F4FE',
+            backgroundColor: '#D5E8E6',
             height: pxToDp(50)
           }}
         >

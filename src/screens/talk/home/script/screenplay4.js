@@ -7,7 +7,7 @@ class Index extends PureComponent {
   renderInner = () => (
     <Fragment>
       <View>
-        <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold',color:'#000000' }}>
+        <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold', color: '#000000' }}>
           五女拜寿
         </Text>
       </View>
@@ -25,7 +25,8 @@ class Index extends PureComponent {
         <Image
           style={{
             height: pxToDp(180),
-            borderRadius: pxToDp(8)
+            borderRadius: pxToDp(8),
+            width: pxToDp(342)
           }}
           source={require('../../../../res/play/fengmian4.png')}
         />
@@ -133,7 +134,7 @@ class Index extends PureComponent {
   render() {
     return (
       <ScreenBase
-      top="五女拜寿"
+        top="五女拜寿"
         renderInner={this.renderInner}
         arr={[
           {
@@ -168,7 +169,7 @@ const styles = StyleSheet.create({
   texthead: {
     fontWeight: 'bold',
     color: '#333333',
-     fontSize: pxToDp(16)
+    fontSize: pxToDp(16)
   }
 });
 export default Index;

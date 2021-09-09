@@ -289,7 +289,7 @@ class index extends PureComponent {
 
                   <View
                     style={{
-                      backgroundColor: '#e2f4fe',
+                      backgroundColor: '#D5E8E6',
                       height: 40,
                       width: Dimensions.get('window').width,
                       alignItems: 'center',

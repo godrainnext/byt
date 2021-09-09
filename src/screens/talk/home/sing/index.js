@@ -9,7 +9,7 @@ import {
   TouchableNativeFeedback,
   ToastAndroid
 } from 'react-native';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import Ionicons from 'react-native-vector-icons/MaterialIcons';
 import { NavigationContext } from '@react-navigation/native';
 import { pxToDp } from '@utils/styleKits';
 import LinearGradient from 'react-native-linear-gradient';
@@ -116,7 +116,7 @@ export default class hello extends PureComponent {
             onPress={() => {
               const item =
                 this.state.arr[
-                  Math.floor(Math.random() * this.state.arr.length)
+                Math.floor(Math.random() * this.state.arr.length)
                 ];
               this.context.navigate('SeeFang', {
                 roomName: item.name,
@@ -224,10 +224,14 @@ export default class hello extends PureComponent {
                   }}
                 />
                 <View
-                  style={{ marginLeft: pxToDp(16), justifyContent: 'center' }}
+                  style={{ marginLeft: pxToDp(16), justifyContent: 'space-around' }}
                 >
                   <Text style={styles.text1}>{item.user.nickName}的歌房</Text>
-                  <Text style={styles.text2}>私人房间</Text>
+                  <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                    <Ionicons name="group" size={24} color="#666666" />
+                    <Text style={{ fontSize: pxToDp(14), color: '#62bfad', marginLeft: pxToDp(8) }}>1人在线</Text>
+                  </View>
+                  <Text style={styles.text2}>{item.user.nickName}正在房间内</Text>
                 </View>
               </View>
             </TouchableOpacity>
@@ -240,8 +244,8 @@ export default class hello extends PureComponent {
           end={{ x: 0, y: 1 }}
         >
           <View style={{ marginTop: pxToDp(10), marginLeft: pxToDp(16) }}>
-            <Text style={styles.text1}>我的歌房</Text>
-            <Text style={styles.text2}>房间号</Text>
+            <Text style={styles.text1}>来者都是客~</Text>
+            <Text style={styles.text2}>进来一起交流流派唱法吧！</Text>
           </View>
           <View
             style={{
@@ -259,47 +263,13 @@ export default class hello extends PureComponent {
                 uri: 'https://img1.baidu.com/it/u=3272800681,2524244440&fm=26&fmt=auto&gp=0.jpg'
               }}
             />
-            <View style={{ marginLeft: pxToDp(16), justifyContent: 'center' }}>
+            <View style={{ marginLeft: pxToDp(16), justifyContent: 'space-around' }}>
               <Text style={styles.text1}>石斑的歌房</Text>
-              <Text style={styles.text2}>私人房间</Text>
-            </View>
-          </View>
-        </LinearGradient>
-
-        <LinearGradient
-          style={{
-            height: pxToDp(200),
-            marginTop: pxToDp(16),
-            borderRadius: pxToDp(8),
-            marginBottom: pxToDp(16)
-          }}
-          colors={['#D5E8E6', 'white']}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 0, y: 1 }}
-        >
-          <View style={{ marginTop: pxToDp(10), marginLeft: pxToDp(16) }}>
-            <Text style={styles.text1}>2222的歌房</Text>
-            <Text style={styles.text2}>房间号</Text>
-          </View>
-          <View
-            style={{
-              width: '100%',
-              borderRadius: 8,
-              opacity: 0.8,
-              marginTop: pxToDp(10),
-              marginLeft: pxToDp(16),
-              flexDirection: 'row'
-            }}
-          >
-            <Image
-              style={styles.image}
-              source={{
-                uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Faliimg.changba.com%2Fcache%2Fphoto%2F640436435_640_640.jpg&refer=http%3A%2F%2Faliimg.changba.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632834984&t=2fa2f5dc4ba460d1dcd253f529ff3e6b'
-              }}
-            />
-            <View style={{ marginLeft: pxToDp(16), justifyContent: 'center' }}>
-              <Text style={styles.text1}>2222的歌房</Text>
-              <Text style={styles.text2}>公开房间</Text>
+              <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                <Ionicons name="group" size={24} color="#666666" />
+                <Text style={{ fontSize: pxToDp(14), color: '#62bfad', marginLeft: pxToDp(8) }}>1人在线</Text>
+              </View>
+              <Text style={styles.text2}>石斑正在房间内</Text>
             </View>
           </View>
         </LinearGradient>

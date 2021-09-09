@@ -189,6 +189,23 @@ function Nav() {
         <Stack.Screen name="Drama15" component={Screens.Drama15} />
         <Stack.Screen name="Drama16" component={Screens.Drama16} />
         <Stack.Screen name="Drama17" component={Screens.Drama17} />
+        <Stack.Screen name="Drama18" component={Screens.Drama18} />
+        <Stack.Screen name="Drama19" component={Screens.Drama19} />
+        <Stack.Screen name="Drama20" component={Screens.Drama20} />
+        <Stack.Screen name="Drama21" component={Screens.Drama21} />
+        <Stack.Screen name="Drama22" component={Screens.Drama22} />
+        <Stack.Screen name="Drama23" component={Screens.Drama23} />
+        <Stack.Screen name="Drama24" component={Screens.Drama24} />
+        <Stack.Screen name="Drama25" component={Screens.Drama25} />
+        <Stack.Screen name="Drama26" component={Screens.Drama26} />
+        <Stack.Screen name="Drama27" component={Screens.Drama27} />
+        <Stack.Screen name="Drama28" component={Screens.Drama28} />
+        <Stack.Screen name="Drama29" component={Screens.Drama29} />
+        <Stack.Screen name="Drama30" component={Screens.Drama30} />
+        <Stack.Screen name="Drama31" component={Screens.Drama31} />
+        <Stack.Screen name="Drama32" component={Screens.Drama32} />
+        <Stack.Screen name="Drama33" component={Screens.Drama33} />
+        <Stack.Screen name="Drama34" component={Screens.Drama34} />
         {/**剧本库页面 */}
         <Stack.Screen name="Scriptlibrary" component={Screens.Scriptlibrary} />
         {/**名角个人页 */}
@@ -238,6 +255,23 @@ function Nav() {
         <Stack.Screen name="Screenpaly8" component={Screens.Screenpaly8} />
         {/* 剧本9详情 */}
         <Stack.Screen name="Screenpaly9" component={Screens.Screenpaly9} />
+        <Stack.Screen name="Screenpaly10" component={Screens.Screenpaly10} />
+        <Stack.Screen name="Screenpaly11" component={Screens.Screenpaly11} />
+        <Stack.Screen name="Screenpaly12" component={Screens.Screenpaly12} />
+        <Stack.Screen name="Screenpaly13" component={Screens.Screenpaly13} />
+        <Stack.Screen name="Screenpaly14" component={Screens.Screenpaly14} />
+        <Stack.Screen name="Screenpaly15" component={Screens.Screenpaly15} />
+        <Stack.Screen name="Screenpaly16" component={Screens.Screenpaly16} />
+        <Stack.Screen name="Screenpaly17" component={Screens.Screenpaly17} />
+        <Stack.Screen name="Screenpaly18" component={Screens.Screenpaly18} />
+        <Stack.Screen name="Screenpaly19" component={Screens.Screenpaly19} />
+        <Stack.Screen name="Screenpaly20" component={Screens.Screenpaly20} />
+        <Stack.Screen name="Screenpaly21" component={Screens.Screenpaly21} />
+        <Stack.Screen name="Screenpaly22" component={Screens.Screenpaly22} />
+        <Stack.Screen name="Screenpaly23" component={Screens.Screenpaly23} />
+        <Stack.Screen name="Screenpaly24" component={Screens.Screenpaly24} />
+        <Stack.Screen name="Screenpaly25" component={Screens.Screenpaly25} />
+        <Stack.Screen name="Screenpaly26" component={Screens.Screenpaly26} />
         {/*俯瞰百年卡片*/}
         <Stack.Screen name="Card" component={Screens.Card} />
         {/*视频播放页*/}

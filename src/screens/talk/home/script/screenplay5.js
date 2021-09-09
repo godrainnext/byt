@@ -25,7 +25,8 @@ class Index extends PureComponent {
         <Image
           style={{
             height: pxToDp(180),
-            borderRadius: pxToDp(8)
+            borderRadius: pxToDp(8),
+            width: pxToDp(342)
           }}
           source={require('../../../../res/play/fengmian5.jpg')}
         />

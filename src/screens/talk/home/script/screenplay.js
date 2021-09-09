@@ -26,7 +26,8 @@ class Index extends PureComponent {
         <Image
           style={{
             height: pxToDp(180),
-            borderRadius: pxToDp(8)
+            borderRadius: pxToDp(8),
+            width: pxToDp(342)
           }}
           source={{
             uri: 'https://img2.baidu.com/it/u=3786292342,3139767422&fm=26&fmt=auto&gp=0.jpg'

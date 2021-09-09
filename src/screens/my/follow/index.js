@@ -38,7 +38,7 @@ class Index extends PureComponent {
   }
   render() {
     return (
-      <View style={{ backgroundColor: '#E2F4FE', flex: 1 }}>
+      <View style={{ backgroundColor: '#D5E8E6', flex: 1 }}>
         <Top icon1="arrow-back" title="关注" />
         {this.state.follow?.map((item) => (
           <View style={styles.box} key={item.id}>
