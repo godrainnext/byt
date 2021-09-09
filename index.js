@@ -20,6 +20,7 @@ LogBox.ignoreLogs([
   `Constants.installationId has been deprecated in favor of generating and storing your own ID. Implement it using expo-application's androidId on Android and a storage API such as expo-secure-store on iOS and localStorage on the web. This API will be removed in SDK 44.`,
   'Constants.deviceId has been deprecated in favor of generating and storing your own ID. This API will be removed in SDK 44.',
   '%s: Calling `getNode()` on the ref of an Animated component is no longer necessary. You can now directly use the ref instead. This method will be removed in a future release. ViewPager',
-  'Warning: forwardRef render functions do not support propTypes or defaultProps. Did you accidentally pass a React component?'
+  'Warning: forwardRef render functions do not support propTypes or defaultProps. Did you accidentally pass a React component?',
+  `Stack Navigator: 'headerMode="none"' is deprecated. Use 'headerShown: false' in 'screenOptions' instead.`
 ])
 AppRegistry.registerComponent(appName, () => App);
