@@ -272,6 +272,15 @@ function Nav() {
         <Stack.Screen name="Screenpaly24" component={Screens.Screenpaly24} />
         <Stack.Screen name="Screenpaly25" component={Screens.Screenpaly25} />
         <Stack.Screen name="Screenpaly26" component={Screens.Screenpaly26} />
+        <Stack.Screen name="Screenpaly27" component={Screens.Screenpaly27} />
+        <Stack.Screen name="Screenpaly28" component={Screens.Screenpaly28} />
+        <Stack.Screen name="Screenpaly29" component={Screens.Screenpaly29} />
+        <Stack.Screen name="Screenpaly30" component={Screens.Screenpaly30} />
+        <Stack.Screen name="Screenpaly31" component={Screens.Screenpaly31} />
+        <Stack.Screen name="Screenpaly32" component={Screens.Screenpaly32} />
+        <Stack.Screen name="Screenpaly33" component={Screens.Screenpaly33} />
+        <Stack.Screen name="Screenpaly34" component={Screens.Screenpaly34} />
+        <Stack.Screen name="Screenpaly35" component={Screens.Screenpaly35} />
         {/*俯瞰百年卡片*/}
         <Stack.Screen name="Card" component={Screens.Card} />
         {/*视频播放页*/}
