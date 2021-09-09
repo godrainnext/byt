@@ -175,6 +175,15 @@ export { default as Screenpaly23 } from './talk/home/script/screenplay23'; //白
 export { default as Screenpaly24 } from './talk/home/script/screenplay24'; //沉香扇唱词页面
 export { default as Screenpaly25 } from './talk/home/script/screenplay25'; //浪荡子唱词页面
 export { default as Screenpaly26 } from './talk/home/script/screenplay26'; //张羽煮海唱词页面
+export { default as Screenpaly27 } from './talk/home/script/screenplay27'; //家唱词页面
+export { default as Screenpaly28 } from './talk/home/script/screenplay28'; //早春二月唱词页面
+export { default as Screenpaly29 } from './talk/home/script/screenplay29'; //甄嬛唱词页面
+export { default as Screenpaly30 } from './talk/home/script/screenplay30'; //北地王唱词页面
+export { default as Screenpaly31 } from './talk/home/script/screenplay31'; //蝴蝶梦唱词页面
+export { default as Screenpaly32 } from './talk/home/script/screenplay32'; //柳永唱词页面
+export { default as Screenpaly33 } from './talk/home/script/screenplay33'; //皇帝与村姑唱词页面
+export { default as Screenpaly34 } from './talk/home/script/screenplay34'; //周仁哭坟唱词页面
+export { default as Screenpaly35 } from './talk/home/script/screenplay35'; //红楼梦唱词页面
 
 export { default as SeeZhiBo } from './talk/zhiboye/gindex';
 export { default as Video } from '../component/videoplayer/index'; //视频页
