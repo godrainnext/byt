@@ -40,25 +40,25 @@ class Index extends PureComponent {
         renderIcon: () => (
           <Image
             style={{ width: pxToDp(28), height: pxToDp(28) }}
-            source={require('./res/戏台.png')}
+            source={require('./res/戏台0.png')}
           ></Image>
         ),
         renderSelectedIcon: () => (
-          <View
-            style={{
-              backgroundColor: 'white',
-              height: pxToDp(40),
-              width: pxToDp(40),
-              borderRadius: pxToDp(20),
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}
-          >
+          // <View
+          //   style={{
+          //     backgroundColor: 'white',
+          //     height: pxToDp(40),
+          //     width: pxToDp(40),
+          //     borderRadius: pxToDp(20),
+          //     alignItems: 'center',
+          //     justifyContent: 'center'
+          //   }}
+          // >
             <Image
               style={{ width: pxToDp(28), height: pxToDp(28) }}
               source={require('./res/戏台.png')}
             ></Image>
-          </View>
+          // </View>
         ),
         onPress: () => this.setState({ selectedTab: 'first' }),
         component: <First />
@@ -69,25 +69,25 @@ class Index extends PureComponent {
         renderIcon: () => (
           <Image
             style={{ width: pxToDp(28), height: pxToDp(28) }}
-            source={require('./res/戏缘.png')}
+            source={require('./res/戏缘0.png')}
           ></Image>
         ),
         renderSelectedIcon: () => (
-          <View
-            style={{
-              backgroundColor: 'white',
-              height: pxToDp(40),
-              width: pxToDp(40),
-              borderRadius: pxToDp(20),
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}
-          >
+          // <View
+          //   style={{
+          //     backgroundColor: 'white',
+          //     height: pxToDp(40),
+          //     width: pxToDp(40),
+          //     borderRadius: pxToDp(20),
+          //     alignItems: 'center',
+          //     justifyContent: 'center'
+          //   }}
+          // >
             <Image
               style={{ width: pxToDp(28), height: pxToDp(28) }}
               source={require('./res/戏缘.png')}
             ></Image>
-          </View>
+          // </View>
         ),
         onPress: () => this.setState({ selectedTab: 'talk' }),
         component: <Talk />
@@ -206,25 +206,25 @@ class Index extends PureComponent {
         renderIcon: () => (
           <Image
             style={{ width: pxToDp(28), height: pxToDp(28) }}
-            source={require('./res/越市.png')}
+            source={require('./res/越市0.png')}
           ></Image>
         ),
         renderSelectedIcon: () => (
-          <View
-            style={{
-              backgroundColor: 'white',
-              height: pxToDp(40),
-              width: pxToDp(40),
-              borderRadius: pxToDp(20),
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}
-          >
-            <Image
-              style={{ width: pxToDp(28), height: pxToDp(28) }}
-              source={require('./res/越市.png')}
-            ></Image>
-          </View>
+          // <View
+          //   style={{
+          //     backgroundColor: 'white',
+          //     height: pxToDp(40),
+          //     width: pxToDp(40),
+          //     borderRadius: pxToDp(20),
+          //     alignItems: 'center',
+          //     justifyContent: 'center'
+          //   }}
+          // >
+          <Image
+            style={{ width: pxToDp(28), height: pxToDp(28) }}
+            source={require('./res/越市.png')}
+          ></Image>
+          // </View>
         ),
         onPress: () => this.setState({ selectedTab: 'shop' }),
         component: <Shop />
@@ -235,25 +235,25 @@ class Index extends PureComponent {
         renderIcon: () => (
           <Image
             style={{ width: pxToDp(28), height: pxToDp(28) }}
-            source={require('./res/戏痴.png')}
+            source={require('./res/戏痴0.png')}
           ></Image>
         ),
         renderSelectedIcon: () => (
-          <View
-            style={{
-              backgroundColor: 'white',
-              height: pxToDp(40),
-              width: pxToDp(40),
-              borderRadius: pxToDp(20),
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}
-          >
-            <Image
-              style={{ width: pxToDp(28), height: pxToDp(28) }}
-              source={require('./res/戏痴.png')}
-            ></Image>
-          </View>
+          // <View
+          //   style={{
+          //     backgroundColor: 'white',
+          //     height: pxToDp(40),
+          //     width: pxToDp(40),
+          //     borderRadius: pxToDp(20),
+          //     alignItems: 'center',
+          //     justifyContent: 'center'
+          //   }}
+          // >
+          <Image
+            style={{ width: pxToDp(28), height: pxToDp(28) }}
+            source={require('./res/戏痴.png')}
+          ></Image>
+          // </View>
         ),
         onPress: () => this.setState({ selectedTab: 'my' }),
         component: <My />
@@ -264,7 +264,9 @@ class Index extends PureComponent {
     const { selectedTab, pages } = this.state;
     return (
       <View style={{ backgroundColor: '#fff', flex: 1 }}>
-        <TabNavigator>
+        <TabNavigator
+          tabBarShadowStyle={{ backgroundColor: 'transparent' }}
+        >
           {pages.map((v, i) => (
             <TabNavigator.Item
               key={v.title}
@@ -275,8 +277,8 @@ class Index extends PureComponent {
               onPress={v.onPress}
               selectedTitleStyle={{
                 color: '#62bfad',
-                height: 30,
-                fontSize: pxToDp(14),
+                // height: 30,
+                fontSize: pxToDp(12),
                 borderRadius: 50
               }}
               tabStyle={{
