@@ -23,7 +23,7 @@ class Index extends PureComponent {
     return (
       <ScrollView
         style={{
-          backgroundColor: '#E2F4FE',
+          backgroundColor: '#D5E8E6',
           flex: 1,
           marginBottom: pxToDp(10)
         }}

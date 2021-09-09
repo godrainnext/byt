@@ -23,7 +23,8 @@ class Index extends PureComponent {
         <Image
           style={{
             height: pxToDp(180),
-            borderRadius: pxToDp(8)
+            borderRadius: pxToDp(8),
+            width: pxToDp(342)
           }}
           source={{
             uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.wzyjt.com%2Fjmjs%2F201006%2FW020100708377036237543.jpg&refer=http%3A%2F%2Fwww.wzyjt.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631926607&t=eda328d29cd4ca2c74a6d57beae43b0e'
@@ -81,7 +82,7 @@ class Index extends PureComponent {
   render() {
     return (
       <ScreenBase
-        top="三盖衣"
+        top="碧玉簪"
         renderInner={this.renderInner}
         arr={[
           {

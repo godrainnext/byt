@@ -43,9 +43,10 @@ export default class hello extends PureComponent {
   }
   static contextType = NavigationContext;
   componentDidMount() {
+    console.log(this.props.route.params.staticId);
     console.log(this.props.route.params.sound);
     getMusicById(this.props.route.params.staticId).then((res) => {
-  
+      console.log(res);
       this.setState({ music: res });
     });
   }
@@ -82,9 +83,10 @@ export default class hello extends PureComponent {
   }
 
   render() {
+    console.log('888', this.props.route.params);
     return (
       <ScrollView style={{ flex: 1 }}>
-        <Top icon1="arrow-back" title="穆桂英挂帅" />
+        <Top icon1="arrow-back" title="歌曲保存" />
         <ImageBackground
           style={{ height: pxToDp(50), marginTop: pxToDp(10) }}
           imageStyle={{ borderRadius: pxToDp(8) }}

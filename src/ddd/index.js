@@ -2,7 +2,6 @@ import React, { PureComponent, createRef } from 'react';
 import { StyleSheet, Text, View, Dimensions, Image } from 'react-native';
 import Page from './page';
 import { Modalize } from 'react-native-modalize';
-
 import { pxToDp } from './styleKits';
 import Top from '../component/common/top';
 import { SwiperFlatList } from 'react-native-swiper-flatlist';
@@ -477,11 +476,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#f1f1f1'
   },
   cell: {
-    // backgroundColor: 'red',
     height: pxToDp(80),
     width: pxToDp(345),
     borderWidth: pxToDp(1.5),
-    borderColor: '#468cd3',
+    borderColor: '#62bfad',
     borderRadius: pxToDp(8),
     padding: pxToDp(10),
     margin: pxToDp(15),

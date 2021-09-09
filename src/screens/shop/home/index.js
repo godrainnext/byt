@@ -32,7 +32,7 @@ class Index extends PureComponent {
     this.props.getAddressListAction();
   }
   componentDidMount() {
-    getShopList(0, 5).then((res) => {
+    getShopList(0, 9).then((res) => {
       this.setState({ arr: res });
     });
   }
@@ -125,9 +125,10 @@ class Index extends PureComponent {
               onPress={(index) => alert('you pressed index is : ' + index)}
               indicatorContainerBackgroundColor={'#62bfad'}
               isSeamlessScroll={true}
+              activeIndicatorColor={'red'}
             />
           </View>
-          {/*今日上新 */}
+          {/*本周新品 */}
           <View style={styles.titlebox}>
             <View style={styles.left}></View>
             <View style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}>

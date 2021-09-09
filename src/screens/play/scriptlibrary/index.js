@@ -67,95 +67,113 @@ class Index extends PureComponent {
         {
           id: '1',
           title: '桃花扇',
-          path: 'https://img0.baidu.com/it/u=885677152,1556778173&fm=26&fmt=auto&gp=0.jpg'
+          path: 'https://img0.baidu.com/it/u=885677152,1556778173&fm=26&fmt=auto&gp=0.jpg',
+          drama: 'Drama18'
         },
         {
           id: '2',
           title: '孟丽君',
-          path: 'https://img1.baidu.com/it/u=3087730410,2049393686&fm=26&fmt=auto&gp=0.jpg'
+          path: 'https://img1.baidu.com/it/u=3087730410,2049393686&fm=26&fmt=auto&gp=0.jpg',
+          drama: 'Drama19'
         },
         {
           id: '3',
           title: '忠魂曲',
-          path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Faliimg.changba.com%2Fcache%2Fphoto%2F65529f07-49da-4119-b69a-1e96a71b10c7_640_640.jpg&refer=http%3A%2F%2Faliimg.changba.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631801517&t=f78bef4d7daf4f4e23aab33d5bfcb5e1'
+          path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Faliimg.changba.com%2Fcache%2Fphoto%2F65529f07-49da-4119-b69a-1e96a71b10c7_640_640.jpg&refer=http%3A%2F%2Faliimg.changba.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631801517&t=f78bef4d7daf4f4e23aab33d5bfcb5e1',
+          drama: 'Drama20'
         },
         {
           id: '4',
           title: '西园记',
-          path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.changingtrip.com%2FAdminEnglish%2Fueditor%2Fasp%2Fupload%2Fimage%2F20190728%2F15642795393824650.jpg&refer=http%3A%2F%2Fwww.changingtrip.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631801547&t=2e3ff9ae3fea9aa360b584282bddab35'
+          path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.changingtrip.com%2FAdminEnglish%2Fueditor%2Fasp%2Fupload%2Fimage%2F20190728%2F15642795393824650.jpg&refer=http%3A%2F%2Fwww.changingtrip.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631801547&t=2e3ff9ae3fea9aa360b584282bddab35',
+          drama: 'Drama21'
         },
         {
           id: '5',
           title: '情探',
-          path: 'https://img1.baidu.com/it/u=115829908,4036785447&fm=26&fmt=auto&gp=0.jpg'
+          path: 'https://img1.baidu.com/it/u=115829908,4036785447&fm=26&fmt=auto&gp=0.jpg',
+          drama: 'Drama22'
         },
         {
           id: '6',
           title: '沙漠王子',
-          path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fs3.sinaimg.cn%2Fmiddle%2F5f7c87a6x8d49dea713b2%26690&refer=http%3A%2F%2Fs3.sinaimg.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631802511&t=97bcf5c96499200fd4d73431edeef1f2'
+          path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fs3.sinaimg.cn%2Fmiddle%2F5f7c87a6x8d49dea713b2%26690&refer=http%3A%2F%2Fs3.sinaimg.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631802511&t=97bcf5c96499200fd4d73431edeef1f2',
+          drama: 'Drama23'
         },
         {
           id: '7',
           title: '宝莲灯',
-          path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp1.itc.cn%2Fq_70%2Fimages03%2F20210111%2Fe64c3bf452b547a2afb9fa57c6a1dc67.jpeg&refer=http%3A%2F%2Fp1.itc.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631803304&t=de85194fcf63d4b0459a3c611bb40d12'
+          path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fp1.itc.cn%2Fq_70%2Fimages03%2F20210111%2Fe64c3bf452b547a2afb9fa57c6a1dc67.jpeg&refer=http%3A%2F%2Fp1.itc.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631803304&t=de85194fcf63d4b0459a3c611bb40d12',
+          drama: 'Drama24'
         },
         {
           id: '8',
           title: '玉堂春',
-          path: 'https://ss0.baidu.com/94o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/a8773912b31bb05178ff0161357adab44bede0a4.jpg'
+          path: 'https://ss0.baidu.com/94o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/a8773912b31bb05178ff0161357adab44bede0a4.jpg',
+          drama: 'Drama25'
         },
         {
           id: '9',
           title: '杨贵妃',
-          path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.cpfwb.com%2Fforum%2F201602%2F14%2F140143k9519reknwqrr1rw.jpg&refer=http%3A%2F%2Fimg.cpfwb.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631803390&t=00ecc2e47b3736de82d0de246d8b2514'
+          path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg.cpfwb.com%2Fforum%2F201602%2F14%2F140143k9519reknwqrr1rw.jpg&refer=http%3A%2F%2Fimg.cpfwb.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631803390&t=00ecc2e47b3736de82d0de246d8b2514',
+          drama: 'Drama26'
         }
       ],
       bookss: [
         {
           id: '1',
           title: '蝴蝶梦',
-          path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Finews.gtimg.com%2Fnewsapp_match%2F0%2F7846357299%2F0.jpg&refer=http%3A%2F%2Finews.gtimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631802831&t=1db518095090824f7be231a140b4ba58'
+          path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Finews.gtimg.com%2Fnewsapp_match%2F0%2F7846357299%2F0.jpg&refer=http%3A%2F%2Finews.gtimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631802831&t=1db518095090824f7be231a140b4ba58',
+          drama: 'Drama9'
         },
         {
           id: '2',
           title: '大观园',
-          path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fec4.images-amazon.com%2Fimages%2FI%2F91zgJesc7ML._SL1500_.jpg&refer=http%3A%2F%2Fec4.images-amazon.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631803009&t=e5dc7ecbc4c3b20bc8ad90d36340c526'
+          path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fec4.images-amazon.com%2Fimages%2FI%2F91zgJesc7ML._SL1500_.jpg&refer=http%3A%2F%2Fec4.images-amazon.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631803009&t=e5dc7ecbc4c3b20bc8ad90d36340c526',
+          drama: 'Drama27'
         },
         {
           id: '3',
           title: '盘夫索夫',
-          path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20180601%2F7a52232cee154d8eb4bf42af74974cdc.jpeg&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631803038&t=52919e84d0a44ddfc8b0a7d0991b79d2'
+          path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20180601%2F7a52232cee154d8eb4bf42af74974cdc.jpeg&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631803038&t=52919e84d0a44ddfc8b0a7d0991b79d2',
+          drama: 'Drama28'
         },
         {
           id: '4',
-          title: '兰花吟',
-          path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Faliimg.changba.com%2Fcache%2Fphoto%2F767005742_640_640.jpg&refer=http%3A%2F%2Faliimg.changba.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631803119&t=bdb01364c720f594d79889a28806360a'
+          title: '双烈记',
+          path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fphoto.rednet.cn%2Fattachment%2F201903%2F14%2F597895_1552565142c4cw.jpg&refer=http%3A%2F%2Fphoto.rednet.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631803151&t=b73506cf0293af69f54b760dca992f8b',
+          drama: 'Drama29'
         },
         {
           id: '5',
-          title: '双烈记',
-          path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fphoto.rednet.cn%2Fattachment%2F201903%2F14%2F597895_1552565142c4cw.jpg&refer=http%3A%2F%2Fphoto.rednet.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631803151&t=b73506cf0293af69f54b760dca992f8b'
+          title: '月照西厢',
+          path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fnimg.ws.126.net%2F%3Furl%3Dhttp%3A%2F%2Fdingyue.ws.126.net%2F2020%2F0126%2Fff1137fej00q4oeoe001yc200u000k0g00zk00np.jpg%26thumbnail%3D650x2147483647%26quality%3D80%26type%3Djpg&refer=http%3A%2F%2Fnimg.ws.126.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631803171&t=65db9a07c2c1826ffeb121bb253f1267',
+          drama: 'Drama30'
         },
         {
           id: '6',
-          title: '月照西厢',
-          path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fnimg.ws.126.net%2F%3Furl%3Dhttp%3A%2F%2Fdingyue.ws.126.net%2F2020%2F0126%2Fff1137fej00q4oeoe001yc200u000k0g00zk00np.jpg%26thumbnail%3D650x2147483647%26quality%3D80%26type%3Djpg&refer=http%3A%2F%2Fnimg.ws.126.net&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631803171&t=65db9a07c2c1826ffeb121bb253f1267'
-        },
-        {
-          id: '7',
           title: '白蛇传',
-          path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg2.jiemian.com%2F101%2Foriginal%2F20190926%2F156947704271169000_a580xH.jpg&refer=http%3A%2F%2Fimg2.jiemian.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631803219&t=5613a65e16ae516a0d12e22139363de2'
+          path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg2.jiemian.com%2F101%2Foriginal%2F20190926%2F156947704271169000_a580xH.jpg&refer=http%3A%2F%2Fimg2.jiemian.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631803219&t=5613a65e16ae516a0d12e22139363de2',
+          drama: 'Drama31'
         },
         {
           id: '7',
           title: '沉香扇',
-          path: 'https://gss0.baidu.com/70cFfyinKgQFm2e88IuM_a/forum/pic/item/a8014c086e061d95096a1f767bf40ad162d9ca4b.jpg'
+          path: 'https://gss0.baidu.com/70cFfyinKgQFm2e88IuM_a/forum/pic/item/a8014c086e061d95096a1f767bf40ad162d9ca4b.jpg',
+          drama: 'Drama32'
+        },
+        {
+          id: '8',
+          title: '浪荡子',
+          path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg11.360buyimg.com%2FpopWaterMark%2F10402%2F35e21d4b-6ac2-4d01-a551-7a18c7e1bdbf.jpg&refer=http%3A%2F%2Fimg11.360buyimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631803283&t=d3d9204e76dca21b0880235aaf5993c9',
+          drama: 'Drama33'
         },
         {
           id: '9',
-          title: '浪荡子',
-          path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg11.360buyimg.com%2FpopWaterMark%2F10402%2F35e21d4b-6ac2-4d01-a551-7a18c7e1bdbf.jpg&refer=http%3A%2F%2Fimg11.360buyimg.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631803283&t=d3d9204e76dca21b0880235aaf5993c9'
-        }
+          title: '张羽煮海',
+          path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fq_70%2Cc_zoom%2Cw_640%2Fimages%2F20180511%2F71a3a2667bf147c58a7072de96b70e66.jpeg&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1633539012&t=1f50c58e863f77a5d02f24b51388cd93',
+          drama: 'Drama34'
+        },
       ]
     };
   }
@@ -218,18 +236,23 @@ class Index extends PureComponent {
                   showsHorizontalScrollIndicator={false}
                 >
                   {this.state.booksss.map((item) => (
-                    <View style={styles.books}>
-                      <Image
-                        style={styles.booksimage}
-                        source={{ uri: item.path }}
-                      />
-                      <View style={styles.bookstext}>
-                        <Text>{item.title}</Text>
-                        <TouchableOpacity>
-                          <Svg width="20" height="20" svgXmlData={enter} />
-                        </TouchableOpacity>
+                    <TouchableNativeFeedback
+                      onPress={() => this.context.navigate(item.drama)}
+                      useForeground={true}
+                    >
+                      <View style={styles.books}>
+                        <Image
+                          style={styles.booksimage}
+                          source={{ uri: item.path }}
+                        />
+                        <View style={styles.bookstext}>
+                          <Text>{item.title}</Text>
+                          <TouchableOpacity>
+                            <Svg width="20" height="20" svgXmlData={enter} />
+                          </TouchableOpacity>
+                        </View>
                       </View>
-                    </View>
+                    </TouchableNativeFeedback>
                   ))}
                 </ScrollView>
               </ImageBackground>
@@ -242,18 +265,23 @@ class Index extends PureComponent {
                   showsHorizontalScrollIndicator={false}
                 >
                   {this.state.bookss.map((item) => (
-                    <View style={styles.books}>
-                      <Image
-                        style={styles.booksimage}
-                        source={{ uri: item.path }}
-                      />
-                      <View style={styles.bookstext}>
-                        <Text>{item.title}</Text>
-                        <TouchableOpacity>
-                          <Svg width="20" height="20" svgXmlData={enter} />
-                        </TouchableOpacity>
+                    <TouchableNativeFeedback
+                      onPress={() => this.context.navigate(item.drama)}
+                      useForeground={true}
+                    >
+                      <View style={styles.books}>
+                        <Image
+                          style={styles.booksimage}
+                          source={{ uri: item.path }}
+                        />
+                        <View style={styles.bookstext}>
+                          <Text>{item.title}</Text>
+                          <TouchableOpacity>
+                            <Svg width="20" height="20" svgXmlData={enter} />
+                          </TouchableOpacity>
+                        </View>
                       </View>
-                    </View>
+                    </TouchableNativeFeedback>
                   ))}
                 </ScrollView>
               </ImageBackground>

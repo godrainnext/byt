@@ -109,6 +109,23 @@ export { default as Drama14 } from './play/act/drama14'; //剧本14 庵堂认母
 export { default as Drama15 } from './play/act/drama15'; //剧本15 王老虎抢亲
 export { default as Drama16 } from './play/act/drama16'; //剧本16 柳毅传书
 export { default as Drama17 } from './play/act/drama17'; //剧本17 山河恋
+export { default as Drama18 } from './play/act/drama18'; //剧本18 桃花扇
+export { default as Drama19 } from './play/act/drama19'; //剧本19 孟丽君
+export { default as Drama20 } from './play/act/drama20'; //剧本20 忠魂曲
+export { default as Drama21 } from './play/act/drama21'; //剧本21 西园记
+export { default as Drama22 } from './play/act/drama22'; //剧本22 情探
+export { default as Drama23 } from './play/act/drama23'; //剧本23 沙漠王子
+export { default as Drama24 } from './play/act/drama24'; //剧本24 宝莲灯
+export { default as Drama25 } from './play/act/drama25'; //剧本25 玉堂春
+export { default as Drama26 } from './play/act/drama26'; //剧本26 杨贵妃
+export { default as Drama27 } from './play/act/drama27'; //剧本27 大观园
+export { default as Drama28 } from './play/act/drama28'; //剧本28 盘夫索夫
+export { default as Drama29 } from './play/act/drama29'; //剧本29 双烈记
+export { default as Drama30 } from './play/act/drama30'; //剧本30 月照西厢
+export { default as Drama31 } from './play/act/drama31'; //剧本31 白蛇传
+export { default as Drama32 } from './play/act/drama32'; //剧本32 沉香扇
+export { default as Drama33 } from './play/act/drama33'; //剧本33 浪荡子
+export { default as Drama34 } from './play/act/drama34'; //剧本34 张羽煮海
 export { default as Scriptlibrary } from './play/scriptlibrary'; //剧本库
 export { default as VR } from './play/vr'; //越剧小镇VR
 export { default as relatedImg } from './Timeline/relatedImg'; //相关图片
@@ -117,7 +134,7 @@ export { default as bookDetail } from './Timeline/bookDetail'; //相关书籍详
 export { default as Course } from './play/course'; //教程页面
 export { default as Basic } from './play/course/bankuai/basic'; //越剧基本功板块
 export { default as Master } from './play/course/bankuai/master'; //越剧大师教学板块
-export { default as Timemap } from '../ddd/index'; //时空地图
+export { default as Timemap } from './Timeline/index'; //时空地图
 export { default as Timeline } from './Timeline/index';
 export { default as HotList } from './play/hotlist'; //剧本热度榜单
 
@@ -141,6 +158,23 @@ export { default as Screenpaly6 } from './talk/home/script/screenplay6'; //柳�
 export { default as Screenpaly7 } from './talk/home/script/screenplay7'; //碧玉簪唱词页面
 export { default as Screenpaly8 } from './talk/home/script/screenplay8'; //祥林嫂唱词页面
 export { default as Screenpaly9 } from './talk/home/script/screenplay9'; //山河恋唱词页面
+export { default as Screenpaly10 } from './talk/home/script/screenplay10'; //桃花扇唱词页面
+export { default as Screenpaly11 } from './talk/home/script/screenplay11'; //孟丽君唱词页面
+export { default as Screenpaly12 } from './talk/home/script/screenplay12'; //忠魂曲唱词页面
+export { default as Screenpaly13 } from './talk/home/script/screenplay13'; //西园记唱词页面
+export { default as Screenpaly14 } from './talk/home/script/screenplay14'; //情探唱词页面
+export { default as Screenpaly15 } from './talk/home/script/screenplay15'; //沙漠王子唱词页面
+export { default as Screenpaly16 } from './talk/home/script/screenplay16'; //宝莲灯唱词页面
+export { default as Screenpaly17 } from './talk/home/script/screenplay17'; //玉堂春唱词页面
+export { default as Screenpaly18 } from './talk/home/script/screenplay18'; //杨贵妃唱词页面
+export { default as Screenpaly19 } from './talk/home/script/screenplay19'; //大观园唱词页面
+export { default as Screenpaly20 } from './talk/home/script/screenplay20'; //盘夫索夫唱词页面
+export { default as Screenpaly21 } from './talk/home/script/screenplay21'; //双烈记唱词页面
+export { default as Screenpaly22 } from './talk/home/script/screenplay22'; //月照西厢唱词页面
+export { default as Screenpaly23 } from './talk/home/script/screenplay23'; //白蛇传唱词页面
+export { default as Screenpaly24 } from './talk/home/script/screenplay24'; //沉香扇唱词页面
+export { default as Screenpaly25 } from './talk/home/script/screenplay25'; //浪荡子唱词页面
+export { default as Screenpaly26 } from './talk/home/script/screenplay26'; //张羽煮海唱词页面
 
 export { default as SeeZhiBo } from './talk/zhiboye/gindex';
 export { default as Video } from '../component/videoplayer/index'; //视频页

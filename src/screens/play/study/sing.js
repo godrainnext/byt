@@ -38,9 +38,25 @@ class Index extends PureComponent {
     showLoading: true,
     value: 1,
     isClick: false,
+    data1: this.props.route.params,
     modalVisible: false,
     modalVisible1: false
   };
+  // SingOver = () => {
+  //   const { detail, title, mp3 } = this.props.route.params;
+  //   console.log(this.props.route.params);
+  //   const data1 = {
+  //     detail,
+  //     title,
+  //     mp3
+  //   };
+  //   this.context.navigate('SingOver', {
+  //     staticId: 1,
+  //     sound: arr[0],
+  //     id: res.insertId,
+  //     data1
+  //   });
+  // };
   static contextType = NavigationContext;
   setModalVisible = (visible) => {
     this.setState({ modalVisible: visible });
@@ -65,20 +81,20 @@ class Index extends PureComponent {
       };
       fd.append('file', file);
       const { sound } = await Audio.Sound.createAsync({ uri });
-      
+
       arr.push(sound);
     }
     console.log(arr);
-    fd.append('staticId', 1);
+    fd.append('staticId', this.props.route.params.staticId);
     request.post({ url: '/uploads/music', data: fd }).then((res) => {
       console.log(res);
       this.context.navigate('SingOver', {
-        staticId: 1,
+        staticId: this.props.route.params.staticId,
         sound: arr[0],
         id: res.insertId
       });
     });
-  }
+  };
 
   pauseSound = async () => {
     await this.video.pauseAsync();
@@ -100,7 +116,6 @@ class Index extends PureComponent {
       );
       this.setState({ recording: file.recording });
 
-   
       // console.log(file);
     } catch (err) {
       console.error('Failed to start recording', err);
@@ -111,7 +126,7 @@ class Index extends PureComponent {
     // this.setState({recording:undefined});
     await this.state.recording.stopAndUnloadAsync();
     const uri = this.state.recording.getURI();
-    
+
     await this.setState({ URI: [...this.state.URI, uri] });
     this.setState({ isrecoding: false });
     console.log(123);
@@ -182,20 +197,19 @@ class Index extends PureComponent {
     });
     await this.startRecording();
     this.video.replayAsync();
-  }
+  };
   //渲染按钮页面
   renderMenu = () => {
     const { autoPlay, modalVisible, modalVisible1 } = this.state;
     const Fun = () => {
       this.setModalVisible(!modalVisible);
       this.reStart();
-    }
+    };
     const Fun1 = () => {
       this.toPause();
       this.setModalVisible1(!modalVisible1);
       this.playSound();
-     
-    }
+    };
     return (
       <View>
         <View style={styles.bottom}>
@@ -254,9 +268,9 @@ class Index extends PureComponent {
           <TouchableOpacity
             style={{ flex: 1, alignItems: 'center' }}
             onPress={() => {
-               this.video.pauseAsync()
-            
-              this.setModalVisible1(!modalVisible1)
+              this.video.pauseAsync();
+
+              this.setModalVisible1(!modalVisible1);
             }}
           >
             <SvgUri svgXmlData={over} width="30" height="30" />
@@ -275,9 +289,20 @@ class Index extends PureComponent {
           >
             <View style={styles.centeredView}>
               <View style={styles.modalView}>
-                <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>温馨提示</Text>
-                <Text style={{ fontSize: pxToDp(14), color: '#666666' }}>是否确认重唱</Text>
-                <View style={{ alignItems: 'center', justifyContent: 'center', flexDirection: 'row', marginTop: pxToDp(32) }}>
+                <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>
+                  温馨提示
+                </Text>
+                <Text style={{ fontSize: pxToDp(14), color: '#666666' }}>
+                  是否确认重唱
+                </Text>
+                <View
+                  style={{
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexDirection: 'row',
+                    marginTop: pxToDp(32)
+                  }}
+                >
                   <Mybtn
                     title="取消"
                     onPress={() => {
@@ -333,9 +358,20 @@ class Index extends PureComponent {
           >
             <View style={styles.centeredView}>
               <View style={styles.modalView}>
-                <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>温馨提示</Text>
-                <Text style={{ fontSize: pxToDp(14), color: '#666666' }}>是否确认结束</Text>
-                <View style={{ alignItems: 'center', justifyContent: 'center', flexDirection: 'row', marginTop: pxToDp(32) }}>
+                <Text style={{ fontSize: pxToDp(18), color: '#000000' }}>
+                  温馨提示
+                </Text>
+                <Text style={{ fontSize: pxToDp(14), color: '#666666' }}>
+                  是否确认结束
+                </Text>
+                <View
+                  style={{
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexDirection: 'row',
+                    marginTop: pxToDp(32)
+                  }}
+                >
                   <Mybtn
                     title="取消"
                     onPress={() => {
@@ -384,6 +420,8 @@ class Index extends PureComponent {
   };
   render() {
     const { showLoading, value } = this.state;
+    const { detail, title, mp3 } = this.props.route.params;
+    console.log('999', this.props.route.params);
     return (
       <View
         style={{
@@ -392,7 +430,7 @@ class Index extends PureComponent {
           justifyContent: 'space-between'
         }}
       >
-        <Top icon1="arrow-back" title="穆桂英挂帅" />
+        <Top icon1="arrow-back" title={title} />
         <ImageBackground
           style={{ flex: 1 }}
           source={{
@@ -403,29 +441,19 @@ class Index extends PureComponent {
             showsVerticalScrollIndicator={false}
             style={{ marginTop: pxToDp(65), marginBottom: pxToDp(65) }}
           >
-            <View style={{ alignItems: 'center' }}>
-              <Text style={styles.basicbox}>《穆桂英挂帅》选段</Text>
-              <Text style={styles.basicbox}>猛听得金鼓响画角声震</Text>
-              <Text style={styles.basicbox}>唤起我破天门壮志凌云</Text>
-              <Text style={styles.basicbox}>想当年桃花马上威风凛凛</Text>
-              <Text style={styles.basicbox}>敌血飞溅石榴裙</Text>
-              <Text style={styles.basicbox}>有生之日责当尽</Text>
-              <Text style={styles.basicbox}>寸土怎能够属于他人</Text>
-              <Text style={styles.basicbox}>番王小丑何足论</Text>
-              <Text style={styles.basicbox}>我一剑能当百万的兵</Text>
-              <Text style={styles.basicbox}>猛听得金鼓响画角声震</Text>
-              <Text style={styles.basicbox}>唤起我破天门壮志凌云</Text>
-              <Text style={styles.basicbox}>想当年桃花马上威风凛凛</Text>
-              <Text style={styles.basicbox}>敌血飞溅石榴裙</Text>
-              <Text style={styles.basicbox}>有生之日责当尽</Text>
-              <Text style={styles.basicbox}>寸土怎能够属于他人</Text>
-              <Text style={styles.basicbox}>番王小丑何足论</Text>
-              <Text style={styles.basicbox}>我一剑能当百万的兵</Text>
+            <View
+              style={{
+                alignSelf: 'center',
+                width: pxToDp(250),
+                justifyContent: 'center'
+              }}
+            >
+              <Text style={styles.basicbox}>{detail}</Text>
             </View>
             <View style={{ alignItems: 'center', justifyContent: 'center' }}>
               <Video
                 ref={(el) => (this.video = el)}
-                source={require('../study/越剧追鱼.mp3')}
+                source={mp3}
                 resizeMode="contain"
                 onPlaybackStatusUpdate={(status) => this.setState({ status })}
                 volume={value}
@@ -501,8 +529,10 @@ const styles = StyleSheet.create({
   basicbox: {
     fontSize: pxToDp(16),
     lineHeight: pxToDp(40),
+    color: '#333333',
+    justifyContent: 'center',
     alignItems: 'center',
-    color: '#333333'
+    textAlign: 'center'
   },
   centeredView: {
     flex: 1,

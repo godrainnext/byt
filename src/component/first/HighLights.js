@@ -43,7 +43,7 @@ export default class HighLights extends PureComponent {
             </View>
           </View>
           <TouchableOpacity
-            style={{ flexDirection: 'row', alignItems: 'center', marginLeft: pxToDp(180) }}
+            style={{ flexDirection: 'row', alignItems: 'center', marginLeft: pxToDp(180), marginBottom: pxToDp(10) }}
             onPress={() => this.context.navigate('Opera')}
           >
             <Text style={{ fontSize: pxToDp(14), color: '#666666' }}>

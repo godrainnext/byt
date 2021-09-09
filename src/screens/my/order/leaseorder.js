@@ -68,7 +68,7 @@ class orders extends PureComponent {
         1;
     const { count, tabs, activeTab, way, leaseprice } = this.state;
     return (
-      <View style={{ backgroundColor: '#e2f4fe' }}>
+      <View style={{ backgroundColor: '#D5E8E6' }}>
         <Top icon1="arrow-back" title="确认订单" />
         <ScrollView
           style={{ height: pxToDp(675) }}

@@ -34,7 +34,7 @@ class Index extends PureComponent {
         text4:
           '此剧的“送信”唱段深受观众喜爱，曾被越剧演员多次演绎，广为流传，网络有各种音视频留存。1990年“霞飞杯”越剧电视大奖赛中，越剧小生萧雅和袁派花旦方亚芬曾演唱此段。2007年在“桂子飘香--纪念尹桂芳演唱会”和中央电视台的春节戏曲联欢晚会上，萧雅和方亚芬都上演了这个唱段。而在2010年11月23、24日，越剧尹派传人王君安专场《问君安》上，王君安、方亚芬亦演出此唱段。2011年的“纪念袁雪芬专场演唱会”上，尹派小生茅威涛和袁派花旦方亚芬演出此唱段。',
         path1:
-          'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fi3.bbs.fd.zol-img.com.cn%2Ft_s1200x5000%2Fg1%2FM04%2F04%2F03%2FCg-4jVMi2fSIFRb7AAi6FyW6nLoAALQlgJ4K9gACLov423.jpg&refer=http%3A%2F%2Fi3.bbs.fd.zol-img.com.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632206702&t=e707e61becf73bb6f505a3958ca2936chttps://img0.baidu.com/it/u=1842712967,2649028424&fm=26&fmt=auto&gp=0.jpg',
+          'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fupload.art.ifeng.com%2F2019%2F0104%2F1546564768959.jpg&refer=http%3A%2F%2Fupload.art.ifeng.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1633584582&t=8e3354e167a8db53a13dd29403081a06',
         path2:
           'https://bkimg.cdn.bcebos.com/pic/64380cd7912397ddb0b7f7005982b2b7d1a287e3?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2U4MA==,g_7,xp_5,yp_5/format,f_auto'
       }

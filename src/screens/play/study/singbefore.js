@@ -23,7 +23,7 @@ class Index extends PureComponent {
     render() {
         const video = createRef()
         return (
-            <View style={{ flex: 1, backgroundColor: '#E2F4FE', justifyContent: "space-between" ,fontSize:pxToDp(16)}}>
+            <View style={{ flex: 1, backgroundColor: '#D5E8E6', justifyContent: "space-between" ,fontSize:pxToDp(16)}}>
 
                 <View style={{ alignItems: "center", }}>
                     <Top icon1='arrow-back' title="穆桂英挂帅"/>
