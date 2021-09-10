@@ -1,4 +1,6 @@
-import React, { PureComponent } from 'react';
+import React, {
+    PureComponent
+} from 'react';
 
 import {
   StyleSheet,
@@ -28,9 +30,28 @@ function formatTime(second) {
 }
 
 export default class VideoScreen extends PureComponent {
-  static navigationOptions = {
-    header: null
-  };
+
+    static navigationOptions = {
+        header: null
+    };
+
+    state = {
+        rate: 1,
+        volume: 1,
+        muted: false,
+        resizeMode: 'contain',
+        duration: 0.0,
+        currentTime: 0.0,
+        paused: true,
+    };
+
+    componentWillMount() {
+        BackHandler.addEventListener('hardwareBackPress', this.onBackAndroid);
+    }
+
+    componentWillUnmount() {
+        BackHandler.removeEventListener('hardwareBackPress', this.onBackAndroid);
+    }
 
   state = {
     rate: 1,

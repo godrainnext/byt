@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { Text, View, ScrollView, StyleSheet } from 'react-native';
 import Top from '../../../../component/common/top';
 import { pxToDp } from '../../../../utils/styleKits';
 
-export default class xieyi extends Component {
+export default class xieyi extends PureComponent {
   render() {
     return (
       <View style={{ backgroundColor: 'white', flex: 1 }}>

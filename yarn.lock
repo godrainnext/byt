@@ -3307,7 +3307,7 @@ cosmiconfig@^5.0.5, cosmiconfig@^5.1.0:
     js-yaml "^3.13.1"
     parse-json "^4.0.0"
 
-create-react-class@*, create-react-class@^15.6.2:
+create-react-class@*, create-react-class@^15.6.0, create-react-class@^15.6.2:
   version "15.7.0"
   resolved "https://registry.yarnpkg.com/create-react-class/-/create-react-class-15.7.0.tgz#7499d7ca2e69bb51d13faf59bd04f0c65a1d6c1e"
   integrity sha512-QZv4sFWG9S5RUvkTYWbflxeZX+JG7Cz0Tn33rQBJ+WFQTqTfUTjMjiv9tnfXazjsO5r0KhPs+AqCjyrQX6h2ng==
@@ -7105,8 +7105,8 @@ react-native-datepicker@^1.7.2:
 
 react-native-deck-swiper@^2.0.5:
   version "2.0.5"
-  resolved "https://registry.yarnpkg.com/react-native-deck-swiper/-/react-native-deck-swiper-2.0.5.tgz#acc6dbae31e45f3b5f1c51541664f94c3a8b00c7"
-  integrity sha512-PRDsdgAYUogMMwPWChEL/XsEpSob8CFNd9ThsvoyMV2lXd2bR4VZsHSuyVgXvqiHspGb3modbvogBpiSOZ3oHQ==
+  resolved "https://registry.nlark.com/react-native-deck-swiper/download/react-native-deck-swiper-2.0.5.tgz#acc6dbae31e45f3b5f1c51541664f94c3a8b00c7"
+  integrity sha1-rMbbrjHkXztfHFFUFmT5TDqLAMc=
   dependencies:
     prop-types "15.5.10"
 
@@ -7123,11 +7123,6 @@ react-native-elements@^3.4.2:
     opencollective-postinstall "^2.0.3"
     react-native-ratings "8.0.4"
     react-native-size-matters "^0.3.1"
-
-react-native-ezswiper@^1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/react-native-ezswiper/-/react-native-ezswiper-1.3.0.tgz#706865e3caf67bdc190e4127583a4d4bec372f05"
-  integrity sha512-XxMOTLr1eW4D8CfKl2HgDBHNVkCcpeayUQ0SyP0JfPEPlzQEmdnA2L/JpidgTthHZ6FBH8cYGTAjO4XVlCOi3w==
 
 react-native-flip-card@^3.5.6:
   version "3.5.6"
@@ -7251,6 +7246,14 @@ react-native-orientation-locker@^1.3.1:
   resolved "https://registry.yarnpkg.com/react-native-orientation-locker/-/react-native-orientation-locker-1.3.1.tgz#e47cfdd4a7390df6ccdbc748a6eca9e8be953b0d"
   integrity sha512-BJPe/GvGO8nNdtqQat30CS9H2o+Qt8hv9AMYCxLS5l5k5+BP3FLScU2+GBg2DizDQCOnTtA24o8heI7kwy+rvw==
 
+react-native-page-control@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.nlark.com/react-native-page-control/download/react-native-page-control-1.1.2.tgz#5845915641996541d46864f9198a4e63b4abb106"
+  integrity sha1-WEWRVkGZZUHUaGT5GYpOY7SrsQY=
+  dependencies:
+    create-react-class "^15.6.0"
+    prop-types "^15.5.10"
+
 react-native-parallax-scroll-view@^0.21.3:
   version "0.21.3"
   resolved "https://registry.nlark.com/react-native-parallax-scroll-view/download/react-native-parallax-scroll-view-0.21.3.tgz#d956ad224ce3b0a2725b80574bcbf688bbeda14e"
@@ -7333,8 +7336,8 @@ react-native-scrollable-tab-view@^1.0.0:
 
 react-native-search-header@^0.3.5:
   version "0.3.5"
-  resolved "https://registry.yarnpkg.com/react-native-search-header/-/react-native-search-header-0.3.5.tgz#7720beeef391df9073ddc7d6c385f75439b450b5"
-  integrity sha512-gh4Z10aVVmANsz4UOMTLoZsHo7C6jcMLlP72acuaNr9oGnwpsNUbTqybvddlOWFhv93ywv1eA5nGhcwP+rSr/A==
+  resolved "https://registry.nlark.com/react-native-search-header/download/react-native-search-header-0.3.5.tgz#7720beeef391df9073ddc7d6c385f75439b450b5"
+  integrity sha1-dyC+7vOR35Bz3cfWw4X3VDm0ULU=
   dependencies:
     react-native-animatable "^1.3.2"
     semver "^6.3.0"
@@ -7384,8 +7387,13 @@ react-native-swipe-list-view@^3.2.9:
 
 react-native-swiper-flatlist@^3.0.14:
   version "3.0.14"
+<<<<<<< HEAD
+  resolved "https://registry.nlark.com/react-native-swiper-flatlist/download/react-native-swiper-flatlist-3.0.14.tgz#6c1b5f150af910656a64c5bf15c6bc66c2b80a30"
+  integrity sha1-bBtfFQr5EGVqZMW/Fca8ZsK4CjA=
+=======
   resolved "https://registry.yarnpkg.com/react-native-swiper-flatlist/-/react-native-swiper-flatlist-3.0.14.tgz#6c1b5f150af910656a64c5bf15c6bc66c2b80a30"
   integrity sha512-t41ZlktJnG0D6sva/xL06mDDIkglMwnWIKhRPC2Ll6iP4fUVqv4bXtxMP1HhHwQmlT6B9FQMU1/RF+VqpK3a1A==
+>>>>>>> d636c0d9933a84f41ddaf1371b9fffa10cef2877
 
 react-native-swiper@^1.6.0:
   version "1.6.0"

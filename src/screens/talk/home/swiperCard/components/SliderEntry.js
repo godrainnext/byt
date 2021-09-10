@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import PropTypes from 'prop-types';
 import { ParallaxImage } from 'react-native-snap-carousel';
 import styles from '../styles/SliderEntry.style';
 
-export default class SliderEntry extends Component {
+export default class SliderEntry extends PureComponent {
 
     static propTypes = {
         data: PropTypes.object.isRequired,

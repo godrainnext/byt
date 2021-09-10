@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import TabNavigator from 'react-native-tab-navigator';
-import { Image, TouchableOpacity, View, StyleSheet, Text, ToastAndroid } from 'react-native';
+import { Image, TouchableOpacity, View, StyleSheet, Text, ToastAndroid ,Alert} from 'react-native';
 import Svg from 'react-native-svg-uri';
 import First from './screens/first/home';
 import Talk from './screens/talk/home';
@@ -147,7 +147,22 @@ class Index extends PureComponent {
                     }}
                   >
                     <TouchableOpacity
-                      onPress={this.kaiBo}
+                      onPress={    
+                        this.props.userInfo.isStream?this.kaiBo:()=>{Alert.alert('温馨提醒','请先完成实名认证',
+                        [
+                         {
+                              text: '去认证',
+                              onPress: () => { this.Scrollable1.close();this.context.navigate('Apply')}
+                          },
+                          {
+                              text: '取消',
+                              onPress: () => ToastAndroid.show('Cancel', ToastAndroid.SHORT),
+                              style: 'cancel'
+                          },
+                          
+                      ],
+             )}
+                     }
                       style={{ justifyContent: 'center', alignItems: 'center' }}
                     >
                       <View style={styles.textbox}>

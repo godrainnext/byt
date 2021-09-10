@@ -107,7 +107,7 @@ class Index extends PureComponent {
             <TouchableOpacity
               style={styles.book}
               onPress={() =>
-                this.context.navigate('Screenpaly', {
+                this.context.navigate('Screenpaly35', {
                   ...this.state.dramalist,
                   title: this.state.dramalist[0].title
                 })
