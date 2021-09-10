@@ -60,7 +60,7 @@ class Index extends PureComponent {
         name: '越剧人物钥匙扣',
         intro: '以越剧经典剧目人物形象作为钥匙扣的元素。',
         price: '￥20',
-        img: require('../../../res/shop/17.jpg'),
+        img: require('../../../res/shop/14.jpg'),
       },
       {
         name: '越剧戏服手提袋',
@@ -294,9 +294,9 @@ class Index extends PureComponent {
                       width: pxToDp(190)
                     }}
                   >
-                      <Text style={{ fontSize: pxToDp(16), color: '#000000' }}>
-                        {item.name}
-                      </Text>
+                    <Text style={{ fontSize: pxToDp(16), color: '#000000' }}>
+                      {item.name}
+                    </Text>
                     <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
                       {item.intro}
                     </Text>
