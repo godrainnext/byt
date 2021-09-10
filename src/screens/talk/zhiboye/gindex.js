@@ -98,7 +98,6 @@ class App extends PureComponent {
       roomName: '',
       roomImg: '',
       arr: [],
-   
     };
     if (Platform.OS === 'android') {
       // Request required permissions from Android

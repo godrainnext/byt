@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import {
   Platform,
   ScrollView,
@@ -87,7 +87,7 @@ const HTML = `
 //   joinSucceed: boolean;
 //   peerIds: number[];
 // }
-class App extends Component {
+class App extends PureComponent {
   //   _engine?: RtcEngine;
   static contextType = NavigationContext;
 

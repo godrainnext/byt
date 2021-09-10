@@ -7,6 +7,7 @@ import Swiper from 'react-native-swiper';
 import Top from '@components/common/top';
 import { playmusic } from '../../../../component/common/iconSvg';
 import SvgUri from 'react-native-svg-uri';
+import LottieView from 'lottie-react-native';
 import VideoPlayScreen from '../../../../component/videoplayer/VideoPlayScreen';
 
 const dimensions = {
@@ -105,6 +106,7 @@ export default class App extends PureComponent {
         { id: '9', title: '家 幻觉', autor: '赵志刚 孙智君' },
         { id: '10', title: '春香传 心歌', autor: '王文娟' },
       ],
+      autoPlay: false
     };
     if (Platform.OS === 'android') {
       // Request required permissions from Android
@@ -152,7 +154,8 @@ export default class App extends PureComponent {
     // this.init();
     console.log(this.props.route.params);
     // this.props.route.params.startCall? this.props.route.params.startCall():console.log(123);
-    this.startCall()
+    this.startCall();
+    this.animation.pause();
   }
 
   /**
@@ -246,7 +249,13 @@ export default class App extends PureComponent {
       this.context.navigate('Tabbar')
     )
   }
-
+  toContr() {
+    if (this.state.autoPlay == false) {
+      this.animation.play();
+    } else {
+      this.animation.pause();
+    }
+  }
 
   render() {
     const { roomName, channelName, roomImg, joinSucceed } = this.state;
@@ -268,7 +277,8 @@ export default class App extends PureComponent {
     );
   };
   _renderRemoteVideos = () => {
-    const { peerIds, showSong } = this.state;
+    const { peerIds, showSong, autoPlay } = this.state;
+    console.log(autoPlay);
     return (
       <View
         style={styles.remoteContainer}
@@ -276,7 +286,7 @@ export default class App extends PureComponent {
         <Top title='小剧场' icon1="arrow-back" />
         <View style={{ width: '100%' }}>
           <Image style={{ height: pxToDp(115), width: '100%', resizeMode: 'contain', zIndex: 9999 }} source={require('../../../../res/tv2.png')} />
-          <Image style={{ height: pxToDp(225), width: pxToDp(42), resizeMode: 'contain', zIndex: 9999, marginLeft: pxToDp(1.7), marginTop: pxToDp(-12)}} source={require('../../../../res/tv1.png')} />
+          <Image style={{ height: pxToDp(225), width: pxToDp(42), resizeMode: 'contain', zIndex: 9999, marginLeft: pxToDp(1.7), marginTop: pxToDp(-12) }} source={require('../../../../res/tv1.png')} />
           <Image style={{ height: pxToDp(230), width: pxToDp(134), resizeMode: 'contain', zIndex: 9999, marginLeft: pxToDp(264), marginTop: pxToDp(-225) }} source={require('../../../../res/tv3.png')} />
           <Image style={{ height: pxToDp(45), width: '100%', resizeMode: 'contain', zIndex: 9999, marginLeft: pxToDp(-20), marginTop: pxToDp(-40.5) }} source={require('../../../../res/tv4.png')} />
           <View style={{ height: pxToDp(210), width: pxToDp(300), marginLeft: pxToDp(18), marginTop: pxToDp(-250) }}>
@@ -284,16 +294,37 @@ export default class App extends PureComponent {
           </View>
           <View style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', marginTop: pxToDp(50) }}>
             <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-              <Image style={{ width: pxToDp(65), height: pxToDp(65), borderRadius: pxToDp(24) }} source={{ uri: 'https://pics2.baidu.com/feed/bd315c6034a85edf1a928e0e0da87425dc547587.jpeg?token=119b3f2abe0889ed0753ea8c3e8b288d' }}></Image>
+              <Image style={{ width: pxToDp(65), height: pxToDp(65), borderRadius: pxToDp(35) }} source={{ uri: 'https://pics2.baidu.com/feed/bd315c6034a85edf1a928e0e0da87425dc547587.jpeg?token=119b3f2abe0889ed0753ea8c3e8b288d' }}></Image>
               <Text style={{ fontSize: pxToDp(16) }}>野原新之助</Text>
             </View>
-            <TouchableOpacity style={{ width: pxToDp(80), height: pxToDp(40), borderRadius: pxToDp(32), backgroundColor: '#468cd3', justifyContent: 'center', alignItems: 'center' }}>
-              <Text style={{ fontSize: pxToDp(16) }}>
-                开始演唱
-              </Text>
-            </TouchableOpacity>
+            <View style={{ alignItems: 'center' }}>
+              <LottieView
+                style={{ width: pxToDp(100), alignSelf: 'center' }}
+                source={require('../../../../../lottie/直播live效果.json')}
+                ref={(animation) => {
+                  this.animation = animation;
+                }}
+              />
+              {autoPlay ? (<TouchableOpacity style={{ width: pxToDp(90), height: pxToDp(30), borderRadius: pxToDp(32), backgroundColor: '#62bfad', justifyContent: 'center', alignItems: 'center' }}
+                onPress={() => {
+                  this.toContr();
+                  this.setState({ autoPlay: !autoPlay });
+                }}>
+                <Text style={{ fontSize: pxToDp(14) }}>
+                  暂停演唱
+                </Text>
+              </TouchableOpacity>) : (<TouchableOpacity style={{ width: pxToDp(90), height: pxToDp(30), borderRadius: pxToDp(32), backgroundColor: '#62bfad', justifyContent: 'center', alignItems: 'center' }}
+                onPress={() => {
+                  this.toContr();
+                  this.setState({ autoPlay: !autoPlay });
+                }}>
+                <Text style={{ fontSize: pxToDp(14) }}>
+                  开始演唱
+                </Text>
+              </TouchableOpacity>)}
+            </View>
             <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-              <Image style={{ width: pxToDp(65), height: pxToDp(65), borderRadius: pxToDp(24) }} source={{ uri: 'https://img0.baidu.com/it/u=4203889072,870375471&fm=26&fmt=auto&gp=0.jpg' }}></Image>
+              <Image style={{ width: pxToDp(65), height: pxToDp(65), borderRadius: pxToDp(35) }} source={{ uri: 'https://img0.baidu.com/it/u=4203889072,870375471&fm=26&fmt=auto&gp=0.jpg' }}></Image>
               <Text style={{ fontSize: pxToDp(16) }}>蜡笔小新</Text>
             </View>
           </View>
@@ -333,6 +364,7 @@ export default class App extends PureComponent {
                       </Text>
                     </View>
                     <TouchableOpacity
+                      style={{ marginRight: pxToDp(20) }}
                       onPress={() => this.setState({ showSong: false })}
                     >
                       <SvgUri svgXmlData={playmusic} width="30" height="30" />
@@ -366,7 +398,9 @@ export default class App extends PureComponent {
                         {item.autor}
                       </Text>
                     </View>
-                    <TouchableOpacity>
+                    <TouchableOpacity
+                      style={{ marginRight: pxToDp(20) }}
+                      onPress={() => this.setState({ showSong: false })}>
                       <SvgUri svgXmlData={playmusic} width="30" height="30" />
                     </TouchableOpacity>
                   </View>
@@ -398,7 +432,9 @@ export default class App extends PureComponent {
                         {item.autor}
                       </Text>
                     </View>
-                    <TouchableOpacity>
+                    <TouchableOpacity
+                      style={{ marginRight: pxToDp(20) }}
+                      onPress={() => this.setState({ showSong: false })}>
                       <SvgUri svgXmlData={playmusic} width="30" height="30" />
                     </TouchableOpacity>
                   </View>

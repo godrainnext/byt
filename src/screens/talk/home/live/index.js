@@ -9,10 +9,8 @@ import {
 } from 'react-native';
 import { pxToDp } from '@utils/styleKits';
 import { NavigationContext } from '@react-navigation/native';
-
 import LottieView from 'lottie-react-native';
 import Icon from 'react-native-vector-icons/AntDesign';
-
 import { getStreamList } from '../../../../service/shop';
 
 class Index extends PureComponent {
