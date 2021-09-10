@@ -61,6 +61,7 @@ class Index extends PureComponent {
         intro: '以越剧经典剧目人物形象作为钥匙扣的元素。',
         price: '￥20',
         img: require('../../../res/shop/17.jpg'),
+        hot: true
       },
       {
         name: '越剧戏服手提袋',
@@ -96,7 +97,7 @@ class Index extends PureComponent {
     this.setState({ text: message, refreshing: refresh });
   }
   render() {
-    const { showJing } = this.state;
+    const { showJing, hot } = this.state;
     return (
       <View style={{ flex: 1, backgroundColor: 'white' }}>
         {/**搜索框*/}
@@ -294,9 +295,21 @@ class Index extends PureComponent {
                       width: pxToDp(190)
                     }}
                   >
-                    <Text style={{ fontSize: pxToDp(16), color: '#000000' }}>
-                      {item.name}
-                    </Text>
+                    {hot ? (
+                      <View style={{ flexDirection: 'row' }}>
+                        <View>
+                          <Text style={{ fontSize: pxToDp(16), color: 'red' }} >HOT</Text>
+                        </View>
+                        <Text style={{ fontSize: pxToDp(16), color: '#000000' }}>
+                          {item.name}
+                        </Text>
+                      </View>
+                    ) : (
+                      <View>
+                        <Text style={{ fontSize: pxToDp(16), color: '#000000' }}>
+                          {item.name}
+                        </Text>
+                      </View>)}
                     <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
                       {item.intro}
                     </Text>
@@ -308,7 +321,8 @@ class Index extends PureComponent {
                 <View style={styles.shopcar}>
                   <Svg width="20" height="20" svgXmlData={shopCar} />
                 </View>
-              </View>))}
+              </View>))
+            }
           </View>) : (<View>
             {this.state.jingpin2.map((item, index) => (
               <View style={styles.jing}>
@@ -339,7 +353,8 @@ class Index extends PureComponent {
                   <Svg width="20" height="20" svgXmlData={shopCar} />
                 </View>
               </View>))}
-          </View>)}
+          </View>)
+          }
 
           {/*活动板块 */}
           <TouchableNativeFeedback
@@ -396,8 +411,8 @@ class Index extends PureComponent {
           </View>
           <View style={styles.tcard}></View>
           <View style={{ height: pxToDp(4) }} />
-        </ScrollView>
-      </View>
+        </ScrollView >
+      </View >
     );
   }
 }
