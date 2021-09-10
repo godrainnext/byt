@@ -166,7 +166,7 @@ class Index extends PureComponent {
                 justifyContent: 'center'
               }}
             >
-              <Text style={{ fontSize: pxToDp(16), color: '#666666' }}>
+              <Text style={{ fontSize: pxToDp(14), color: '#666666' }}>
                 积分明细
               </Text>
               <AntDesign name="right" size={pxToDp(15)} color="#666666" />
