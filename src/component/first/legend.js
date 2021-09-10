@@ -28,7 +28,7 @@ export default class Legend extends PureComponent {
                 袁派
               </Text>
               <Text style={{ fontSize: pxToDp(14), flexWrap: 'wrap', color: '#666666', marginTop: pxToDp(5), lineHeight: pxToDp(24) }}>
-                袁派唱腔的特点是质朴平易，委婉细腻，深沉含蓄，韵味醇厚。
+                袁雪芬唱腔的特点是质朴平易，委婉细腻，深沉含蓄，韵味醇厚。
               </Text>
             </View>
           </View>
@@ -80,7 +80,7 @@ export default class Legend extends PureComponent {
                 尹派
               </Text>
               <Text style={{ fontSize: pxToDp(14), flexWrap: 'wrap', color: '#666666', marginTop: pxToDp(5), lineHeight: pxToDp(24) }}>
-                尹派的特点是委婉缠绵，洒脱深沉，纯朴隽永，清新舒展，是一种典型的以柔为主、柔中寓刚的风格。
+                尹桂芳的特点是委婉缠绵，洒脱深沉，纯朴隽永，清新舒展，是一种典型的以柔为主、柔中寓刚的风格。
               </Text>
             </View>
           </View>
