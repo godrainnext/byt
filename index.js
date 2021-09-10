@@ -21,6 +21,10 @@ LogBox.ignoreLogs([
   'Constants.deviceId has been deprecated in favor of generating and storing your own ID. This API will be removed in SDK 44.',
   '%s: Calling `getNode()` on the ref of an Animated component is no longer necessary. You can now directly use the ref instead. This method will be removed in a future release. ViewPager',
   'Warning: forwardRef render functions do not support propTypes or defaultProps. Did you accidentally pass a React component?',
-  `Stack Navigator: 'headerMode="none"' is deprecated. Use 'headerShown: false' in 'screenOptions' instead.`
+  `Stack Navigator: 'headerMode="none"' is deprecated. Use 'headerShown: false' in 'screenOptions' instead.`,
+  'Animated: `useNativeDriver` was not specified. This is a required option and must be explicitly set to `true` or `false`',
+  'Warning: componentWillReceiveProps has been renamed, and is not recommended for use. See https://reactjs.org/link/unsafe-component-lifecycles for details.',
+  'Warning: componentWillMount has been renamed, and is not recommended for use. See https://reactjs.org/link/unsafe-component-lifecycles for details.'
+
 ])
 AppRegistry.registerComponent(appName, () => App);
