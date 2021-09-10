@@ -31,8 +31,8 @@ const HTML = `
 
 `;
 export default class App extends PureComponent {
-  //   _engine?: RtcEngine;
-  static contextType = NavigationContext;
+    //   _engine?: RtcEngine;
+    static contextType = NavigationContext;
 
   constructor(props) {
     super(props);

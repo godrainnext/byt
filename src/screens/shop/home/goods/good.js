@@ -186,7 +186,7 @@ class shopdetails extends PureComponent {
           }}
         >
           {/* 商品图片 */}
-          <View style={{ alignItems: 'center', marginTop: pxToDp(20) }}>
+          <View style={{ alignItems: 'center', marginTop: pxToDp(20)}}>
             <Swiper shopbanner={this.state.shopbanner} />
           </View>
 
@@ -286,6 +286,7 @@ class shopdetails extends PureComponent {
                 springConfig={{ tension: 15, friction: 7 }}
                 swipeToDismiss={true}
                 renderContent={this.renderCarousel}
+                underlayColor='white'
               >
                 {activeTab == -1 ? (<Image style={{
                   width: pxToDp(60),

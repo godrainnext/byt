@@ -2,7 +2,7 @@
  * 创建： jiaojiao on 2018/10/29.
  * 功能：SegmentTabBar
  */
-import React, { PureComponent } from 'react';
+import React, { PureComponent } from 'react'
 import {
   View,
   Text,

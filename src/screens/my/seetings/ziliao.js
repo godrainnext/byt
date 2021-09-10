@@ -420,7 +420,7 @@ const s = StyleSheet.create({
   },
   modalTitle: {
     width: '70%',
-    fontSize: pxToDp(25),
+    fontSize: pxToDp(20),
     alignSelf: 'center',
     textAlign: 'center',
     borderBottomWidth: 1.1,

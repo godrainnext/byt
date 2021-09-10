@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import Modal from 'react-native-modal';
 import {
   ScrollView,
@@ -19,10 +19,10 @@ import Swiper from 'react-native-deck-swiper';
 import { NavigationContext } from '@react-navigation/native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Home from '../../component/first/card/home';
-import { PureComponent } from 'react';
+
 
 const { height, width } = Dimensions.get('window');
-const BASE_URI = 'http://192.168.50.118:3000';
+const BASE_URI = "http://192.168.50.118:3000";
 class index extends PureComponent {
   constructor(props) {
     super(props);
