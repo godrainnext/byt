@@ -87,7 +87,7 @@ class Index extends PureComponent {
               style={styles.image3}
               source={{ uri: this.state.schoolstate.image2 }}
             />
-            <View style={{ width: pxToDp(240), marginTop: pxToDp(10), marginBottom: pxToDp(10), justifyContent: 'space-between' }}>
+            <View style={{ width: pxToDp(240), marginTop: pxToDp(10), marginBottom: pxToDp(14), justifyContent: 'space-between' }}>
               <Text style={styles.zhuanjititle}>
                 {this.state.schoolstate.title}
               </Text>
@@ -174,8 +174,7 @@ const styles = StyleSheet.create({
   },
   zhuanjitext: {
     fontSize: pxToDp(14),
-    color: '#666666',
-    marginTop: pxToDp(8)
+    color: '#666666'
   }
 });
 export default Index;

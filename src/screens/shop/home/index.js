@@ -60,7 +60,7 @@ class Index extends PureComponent {
         name: '越剧人物钥匙扣',
         intro: '以越剧经典剧目人物形象作为钥匙扣的元素。',
         price: '￥20',
-        img: require('../../../res/shop/14.jpg'),
+        img: require('../../../res/shop/17.jpg'),
       },
       {
         name: '越剧戏服手提袋',
@@ -273,7 +273,7 @@ class Index extends PureComponent {
               />
             </View>
             <TouchableOpacity
-              style={{ flexDirection: 'row', alignItems: 'center', marginLeft: pxToDp(180) }}
+              style={{ flexDirection: 'row', alignItems: 'center', marginLeft: pxToDp(180), marginBottom: pxToDp(10) }}
               onPress={() => this.setState({ showJing: !showJing })}>
               <Text style={{ fontSize: pxToDp(14), color: '#666666', marginRight: pxToDp(4) }}>换一换</Text>
               <Ionicons name="refresh" size={22} color="#666666" />
