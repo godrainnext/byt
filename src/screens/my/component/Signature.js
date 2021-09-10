@@ -40,6 +40,7 @@ export default class Signature extends PureComponent {
               backgroundColor: 'white',
               borderRadius: pxToDp(16),
               marginTop: pxToDp(8),
+              padding:pxToDp(16),
               elevation: 2,
               shadowColor: 'black', //  阴影颜色
               shadowOffset: { width: 0, height: 0 }, // 阴影偏移

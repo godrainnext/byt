@@ -26,7 +26,7 @@ import LottieView from 'lottie-react-native';
 import { NavigationContext } from '@react-navigation/native';
 import { connect } from 'react-redux';
 import SvgUri from 'react-native-svg-uri';
-import Mybtn from '../../../component/common/mybtn'
+import { right } from '../../../component/common/iconSvg';
 const dimensions = {
   width: Dimensions.get('window').width,
   height: Dimensions.get('window').height
@@ -98,34 +98,8 @@ class App extends PureComponent {
       roomName: '',
       roomImg: '',
       arr: [],
-      gift: [
-        {
-          img: require('./573ff557a75a408f9e310d7b5496718.png')
-        },
-        {
-          img: require('./2558d015b75773c40625edb92637411.png')
-        },
-        {
-          img: require('./b7fdb3484be6203a590cc0a7157236e.png')
-        },
-        {
-          img: require('./f4929599e4e91bf7c81dabd434036d9.png')
-        },
-        {
-          img: require('./16886b664d0079cbc1b5d39930cfcea.png')
-        },
-        {
-          img: require('./3c2240dbb32392f5909b7dc7ca24a3b.png')
-        },
-        {
-          img: require('./dc0a4b1cc1d6483508235d23a2d81bb.png')
-        },
-        {
-          img: require('./aadce2114eacab1be9db85eb7bb7aa0.png')
-        },
-      ],
-      activeTab: -1
-    }
+   
+    };
     if (Platform.OS === 'android') {
       // Request required permissions from Android
       requestCameraAndAudioPermission().then(() => {
@@ -149,9 +123,6 @@ class App extends PureComponent {
     }
   }
   //打开本地图册
-  changeTab = (index) => {
-    this.setState({ activeTab: index });
-  };
   _openPicker() {
     ImagePicker.openPicker({
       width: 300,
@@ -408,7 +379,7 @@ class App extends PureComponent {
             <TouchableOpacity
               onPress={this.closeCall}
               style={{
-
+                backgroundColor: 'rgba(0,0,0,0.4)',
                 height: pxToDp(24),
                 width: pxToDp(24),
                 flexDirection: 'row',
@@ -418,7 +389,20 @@ class App extends PureComponent {
                 padding: pxToDp(4)
               }}
             >
-              <SvgUri svgXmlData='<svg t="1631176303657" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2963" width="200" height="200"><path d="M1013.44 484.736l-170.24-212.992a42.752 42.752 0 0 0-47.488-13.632 42.688 42.688 0 0 0-28.416 40.192v127.808H426.432a85.12 85.12 0 0 0 0 170.304h340.736v127.872a42.496 42.496 0 0 0 75.84 26.56l170.432-212.992a42.176 42.176 0 0 0 0-53.12z m-416.64 367.36H255.36c-46.72 0-84.608-38.08-84.608-85.12v-512c0-46.72 38.144-84.544 85.312-84.544h340.736a85.12 85.12 0 0 0 0-170.24H170.88A170.432 170.432 0 0 0 0.448 170.496v681.6a170.432 170.432 0 0 0 170.432 170.432h425.984a85.12 85.12 0 0 0 0-170.432z" p-id="2964" fill="#707070"></path></svg>' width='20' height='20' />
+              <View
+                style={{
+                  height: pxToDp(20),
+                  width: pxToDp(20),
+                  justifyContent: 'center',
+                  alignItems: 'center'
+                }}
+              >
+                <Text
+                  style={{ color: 'white', fontSize: 16, fontWeight: 'bold' }}
+                >
+                  X
+                </Text>
+              </View>
             </TouchableOpacity>
           </View>
         </View>
@@ -456,49 +440,12 @@ class App extends PureComponent {
           ref={(ref) => {
             this.Scrollable = ref;
           }}
-          height={200}
+          height={150}
           closeOnDragDowncustomStyles={{
             container: { borderTopLeftRadius: 10, borderTopRightRadius: 10 }
           }}
         >
-          <View style={{ flexDirection: 'row', flexWrap: 'wrap', marginRight: 0, marginTop: 20 }}>
-            {
-              this.state.gift.map((item, index) => (
-                <View style={{
-                  marginLeft: 32, width: 50, height: 50,
-                }}>
-                  <TouchableOpacity onPress={() => this.changeTab(index)} style={{ 
-                    width: 50, height: 50, justifyContent: 'center', alignItems: 'center',
-                    borderColor:
-                    index === this.state.activeTab ? '#62bfad' : 'white',
-                  borderWidth:
-                    index ===this.state.activeTab ? pxToDp(1) : pxToDp(0), }}>
-                    <Image source={item.img} style={{ width: 45, height: 45,}} />
-                  </TouchableOpacity>
-                </View>
-              ))
-            }
-          </View>
-          <Mybtn
-              title="发送"
-              onPress={this.sortByFirstCode}
-              buttonStyle={{
-                width: pxToDp(80),
-                height: pxToDp(30),
-                borderRadius: pxToDp(32),
-                alignItems: 'center',
-                justifyContent: 'center',
-                marginTop: pxToDp(10),
-                alignSelf:'flex-end'
-                
-              }}
-              titleStyle={{
-                height: 30,
-                color: 'white',
-                fontSize: pxToDp(14),
-                marginTop: pxToDp(8)
-              }}
-            />
+       
         </RBSheet>
       </View>
     );

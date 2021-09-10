@@ -286,6 +286,7 @@ class shopdetails extends PureComponent {
                 springConfig={{ tension: 15, friction: 7 }}
                 swipeToDismiss={true}
                 renderContent={this.renderCarousel}
+                underlayColor='white'
               >
                 {activeTab == -1 ? (<Image style={{
                   width: pxToDp(60),
