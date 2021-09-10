@@ -18,7 +18,7 @@ class Index extends PureComponent {
                     text2: '+35'
                 },
                 {
-                    text1: '2021-09.01',
+                    text1: '2021-09-01',
                     text2: '+30'
                 },
                 {

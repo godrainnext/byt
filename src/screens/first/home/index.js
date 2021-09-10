@@ -8,7 +8,8 @@ import {
   ScrollView,
   TouchableOpacity,
   Dimensions,
-  TouchableNativeFeedback
+  TouchableNativeFeedback,
+  ImageBackground
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { NavigationContext } from '@react-navigation/native';
@@ -402,6 +403,64 @@ class Index extends PureComponent {
               borderRadius: pxToDp(8)
             }}
           />
+
+
+          {/*热门集锦 */}
+          <View style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            marginLeft: pxToDp(16),
+            marginRight: pxToDp(16),
+            marginTop: pxToDp(16),
+            marginBottom: pxToDp(16)
+          }}>
+            <View style={styles.left}></View>
+            <View>
+              <View
+                style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}
+              >
+                <Text style={styles.titletext}>热门集锦</Text>
+                <LottieView
+                  style={{ width: pxToDp(80) }}
+                  source={require('../../../../lottie/标题底部.json')}
+                  autoPlay={true}
+                  loop={true}
+                />
+              </View>
+            </View>
+          </View>
+          <TouchableNativeFeedback onPress={() => this.context.navigate('MusicPlayer', 1)}>
+            <View
+              style={{
+                backgroundColor: 'white',
+                borderRadius: pxToDp(8),
+                elevation: 2,
+                zIndex: 9999999,
+                marginLeft: pxToDp(16),
+                marginRight: pxToDp(16),
+                shadowColor: 'black', //  阴影颜色
+                shadowOffset: { width: 0, height: 0 }, // 阴影偏移
+                shadowOpacity: 1, // 阴影不透明度
+                shadowRadius: 10 //  圆角
+              }}
+            >
+              <ImageBackground style={{ width: '100%', height: pxToDp(128), justifyContent: 'flex-end', }} source={require('../../../res/1.jpg')} imageStyle={{ borderRadius: pxToDp(8) }}>
+                <View style={{ padding: pxToDp(8) }}>
+                  <View style={{ borderRadius: pxToDp(8), width: pxToDp(40), height: pxToDp(20), backgroundColor: '#62bfad', justifyContent: 'center', alignItems: 'center' }}>
+                    <Text>听曲</Text>
+                  </View>
+                  <View>
+                    <Text style={{ fontSize: pxToDp(16), color: 'white', fontWeight: 'bold' }}>热门锦集——祥林嫂(问苍天)</Text>
+                  </View>
+                  <View>
+                    <Text style={{ color: 'white', fontSize: pxToDp(14) }}>袁雪芬</Text>
+                  </View>
+                </View>
+              </ImageBackground>
+            </View>
+          </TouchableNativeFeedback>
+
+
           {/*梨园子弟 */}
           <View style={{ marginTop: pxToDp(16) }}>
             <View style={styles.titlebox}>

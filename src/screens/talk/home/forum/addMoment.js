@@ -92,7 +92,7 @@ class index extends PureComponent {
         <TouchableOpacity activeOpacity={1} onPress={() => this._openPicker()}>
           {/* <SvgUri svgXmlData={talk} style={{ width: 100, height: 100 }} /> */}
           <Image
-            style={{ width: pxToDp(100), height: pxToDp(100), marginLeft: pxToDp(10), marginTop: pxToDp(10) }}
+            style={{ width: pxToDp(112), height: pxToDp(112), marginLeft: pxToDp(10),  }}
             source={require('../../../../res/addimg.png')}
           ></Image>
         </TouchableOpacity>
@@ -222,7 +222,9 @@ class index extends PureComponent {
           style={{
             height: pxToDp(650),
             backgroundColor: '#D5E8E6',
-            padding: pxToDp(16)
+            paddingLeft: pxToDp(16),
+            paddingRight:pxToDp(16),
+            paddingTop:pxToDp(8)
           }}
         >
           <ScrollView showsVerticalScrollIndicator={false}>
@@ -339,9 +341,11 @@ class index extends PureComponent {
                       </View>
                     );
                   })}
+                  <View style={styles.Box}>
+                    {this.tianjia()}
+                  </View>
                 </ScrollView>
               </View>
-              {this.tianjia()}
             </View>
           </ScrollView>
         </View>
