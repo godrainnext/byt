@@ -75,7 +75,7 @@ class Index extends PureComponent {
     this.props.getAddressListAction();
   }
   componentDidMount() {
-    getShopList(0, 5).then((res) => {
+    getShopList(0, 9).then((res) => {
       this.setState({ arr: res });
     });
   }

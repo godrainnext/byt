@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import {
     StyleSheet,
     Text,
@@ -14,7 +14,7 @@ import Card from './Card'
 const screenWidth = Dimensions.get('window').width
 const screenHeight = Dimensions.get('window').height
 
-class Home extends Component {
+class Home extends PureComponent {
     state = {
         backgroundColor: 'transparent',
         pan: new Animated.ValueXY(0, 0),

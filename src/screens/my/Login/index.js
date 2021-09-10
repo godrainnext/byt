@@ -252,7 +252,7 @@ class Login extends PureComponent {
                 left: pxToDp(70)
               }}
             >
-              <Text style={{ color: '#999999' }}>去注册</Text>
+              <Text style={{ color: '#62bfad' }}>去注册</Text>
             </TouchableOpacity>
             {/*登录按钮--------------------------------*/}
           </View>
@@ -344,7 +344,7 @@ class Login extends PureComponent {
                 left: pxToDp(70)
               }}
             >
-              <Text style={{ color: '#999999' }}>去登陆</Text>
+              <Text style={{ color: '#62bfad', textDecorationLine:'underline'}} >去登陆</Text>
             </TouchableOpacity>
             <Mybtn
               title="注册"
