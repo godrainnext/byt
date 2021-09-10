@@ -14,13 +14,12 @@
         <div class="liu-input" v-if="showLy">
             <div class="input-pre" @click="inpFocue" v-if="isShowXie">
                 <!-- <img class="input-xie" src="./img/xie.png" alt=""> -->
-                <img class="input-xie" src="./img/1.png" alt="">
+                <!-- <img class="input-xie" src="./img/1.png" alt=""> -->
                 <span class="input-tip">说点什么... ... </span>
             </div>
             <input type="text" v-model="txt" ref="inp" maxlength="40" @focus="inputFocue" @blur="inputBlur"
                 class="input-txt">
-            <div v-if="txt" class="send-act" @click="add(txt, true)"></div>
-            <img src="./img/1.png" v-if="txt" class="input-send" alt="">
+            <img src="./img//send.png" class="input-send"  @click="add(txt, true)" alt="">
             <!-- <img src="./img/send_img.png" v-if="txt" class="input-send" alt=""> -->
         </div>
 
@@ -31,10 +30,10 @@
             <div class="con-1">
                 <div class="title">
                     <!-- <img src="./img/axly.png" class="title-left" alt=""> -->
-                    <img src="./img/1.png" class="title-left" alt="">
+                    <img src="./img/headi.png" class="title-left" alt="">
                     <div @click="hideLy" class="title-right">收起
                         <!-- <img class="right-jian" src="./img/jian_tou.png" alt=""> -->
-                        <img class="right-jian" src="./img/1.png" alt="">
+                        <!-- <img class="right-jian" src="./img/1.png" alt=""> -->
                     </div>
                 </div>
                 <div class="content-out">
