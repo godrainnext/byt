@@ -10,6 +10,8 @@ import {
 import { pxToDp } from '../../../utils/styleKits';
 import Top from '../../../component/common/top';
 import { NavigationContext } from '@react-navigation/native';
+import Title from '../component/title';
+import Bottom from '../component/bottom'
 
 class Index extends PureComponent {
   constructor(props) {
@@ -52,31 +54,35 @@ class Index extends PureComponent {
             source={{ uri: this.state.schoolstate.image1 }}
           />
           {/*流派信息 */}
-          <Text style={styles.title1}>个人经历</Text>
+          <Title title="个人经历" />
           <Text style={styles.text1}>
             &emsp;&emsp;{this.state.schoolstate.history1}
           </Text>
           <Text style={styles.text2}>
             &emsp;&emsp;{this.state.schoolstate.history2}
           </Text>
-          <Text style={styles.title}>流派的创立</Text>
+          <Bottom />
+          <Title title="流派创立" />
           <Text style={styles.text1}>
             &emsp;&emsp;{this.state.schoolstate.school1}
           </Text>
           <Text style={styles.text2}>
             &emsp;&emsp;{this.state.schoolstate.school2}
           </Text>
-          <Text style={styles.title}>流派的发展</Text>
+          <Bottom />
+          <Title title="流派发展" />
           <Text style={styles.text1}>
             &emsp;&emsp;{this.state.schoolstate.development1}
           </Text>
           <Text style={styles.text2}>
             &emsp;&emsp;{this.state.schoolstate.development2}
           </Text>
-          <Text style={styles.title}>艺术特色</Text>
+          <Bottom />
+          <Title title="艺术特色" />
           <Text style={styles.text1}>
             &emsp;&emsp;{this.state.schoolstate.art}
           </Text>
+          <Bottom />
           {/*流派专辑 */}
           <TouchableOpacity
             style={styles.zhuanji}

@@ -60,7 +60,7 @@ class Index extends PureComponent {
         name: '越剧人物钥匙扣',
         intro: '以越剧经典剧目人物形象作为钥匙扣的元素。',
         price: '￥20',
-        img: require('../../../res/shop/14.jpg'),
+        img: require('../../../res/shop/17.jpg'),
       },
       {
         name: '越剧戏服手提袋',
@@ -283,9 +283,6 @@ class Index extends PureComponent {
             {this.state.jingpin1.map((item, index) => (
               <View style={styles.jing}>
                 <View style={{ flexDirection: 'row' }}>
-                  <View style={{ marginRight: pxToDp(-38), marginTop: pxToDp(-5), zIndex: 999999 }}>
-                    <Svg width="40" height="40" svgXmlData={hot} />
-                  </View>
                   <Image
                     style={styles.jingimage}
                     source={item.img}
@@ -297,9 +294,9 @@ class Index extends PureComponent {
                       width: pxToDp(190)
                     }}
                   >
-                    <Text style={{ fontSize: pxToDp(16), color: '#000000' }}>
-                      {item.name}
-                    </Text>
+                      <Text style={{ fontSize: pxToDp(16), color: '#000000' }}>
+                        {item.name}
+                      </Text>
                     <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
                       {item.intro}
                     </Text>
@@ -316,9 +313,6 @@ class Index extends PureComponent {
             {this.state.jingpin2.map((item, index) => (
               <View style={styles.jing}>
                 <View style={{ flexDirection: 'row' }}>
-                  <View style={{ marginRight: pxToDp(-38), marginTop: pxToDp(-5), zIndex: 999999 }}>
-                    <Svg width="40" height="40" svgXmlData={hot} />
-                  </View>
                   <Image
                     style={styles.jingimage}
                     source={item.img}

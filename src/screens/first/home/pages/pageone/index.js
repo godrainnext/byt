@@ -19,7 +19,7 @@ class Index extends PureComponent {
       {
         id: '1',
         title: '袁派',
-        text: '袁派唱腔的特点是质朴平易，委婉细腻，深沉含蓄，韵味醇厚。',
+        text: '袁雪芬唱腔的特点是质朴平易，委婉细腻，深沉含蓄，韵味醇厚。',
         school: 'School1',
         path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimages.china.cn%2Fnews%2Fattachement%2Fjpg%2Fsite3%2F20110316%2F46106135519015070.jpg&refer=http%3A%2F%2Fimages.china.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632125362&t=9dc7035d2f632f36988eda52463462a9'
       },
@@ -40,7 +40,7 @@ class Index extends PureComponent {
       {
         id: '4',
         title: '傅派',
-        text: '傅春芳唱腔婉转圆润，华彩绮丽，曲调跳跃多姿，小腔丰富，演唱的时候富有激情。',
+        text: '傅全香唱腔婉转圆润，华彩绮丽，曲调跳跃多姿，小腔丰富，演唱的时候富有激情。',
         school: 'School4',
         path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimagev2.xmcdn.com%2Fgroup34%2FM02%2F10%2F1E%2FwKgJYFnXLnSg3HzxAABj6s_20mM307.jpg%21op_type%3D5%26upload_type%3Dalbum%26device_type%3Dios%26name%3Dlarge_pop%26strip%3D0%26quality%3D7&refer=http%3A%2F%2Fimagev2.xmcdn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632127333&t=3184f51e80f84a8d159e7a0a30821160'
       },
@@ -68,14 +68,14 @@ class Index extends PureComponent {
       {
         id: '8',
         title: '陆派',
-        text: '陆派嗓音清亮，音质纯净，音调朴实流畅，行腔松弛舒展。',
+        text: '陆锦花嗓音清亮，音质纯净，音调朴实流畅，行腔松弛舒展。',
         school: 'School8',
         path: 'https://ss0.baidu.com/94o3dSag_xI4khGko9WTAnF6hhy/baike/pic/item/9c16fdfaaf51f3debc5c051d94eef01f3b2979d8.jpg'
       },
       {
         id: '9',
         title: '毕派',
-        text: '毕派嗓音脆亮，音域较宽，底气充足，行腔棱角分明，音调富有弹性。',
+        text: '毕春芳嗓音脆亮，音域较宽，底气充足，行腔棱角分明，音调富有弹性。',
         school: 'School9',
         path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fs13.sinaimg.cn%2Forignal%2F497e7d15baaf1bc0793fc&refer=http%3A%2F%2Fs13.sinaimg.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632126971&t=019352e3f102827e09595be5e9120b28'
       },
@@ -89,7 +89,7 @@ class Index extends PureComponent {
       {
         id: '11',
         title: '吕派',
-        text: '吕派唱腔在继承袁派委婉典雅、细腻隽永的风格的基础上，又增加了活泼娇美、昂扬明亮的旋律色彩。',
+        text: '吕瑞英唱腔在继承袁派委婉典雅、细腻隽永的风格的基础上，又增加了活泼娇美、昂扬明亮的旋律色彩。',
         school: 'School11',
         path: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20171214%2F435bf7efd57e4a71b0f1fcdd9e886409.jpeg&refer=http%3A%2F%2F5b0988e595225.cdn.sohucs.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1632127052&t=d6a1582257af37fd70fefc44500c4ae6'
       },
