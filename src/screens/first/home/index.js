@@ -429,7 +429,7 @@ class Index extends PureComponent {
               </View>
             </View>
           </View>
-          <TouchableNativeFeedback>
+          <TouchableNativeFeedback onPress={() => this.context.navigate('MusicPlayer', 1)}>
             <View
               style={{
                 backgroundColor: 'white',
@@ -444,9 +444,9 @@ class Index extends PureComponent {
                 shadowRadius: 10 //  圆角
               }}
             >
-              <ImageBackground style={{ width: '100%', height: pxToDp(160), justifyContent: 'flex-end', }} source={require('../../../res/1.jpg')} imageStyle={{ borderRadius: pxToDp(8) }}>
+              <ImageBackground style={{ width: '100%', height: pxToDp(128), justifyContent: 'flex-end', }} source={require('../../../res/1.jpg')} imageStyle={{ borderRadius: pxToDp(8) }}>
                 <View style={{ padding: pxToDp(8) }}>
-                  <View style={{ borderRadius: pxToDp(8), width: pxToDp(40), height: pxToDp(20), backgroundColor: 'red', justifyContent: 'center', alignItems: 'center' }}>
+                  <View style={{ borderRadius: pxToDp(8), width: pxToDp(40), height: pxToDp(20), backgroundColor: '#62bfad', justifyContent: 'center', alignItems: 'center' }}>
                     <Text>听曲</Text>
                   </View>
                   <View>
