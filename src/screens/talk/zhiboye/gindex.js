@@ -100,28 +100,28 @@ class App extends PureComponent {
       arr: [],
       gift: [
         {
-          img: require('./573ff557a75a408f9e310d7b5496718.png')
+          img: require('./573ff557a75a408f9e310d7b5496718.png'), name: '鲜花'
         },
         {
-          img: require('./2558d015b75773c40625edb92637411.png')
+          img: require('./2558d015b75773c40625edb92637411.png'), name: '666'
         },
         {
-          img: require('./b7fdb3484be6203a590cc0a7157236e.png')
+          img: require('./b7fdb3484be6203a590cc0a7157236e.png'), name: '棒棒糖'
         },
         {
-          img: require('./f4929599e4e91bf7c81dabd434036d9.png')
+          img: require('./f4929599e4e91bf7c81dabd434036d9.png'), name: '炸弹'
         },
         {
-          img: require('./16886b664d0079cbc1b5d39930cfcea.png')
+          img: require('./16886b664d0079cbc1b5d39930cfcea.png'), name: '爱心'
         },
         {
-          img: require('./3c2240dbb32392f5909b7dc7ca24a3b.png')
+          img: require('./3c2240dbb32392f5909b7dc7ca24a3b.png'), name: '礼盒'
         },
         {
-          img: require('./dc0a4b1cc1d6483508235d23a2d81bb.png')
+          img: require('./dc0a4b1cc1d6483508235d23a2d81bb.png'), name: '红包'
         },
         {
-          img: require('./aadce2114eacab1be9db85eb7bb7aa0.png')
+          img: require('./aadce2114eacab1be9db85eb7bb7aa0.png'), name: '火箭'
         },
       ],
       activeTab: -1
@@ -452,53 +452,71 @@ class App extends PureComponent {
             svgXmlData='<svg t="1629613855898" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2155" width="200" height="200"><path d="M921 266.4H781.3l26.6-26.5c39.6-39.4 39.8-103.4 0.4-143l-0.4-0.4c-38.5-38.3-100.8-38.3-139.3 0L542.3 222.2c-12.7 12.6-20.8 28-25.1 44.2h-0.9c-3.5-18.9-12.2-37-26.8-51.5L363.9 89.4c-38.3-38.2-100.3-38.2-138.6 0l-0.2 0.2c-39.4 39.5-39.3 103.5 0.2 142.9l34 33.9H103c-21.7 0-39.3 17.6-39.3 39.3v120.4c0 21.7 17.6 39.3 39.3 39.3h35v438.8c0 32.6 26.4 59 59 59h629.9c32.6 0 59-26.4 59-59V465.5h35c21.7 0 39.3-17.6 39.3-39.3V305.7c0.1-21.7-17.5-39.3-39.2-39.3zM578.7 861.2c0 21.7-17.6 39.3-39.3 39.3H500c-21.7 0-39.3-17.6-39.3-39.3V550.6c0-21.7 17.6-39.3 39.3-39.3h39.3c21.7 0 39.3 17.6 39.3 39.3v310.6z m0-475.6c0 21.7-17.6 39.3-39.3 39.3H500c-21.7 0-39.3-17.6-39.3-39.3v-19.7c0-21.7 17.6-39.3 39.3-39.3h39.3c21.7 0 39.3 17.6 39.3 39.3v19.7z" fill="#FF5D66" p-id="2156"></path></svg>'
           />
         </TouchableOpacity>
+        <LottieView
+          style
+          source={require('../../../../lottie/gift_rocket.json')}
+          autoPlay={true}
+          loop={false}
+          speed={0.5}
+        />
         <RBSheet
           ref={(ref) => {
             this.Scrollable = ref;
           }}
-          height={200}
+          height={240}
           closeOnDragDowncustomStyles={{
             container: { borderTopLeftRadius: 10, borderTopRightRadius: 10 }
           }}
         >
-          <View style={{ flexDirection: 'row', flexWrap: 'wrap', marginRight: 0, marginTop: 20 }}>
+          <LottieView
+            style
+            source={require('../../../../lottie/gift_rocket.json')}
+            autoPlay={true}
+            loop={false}
+            speed={0.5}
+          />
+          <View style={{ flexDirection: 'row', flexWrap: 'wrap', marginRight: 0, marginTop: 20, backgroundColor: 'd5e8e6' }}>
             {
               this.state.gift.map((item, index) => (
                 <View style={{
-                  marginLeft: 32, width: 50, height: 50,
+                  marginLeft: 32, width: 50, height: 50, justifyContent: 'center', alignItems: 'center', marginTop: 20
                 }}>
-                  <TouchableOpacity onPress={() => this.changeTab(index)} style={{ 
-                    width: 50, height: 50, justifyContent: 'center', alignItems: 'center',
-                    borderColor:
-                    index === this.state.activeTab ? '#62bfad' : 'white',
-                  borderWidth:
-                    index ===this.state.activeTab ? pxToDp(1) : pxToDp(0), }}>
-                    <Image source={item.img} style={{ width: 45, height: 45,}} />
+                  <TouchableOpacity
+                    onPress={() => this.changeTab(index)}
+                    tyle={{
+                      width: 50, height: 50,
+                      borderColor:
+                        index === this.state.activeTab ? '#62bfad' : 'white',
+                      borderWidth:
+                        index === this.state.activeTab ? pxToDp(1) : pxToDp(0),
+                    }}>
+                    <Image source={item.img} style={{ width: 45, height: 45, }} />
                   </TouchableOpacity>
+                  <Text>{item.name}</Text>
                 </View>
               ))
             }
           </View>
           <Mybtn
-              title="发送"
-              onPress={this.sortByFirstCode}
-              buttonStyle={{
-                width: pxToDp(80),
-                height: pxToDp(30),
-                borderRadius: pxToDp(32),
-                alignItems: 'center',
-                justifyContent: 'center',
-                marginTop: pxToDp(10),
-                alignSelf:'flex-end'
-                
-              }}
-              titleStyle={{
-                height: 30,
-                color: 'white',
-                fontSize: pxToDp(14),
-                marginTop: pxToDp(8)
-              }}
-            />
+            title="发送"
+            onPress={this.sortByFirstCode}
+            buttonStyle={{
+              width: pxToDp(80),
+              height: pxToDp(30),
+              borderRadius: pxToDp(32),
+              alignItems: 'center',
+              justifyContent: 'center',
+              marginTop: pxToDp(10),
+              alignSelf: 'flex-end', marginTop: 40, marginRight: 20
+
+            }}
+            titleStyle={{
+              height: 30,
+              color: 'white',
+              fontSize: pxToDp(14),
+              marginTop: pxToDp(8)
+            }}
+          />
         </RBSheet>
       </View>
     );
