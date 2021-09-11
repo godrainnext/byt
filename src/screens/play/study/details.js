@@ -38,49 +38,51 @@ class Index extends PureComponent {
       this.props.route.params;
 
     return (
-      <View style={{ backgroundColor: '#D5E8E6', flex: 1 }}>
+      <View style={{ backgroundColor: 'white', flex: 1 }}>
         <Top icon1="arrow-back" title="详情" />
         <ScrollView
           showsVerticalScrollIndicator={false}>
-          <View style={styles.top}>
-            <Image style={styles.image} source={fengmian} />
-            <View
-              style={{
-                justifyContent: 'space-between',
-                marginLeft: pxToDp(8),
-                width: pxToDp(200),
-                height: pxToDp(70),
-                marginTop: pxToDp(24)
-              }}
-            >
-              <Text style={styles.text1}>{title}</Text>
-              <Text style={styles.text2}>{content}</Text>
-              <Text style={styles.text3}>{listener}</Text>
+          <View style={{ backgroundColor: '#D5E8E6' }}>
+            <View style={styles.top}>
+              <Image style={styles.image} source={fengmian} />
+              <View
+                style={{
+                  justifyContent: 'space-between',
+                  marginLeft: pxToDp(8),
+                  width: pxToDp(200),
+                  height: pxToDp(70),
+                  marginTop: pxToDp(24)
+                }}
+              >
+                <Text style={styles.text1}>{title}</Text>
+                <Text style={styles.text2}>{content}</Text>
+                <Text style={styles.text3}>{listener}</Text>
+              </View>
             </View>
-          </View>
-          <View>
-            {/* <TouchableOpacity style={{ backgroundColor: "#6666", width: pxToDp(80), height: pxToDp(25), justifyContent: "center", alignItems: "center", marginLeft: pxToDp(25), borderRadius: pxToDp(16) }}>
+            <View style={{ marginBottom: pxToDp(24) }}>
+              {/* <TouchableOpacity style={{ backgroundColor: "#6666", width: pxToDp(80), height: pxToDp(25), justifyContent: "center", alignItems: "center", marginLeft: pxToDp(25), borderRadius: pxToDp(16) }}>
                                     <Text style={{ fontSize: pxToDp(12), fontWeight: "bold", color: "white" }}>练唱</Text>
                                 </TouchableOpacity> */}
-            <Mybtn
-              onPress={this.OpenSing}
-              title="开始独唱"
-              buttonStyle={{
-                width: pxToDp(160),
-                height: pxToDp(40),
-                borderRadius: pxToDp(32),
-                alignSelf: 'center',
-                marginTop: pxToDp(16)
-              }}
-            />
+              <Mybtn
+                onPress={this.OpenSing}
+                title="开始独唱"
+                buttonStyle={{
+                  width: pxToDp(160),
+                  height: pxToDp(40),
+                  borderRadius: pxToDp(32),
+                  alignSelf: 'center',
+                  marginTop: pxToDp(16)
+                }}
+              />
+            </View>
           </View>
           <View style={styles.center}>
             <View
               style={{
                 borderRadius: pxToDp(8),
-                padding: pxToDp(8),
-                marginLeft: pxToDp(10),
-                marginRight: pxToDp(10),
+                padding: pxToDp(16),
+                marginLeft: pxToDp(16),
+                marginRight: pxToDp(16),
                 marginTop: pxToDp(15),
                 backgroundColor: '#D5E8E6'
               }}
@@ -92,6 +94,7 @@ class Index extends PureComponent {
                 {detail}
               </Text>
             </View>
+            <View style={{ height: pxToDp(10) }} />
           </View>
         </ScrollView>
       </View>
@@ -120,7 +123,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignSelf: 'center',
     borderRadius: pxToDp(8),
-    marginTop: pxToDp(8)
+    marginTop: pxToDp(16)
   },
   image: {
     height: pxToDp(100),
@@ -129,9 +132,9 @@ const styles = StyleSheet.create({
   },
   center: {
     width: '100%',
-    height: pxToDp(550),
+    flex: 1,
     backgroundColor: 'white',
-    marginTop: pxToDp(15),
+    marginTop: pxToDp(-10),
     borderTopLeftRadius: pxToDp(8),
     borderTopRightRadius: pxToDp(8)
   },

@@ -419,7 +419,7 @@ class Index extends PureComponent {
               <View
                 style={{ marginLeft: pxToDp(6), marginBottom: pxToDp(-20) }}
               >
-                <Text style={styles.titletext}>热门集锦</Text>
+                <Text style={styles.titletext}>热门锦集</Text>
                 <LottieView
                   style={{ width: pxToDp(80) }}
                   source={require('../../../../lottie/标题底部.json')}
