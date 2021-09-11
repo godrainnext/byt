@@ -21,17 +21,23 @@ const RenderInner = (props) => {
             alignItems: 'center'
           }}
         >
+          <View style={{ flexDirection: 'row', alignItems: 'flex-end' }}>
+            <View style={{ width: pxToDp(4), height: pxToDp(10), backgroundColor: '#d5e8e6', marginRight: pxToDp(24) }} />
+            <View style={{ width: pxToDp(4), height: pxToDp(15), backgroundColor: '#d5e8e6', marginRight: pxToDp(24) }} />
+            <View style={{ width: pxToDp(4), height: pxToDp(15), backgroundColor: '#d5e8e6', marginRight: pxToDp(24) }} />
+            <View style={{ width: pxToDp(4), height: pxToDp(10), backgroundColor: '#d5e8e6' }} />
+          </View>
           <Text
             style={{
               fontSize: pxToDp(18),
               fontWeight: 'bold',
+              marginTop: pxToDp(10),
               color: '#000000'
             }}
           >
             {state.title}
           </Text>
         </View>
-
         {arr1?.map((item, index) => (
           <View style={{ marginTop: pxToDp(8) }}>
             {item.split('/d').map((item) => (

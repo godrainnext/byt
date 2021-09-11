@@ -31,18 +31,21 @@ class Index extends PureComponent {
     refreshing: false,
     jingpin1: [
       {
+        id: '1',
         name: '越剧人物折扇',
         intro: '以越剧经典剧目人物形象为基础，将其画入扇中。',
         price: '￥45',
         img: require('../../../res/shop/13.jpg'),
       },
       {
+        id: '2',
         name: '越剧人物书签',
         intro: '以越剧经典剧目人物形象头部作为金属书签的元素。',
         price: '￥10',
         img: require('../../../res/shop/14.jpg'),
       },
       {
+        id: '3',
         name: '越剧竺派唱片',
         intro: '收录了竺派越剧创始人竺水招先生经典唱段的音频。',
         price: '￥299',
@@ -51,12 +54,14 @@ class Index extends PureComponent {
     ],
     jingpin2: [
       {
+        id: '4',
         name: '越剧人物卷尺',
         intro: '将越剧经典剧目人物作为卷尺装饰的元素。',
         price: '￥25',
         img: require('../../../res/shop/9.jpg'),
       },
       {
+        id: '5',
         name: '越剧人物钥匙扣',
         intro: '以越剧经典剧目人物形象作为钥匙扣的元素。',
         price: '￥20',
@@ -64,6 +69,7 @@ class Index extends PureComponent {
         hot: true
       },
       {
+        id: '6',
         name: '越剧戏服手提袋',
         intro: '以越剧戏服作为手提袋的样式，款式新颖。',
         price: '￥50',
@@ -97,7 +103,7 @@ class Index extends PureComponent {
     this.setState({ text: message, refreshing: refresh });
   }
   render() {
-    const { showJing, hot } = this.state;
+    const { showJing } = this.state;
     return (
       <View style={{ flex: 1, backgroundColor: 'white' }}>
         {/**搜索框*/}
@@ -295,10 +301,10 @@ class Index extends PureComponent {
                       width: pxToDp(190)
                     }}
                   >
-                    {hot ? (
+                    {item.id == 1 ? (
                       <View style={{ flexDirection: 'row' }}>
-                        <View>
-                          <Text style={{ fontSize: pxToDp(16), color: 'red' }} >HOT</Text>
+                        <View style={{ width: pxToDp(50), backgroundColor: 'red', borderRadius: pxToDp(8), alignItems: 'center', justifyContent: 'center', marginRight: pxToDp(4) }}>
+                          <Text style={{ fontSize: pxToDp(16), color: 'orange' }} >HOT</Text>
                         </View>
                         <Text style={{ fontSize: pxToDp(16), color: '#000000' }}>
                           {item.name}
@@ -338,9 +344,21 @@ class Index extends PureComponent {
                       width: pxToDp(190)
                     }}
                   >
-                    <Text style={{ fontSize: pxToDp(16), color: '#000000' }}>
-                      {item.name}
-                    </Text>
+                    {item.id == 6 ? (
+                      <View style={{ flexDirection: 'row' }}>
+                        <View style={{ width: pxToDp(50), backgroundColor: 'red', borderRadius: pxToDp(8), alignItems: 'center', justifyContent: 'center', marginRight: pxToDp(4) }}>
+                          <Text style={{ fontSize: pxToDp(16), color: 'orange' }} >HOT</Text>
+                        </View>
+                        <Text style={{ fontSize: pxToDp(16), color: '#000000' }}>
+                          {item.name}
+                        </Text>
+                      </View>
+                    ) : (
+                      <View>
+                        <Text style={{ fontSize: pxToDp(16), color: '#000000' }}>
+                          {item.name}
+                        </Text>
+                      </View>)}
                     <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
                       {item.intro}
                     </Text>

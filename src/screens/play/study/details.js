@@ -40,8 +40,8 @@ class Index extends PureComponent {
     return (
       <View style={{ backgroundColor: '#D5E8E6', flex: 1 }}>
         <Top icon1="arrow-back" title="详情" />
-
-        <ScrollView>
+        <ScrollView
+          showsVerticalScrollIndicator={false}>
           <View style={styles.top}>
             <Image style={styles.image} source={fengmian} />
             <View
@@ -58,7 +58,6 @@ class Index extends PureComponent {
               <Text style={styles.text3}>{listener}</Text>
             </View>
           </View>
-
           <View>
             {/* <TouchableOpacity style={{ backgroundColor: "#6666", width: pxToDp(80), height: pxToDp(25), justifyContent: "center", alignItems: "center", marginLeft: pxToDp(25), borderRadius: pxToDp(16) }}>
                                     <Text style={{ fontSize: pxToDp(12), fontWeight: "bold", color: "white" }}>练唱</Text>
@@ -87,7 +86,7 @@ class Index extends PureComponent {
               }}
             >
               <Text style={{ fontSize: pxToDp(16), fontWeight: 'bold' }}>
-                曲子简介{'\n'}{' '}
+                曲子简介
               </Text>
               <Text style={{ fontSize: pxToDp(14), lineHeight: pxToDp(24) }}>
                 {detail}
@@ -130,7 +129,7 @@ const styles = StyleSheet.create({
   },
   center: {
     width: '100%',
-    height: pxToDp(700),
+    height: pxToDp(550),
     backgroundColor: 'white',
     marginTop: pxToDp(15),
     borderTopLeftRadius: pxToDp(8),
