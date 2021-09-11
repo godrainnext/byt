@@ -233,7 +233,7 @@ class Index extends PureComponent {
                 </View>
               </View>
               {/* 关注 */}
-              <View style={{ marginTop: pxToDp(24),width:pxToDp(80)}}>
+              <View style={{ marginTop: pxToDp(24), width: pxToDp(80) }}>
                 {this.props.userInfo.id === user?.id ? null : <FollowButton />}
               </View>
             </View>

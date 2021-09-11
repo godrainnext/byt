@@ -9,7 +9,7 @@ import { playmusic } from '../../../../component/common/iconSvg';
 import SvgUri from 'react-native-svg-uri';
 import LottieView from 'lottie-react-native';
 import VideoPlayScreen from '../../../../component/videoplayer/VideoPlayScreen';
-
+import { connect } from 'react-redux';
 const dimensions = {
   width: Dimensions.get('window').width,
   height: Dimensions.get('window').height,
@@ -49,7 +49,7 @@ const HTML = `
 </html>
 
 `;
-export default class App extends PureComponent {
+ class App extends PureComponent {
   //   _engine?: RtcEngine;
   static contextType = NavigationContext;
 
@@ -152,7 +152,7 @@ export default class App extends PureComponent {
 
   componentDidMount() {
     // this.init();
-    console.log(this.props.route.params);
+    console.log(this.props.route.params.user);
     // this.props.route.params.startCall? this.props.route.params.startCall():console.log(123);
     this.startCall();
     this.animation.pause();
@@ -258,25 +258,27 @@ export default class App extends PureComponent {
   }
 
   render() {
+    const {user}=this.props.route.params
+    const {userInfo}=this.props
     const { roomName, channelName, roomImg, joinSucceed } = this.state;
     return (
       <View style={{ flex: 1 }}>
-        {this._renderVideos()}
+        {this._renderVideos(user,userInfo)}
       </View>
     );
   }
 
-  _renderVideos = () => {
+  _renderVideos = (user,userInfo) => {
     const { joinSucceed } = this.state;
     const { peerIds } = this.state;
     console.log(peerIds);
     return (
       <View style={styles.fullView}>
-        {this._renderRemoteVideos()}
+        {this._renderRemoteVideos(user,userInfo)}
       </View>
     );
   };
-  _renderRemoteVideos = () => {
+  _renderRemoteVideos = (user,userInfo) => {
     const { peerIds, showSong, autoPlay } = this.state;
     console.log(autoPlay);
     return (
@@ -294,8 +296,8 @@ export default class App extends PureComponent {
           </View>
           <View style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', marginTop: pxToDp(50) }}>
             <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-              <Image style={{ width: pxToDp(65), height: pxToDp(65), borderRadius: pxToDp(35) }} source={{ uri: 'https://pics2.baidu.com/feed/bd315c6034a85edf1a928e0e0da87425dc547587.jpeg?token=119b3f2abe0889ed0753ea8c3e8b288d' }}></Image>
-              <Text style={{ fontSize: pxToDp(16) }}>野原新之助</Text>
+              <Image style={{ width: pxToDp(65), height: pxToDp(65), borderRadius: pxToDp(35) }} source={{ uri: userInfo.avatar }}></Image>
+              <Text style={{ fontSize: pxToDp(16) }}>{userInfo.nickName}</Text>
             </View>
             <View style={{ alignItems: 'center' }}>
               <LottieView
@@ -324,8 +326,8 @@ export default class App extends PureComponent {
               </TouchableOpacity>)}
             </View>
             <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-              <Image style={{ width: pxToDp(65), height: pxToDp(65), borderRadius: pxToDp(35) }} source={{ uri: 'https://img0.baidu.com/it/u=4203889072,870375471&fm=26&fmt=auto&gp=0.jpg' }}></Image>
-              <Text style={{ fontSize: pxToDp(16) }}>蜡笔小新</Text>
+              <Image style={{ width: pxToDp(65), height: pxToDp(65), borderRadius: pxToDp(35) }} source={{ uri: user.avatar }}></Image>
+              <Text style={{ fontSize: pxToDp(16) }}>{user.nickName}</Text>
             </View>
           </View>
         </View>
@@ -500,3 +502,6 @@ const styles = StyleSheet.create({
     shadowRadius: pxToDp(10),  //  圆角
   }
 });
+export default connect((state) => ({
+  userInfo: state.getIn(['homeReducer', 'userInfo'])
+}))(App);

@@ -19,7 +19,7 @@ export default class hello extends PureComponent {
   state = {
     sctop: 0
   };
-  componentDidMount() {}
+  componentDidMount() { }
 
   render() {
     const { userinfo } = this.state;
@@ -73,17 +73,13 @@ export default class hello extends PureComponent {
                 justifyContent: 'center'
               }}
             >
-              {/* <Image
-                source={require('./3.png')}
-                style={{ width: pxToDp(40), height: pxToDp(40) }}
-              /> */}
               <LottieView
-                style={{ marginRight: pxToDp(60) }}
+                style={{ marginRight: pxToDp(40) }}
                 source={require('../../../../lottie/房车.json')}
                 autoPlay
                 loop={false}
               />
-              <Text style={{ fontSize: pxToDp(18), color: '#333333' }}>
+              <Text style={{ fontSize: pxToDp(18), color: '#333333', marginLeft: pxToDp(40) }}>
                 我的动态
               </Text>
             </View>

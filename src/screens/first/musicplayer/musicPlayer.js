@@ -387,7 +387,7 @@ export default class MusicPlayer extends PureComponent {
 
     return data.url ? (
       <View style={styles.container}>
-        <Top icon1="arrow-back" />
+        <Top icon1="arrow-back" title='锦集鉴赏' />
         {this.renderPlayer()}
       </View>
     ) : (

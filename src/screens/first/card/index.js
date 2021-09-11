@@ -39,10 +39,10 @@ class history extends PureComponent {
   };
   render() {
     return (
-      <View style={{ backgroundColor: '#fff', flex: 1 }}>
+      <View style={{ backgroundColor: '#f5f5f5', flex: 1 }}>
         <Top icon1="arrow-back" title="俯瞰百年" />
         <View style={{ padding: pxToDp(16), flex: 1, paddingTop: 0 }}>
-          <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+          <View style={{ flexDirection: 'row', justifyContent: 'center', marginBottom: pxToDp(10) }}>
             <Mybtn
               title="按发布时间排序"
               onPress={this.sortByFirstCoder}
@@ -93,7 +93,7 @@ class history extends PureComponent {
                   elevation: 2,
                   borderRadius: pxToDp(8),
                   borderWidth: 0,
-                  marginTop: pxToDp(10),
+                  marginBottom: pxToDp(10),
                   shadowColor: 'black',
                   shadowOffset: { width: 0, height: 0 },
                   shadowOpacity: 1,

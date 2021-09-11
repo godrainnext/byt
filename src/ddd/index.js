@@ -2,6 +2,7 @@ import React, { PureComponent, createRef } from 'react';
 import { StyleSheet, Text, View, Dimensions, Image } from 'react-native';
 import Page from './page';
 import { Modalize } from 'react-native-modalize';
+
 import { pxToDp } from './styleKits';
 import Top from '../component/common/top';
 import { SwiperFlatList } from 'react-native-swiper-flatlist';
@@ -66,10 +67,11 @@ export default class Exswiper extends PureComponent {
       year: '1879年',
       name: '创始人高炳火',
       local: '甘霖镇',
-      year2: '1879年~1956年',
+      year2: '1921年~2017年',
       introduce:
-        '1906年，与李世泉等人在草台上试验演出，这是越剧第一次试验演出',
+        '1906年，与李世泉等人在草台上试验演出，这是越剧第一次试验演出。',
       img: [gaobinghuo],
+
       titleimg: [imgzz]
     },
     pagedata: [
@@ -82,7 +84,7 @@ export default class Exswiper extends PureComponent {
         introduce:
           '1906年，与李世泉等人在草台上试验演出，这是越剧第一次试验演出',
         img: [gaobinghuo],
-        titleimg: [imgzz]
+
       },
       {
         id: 2,
@@ -434,8 +436,8 @@ export default class Exswiper extends PureComponent {
     return (
       <View style={{ flex: 1 }}>
         <Top title="时空地图" icon1="arrow-back" />
-        <View style={{ padding: pxToDp(16), flex: 1}}>
-        
+        <View style={{ padding: pxToDp(16), flex: 1 }}>
+
         </View>
         <Modalize
           ref={modalizeRef}
@@ -448,12 +450,12 @@ export default class Exswiper extends PureComponent {
               <View style={styles.container}>
                 <SwiperFlatList
                   data={this.state.pagedata}
-                  renderItem={({item})=>this.renderRow(item)}
+                  renderItem={({ item }) => this.renderRow(item)}
                   index={0}
                   renderAll={true}
                   loop={false}
-                  onChangeIndex={( {index})=>{this.setState({ currentPage: this.state.pagedata[index]})}}
-                  // autoplayTimeout={false}
+                  onChangeIndex={({ index }) => { this.setState({ currentPage: this.state.pagedata[index] }) }}
+                // autoplayTimeout={false}
                 />
               </View>
               {/* <Image source={require('./blue.jpg')} style={styles.image}/> */}
@@ -476,6 +478,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#f1f1f1'
   },
   cell: {
+    // backgroundColor: 'red',
     height: pxToDp(80),
     width: pxToDp(345),
     borderWidth: pxToDp(1.5),

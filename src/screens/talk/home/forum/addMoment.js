@@ -36,7 +36,7 @@ class index extends PureComponent {
       text: '',
       arr: [],
       form: [],
-      title: '',
+      title: '123',
       checkedArr: [],
       field: [
         {
@@ -92,7 +92,7 @@ class index extends PureComponent {
         <TouchableOpacity activeOpacity={1} onPress={() => this._openPicker()}>
           {/* <SvgUri svgXmlData={talk} style={{ width: 100, height: 100 }} /> */}
           <Image
-            style={{ width: pxToDp(100), height: pxToDp(100) }}
+            style={{ width: pxToDp(112), height: pxToDp(112), marginLeft: pxToDp(10),  }}
             source={require('../../../../res/addimg.png')}
           ></Image>
         </TouchableOpacity>
@@ -222,12 +222,14 @@ class index extends PureComponent {
           style={{
             height: pxToDp(650),
             backgroundColor: '#D5E8E6',
-            padding: pxToDp(16)
+            paddingLeft: pxToDp(16),
+            paddingRight:pxToDp(16),
+            paddingTop:pxToDp(8)
           }}
         >
           <ScrollView showsVerticalScrollIndicator={false}>
             <View style={{ marginTop: 4 }}>
-              <Input
+              {/* <Input
                 placeholder="请输入文章标题"
                 inputStyle={{ fontSize: pxToDp(16) }}
                 value={this.state.title}
@@ -261,7 +263,7 @@ class index extends PureComponent {
                     </Text>
                   </View>
                 }
-              />
+              /> */}
               <View
                 style={{
                   elevation: 2, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
@@ -269,8 +271,7 @@ class index extends PureComponent {
                   shadowOffset: { width: 0, height: 0 }, // 阴影偏移
                   shadowOpacity: 1, // 阴影不透明度
                   shadowRadius: 10,
-                  marginBottom: pxToDp(16),
-                  marginTop: pxToDp(-24)
+                  marginBottom: pxToDp(10)
                 }}
               >
                 <RichTextView
@@ -283,6 +284,9 @@ class index extends PureComponent {
                   onSubmitEditing={this.handleSubmit}
                   showCount={true} // 展示剩余文字, 默认为true
                 />
+              </View>
+              <View>
+                <Text style={{ fontSize: pxToDp(16), fontWeight: 'bold', marginLeft: pxToDp(10), marginBottom: pxToDp(4) }}>热门话题</Text>
               </View>
               <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}>
                 {this.state.field.map((item) => (
@@ -317,23 +321,31 @@ class index extends PureComponent {
                   flexWrap: 'wrap'
                 }}
               >
-                {this.state.arr?.map((v, k) => {
-                  return (
-                    <View style={styles.Box} key={k}>
-                      <TouchableOpacity>
-                        <Image
-                          style={{
-                            height: (width - 40) / 3,
-                            width: (width - 60) / 3
-                          }}
-                          source={{ uri: v }}
-                        />
-                      </TouchableOpacity>
-                    </View>
-                  );
-                })}
+                <ScrollView
+                  horizontal={true}
+                  showsHorizontalScrollIndicator={false}
+                >
+                  {this.state.arr?.map((v, k) => {
+                    return (
+                      <View style={styles.Box} key={k}>
+                        <TouchableOpacity>
+                          <Image
+                            style={{
+                              height: (width - 40) / 3,
+                              width: (width - 60) / 3,
+                              borderRadius: pxToDp(8)
+                            }}
+                            source={{ uri: v }}
+                          />
+                        </TouchableOpacity>
+                      </View>
+                    );
+                  })}
+                  <View style={styles.Box}>
+                    {this.tianjia()}
+                  </View>
+                </ScrollView>
               </View>
-              {this.tianjia()}
             </View>
           </ScrollView>
         </View>
@@ -406,7 +418,8 @@ const styles = StyleSheet.create({
   Box: {
     marginRight: 10,
     marginBottom: 10,
-    marginTop: pxToDp(16)
+    marginTop: pxToDp(16),
+    marginLeft: pxToDp(10)
   },
   box: {
     flexDirection: 'row',
