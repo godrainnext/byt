@@ -128,8 +128,8 @@ class Index extends PureComponent {
   static contextType = NavigationContext;
   render() {
     return (
-      <View style={{ backgroundColor: '#fff', flex: 1 }}>
-        <Top icon1="arrow-back" title="名角风采" />
+      <View style={{ backgroundColor: '#f5f5f5', flex: 1 }}>
+        <Top icon1="arrow-back" title="梨园子弟" />
         <ScrollView
           style={{ flex: 1, padding: pxToDp(8) }}
           showsVerticalScrollIndicator={false}

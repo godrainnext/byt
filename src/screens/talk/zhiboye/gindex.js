@@ -9,7 +9,7 @@ import {
   Image,
   Dimensions,
   StyleSheet,
-  LayoutAnimation
+  LayoutAnimation, Animated, Easing
 } from 'react-native';
 import RtcEngine, {
   RtcLocalView,
@@ -27,6 +27,7 @@ import { NavigationContext } from '@react-navigation/native';
 import { connect } from 'react-redux';
 import SvgUri from 'react-native-svg-uri';
 import Mybtn from '../../../component/common/mybtn'
+import Danmu from './danmu'
 const dimensions = {
   width: Dimensions.get('window').width,
   height: Dimensions.get('window').height
@@ -89,7 +90,10 @@ class App extends PureComponent {
 
   constructor(props) {
     super(props);
-
+    for (let i = 0; i < 10; i++) {
+      this[`HeartArg${i}`] = new Animated.Value(0)
+    }
+    this.viewNum = 0
     this.state = {
       appId: '29792ec3eded410facd609fb7ad76fef',
       channelName: '',
@@ -100,31 +104,32 @@ class App extends PureComponent {
       arr: [],
       gift: [
         {
-          img: require('./573ff557a75a408f9e310d7b5496718.png'), name: '鲜花'
+          img: require('./蓝玫瑰.png'), name: '鲜花'
         },
         {
-          img: require('./2558d015b75773c40625edb92637411.png'), name: '666'
+          img: require('./666.png'), name: '666'
         },
         {
-          img: require('./b7fdb3484be6203a590cc0a7157236e.png'), name: '棒棒糖'
+          img: require('./棒棒糖.png'), name: '棒棒糖'
         },
         {
-          img: require('./f4929599e4e91bf7c81dabd434036d9.png'), name: '炸弹'
+          img: require('./红包.png'), name: '炸弹'
         },
         {
-          img: require('./16886b664d0079cbc1b5d39930cfcea.png'), name: '爱心'
+          img: require('./爱心.png'), name: '爱心'
         },
         {
-          img: require('./3c2240dbb32392f5909b7dc7ca24a3b.png'), name: '礼盒'
+          img: require('./礼盒.png'), name: '礼盒'
         },
         {
-          img: require('./dc0a4b1cc1d6483508235d23a2d81bb.png'), name: '红包'
+          img: require('./红包.png'), name: '红包'
         },
         {
-          img: require('./aadce2114eacab1be9db85eb7bb7aa0.png'), name: '火箭'
+          img: require('./火箭.png'), name: '火箭'
         },
       ],
-      activeTab: -1
+      activeTab: -1,
+      sendrocket: false
     }
     if (Platform.OS === 'android') {
       // Request required permissions from Android
@@ -151,6 +156,14 @@ class App extends PureComponent {
   //打开本地图册
   changeTab = (index) => {
     this.setState({ activeTab: index });
+  };
+  sendGift() {
+
+    this.setState({ sendrocket: true })
+    setTimeout(() => {
+      this.setState({ sendrocket: false })
+    }, 2200);
+    console.log(this.state.sendrocket);
   };
   _openPicker() {
     ImagePicker.openPicker({
@@ -301,15 +314,67 @@ class App extends PureComponent {
       </View>
     );
   };
+  startAnimate = () => {
+    const COLOR_ARR = [
+      '#9C89B8',
+      '#F0A6CA',
+      '#EFC3E6',
+      '#F0E6EF',
+      '#B8BEDD',
+      '#5BC0EB',
+      '#FDE74C',
+      '#9BC53D',
+      '#E55934',
+      '#FA7921'
+    ]
+    this[`HeartArg${this.viewNum}`].setValue(0)
+    //设置随机颜色
+    let colorIndex = Math.floor(Math.random() * 10)
+    this[`animImg${this.viewNum}`].setNativeProps({
+      style: {
+        tintColor: COLOR_ARR[colorIndex]
+      }
+    })
+    //根据当前动画驱动值进行判断是否对新VIEW进行驱动
+    let currentValue = this[`HeartArg${this.viewNum}`].__getValue()
+    if (currentValue !== 0) {
+      this.viewNum++
+    }
+    Animated.timing(
+      this[`HeartArg${this.viewNum}`],
+      {
+        toValue: 3,
+        duration: 2000,
+        easing: Easing.linear
+      }
+    ).start(() => {
+      this[`HeartArg${this.viewNum}`].setValue(0)
+    })
+    //如果当前正在驱动的VIEW的数量大于8,则重置回0,让动画循环
+    if (this.viewNum > 8) {
+      this.viewNum = 0
+    }
+    this.viewNum++
+  }
 
   _renderRemoteVideos = (stream) => {
     const { peerIds } = this.state;
+
+
     return (
       <View
         style={styles.remoteContainer}
       // contentContainerStyle={{ paddingHorizontal: 2.5 }}
       // horizontal={true}
       >
+
+        {this.state.sendrocket ?
+          (<LottieView
+            style={{ marginLeft: pxToDp(-16), marginTop: pxToDp(-50), display: 'none' }}
+            source={require('../../../../lottie/61505-rocket-acceleration.json')}
+            loop
+            autoPlay
+          />) : null}
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
           <View
             style={{
@@ -422,7 +487,7 @@ class App extends PureComponent {
             </TouchableOpacity>
           </View>
         </View>
-
+              <Danmu/>
         <WebView
           style={{
             width: pxToDp(300),
@@ -444,81 +509,114 @@ class App extends PureComponent {
             '接收h5页面传过来的消息';
           }}
         />
+        <View style={{ position: 'absolute', bottom: 320, right: 20, height: 30, width: 30 }}>
+          <View style={{}} >
+            {
+              Array(10).fill().map((_, index) => {
+                return <Animated.Image
+                  key={index}
+                  ref={_ => this[`animImg${index}`] = _}
+                  style={[{ width: 30, height: 30 }, {
+                    top: this[`HeartArg${index}`].interpolate({
+                      inputRange: [0, 1, 2, 3],
+                      outputRange: [10, -100, -200, -300]
+                    }),
+                    right: this[`HeartArg${index}`].interpolate({
+                      inputRange: [0, 1, 2, 3],
+                      outputRange: Math.floor(Math.random() + 0.5) === 0 ? [7, 30, 15, 7] : [7, 0, 30, 10]
+                    }),
+                    transform: [{
+                      scale: this[`HeartArg${index}`].interpolate({
+                        inputRange: [0, 1, 2, 3],
+                        outputRange: [0.5, 1, 1.5, 1]
+                      })
+                    }],
+                    opacity: this[`HeartArg${index}`].interpolate({
+                      inputRange: [0, 1, 2, 3],
+                      outputRange: [0, 1, 0.5, 0]
+                    })
+                  }]}
+                  source={require('./爱心zz.png')}
+                />
+              })
+            }
+          </View>
+          <TouchableOpacity onPress={this.startAnimate}
+            style={{ width: 30, height: 30 }}
+          ><Image source={require('./爱心zz.png')} style={{ width: 30, height: 30 }} /></TouchableOpacity>
+        </View>
         <TouchableOpacity
-          style={{ position: 'absolute', bottom: 20, right: 20, height: 30, width: 30 }}
+          style={{ position: 'absolute', bottom: 20, right:80, height: 30, width: 30 }}
           onPress={() => this.Scrollable.open()}>
           <SvgUri
             width='30' height='30'
             svgXmlData='<svg t="1629613855898" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2155" width="200" height="200"><path d="M921 266.4H781.3l26.6-26.5c39.6-39.4 39.8-103.4 0.4-143l-0.4-0.4c-38.5-38.3-100.8-38.3-139.3 0L542.3 222.2c-12.7 12.6-20.8 28-25.1 44.2h-0.9c-3.5-18.9-12.2-37-26.8-51.5L363.9 89.4c-38.3-38.2-100.3-38.2-138.6 0l-0.2 0.2c-39.4 39.5-39.3 103.5 0.2 142.9l34 33.9H103c-21.7 0-39.3 17.6-39.3 39.3v120.4c0 21.7 17.6 39.3 39.3 39.3h35v438.8c0 32.6 26.4 59 59 59h629.9c32.6 0 59-26.4 59-59V465.5h35c21.7 0 39.3-17.6 39.3-39.3V305.7c0.1-21.7-17.5-39.3-39.2-39.3zM578.7 861.2c0 21.7-17.6 39.3-39.3 39.3H500c-21.7 0-39.3-17.6-39.3-39.3V550.6c0-21.7 17.6-39.3 39.3-39.3h39.3c21.7 0 39.3 17.6 39.3 39.3v310.6z m0-475.6c0 21.7-17.6 39.3-39.3 39.3H500c-21.7 0-39.3-17.6-39.3-39.3v-19.7c0-21.7 17.6-39.3 39.3-39.3h39.3c21.7 0 39.3 17.6 39.3 39.3v19.7z" fill="#FF5D66" p-id="2156"></path></svg>'
           />
         </TouchableOpacity>
-        <LottieView
-          style
-          source={require('../../../../lottie/gift_rocket.json')}
-          autoPlay={true}
-          loop={false}
-          speed={0.5}
-        />
+
         <RBSheet
+          animationType='fade'
           ref={(ref) => {
             this.Scrollable = ref;
           }}
-          height={240}
+          height={pxToDp(290)}
           closeOnDragDowncustomStyles={{
             container: { borderTopLeftRadius: 10, borderTopRightRadius: 10 }
           }}
         >
-          <LottieView
-            style
-            source={require('../../../../lottie/gift_rocket.json')}
-            autoPlay={true}
-            loop={false}
-            speed={0.5}
-          />
-          <View style={{ flexDirection: 'row', flexWrap: 'wrap', marginRight: 0, marginTop: 20, backgroundColor: 'd5e8e6' }}>
+          <View style={{ flexDirection: 'row', flexWrap: 'wrap', width: '100%', backgroundColor: '#D5E8E6' }}>
             {
               this.state.gift.map((item, index) => (
                 <View style={{
-                  marginLeft: 32, width: 50, height: 50, justifyContent: 'center', alignItems: 'center', marginTop: 20
+                  width: '25%', height: pxToDp(90), marginTop: pxToDp(20),
+                  borderColor:
+                    index === this.state.activeTab ? '#62bfad' : 'white',
+
+                  borderWidth:
+                    index === this.state.activeTab ? pxToDp(1) : pxToDp(0),
                 }}>
                   <TouchableOpacity
                     onPress={() => this.changeTab(index)}
-                    tyle={{
-                      width: 50, height: 50,
-                      borderColor:
-                        index === this.state.activeTab ? '#62bfad' : 'white',
-                      borderWidth:
-                        index === this.state.activeTab ? pxToDp(1) : pxToDp(0),
+                    style={{
+
+                      justifyContent: 'center', alignItems: 'center',
                     }}>
-                    <Image source={item.img} style={{ width: 45, height: 45, }} />
+                    <Image source={item.img} style={{ width: pxToDp(50), height: pxToDp(50), }} />
+                    <Text>{item.name}</Text>
                   </TouchableOpacity>
-                  <Text>{item.name}</Text>
+
                 </View>
               ))
             }
-          </View>
-          <Mybtn
-            title="发送"
-            onPress={this.sortByFirstCode}
-            buttonStyle={{
-              width: pxToDp(80),
-              height: pxToDp(30),
-              borderRadius: pxToDp(32),
-              alignItems: 'center',
-              justifyContent: 'center',
-              marginTop: pxToDp(10),
-              alignSelf: 'flex-end', marginTop: 40, marginRight: 20
+            <Mybtn
+              title="确认"
+              onPress={() => {
+                this.sendGift()
+                this.Scrollable.close()
 
-            }}
-            titleStyle={{
-              height: 30,
-              color: 'white',
-              fontSize: pxToDp(14),
-              marginTop: pxToDp(8)
-            }}
-          />
+              }}
+              buttonStyle={{
+                width: pxToDp(90),
+                height: pxToDp(30),
+                borderRadius: pxToDp(32),
+                marginRight: pxToDp(16),
+                marginTop: pxToDp(20),
+                marginBottom: pxToDp(20),
+                alignSelf: 'flex-end'
+              }}
+              titleStyle={{
+                height: 30,
+                color: 'white',
+                fontSize: pxToDp(14),
+                marginTop: pxToDp(10)
+              }}
+            />
+
+
+          </View>
         </RBSheet>
       </View>
+
     );
   };
 }

@@ -168,6 +168,7 @@ export default memo(function ActressItem(props) {
                 springConfig={{ tension: 15, friction: 7 }}
                 swipeToDismiss={true}
                 renderContent={() => renderCarousel(item)}
+                underlayColor='white'
               >
                 <Image
                   key={item}

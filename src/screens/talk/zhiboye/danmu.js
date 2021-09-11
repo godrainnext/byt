@@ -4,6 +4,7 @@ import { StyleSheet, SafeAreaView, Dimensions } from 'react-native';
 import Danmaku from './components/src/index'
 
 import { danmakuData } from './components/data/index'
+import { pxToDp } from '../../../utils/styleKits';
 
 export default class App extends React.Component {
   render() {
@@ -18,7 +19,7 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     height: Dimensions.get('window').height,
-    backgroundColor: '#725E82'
+    width:pxToDp(100),height:pxToDp(0),marginTop:pxToDp(50)
   },
   headerWrapper: {
     marginTop: 30,

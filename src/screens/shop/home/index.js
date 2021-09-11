@@ -8,7 +8,8 @@ import {
   RefreshControl,
   TouchableNativeFeedback,
   SafeAreaView,
-  ImageBackground
+  ImageBackground,
+  TouchableOpacity
 } from 'react-native';
 import Top from '../../../component/common/myTop';
 import { pxToDp } from '@utils/styleKits';
@@ -20,13 +21,62 @@ import { getAddressListAction } from '../../my/address/store/actions';
 import LottieView from 'lottie-react-native';
 import BetterBanner from 'react-native-better-banner';
 import Svg from 'react-native-svg-uri';
-import { shopCar } from '../../../component/common/iconSvg';
+import { shopCar, hot } from '../../../component/common/iconSvg';
 import SwiperCard from './swiperCard/index';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 class Index extends PureComponent {
   state = {
     arr: [],
     text: '初始状态',
-    refreshing: false
+    refreshing: false,
+    jingpin1: [
+      {
+        id: '1',
+        name: '越剧人物折扇',
+        intro: '以越剧经典剧目人物形象为基础，将其画入扇中。',
+        price: '￥45',
+        img: require('../../../res/shop/13.jpg'),
+      },
+      {
+        id: '2',
+        name: '越剧人物书签',
+        intro: '以越剧经典剧目人物形象头部作为金属书签的元素。',
+        price: '￥10',
+        img: require('../../../res/shop/14.jpg'),
+      },
+      {
+        id: '3',
+        name: '越剧竺派唱片',
+        intro: '收录了竺派越剧创始人竺水招先生经典唱段的音频。',
+        price: '￥299',
+        img: require('../../../res/shop/15.jpg'),
+      },
+    ],
+    jingpin2: [
+      {
+        id: '4',
+        name: '越剧人物卷尺',
+        intro: '将越剧经典剧目人物作为卷尺装饰的元素。',
+        price: '￥25',
+        img: require('../../../res/shop/9.jpg'),
+      },
+      {
+        id: '5',
+        name: '越剧人物钥匙扣',
+        intro: '以越剧经典剧目人物形象作为钥匙扣的元素。',
+        price: '￥20',
+        img: require('../../../res/shop/17.jpg'),
+        hot: true
+      },
+      {
+        id: '6',
+        name: '越剧戏服手提袋',
+        intro: '以越剧戏服作为手提袋的样式，款式新颖。',
+        price: '￥50',
+        img: require('../../../res/shop/11.jpg'),
+      },
+    ],
+    showJing: false
   };
   UNSAFE_componentWillMount() {
     this.props.getAddressListAction();
@@ -53,6 +103,7 @@ class Index extends PureComponent {
     this.setState({ text: message, refreshing: refresh });
   }
   render() {
+    const { showJing } = this.state;
     return (
       <View style={{ flex: 1, backgroundColor: 'white' }}>
         {/**搜索框*/}
@@ -228,91 +279,101 @@ class Index extends PureComponent {
                 loop={true}
               />
             </View>
+            <TouchableOpacity
+              style={{ flexDirection: 'row', alignItems: 'center', marginLeft: pxToDp(180), marginBottom: pxToDp(10) }}
+              onPress={() => this.setState({ showJing: !showJing })}>
+              <Text style={{ fontSize: pxToDp(14), color: '#666666', marginRight: pxToDp(4) }}>换一换</Text>
+              <Ionicons name="refresh" size={22} color="#666666" />
+            </TouchableOpacity>
           </View>
-          <View style={styles.jing}>
-            <View style={{ flexDirection: 'row' }}>
-              <Image
-                style={styles.jingimage}
-                source={require('../../../res/shop/13.jpg')}
-              />
-              <View
-                style={{
-                  alignSelf: 'center',
-                  marginLeft: pxToDp(8),
-                  width: pxToDp(190)
-                }}
-              >
-                <Text style={{ fontSize: pxToDp(16), color: '#000000' }}>
-                  越剧人物折扇
-                </Text>
-                <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
-                  以越剧经典剧目人物形象为基础，将其画入扇中。
-                </Text>
-                <Text style={{ fontSize: pxToDp(14), color: '#62bfad' }}>
-                  ￥45
-                </Text>
-              </View>
-            </View>
-            <View style={styles.shopcar}>
-              <Svg width="20" height="20" svgXmlData={shopCar} />
-            </View>
-          </View>
-          <View style={styles.jing}>
-            <View style={{ flexDirection: 'row' }}>
-              <Image
-                style={styles.jingimage}
-                source={require('../../../res/shop/14.jpg')}
-              />
-              <View
-                style={{
-                  alignSelf: 'center',
-                  marginLeft: pxToDp(8),
-                  width: pxToDp(190)
-                }}
-              >
-                <Text style={{ fontSize: pxToDp(16), color: '#000000' }}>
-                  越剧人物书签
-                </Text>
-                <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
-                  以越剧经典剧目人物形象头部作为金属书签的元素。
-                </Text>
-                <Text style={{ fontSize: pxToDp(14), color: '#62bfad' }}>
-                  ￥10
-                </Text>
-              </View>
-            </View>
-            <View style={styles.shopcar}>
-              <Svg width="20" height="20" svgXmlData={shopCar} />
-            </View>
-          </View>
-          <View style={styles.jing}>
-            <View style={{ flexDirection: 'row' }}>
-              <Image
-                style={styles.jingimage}
-                source={require('../../../res/shop/15.jpg')}
-              />
-              <View
-                style={{
-                  alignSelf: 'center',
-                  marginLeft: pxToDp(8),
-                  width: pxToDp(190)
-                }}
-              >
-                <Text style={{ fontSize: pxToDp(16), color: '#000000' }}>
-                  越剧竺派唱片
-                </Text>
-                <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
-                  收录了竺派越剧创始人竺水招先生经典唱段的音频。
-                </Text>
-                <Text style={{ fontSize: pxToDp(14), color: '#62bfad' }}>
-                  ￥299
-                </Text>
-              </View>
-            </View>
-            <View style={styles.shopcar}>
-              <Svg width="20" height="20" svgXmlData={shopCar} />
-            </View>
-          </View>
+          {showJing ? (<View>
+            {this.state.jingpin1.map((item, index) => (
+              <View style={styles.jing}>
+                <View style={{ flexDirection: 'row' }}>
+                  <Image
+                    style={styles.jingimage}
+                    source={item.img}
+                  />
+                  <View
+                    style={{
+                      alignSelf: 'center',
+                      marginLeft: pxToDp(8),
+                      width: pxToDp(190)
+                    }}
+                  >
+                    {item.id == 1 ? (
+                      <View style={{ flexDirection: 'row' }}>
+                        <View style={{ width: pxToDp(50), backgroundColor: 'red', borderRadius: pxToDp(8), alignItems: 'center', justifyContent: 'center', marginRight: pxToDp(4) }}>
+                          <Text style={{ fontSize: pxToDp(16), color: 'orange' }} >HOT</Text>
+                        </View>
+                        <Text style={{ fontSize: pxToDp(16), color: '#000000' }}>
+                          {item.name}
+                        </Text>
+                      </View>
+                    ) : (
+                      <View>
+                        <Text style={{ fontSize: pxToDp(16), color: '#000000' }}>
+                          {item.name}
+                        </Text>
+                      </View>)}
+                    <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
+                      {item.intro}
+                    </Text>
+                    <Text style={{ fontSize: pxToDp(14), color: '#62bfad' }}>
+                      {item.price}
+                    </Text>
+                  </View>
+                </View>
+                <View style={styles.shopcar}>
+                  <Svg width="20" height="20" svgXmlData={shopCar} />
+                </View>
+              </View>))
+            }
+          </View>) : (<View>
+            {this.state.jingpin2.map((item, index) => (
+              <View style={styles.jing}>
+                <View style={{ flexDirection: 'row' }}>
+                  <Image
+                    style={styles.jingimage}
+                    source={item.img}
+                  />
+                  <View
+                    style={{
+                      alignSelf: 'center',
+                      marginLeft: pxToDp(8),
+                      width: pxToDp(190)
+                    }}
+                  >
+                    {item.id == 6 ? (
+                      <View style={{ flexDirection: 'row' }}>
+                        <View style={{ width: pxToDp(50), backgroundColor: 'red', borderRadius: pxToDp(8), alignItems: 'center', justifyContent: 'center', marginRight: pxToDp(4) }}>
+                          <Text style={{ fontSize: pxToDp(16), color: 'orange' }} >HOT</Text>
+                        </View>
+                        <Text style={{ fontSize: pxToDp(16), color: '#000000' }}>
+                          {item.name}
+                        </Text>
+                      </View>
+                    ) : (
+                      <View>
+                        <Text style={{ fontSize: pxToDp(16), color: '#000000' }}>
+                          {item.name}
+                        </Text>
+                      </View>)}
+                    <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
+                      {item.intro}
+                    </Text>
+                    <Text style={{ fontSize: pxToDp(14), color: '#62bfad' }}>
+                      {item.price}
+                    </Text>
+                  </View>
+                </View>
+                <View style={styles.shopcar}>
+                  <Svg width="20" height="20" svgXmlData={shopCar} />
+                </View>
+              </View>))}
+          </View>)
+          }
+
           {/*活动板块 */}
           <TouchableNativeFeedback
             onPress={() => this.context.navigate('TBox')}
@@ -368,8 +429,8 @@ class Index extends PureComponent {
           </View>
           <View style={styles.tcard}></View>
           <View style={{ height: pxToDp(4) }} />
-        </ScrollView>
-      </View>
+        </ScrollView >
+      </View >
     );
   }
 }

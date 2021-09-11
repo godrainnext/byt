@@ -9,6 +9,7 @@ import CustormerBar from './VideoHead';
 import VideoInro from './VideoInro/index';
 import VideoCom from './VideoCom/index';
 import { getVideoById } from '@service/home';
+import { pxToDp } from '../../utils/styleKits';
 function TabView1(props) {
   const data = new Array(1).fill({});
 
@@ -52,7 +53,7 @@ export default memo(function Example(props) {
     <View style={styles.container}>
 
       <ScrollTabView
-        tabBarUnderlineStyle={{ backgroundColor: '#62bfad' }}
+        tabBarUnderlineStyle={{ backgroundColor: '#62bfad',width:pxToDp(20),marginLeft:pxToDp(46),height:pxToDp(4) }}
         headerHeight={headerHeight}
         renderScrollHeader={() => _renderScrollHeader(videoInfo)}
       >

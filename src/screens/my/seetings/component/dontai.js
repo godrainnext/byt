@@ -132,6 +132,7 @@ class Index extends PureComponent {
             springConfig={{ tension: 15, friction: 7 }}
             swipeToDismiss={true}
             renderContent={() => renderCarousel(item)}
+            underlayColor='white'
           >
             <Image
               key={index}

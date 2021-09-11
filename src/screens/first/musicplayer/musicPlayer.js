@@ -113,32 +113,8 @@ export default class MusicPlayer extends PureComponent {
         (item) => item.id === this.props.route.params
       )
     });
-    // this.animation.play();
-    // Or set a specific startFrame and endFrame with:
-    //  this.animation.play(30, 120);
-    // fetch(musicListUrl, {
-    //   method: 'GET',
-    //   headers: header
-    // })
-    //   .then((response) => response.json())
-    //   .then((responseData) => {
-    //     if (responseData.data[2].music_id) {
-    //       this.musicList = responseData.data
-    //       this.getxiamiMusic(responseData.data[0].music_id)
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     console.log(error)
-    //   })
-    //   .done()
   }
 
-  // toStop() {
-  //   this.animation.pause();
-  // }
-  // toPlay() {
-  //   this.animation.play();
-  // }
   toContr() {
     if (this.state.autoPlay == true) {
       this.animation.pause();
@@ -146,21 +122,6 @@ export default class MusicPlayer extends PureComponent {
       this.animation.play();
     }
   }
-
-  // getxiamiMusic(musicId) {
-  //   fetch(`${musicDetail}${musicId}`, {
-  //     method: 'GET',
-  //     headers: header})
-  //     .then((response) => response.json())
-  //     .then((responseData) => {
-  //       console.log(responseData)
-  //       this.setState({musicList: this.musicList, musicInfo: responseData})
-  //     })
-  //     .catch((error) => {
-  //       console.log(error)
-  //     })
-  //     .done()
-  // }
 
   setDuration(duration) {
     this.setState({ duration: duration.duration });
@@ -216,17 +177,6 @@ export default class MusicPlayer extends PureComponent {
         });
       }
     );
-
-    // currentIndex === -1 ? currentIndex = this.state.musicList.length -1 : currentIndex
-    // let newSong = this.state.musicList[currentIndex]
-    // let music_id = newSong.music_id
-    // if (!isNaN(parseInt(music_id))) {
-    //   this.getxiamiMusic(music_id)
-    //   this.setState({currentIndex})
-    // } else {
-    //   this.preSong(currentIndex - 1)
-    //   this.showMessageBar('抱歉')('没有找到音乐信息，已帮你切换到下一首')('error')
-    // }
   }
 
   reset() {
@@ -319,7 +269,6 @@ export default class MusicPlayer extends PureComponent {
             }}
             loop
           />
-
           <Image style={styles.image} source={{ uri: musicInfo.cover }} />
           <View style={{ flex: 1 }}>
             <View
@@ -361,7 +310,6 @@ export default class MusicPlayer extends PureComponent {
                 onPress={() => {
                   this.play();
                   this.toContr();
-                  // this.toPlay();
                   this.setState({ autoPlay: !autoPlay });
                 }}
               >
@@ -439,7 +387,7 @@ export default class MusicPlayer extends PureComponent {
 
     return data.url ? (
       <View style={styles.container}>
-        <Top icon1="arrow-back" />
+        <Top icon1="arrow-back" title='锦集鉴赏' />
         {this.renderPlayer()}
       </View>
     ) : (

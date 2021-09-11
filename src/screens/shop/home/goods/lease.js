@@ -289,6 +289,7 @@ class shopdetails extends PureComponent {
                   springConfig={{ tension: 15, friction: 7 }}
                   swipeToDismiss={true}
                   renderContent={renderCarousel}
+                  underlayColor='white'
                 >
                   <Image
                     style={{

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import {
   Platform,
   ScrollView,
@@ -27,7 +27,8 @@ import { playmusic } from '../../../../component/common/iconSvg';
 import SvgUri from 'react-native-svg-uri';
 import Swiper from 'react-native-swiper';
 import VideoPlayScreen from '../../../../component/videoplayer/VideoPlayScreen';
-
+import LottieView from 'lottie-react-native';
+import { connect } from 'react-redux'
 const dimensions = {
   width: Dimensions.get('window').width,
   height: Dimensions.get('window').height
@@ -67,7 +68,6 @@ const HTML = `
 
 	</body>
 </html>
-
 `;
 // interface Props { }
 
@@ -84,7 +84,7 @@ const HTML = `
 //   joinSucceed: boolean;
 //   peerIds: number[];
 // }
-export default class App extends Component {
+class App extends PureComponent {
   //   _engine?: RtcEngine;
   static contextType = NavigationContext;
 
@@ -305,8 +305,9 @@ export default class App extends Component {
 
   render() {
     const { roomName, channelName, roomImg, joinSucceed } = this.state;
+
     return joinSucceed ? (
-      <View style={{ flex: 1 }}>{this._renderVideos()}</View>
+      <View style={{ flex: 1 }}>{this._renderVideos(this.props.userInfo)}</View>
     ) : (
       <View style={styles.max}>
         <Top icon1="arrow-back" title="开房间" />
@@ -485,18 +486,18 @@ export default class App extends Component {
     );
   }
 
-  _renderVideos = () => {
+  _renderVideos = (userInfo) => {
     const { joinSucceed } = this.state;
     return joinSucceed ? (
       <ImageBackground
         style={{ width: '100%', height: '100%' }}
       >
-        <View style={styles.fullView}>{this._renderRemoteVideos()}</View>
+        <View style={styles.fullView}>{this._renderRemoteVideos(userInfo)}</View>
       </ImageBackground>
     ) : null;
   };
 
-  _renderRemoteVideos = () => {
+  _renderRemoteVideos = (userInfo) => {
     const { peerIds } = this.state;
     return (
       <View
@@ -513,17 +514,38 @@ export default class App extends Component {
           </View>
           <View style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', marginTop: pxToDp(50) }}>
             <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-              <Image style={{ width: pxToDp(65), height: pxToDp(65), borderRadius: pxToDp(24) }} source={{ uri: 'https://pics2.baidu.com/feed/bd315c6034a85edf1a928e0e0da87425dc547587.jpeg?token=119b3f2abe0889ed0753ea8c3e8b288d' }}></Image>
-              <Text style={{ fontSize: pxToDp(16) }}>野原新之助</Text>
+              <Image style={{ width: pxToDp(65), height: pxToDp(65), borderRadius: pxToDp(35) }} source={{ uri: userInfo.avatar }}></Image>
+              <Text style={{ fontSize: pxToDp(16) }}>{userInfo.nickName}</Text>
             </View>
-            <TouchableOpacity style={{ width: pxToDp(80), height: pxToDp(40), borderRadius: pxToDp(32), backgroundColor: '#468cd3', justifyContent: 'center', alignItems: 'center' }}>
-              <Text style={{ fontSize: pxToDp(16) }}>
-                开始演唱
-              </Text>
-            </TouchableOpacity>
+            <View style={{ alignItems: 'center' }}>
+              <LottieView
+                style={{ width: pxToDp(100), alignSelf: 'center' }}
+                source={require('../../../../../lottie/直播live效果.json')}
+                ref={(animation) => {
+                  this.animation = animation;
+                }}
+              />
+              {autoPlay ? (<TouchableOpacity style={{ width: pxToDp(90), height: pxToDp(30), borderRadius: pxToDp(32), backgroundColor: '#62bfad', justifyContent: 'center', alignItems: 'center' }}
+                onPress={() => {
+                  this.toContr();
+                  this.setState({ autoPlay: !autoPlay });
+                }}>
+                <Text style={{ fontSize: pxToDp(14) }}>
+                  暂停演唱
+                </Text>
+              </TouchableOpacity>) : (<TouchableOpacity style={{ width: pxToDp(90), height: pxToDp(30), borderRadius: pxToDp(32), backgroundColor: '#62bfad', justifyContent: 'center', alignItems: 'center' }}
+                onPress={() => {
+                  this.toContr();
+                  this.setState({ autoPlay: !autoPlay });
+                }}>
+                <Text style={{ fontSize: pxToDp(14) }}>
+                  开始演唱
+                </Text>
+              </TouchableOpacity>)}
+            </View>
             <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-              <Image style={{ width: pxToDp(65), height: pxToDp(65), borderRadius: pxToDp(24) }} source={{ uri: 'https://img0.baidu.com/it/u=4203889072,870375471&fm=26&fmt=auto&gp=0.jpg' }}></Image>
-              <Text style={{ fontSize: pxToDp(16) }}>蜡笔小新</Text>
+              <Image style={{ width: pxToDp(65), height: pxToDp(65), borderRadius: pxToDp(35) }} source={require('../../../../res/addimg.png')}></Image>
+              <Text style={{ fontSize: pxToDp(16) }}>等待伙伴加入</Text>
             </View>
           </View>
         </View>
@@ -693,3 +715,6 @@ const styles = StyleSheet.create({
     shadowRadius: pxToDp(10),  //  圆角
   }
 });
+export default connect((state) => ({
+  userInfo: state.getIn(['homeReducer', 'userInfo'])
+}))(App);
