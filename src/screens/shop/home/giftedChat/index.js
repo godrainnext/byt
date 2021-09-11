@@ -24,8 +24,11 @@ import {
 } from 'react-native-gifted-chat';
 import CustomView from './CustomView';
 import Composer from './Composer';
+import { NavigationContext } from '@react-navigation/native';
 
 export default class Example extends React.PureComponent {
+  static contextType = NavigationContext;
+
   constructor(props) {
     super(props);
     this.state = {
@@ -115,13 +118,9 @@ export default class Example extends React.PureComponent {
             this.onReceive('这边建议你穿M码的哦');
           } else if (messages[0].text.match(/亲/)) {
             this.onReceive('不可以哦');
-          } else if (messages[0].text.match(/111/)) {
-            this.onReceive('2');
-          }  else if (messages[0].text.match(/质量/)) {
-            this.onReceive('我们的商品都有品质保证的哦');
           } else if (messages[0].text.match(/亲/)) {
             this.onReceive('2');
-          }else {
+          } else {
             if (!this._isAlright) {
               this._isAlright = true;
               this.onReceive('当前询问人数过多，请耐心等待');
