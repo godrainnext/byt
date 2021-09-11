@@ -21,6 +21,7 @@ import { getShopInfo } from '@service/shop';
 import changeImgSize from '@utils/changeImgSize';
 import Mybtn from '../../../../component/common/mybtn';
 import AnimatedLoader from 'react-native-animated-loader';
+import ActionButton from 'react-native-action-button';
 const WINDOW_WIDTH = Dimensions.get('window').width;
 class shopdetails extends PureComponent {
   state = {
@@ -78,9 +79,7 @@ class shopdetails extends PureComponent {
           style={{ flex: 1 }}
           resizeMode="contain"
           source={{
-            uri: changeImgSize(
-              this.state.products[this.state.activeTab]?.img,
-            )
+            uri: changeImgSize(this.state.products[this.state.activeTab]?.img)
           }}
         />
       ))}
@@ -175,18 +174,18 @@ class shopdetails extends PureComponent {
           // onMomentumScrollEnd={() => { this.setState({ btnOpcity: false }); console.log(this.state.btnOpcity); }}
           onScrollBeginDrag={() => {
             this.setState({ btnOpcity: true });
-            console.log("good",this.state.btnOpcity);
+            console.log('good', this.state.btnOpcity);
           }}
           onScrollEndDrag={() => {
             this.setState({ btnOpcity: false });
-            console.log("good",this.state.btnOpcity);
+            console.log('good', this.state.btnOpcity);
           }}
           style={{
             flex: 1
           }}
         >
           {/* 商品图片 */}
-          <View style={{ alignItems: 'center', marginTop: pxToDp(20)}}>
+          <View style={{ alignItems: 'center', marginTop: pxToDp(20) }}>
             <Swiper shopbanner={this.state.shopbanner} />
           </View>
 
@@ -264,6 +263,16 @@ class shopdetails extends PureComponent {
             ))}
           </View>
         </ScrollView>
+        {/* 客服按钮 */}
+        <ActionButton
+          buttonColor="#62bfad"
+          style={{
+            top: pxToDp(500),
+            height: pxToDp(100),
+            position: 'absolute'
+          }}
+          onPress={() => this.context.navigate('GiftedChat')}
+        />
         {/* 颜色分类弹窗 */}
         <RBSheet
           ref={(ref) => {
@@ -286,20 +295,22 @@ class shopdetails extends PureComponent {
                 springConfig={{ tension: 15, friction: 7 }}
                 swipeToDismiss={true}
                 renderContent={this.renderCarousel}
-                underlayColor='white'
+                underlayColor="white"
               >
-                {activeTab == -1 ? (<Image style={{
-                  width: pxToDp(60),
-                  height: pxToDp(60),
-                  margin: pxToDp(16),
-                  borderRadius: pxToDp(8)
-                }}
-                  source={{
-                    uri: changeImgSize(
-                      this.state.products[0]?.img,
-                      'small'
-                    )
-                  }} />) : (<Image
+                {activeTab == -1 ? (
+                  <Image
+                    style={{
+                      width: pxToDp(60),
+                      height: pxToDp(60),
+                      margin: pxToDp(16),
+                      borderRadius: pxToDp(8)
+                    }}
+                    source={{
+                      uri: changeImgSize(this.state.products[0]?.img, 'small')
+                    }}
+                  />
+                ) : (
+                  <Image
                     style={{
                       width: pxToDp(60),
                       height: pxToDp(60),
@@ -312,7 +323,8 @@ class shopdetails extends PureComponent {
                         'small'
                       )
                     }}
-                  />)}
+                  />
+                )}
               </Lightbox>
               <View
                 style={{
@@ -323,11 +335,26 @@ class shopdetails extends PureComponent {
               >
                 <View>
                   {activeTab == -1 ? (
-                    <Text style={{ fontSize: pxToDp(16), marginTop: pxToDp(16), color: '#62bfad' }}>
+                    <Text
+                      style={{
+                        fontSize: pxToDp(16),
+                        marginTop: pxToDp(16),
+                        color: '#62bfad'
+                      }}
+                    >
                       ￥{this.state.shop.price * 0.8}—{this.state.shop.price}
-                    </Text>) : (<Text style={{ fontSize: pxToDp(16), marginTop: pxToDp(16), color: '#62bfad' }}>
+                    </Text>
+                  ) : (
+                    <Text
+                      style={{
+                        fontSize: pxToDp(16),
+                        marginTop: pxToDp(16),
+                        color: '#62bfad'
+                      }}
+                    >
                       ￥{this.state.products[activeTab]?.price}
-                    </Text>)}
+                    </Text>
+                  )}
                   <Text
                     style={{
                       fontSize: pxToDp(16),
