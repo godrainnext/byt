@@ -303,8 +303,8 @@ class Index extends PureComponent {
                   >
                     {item.id == 1 ? (
                       <View style={{ flexDirection: 'row' }}>
-                        <View style={{ width: pxToDp(50), backgroundColor: 'red', borderRadius: pxToDp(8), alignItems: 'center', justifyContent: 'center', marginRight: pxToDp(4) }}>
-                          <Text style={{ fontSize: pxToDp(16), color: 'orange' }} >HOT</Text>
+                        <View style={{ alignItems: 'center', justifyContent: 'center', marginRight: pxToDp(4), marginBottom: pxToDp(2) }}>
+                          <Svg width="20" height="20" svgXmlData={hot} />
                         </View>
                         <Text style={{ fontSize: pxToDp(16), color: '#000000' }}>
                           {item.name}
@@ -325,7 +325,7 @@ class Index extends PureComponent {
                   </View>
                 </View>
                 <View style={styles.shopcar}>
-                  <Svg width="20" height="20" svgXmlData={shopCar} />
+                  <Svg width="30" height="30" svgXmlData={shopCar} />
                 </View>
               </View>))
             }
@@ -346,8 +346,8 @@ class Index extends PureComponent {
                   >
                     {item.id == 6 ? (
                       <View style={{ flexDirection: 'row' }}>
-                        <View style={{ width: pxToDp(50), backgroundColor: 'red', borderRadius: pxToDp(8), alignItems: 'center', justifyContent: 'center', marginRight: pxToDp(4) }}>
-                          <Text style={{ fontSize: pxToDp(16), color: 'orange' }} >HOT</Text>
+                        <View style={{ alignItems: 'center', justifyContent: 'center', marginRight: pxToDp(4), marginBottom: pxToDp(2) }}>
+                          <Svg width="20" height="20" svgXmlData={hot} />
                         </View>
                         <Text style={{ fontSize: pxToDp(16), color: '#000000' }}>
                           {item.name}

@@ -3,14 +3,14 @@ import {
   View,
   Text,
   Image,
-  ImageBackground,
   TouchableOpacity,
   Animated,
   StyleSheet,
   LayoutAnimation,
   UIManager,
   ToastAndroid,
-  TouchableNativeFeedback, Dimensions,
+  Dimensions,
+  TextInput
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Input } from 'react-native-elements';
@@ -20,6 +20,8 @@ import { pxToDp } from '@utils/styleKits';
 import requset from '../../../service';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Mybtn from '../../../component/common/mybtn';
+import Svg from 'react-native-svg-uri';
+import { qqq, weixinn } from '../../../res/fonts/iconSvg';
 const Screewidth = Dimensions.get('window').width
 const Screeheight = Dimensions.get('window').height
 class Login extends PureComponent {
@@ -30,13 +32,14 @@ class Login extends PureComponent {
     opcitytext2: new Animated.Value(1),
     opcitytext3: new Animated.Value(0),
     opcitytext4: new Animated.Value(0),
-    loginbox: 350,
+    loginbox: 550,
     regbox: 0,
     regusername: '',
     regpassword1: '',
     regpassword2: '',
     username: '',
-    password: ''
+    password: '',
+    read: false
   };
 
   SingUp = () => {
@@ -124,266 +127,185 @@ class Login extends PureComponent {
     }
   };
   Login = () => {
-    requset
-      .post({
-        url: '/user/login',
-        data: {
-          name: this.state.username,
-          password: this.state.password
-        },
-        headers: {
-          'content-type': 'application/json'
-        }
-      })
-      .then(async (res) => {
-        if (!res) {
-          ToastAndroid.show('用户名或密码错误', ToastAndroid.SHORT);
-        } else {
-          await AsyncStorage.setItem('token', res.token);
-          this.context.navigate('Tabbar');
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    if (this.state.read) {
+      requset
+        .post({
+          url: '/user/login',
+          data: {
+            name: this.state.username,
+            password: this.state.password
+          },
+          headers: {
+            'content-type': 'application/json'
+          }
+        })
+        .then(async (res) => {
+          if (!res) {
+            ToastAndroid.show('用户名或密码错误', ToastAndroid.SHORT);
+          } else {
+            await AsyncStorage.setItem('token', res.token);
+            this.context.navigate('Tabbar');
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      ToastAndroid.show('请阅读并同意下方条例', ToastAndroid.SHORT)
+    }
+
   };
   render() {
+    const { read } = this.state;
     UIManager.setLayoutAnimationEnabledExperimental &&
       UIManager.setLayoutAnimationEnabledExperimental(true);
     return (
-      <ImageBackground
-        source={{
-          uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fc-ssl.duitang.com%2Fuploads%2Fitem%2F201808%2F10%2F20180810212724_kgibb.jpeg&refer=http%3A%2F%2Fc-ssl.duitang.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1633089252&t=a03d7329a73f30004439f130fca71807'
-        }}
-        style={{ width: Screewidth, height: Screeheight }}
-      >
+      <View style={{ alignItems: 'center' }}>
         <Image
           source={require('./111.png')}
           style={{
             width: pxToDp(200),
             height: pxToDp(200),
-
-            left: pxToDp(70),
-            top: pxToDp(35)
+            marginTop: pxToDp(16)
           }}
         />
-        <Animated.Text
-          style={[
-            styles.opcity1,
-            {
-              opacity: this.state.opcitytext1, // Bind opacity to animated value
-              left: pxToDp(50)
-            }
-          ]}
-        >
-          至死不负情
-        </Animated.Text>
-        <Animated.Text
-          style={[
-            styles.opcity1,
-            {
-              top: pxToDp(75),
-              opacity: this.state.opcitytext2 // Bind opacity to animated value
-            }
-          ]}
-        >
-          留得千秋载
-        </Animated.Text>
-        <Animated.Text
-          style={[
-            styles.opcity2,
-            {
-              opacity: this.state.opcitytext3 // Bind opacity to animated value
-            }
-          ]}
-        >
-          至死不负情
-        </Animated.Text>
-        <Animated.Text
-          style={[
-            styles.opcity2,
-            {
-              right: pxToDp(50),
-              top: pxToDp(75),
-              opacity: this.state.opcitytext4 // Bind opacity to animated value
-            }
-          ]}
-        >
-          留得千秋载
-        </Animated.Text>
         <View
           style={{
             borderRadius: 24,
             height: this.state.loginbox,
-            width: pxToDp(250),
+            width: pxToDp(300),
             position: 'absolute',
-            top: pxToDp(300),
-            left: pxToDp(60),
-            overflow: 'hidden'
+            alignItems: 'center',
+            overflow: 'hidden',
+            marginTop: pxToDp(230)
           }}
         >
           <View
             style={{
-              width: '80%',
-              marginLeft: pxToDp(20),
-              marginTop: pxToDp(25)
+              width: '90%',
+              marginTop: pxToDp(25),
+              backgroundColor: '#DCDCDC',
+              borderRadius: pxToDp(24),
+              flexDirection: 'row',
+              alignItems: 'center'
             }}
           >
-            <Input
+            <Ionicons name="user" size={22} color="#999999" style={{ marginLeft: pxToDp(16), marginRight: pxToDp(8) }} />
+            <TextInput
               placeholder="请输入账号"
-              leftIcon={<Icon name="user" size={24} />}
               onChangeText={(username) => this.setState({ username })}
               value={this.state.username}
             />
           </View>
-          <View style={{ width: '80%', alignSelf: 'center' }}>
-            <Input
+          <View style={{
+            width: '90%',
+            marginTop: pxToDp(16),
+            backgroundColor: '#DCDCDC',
+            borderRadius: pxToDp(24),
+            flexDirection: 'row',
+            alignItems: 'center'
+          }}>
+            <Ionicons name="lock" size={22} color="#999999" style={{ marginLeft: pxToDp(16), marginRight: pxToDp(8) }} />
+            <TextInput
               secureTextEntry={true}
               placeholder="请输入密码"
-              leftIcon={{ type: 'font-awesome', name: 'lock' }}
               onChangeText={(password) => this.setState({ password })}
               value={this.state.password}
             />
-            <TouchableOpacity
-              onPress={this.toRegister}
-              style={{
-                alignSelf: 'center',
-                top: pxToDp(-20),
-                left: pxToDp(70)
-              }}
-            >
-              <Text style={{ color: '#62bfad' }}>去注册</Text>
-            </TouchableOpacity>
-            {/*登录按钮--------------------------------*/}
           </View>
+          {/*登录按钮--------------------------------*/}
           <Mybtn
             title="登录"
             onPress={this.Login}
             buttonStyle={{
-              width: pxToDp(105),
-              height: pxToDp(35),
+              width: pxToDp(270),
+              height: pxToDp(40),
               alignSelf: 'center',
-              borderRadius: pxToDp(32)
+              borderRadius: pxToDp(32),
+              marginTop: pxToDp(16)
             }}
             titleStyle={{
               color: 'white',
               fontSize: pxToDp(14),
-              marginTop: pxToDp(-2)
+              marginTop: pxToDp(-2),
+              fontWeight: 'bold'
             }}
           />
-
-          {/*第三方登录--------------------------------*/}
-          <View
+          {/**注册 */}
+          <TouchableOpacity
+            onPress={() => this.context.navigate('ZhuCe')}
             style={{
-              flexDirection: 'row',
-              marginTop: pxToDp(40),
+              width: pxToDp(270),
+              height: pxToDp(40),
+              alignSelf: 'center',
               alignItems: 'center',
-              alignSelf: 'center'
+              justifyContent: 'center',
+              borderRadius: pxToDp(32),
+              marginTop: pxToDp(16),
+              backgroundColor: 'white',
+              borderColor: '#62bfad',
+              borderWidth: pxToDp(1)
             }}
           >
+            <Text style={{
+              color: '#62bfad',
+              fontSize: pxToDp(14),
+              fontWeight: 'bold'
+            }}>
+              立即注册
+            </Text>
+          </TouchableOpacity>
+          {/**忘记密码 */}
+          <TouchableOpacity style={{ marginTop: pxToDp(16), alignSelf: 'flex-end', marginRight: pxToDp(32) }}>
+            <Text style={{ fontSize: pxToDp(14), color: '#999999' }}>
+              忘记密码
+            </Text>
+          </TouchableOpacity>
+          {/*第三方登录--------------------------------*/}
+          <View style={{ marginTop: pxToDp(50) }}>
+            <Text style={{ fontSize: pxToDp(14), color: '#000000' }}>快速登录</Text>
+          </View>
+          <View style={{ flexDirection: 'row', marginTop: pxToDp(8) }}>
             <TouchableOpacity>
-              <Ionicons
-                name="qq"
-                size={25}
-                color="#87CEFA"
-                style={{ marginRight: pxToDp(30) }}
-              />
+              <Svg width="40" height="40" svgXmlData={qqq} style={{ marginRight: pxToDp(40) }} />
             </TouchableOpacity>
             <TouchableOpacity>
-              <Ionicons name="wechat" size={25} color="#32CD32" />
+              <Svg width="40" height="40" svgXmlData={weixinn} />
             </TouchableOpacity>
           </View>
-        </View>
-        <View
-          style={{
-            borderRadius: 24,
-            height: this.state.regbox,
-            width: pxToDp(250),
-            position: 'absolute',
-            top: pxToDp(300),
-            left: pxToDp(60),
-            overflow: 'hidden'
-          }}
-        >
-          <View
-            style={{
-              width: '80%',
-              marginLeft: pxToDp(20),
-              marginTop: pxToDp(15)
-            }}
-          >
-            <Input
-              placeholder="请输入账号"
-              leftIcon={<Icon name="user" size={24} style={{ marginBottom: pxToDp(8) }} />}
-              onChangeText={(regusername) => this.setState({ regusername })}
-              value={this.state.regusername}
-            />
-          </View>
-          <View style={{ width: '80%', marginLeft: pxToDp(20) }}>
-            <Input
-              secureTextEntry={true}
-              placeholder="请输入密码"
-              leftIcon={{ type: 'font-awesome', name: 'lock' }}
-              onChangeText={(regpassword1) => this.setState({ regpassword1 })}
-              value={this.state.regpassword1}
-            />
-          </View>
-          <View style={{ width: '80%', marginLeft: pxToDp(20) }}>
-            <Input
-              secureTextEntry={true}
-              placeholder="请再次输入密码"
-              leftIcon={{ type: 'font-awesome', name: 'lock' }}
-              onChangeText={(regpassword2) => this.setState({ regpassword2 })}
-              value={this.state.regpassword2}
-            />
+          {/**用户协议 */}
+          <View style={{ marginTop: pxToDp(24), flexDirection: 'row', alignItems: 'center' }}>
+            {read ?
+              (<TouchableOpacity style={{ height: pxToDp(12), width: pxToDp(12), borderRadius: pxToDp(6), borderColor: "#999999", borderWidth: pxToDp(1), marginRight: pxToDp(4), backgroundColor: '#62bfad' }}
+                onPress={() => this.setState({ read: !read })}>
+              </TouchableOpacity>
+              ) : (
+                <TouchableOpacity style={{ height: pxToDp(12), width: pxToDp(12), borderRadius: pxToDp(6), borderColor: "#999999", borderWidth: pxToDp(1), marginRight: pxToDp(4) }}
+                  onPress={() => this.setState({ read: !read })}>
+                </TouchableOpacity>)}
+            <Text style={{ fontSize: pxToDp(12), color: '#999999' }}>
+              已阅读并同意百越的
+            </Text>
             <TouchableOpacity
-              onPress={this.SingUp}
-              style={{
-                alignSelf: 'center',
-                top: pxToDp(-20),
-                left: pxToDp(70)
-              }}
-            >
-              <Text style={{ color: '#62bfad', textDecorationLine:'underline'}} >去登陆</Text>
+              onPress={() => this.context.navigate('YongHu')}
+              style={{ marginLeft: pxToDp(2), marginRight: pxToDp(2), borderBottomWidth: pxToDp(1), borderBottomColor: '#999999' }}>
+              <Text style={{ fontSize: pxToDp(12), color: '#999999' }}>用户协议</Text>
             </TouchableOpacity>
-            <Mybtn
-              title="注册"
-              onPress={this.registerSubimit}
-              buttonStyle={{
-                width: pxToDp(105),
-                height: pxToDp(35),
-                alignSelf: 'center',
-                borderRadius: pxToDp(32)
-              }}
-              titleStyle={{
-                color: 'white',
-                fontSize: pxToDp(14),
-                marginTop: pxToDp(-2)
-              }}
-            />
+            <Text style={{ fontSize: pxToDp(12), color: '#999999' }}>
+              和
+            </Text>
+            <TouchableOpacity
+              onPress={() => this.context.navigate('ZhengCe')}
+              style={{ marginLeft: pxToDp(2), marginRight: pxToDp(2), borderBottomWidth: pxToDp(1), borderBottomColor: '#999999' }}>
+              <Text style={{ fontSize: pxToDp(12), color: '#999999' }}>隐私政策</Text>
+            </TouchableOpacity>
           </View>
         </View>
-      </ImageBackground>
+      </View>
     );
   }
 }
 const styles = StyleSheet.create({
-  opcity1: {
-    position: 'absolute',
-    width: pxToDp(20),
-    top: pxToDp(20),
-    left: pxToDp(20),
-    fontSize: pxToDp(20),
-    alignItems: 'center'
-  },
-  opcity2: {
-    position: 'absolute',
-    width: pxToDp(20),
-    top: pxToDp(20),
-    right: pxToDp(20),
-    fontSize: pxToDp(20),
-    alignItems: 'center'
-  },
   login: {
     position: 'absolute',
     top: pxToDp(650),

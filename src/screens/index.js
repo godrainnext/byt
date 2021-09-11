@@ -39,6 +39,7 @@ export { default as Card } from './first/card/index'; //俯瞰百年卡片
 export { default as My } from './my/home/index'; //个人中心首页
 export { default as Login } from './my/Login'; //登录页面
 export { default as RegInfo } from './my/Login/registerinfo';
+export { default as ZhuCe } from './my/Login/zhuce'
 export { default as leasedetails } from './my/order/leasedetails'; //租赁页
 export { default as Jifenorder } from './my/order/jifenorder'; //积分订单
 export { default as Set } from './my/seetings/set'; //设置
@@ -77,7 +78,7 @@ export { default as Zulin } from './shop/home/zulin'; //服装租赁页
 export { default as ticket } from './shop/home/ticket/index'; //票务系统
 export { default as PickSeat } from './shop/home/ticket/pickseat'; //选座
 export { default as ConfirmTicket } from './shop/home/ticket/confirmTicket'; //选座
-export { default as MyTicket } from './shop/home/ticket/myticket'; //我的飘
+export { default as MyTicket } from './shop/home/ticket/myticket'; //我的票
 export { default as ticketdetail } from './shop/home/ticket/ticketdetail'; //票务系统详情
 export { default as Lease } from './shop/home/goods/lease'; //新增收货地址
 export { default as pointshop } from './shop/home/jifen/index'; //积分商城详情
@@ -207,3 +208,5 @@ export { default as Search } from './shop/search/index';
 export { default as Map } from '../component/map/map';
 export { default as MapToGo } from '../component/map/mapToGo';
 export { default as TBox } from './shop/tBox/index';
+export { default as YongHu } from './my/Login/yonghu';
+export { default as ZhengCe } from './my/Login/zhengce';
