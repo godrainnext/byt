@@ -148,7 +148,9 @@ class Register extends PureComponent {
                         <Text style={{ fontSize: pxToDp(12), color: '#999999' }}>
                             我已阅读并同意
                         </Text>
-                        <TouchableOpacity style={{ marginLeft: pxToDp(2), marginRight: pxToDp(2) }}>
+                        <TouchableOpacity
+                            onPress={() => this.context.navigate('YongHu')}
+                            style={{ marginLeft: pxToDp(2), marginRight: pxToDp(2) }}>
                             <Text style={{ fontSize: pxToDp(12), color: '#62bfad' }}>《百越用户协议》</Text>
                         </TouchableOpacity>
                     </View>
