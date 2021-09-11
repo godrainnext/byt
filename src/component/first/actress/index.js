@@ -62,67 +62,52 @@ export default class index extends PureComponent {
       <View
         style={{
           borderRadius: pxToDp(8),
-          height: pxToDp(300),
           marginLeft: pxToDp(16),
           marginRight: pxToDp(16),
-          marginTop: pxToDp(16),
           backgroundColor: 'rgba(255,255,255,0.5)',
         }}
       >
-        <ImageBackground
-          style={{
-            width: '100%',
-            height: pxToDp(240)
-          }}
-          imageStyle={{
-            borderTopLeftRadius: pxToDp(10),
-            borderTopRightRadius: pxToDp(10)
-          }}
-          source={require('../../../res/0901/戏台背景.png')}
-        >
-          <View >
-            <View style={{ marginTop: pxToDp(75) }}></View>
-            <ScrollView showsHorizontalScrollIndicator={false} horizontal={true} style={{ marginTop: pxToDp(45) }}>
-              {this.state.roleList.map((item) => (
-                <TouchableNativeFeedback onPress={() => this.context.navigate(item.next)}
-                  useForeground={true}>
-                  <View
+        <View >
+          <ScrollView showsHorizontalScrollIndicator={false} horizontal={true} style={{ marginTop: pxToDp(16) }}>
+            {this.state.roleList.map((item) => (
+              <TouchableNativeFeedback onPress={() => this.context.navigate(item.next)}
+                useForeground={true}>
+                <View
+                  style={{
+                    width: pxToDp(100),
+                    height: pxToDp(170),
+                    borderRadius: pxToDp(8),
+                    marginRight: pxToDp(20),
+                    marginBottom: pxToDp(16)
+                  }}
+                >
+                  <Image
                     style={{
                       width: pxToDp(100),
-                      height: pxToDp(170),
-                      borderRadius: pxToDp(8),
-                      marginRight: pxToDp(20),
-                      marginBottom: pxToDp(4)
+                      height: pxToDp(140),
+                      borderTopLeftRadius: pxToDp(8),
+                      borderTopRightRadius: pxToDp(8)
+                    }}
+                    source={{ uri: item.avatar }}
+                  />
+                  <View
+                    style={{
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      flex: 1,
+                      backgroundColor: 'white',
+                      elevation: 1,
+                      borderBottomLeftRadius: pxToDp(8),
+                      borderBottomRightRadius: pxToDp(8),
                     }}
                   >
-                    <Image
-                      style={{
-                        width: pxToDp(100),
-                        height: pxToDp(140),
-                        borderTopLeftRadius: pxToDp(8),
-                        borderTopRightRadius: pxToDp(8)
-                      }}
-                      source={{ uri: item.avatar }}
-                    />
-                    <View
-                      style={{
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        flex: 1,
-                        backgroundColor: 'white',
-                        elevation: 1,
-                        borderBottomLeftRadius: pxToDp(8),
-                        borderBottomRightRadius: pxToDp(8),
-                      }}
-                    >
-                      <Text style={{ fontSize: pxToDp(16)}}>{item.name}</Text>
-                    </View>
+                    <Text style={{ fontSize: pxToDp(16) }}>{item.name}</Text>
                   </View>
-                </TouchableNativeFeedback>
-              ))}
-            </ScrollView>
-          </View>
-        </ImageBackground>
+                </View>
+              </TouchableNativeFeedback>
+            ))}
+          </ScrollView>
+        </View>
       </View>
     );
   }

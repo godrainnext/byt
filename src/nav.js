@@ -21,6 +21,9 @@ function Nav() {
         <Stack.Screen name="Tabbar" component={Tabbar} />
         {/*登录 */}
         <Stack.Screen name="Login" component={Screens.Login} />
+        <Stack.Screen name="ZhuCe" component={Screens.ZhuCe} />
+        <Stack.Screen name="YongHu" component={Screens.YongHu} />
+        <Stack.Screen name="ZhengCe" component={Screens.ZhengCe} />
         {/*首页 */}
         <Stack.Screen name="Home" component={Screens.Home} />
         {/**唱段的首页 */}

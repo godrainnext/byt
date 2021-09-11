@@ -127,7 +127,7 @@ class UserInner extends PureComponent {
                   color: '#666666',
                 }}
               >
-                {ownSay}
+                {ownSay ? ownSay : '这个人很神秘，什么都没写'}
               </Text>
             </View>
             <View style={{ flexDirection: 'row', alignItems: 'center', marginTop: pxToDp(8) }}>

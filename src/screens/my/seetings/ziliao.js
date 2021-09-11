@@ -149,9 +149,8 @@ class Ziliao extends PureComponent {
   };
   render() {
     const dateNow = new Date();
-    const currentDate = `${dateNow.getFullYear()}-${
-      dateNow.getMonth() + 1
-    }-${dateNow.getDate()}`;
+    const currentDate = `${dateNow.getFullYear()}-${dateNow.getMonth() + 1
+      }-${dateNow.getDate()}`;
     const { birthday } = this.state;
     return (
       <View style={{ flex: 1, backgroundColor: this.state.backgroundColor }}>
@@ -241,39 +240,38 @@ class Ziliao extends PureComponent {
             <View style={s.basic}>
               <View style={{ marginLeft: pxToDp(16) }}>
                 <View style={{ marginTop: pxToDp(20) }}>
-                  <Text style={{ fontSize: pxToDp(16), color: '#aaa' }}>
+                  <Text style={{ fontSize: pxToDp(16), color: '#000000' }}>
                     昵称
                   </Text>
                   <Text
                     style={{
-                      fontSize: pxToDp(20),
+                      fontSize: pxToDp(16),
                       marginTop: pxToDp(10),
-                      marginBottom: pxToDp(20)
+                      marginBottom: pxToDp(20),
+                      color: '#999999'
                     }}
                   >
                     {this.state.nickName}
                   </Text>
                 </View>
               </View>
-              {/* <View style={{ marginTop: pxToDp(60) }}>
-                <AntDesign name="right" size={pxToDp(18)} color="#000" />
-              </View> */}
             </View>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => this.context.navigate('Signature')}>
-            <View style={[s.basic, { height: 100 }]}>
+            <View style={s.basic}>
               <View style={{ marginLeft: pxToDp(16), flex: 1 }}>
                 <View style={{ marginTop: pxToDp(20) }}>
-                  <Text style={{ fontSize: pxToDp(16), color: '#aaa' }}>
+                  <Text style={{ fontSize: pxToDp(16), color: '#000000' }}>
                     个性签名
                   </Text>
                   <Text
                     numberOfLines={1}
                     ellipsizeMode={'tail'}
                     style={{
-                      fontSize: pxToDp(20),
+                      fontSize: pxToDp(16),
                       marginTop: pxToDp(10),
-                      marginBottom: pxToDp(20)
+                      marginBottom: pxToDp(20),
+                      color: '#999999'
                     }}
                   >
                     {this.state.ownSay}
@@ -289,13 +287,13 @@ class Ziliao extends PureComponent {
           <View
             style={
               (s.basic,
-              [
-                {
-                  flexDirection: 'row',
-                  marginLeft: pxToDp(16),
-                  marginTop: pxToDp(20)
-                }
-              ])
+                [
+                  {
+                    flexDirection: 'row',
+                    marginLeft: pxToDp(16),
+                    marginTop: pxToDp(20)
+                  }
+                ])
             }
           >
             <Image
@@ -321,18 +319,19 @@ class Ziliao extends PureComponent {
           </View>
 
           <View style={[s.basic, { height: 80, marginTop: pxToDp(20) }]}>
-            <View style={{ marginLeft: pxToDp(20) }}>
+            <View style={{ marginLeft: pxToDp(16) }}>
               <Text
                 style={{
+                  marginTop: pxToDp(10),
                   fontSize: pxToDp(16),
-                  color: '#aaa',
-                  marginBottom: pxToDp(10)
+                  color: '#000000',
+                  marginBottom: pxToDp(4)
                 }}
               >
                 生日
               </Text>
               <DatePicker
-                style={{ width: 300 }}
+                style={{ width: pxToDp(238) }}
                 androidMode="spinner"
                 placeholder="设置生日"
                 date={birthday?.split(' ').shift()}
@@ -349,8 +348,8 @@ class Ziliao extends PureComponent {
                     alignItems: 'flex-start'
                   },
                   placeholderText: {
-                    fontSize: pxToDp(20),
-                    color: '#afafaf'
+                    fontSize: pxToDp(16),
+                    color: '#999999'
                   }
                 }}
                 onDateChange={(birthday) => {

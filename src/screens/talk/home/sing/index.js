@@ -133,7 +133,7 @@ export default class hello extends PureComponent {
               </View>
               <Image
                 style={styles.touchimage}
-                source={{uri:'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fi2.hdslb.com%2Fbfs%2Fface%2F2f496bd34d6188a0c4d3dba908b93bf7acde43c1.jpg&refer=http%3A%2F%2Fi2.hdslb.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1633844754&t=f10d51920b8b6278743f53f36aaaaa65'}}
+                source={{ uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fi2.hdslb.com%2Fbfs%2Fface%2F2f496bd34d6188a0c4d3dba908b93bf7acde43c1.jpg&refer=http%3A%2F%2Fi2.hdslb.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1633844754&t=f10d51920b8b6278743f53f36aaaaa65' }}
               />
             </View>
           </TouchableNativeFeedback>
