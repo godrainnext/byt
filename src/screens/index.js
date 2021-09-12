@@ -188,6 +188,7 @@ export { default as Screenpaly35 } from './talk/home/script/screenplay35'; //红
 export { default as SeeZhiBo } from './talk/zhiboye/gindex';
 export { default as Video } from '../component/videoplayer/index'; //视频页
 export { default as Jubao } from './talk/home/forum/jubao'; //举报页
+export { default as Search } from './shop/home/search/index'; //举报页
 
 export { default as Test1 } from './test/test1';
 export { default as Test2 } from './test/test2';
@@ -203,7 +204,6 @@ export { default as SingSub } from './play/study/singsub';
 export { default as AddMoment } from './talk/home/forum/addMoment';
 export { default as JifenMingxi } from './my/jifenshop/jifenmingxi';
 export { default as GiftedChat } from './shop/home/giftedChat/index';
-export { default as Search } from './shop/search/index';
 export { default as Map } from '../component/map/map';
 export { default as MapToGo } from '../component/map/mapToGo';
 export { default as TBox } from './shop/tBox/index';

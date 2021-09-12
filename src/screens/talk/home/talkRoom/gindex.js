@@ -1,6 +1,17 @@
 import React, { PureComponent } from 'react';
-import { Platform, ImageBackground, ScrollView, Text, TouchableOpacity, View, PermissionsAndroid, Image, Dimensions, StyleSheet } from 'react-native';
-import RtcEngine, { ChannelProfile, ClientRole, } from 'react-native-agora'
+import {
+  Platform,
+  ImageBackground,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+  PermissionsAndroid,
+  Image,
+  Dimensions,
+  StyleSheet
+} from 'react-native';
+import RtcEngine, { ChannelProfile, ClientRole } from 'react-native-agora';
 import { pxToDp } from '@utils/styleKits';
 import { NavigationContext } from '@react-navigation/native';
 import Swiper from 'react-native-swiper';
@@ -9,29 +20,32 @@ import { playmusic } from '../../../../component/common/iconSvg';
 import SvgUri from 'react-native-svg-uri';
 import LottieView from 'lottie-react-native';
 import VideoPlayScreen from '../../../../component/videoplayer/VideoPlayScreen';
+import AnimatedLoader from 'react-native-animated-loader';
 import { connect } from 'react-redux';
 const dimensions = {
   width: Dimensions.get('window').width,
-  height: Dimensions.get('window').height,
+  height: Dimensions.get('window').height
 };
 const requestCameraAndAudioPermission = async () => {
   try {
     const granted = await PermissionsAndroid.requestMultiple([
       PermissionsAndroid.PERMISSIONS.CAMERA,
-      PermissionsAndroid.PERMISSIONS.RECORD_AUDIO,
-    ])
+      PermissionsAndroid.PERMISSIONS.RECORD_AUDIO
+    ]);
     if (
-      granted['android.permission.RECORD_AUDIO'] === PermissionsAndroid.RESULTS.GRANTED
-      && granted['android.permission.CAMERA'] === PermissionsAndroid.RESULTS.GRANTED
+      granted['android.permission.RECORD_AUDIO'] ===
+        PermissionsAndroid.RESULTS.GRANTED &&
+      granted['android.permission.CAMERA'] ===
+        PermissionsAndroid.RESULTS.GRANTED
     ) {
-      console.log('You can use the cameras & mic')
+      console.log('You can use the cameras & mic');
     } else {
-      console.log('Permission denied')
+      console.log('Permission denied');
     }
   } catch (err) {
-    console.warn(err)
+    console.warn(err);
   }
-}
+};
 
 // const { width, height } = Dimensions.get('window');
 const HTML = `
@@ -49,27 +63,29 @@ const HTML = `
 </html>
 
 `;
- class App extends PureComponent {
+class App extends PureComponent {
   //   _engine?: RtcEngine;
   static contextType = NavigationContext;
 
   constructor(props) {
     super(props);
-    console.log(this.props.route.params)
+    console.log(this.props.route.params);
 
     this.state = {
       appId: '29792ec3eded410facd609fb7ad76fef',
       // token: '00629792ec3eded410facd609fb7ad76fefIAAbKUcPA8ZKD6c3OvRQ3dLsbHqp9OSHU+zfE7bUrcatNkgDg6MAAAAAEACcjToMxfsZYQEAAQDE+xlh',
       // channelName: 'ABC',
-      video: 'https://vd2.bdstatic.com/mda-mhbca33iv088wenq/sc/cae_h264_clips/1628759838989718911/mda-mhbca33iv088wenq.mp4?auth_key=1629005864-0-0-3f7612077d2e27b51901b7db690fd9ce&bcevod_channel=searchbox_feed&pd=1&pt=3&abtest=',
+      video:
+        'https://vd2.bdstatic.com/mda-mhbca33iv088wenq/sc/cae_h264_clips/1628759838989718911/mda-mhbca33iv088wenq.mp4?auth_key=1629005864-0-0-3f7612077d2e27b51901b7db690fd9ce&bcevod_channel=searchbox_feed&pd=1&pt=3&abtest=',
 
       channelName: '',
-      joinSucceed: false,//默认进入直播
+      joinSucceed: false, //默认进入直播
       peerIds: [],
       roomName: '',
       roomImg: '',
       arr: [],
       showSong: true,
+      visible: true,
       data1: [
         { id: '1', title: '梁祝 十八相送', autor: '吴凤花 单仰萍' },
         { id: '2', title: '何文秀 哭牌算命', autor: '王君安 李敏' },
@@ -80,7 +96,7 @@ const HTML = `
         { id: '7', title: '宋弘传奇 和诗', autor: '王君安' },
         { id: '8', title: '杜十娘 沉宝', autor: '陈飞 吴凤花' },
         { id: '9', title: '吴王悲歌 刺王', autor: '吴凤花 董鉴鸿' },
-        { id: '10', title: '双烈记 夸夫', autor: '吴凤花 方亚芬' },
+        { id: '10', title: '双烈记 夸夫', autor: '吴凤花 方亚芬' }
       ],
       data2: [
         { id: '1', title: '梁祝 楼台会', autor: '章瑞虹 方亚芬' },
@@ -92,7 +108,7 @@ const HTML = `
         { id: '7', title: '盘夫索夫', autor: '陆锦花 金采风' },
         { id: '8', title: '红楼梦 调包计', autor: '金采风 周宝奎' },
         { id: '9', title: '劈山救母', autor: '连玉澜 张国华' },
-        { id: '10', title: '红花曲', autor: '金采风' },
+        { id: '10', title: '红花曲', autor: '金采风' }
       ],
       data3: [
         { id: '1', title: '宝莲灯 对月思家', autor: '吴凤花' },
@@ -104,7 +120,7 @@ const HTML = `
         { id: '7', title: '十八相送', autor: '钱惠丽 单仰萍' },
         { id: '8', title: '紫玉钗 洞房', autor: '钱惠丽 单仰萍' },
         { id: '9', title: '家 幻觉', autor: '赵志刚 孙智君' },
-        { id: '10', title: '春香传 心歌', autor: '王文娟' },
+        { id: '10', title: '春香传 心歌', autor: '王文娟' }
       ],
       autoPlay: false
     };
@@ -121,10 +137,11 @@ const HTML = `
       return;
     } else {
       return (
-        <TouchableOpacity
-          activeOpacity={1}
-          onPress={() => this._openPicker()}>
-          <Image source={require("../../../../res/addimg.png")} style={{ width: pxToDp(40), height: pxToDp(40) }} />
+        <TouchableOpacity activeOpacity={1} onPress={() => this._openPicker()}>
+          <Image
+            source={require('../../../../res/addimg.png')}
+            style={{ width: pxToDp(40), height: pxToDp(40) }}
+          />
         </TouchableOpacity>
       );
     }
@@ -136,18 +153,17 @@ const HTML = `
       height: 400,
       cropping: true,
       multiple: true,
-      maxFiles: 9,
-    }).then(image => {
+      maxFiles: 9
+    }).then((image) => {
       console.log('imag', image);
       this.setState({
-        arr: image,
+        arr: image
       });
       //     const {arr} = this.state;
       //    arr.push(image);
       //     this.setState({arr})
       //     console.log('arr',arr[1])
     });
-
   }
 
   componentDidMount() {
@@ -156,6 +172,15 @@ const HTML = `
     // this.props.route.params.startCall? this.props.route.params.startCall():console.log(123);
     this.startCall();
     this.animation.pause();
+    new Promise((res, rej) => {
+      setTimeout(() => {
+        res(123);
+      }, 1000);
+    }).then((res) =>
+      this.setState({
+        visible: !this.state.visible
+      })
+    );
   }
 
   /**
@@ -167,15 +192,15 @@ const HTML = `
     // this._engine = await RtcEngine.create(appId);
     // await this._engine.enableVideo();
 
-    this._engine = await RtcEngine.create(appId)
+    this._engine = await RtcEngine.create(appId);
     // 启用视频模块。
-    await this._engine.enableVideo()
+    await this._engine.enableVideo();
     // 开启本地视频预览。
-    await this._engine.startPreview()
+    await this._engine.startPreview();
     // 将频道场景设为直播。
-    await this._engine.setChannelProfile(ChannelProfile.LiveBroadcasting)
+    await this._engine.setChannelProfile(ChannelProfile.LiveBroadcasting);
     // 设置用户角色为主播。
-    await this._engine.setClientRole(ClientRole.Broadcaster)
+    await this._engine.setClientRole(ClientRole.Broadcaster);
     this._engine.addListener('Warning', (warn) => {
       console.log('Warning', warn);
     });
@@ -192,7 +217,7 @@ const HTML = `
       if (peerIds.indexOf(uid) === -1) {
         this.setState({
           // Add peer ID to state array
-          peerIds: [...peerIds, uid],
+          peerIds: [...peerIds, uid]
         });
       }
     });
@@ -202,7 +227,7 @@ const HTML = `
       const { peerIds } = this.state;
       this.setState({
         // Remove peer ID from state array
-        peerIds: peerIds.filter((id) => id !== uid),
+        peerIds: peerIds.filter((id) => id !== uid)
       });
     });
 
@@ -211,7 +236,7 @@ const HTML = `
       console.log('JoinChannelSuccess', channel, uid, elapsed);
       // Set state variable to true
       this.setState({
-        joinSucceed: true,
+        joinSucceed: true
       });
     });
   };
@@ -223,7 +248,7 @@ const HTML = `
   startCall = async () => {
     // console.log(this.props.route.params.token)
     // Join Channel using null token and channel name
-    await this.init()
+    await this.init();
     await this._engine?.joinChannel(
       this.props.route.params.token,
       this.props.route.params.channelName,
@@ -245,10 +270,8 @@ const HTML = `
   };
 
   closeCall = () => {
-    this.endCall().then(
-      this.context.navigate('Tabbar')
-    )
-  }
+    this.endCall().then(this.context.navigate('Tabbar'));
+  };
   toContr() {
     if (this.state.autoPlay == false) {
       this.animation.play();
@@ -258,45 +281,112 @@ const HTML = `
   }
 
   render() {
-    const {user}=this.props.route.params
-    const {userInfo}=this.props
+    const { user } = this.props.route.params;
+    const { userInfo } = this.props;
     const { roomName, channelName, roomImg, joinSucceed } = this.state;
     return (
-      <View style={{ flex: 1 }}>
-        {this._renderVideos(user,userInfo)}
-      </View>
+      <View style={{ flex: 1 }}>{this._renderVideos(user, userInfo)}</View>
     );
   }
 
-  _renderVideos = (user,userInfo) => {
+  _renderVideos = (user, userInfo) => {
     const { joinSucceed } = this.state;
     const { peerIds } = this.state;
     console.log(peerIds);
     return (
       <View style={styles.fullView}>
-        {this._renderRemoteVideos(user,userInfo)}
+        {this._renderRemoteVideos(user, userInfo)}
       </View>
     );
   };
-  _renderRemoteVideos = (user,userInfo) => {
-    const { peerIds, showSong, autoPlay } = this.state;
+  _renderRemoteVideos = (user, userInfo) => {
+    const { peerIds, showSong, autoPlay, visible } = this.state;
     console.log(autoPlay);
     return (
-      <View
-        style={styles.remoteContainer}
-      >
-        <Top title='小剧场' icon1="arrow-back" />
+      <View style={styles.remoteContainer}>
+        <Top title="小剧场" icon1="arrow-back" />
+        {/* <AnimatedLoader
+          visible={visible}
+          overlayColor="rgba(255,255,255,1)"
+          source={require('../../../../../lottie/匹配.json')}
+          animationStyle={{
+            width: 200,
+            height: 200
+          }}
+          speed={1}
+        >
+          <Text style={{ fontSize: pxToDp(24) }}>匹配中...</Text>
+        </AnimatedLoader> */}
         <View style={{ width: '100%' }}>
-          <Image style={{ height: pxToDp(115), width: '100%', resizeMode: 'contain', zIndex: 9999 }} source={require('../../../../res/tv2.png')} />
-          <Image style={{ height: pxToDp(225), width: pxToDp(42), resizeMode: 'contain', zIndex: 9999, marginLeft: pxToDp(1.7), marginTop: pxToDp(-12) }} source={require('../../../../res/tv1.png')} />
-          <Image style={{ height: pxToDp(230), width: pxToDp(134), resizeMode: 'contain', zIndex: 9999, marginLeft: pxToDp(264), marginTop: pxToDp(-225) }} source={require('../../../../res/tv3.png')} />
-          <Image style={{ height: pxToDp(45), width: '100%', resizeMode: 'contain', zIndex: 9999, marginLeft: pxToDp(-20), marginTop: pxToDp(-40.5) }} source={require('../../../../res/tv4.png')} />
-          <View style={{ height: pxToDp(210), width: pxToDp(300), marginLeft: pxToDp(18), marginTop: pxToDp(-250) }}>
+          <Image
+            style={{
+              height: pxToDp(115),
+              width: '100%',
+              resizeMode: 'contain',
+              zIndex: 9999
+            }}
+            source={require('../../../../res/tv2.png')}
+          />
+          <Image
+            style={{
+              height: pxToDp(225),
+              width: pxToDp(42),
+              resizeMode: 'contain',
+              zIndex: 9999,
+              marginLeft: pxToDp(1.7),
+              marginTop: pxToDp(-12)
+            }}
+            source={require('../../../../res/tv1.png')}
+          />
+          <Image
+            style={{
+              height: pxToDp(230),
+              width: pxToDp(134),
+              resizeMode: 'contain',
+              zIndex: 9999,
+              marginLeft: pxToDp(264),
+              marginTop: pxToDp(-225)
+            }}
+            source={require('../../../../res/tv3.png')}
+          />
+          <Image
+            style={{
+              height: pxToDp(45),
+              width: '100%',
+              resizeMode: 'contain',
+              zIndex: 9999,
+              marginLeft: pxToDp(-20),
+              marginTop: pxToDp(-40.5)
+            }}
+            source={require('../../../../res/tv4.png')}
+          />
+          <View
+            style={{
+              height: pxToDp(210),
+              width: pxToDp(300),
+              marginLeft: pxToDp(18),
+              marginTop: pxToDp(-250)
+            }}
+          >
             <VideoPlayScreen videoInfo={{ video: this.state.video }} />
           </View>
-          <View style={{ flexDirection: 'row', justifyContent: 'space-around', alignItems: 'center', marginTop: pxToDp(50) }}>
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-around',
+              alignItems: 'center',
+              marginTop: pxToDp(50)
+            }}
+          >
             <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-              <Image style={{ width: pxToDp(65), height: pxToDp(65), borderRadius: pxToDp(35) }} source={{ uri: userInfo.avatar }}></Image>
+              <Image
+                style={{
+                  width: pxToDp(65),
+                  height: pxToDp(65),
+                  borderRadius: pxToDp(35)
+                }}
+                source={{ uri: userInfo.avatar }}
+              ></Image>
               <Text style={{ fontSize: pxToDp(16) }}>{userInfo.nickName}</Text>
             </View>
             <View style={{ alignItems: 'center' }}>
@@ -307,26 +397,51 @@ const HTML = `
                   this.animation = animation;
                 }}
               />
-              {autoPlay ? (<TouchableOpacity style={{ width: pxToDp(90), height: pxToDp(30), borderRadius: pxToDp(32), backgroundColor: '#62bfad', justifyContent: 'center', alignItems: 'center' }}
-                onPress={() => {
-                  this.toContr();
-                  this.setState({ autoPlay: !autoPlay });
-                }}>
-                <Text style={{ fontSize: pxToDp(14) }}>
-                  暂停演唱
-                </Text>
-              </TouchableOpacity>) : (<TouchableOpacity style={{ width: pxToDp(90), height: pxToDp(30), borderRadius: pxToDp(32), backgroundColor: '#62bfad', justifyContent: 'center', alignItems: 'center' }}
-                onPress={() => {
-                  this.toContr();
-                  this.setState({ autoPlay: !autoPlay });
-                }}>
-                <Text style={{ fontSize: pxToDp(14) }}>
-                  开始演唱
-                </Text>
-              </TouchableOpacity>)}
+              {autoPlay ? (
+                <TouchableOpacity
+                  style={{
+                    width: pxToDp(90),
+                    height: pxToDp(30),
+                    borderRadius: pxToDp(32),
+                    backgroundColor: '#62bfad',
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                  }}
+                  onPress={() => {
+                    this.toContr();
+                    this.setState({ autoPlay: !autoPlay });
+                  }}
+                >
+                  <Text style={{ fontSize: pxToDp(14) }}>暂停演唱</Text>
+                </TouchableOpacity>
+              ) : (
+                <TouchableOpacity
+                  style={{
+                    width: pxToDp(90),
+                    height: pxToDp(30),
+                    borderRadius: pxToDp(32),
+                    backgroundColor: '#62bfad',
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                  }}
+                  onPress={() => {
+                    this.toContr();
+                    this.setState({ autoPlay: !autoPlay });
+                  }}
+                >
+                  <Text style={{ fontSize: pxToDp(14) }}>开始演唱</Text>
+                </TouchableOpacity>
+              )}
             </View>
             <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-              <Image style={{ width: pxToDp(65), height: pxToDp(65), borderRadius: pxToDp(35) }} source={{ uri: user.avatar }}></Image>
+              <Image
+                style={{
+                  width: pxToDp(65),
+                  height: pxToDp(65),
+                  borderRadius: pxToDp(35)
+                }}
+                source={{ uri: user.avatar }}
+              ></Image>
               <Text style={{ fontSize: pxToDp(16) }}>{user.nickName}</Text>
             </View>
           </View>
@@ -402,7 +517,8 @@ const HTML = `
                     </View>
                     <TouchableOpacity
                       style={{ marginRight: pxToDp(20) }}
-                      onPress={() => this.setState({ showSong: false })}>
+                      onPress={() => this.setState({ showSong: false })}
+                    >
                       <SvgUri svgXmlData={playmusic} width="30" height="30" />
                     </TouchableOpacity>
                   </View>
@@ -436,7 +552,8 @@ const HTML = `
                     </View>
                     <TouchableOpacity
                       style={{ marginRight: pxToDp(20) }}
-                      onPress={() => this.setState({ showSong: false })}>
+                      onPress={() => this.setState({ showSong: false })}
+                    >
                       <SvgUri svgXmlData={playmusic} width="30" height="30" />
                     </TouchableOpacity>
                   </View>
@@ -452,43 +569,43 @@ const HTML = `
 
 const styles = StyleSheet.create({
   max: {
-    flex: 1,
+    flex: 1
   },
   buttonHolder: {
     height: pxToDp(100),
     alignItems: 'center',
     flex: 1,
     flexDirection: 'row',
-    justifyContent: 'space-evenly',
+    justifyContent: 'space-evenly'
   },
   button: {
     paddingHorizontal: 20,
     paddingVertical: 10,
     backgroundColor: '#0093E9',
-    borderRadius: pxToDp(24),
+    borderRadius: pxToDp(24)
   },
   buttonText: {
-    color: '#fff',
+    color: '#fff'
   },
   fullView: {
     width: dimensions.width,
-    height: dimensions.height,
+    height: dimensions.height
   },
   remoteContainer: {
     width: '100%',
     height: dimensions.height,
-    position: 'absolute',
+    position: 'absolute'
     // marginTop:80
   },
   remote: {
     width: dimensions.width,
     height: dimensions.height,
-    marginHorizontal: 2.5,
+    marginHorizontal: 2.5
   },
   noUserText: {
     paddingHorizontal: 10,
     paddingVertical: 5,
-    color: '#0093E9',
+    color: '#0093E9'
   },
   songbox: {
     height: pxToDp(280),
@@ -497,9 +614,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderBottomLeftRadius: pxToDp(16),
     borderBottomRightRadius: pxToDp(16),
-    elevation: 8,  //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
-    shadowColor: 'black',  //  阴影颜色
-    shadowRadius: pxToDp(10),  //  圆角
+    elevation: 8, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+    shadowColor: 'black', //  阴影颜色
+    shadowRadius: pxToDp(10) //  圆角
   }
 });
 export default connect((state) => ({
