@@ -9,7 +9,7 @@ import {
   Image,
   Dimensions,
   StyleSheet,
-  LayoutAnimation
+  LayoutAnimation, Animated, Easing
 } from 'react-native';
 import RtcEngine, {
   RtcLocalView,
@@ -26,7 +26,8 @@ import LottieView from 'lottie-react-native';
 import { NavigationContext } from '@react-navigation/native';
 import { connect } from 'react-redux';
 import SvgUri from 'react-native-svg-uri';
-import { right } from '../../../component/common/iconSvg';
+import Mybtn from '../../../component/common/mybtn'
+import Danmu from './danmu'
 const dimensions = {
   width: Dimensions.get('window').width,
   height: Dimensions.get('window').height
@@ -89,7 +90,10 @@ class App extends PureComponent {
 
   constructor(props) {
     super(props);
-
+    for (let i = 0; i < 10; i++) {
+      this[`HeartArg${i}`] = new Animated.Value(0)
+    }
+    this.viewNum = 0
     this.state = {
       appId: '29792ec3eded410facd609fb7ad76fef',
       channelName: '',
@@ -98,8 +102,35 @@ class App extends PureComponent {
       roomName: '',
       roomImg: '',
       arr: [],
-   
-    };
+      gift: [
+        {
+          img: require('./蓝玫瑰.png'), name: '鲜花'
+        },
+        {
+          img: require('./666.png'), name: '666'
+        },
+        {
+          img: require('./棒棒糖.png'), name: '棒棒糖'
+        },
+        {
+          img: require('./红包.png'), name: '炸弹'
+        },
+        {
+          img: require('./爱心.png'), name: '爱心'
+        },
+        {
+          img: require('./礼盒.png'), name: '礼盒'
+        },
+        {
+          img: require('./红包.png'), name: '红包'
+        },
+        {
+          img: require('./火箭.png'), name: '火箭'
+        },
+      ],
+      activeTab: -1,
+      sendrocket: false
+    }
     if (Platform.OS === 'android') {
       // Request required permissions from Android
       requestCameraAndAudioPermission().then(() => {
@@ -123,6 +154,17 @@ class App extends PureComponent {
     }
   }
   //打开本地图册
+  changeTab = (index) => {
+    this.setState({ activeTab: index });
+  };
+  sendGift() {
+
+    this.setState({ sendrocket: true })
+    setTimeout(() => {
+      this.setState({ sendrocket: false })
+    }, 2200);
+    console.log(this.state.sendrocket);
+  };
   _openPicker() {
     ImagePicker.openPicker({
       width: 300,
@@ -272,15 +314,67 @@ class App extends PureComponent {
       </View>
     );
   };
+  startAnimate = () => {
+    const COLOR_ARR = [
+      '#9C89B8',
+      '#F0A6CA',
+      '#EFC3E6',
+      '#F0E6EF',
+      '#B8BEDD',
+      '#5BC0EB',
+      '#FDE74C',
+      '#9BC53D',
+      '#E55934',
+      '#FA7921'
+    ]
+    this[`HeartArg${this.viewNum}`].setValue(0)
+    //设置随机颜色
+    let colorIndex = Math.floor(Math.random() * 10)
+    this[`animImg${this.viewNum}`].setNativeProps({
+      style: {
+        tintColor: COLOR_ARR[colorIndex]
+      }
+    })
+    //根据当前动画驱动值进行判断是否对新VIEW进行驱动
+    let currentValue = this[`HeartArg${this.viewNum}`].__getValue()
+    if (currentValue !== 0) {
+      this.viewNum++
+    }
+    Animated.timing(
+      this[`HeartArg${this.viewNum}`],
+      {
+        toValue: 3,
+        duration: 2000,
+        easing: Easing.linear
+      }
+    ).start(() => {
+      this[`HeartArg${this.viewNum}`].setValue(0)
+    })
+    //如果当前正在驱动的VIEW的数量大于8,则重置回0,让动画循环
+    if (this.viewNum > 8) {
+      this.viewNum = 0
+    }
+    this.viewNum++
+  }
 
   _renderRemoteVideos = (stream) => {
     const { peerIds } = this.state;
+
+
     return (
       <View
         style={styles.remoteContainer}
       // contentContainerStyle={{ paddingHorizontal: 2.5 }}
       // horizontal={true}
       >
+
+        {this.state.sendrocket ?
+          (<LottieView
+            style={{ marginLeft: pxToDp(-16), marginTop: pxToDp(-50), display: 'none' }}
+            source={require('../../../../lottie/61505-rocket-acceleration.json')}
+            loop
+            autoPlay
+          />) : null}
         <View style={{ flexDirection: 'row', alignItems: 'center' }}>
           <View
             style={{
@@ -379,7 +473,7 @@ class App extends PureComponent {
             <TouchableOpacity
               onPress={this.closeCall}
               style={{
-                backgroundColor: 'rgba(0,0,0,0.4)',
+
                 height: pxToDp(24),
                 width: pxToDp(24),
                 flexDirection: 'row',
@@ -389,24 +483,11 @@ class App extends PureComponent {
                 padding: pxToDp(4)
               }}
             >
-              <View
-                style={{
-                  height: pxToDp(20),
-                  width: pxToDp(20),
-                  justifyContent: 'center',
-                  alignItems: 'center'
-                }}
-              >
-                <Text
-                  style={{ color: 'white', fontSize: 16, fontWeight: 'bold' }}
-                >
-                  X
-                </Text>
-              </View>
+              <SvgUri svgXmlData='<svg t="1631176303657" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2963" width="200" height="200"><path d="M1013.44 484.736l-170.24-212.992a42.752 42.752 0 0 0-47.488-13.632 42.688 42.688 0 0 0-28.416 40.192v127.808H426.432a85.12 85.12 0 0 0 0 170.304h340.736v127.872a42.496 42.496 0 0 0 75.84 26.56l170.432-212.992a42.176 42.176 0 0 0 0-53.12z m-416.64 367.36H255.36c-46.72 0-84.608-38.08-84.608-85.12v-512c0-46.72 38.144-84.544 85.312-84.544h340.736a85.12 85.12 0 0 0 0-170.24H170.88A170.432 170.432 0 0 0 0.448 170.496v681.6a170.432 170.432 0 0 0 170.432 170.432h425.984a85.12 85.12 0 0 0 0-170.432z" p-id="2964" fill="#707070"></path></svg>' width='20' height='20' />
             </TouchableOpacity>
           </View>
         </View>
-
+              <Danmu/>
         <WebView
           style={{
             width: pxToDp(300),
@@ -428,26 +509,114 @@ class App extends PureComponent {
             '接收h5页面传过来的消息';
           }}
         />
+        <View style={{ position: 'absolute', bottom: 320, right: 20, height: 30, width: 30 }}>
+          <View style={{}} >
+            {
+              Array(10).fill().map((_, index) => {
+                return <Animated.Image
+                  key={index}
+                  ref={_ => this[`animImg${index}`] = _}
+                  style={[{ width: 30, height: 30 }, {
+                    top: this[`HeartArg${index}`].interpolate({
+                      inputRange: [0, 1, 2, 3],
+                      outputRange: [10, -100, -200, -300]
+                    }),
+                    right: this[`HeartArg${index}`].interpolate({
+                      inputRange: [0, 1, 2, 3],
+                      outputRange: Math.floor(Math.random() + 0.5) === 0 ? [7, 30, 15, 7] : [7, 0, 30, 10]
+                    }),
+                    transform: [{
+                      scale: this[`HeartArg${index}`].interpolate({
+                        inputRange: [0, 1, 2, 3],
+                        outputRange: [0.5, 1, 1.5, 1]
+                      })
+                    }],
+                    opacity: this[`HeartArg${index}`].interpolate({
+                      inputRange: [0, 1, 2, 3],
+                      outputRange: [0, 1, 0.5, 0]
+                    })
+                  }]}
+                  source={require('./爱心zz.png')}
+                />
+              })
+            }
+          </View>
+          <TouchableOpacity onPress={this.startAnimate}
+            style={{ width: 30, height: 30 }}
+          ><Image source={require('./爱心zz.png')} style={{ width: 30, height: 30 }} /></TouchableOpacity>
+        </View>
         <TouchableOpacity
-          style={{ position: 'absolute', bottom: 20, right: 20, height: 30, width: 30 }}
+          style={{ position: 'absolute', bottom: 20, right:80, height: 30, width: 30 }}
           onPress={() => this.Scrollable.open()}>
           <SvgUri
             width='30' height='30'
             svgXmlData='<svg t="1629613855898" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2155" width="200" height="200"><path d="M921 266.4H781.3l26.6-26.5c39.6-39.4 39.8-103.4 0.4-143l-0.4-0.4c-38.5-38.3-100.8-38.3-139.3 0L542.3 222.2c-12.7 12.6-20.8 28-25.1 44.2h-0.9c-3.5-18.9-12.2-37-26.8-51.5L363.9 89.4c-38.3-38.2-100.3-38.2-138.6 0l-0.2 0.2c-39.4 39.5-39.3 103.5 0.2 142.9l34 33.9H103c-21.7 0-39.3 17.6-39.3 39.3v120.4c0 21.7 17.6 39.3 39.3 39.3h35v438.8c0 32.6 26.4 59 59 59h629.9c32.6 0 59-26.4 59-59V465.5h35c21.7 0 39.3-17.6 39.3-39.3V305.7c0.1-21.7-17.5-39.3-39.2-39.3zM578.7 861.2c0 21.7-17.6 39.3-39.3 39.3H500c-21.7 0-39.3-17.6-39.3-39.3V550.6c0-21.7 17.6-39.3 39.3-39.3h39.3c21.7 0 39.3 17.6 39.3 39.3v310.6z m0-475.6c0 21.7-17.6 39.3-39.3 39.3H500c-21.7 0-39.3-17.6-39.3-39.3v-19.7c0-21.7 17.6-39.3 39.3-39.3h39.3c21.7 0 39.3 17.6 39.3 39.3v19.7z" fill="#FF5D66" p-id="2156"></path></svg>'
           />
         </TouchableOpacity>
+
         <RBSheet
+          animationType='fade'
           ref={(ref) => {
             this.Scrollable = ref;
           }}
-          height={150}
+          height={pxToDp(290)}
           closeOnDragDowncustomStyles={{
             container: { borderTopLeftRadius: 10, borderTopRightRadius: 10 }
           }}
         >
-       
+          <View style={{ flexDirection: 'row', flexWrap: 'wrap', width: '100%', backgroundColor: '#D5E8E6' }}>
+            {
+              this.state.gift.map((item, index) => (
+                <View style={{
+                  width: '25%', height: pxToDp(90), marginTop: pxToDp(20),
+                  borderColor:
+                    index === this.state.activeTab ? '#62bfad' : 'white',
+
+                  borderWidth:
+                    index === this.state.activeTab ? pxToDp(1) : pxToDp(0),
+                }}>
+                  <TouchableOpacity
+                    onPress={() => this.changeTab(index)}
+                    style={{
+
+                      justifyContent: 'center', alignItems: 'center',
+                    }}>
+                    <Image source={item.img} style={{ width: pxToDp(50), height: pxToDp(50), }} />
+                    <Text>{item.name}</Text>
+                  </TouchableOpacity>
+
+                </View>
+              ))
+            }
+            <Mybtn
+              title="确认"
+              onPress={() => {
+                this.sendGift()
+                this.Scrollable.close()
+
+              }}
+              buttonStyle={{
+                width: pxToDp(90),
+                height: pxToDp(30),
+                borderRadius: pxToDp(32),
+                marginRight: pxToDp(16),
+                marginTop: pxToDp(20),
+                marginBottom: pxToDp(20),
+                alignSelf: 'flex-end'
+              }}
+              titleStyle={{
+                height: 30,
+                color: 'white',
+                fontSize: pxToDp(14),
+                marginTop: pxToDp(10)
+              }}
+            />
+
+
+          </View>
         </RBSheet>
       </View>
+
     );
   };
 }

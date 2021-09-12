@@ -124,7 +124,7 @@ class Index extends PureComponent {
                 }}
                 numberOfLines={1}
               >
-                {ownSay}
+                {ownSay ? ownSay : '这个人很神秘，什么都没写'}
               </Text>
             </View>
             <View
