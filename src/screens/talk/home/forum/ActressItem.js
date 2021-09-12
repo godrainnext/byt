@@ -33,7 +33,8 @@ export default memo(function ActressItem(props) {
   const [modaldata, setmodaldata] = useState(null);
   const item = props.item;
   const navigation = useNavigation();
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(Math.floor(Math.random() * 100));
+  const [isClick, setIsClick] = useState(false);
   const renderCarousel = (img) => (
     <Carousel style={{ height: WINDOW_WIDTH }}>
       <Image
@@ -118,13 +119,25 @@ export default memo(function ActressItem(props) {
                   marginLeft: pxToDp(8)
                 }}
               >
-                {item.createTime?.split('T')[1] ? item.createTime?.split('T')[0] : item.createTime?.split(' ')[0]}
+                {item.createTime?.split('T')[1]
+                  ? item.createTime?.split('T')[0]
+                  : item.createTime?.split(' ')[0]}
               </Text>
             </View>
           </TouchableOpacity>
         </View>
         {item.tags ? (
-          <View style={{ backgroundColor: '#d5e8e6', width: pxToDp(120), alignItems: 'center', justifyContent: 'center', borderRadius: pxToDp(8), marginLeft: pxToDp(16), marginBottom: pxToDp(8) }}>
+          <View
+            style={{
+              backgroundColor: '#d5e8e6',
+              width: pxToDp(120),
+              alignItems: 'center',
+              justifyContent: 'center',
+              borderRadius: pxToDp(8),
+              marginLeft: pxToDp(16),
+              marginBottom: pxToDp(8)
+            }}
+          >
             <Text
               style={{
                 fontSize: pxToDp(14),
@@ -133,7 +146,8 @@ export default memo(function ActressItem(props) {
             >
               {'#' + item.tags[0].name}
             </Text>
-          </View>) : null}
+          </View>
+        ) : null}
         <View
           style={{
             marginLeft: pxToDp(16),
@@ -168,7 +182,7 @@ export default memo(function ActressItem(props) {
                 springConfig={{ tension: 15, friction: 7 }}
                 swipeToDismiss={true}
                 renderContent={() => renderCarousel(item)}
-                underlayColor='white'
+                underlayColor="white"
               >
                 <Image
                   key={item}
@@ -198,7 +212,14 @@ export default memo(function ActressItem(props) {
               alignItems: 'center',
               justifyContent: 'center'
             }}
-            onPress={() => setCount(count + 1)}
+            onPress={() => {
+              if (isClick) {
+                setCount(count - 1);
+              } else {
+                setCount(count + 1);
+              }
+              setIsClick(!isClick);
+            }}
           >
             <SvgUri svgXmlData={dianzan} width="20" height="20" />
             <Text

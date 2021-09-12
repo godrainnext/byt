@@ -4,7 +4,7 @@ import { pxToDp } from "../../../utils/styleKits";
 import Top from '../../../component/common/top';
 import { NavigationContext } from '@react-navigation/native';
 import Title from '../component/title';
-import Bottom from '../component/bottom'
+import Bottom from '../component/bottom';
 
 class Index extends PureComponent {
   constructor(props) {

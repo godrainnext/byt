@@ -307,8 +307,8 @@ function Nav() {
         <Stack.Screen name="AddMoment" component={Screens.AddMoment} />
         {/**积分明细 */}
         <Stack.Screen name="JifenMingxi" component={Screens.JifenMingxi} />
-        <Stack.Screen name="Search" component={Screens.Search} />
         {/**定制 */}
+        <Stack.Screen name="Search" component={Screens.Search} />
         <Stack.Screen name="TBox" component={Screens.TBox} />
       </Stack.Navigator>
     </NavigationContainer>

@@ -213,7 +213,14 @@ export default memo(function ActressItem(props) {
               alignItems: 'center',
               justifyContent: 'center'
             }}
-            onPress={() => setCount(count + 1)}
+            onPress={() => {
+              if (isClick) {
+                setCount(count - 1);
+              } else {
+                setCount(count + 1);
+              }
+              setIsClick(!isClick);
+            }}
           >
             <SvgUri svgXmlData={dianzan} width="20" height="20" />
             <Text
