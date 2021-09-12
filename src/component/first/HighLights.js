@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Text, View, TouchableOpacity, ScrollView, Image } from 'react-native';
+import { Text, View, TouchableOpacity, ScrollView, Image, ImageBackground } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { NavigationContext } from '@react-navigation/native';
 import { getVideList } from '../../service/home';
@@ -105,14 +105,26 @@ export default class HighLights extends PureComponent {
                       </Text>
                     </View>
                   </View>
-                  <Image
+                  <ImageBackground
                     style={{
                       height: pxToDp(140),
                       width: pxToDp(250),
                       borderTopRightRadius: pxToDp(8),
                     }}
+                    imageStyle={{
+                      height: pxToDp(140),
+                      width: pxToDp(250),
+                      borderTopRightRadius: pxToDp(8)
+                    }}
                     source={{ uri: changeImgSize(item.avatar) }}
-                  />
+                  >
+                    {item.id == 8 ? (<View style={{ backgroundColor: '#Fe9e9f', height: pxToDp(25), width: pxToDp(50), alignItems: 'center', justifyContent: 'center', borderRadius: pxToDp(16), alignSelf: 'flex-end', marginTop: pxToDp(8), marginRight: pxToDp(8) }}>
+                      <Text style={{ fontSize: pxToDp(12), fontWeight: 'bold', color: 'white' }}>推荐</Text>
+                    </View>) : null}
+                    {item.id == 10 ? (<View style={{ backgroundColor: '#Fe9e9f', height: pxToDp(25), width: pxToDp(50), alignItems: 'center', justifyContent: 'center', borderRadius: pxToDp(16), alignSelf: 'flex-end', marginTop: pxToDp(8), marginRight: pxToDp(8) }}>
+                      <Text style={{ fontSize: pxToDp(12), fontWeight: 'bold', color: 'white' }}>推荐</Text>
+                    </View>) : null}
+                  </ImageBackground>
                 </View>
                 <View style={{ height: pxToDp(90), width: '100%', flexDirection: "row" }}>
                   <View style={{ width: pxToDp(180), height: '100%', justifyContent: "center" }}>

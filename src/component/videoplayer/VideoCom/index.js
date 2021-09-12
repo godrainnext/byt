@@ -2,26 +2,23 @@ import React, { PureComponent } from 'react';
 import {
   View,
   Text,
-  StyleSheet,
-  TouchableWithoutFeedback,
   TouchableOpacity,
   Dimensions,
   Image,
-  textarea,
-  Button,
   TextInput
 } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { pxToDp } from '@utils/styleKits';
-
-import { getVideoCommentById } from '../../../service/video';
+import request from '@service/index'
+import { getVideoCommentById, getCommentInnerById } from '../../../service/video';
 import SvgUri from 'react-native-svg-uri';
 import { pinglun, dianzan, sandian, allcomment } from '../../common/iconSvg';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import changeImgSize from '@utils/changeImgSize';
-
+import dayjs from 'dayjs';
+import { connect } from 'react-redux';
 class index extends PureComponent {
-  state = { comment: [] };
+  state = { comment: [], mycomment: '', reply: [] };
   componentDidMount() {
     getVideoCommentById(this.props.videoId).then((res) => {
       this.setState({ comment: res });
@@ -32,27 +29,54 @@ class index extends PureComponent {
       .then((res) => this.setState({ reply: [...res[0].recomment] }))
       .then(() => this[`RBSheet${id}`].open());
   };
+  _submit = (id) => {
+    request.post({ url: `/comment/video/${id}/reply`, data: { content: this.state.mycomment } }).then(res => {
+      const recom = {
+        content: this.state.mycomment,
+        createAt: dayjs(new Date()).format('YYYY-MM-DD -HH-mm'),
+        id: res.insertId,
+        user: {
+          ...this.props.userInfo
+        }
+      }
+      this.setState({ reply: [recom, ...this.state.reply], mycomment: '' })
+    })
+  }
+  _submit2 = () => {
+    request.post({ url: `/comment/video/${this.props.videoId}`, data: { content: this.state.mycomment } }).then(res => {
+      const comment = {
+        content: this.state.mycomment,
+        createAt: dayjs(new Date()).format('YYYY-MM-DD -HH-mm'),
+        id: res.insertId,
+        user: {
+          ...this.props.userInfo
+        },
+        recomment: null
+      }
+      this.setState({ comment: [...this.state.comment, comment], mycomment: '' })
+    })
+  }
   render() {
     return (
       <View>
         {this.state.comment.length ? (
           this.state.comment.map((item) => (
-            <View key={item.id} style={{ backgroundColor: '#f6fbfe' }}>
+            <View key={item.id}>
               <View style={{ flexDirection: 'row' }}>
                 <Image
                   source={{ uri: changeImgSize(item.user.avatar, 'small') }}
                   style={{
-                    width: pxToDp(50),
-                    height: pxToDp(50),
+                    width: pxToDp(40),
+                    height: pxToDp(40),
                     margin: pxToDp(15),
-                    borderRadius: pxToDp(40)
+                    borderRadius: pxToDp(20)
                   }}
                 />
-                <Text style={{ marginTop: pxToDp(20) }}>
+                <Text style={{ marginTop: pxToDp(24) }}>
                   {item.user.nickName}
                 </Text>
                 <TouchableOpacity
-                  style={{ position: 'absolute', right: 20, top: 20 }}
+                  style={{ position: 'absolute', right: 30, top: 30 }}
                   onPress={() => {
                     this.setState({ isvisible: true });
                   }}
@@ -79,7 +103,7 @@ class index extends PureComponent {
                     marginTop: pxToDp(-15)
                   }}
                 >
-                  {item.createAt}
+                  {item.createAt?.split('T')[1] ? item.createAt?.split('T')[0] : createAt?.split(' ')[0]}
                 </Text>
                 <View
                   style={{
@@ -102,98 +126,6 @@ class index extends PureComponent {
                   </TouchableOpacity>
                 </View>
               </View>
-              {item.recomment ? (
-                <View style={{ backgroundColor: '#f6fbfe' }}>
-                  <View
-                    style={{ flexDirection: 'row', marginLeft: pxToDp(35) }}
-                  >
-                    <Image
-                      source={{
-                        uri: changeImgSize(item.recomment[0].avatar, 'small')
-                      }}
-                      style={{
-                        width: pxToDp(40),
-                        height: pxToDp(40),
-                        margin: pxToDp(15),
-                        borderRadius: pxToDp(40)
-                      }}
-                    />
-                    <Text style={{ marginTop: pxToDp(20) }}>
-                      {item.recomment[0].nickName}
-                    </Text>
-                  </View>
-                  <View style={{ marginLeft: 100 }}>
-                    <View style={{ flexDirection: 'row' }}>
-                      <Text
-                        style={{
-                          bottom: pxToDp(10),
-                          fontSize: pxToDp(16)
-                        }}
-                      >
-                        回复{item.user.nickName}:
-                      </Text>
-                      <Text
-                        style={{
-                          bottom: pxToDp(10),
-                          fontSize: pxToDp(16),
-                          width: '90%'
-                        }}
-                      >
-                        {item.recomment[0].content}
-                      </Text>
-                    </View>
-
-                    <View
-                      style={{
-                        flexDirection: 'row',
-                        marginBottom: pxToDp(25)
-                      }}
-                    >
-                      <SvgUri
-                        svgXmlData={dianzan}
-                        width="15"
-                        height="15"
-                        style={{ marginRight: 20 }}
-                      />
-                      <TouchableOpacity
-                        onPress={() => this.showRBsheet(item.id)}
-                      >
-                        <SvgUri svgXmlData={pinglun} width="15" height="15" />
-                      </TouchableOpacity>
-                    </View>
-
-                    <Text
-                      style={{
-                        marginBottom: pxToDp(10),
-                        color: 'gray',
-                        fontSize: pxToDp(13),
-                        marginTop: pxToDp(-15)
-                      }}
-                    >
-                      {item.recomment[0].createAt}
-                    </Text>
-                    <TouchableOpacity onPress={() => this.showRBsheet(item.id)}>
-                      <View style={{ flexDirection: 'row' }}>
-                        <Text style={{ fontSize: 12, color: 'gray' }}>
-                          全部回复
-                        </Text>
-                        <SvgUri
-                          svgXmlData={allcomment}
-                          width="12"
-                          height="12"
-                          style={{
-                            marginBottom: 5,
-                            paddingLeft: 10,
-                            paddingTop: 3
-                          }}
-                        />
-                      </View>
-                    </TouchableOpacity>
-                  </View>
-                </View>
-              ) : (
-                <View></View>
-              )}
               <View>
                 <RBSheet
                   ref={(ref) => {
@@ -286,11 +218,39 @@ class index extends PureComponent {
                       </View>
                     ))}
                   </ScrollView>
-
+                  <View
+                    style={{
+                      backgroundColor: '#fff',
+                      height: pxToDp(50),
+                      width: Dimensions.get('window').width,
+                      alignItems: 'center',
+                      flexDirection: 'row',
+                      position: 'absolute',
+                      bottom: 0
+                    }}
+                  >
+                    <TextInput
+                      placeholder="发一条友善的评论"
+                      style={{
+                        height: '80%',
+                        backgroundColor: '#fcfcfc',
+                        width: '75%',
+                        marginLeft: pxToDp(20),
+                        borderRadius: pxToDp(24),
+                        paddingLeft: pxToDp(10)
+                      }}
+                      onChangeText={(mycomment) => this.setState({ mycomment })}
+                      value={this.state.mycomment}
+                      ref={(ref) => (this.inputRef = ref)}
+                    />
+                    <TouchableOpacity onPress={this._submit}>
+                      <Text style={{ marginLeft: pxToDp(20) }}>发布</Text>
+                    </TouchableOpacity>
+                  </View>
                   <View
                     style={{
                       backgroundColor: '#D5E8E6',
-                      height: 40,
+                      height: pxToDp(50),
                       width: Dimensions.get('window').width,
                       alignItems: 'center',
                       flexDirection: 'row',
@@ -334,9 +294,40 @@ class index extends PureComponent {
             </Text>
           </View>
         )}
+        <View
+          style={{
+            backgroundColor: '#D5E8E6',
+            height: pxToDp(50),
+            width: Dimensions.get('window').width,
+            alignItems: 'center',
+            flexDirection: 'row',
+            position: 'absolute',
+            bottom: 0
+          }}
+        >
+          <TextInput
+            placeholder="发一条友善的评论"
+            style={{
+              height: '80%',
+              backgroundColor: '#fcfcfc',
+              width: '75%',
+              marginLeft: pxToDp(20),
+              borderRadius: pxToDp(16),
+              paddingLeft: pxToDp(10)
+            }}
+            onChangeText={(mycomment) => this.setState({ mycomment })}
+            value={this.state.mycomment}
+            ref={(ref) => (this.inputRef = ref)}
+          />
+          <TouchableOpacity onPress={() => this._submit2()}>
+            <Text style={{ marginLeft: pxToDp(20) }}>回复</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }
 }
 
-export default index;
+export default connect((state) => ({
+  userInfo: state.getIn(['homeReducer', 'userInfo'])
+}))(index);
