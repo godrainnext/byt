@@ -265,7 +265,14 @@ class shopdetails extends PureComponent {
         </ScrollView>
         {/* 客服按钮 */}
         <ActionButton
-          buttonColor="#62bfad"
+          buttonColor="#d5e8e6"
+          buttonText=""
+          renderIcon={() => (
+            <Image
+              style={{ width: pxToDp(32), height: pxToDp(32) }}
+              source={require('../../../../res/客服.png')}
+            />
+          )}
           style={{
             top: pxToDp(500),
             height: pxToDp(100),

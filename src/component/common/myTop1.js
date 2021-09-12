@@ -11,7 +11,6 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import { NavigationContext } from '@react-navigation/native';
 import { pxToDp, screenWidth } from '../../utils/styleKits';
 import LinearGradient from 'react-native-linear-gradient';
-import SearchHeader from 'react-native-search-header';
 export default class HeaderHaveBack extends PureComponent {
   constructor(props) {
     super(props);
@@ -31,44 +30,35 @@ export default class HeaderHaveBack extends PureComponent {
         end={{ x: 0, y: 0 }}
       >
         <View style={styles.textview}>
-          <View
+          <TouchableOpacity
             style={{
               flexDirection: 'row',
-              justifyContent: 'center',
               alignItems: 'center',
               width: pxToDp(345),
               height: pxToDp(44),
+              borderRadius: pxToDp(8),
               backgroundColor: 'white',
               zIndex: 1
             }}
+            onPress={() => this.context.navigate('Search')}
           >
-            <TextInput
-              placeholder={'搜索'}
-              onFocus={() => this.searchHeader.show()}
+            <View
               style={{
-                fontSize: pxToDp(16),
-                width: pxToDp(305),
-                color: '#333333',
-                marginLeft: pxToDp(32),
-                marginBottom: pxToDp(-2)
+                marginRight: pxToDp(16),
+                paddingLeft: pxToDp(16)
               }}
-            />
-            <TouchableOpacity
-              style={{ marginRight: pxToDp(32) }}
-              onPress={() => this.context.goBack()}
             >
-              <Text style={{ fontSize: pxToDp(16), color: '#333333' }}>
-                取消
-              </Text>
-            </TouchableOpacity>
-            <SearchHeader
+              <Ionicons name="search" size={23} color="#999999" />
+            </View>
+            <TextInput
               placeholder={'输入搜索值'}
               entryAnimation={'from-right-side'}
               headerHeight={pxToDp(44)}
+              style={{ fontSize: pxToDp(16) }}
               //   headerBgColor={'red'}
 
-              ref={(searchHeader) => {
-                this.searchHeader = searchHeader;
+              ref={(showTitle) => {
+                this.showTitle = showTitle;
               }}
               onGetAutocompletions={async (text) => {
                 if (text) {
@@ -85,7 +75,18 @@ export default class HeaderHaveBack extends PureComponent {
                 }
               }}
             />
-          </View>
+            <TouchableOpacity onPress={() => this.context.goBack()}>
+              <Text
+                style={{
+                  fontSize: pxToDp(16),
+                  color: '#b6b6b6',
+                  paddingLeft: pxToDp(150)
+                }}
+              >
+                取消
+              </Text>
+            </TouchableOpacity>
+          </TouchableOpacity>
         </View>
       </LinearGradient>
     );
