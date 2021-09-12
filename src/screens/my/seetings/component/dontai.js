@@ -48,6 +48,7 @@ class Index extends PureComponent {
   };
   componentDidMount() {
     getMomentListByUserId(this.props.userId).then((res) => {
+      console.log(res.contentArr);
       this.setState({ contentArr: res.contentArr });
     });
   }
