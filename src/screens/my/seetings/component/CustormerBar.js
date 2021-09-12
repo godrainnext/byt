@@ -134,7 +134,9 @@ class Index extends PureComponent {
                 justifyContent: 'center'
               }}
             >
-              <View style={{ marginRight: pxToDp(8), flexDirection: 'row', alignItems: 'center' }}>
+              <TouchableOpacity
+                onPress={() => this.context.navigate('Fan')}
+                style={{ marginRight: pxToDp(8), flexDirection: 'row', alignItems: 'center' }}>
                 <Text
                   style={{
                     fontSize: pxToDp(18),
@@ -148,8 +150,10 @@ class Index extends PureComponent {
                 <Text style={{ fontSize: pxToDp(16), color: '#666666', marginLeft: pxToDp(8) }}>
                   粉丝
                 </Text>
-              </View>
-              <View style={{ marginLeft: pxToDp(8), flexDirection: 'row', alignItems: 'center' }}>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => this.context.navigate('Follow')}
+                style={{ marginLeft: pxToDp(8), flexDirection: 'row', alignItems: 'center' }}>
                 <Text
                   style={{
                     fontSize: pxToDp(18),
@@ -163,7 +167,7 @@ class Index extends PureComponent {
                 <Text style={{ fontSize: pxToDp(16), color: '#666666', marginLeft: pxToDp(8) }}>
                   关注
                 </Text>
-              </View>
+              </TouchableOpacity>
             </View>
             <Mybtn
               title="编辑资料"
