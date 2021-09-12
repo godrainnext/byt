@@ -162,7 +162,7 @@ class App extends PureComponent {
     this.setState({ sendrocket: true })
     setTimeout(() => {
       this.setState({ sendrocket: false })
-    }, 2200);
+    }, 1900);
     console.log(this.state.sendrocket);
   };
   _openPicker() {
@@ -509,7 +509,7 @@ class App extends PureComponent {
             '接收h5页面传过来的消息';
           }}
         />
-        <View style={{ position: 'absolute', bottom: 320, right: 20, height: 30, width: 30 }}>
+        <View style={{ position: 'absolute', bottom:pxToDp(345), right:pxToDp(20), height: pxToDp(30), width: pxToDp(30) }}>
           <View style={{}} >
             {
               Array(10).fill().map((_, index) => {
@@ -546,7 +546,7 @@ class App extends PureComponent {
           ><Image source={require('./爱心zz.png')} style={{ width: 30, height: 30 }} /></TouchableOpacity>
         </View>
         <TouchableOpacity
-          style={{ position: 'absolute', bottom: 20, right:80, height: 30, width: 30 }}
+          style={{ position: 'absolute', bottom: pxToDp(33), right:pxToDp(80), height:pxToDp(30), width: pxToDp(30) }}
           onPress={() => this.Scrollable.open()}>
           <SvgUri
             width='30' height='30'
@@ -588,8 +588,9 @@ class App extends PureComponent {
                 </View>
               ))
             }
+      
             <Mybtn
-              title="确认"
+              title="发送"
               onPress={() => {
                 this.sendGift()
                 this.Scrollable.close()
@@ -599,10 +600,11 @@ class App extends PureComponent {
                 width: pxToDp(90),
                 height: pxToDp(30),
                 borderRadius: pxToDp(32),
-                marginRight: pxToDp(16),
+                marginRight: pxToDp(0),
                 marginTop: pxToDp(20),
+                marginLeft:pxToDp(256),
                 marginBottom: pxToDp(20),
-                alignSelf: 'flex-end'
+
               }}
               titleStyle={{
                 height: 30,
@@ -611,7 +613,7 @@ class App extends PureComponent {
                 marginTop: pxToDp(10)
               }}
             />
-
+    
 
           </View>
         </RBSheet>
