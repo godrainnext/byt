@@ -138,7 +138,9 @@ class UserInner extends PureComponent {
                   justifyContent: 'center'
                 }}
               >
-                <View style={{ marginRight: pxToDp(4), flexDirection: 'row', alignItems: 'center' }}>
+                <TouchableOpacity
+                  onPress={() => this.context.navigate('Fan')}
+                  style={{ marginRight: pxToDp(4), flexDirection: 'row', alignItems: 'center' }}>
                   <Text
                     style={{
                       fontSize: pxToDp(16),
@@ -153,8 +155,10 @@ class UserInner extends PureComponent {
                   <Text style={{ fontSize: pxToDp(14), color: '#666666', marginLeft: pxToDp(4) }}>
                     粉丝
                   </Text>
-                </View>
-                <View style={{ marginLeft: pxToDp(4), flexDirection: 'row', alignItems: 'center' }}>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  onPress={() => this.context.navigate('Follow')}
+                  style={{ marginLeft: pxToDp(4), flexDirection: 'row', alignItems: 'center' }}>
                   <Text
                     style={{
                       fontSize: pxToDp(16),
@@ -168,7 +172,7 @@ class UserInner extends PureComponent {
                   <Text style={{ fontSize: pxToDp(14), color: '#666666', marginLeft: pxToDp(4) }}>
                     关注
                   </Text>
-                </View>
+                </TouchableOpacity>
               </View>
             </View>
           </View>
