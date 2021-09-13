@@ -237,6 +237,7 @@ class Index extends PureComponent {
                 {this.props.userInfo.id === user?.id ? null : <FollowButton />}
               </View>
             </View>
+           
             <View style={{ marginLeft: pxToDp(22) }}>
               <Text style={{ fontSize: pxToDp(18), color: '#333333' }}>{content}</Text>
             </View>

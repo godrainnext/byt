@@ -95,6 +95,7 @@ class Register extends PureComponent {
                     >
                         <Ionicons name="user" size={22} color="#999999" style={{ marginLeft: pxToDp(16), marginRight: pxToDp(8) }} />
                         <TextInput
+                            style={{ width: pxToDp(200) }}
                             placeholder="请输入账号"
                             onChangeText={(regusername) => this.setState({ regusername })}
                             value={this.state.regusername}
@@ -112,6 +113,7 @@ class Register extends PureComponent {
                     >
                         <Ionicons name="lock" size={22} color="#999999" style={{ marginLeft: pxToDp(16), marginRight: pxToDp(8) }} />
                         <TextInput
+                            style={{ width: pxToDp(200) }}
                             secureTextEntry={true}
                             placeholder="请输入密码"
                             onChangeText={(regpassword1) => this.setState({ regpassword1 })}
@@ -130,6 +132,7 @@ class Register extends PureComponent {
                     >
                         <Ionicons name="lock" size={22} color="#999999" style={{ marginLeft: pxToDp(16), marginRight: pxToDp(8) }} />
                         <TextInput
+                            style={{ width: pxToDp(200) }}
                             secureTextEntry={true}
                             placeholder="请重复密码"
                             onChangeText={(regpassword2) => this.setState({ regpassword2 })}

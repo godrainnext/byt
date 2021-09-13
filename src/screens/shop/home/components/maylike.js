@@ -10,7 +10,7 @@ import {
 import { pxToDp } from '@utils/styleKits';
 import { NavigationContext } from '@react-navigation/native';
 import Svg from 'react-native-svg-uri';
-import { shopCar } from '../../../../component/common/iconSvg';
+import { shopCar, hot } from '../../../../component/common/iconSvg';
 class Index extends PureComponent {
   static contextType = NavigationContext;
   render() {
@@ -26,9 +26,21 @@ class Index extends PureComponent {
               source={{ uri: this.props.imguri }}
             ></Image>
             <View style={{ padding: pxToDp(8) }}>
-              <Text style={{ fontSize: pxToDp(16), color: '#333333' }}>
-                {this.props.name}
-              </Text>
+              {this.props.id == 21 ? (
+                <View style={{ flexDirection: 'row' }}>
+                  <View style={{ alignItems: 'center', justifyContent: 'center', marginRight: pxToDp(4), marginBottom: pxToDp(2) }}>
+                    <Svg width="20" height="20" svgXmlData={hot} />
+                  </View>
+                  <Text style={{ fontSize: pxToDp(16), color: '#000000' }}>
+                    {this.props.name}
+                  </Text>
+                </View>
+              ) : (
+                <View>
+                  <Text style={{ fontSize: pxToDp(16), color: '#000000' }}>
+                    {this.props.name}
+                  </Text>
+                </View>)}
               <View
                 style={{
                   flexDirection: 'row',

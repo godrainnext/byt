@@ -192,6 +192,7 @@ class Login extends PureComponent {
           >
             <Ionicons name="user" size={22} color="#999999" style={{ marginLeft: pxToDp(16), marginRight: pxToDp(8) }} />
             <TextInput
+              style={{ width: pxToDp(200) }}
               placeholder="请输入账号"
               onChangeText={(username) => this.setState({ username })}
               value={this.state.username}
@@ -207,6 +208,7 @@ class Login extends PureComponent {
           }}>
             <Ionicons name="lock" size={22} color="#999999" style={{ marginLeft: pxToDp(16), marginRight: pxToDp(8) }} />
             <TextInput
+              style={{ width: pxToDp(200) }}
               secureTextEntry={true}
               placeholder="请输入密码"
               onChangeText={(password) => this.setState({ password })}

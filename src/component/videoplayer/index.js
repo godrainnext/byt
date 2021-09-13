@@ -14,9 +14,11 @@ function TabView1(props) {
   const data = new Array(1).fill({});
 
   return (
-    <ScrollView {...props}>
-      <VideoInro {...props} />
-    </ScrollView>
+    <View>
+      <ScrollView {...props}>
+        <VideoInro {...props} />
+      </ScrollView>
+    </View>
   );
 }
 
@@ -53,7 +55,7 @@ export default memo(function Example(props) {
     <View style={styles.container}>
 
       <ScrollTabView
-        tabBarUnderlineStyle={{ backgroundColor: '#62bfad',width:pxToDp(20),marginLeft:pxToDp(46),height:pxToDp(4) }}
+        tabBarUnderlineStyle={{ backgroundColor: '#62bfad', width: pxToDp(20), marginLeft: pxToDp(46), height: pxToDp(4) }}
         headerHeight={headerHeight}
         renderScrollHeader={() => _renderScrollHeader(videoInfo)}
       >

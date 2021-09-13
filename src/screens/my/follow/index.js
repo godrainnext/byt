@@ -55,7 +55,7 @@ class Index extends PureComponent {
               style={styles.touch}
               onPress={() => this.removeFollow(item.id)}
             >
-              <Text style={{ fontSize: pxToDp(16), color: 'pink' }}>
+              <Text style={{ fontSize: pxToDp(16), color: '#62bfad' }}>
                 取消关注
               </Text>
             </TouchableOpacity>
@@ -79,8 +79,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     margin: pxToDp(8),
-    borderBottomWidth: pxToDp(1),
-    borderBottomColor: '#D3D3D3',
     height: pxToDp(65)
   },
   image: {
@@ -98,7 +96,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: 'white',
-    borderColor: 'pink',
+    borderColor: '#62bfad',
     borderWidth: 1
   }
 });
