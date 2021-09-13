@@ -389,7 +389,7 @@ class App extends PureComponent {
                   }
                 />
               </View>
-              <View>
+              <View style={{height:pxToDp(50)}}>
                 <Input
                   rightIcon={this.tianjia()}
                   disabled={true}
@@ -428,7 +428,13 @@ class App extends PureComponent {
              {this.state.image?.uri ? (
             <Image
               source={{ uri: this.state.image?.uri }}
-              style={{ height: pxToDp(240),margin:pxToDp(16),borderRadius:pxToDp(16) }}
+              style={{ 
+                height: pxToDp(240)
+                ,marginLeft:pxToDp(16)
+                ,borderRadius:pxToDp(16)
+                ,marginRight:pxToDp(16)
+                ,marginBottom:pxToDp(16)
+              }}
             />
           ) : (
             <View></View>

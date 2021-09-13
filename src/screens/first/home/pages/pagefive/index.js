@@ -73,8 +73,8 @@ const RenderInner = (props) => {
             )}
           </View>
         ))}
-        <View style={{ alignItems: 'center', flexDirection: 'row', marginLeft: pxToDp(50), marginTop: pxToDp(8), marginBottom: pxToDp(-16) }}>
-          <Text style={{ fontSize: pxToDp(16), color: "#62BFAD", marginRight: pxToDp(-180) }}>
+        <View style={{ alignItems: 'center', flexDirection: 'row', marginLeft: pxToDp(140), marginTop: pxToDp(16), marginBottom: pxToDp(-16) }}>
+          <Text style={{ fontSize: pxToDp(16), color: "#62BFAD", marginRight: pxToDp(-260) }}>
             THE END
           </Text>
           <Image style={{ resizeMode: 'contain', height: pxToDp(50) }} source={require('../../../../../res/0901/波浪.png')} />

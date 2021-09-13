@@ -140,8 +140,8 @@ class Index extends PureComponent {
                   buttonStyle={{
                     width: pxToDp(100),
                     height: pxToDp(100),
-                    marginTop: pxToDp(30),
                     borderRadius: pxToDp(100),
+                    marginTop:pxToDp(40),
                     backgroundColor: '#62bfad'
                   }}
                 />
@@ -151,14 +151,14 @@ class Index extends PureComponent {
                     flexDirection: 'row',
                     alignItems: 'center',
                     justifyContent: 'space-around',
-                    marginTop: pxToDp(35)
+                    marginBottom:pxToDp(-20),
                   }}
                 >
                   <Image
                     style={{ width: pxToDp(80), height: pxToDp(160) }}
                     source={require('../../res/sucai/9.jpg')}
                   />
-                  <View>
+                  <View style={{marginBottom:pxToDp(60)}}>
                     <Text style={styles.modalText2}>-签到说明-</Text>
                     <Text style={styles.modalText3}>
                       每日签到一次，连续签到奖励更多
@@ -212,7 +212,7 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-    elevation: 2
+    elevation: 2,
   },
   openButton: {
     backgroundColor: '#F194FF',
