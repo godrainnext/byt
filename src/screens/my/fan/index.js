@@ -51,7 +51,7 @@ class Index extends PureComponent {
                 </Text>
               </TouchableOpacity>
               <TouchableOpacity style={styles.touch}>
-                <Text style={{ fontSize: pxToDp(16), color: 'pink' }}>
+                <Text style={{ fontSize: pxToDp(16), color: '#62bfad' }}>
                   已互粉
                 </Text>
               </TouchableOpacity>
@@ -76,8 +76,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     margin: pxToDp(8),
-    borderBottomWidth: pxToDp(0.5),
-    borderBottomColor: '#D3D3D3',
     height: pxToDp(65)
   },
   image: {
@@ -96,7 +94,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderWidth: 1,
     backgroundColor: 'white',
-    borderColor: 'pink'
+    borderColor: '#62bfad'
   }
 });
 export default Index;
