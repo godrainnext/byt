@@ -548,7 +548,7 @@ class Index extends PureComponent {
                 style={{ height: pxToDp(180), width: pxToDp(342) }}
                 imageStyle={{ borderRadius: pxToDp(8) }}
                 source={{
-                  uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg1.doubanio.com%2Fpview%2Fevent_poster%2Fraw%2Fpublic%2Ff3283bd44eec487.jpg&refer=http%3A%2F%2Fimg1.doubanio.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631083362&t=f518e0105b6e4d70c8bd1515d98d8802'
+                  uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fwww.xijucn.com%2Fupimg%2Fuserup%2F2007%2F21100P49602.jpg&refer=http%3A%2F%2Fwww.xijucn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1634133348&t=1b8c5c5dc408838dc597930a1c61fca8'
                 }}
               >
                 <View
@@ -575,7 +575,7 @@ class Index extends PureComponent {
                         fontSize: pxToDp(16)
                       }}
                     >
-                      跟沈歆雯学越剧
+                      跟高梓晟学越剧
                     </Text>
                   </View>
                   <View style={{ flexDirection: 'row', alignItems: 'center' }}>
@@ -586,7 +586,7 @@ class Index extends PureComponent {
                         fontSize: pxToDp(12)
                       }}
                     >
-                      96.7万
+                      16.7万
                     </Text>
                     <View style={{ width: pxToDp(20) }}></View>
                     <Icon name="clock" size={12} color={'#333333'} />
@@ -596,7 +596,7 @@ class Index extends PureComponent {
                         fontSize: pxToDp(12)
                       }}
                     >
-                      02:12
+                      22:12
                     </Text>
                   </View>
                 </View>
@@ -618,7 +618,7 @@ class Index extends PureComponent {
                 style={{ height: pxToDp(180), width: pxToDp(342) }}
                 imageStyle={{ borderRadius: pxToDp(8) }}
                 source={{
-                  uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg1.doubanio.com%2Fpview%2Fevent_poster%2Fraw%2Fpublic%2Ff3283bd44eec487.jpg&refer=http%3A%2F%2Fimg1.doubanio.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1631083362&t=f518e0105b6e4d70c8bd1515d98d8802'
+                  uri: 'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg2.zjolcdn.com%2Fpic%2F003%2F000%2F281%2F00300028164_d827bb48.jpg&refer=http%3A%2F%2Fimg2.zjolcdn.com&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1634133490&t=42a0c36f4fd7cae3b553d72215622e77'
                 }}
               >
                 <View
@@ -645,7 +645,7 @@ class Index extends PureComponent {
                         fontSize: pxToDp(16)
                       }}
                     >
-                      跟沈歆雯学越剧
+                      跟胡国美学越剧
                     </Text>
                   </View>
                   <View style={{ flexDirection: 'row', alignItems: 'center' }}>
@@ -656,7 +656,7 @@ class Index extends PureComponent {
                         fontSize: pxToDp(12)
                       }}
                     >
-                      96.7万
+                      2.3万
                     </Text>
                     <View style={{ width: pxToDp(20) }}></View>
                     <Icon name="clock" size={12} color={'#333333'} />
@@ -666,7 +666,7 @@ class Index extends PureComponent {
                         fontSize: pxToDp(12)
                       }}
                     >
-                      02:12
+                      10:00
                     </Text>
                   </View>
                 </View>

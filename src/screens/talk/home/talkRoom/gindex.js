@@ -34,9 +34,9 @@ const requestCameraAndAudioPermission = async () => {
     ]);
     if (
       granted['android.permission.RECORD_AUDIO'] ===
-        PermissionsAndroid.RESULTS.GRANTED &&
+      PermissionsAndroid.RESULTS.GRANTED &&
       granted['android.permission.CAMERA'] ===
-        PermissionsAndroid.RESULTS.GRANTED
+      PermissionsAndroid.RESULTS.GRANTED
     ) {
       console.log('You can use the cameras & mic');
     } else {
@@ -317,64 +317,66 @@ class App extends PureComponent {
           <Text style={{ fontSize: pxToDp(24) }}>匹配中...</Text>
         </AnimatedLoader> */}
         <View style={{ width: '100%' }}>
-          <Image
-            style={{
-              height: pxToDp(115),
-              width: '100%',
-              resizeMode: 'contain',
-              zIndex: 9999
-            }}
-            source={require('../../../../res/tv2.png')}
-          />
-          <Image
-            style={{
-              height: pxToDp(225),
-              width: pxToDp(42),
-              resizeMode: 'contain',
-              zIndex: 9999,
-              marginLeft: pxToDp(1.7),
-              marginTop: pxToDp(-12)
-            }}
-            source={require('../../../../res/tv1.png')}
-          />
-          <Image
-            style={{
-              height: pxToDp(230),
-              width: pxToDp(134),
-              resizeMode: 'contain',
-              zIndex: 9999,
-              marginLeft: pxToDp(264),
-              marginTop: pxToDp(-225)
-            }}
-            source={require('../../../../res/tv3.png')}
-          />
-          <Image
-            style={{
-              height: pxToDp(45),
-              width: '100%',
-              resizeMode: 'contain',
-              zIndex: 9999,
-              marginLeft: pxToDp(-20),
-              marginTop: pxToDp(-40.5)
-            }}
-            source={require('../../../../res/tv4.png')}
-          />
-          <View
-            style={{
-              height: pxToDp(210),
-              width: pxToDp(300),
-              marginLeft: pxToDp(18),
-              marginTop: pxToDp(-250)
-            }}
-          >
-            <VideoPlayScreen videoInfo={{ video: this.state.video }} />
+          <View style={{ marginTop: pxToDp(-24) }}>
+            <Image
+              style={{
+                height: pxToDp(115),
+                width: '100%',
+                resizeMode: 'contain',
+                zIndex: 9999
+              }}
+              source={require('../../../../res/tv2.png')}
+            />
+            <Image
+              style={{
+                height: pxToDp(225),
+                width: pxToDp(42),
+                resizeMode: 'contain',
+                zIndex: 9999,
+                marginLeft: pxToDp(1.7),
+                marginTop: pxToDp(-12)
+              }}
+              source={require('../../../../res/tv1.png')}
+            />
+            <Image
+              style={{
+                height: pxToDp(230),
+                width: pxToDp(134),
+                resizeMode: 'contain',
+                zIndex: 9999,
+                marginLeft: pxToDp(264),
+                marginTop: pxToDp(-225)
+              }}
+              source={require('../../../../res/tv3.png')}
+            />
+            <Image
+              style={{
+                height: pxToDp(45),
+                width: '100%',
+                resizeMode: 'contain',
+                zIndex: 9999,
+                marginLeft: pxToDp(-20),
+                marginTop: pxToDp(-40.5)
+              }}
+              source={require('../../../../res/tv4.png')}
+            />
+            <View
+              style={{
+                height: pxToDp(210),
+                width: pxToDp(300),
+                marginLeft: pxToDp(18),
+                marginTop: pxToDp(-250)
+              }}
+            >
+              <VideoPlayScreen videoInfo={{ video: this.state.video }} />
+            </View>
           </View>
           <View
             style={{
               flexDirection: 'row',
               justifyContent: 'space-around',
               alignItems: 'center',
-              marginTop: pxToDp(50)
+              marginTop: pxToDp(30)
             }}
           >
             <View style={{ justifyContent: 'center', alignItems: 'center' }}>
@@ -404,7 +406,8 @@ class App extends PureComponent {
                     borderRadius: pxToDp(32),
                     backgroundColor: '#62bfad',
                     justifyContent: 'center',
-                    alignItems: 'center'
+                    alignItems: 'center',
+                    marginTop: pxToDp(-10)
                   }}
                   onPress={() => {
                     this.toContr();
@@ -421,7 +424,8 @@ class App extends PureComponent {
                     borderRadius: pxToDp(32),
                     backgroundColor: '#62bfad',
                     justifyContent: 'center',
-                    alignItems: 'center'
+                    alignItems: 'center',
+                    marginTop: pxToDp(-10)
                   }}
                   onPress={() => {
                     this.toContr();
@@ -609,7 +613,7 @@ const styles = StyleSheet.create({
   songbox: {
     height: pxToDp(280),
     padding: pxToDp(16),
-    marginTop: pxToDp(16),
+    marginTop: pxToDp(20),
     backgroundColor: 'white',
     borderBottomLeftRadius: pxToDp(16),
     borderBottomRightRadius: pxToDp(16),

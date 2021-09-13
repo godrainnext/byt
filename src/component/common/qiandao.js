@@ -135,8 +135,8 @@ class Index extends PureComponent {
                   title={this.state.isclick ? '已签到' : '签到'}
                   titleStyle={{ color: '#fff' }}
                   disabled={this.state.isclick}
-                  disabledStyle={{backgroundColor:'gray' ,color:'white',}}
-                  disabledTitleStyle={{color:'white'}}
+                  disabledStyle={{ backgroundColor: 'gray', color: 'white', }}
+                  disabledTitleStyle={{ color: 'white' }}
                   buttonStyle={{
                     width: pxToDp(100),
                     height: pxToDp(100),
@@ -151,7 +151,7 @@ class Index extends PureComponent {
                     flexDirection: 'row',
                     alignItems: 'center',
                     justifyContent: 'space-around',
-                    marginTop: pxToDp(35)
+                    marginTop: pxToDp(-35)
                   }}
                 >
                   <Image

@@ -453,7 +453,7 @@ class Index extends PureComponent {
                   height: pxToDp(128),
                   justifyContent: 'flex-end'
                 }}
-                source={require('../../../res/1.jpg')}
+                source={require('../../../res/sucai/12.jpg')}
                 imageStyle={{ borderRadius: pxToDp(8) }}
               >
                 <View style={{ padding: pxToDp(8) }}>
