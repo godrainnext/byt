@@ -75,8 +75,7 @@ class App extends PureComponent {
       appId: '29792ec3eded410facd609fb7ad76fef',
       // token: '00629792ec3eded410facd609fb7ad76fefIAAbKUcPA8ZKD6c3OvRQ3dLsbHqp9OSHU+zfE7bUrcatNkgDg6MAAAAAEACcjToMxfsZYQEAAQDE+xlh',
       // channelName: 'ABC',
-      video:
-        'https://vd2.bdstatic.com/mda-mhbca33iv088wenq/sc/cae_h264_clips/1628759838989718911/mda-mhbca33iv088wenq.mp4?auth_key=1629005864-0-0-3f7612077d2e27b51901b7db690fd9ce&bcevod_channel=searchbox_feed&pd=1&pt=3&abtest=',
+      video: 'http://120.79.86.32:3000/video/7/file',
 
       channelName: '',
       joinSucceed: false, //默认进入直播

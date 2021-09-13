@@ -25,7 +25,7 @@ import { getUserInfoAction } from './store/actions';
 import RecommendCard from '../../../component/common/recommendcard';
 import Entypo from 'react-native-vector-icons/Entypo';
 import Svg from 'react-native-svg-uri';
-import { star } from '../../../component/common/iconSvg';
+import { star, music } from '../../../component/common/iconSvg';
 import { Carousel } from '../../../component/common/teaset';
 import LottieView from 'lottie-react-native';
 let navHeight = 45;
@@ -404,16 +404,17 @@ class Index extends PureComponent {
             }}
           />
 
-
           {/*热门集锦 */}
-          <View style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            marginLeft: pxToDp(16),
-            marginRight: pxToDp(16),
-            marginTop: pxToDp(16),
-            marginBottom: pxToDp(16)
-          }}>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              marginLeft: pxToDp(16),
+              marginRight: pxToDp(16),
+              marginTop: pxToDp(16),
+              marginBottom: pxToDp(16)
+            }}
+          >
             <View style={styles.left}></View>
             <View>
               <View
@@ -429,7 +430,9 @@ class Index extends PureComponent {
               </View>
             </View>
           </View>
-          <TouchableNativeFeedback onPress={() => this.context.navigate('MusicPlayer', 1)}>
+          <TouchableNativeFeedback
+            onPress={() => this.context.navigate('MusicPlayer', 1)}
+          >
             <View
               style={{
                 backgroundColor: 'white',
@@ -444,22 +447,50 @@ class Index extends PureComponent {
                 shadowRadius: 10 //  圆角
               }}
             >
-              <ImageBackground style={{ width: '100%', height: pxToDp(128), justifyContent: 'flex-end', }} source={require('../../../res/1.jpg')} imageStyle={{ borderRadius: pxToDp(8) }}>
+              <ImageBackground
+                style={{
+                  width: '100%',
+                  height: pxToDp(128),
+                  justifyContent: 'flex-end'
+                }}
+                source={require('../../../res/1.jpg')}
+                imageStyle={{ borderRadius: pxToDp(8) }}
+              >
                 <View style={{ padding: pxToDp(8) }}>
-                  <View style={{ borderRadius: pxToDp(8), width: pxToDp(40), height: pxToDp(20), backgroundColor: '#62bfad', justifyContent: 'center', alignItems: 'center' }}>
+                  <View
+                    style={{
+                      borderRadius: pxToDp(8),
+                      width: pxToDp(50),
+                      height: pxToDp(20),
+                      backgroundColor: '#D5E8E6',
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      flexDirection: 'row'
+                    }}
+                  >
+                    <Svg width="20" height="20" svgXmlData={music} />
                     <Text>听曲</Text>
                   </View>
                   <View>
-                    <Text style={{ fontSize: pxToDp(16), color: 'white', fontWeight: 'bold' }}>热门锦集——祥林嫂(问苍天)</Text>
+                    <Text
+                      style={{
+                        fontSize: pxToDp(16),
+                        color: 'white',
+                        fontWeight: 'bold'
+                      }}
+                    >
+                      热门锦集——祥林嫂(问苍天)
+                    </Text>
                   </View>
                   <View>
-                    <Text style={{ color: 'white', fontSize: pxToDp(14) }}>袁雪芬</Text>
+                    <Text style={{ color: 'white', fontSize: pxToDp(14) }}>
+                      袁雪芬
+                    </Text>
                   </View>
                 </View>
               </ImageBackground>
             </View>
           </TouchableNativeFeedback>
-
 
           {/*梨园子弟 */}
           <View style={{ marginTop: pxToDp(16) }}>

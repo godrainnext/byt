@@ -28,9 +28,13 @@ export class AlwaysOpen extends PureComponent {
         { id: 8, song: '梅花魂-堕岩', singer: '袁雪芬' },
         { id: 9, song: '火椰村-夜渡', singer: '袁雪芬' },
         { id: 10, song: '火椰村-战歌', singer: '袁雪芬' }
-      ]
+      ],
+      isClick: false
     };
   }
+  pause = () => {
+    this.setState({ isClick: !this.state.isClick });
+  };
   static contextType = NavigationContext;
   modalizeRef = createRef(null);
   renderContent = () => (
@@ -58,16 +62,34 @@ export class AlwaysOpen extends PureComponent {
           </View>
           <TouchableOpacity
             onPress={() => {
-              console.log(item.id);
               this.props.changeIndex(item.id);
+              this.pause();
             }}
           >
-            {item.id == 2 ? null : null}
             <Ionicons
-              name="caret-forward-circle-outline"
+              name={
+                item.id === this.props.currentIndex && !this.props.ispaused
+                  ? 'pause-circle-outline'
+                  : 'caret-forward-circle-outline'
+              }
               size={28}
               color="grey"
             />
+            {item.id === this.props.currentIndex ? (
+              <LottieView
+                style={{
+                  width: pxToDp(50),
+                  position: 'absolute',
+                  left: pxToDp(-6.5),
+                  top: pxToDp(-5.5)
+                }}
+                source={require('../../../lottie/音乐播放.json')}
+                autoPlay={true}
+                loop={true}
+              />
+            ) : (
+              <View />
+            )}
           </TouchableOpacity>
         </View>
       ))}
