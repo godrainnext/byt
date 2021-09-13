@@ -116,7 +116,7 @@ export default class MusicPlayer extends PureComponent {
   }
 
   toContr() {
-    if (this.state.autoPlay == true) {
+    if (this.state.autoPlay === true) {
       this.animation.pause();
     } else {
       this.animation.play();
@@ -371,7 +371,11 @@ export default class MusicPlayer extends PureComponent {
           />
         </View>
         <View style={{ width: '100%', flex: 1, zIndex: 9999, elevation: 9999 }}>
-          <AlwaysOpen changeIndex={this.nextSong} />
+          <AlwaysOpen
+            changeIndex={this.nextSong}
+            currentIndex={this.state.currentIndex}
+            ispaused={this.state.paused}
+          />
         </View>
       </View>
     );
