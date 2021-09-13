@@ -128,7 +128,7 @@ class App extends PureComponent {
           img: require('./火箭.png'), name: '火箭'
         },
       ],
-      activeTab: -1,
+      activeTab: 0,
       sendrocket: false
     }
     if (Platform.OS === 'android') {
@@ -546,7 +546,7 @@ class App extends PureComponent {
           ><Image source={require('./爱心zz.png')} style={{ width: 30, height: 30 }} /></TouchableOpacity>
         </View>
         <TouchableOpacity
-          style={{ position: 'absolute', bottom: pxToDp(33), right:pxToDp(80), height:pxToDp(30), width: pxToDp(30) }}
+          style={{ position: 'absolute', bottom: pxToDp(33), right:pxToDp(70), height:pxToDp(30), width: pxToDp(30) }}
           onPress={() => this.Scrollable.open()}>
           <SvgUri
             width='30' height='30'

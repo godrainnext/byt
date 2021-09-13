@@ -160,7 +160,8 @@ class shopdetails extends PureComponent {
     return (
       <View style={{ flex: 1, backgroundColor: '#D5E8E6' }}>
         {/* 顶部导航 */}
-        <Top icon1="arrow-back" />
+        
+        <Top icon1="arrow-back" icon3={require('../../../../res/客服.png')}rightCallback={() => this.context.navigate('GiftedChat')}/>
         <AnimatedLoader
           visible={visible}
           overlayColor="rgba(0,0,0,0.75)"
@@ -269,7 +270,7 @@ class shopdetails extends PureComponent {
           buttonText=""
           renderIcon={() => (
             <Image
-              style={{ width: pxToDp(32), height: pxToDp(32) }}
+              style={{ width: pxToDp(32), height: pxToDp(32)}}
               source={require('../../../../res/客服.png')}
             />
           )}
