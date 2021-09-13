@@ -90,7 +90,7 @@ class Index extends PureComponent {
               <Text style={{ fontSize: pxToDp(16), fontWeight: 'bold' }}>
                 曲子简介
               </Text>
-              <Text style={{ fontSize: pxToDp(14), lineHeight: pxToDp(24) }}>
+              <Text style={{ fontSize: pxToDp(14), lineHeight: pxToDp(30) }}>
                 {detail}
               </Text>
             </View>

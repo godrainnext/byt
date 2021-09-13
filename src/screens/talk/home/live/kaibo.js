@@ -424,17 +424,18 @@ class App extends PureComponent {
                   }
                 />
               </View>
-            </View>
-          </View>
-          {this.state.image?.uri ? (
+            </View> 
+             {this.state.image?.uri ? (
             <Image
               source={{ uri: this.state.image?.uri }}
-              style={{ height: pxToDp(240) }}
+              style={{ height: pxToDp(240),margin:pxToDp(16),borderRadius:pxToDp(16) }}
             />
           ) : (
             <View></View>
           )}
         </View>
+          </View>
+        
         <View style={styles.buttonHolder}>
           <Mybtn
             title="开始直播"

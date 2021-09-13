@@ -171,16 +171,16 @@ class shopdetails extends PureComponent {
         />
         <ScrollView
           showsVerticalScrollIndicator={false}
-          // onMomentumScrollBegin={() => { this.setState({ btnOpcity: true }); console.log(this.state.btnOpcity); }}
-          // onMomentumScrollEnd={() => { this.setState({ btnOpcity: false }); console.log(this.state.btnOpcity); }}
-          onScrollBeginDrag={() => {
-            this.setState({ btnOpcity: true });
-            console.log('good', this.state.btnOpcity);
-          }}
-          onScrollEndDrag={() => {
-            this.setState({ btnOpcity: false });
-            console.log('good', this.state.btnOpcity);
-          }}
+           onMomentumScrollBegin={() => { this.setState({ btnOpcity: true }); console.log(this.state.btnOpcity); }}
+         onMomentumScrollEnd={() => { this.setState({ btnOpcity: false }); console.log(this.state.btnOpcity); }}
+          // onScrollBeginDrag={() => {
+          //   this.setState({ btnOpcity: true });
+          //   console.log('good', this.state.btnOpcity);
+          // }}
+          // onScrollEndDrag={() => {
+          //   this.setState({ btnOpcity: false });
+          //   console.log('good', this.state.btnOpcity);
+          // }}
           style={{
             flex: 1
           }}
@@ -237,7 +237,7 @@ class shopdetails extends PureComponent {
               style={{
                 fontSize: pxToDp(16),
                 color: '#666666',
-                lineHeight: pxToDp(24)
+                lineHeight: pxToDp(30)
               }}
             >
               &emsp;&emsp;{this.state.shop.inner}
@@ -265,7 +265,7 @@ class shopdetails extends PureComponent {
           </View>
         </ScrollView>
         {/* 客服按钮 */}
-        <ActionButton
+        {/* <ActionButton
           buttonColor="#d5e8e6"
           buttonText=""
           renderIcon={() => (
@@ -280,7 +280,7 @@ class shopdetails extends PureComponent {
             position: 'absolute'
           }}
           onPress={() => this.context.navigate('GiftedChat')}
-        />
+        /> */}
         {/* 颜色分类弹窗 */}
         <RBSheet
           ref={(ref) => {

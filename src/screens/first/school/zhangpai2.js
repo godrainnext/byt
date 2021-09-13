@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
   text1: {
     fontSize: pxToDp(16),
     color: '#333333',
-    lineHeight: pxToDp(24),
+    lineHeight: pxToDp(30),
     marginTop: pxToDp(16),
     marginLeft: pxToDp(16),
     marginRight: pxToDp(16)
@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
   text2: {
     fontSize: pxToDp(16),
     color: '#333333',
-    lineHeight: pxToDp(24),
+    lineHeight: pxToDp(30),
     marginLeft: pxToDp(16),
     marginRight: pxToDp(16)
   },

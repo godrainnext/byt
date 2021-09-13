@@ -14,7 +14,7 @@ const RenderInner = (props) => {
   const arr1 = state.content?.split('/img');
   const { images } = state;
   return (
-    <Fragment>
+    <Fragment >
       <View>
         <View
           style={{
@@ -46,6 +46,7 @@ const RenderInner = (props) => {
                   style={{
                     fontSize: pxToDp(16),
                     marginTop: pxToDp(4),
+                    lineHeight:pxToDp(30),
                     color: '#333333'
                   }}
                 >
