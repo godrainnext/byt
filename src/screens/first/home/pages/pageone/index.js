@@ -174,7 +174,7 @@ class Index extends PureComponent {
                       flexWrap: 'wrap',
                       color: '#666666',
                       marginTop: pxToDp(16),
-                      lineHeight: pxToDp(30)
+                      lineHeight: pxToDp(24)
                     }}
                   >
                     {item.text}
