@@ -433,9 +433,9 @@ class Index extends PureComponent {
         <Top icon1="arrow-back" title={title} />
         <ImageBackground
           style={{ flex: 1 }}
-          source={{
-            uri: 'https://img0.baidu.com/it/u=1585654361,1964181034&fm=26&fmt=auto&gp=0.jpg'
-          }}
+          source={
+            require('../../../res/sucai/13.jpg')
+          }
         >
           <ScrollView
             showsVerticalScrollIndicator={false}

@@ -283,7 +283,7 @@ class Index extends PureComponent {
               style={{ flexDirection: 'row', alignItems: 'center', marginLeft: pxToDp(180), marginBottom: pxToDp(10) }}
               onPress={() => this.setState({ showJing: !showJing })}>
               <Text style={{ fontSize: pxToDp(14), color: '#666666', marginRight: pxToDp(4) }}>换一换</Text>
-              <Ionicons name="refresh" size={22} color="#666666" />
+              <Ionicons name="refresh" size={20} color="#666666" />
             </TouchableOpacity>
           </View>
           {showJing ? (<View>
@@ -325,7 +325,7 @@ class Index extends PureComponent {
                   </View>
                 </View>
                 <View style={styles.shopcar}>
-                  <Svg width="30" height="30" svgXmlData={shopCar} />
+                  <Svg width="20" height="20" svgXmlData={shopCar} />
                 </View>
               </View>))
             }
