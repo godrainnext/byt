@@ -208,5 +208,6 @@ export { default as GiftedChat } from './shop/home/giftedChat/index';
 export { default as Map } from '../component/map/map';
 export { default as MapToGo } from '../component/map/mapToGo';
 export { default as TBox } from './shop/tBox/index';
-export { default as YongHu } from './my/Login/yonghu';
-export { default as ZhengCe } from './my/Login/zhengce';
+export { default as YongHu } from './my/Login/yonghu';//用户协议
+export { default as ZhengCe } from './my/Login/zhengce';//隐私政策
+export { default as DuoRen } from './talk/home/talkRoom/duoren'//多人

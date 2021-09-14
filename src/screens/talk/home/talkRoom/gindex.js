@@ -9,7 +9,8 @@ import {
   PermissionsAndroid,
   Image,
   Dimensions,
-  StyleSheet
+  StyleSheet,
+  Modal
 } from 'react-native';
 import RtcEngine, { ChannelProfile, ClientRole } from 'react-native-agora';
 import { pxToDp } from '@utils/styleKits';
@@ -21,6 +22,9 @@ import SvgUri from 'react-native-svg-uri';
 import LottieView from 'lottie-react-native';
 import VideoPlayScreen from '../../../../component/videoplayer/VideoPlayScreen';
 import AnimatedLoader from 'react-native-animated-loader';
+import AntDesign from 'react-native-vector-icons/AntDesign';
+import RBSheet from 'react-native-raw-bottom-sheet';
+import Mybtn from '../../../../component/common/mybtn';
 import { connect } from 'react-redux';
 const dimensions = {
   width: Dimensions.get('window').width,
@@ -34,9 +38,9 @@ const requestCameraAndAudioPermission = async () => {
     ]);
     if (
       granted['android.permission.RECORD_AUDIO'] ===
-      PermissionsAndroid.RESULTS.GRANTED &&
+        PermissionsAndroid.RESULTS.GRANTED &&
       granted['android.permission.CAMERA'] ===
-      PermissionsAndroid.RESULTS.GRANTED
+        PermissionsAndroid.RESULTS.GRANTED
     ) {
       console.log('You can use the cameras & mic');
     } else {
@@ -84,7 +88,9 @@ class App extends PureComponent {
       roomImg: '',
       arr: [],
       showSong: true,
+      activeTab: -1,
       visible: true,
+      way: '',
       data1: [
         { id: '1', title: '梁祝 十八相送', autor: '吴凤花 单仰萍' },
         { id: '2', title: '何文秀 哭牌算命', autor: '王君安 李敏' },
@@ -121,6 +127,23 @@ class App extends PureComponent {
         { id: '9', title: '家 幻觉', autor: '赵志刚 孙智君' },
         { id: '10', title: '春香传 心歌', autor: '王文娟' }
       ],
+      mode: [
+        {
+          id: 1,
+          img: require('../../../../res/sucai/2.jpg'),
+          btn: '已选择'
+        },
+        {
+          id: 2,
+          img: require('../../../../res/sucai/3.jpg'),
+          btn: '未开放'
+        },
+        {
+          id: 3,
+          img: require('../../../../res/sucai/4.jpg'),
+          btn: '未开放'
+        }
+      ],
       autoPlay: false
     };
     if (Platform.OS === 'android') {
@@ -130,6 +153,17 @@ class App extends PureComponent {
       });
     }
   }
+  changeTab = (index) => {
+    this.setState({ activeTab: index });
+    if (index == 0) {
+      this.setState({ way: '对唱模式' });
+    } else if (index == 1) {
+      this.setState({ way: '音乐播放' });
+    } else if (index === 2) {
+      this.setState({ way: '聊天室' });
+    }
+    this.Scrollable.close();
+  };
   tianjia() {
     if (this.state.arr != null && this.state.arr.length >= 1) {
       //这里的判断根据所传图片张数定
@@ -303,7 +337,12 @@ class App extends PureComponent {
     console.log(autoPlay);
     return (
       <View style={styles.remoteContainer}>
-        <Top title="小剧场" icon1="arrow-back" />
+        <Top
+          title="小剧场"
+          icon1="arrow-back"
+          rightTitle="切换模式"
+          rightCallback={() => this.Scrollable.open()}
+        />
         {/* <AnimatedLoader
           visible={visible}
           overlayColor="rgba(255,255,255,1)"
@@ -317,6 +356,81 @@ class App extends PureComponent {
           <Text style={{ fontSize: pxToDp(24) }}>匹配中...</Text>
         </AnimatedLoader> */}
         <View style={{ width: '100%' }}>
+          <RBSheet
+            ref={(ref) => {
+              this.Scrollable = ref;
+            }}
+            height={400}
+            closeOnDragDowncustomStyles={{
+              container: { borderTopLeftRadius: 10, borderTopRightRadius: 10 }
+            }}
+          >
+            <View>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-between'
+                }}
+              >
+                <Text
+                  style={{
+                    marginLeft: pxToDp(25),
+                    fontSize: pxToDp(16),
+                    marginTop: pxToDp(10)
+                  }}
+                >
+                  切换模式
+                </Text>
+                <TouchableOpacity onPress={() => this.Scrollable.close()}>
+                  <View
+                    style={{
+                      marginTop: pxToDp(10),
+                      marginRight: pxToDp(20)
+                    }}
+                  >
+                    <AntDesign
+                      name="closecircleo"
+                      size={pxToDp(18)}
+                      color="#666"
+                    />
+                  </View>
+                </TouchableOpacity>
+              </View>
+              <View>
+                {this.state.mode.map((item, index) => (
+                  <ImageBackground
+                    key={item.id}
+                    style={{
+                      flexDirection: 'row',
+                      justifyContent: 'flex-end',
+                      marginTop: pxToDp(16),
+                      height: pxToDp(80),
+                      margin: pxToDp(16),
+                      alignItems: 'center'
+                    }}
+                    imageStyle={{ borderRadius: pxToDp(8) }}
+                    source={item.img}
+                  >
+                    <Mybtn
+                      title={item.btn}
+                      onPress={() => this.changeTab(index)}
+                      buttonStyle={{
+                        width: pxToDp(70),
+                        height: pxToDp(35),
+                        borderRadius: pxToDp(18),
+                        marginRight: pxToDp(8)
+                      }}
+                      titleStyle={{
+                        color: '#fcfcfc',
+                        fontWeight: 'bold',
+                        fontSize: pxToDp(14)
+                      }}
+                    />
+                  </ImageBackground>
+                ))}
+              </View>
+            </View>
+          </RBSheet>
           <View style={{ marginTop: pxToDp(-24) }}>
             <Image
               style={{
