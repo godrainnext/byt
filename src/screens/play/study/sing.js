@@ -10,6 +10,7 @@ import {
   Alert,
   Modal
 } from 'react-native';
+import RBSheet from 'react-native-raw-bottom-sheet';
 import Top from '@components/common/top';
 import SvgUri from 'react-native-svg-uri';
 import { pxToDp } from '@utils/styleKits';
@@ -40,7 +41,8 @@ class Index extends PureComponent {
     isClick: false,
     data1: this.props.route.params,
     modalVisible: false,
-    modalVisible1: false
+    modalVisible1: false,
+
   };
   // SingOver = () => {
   //   const { detail, title, mp3 } = this.props.route.params;
@@ -212,6 +214,65 @@ class Index extends PureComponent {
     };
     return (
       <View>
+        <RBSheet
+       customStyles={{  
+         container: {
+            backgroundColor: "#D5E8E6"
+          },}}
+          ref={(ref) => {
+            this.Scrollable1 = ref;
+          }}
+          height={250}
+          closeOnDragDown
+          openDuration={600}
+          animationType="fade"
+        >
+          <Text style={{marginLeft:pxToDp(16),fontSize:16,fontWeight:'bold'}}>调节音量</Text>
+          <Text style={{marginLeft:pxToDp(16),fontSize:12,color:'#999999'}}>根据自身调节音量</Text>
+          <View
+            style={{
+              flexDirection: 'row',
+              marginTop: pxToDp(40),
+              marginLeft: pxToDp(16),
+              alignItems: 'center'
+            }}
+          >
+            {/* <Text>音乐音量</Text> */}
+            <Text>人声音量</Text>
+            <Slider
+              style={{ width:pxToDp(264), height: 10, marginLeft: pxToDp(20) }}
+              maximumTrackTintColor="#ddd"
+              minimumTrackTintColor="#fa9222"
+              value={0.4}
+              buttonStyle={{width:10}}
+              thumbStyle={{width:10,height:10}}
+              thumbTintColor='#62bfad'
+              onValueChange={(value2) => this.setState({ value2 })}
+            />
+          </View>
+          
+          <View
+            style={{
+              flexDirection: 'row',
+              marginTop: pxToDp(50),
+              marginLeft: pxToDp(16),
+              alignItems: 'center'
+            }}
+          >
+            {/* <Text>音乐音量</Text> */}
+            <Text>伴奏音量</Text>
+            <Slider
+              style={{ width: pxToDp(264), height: 10, marginLeft: pxToDp(20) }}
+              maximumTrackTintColor="#ddd"
+              minimumTrackTintColor="#fa9222"
+              value={0.6}
+              buttonStyle={{width:10}}
+              thumbStyle={{width:10,height:10}}
+              thumbTintColor='#62bfad'
+              onValueChange={(value2) => this.setState({ value2 })}
+            />
+          </View>
+        </RBSheet>
         <View style={styles.bottom}>
           {/* 开始 */}
           <TouchableOpacity
@@ -230,7 +291,7 @@ class Index extends PureComponent {
           {/* 音量 */}
           <TouchableOpacity
             style={{ flex: 1, alignItems: 'center' }}
-            onPress={this.clickVoice}
+            onPress={() => this.Scrollable1.open()}
           >
             <SvgUri svgXmlData={voice} width="30" height="30" />
             <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>音量</Text>
