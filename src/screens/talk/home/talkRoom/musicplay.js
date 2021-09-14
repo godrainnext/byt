@@ -237,213 +237,175 @@ export default class MusicPlayer extends PureComponent {
 
     return (
       <View style={{ width: '100%', height: '100%' }}>
-        <View style={styles.bgContainer}>
-          <Animated.Image
-            style={{
-              width: pxToDp(200),
-              height: pxToDp(200),
-              borderRadius: pxToDp(100),
-              position: 'absolute',
-              top: pxToDp(40),
-              left: pxToDp(50),
-              transform: [
-                {
-                  rotate: this.state.spinValue.interpolate({
-                    inputRange: [0, 1],
-                    outputRange: ['0deg', '360deg']
-                  })
-                }
-              ]
-            }}
-            source={require('../../../first/musicplayer/CD2.png')}
-          />
-          <LottieView
-            style={{ marginLeft: pxToDp(-16), marginTop: pxToDp(-50) }}
-            source={require('../../../../../lottie/波纹效果.json')}
-            ref={(animation) => {
-              this.animation = animation;
-            }}
-            loop
-          />
-          <Image style={styles.image} source={{ uri: musicInfo.cover }} />
-          <View style={{ flex: 1 }}>
-            <View
+        <View style={{ height: pxToDp(480), backgroundColor: 'white', marginLeft: pxToDp(16), marginRight: pxToDp(16), borderRadius: pxToDp(8), marginTop: pxToDp(16) }}>
+          <View style={styles.bgContainer}>
+            <Animated.Image
               style={{
-                justifyContent: 'space-between',
-                height: pxToDp(230),
-                marginTop: pxToDp(50),
-                marginLeft: pxToDp(220),
-                alignItems: 'center'
+                width: pxToDp(200),
+                height: pxToDp(200),
+                borderRadius: pxToDp(100),
+                position: 'absolute',
+                top: pxToDp(40),
+                left: pxToDp(50),
+                transform: [
+                  {
+                    rotate: this.state.spinValue.interpolate({
+                      inputRange: [0, 1],
+                      outputRange: ['0deg', '360deg']
+                    })
+                  }
+                ]
               }}
-            >
-              {/* 喜欢 */}
-              <Icon name={'heart'} size={pxToDp(20)} color="grey" />
-              {/* 下载 */}
-              <Icon1 name={'file-download'} size={pxToDp(20)} color="grey" />
-              {/* 上一首 */}
-              <TouchableOpacity
-                onPress={() => this.preSong(this.state.currentIndex - 1)}
-              >
-                <Icon1 name={'skip-previous'} size={pxToDp(25)} color="grey" />
-              </TouchableOpacity>
-              {/* 下一首 */}
-              <TouchableOpacity
-                onPress={() => this.nextSong(this.state.currentIndex + 1)}
-              >
-                <Icon1 name={'skip-next'} size={pxToDp(25)} color="grey" />
-              </TouchableOpacity>
-              {/**播放暂停 */}
-              <TouchableOpacity
-                style={{
-                  width: pxToDp(46),
-                  height: pxToDp(46),
-                  borderRadius: pxToDp(24),
-                  borderWidth: pxToDp(0.5),
-                  borderColor: 'grey',
-                  justifyContent: 'center',
-                  alignItems: 'center'
-                }}
-                onPress={() => {
-                  this.play();
-                  this.toContr();
-                  this.setState({ autoPlay: !autoPlay });
-                }}
-              >
-                <Icon1
-                  name={this.state.playIcon}
-                  size={pxToDp(20)}
-                  color="grey"
-                />
-              </TouchableOpacity>
-            </View>
-            <View style={{ marginLeft: pxToDp(40), marginTop: pxToDp(-20) }}>
-              <Text style={styles.title}>{musicInfo.page}</Text>
-              <Text style={styles.subTitle}>{musicInfo.title}</Text>
-            </View>
-            <View style={styles.progressStyle}>
-              <Text
-                style={{
-                  width: pxToDp(35),
-                  fontSize: pxToDp(12),
-                  color: '#999999',
-                  marginLeft: pxToDp(5)
-                }}
-              >
-                {this.formatMediaTime(Math.floor(this.state.currentTime))}
-              </Text>
-              <Slider
-                style={styles.slider}
-                value={this.state.slideValue}
-                maximumValue={this.state.duration}
-                minimumTrackTintColor={commonStyle.themeColor}
-                maximumTrackTintColor={commonStyle.iconGray}
-                step={1}
-                onValueChange={(value) => this.setState({ currentTime: value })}
-                onSlidingComplete={(value) => this.player.seek(value)}
-              />
-              <View
-                style={{
-                  width: pxToDp(35),
-                  alignItems: 'flex-end',
-                  marginRight: pxToDp(5)
-                }}
-              >
-                <Text style={{ fontSize: pxToDp(12), color: '#999999' }}>
-                  {this.formatMediaTime(Math.floor(this.state.duration))}
-                </Text>
-              </View>
-            </View>
-          </View>
-          <Video
-            ref={(video) => (this.player = video)}
-            source={{ uri: musicInfo.url }}
-            volume={1.0}
-            paused={this.state.paused}
-            playInBackground={true}
-            onLoad={(data) => this.setDuration(data)}
-            onProgress={(data) => this.setTime(data)}
-            onEnd={(data) => this.onEnd(data)}
-            onError={(data) => this.videoError(data)}
-          />
-        </View>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-around',
-            alignItems: 'center',
-            marginTop: pxToDp(30)
-          }}
-        >
-          <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-            <Image
-              style={{
-                width: pxToDp(65),
-                height: pxToDp(65),
-                borderRadius: pxToDp(35)
-              }}
-              source={{ uri: 'http://120.79.86.32:3000/user/39/avatar' }}
-            ></Image>
-            <Text style={{ fontSize: pxToDp(16) }}>夜阑听曲</Text>
-          </View>
-          <View style={{ alignItems: 'center' }}>
+              source={require('../../../first/musicplayer/CD2.png')}
+            />
             <LottieView
-              style={{ width: pxToDp(100), alignSelf: 'center' }}
-              source={require('../../../../../lottie/pk.json')}
+              style={{ marginLeft: pxToDp(-16), marginTop: pxToDp(-50) }}
+              source={require('../../../../../lottie/波纹效果.json')}
               ref={(animation) => {
                 this.animation = animation;
               }}
+              loop
             />
-            {/* {autoPlay ? (
-              <TouchableOpacity
+            <Image style={styles.image} source={{ uri: musicInfo.cover }} />
+            <View style={{ flex: 1 }}>
+              <View
                 style={{
-                  width: pxToDp(90),
-                  height: pxToDp(30),
-                  borderRadius: pxToDp(32),
-                  backgroundColor: '#62bfad',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  marginTop: pxToDp(-10)
-                }}
-                onPress={() => {
-                  this.toContr();
-                  this.setState({ autoPlay: !autoPlay });
+                  justifyContent: 'space-between',
+                  height: pxToDp(230),
+                  marginTop: pxToDp(50),
+                  marginLeft: pxToDp(220),
+                  alignItems: 'center'
                 }}
               >
-                <Text style={{ fontSize: pxToDp(14) }}>暂停演唱</Text>
-              </TouchableOpacity>
-            ) : (
-              <TouchableOpacity
-                style={{
-                  width: pxToDp(90),
-                  height: pxToDp(30),
-                  borderRadius: pxToDp(32),
-                  backgroundColor: '#62bfad',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  marginTop: pxToDp(-10)
-                }}
-                onPress={() => {
-                  this.toContr();
-                  this.setState({ autoPlay: !autoPlay });
-                }}
-              >
-                <Text style={{ fontSize: pxToDp(14) }}>开始演唱</Text>
-              </TouchableOpacity>
-            )} */}
+                {/* 上一首 */}
+                <TouchableOpacity
+                  onPress={() => this.preSong(this.state.currentIndex - 1)}
+                >
+                  <Icon1 name={'skip-previous'} size={pxToDp(25)} color="grey" />
+                </TouchableOpacity>
+                {/* 下一首 */}
+                <TouchableOpacity
+                  onPress={() => this.nextSong(this.state.currentIndex + 1)}
+                >
+                  <Icon1 name={'skip-next'} size={pxToDp(25)} color="grey" />
+                </TouchableOpacity>
+                {/**播放暂停 */}
+                <TouchableOpacity
+                  style={{
+                    width: pxToDp(46),
+                    height: pxToDp(46),
+                    borderRadius: pxToDp(24),
+                    borderWidth: pxToDp(0.5),
+                    borderColor: 'grey',
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                  }}
+                  onPress={() => {
+                    this.play();
+                    this.toContr();
+                    this.setState({ autoPlay: !autoPlay });
+                  }}
+                >
+                  <Icon1
+                    name={this.state.playIcon}
+                    size={pxToDp(20)}
+                    color="grey"
+                  />
+                </TouchableOpacity>
+              </View>
+              <View style={{ marginLeft: pxToDp(40), marginTop: pxToDp(-20) }}>
+                <Text style={styles.title}>{musicInfo.page}</Text>
+                <Text style={styles.subTitle}>{musicInfo.title}</Text>
+              </View>
+              <View style={styles.progressStyle}>
+                <Text
+                  style={{
+                    width: pxToDp(35),
+                    fontSize: pxToDp(12),
+                    color: '#999999',
+                    marginLeft: pxToDp(5)
+                  }}
+                >
+                  {this.formatMediaTime(Math.floor(this.state.currentTime))}
+                </Text>
+                <Slider
+                  style={styles.slider}
+                  value={this.state.slideValue}
+                  maximumValue={this.state.duration}
+                  minimumTrackTintColor={commonStyle.themeColor}
+                  maximumTrackTintColor={commonStyle.iconGray}
+                  step={1}
+                  onValueChange={(value) => this.setState({ currentTime: value })}
+                  onSlidingComplete={(value) => this.player.seek(value)}
+                />
+                <View
+                  style={{
+                    width: pxToDp(35),
+                    alignItems: 'flex-end',
+                    marginRight: pxToDp(5)
+                  }}
+                >
+                  <Text style={{ fontSize: pxToDp(12), color: '#999999' }}>
+                    {this.formatMediaTime(Math.floor(this.state.duration))}
+                  </Text>
+                </View>
+              </View>
+            </View>
+            <Video
+              ref={(video) => (this.player = video)}
+              source={{ uri: musicInfo.url }}
+              volume={1.0}
+              paused={this.state.paused}
+              playInBackground={true}
+              onLoad={(data) => this.setDuration(data)}
+              onProgress={(data) => this.setTime(data)}
+              onEnd={(data) => this.onEnd(data)}
+              onError={(data) => this.videoError(data)}
+            />
           </View>
-          <View style={{ justifyContent: 'center', alignItems: 'center' }}>
-            <Image
-              style={{
-                width: pxToDp(65),
-                height: pxToDp(65),
-                borderRadius: pxToDp(35)
-              }}
-              source={{ uri: 'http://120.79.86.32:3000/user/39/avatar' }}
-            ></Image>
-            <Text style={{ fontSize: pxToDp(16) }}>夜阑听曲</Text>
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-around',
+              alignItems: 'center',
+              marginTop: pxToDp(10)
+            }}
+          >
+            <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+              <Image
+                style={{
+                  width: pxToDp(65),
+                  height: pxToDp(65),
+                  borderRadius: pxToDp(35)
+                }}
+                source={{ uri: 'http://120.79.86.32:3000/user/39/avatar' }}
+              ></Image>
+              <Text style={{ fontSize: pxToDp(16) }}>夜阑听曲</Text>
+            </View>
+            <View style={{ alignItems: 'center' }}>
+              <LottieView
+                style={{ width: pxToDp(100), alignSelf: 'center' }}
+                source={require('../../../../../lottie/pk.json')}
+                ref={(animation) => {
+                  this.animation = animation;
+                }}
+                speed={0.4}
+              />
+            </View>
+            <View style={{ justifyContent: 'center', alignItems: 'center' }}>
+              <Image
+                style={{
+                  width: pxToDp(65),
+                  height: pxToDp(65),
+                  borderRadius: pxToDp(35)
+                }}
+                source={{ uri: 'http://120.79.86.32:3000/user/39/avatar' }}
+              ></Image>
+              <Text style={{ fontSize: pxToDp(16) }}>夜阑听曲</Text>
+            </View>
           </View>
         </View>
-        <View style={{ width: '100%', flex: 1, zIndex: 9999, elevation: 9999 }}>
+        <View style={{ marginTop: pxToDp(10), width: '100%', flex: 1, zIndex: 9999, elevation: 9999 }}>
           <AlwaysOpen
             changeIndex={this.nextSong}
             currentIndex={this.state.currentIndex}
@@ -479,13 +441,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#D5E8E6'
   },
   bgContainer: {
-    height: '50%',
+    height: pxToDp(350),
     marginLeft: pxToDp(32),
     marginTop: pxToDp(16),
     marginRight: pxToDp(16),
     backgroundColor: 'white',
     borderRadius: pxToDp(8),
-    elevation: 4, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
+    elevation: 2, //  设置阴影角度，通过这个设置有无阴影（这个是最重要的，决定有没有阴影）
     shadowColor: 'black', //  阴影颜色
     shadowRadius: pxToDp(8) //  圆
   },
