@@ -51,6 +51,7 @@ function Nav() {
         <Stack.Screen name="Tuisong" component={Screens.Tuisong} />
         <Stack.Screen name="Yijian" component={Screens.Yijian} />
         <Stack.Screen name="Yinsi" component={Screens.Yinsi} />
+        <Stack.Screen name="musicplay" component={Screens.musicplay} />
         <Stack.Screen name="saveMusic" component={Screens.SaveMusic} />
         {/**SaveMusic 历史浏览*/}
         <Stack.Screen name="History" component={Screens.History} />

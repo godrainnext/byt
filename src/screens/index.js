@@ -33,6 +33,7 @@ export { default as Yuanxuefen } from './first/actress/yuanxuefen'; //名角个�
 export { default as Zhangyunxia } from './first/actress/zhangyunxia'; //名角个人页 张云霞
 export { default as Album } from './first/album'; //专辑页面
 export { default as MusicPlayer } from './first/musicplayer/musicPlayer'; //歌曲播放页面
+export { default as musicplay } from './talk/home/talkRoom/musicplay'; 
 export { default as Card } from './first/card/index'; //俯瞰百年卡片
 // export { default as Card } from ''; //个人中心地址管理
 
