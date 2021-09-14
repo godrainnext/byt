@@ -426,7 +426,7 @@ class App extends PureComponent {
             <TouchableOpacity
               style={{
                 borderRadius: pxToDp(32),
-                backgroundColor: 'orange',
+                backgroundColor: '#62bfad',
                 marginLeft: pxToDp(8),
                 justifyContent: 'center',
                 alignItems: 'center',
@@ -564,7 +564,7 @@ class App extends PureComponent {
             container: { borderTopLeftRadius: 10, borderTopRightRadius: 10 }
           }}
         >
-          <View style={{backgroundColor:'#D5E8E6'}}>
+          <View style={{ backgroundColor: '#D5E8E6' }}>
             <View style={{ flexDirection: 'row', flexWrap: 'wrap', width: '92%', margin: 16 }}>
               {
                 this.state.gift.map((item, index) => (
