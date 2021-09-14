@@ -137,7 +137,7 @@ class Index extends PureComponent {
 const styles = StyleSheet.create({
     title: {
         fontSize: pxToDp(16),
-        lineHeight: pxToDp(24),
+        lineHeight: pxToDp(30),
         color: '#333333',
         marginTop: pxToDp(16),
         marginLeft: pxToDp(16),

@@ -28,7 +28,7 @@ export default class xieyi extends PureComponent {
                                 fontSize: pxToDp(16),
                                 color: '#333333',
                                 fontWeight: 'bold',
-                                lineHeight: pxToDp(24)
+                                lineHeight: pxToDp(30)
                             }}
                         >
                             更新日期:2021年8月30日
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
     text1: {
         fontSize: pxToDp(16),
         color: '#333333',
-        lineHeight: pxToDp(24),
+        lineHeight: pxToDp(30),
         marginTop: pxToDp(16),
         marginLeft: pxToDp(16),
         marginRight: pxToDp(16)

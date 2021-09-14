@@ -310,6 +310,7 @@ function Nav() {
         {/**定制 */}
         <Stack.Screen name="Search" component={Screens.Search} />
         <Stack.Screen name="TBox" component={Screens.TBox} />
+        <Stack.Screen name="DuoRen" component={Screens.DuoRen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

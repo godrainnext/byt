@@ -458,7 +458,7 @@ class App extends PureComponent {
             {this.state.image?.uri ? (
               <Image
                 source={{ uri: this.state.image?.uri }}
-                style={{ height: pxToDp(240) }}
+                style={{ height: pxToDp(240),margin:pxToDp(16),borderRadius:pxToDp(16)}}
               />
             ) : (
               <View></View>

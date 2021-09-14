@@ -27,7 +27,7 @@ export default class Legend extends PureComponent {
               <Text style={{ fontSize: pxToDp(16), fontWeight: 'bold', color: '#333333' }}>
                 袁派
               </Text>
-              <Text style={{ fontSize: pxToDp(14), flexWrap: 'wrap', color: '#666666', marginTop: pxToDp(5), lineHeight: pxToDp(24) }}>
+              <Text style={{ fontSize: pxToDp(14), flexWrap: 'wrap', color: '#666666', marginTop: pxToDp(5), lineHeight: pxToDp(30) }}>
                 袁雪芬唱腔的特点是质朴平易，委婉细腻，深沉含蓄，韵味醇厚。
               </Text>
             </View>
@@ -54,7 +54,7 @@ export default class Legend extends PureComponent {
               <Text style={{ fontSize: pxToDp(16), fontWeight: 'bold', color: '#333333' }}>
                 范派
               </Text>
-              <Text style={{ fontSize: pxToDp(14), flexWrap: 'wrap', color: '#666666', marginTop: pxToDp(5), lineHeight: pxToDp(24) }}>
+              <Text style={{ fontSize: pxToDp(14), flexWrap: 'wrap', color: '#666666', marginTop: pxToDp(5), lineHeight: pxToDp(30) }}>
                 范瑞娟中低音厚实，高音响亮有力，唱腔凝重大方，富有阳刚之美。
               </Text>
             </View>

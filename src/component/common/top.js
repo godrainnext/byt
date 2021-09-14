@@ -4,7 +4,8 @@ import {
   View,
   StyleSheet,
   TouchableOpacity,
-  BVLinearGradient
+  BVLinearGradient,
+  Image
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { NavigationContext } from '@react-navigation/native';
@@ -57,6 +58,7 @@ export default class HeaderHaveBack extends PureComponent {
               <TouchableOpacity onPress={this.props.rightCallback}>
                 {/* <IconFont style={{ color: "#fff" }} name="iconfanhui" /> */}
                 <Ionicons name={this.props.icon2} size={25} color="#468CD3" />
+                <Image source={this.props.icon3} style={{marginBottom:pxToDp(30),marginLeft:pxToDp(6)}}/>
               </TouchableOpacity>
             </View>
           )}

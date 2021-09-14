@@ -128,7 +128,7 @@ class App extends PureComponent {
           img: require('./火箭.png'), name: '火箭'
         },
       ],
-      activeTab: -1,
+      activeTab: 0,
       sendrocket: false
     }
     if (Platform.OS === 'android') {
@@ -162,7 +162,7 @@ class App extends PureComponent {
     this.setState({ sendrocket: true })
     setTimeout(() => {
       this.setState({ sendrocket: false })
-    }, 2200);
+    }, 1900);
     console.log(this.state.sendrocket);
   };
   _openPicker() {
@@ -426,7 +426,7 @@ class App extends PureComponent {
             <TouchableOpacity
               style={{
                 borderRadius: pxToDp(32),
-                backgroundColor: 'orange',
+                backgroundColor: '#62bfad',
                 marginLeft: pxToDp(8),
                 justifyContent: 'center',
                 alignItems: 'center',
@@ -487,7 +487,7 @@ class App extends PureComponent {
             </TouchableOpacity>
           </View>
         </View>
-              <Danmu/>
+        <Danmu />
         <WebView
           style={{
             width: pxToDp(300),
@@ -509,7 +509,7 @@ class App extends PureComponent {
             '接收h5页面传过来的消息';
           }}
         />
-        <View style={{ position: 'absolute', bottom: 320, right: 20, height: 30, width: 30 }}>
+        <View style={{ position: 'absolute', bottom: pxToDp(283), right: pxToDp(20), height: pxToDp(30), width: pxToDp(30) }}>
           <View style={{}} >
             {
               Array(10).fill().map((_, index) => {
@@ -546,11 +546,12 @@ class App extends PureComponent {
           ><Image source={require('./爱心zz.png')} style={{ width: 30, height: 30 }} /></TouchableOpacity>
         </View>
         <TouchableOpacity
-          style={{ position: 'absolute', bottom: 20, right:80, height: 30, width: 30 }}
+          style={{ position: 'absolute', bottom: pxToDp(33), right: pxToDp(70), height: pxToDp(30), width: pxToDp(30) }}
           onPress={() => this.Scrollable.open()}>
           <SvgUri
+            style={{ marginTop: pxToDp(10) }}
             width='30' height='30'
-            svgXmlData='<svg t="1629613855898" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2155" width="200" height="200"><path d="M921 266.4H781.3l26.6-26.5c39.6-39.4 39.8-103.4 0.4-143l-0.4-0.4c-38.5-38.3-100.8-38.3-139.3 0L542.3 222.2c-12.7 12.6-20.8 28-25.1 44.2h-0.9c-3.5-18.9-12.2-37-26.8-51.5L363.9 89.4c-38.3-38.2-100.3-38.2-138.6 0l-0.2 0.2c-39.4 39.5-39.3 103.5 0.2 142.9l34 33.9H103c-21.7 0-39.3 17.6-39.3 39.3v120.4c0 21.7 17.6 39.3 39.3 39.3h35v438.8c0 32.6 26.4 59 59 59h629.9c32.6 0 59-26.4 59-59V465.5h35c21.7 0 39.3-17.6 39.3-39.3V305.7c0.1-21.7-17.5-39.3-39.2-39.3zM578.7 861.2c0 21.7-17.6 39.3-39.3 39.3H500c-21.7 0-39.3-17.6-39.3-39.3V550.6c0-21.7 17.6-39.3 39.3-39.3h39.3c21.7 0 39.3 17.6 39.3 39.3v310.6z m0-475.6c0 21.7-17.6 39.3-39.3 39.3H500c-21.7 0-39.3-17.6-39.3-39.3v-19.7c0-21.7 17.6-39.3 39.3-39.3h39.3c21.7 0 39.3 17.6 39.3 39.3v19.7z" fill="#FF5D66" p-id="2156"></path></svg>'
+            svgXmlData='<svg t="1631534600864" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2543" width="200" height="200"><path d="M925.392593 227.555556H731.97037c15.17037-17.066667 24.651852-39.822222 28.444445-62.577778 3.792593-32.237037-5.688889-62.577778-24.651852-89.125926-39.822222-53.096296-117.57037-62.577778-170.666667-22.755556-28.444444 20.859259-47.407407 72.059259-60.681481 115.674074-13.274074-43.614815-32.237037-94.814815-60.681482-115.674074-53.096296-39.822222-128.948148-30.340741-170.666666 22.755556-18.962963 26.548148-28.444444 56.888889-24.651852 89.125926 3.792593 22.755556 13.274074 45.511111 28.444444 62.577778H109.985185c-26.548148 0-47.407407 20.859259-47.407407 47.407407v227.555556c0 26.548148 20.859259 47.407407 47.407407 47.407407h18.962963v369.777778c0 26.548148 20.859259 47.407407 47.407408 47.407407h680.77037c26.548148 0 47.407407-20.859259 47.407407-47.407407V549.925926h18.962963c26.548148 0 47.407407-20.859259 47.407408-47.407407v-227.555556c0-26.548148-20.859259-47.407407-45.511111-47.407407zM599.22963 98.607407c28.444444-20.859259 68.266667-15.17037 91.022222 11.377778 9.481481 13.274074 15.17037 30.340741 13.274074 47.407408-1.896296 17.066667-11.377778 32.237037-24.651852 41.718518-17.066667 13.274074-73.955556 17.066667-127.051852 15.17037 11.377778-51.2 32.237037-102.4 47.407408-115.674074z m-280.651852 11.377778c13.274074-17.066667 32.237037-24.651852 51.2-24.651852 13.274074 0 26.548148 3.792593 39.822222 13.274074 17.066667 13.274074 36.02963 66.37037 49.303704 117.570371-49.303704 1.896296-109.985185-1.896296-127.051852-15.170371-13.274074-9.481481-22.755556-24.651852-24.651852-41.718518-3.792593-18.962963 1.896296-36.02963 11.377778-49.303704zM117.57037 493.037037V284.444444H398.222222v208.592593H117.57037z m68.266667 417.185185V549.925926H398.222222v360.296296H185.837037zM455.111111 910.222222V284.444444h113.777778v625.777778h-113.777778z m394.42963 0H625.777778V549.925926h223.762963v360.296296z m64.474074-417.185185H625.777778V284.444444h288.237037v208.592593z" p-id="2544" fill="#515151"></path></svg>'
           />
         </TouchableOpacity>
 
@@ -564,55 +565,55 @@ class App extends PureComponent {
             container: { borderTopLeftRadius: 10, borderTopRightRadius: 10 }
           }}
         >
-          <View style={{ flexDirection: 'row', flexWrap: 'wrap', width: '100%', backgroundColor: '#D5E8E6' }}>
-            {
-              this.state.gift.map((item, index) => (
-                <View style={{
-                  width: '25%', height: pxToDp(90), marginTop: pxToDp(20),
-                  borderColor:
-                    index === this.state.activeTab ? '#62bfad' : 'white',
+          <View style={{ backgroundColor: '#D5E8E6' }}>
+            <View style={{ flexDirection: 'row', flexWrap: 'wrap', width: '92%', margin: 16 }}>
+              {
+                this.state.gift.map((item, index) => (
+                  <View style={{
+                    width: '25%', height: pxToDp(90), marginTop: pxToDp(20),
+                    borderColor:
+                      index === this.state.activeTab ? '#62bfad' : 'white',
+                    borderWidth:
+                      index === this.state.activeTab ? pxToDp(1) : pxToDp(0),
+                  }}>
+                    <TouchableOpacity
+                      onPress={() => this.changeTab(index)}
+                      style={{
+                        justifyContent: 'center', alignItems: 'center',
+                      }}>
+                      <Image source={item.img} style={{ width: pxToDp(50), height: pxToDp(50), }} />
+                      <Text>{item.name}</Text>
+                    </TouchableOpacity>
 
-                  borderWidth:
-                    index === this.state.activeTab ? pxToDp(1) : pxToDp(0),
-                }}>
-                  <TouchableOpacity
-                    onPress={() => this.changeTab(index)}
-                    style={{
+                  </View>
+                ))
+              }
 
-                      justifyContent: 'center', alignItems: 'center',
-                    }}>
-                    <Image source={item.img} style={{ width: pxToDp(50), height: pxToDp(50), }} />
-                    <Text>{item.name}</Text>
-                  </TouchableOpacity>
+              <Mybtn
+                title="发送"
+                onPress={() => {
+                  this.sendGift()
+                  this.Scrollable.close()
 
-                </View>
-              ))
-            }
-            <Mybtn
-              title="确认"
-              onPress={() => {
-                this.sendGift()
-                this.Scrollable.close()
+                }}
+                buttonStyle={{
+                  width: pxToDp(90),
+                  height: pxToDp(30),
+                  borderRadius: pxToDp(32),
+                  marginRight: pxToDp(0),
+                  marginTop: pxToDp(20),
+                  marginLeft: pxToDp(256),
+                  marginBottom: pxToDp(20),
 
-              }}
-              buttonStyle={{
-                width: pxToDp(90),
-                height: pxToDp(30),
-                borderRadius: pxToDp(32),
-                marginRight: pxToDp(16),
-                marginTop: pxToDp(20),
-                marginBottom: pxToDp(20),
-                alignSelf: 'flex-end'
-              }}
-              titleStyle={{
-                height: 30,
-                color: 'white',
-                fontSize: pxToDp(14),
-                marginTop: pxToDp(10)
-              }}
-            />
-
-
+                }}
+                titleStyle={{
+                  height: 30,
+                  color: 'white',
+                  fontSize: pxToDp(14),
+                  marginTop: pxToDp(10)
+                }}
+              />
+            </View>
           </View>
         </RBSheet>
       </View>

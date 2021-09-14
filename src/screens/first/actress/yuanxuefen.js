@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     text: {
         fontSize: pxToDp(16),
         color: '#333333',
-        lineHeight: pxToDp(24),
+        lineHeight: pxToDp(30),
         marginTop: pxToDp(8)
     },
     image: {
