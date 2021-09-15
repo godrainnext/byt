@@ -129,20 +129,23 @@ export default class index extends Component {
             }}
           >
             {this.state.data2.map((item) => (
+                   <View
+                   style={{
+                     width: pxToDp(340),
+                     flexDirection: 'row',
+                     flexWrap: 'wrap',
+                     justifyContent: 'flex-start'
+                   }}
+                 >
               <TouchableOpacity
-                style={{
-                  height: pxToDp(40),
-                  width: pxToDp(120),
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}
-              >
+              style={styles.box1}>
                 <Text style={{ fontSize: pxToDp(14), color: '#666666' }}>
                   {item.name}
                 </Text>
               </TouchableOpacity>
+              </View>
             ))}
-          </View>
+           </View>
           {/* 热搜榜 */}
           <Text style={{ fontSize: pxToDp(18), marginTop: pxToDp(16) }}>
             热搜榜
