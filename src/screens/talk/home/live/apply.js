@@ -52,7 +52,7 @@ class index extends PureComponent {
             const pickerResult = response?.assets[0];
             let file = {
               uri: pickerResult.uri,
-              type: 'multipart/form-data',
+              type: this.state.image.type,
               name: pickerResult.type
             };
 

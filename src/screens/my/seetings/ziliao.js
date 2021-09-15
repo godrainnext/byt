@@ -90,7 +90,7 @@ class Ziliao extends PureComponent {
             const fd = new FormData();
             let file = {
               uri: pickerResult.uri,
-              type: 'multipart/form-data',
+              type: pickerResult.type,
               name: pickerResult.type
             };
             fd.append('file', file);

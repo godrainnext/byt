@@ -162,7 +162,7 @@ class index extends PureComponent {
     form.forEach((item) => {
       let file = {
         uri: item.uri,
-        type: 'multipart/form-data',
+        type: item.type,
         name: item.type
       };
       fd.append('file', file);

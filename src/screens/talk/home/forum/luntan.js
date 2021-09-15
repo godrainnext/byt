@@ -46,6 +46,7 @@ class Index extends PureComponent {
   static contextType = NavigationContext;
 
   render() {
+    console.log(this.props.dongtai);
     const music = this.props.dongtai.filter((item) => item.label);
     const actress = this.props.dongtai.filter((item) => !item.label);
     return (
