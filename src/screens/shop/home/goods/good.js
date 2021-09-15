@@ -61,7 +61,6 @@ class shopdetails extends PureComponent {
         size: 'XXXL'
       }
     ],
-
     shop: {},
     Select: false,
     activeTab: -1,
@@ -160,8 +159,12 @@ class shopdetails extends PureComponent {
     return (
       <View style={{ flex: 1, backgroundColor: '#D5E8E6' }}>
         {/* 顶部导航 */}
-        
-        <Top icon1="arrow-back" icon3={require('../../../../res/客服.png')}rightCallback={() => this.context.navigate('GiftedChat')}/>
+
+        <Top
+          icon1="arrow-back"
+          icon3={require('../../../../res/客服.png')}
+          rightCallback={() => this.context.navigate('GiftedChat')}
+        />
         <AnimatedLoader
           visible={visible}
           overlayColor="rgba(0,0,0,0.75)"
@@ -171,8 +174,14 @@ class shopdetails extends PureComponent {
         />
         <ScrollView
           showsVerticalScrollIndicator={false}
-           onMomentumScrollBegin={() => { this.setState({ btnOpcity: true }); console.log(this.state.btnOpcity); }}
-         onMomentumScrollEnd={() => { this.setState({ btnOpcity: false }); console.log(this.state.btnOpcity); }}
+          onMomentumScrollBegin={() => {
+            this.setState({ btnOpcity: true });
+            console.log(this.state.btnOpcity);
+          }}
+          onMomentumScrollEnd={() => {
+            this.setState({ btnOpcity: false });
+            console.log(this.state.btnOpcity);
+          }}
           // onScrollBeginDrag={() => {
           //   this.setState({ btnOpcity: true });
           //   console.log('good', this.state.btnOpcity);

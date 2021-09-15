@@ -136,12 +136,14 @@ class App extends PureComponent {
         {
           id: 2,
           img: require('../../../../res/sucai/3.jpg'),
-          btn: '未开放'
+          btn: '去看看',
+          pagename:'musicplay'
         },
         {
           id: 3,
           img: require('../../../../res/sucai/4.jpg'),
-          btn: '未开放'
+          btn: '去看看',
+          pagename:'DuoRen'
         }
       ],
       autoPlay: false
@@ -157,7 +159,7 @@ class App extends PureComponent {
     this.setState({ activeTab: index });
     if (index == 0) {
       this.setState({ way: '对唱模式' });
-    } else if (index == 1) {
+    } else if (index === 1) {
       this.setState({ way: '音乐播放' });
     } else if (index === 2) {
       this.setState({ way: '聊天室' });
@@ -413,7 +415,7 @@ class App extends PureComponent {
                   >
                     <Mybtn
                       title={item.btn}
-                      onPress={() => this.changeTab(index)}
+                      onPress={() => { this.context.navigate(item.pagename, 1); this.Scrollable.close() }}
                       buttonStyle={{
                         width: pxToDp(70),
                         height: pxToDp(35),
@@ -490,7 +492,7 @@ class App extends PureComponent {
               flexDirection: 'row',
               justifyContent: 'space-around',
               alignItems: 'center',
-              marginTop: pxToDp(30)
+              marginTop: pxToDp(30),
             }}
           >
             <View style={{ justifyContent: 'center', alignItems: 'center' }}>
