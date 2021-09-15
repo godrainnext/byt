@@ -222,7 +222,7 @@ class App extends PureComponent {
     const fd = new FormData();
     const file = {
       uri: this.state.image.uri,
-      type: 'multipart/form-data',
+      type: this.state.image.type,
       name: this.state.image.type
     };
     fd.append('file', file);

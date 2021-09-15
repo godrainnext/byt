@@ -185,12 +185,20 @@ class Index extends PureComponent {
             marginBottom: pxToDp(16)
           }}
         >
+              <LottieView
+            autoPlay={true}
+            loop={true}
+            style={{ width:width,alignSelf:'center'}}
+            source={require('../../../../lottie/wave1.json')}
+          />
           <View
             style={{
               marginLeft: pxToDp(28),
               marginRight: pxToDp(28),
               flexDirection: 'row',
-              justifyContent: 'space-around'
+              justifyContent: 'space-around',
+              position:'absolute'
+          
             }}
           >
             {/**推荐卡片 */}

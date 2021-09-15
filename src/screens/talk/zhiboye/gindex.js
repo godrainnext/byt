@@ -509,7 +509,7 @@ class App extends PureComponent {
             '接收h5页面传过来的消息';
           }}
         />
-        <View style={{ position: 'absolute', bottom: pxToDp(283), right: pxToDp(20), height: pxToDp(30), width: pxToDp(30) }}>
+        <View style={{ position: 'absolute', bottom: pxToDp(345), right: pxToDp(20), height: pxToDp(30), width: pxToDp(30) }}>
           <View style={{}} >
             {
               Array(10).fill().map((_, index) => {
@@ -546,7 +546,7 @@ class App extends PureComponent {
           ><Image source={require('./爱心zz.png')} style={{ width: 30, height: 30 }} /></TouchableOpacity>
         </View>
         <TouchableOpacity
-          style={{ position: 'absolute', bottom: pxToDp(33), right: pxToDp(70), height: pxToDp(30), width: pxToDp(30) }}
+          style={{ position: 'absolute', bottom: pxToDp(45), right: pxToDp(70), height: pxToDp(30), width: pxToDp(30) }}
           onPress={() => this.Scrollable.open()}>
           <SvgUri
             style={{ marginTop: pxToDp(10) }}
