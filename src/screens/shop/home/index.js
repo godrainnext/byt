@@ -105,7 +105,7 @@ class Index extends PureComponent {
   render() {
     const { showJing } = this.state;
     return (
-      <View style={{ flex: 1, backgroundColor: 'white' }}>
+      <View style={{ flex: 1, backgroundColor: 'rgba(98,191,173,0.01)' }}>
         {/**搜索框*/}
         <Top />
         <ScrollView
