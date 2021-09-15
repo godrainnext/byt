@@ -162,7 +162,8 @@ class shopdetails extends PureComponent {
 
         <Top
           icon1="arrow-back"
-          icon3={require('../../../../res/客服.png')}
+          title="商品详情"
+          icon22="customerservice"
           rightCallback={() => this.context.navigate('GiftedChat')}
         />
         <AnimatedLoader

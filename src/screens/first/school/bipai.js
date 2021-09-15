@@ -85,7 +85,7 @@ class Index extends PureComponent {
                 height: pxToDp(30),
                 width: pxToDp(30),
                 borderRadius: pxToDp(15),
-                backgroundColor: 'pink',
+                backgroundColor: '#D5E8E6',
                 marginBottom: pxToDp(-25),
                 marginRight: pxToDp(65),
               }}></View>

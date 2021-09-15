@@ -8,6 +8,7 @@ import {
   Image
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 import { NavigationContext } from '@react-navigation/native';
 import { pxToDp, screenWidth } from '../../utils/styleKits';
 import LinearGradient from 'react-native-linear-gradient';
@@ -58,7 +59,8 @@ export default class HeaderHaveBack extends PureComponent {
               <TouchableOpacity onPress={this.props.rightCallback}>
                 {/* <IconFont style={{ color: "#fff" }} name="iconfanhui" /> */}
                 <Ionicons name={this.props.icon2} size={25} color="#468CD3" />
-                <Image source={this.props.icon3} style={{marginBottom:pxToDp(30),marginLeft:pxToDp(6)}}/>
+                <AntDesign name={this.props.icon22} size={25} color="white" />
+                <Image source={this.props.icon3} style={{ marginBottom: pxToDp(30), marginLeft: pxToDp(6) }} />
               </TouchableOpacity>
             </View>
           )}

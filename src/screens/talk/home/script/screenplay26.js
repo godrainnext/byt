@@ -7,7 +7,19 @@ class Index extends PureComponent {
     renderInner = () => (
         <Fragment>
             <View>
-                <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold', color: '#000000' }}>张羽煮海</Text>
+                <View style={{
+                    height: pxToDp(30),
+                    width: pxToDp(30),
+                    borderRadius: pxToDp(15),
+                    backgroundColor: '#D5E8E6',
+                    marginBottom: pxToDp(-20),
+                }} ></View>
+                <Text
+                    style={{ fontSize: pxToDp(18), fontWeight: 'bold', color: '#000000', marginLeft: pxToDp(10) }}
+                >
+                    张羽煮海
+                </Text>
+                <View style={{ width: pxToDp(70), height: pxToDp(1), backgroundColor: '#000000', marginLeft: pxToDp(10) }}></View>
             </View>
             <Text
                 style={{

@@ -61,9 +61,10 @@ class Index extends PureComponent {
             }}
             source={{ uri: this.state.dramalist[0].path1 }}
           />
-         <Text style={styles.text}>
+          <Text style={styles.text}>
             {this.state.dramalist[0].title}
           </Text>
+          <View style={styles.line}></View>
           <Text style={styles.title}>
             &emsp;&emsp;作者：{this.state.dramalist[0].author}
           </Text>
@@ -72,6 +73,7 @@ class Index extends PureComponent {
           </Text>
           <View>
             <Text style={styles.text}>剧情简介</Text>
+            <View style={styles.line}></View>
             <Text style={styles.title}>
               &emsp;&emsp;{this.state.dramalist[0].int1}
             </Text>
@@ -84,6 +86,7 @@ class Index extends PureComponent {
           </View>
           <View>
             <Text style={styles.text}>演出历史</Text>
+            <View style={styles.line}></View>
             <Text style={styles.title}>
               &emsp;&emsp;{this.state.dramalist[0].text1}
             </Text>
@@ -95,9 +98,10 @@ class Index extends PureComponent {
             </Text>
           </View>
           <View>
-          <Text style={styles.text}>
+            <Text style={styles.text}>
               剧本详情
             </Text>
+            <View style={styles.line}></View>
             <TouchableOpacity
               style={styles.book}
               onPress={() => this.context.navigate('Screenpaly30', {
@@ -141,12 +145,19 @@ const styles = StyleSheet.create({
     color: '#000000',
     fontWeight: 'bold',
     marginTop: pxToDp(24),
-    marginLeft: pxToDp(16)
+    alignSelf: 'center'
   },
   book: {
     height: pxToDp(100),
     borderRadius: pxToDp(8),
     marginBottom: pxToDp(50)
+  },
+  line: {
+    alignSelf: 'center',
+    height: pxToDp(5),
+    width: pxToDp(100),
+    backgroundColor: '#62bfad',
+    marginTop: pxToDp(4)
   }
 });
 export default Index;
