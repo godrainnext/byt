@@ -16,6 +16,7 @@ import { commonStyle } from './commonStyle';
 import Video from 'react-native-video';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import Icon1 from 'react-native-vector-icons/MaterialIcons';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 import { pxToDp } from '../../../utils/styleKits';
 import { AlwaysOpen } from '../../../component/common/songmenu';
 import Top from '../../../component/common/top';
@@ -57,7 +58,8 @@ export default class MusicPlayer extends PureComponent {
       playIcon: 'pause',
       playModeIcon: 'music_cycle_o',
       musicInfo: {},
-      autoPlay: true
+      autoPlay: true,
+      like: false
     };
     this.spinAnimated = Animated.timing(this.state.spinValue, {
       toValue: 1,
@@ -237,7 +239,7 @@ export default class MusicPlayer extends PureComponent {
     // console.log(this.state.musicInfo);
     // let musicInfo = mockData.list[this.state.currentIndex]
     // console.log(musicInfo);
-    const { musicInfo, autoPlay } = this.state;
+    const { musicInfo, autoPlay, like } = this.state;
 
     return (
       <View style={{ width: '100%', height: '100%' }}>
@@ -281,7 +283,20 @@ export default class MusicPlayer extends PureComponent {
               }}
             >
               {/* 喜欢 */}
-              <Icon name={'heart'} size={pxToDp(20)} color="grey" />
+              {like ? (
+                <TouchableOpacity
+                  onPress={() => {
+                    this.setState({ like: !like });
+                  }}>
+                  <AntDesign name={'heart'} size={pxToDp(20)} color="#FE9E9F" />
+                </TouchableOpacity>
+              ) : (
+                <TouchableOpacity
+                  onPress={() => {
+                    this.setState({ like: !like });
+                  }}>
+                  <AntDesign name={'hearto'} size={pxToDp(20)} color="grey" />
+                </TouchableOpacity>)}
               {/* 下载 */}
               <Icon1 name={'file-download'} size={pxToDp(20)} color="grey" />
               {/* 上一首 */}
