@@ -52,16 +52,16 @@ export default class SliderEntry extends PureComponent {
     </Text>
     ) : false;
     return (
-      <TouchableOpacity
-        activeOpacity={1}
-        style={styles.slideInnerContainer}
-        onPress={() => { alert(`You've clicked '${title}'`); }}
-      >
+      <TouchableOpacity activeOpacity={1} style={styles.slideInnerContainer}>
         <View style={styles.shadow} />
-        <View style={[styles.imageContainer, even ? styles.imageContainerEven : {}]}>
+        <View
+          style={[styles.imageContainer, even ? styles.imageContainerEven : {}]}
+        >
           {this.image}
         </View>
-        <View style={[styles.textContainer, even ? styles.textContainerEven : {}]}>
+        <View
+          style={[styles.textContainer, even ? styles.textContainerEven : {}]}
+        >
           {uppercaseTitle}
           <View style={{ flexDirection: 'row', marginTop: pxToDp(16) }}>
             <Text
@@ -80,7 +80,8 @@ export default class SliderEntry extends PureComponent {
                 borderWidth: pxToDp(2),
                 borderColor: '#62bfad',
                 marginLeft: pxToDp(16)
-              }}>
+              }}
+            >
               <Svg width="20" height="20" svgXmlData={shopCar} />
             </View>
           </View>
