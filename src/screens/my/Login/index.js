@@ -39,7 +39,7 @@ class Login extends PureComponent {
     regpassword2: '',
     username: '',
     password: '',
-    read: false
+    read: true
   };
 
   SingUp = () => {
@@ -151,9 +151,8 @@ class Login extends PureComponent {
           console.log(err);
         });
     } else {
-      ToastAndroid.show('请阅读并同意下方条例', ToastAndroid.SHORT)
+      ToastAndroid.show('请阅读并同意下方条例', ToastAndroid.SHORT);
     }
-
   };
   render() {
     const { read } = this.state;
@@ -190,7 +189,12 @@ class Login extends PureComponent {
               alignItems: 'center'
             }}
           >
-            <Ionicons name="user" size={22} color="#999999" style={{ marginLeft: pxToDp(16), marginRight: pxToDp(8) }} />
+            <Ionicons
+              name="user"
+              size={22}
+              color="#999999"
+              style={{ marginLeft: pxToDp(16), marginRight: pxToDp(8) }}
+            />
             <TextInput
               style={{ width: pxToDp(200) }}
               placeholder="请输入账号"
@@ -198,15 +202,22 @@ class Login extends PureComponent {
               value={this.state.username}
             />
           </View>
-          <View style={{
-            width: '90%',
-            marginTop: pxToDp(16),
-            backgroundColor: '#DCDCDC',
-            borderRadius: pxToDp(24),
-            flexDirection: 'row',
-            alignItems: 'center'
-          }}>
-            <Ionicons name="lock" size={22} color="#999999" style={{ marginLeft: pxToDp(16), marginRight: pxToDp(8) }} />
+          <View
+            style={{
+              width: '90%',
+              marginTop: pxToDp(16),
+              backgroundColor: '#DCDCDC',
+              borderRadius: pxToDp(24),
+              flexDirection: 'row',
+              alignItems: 'center'
+            }}
+          >
+            <Ionicons
+              name="lock"
+              size={22}
+              color="#999999"
+              style={{ marginLeft: pxToDp(16), marginRight: pxToDp(8) }}
+            />
             <TextInput
               style={{ width: pxToDp(200) }}
               secureTextEntry={true}
@@ -249,57 +260,110 @@ class Login extends PureComponent {
               borderWidth: pxToDp(1)
             }}
           >
-            <Text style={{
-              color: '#62bfad',
-              fontSize: pxToDp(14),
-              fontWeight: 'bold'
-            }}>
+            <Text
+              style={{
+                color: '#62bfad',
+                fontSize: pxToDp(14),
+                fontWeight: 'bold'
+              }}
+            >
               立即注册
             </Text>
           </TouchableOpacity>
           {/**忘记密码 */}
-          <TouchableOpacity style={{ marginTop: pxToDp(16), alignSelf: 'flex-end', marginRight: pxToDp(32) }}>
+          <TouchableOpacity
+            style={{
+              marginTop: pxToDp(16),
+              alignSelf: 'flex-end',
+              marginRight: pxToDp(32)
+            }}
+          >
             <Text style={{ fontSize: pxToDp(14), color: '#999999' }}>
               忘记密码
             </Text>
           </TouchableOpacity>
           {/*第三方登录--------------------------------*/}
           <View style={{ marginTop: pxToDp(50) }}>
-            <Text style={{ fontSize: pxToDp(14), color: '#000000' }}>快速登录</Text>
+            <Text style={{ fontSize: pxToDp(14), color: '#000000' }}>
+              快速登录
+            </Text>
           </View>
           <View style={{ flexDirection: 'row', marginTop: pxToDp(8) }}>
             <TouchableOpacity>
-              <Svg width="40" height="40" svgXmlData={qqq} style={{ marginRight: pxToDp(40) }} />
+              <Svg
+                width="40"
+                height="40"
+                svgXmlData={qqq}
+                style={{ marginRight: pxToDp(40) }}
+              />
             </TouchableOpacity>
             <TouchableOpacity>
               <Svg width="40" height="40" svgXmlData={weixinn} />
             </TouchableOpacity>
           </View>
           {/**用户协议 */}
-          <View style={{ marginTop: pxToDp(24), flexDirection: 'row', alignItems: 'center' }}>
-            {read ?
-              (<TouchableOpacity style={{ height: pxToDp(12), width: pxToDp(12), borderRadius: pxToDp(6), borderColor: "#999999", borderWidth: pxToDp(1), marginRight: pxToDp(4), backgroundColor: '#62bfad' }}
-                onPress={() => this.setState({ read: !read })}>
-              </TouchableOpacity>
-              ) : (
-                <TouchableOpacity style={{ height: pxToDp(12), width: pxToDp(12), borderRadius: pxToDp(6), borderColor: "#999999", borderWidth: pxToDp(1), marginRight: pxToDp(4) }}
-                  onPress={() => this.setState({ read: !read })}>
-                </TouchableOpacity>)}
+          <View
+            style={{
+              marginTop: pxToDp(24),
+              flexDirection: 'row',
+              alignItems: 'center'
+            }}
+          >
+            {read ? (
+              <TouchableOpacity
+                style={{
+                  height: pxToDp(12),
+                  width: pxToDp(12),
+                  borderRadius: pxToDp(6),
+                  borderColor: '#999999',
+                  borderWidth: pxToDp(1),
+                  marginRight: pxToDp(4),
+                  backgroundColor: '#62bfad'
+                }}
+                onPress={() => this.setState({ read: !read })}
+              ></TouchableOpacity>
+            ) : (
+              <TouchableOpacity
+                style={{
+                  height: pxToDp(12),
+                  width: pxToDp(12),
+                  borderRadius: pxToDp(6),
+                  borderColor: '#999999',
+                  borderWidth: pxToDp(1),
+                  marginRight: pxToDp(4)
+                }}
+                onPress={() => this.setState({ read: !read })}
+              ></TouchableOpacity>
+            )}
             <Text style={{ fontSize: pxToDp(12), color: '#999999' }}>
               已阅读并同意百越的
             </Text>
             <TouchableOpacity
               onPress={() => this.context.navigate('YongHu')}
-              style={{ marginLeft: pxToDp(2), marginRight: pxToDp(2), borderBottomWidth: pxToDp(1), borderBottomColor: '#999999' }}>
-              <Text style={{ fontSize: pxToDp(12), color: '#999999' }}>用户协议</Text>
+              style={{
+                marginLeft: pxToDp(2),
+                marginRight: pxToDp(2),
+                borderBottomWidth: pxToDp(1),
+                borderBottomColor: '#999999'
+              }}
+            >
+              <Text style={{ fontSize: pxToDp(12), color: '#999999' }}>
+                用户协议
+              </Text>
             </TouchableOpacity>
-            <Text style={{ fontSize: pxToDp(12), color: '#999999' }}>
-              和
-            </Text>
+            <Text style={{ fontSize: pxToDp(12), color: '#999999' }}>和</Text>
             <TouchableOpacity
               onPress={() => this.context.navigate('ZhengCe')}
-              style={{ marginLeft: pxToDp(2), marginRight: pxToDp(2), borderBottomWidth: pxToDp(1), borderBottomColor: '#999999' }}>
-              <Text style={{ fontSize: pxToDp(12), color: '#999999' }}>隐私政策</Text>
+              style={{
+                marginLeft: pxToDp(2),
+                marginRight: pxToDp(2),
+                borderBottomWidth: pxToDp(1),
+                borderBottomColor: '#999999'
+              }}
+            >
+              <Text style={{ fontSize: pxToDp(12), color: '#999999' }}>
+                隐私政策
+              </Text>
             </TouchableOpacity>
           </View>
         </View>

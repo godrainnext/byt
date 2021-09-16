@@ -47,16 +47,20 @@ export default class SliderEntry extends PureComponent {
         ) : false;
 
         return (
-            <TouchableOpacity
-                activeOpacity={1}
-                style={styles.slideInnerContainer}
-                onPress={() => { alert(`You've clicked '${title}'`); }}
+          <TouchableOpacity
+            activeOpacity={1}
+            style={styles.slideInnerContainer}
+          >
+            <View style={styles.shadow} />
+            <View
+              style={[
+                styles.imageContainer,
+                even ? styles.imageContainerEven : {}
+              ]}
             >
-                <View style={styles.shadow} />
-                <View style={[styles.imageContainer, even ? styles.imageContainerEven : {}]}>
-                    {this.image}
-                </View>
-            </TouchableOpacity>
+              {this.image}
+            </View>
+          </TouchableOpacity>
         );
     }
 }

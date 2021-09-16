@@ -58,7 +58,7 @@ class index extends PureComponent {
   }
   render() {
     return (
-      <View>
+      <ScrollView>
         {this.state.comment.length ? (
           this.state.comment.map((item) => (
             <View key={item.id}>
@@ -323,7 +323,7 @@ class index extends PureComponent {
             <Text style={{ marginLeft: pxToDp(20) }}>回复</Text>
           </TouchableOpacity>
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }

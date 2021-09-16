@@ -17,11 +17,11 @@ export default class index extends Component {
       data: [
         {
           id: 1,
-          name: '越剧人物圆形鼠标垫'
+          name: '越彩江南晴雨伞'
         },
         {
           id: 2,
-          name: '越彩江南晴雨伞'
+          name: '越剧人物圆形鼠标垫'
         },
         {
           id: 3,
@@ -29,11 +29,11 @@ export default class index extends Component {
         },
         {
           id: 4,
-          name: '越韵四季帆布包'
+          name: '上越国风文创·春夏款发布'
         },
         {
           id: 5,
-          name: '青雀记原创手工明制越剧发簪'
+          name: '王星记·上越联名四季手绘折扇'
         }
       ],
       data2: [
@@ -51,11 +51,11 @@ export default class index extends Component {
         },
         {
           id: 4,
-          name: '王星记·上越联名四季手绘折扇'
+          name: '越彩江南马克杯'
         },
         {
           id: 5,
-          name: '青雀记原创手工明制越剧发簪'
+          name: '越韵四季帆布包'
         },
         {
           id: 6,
@@ -125,25 +125,19 @@ export default class index extends Component {
               width: pxToDp(340),
               flexDirection: 'row',
               flexWrap: 'wrap',
-              justifyContent: 'space-between'
+              justifyContent: 'flex-start'
             }}
           >
             {this.state.data2.map((item) => (
-                   <View
-                   style={{
-                     width: pxToDp(340),
-                     flexDirection: 'row',
-                     flexWrap: 'wrap',
-                     justifyContent: 'flex-start'
-                   }}
-                 >
-              <TouchableOpacity
-              style={styles.box1}>
+          
+                 
+                 <TouchableOpacity style={styles.box1}>
+              
                 <Text style={{ fontSize: pxToDp(14), color: '#666666' }}>
                   {item.name}
                 </Text>
               </TouchableOpacity>
-              </View>
+        
             ))}
            </View>
           {/* 热搜榜 */}

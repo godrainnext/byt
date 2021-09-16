@@ -70,6 +70,24 @@ class Index extends PureComponent {
           </Text>
           <Bottom />
           {/*流派专辑 */}
+          <View style={{ alignSelf: 'center', alignItems: 'center', width: pxToDp(100) }} >
+            <View
+              style={{
+                height: pxToDp(30),
+                width: pxToDp(30),
+                borderRadius: pxToDp(15),
+                backgroundColor: '#D5E8E6',
+                marginBottom: pxToDp(-25),
+                marginRight: pxToDp(65),
+              }}></View>
+            <Text style={{ fontSize: pxToDp(18), color: '#000000', fontWeight: 'bold' }}>流派专辑</Text>
+            <View style={{
+              width: pxToDp(80),
+              height: pxToDp(1),
+              backgroundColor: '#000000',
+              marginTop: pxToDp(4)
+            }}></View>
+          </View>
           <TouchableOpacity
             style={styles.zhuanji}
             onPress={() => this.context.navigate('Album')}

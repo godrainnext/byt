@@ -138,41 +138,66 @@ class Index extends PureComponent {
         parallaxHeaderHeight={211}
         backgroundSpeed={10}
         renderBackground={() => (
-          <View style={{ padding: pxToDp(16), backgroundColor: 'white',height:211 }}>
-   <View style={{width:pxToDp(1000),height:pxToDp(1000),backgroundColor:'#62bfad',borderRadius:pxToDp(500),alignSelf:'center',top:pxToDp(-850) }}></View>
+          <View
+            style={{
+              padding: pxToDp(16),
+              backgroundColor: 'white',
+              height: 211
+            }}
+          >
+            <View
+              style={{
+                width: pxToDp(1000),
+                height: pxToDp(1000),
+                backgroundColor: '#62bfad',
+                borderRadius: pxToDp(500),
+                alignSelf: 'center',
+                top: pxToDp(-850)
+              }}
+            ></View>
           </View>
         )}
         //自定义头部内容
         renderForeground={() => (
           <View style={{ backgroundColor: 'white' }}>
-            <View style={{width:pxToDp(1000),height:pxToDp(1000),backgroundColor:'#62bfad',borderRadius:pxToDp(500),alignSelf:'center',top:pxToDp(-850) }}>
-           <ImageFade
-              style={{ margin: 16 }}
-              ref="ImageFade"
-              duration={800}
-              delay={3000}
-              style={{ width: '100%', height: pxToDp(200),top:pxToDp(850) }}
+            <View
+              style={{
+                width: pxToDp(1000),
+                height: pxToDp(1000),
+                backgroundColor: '#62bfad',
+                borderRadius: pxToDp(500),
+                alignSelf: 'center',
+                top: pxToDp(-850)
+              }}
             >
-              <Image
-                style={{
-                  width: width*0.92,
-                  height: pxToDp(200),
-                  borderRadius: pxToDp(16),
-                  margin:pxToDp(16),alignSelf:'center'
-                }}
-                source={require('../../../res/0901/首页轮播1.png')}
-              />
-              <Image
-                style={{
-                  width: width*0.92,
-                  height: pxToDp(200),
-                  borderRadius: pxToDp(16),
-                  margin:pxToDp(16),alignSelf:'center'
-
-                }}
-                source={require('../../../res/0901/首页轮播2.png')}
-              />
-            </ImageFade> 
+              <ImageFade
+                style={{ margin: 16 }}
+                ref="ImageFade"
+                duration={800}
+                delay={3000}
+                style={{ width: '100%', height: pxToDp(200), top: pxToDp(850) }}
+              >
+                <Image
+                  style={{
+                    width: width * 0.92,
+                    height: pxToDp(200),
+                    borderRadius: pxToDp(16),
+                    margin: pxToDp(16),
+                    alignSelf: 'center'
+                  }}
+                  source={require('../../../res/0901/首页轮播1.png')}
+                />
+                <Image
+                  style={{
+                    width: width * 0.92,
+                    height: pxToDp(200),
+                    borderRadius: pxToDp(16),
+                    margin: pxToDp(16),
+                    alignSelf: 'center'
+                  }}
+                  source={require('../../../res/0901/首页轮播2.png')}
+                />
+              </ImageFade>
             </View>
           </View>
         )}
@@ -185,10 +210,10 @@ class Index extends PureComponent {
             marginBottom: pxToDp(16)
           }}
         >
-              <LottieView
+          <LottieView
             autoPlay={true}
             loop={true}
-            style={{ width:width,alignSelf:'center'}}
+            style={{ width: width, alignSelf: 'center' }}
             source={require('../../../../lottie/wave1.json')}
           />
           <View
@@ -197,8 +222,7 @@ class Index extends PureComponent {
               marginRight: pxToDp(28),
               flexDirection: 'row',
               justifyContent: 'space-around',
-              position:'absolute'
-          
+              position: 'absolute'
             }}
           >
             {/**推荐卡片 */}
@@ -475,7 +499,7 @@ class Index extends PureComponent {
                   <View
                     style={{
                       borderRadius: pxToDp(8),
-                      width: pxToDp(50),
+                      width: pxToDp(64),
                       height: pxToDp(20),
                       backgroundColor: '#D5E8E6',
                       justifyContent: 'center',

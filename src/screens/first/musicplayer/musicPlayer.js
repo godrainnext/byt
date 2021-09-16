@@ -43,18 +43,18 @@ export default class MusicPlayer extends PureComponent {
   constructor(props) {
     super(props);
     this.player = '';
-    this.rotation = false;
+    this.rotation = true;
     this.musicList = [];
     this.state = {
       viewRef: null,
-      paused: false, // false: 表示播放，true: 表示暂停
+      paused: true, // false: 表示播放，true: 表示暂停
       duration: 0.0,
       slideValue: 0.0,
       currentTime: 0.0,
       currentIndex: 0,
       playMode: 0,
       spinValue: new Animated.Value(0),
-      playIcon: 'pause',
+      playIcon: 'play-arrow',
       playModeIcon: 'music_cycle_o',
       musicInfo: {},
       autoPlay: true
@@ -107,7 +107,7 @@ export default class MusicPlayer extends PureComponent {
 
   componentDidMount() {
     this.spin();
-    this.animation.play();
+    this.animation.pause();
     this.setState({
       musicInfo: mockData.list.find(
         (item) => item.id === this.props.route.params
@@ -116,7 +116,7 @@ export default class MusicPlayer extends PureComponent {
   }
 
   toContr() {
-    if (this.state.autoPlay === true) {
+    if (this.state.autoPlay === false) {
       this.animation.pause();
     } else {
       this.animation.play();
@@ -368,6 +368,7 @@ export default class MusicPlayer extends PureComponent {
             onProgress={(data) => this.setTime(data)}
             onEnd={(data) => this.onEnd(data)}
             onError={(data) => this.videoError(data)}
+            
           />
         </View>
         <View style={{ width: '100%', flex: 1, zIndex: 9999, elevation: 9999 }}>

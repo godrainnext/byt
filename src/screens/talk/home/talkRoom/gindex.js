@@ -377,7 +377,7 @@ class App extends PureComponent {
                 <Text
                   style={{
                     marginLeft: pxToDp(25),
-                    fontSize: pxToDp(16),
+                    fontSize: pxToDp(15),
                     marginTop: pxToDp(10)
                   }}
                 >

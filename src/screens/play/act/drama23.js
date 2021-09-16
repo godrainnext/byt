@@ -29,7 +29,7 @@ class Index extends PureComponent {
                 text2:
                     '1986年尹派演唱会上，尹桂芳，傅全香，李金凤，尹小芳，张效芳，茅威涛，王君安，五代同唱沙漠王子·算命片段。',
                 text3: '1987年，上海电视台将该剧摄制成戏曲艺术片，陈曼等编剧，赵慧娟导演，赵志刚主演沙漠王子罗兰，周晓芬演伊丽公主。史济华演安达，张承好演沙龙，许杰演霍逊，宓丰演逊杰。',
-                text4:'1988年，福建省芳华越剧团重排《沙漠王子》，由王君安、张群力主演。2014年，福建省芳华越剧团再次复排《沙漠王子》，由徐伟钗、张倩倩等优秀青年演员担纲主演，并赴温州参加2014年第三届中国越剧节。',
+                text4: '1988年，福建省芳华越剧团重排《沙漠王子》，由王君安、张群力主演。2014年，福建省芳华越剧团再次复排《沙漠王子》，由徐伟钗、张倩倩等优秀青年演员担纲主演，并赴温州参加2014年第三届中国越剧节。',
                 path1:
                     'https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fs6.sinaimg.cn%2Fmw690%2F0023TJcAty6PyzOduCx25%26690&refer=http%3A%2F%2Fs6.sinaimg.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg?sec=1633526534&t=4d8a48f4613799b4a753fa561d458567',
                 path2:
@@ -63,6 +63,7 @@ class Index extends PureComponent {
                     <Text style={styles.text}>
                         {this.state.dramalist[0].title}
                     </Text>
+                    <View style={styles.line}></View>
                     <Text style={styles.title}>
                         &emsp;&emsp;作者：{this.state.dramalist[0].author}
                     </Text>
@@ -71,6 +72,7 @@ class Index extends PureComponent {
                     </Text>
                     <View>
                         <Text style={styles.text}>剧情简介</Text>
+                        <View style={styles.line}></View>
                         <Text style={styles.title}>
                             &emsp;&emsp;{this.state.dramalist[0].int1}
                         </Text>
@@ -83,6 +85,7 @@ class Index extends PureComponent {
                     </View>
                     <View>
                         <Text style={styles.text}>演出历史</Text>
+                        <View style={styles.line}></View>
                         <Text style={styles.title}>
                             &emsp;&emsp;{this.state.dramalist[0].text1}
                         </Text>
@@ -100,6 +103,7 @@ class Index extends PureComponent {
                         <Text style={styles.text}>
                             剧本详情
                         </Text>
+                        <View style={styles.line}></View>
                         <TouchableOpacity
                             style={styles.book}
                             onPress={() => this.context.navigate('Screenpaly15', {
@@ -143,12 +147,19 @@ const styles = StyleSheet.create({
         color: '#000000',
         fontWeight: 'bold',
         marginTop: pxToDp(24),
-        marginLeft: pxToDp(16)
+        alignSelf: 'center'
     },
     book: {
         height: pxToDp(100),
         borderRadius: pxToDp(8),
         marginBottom: pxToDp(50)
+    },
+    line: {
+        alignSelf: 'center',
+        height: pxToDp(5),
+        width: pxToDp(100),
+        backgroundColor: '#62bfad',
+        marginTop: pxToDp(4)
     }
 });
 export default Index;

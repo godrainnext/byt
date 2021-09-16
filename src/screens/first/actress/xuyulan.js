@@ -27,11 +27,17 @@ class Index extends PureComponent {
     return (
       <View style={{ flex: 1 }}>
         <Top icon1="arrow-back" title="徐玉兰" />
-        <ScrollView showsVerticalScrollIndicator = {false}>
+        <ScrollView showsVerticalScrollIndicator={false}>
           {/*基本信息 */}
           <View style={{ flex: 1, backgroundColor: 'white', padding: pxToDp(16), paddingBottom: 0 }}>
-            <Text style={styles.title}>基本信息</Text>
-            <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+            <View>
+              <Text style={styles.title}>基本信息</Text>
+              <View style={{ height: pxToDp(20), width: pxToDp(342), backgroundColor: '#D5E8E6', marginTop: pxToDp(-16), flexDirection: 'row', justifyContent: 'flex-end' }}>
+                <View style={{ width: pxToDp(32), height: pxToDp(8), backgroundColor: 'white', borderRadius: pxToDp(4), marginTop: pxToDp(7), marginRight: pxToDp(16) }}></View>
+                <View style={{ width: pxToDp(8), height: pxToDp(8), backgroundColor: 'white', borderRadius: pxToDp(4), marginTop: pxToDp(7), marginRight: pxToDp(16) }}></View>
+              </View>
+            </View>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: pxToDp(10) }}>
               <View style={{ width: '65%' }}>
                 <Text style={styles.text}>姓名：{this.state.person.name}</Text>
                 <Text style={styles.text}>籍贯：{this.state.person.place}</Text>
@@ -39,20 +45,32 @@ class Index extends PureComponent {
                 <Text style={styles.text}>逝世日期：{this.state.person.death}</Text>
                 <Text style={styles.text}>流派：{this.state.person.genre}</Text>
                 <Text style={styles.text}>行当：{this.state.person.job}</Text>
-                <Text style={styles.text}>代表作品：{this.state.person.work}</Text>
               </View>
               <Image style={{ height: pxToDp(168), width: pxToDp(120), borderRadius: pxToDp(8) }} source={{ uri: this.state.person.image }} />
             </View>
+            <Text style={styles.text}>代表作品：{this.state.person.work}</Text>
             <Text style={styles.text}>主要成就：{this.state.person.success}</Text>
             {/**人物评价 */}
             <View style={{ marginTop: pxToDp(12) }}>
-              <Text style={styles.title}>人物评价</Text>
+              <View>
+                <Text style={styles.title}>人物评价</Text>
+                <View style={{ height: pxToDp(20), width: pxToDp(342), backgroundColor: '#D5E8E6', marginTop: pxToDp(-16), flexDirection: 'row', justifyContent: 'flex-end' }}>
+                  <View style={{ width: pxToDp(32), height: pxToDp(8), backgroundColor: 'white', borderRadius: pxToDp(4), marginTop: pxToDp(7), marginRight: pxToDp(16) }}></View>
+                  <View style={{ width: pxToDp(8), height: pxToDp(8), backgroundColor: 'white', borderRadius: pxToDp(4), marginTop: pxToDp(7), marginRight: pxToDp(16) }}></View>
+                </View>
+              </View>
               <Text style={styles.text}>{this.state.person.evaluate1}</Text>
               <Text style={styles.text}>{this.state.person.evaluate2}</Text>
             </View>
             {/**图片 */}
             <View style={{ marginTop: pxToDp(12), marginBottom: pxToDp(16) }}>
-              <Text style={styles.title}>人物图集</Text>
+              <View>
+                <Text style={styles.title}>人物图集</Text>
+                <View style={{ height: pxToDp(20), width: pxToDp(342), backgroundColor: '#D5E8E6', marginTop: pxToDp(-16), flexDirection: 'row', justifyContent: 'flex-end' }}>
+                  <View style={{ width: pxToDp(32), height: pxToDp(8), backgroundColor: 'white', borderRadius: pxToDp(4), marginTop: pxToDp(7), marginRight: pxToDp(16) }}></View>
+                  <View style={{ width: pxToDp(8), height: pxToDp(8), backgroundColor: 'white', borderRadius: pxToDp(4), marginTop: pxToDp(7), marginRight: pxToDp(16) }}></View>
+                </View>
+              </View>
               <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between' }}>
                 <Image style={styles.image} source={{ uri: this.state.person.image1 }} />
                 <Image style={styles.image} source={{ uri: this.state.person.image2 }} />
@@ -71,7 +89,9 @@ const styles = StyleSheet.create({
   title: {
     fontSize: pxToDp(18),
     color: '#000000',
-    fontWeight: 'bold'
+    fontWeight: 'bold',
+    marginLeft: pxToDp(16),
+    zIndex: 9999
   },
   text: {
     fontSize: pxToDp(16),

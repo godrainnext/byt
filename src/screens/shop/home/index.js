@@ -105,7 +105,7 @@ class Index extends PureComponent {
   render() {
     const { showJing } = this.state;
     return (
-      <View style={{ flex: 1, backgroundColor: 'white' }}>
+      <View style={{ flex: 1, backgroundColor: 'rgba(98,191,173,0.01)' }}>
         {/**搜索框*/}
         <Top />
         <ScrollView
@@ -173,7 +173,6 @@ class Index extends PureComponent {
                 ' 国潮+越剧 潮流风暴来袭',
                 ' 越剧周边商城已上新'
               ]}
-              onPress={(index) => alert('you pressed index is : ' + index)}
               indicatorContainerBackgroundColor={'#62bfad'}
               isSeamlessScroll={true}
               activeIndicatorColor={'red'}
@@ -242,14 +241,11 @@ class Index extends PureComponent {
                 marginLeft: pxToDp(10)
               }}
             >
-              <TouchableNativeFeedback
-                useForeground={true}
-                onPress={() => this.context.navigate('Zulin', 0)}
-              >
+              <TouchableNativeFeedback useForeground={true}>
                 <View>
                   <Image
                     style={styles.image4}
-                    source={require('../../../res/30.jpg')}
+                    source={require('../../../res/定制.jpg')}
                   />
                 </View>
               </TouchableNativeFeedback>
@@ -280,109 +276,148 @@ class Index extends PureComponent {
               />
             </View>
             <TouchableOpacity
-              style={{ flexDirection: 'row', alignItems: 'center', marginLeft: pxToDp(180), marginBottom: pxToDp(10) }}
-              onPress={() => this.setState({ showJing: !showJing })}>
-              <Text style={{ fontSize: pxToDp(14), color: '#666666', marginRight: pxToDp(4) }}>换一换</Text>
+              style={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                marginLeft: pxToDp(180),
+                marginBottom: pxToDp(10)
+              }}
+              onPress={() => this.setState({ showJing: !showJing })}
+            >
+              <Text
+                style={{
+                  fontSize: pxToDp(14),
+                  color: '#666666',
+                  marginRight: pxToDp(4)
+                }}
+              >
+                换一换
+              </Text>
               <Ionicons name="refresh" size={20} color="#666666" />
             </TouchableOpacity>
           </View>
-          {showJing ? (<View>
-            {this.state.jingpin1.map((item, index) => (
-              <View style={styles.jing}>
-                <View style={{ flexDirection: 'row' }}>
-                  <Image
-                    style={styles.jingimage}
-                    source={item.img}
-                  />
-                  <View
-                    style={{
-                      alignSelf: 'center',
-                      marginLeft: pxToDp(8),
-                      width: pxToDp(190)
-                    }}
-                  >
-                    {item.id == 1 ? (
-                      <View style={{ flexDirection: 'row' }}>
-                        <View style={{ alignItems: 'center', justifyContent: 'center', marginRight: pxToDp(4), marginBottom: pxToDp(2) }}>
-                          <Svg width="20" height="20" svgXmlData={hot} />
+          {showJing ? (
+            <View>
+              {this.state.jingpin1.map((item, index) => (
+                <View style={styles.jing}>
+                  <View style={{ flexDirection: 'row' }}>
+                    <Image style={styles.jingimage} source={item.img} />
+                    <View
+                      style={{
+                        alignSelf: 'center',
+                        marginLeft: pxToDp(8),
+                        width: pxToDp(190)
+                      }}
+                    >
+                      {item.id == 1 ? (
+                        <View style={{ flexDirection: 'row' }}>
+                          <View
+                            style={{
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              marginRight: pxToDp(4),
+                              marginBottom: pxToDp(2)
+                            }}
+                          >
+                            <Svg width="20" height="20" svgXmlData={hot} />
+                          </View>
+                          <Text
+                            style={{ fontSize: pxToDp(16), color: '#000000' }}
+                          >
+                            {item.name}
+                          </Text>
                         </View>
-                        <Text style={{ fontSize: pxToDp(16), color: '#000000' }}>
-                          {item.name}
-                        </Text>
-                      </View>
-                    ) : (
-                      <View>
-                        <Text style={{ fontSize: pxToDp(16), color: '#000000' }}>
-                          {item.name}
-                        </Text>
-                      </View>)}
-                    <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
-                      {item.intro}
-                    </Text>
-                    <Text style={{ fontSize: pxToDp(14), color: '#62bfad' }}>
-                      {item.price}
-                    </Text>
+                      ) : (
+                        <View>
+                          <Text
+                            style={{ fontSize: pxToDp(16), color: '#000000' }}
+                          >
+                            {item.name}
+                          </Text>
+                        </View>
+                      )}
+                      <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
+                        {item.intro}
+                      </Text>
+                      <Text style={{ fontSize: pxToDp(14), color: '#62bfad' }}>
+                        {item.price}
+                      </Text>
+                    </View>
+                  </View>
+                  <View style={styles.shopcar}>
+                    <Svg width="20" height="20" svgXmlData={shopCar} />
                   </View>
                 </View>
-                <View style={styles.shopcar}>
-                  <Svg width="20" height="20" svgXmlData={shopCar} />
-                </View>
-              </View>))
-            }
-          </View>) : (<View>
-            {this.state.jingpin2.map((item, index) => (
-              <View style={styles.jing}>
-                <View style={{ flexDirection: 'row' }}>
-                  <Image
-                    style={styles.jingimage}
-                    source={item.img}
-                  />
-                  <View
-                    style={{
-                      alignSelf: 'center',
-                      marginLeft: pxToDp(8),
-                      width: pxToDp(190)
-                    }}
-                  >
-                    {item.id == 6 ? (
-                      <View style={{ flexDirection: 'row' }}>
-                        <View style={{ alignItems: 'center', justifyContent: 'center', marginRight: pxToDp(4), marginBottom: pxToDp(2) }}>
-                          <Svg width="20" height="20" svgXmlData={hot} />
+              ))}
+            </View>
+          ) : (
+            <View>
+              {this.state.jingpin2.map((item, index) => (
+                <View style={styles.jing}>
+                  <View style={{ flexDirection: 'row' }}>
+                    <Image style={styles.jingimage} source={item.img} />
+                    <View
+                      style={{
+                        alignSelf: 'center',
+                        marginLeft: pxToDp(8),
+                        width: pxToDp(190)
+                      }}
+                    >
+                      {item.id == 6 ? (
+                        <View style={{ flexDirection: 'row' }}>
+                          <View
+                            style={{
+                              alignItems: 'center',
+                              justifyContent: 'center',
+                              marginRight: pxToDp(4),
+                              marginBottom: pxToDp(2)
+                            }}
+                          >
+                            <Svg width="20" height="20" svgXmlData={hot} />
+                          </View>
+                          <Text
+                            style={{ fontSize: pxToDp(16), color: '#000000' }}
+                          >
+                            {item.name}
+                          </Text>
                         </View>
-                        <Text style={{ fontSize: pxToDp(16), color: '#000000' }}>
-                          {item.name}
-                        </Text>
-                      </View>
-                    ) : (
-                      <View>
-                        <Text style={{ fontSize: pxToDp(16), color: '#000000' }}>
-                          {item.name}
-                        </Text>
-                      </View>)}
-                    <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
-                      {item.intro}
-                    </Text>
-                    <Text style={{ fontSize: pxToDp(14), color: '#62bfad' }}>
-                      {item.price}
-                    </Text>
+                      ) : (
+                        <View>
+                          <Text
+                            style={{ fontSize: pxToDp(16), color: '#000000' }}
+                          >
+                            {item.name}
+                          </Text>
+                        </View>
+                      )}
+                      <Text style={{ fontSize: pxToDp(14), color: '#333333' }}>
+                        {item.intro}
+                      </Text>
+                      <Text style={{ fontSize: pxToDp(14), color: '#62bfad' }}>
+                        {item.price}
+                      </Text>
+                    </View>
+                  </View>
+                  <View style={styles.shopcar}>
+                    <Svg width="20" height="20" svgXmlData={shopCar} />
                   </View>
                 </View>
-                <View style={styles.shopcar}>
-                  <Svg width="20" height="20" svgXmlData={shopCar} />
-                </View>
-              </View>))}
-          </View>)
-          }
+              ))}
+            </View>
+          )}
 
           {/*活动板块 */}
           <TouchableNativeFeedback
             onPress={() => this.context.navigate('TBox')}
-            useForeground={true}>
-            <View style={{
-              marginLeft: pxToDp(16),
-              marginRight: pxToDp(16),
-              marginTop: pxToDp(8)
-            }}>
+            useForeground={true}
+          >
+            <View
+              style={{
+                marginLeft: pxToDp(16),
+                marginRight: pxToDp(16),
+                marginTop: pxToDp(8)
+              }}
+            >
               <Image
                 style={{
                   height: pxToDp(130),
@@ -429,8 +464,8 @@ class Index extends PureComponent {
           </View>
           <View style={styles.tcard}></View>
           <View style={{ height: pxToDp(4) }} />
-        </ScrollView >
-      </View >
+        </ScrollView>
+      </View>
     );
   }
 }

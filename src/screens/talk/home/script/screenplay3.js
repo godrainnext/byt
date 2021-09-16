@@ -6,9 +6,19 @@ class Index extends PureComponent {
   renderInner = () => (
     <Fragment>
       <View>
-        <Text style={{ fontSize: pxToDp(18), fontWeight: 'bold',color:'#000000' }}>
-          梁祝（十八相送）
+        <View style={{
+          height: pxToDp(30),
+          width: pxToDp(30),
+          borderRadius: pxToDp(15),
+          backgroundColor: '#D5E8E6',
+          marginBottom: pxToDp(-20),
+        }} ></View>
+        <Text
+          style={{ fontSize: pxToDp(18), fontWeight: 'bold', color: '#000000', marginLeft: pxToDp(10) }}
+        >
+          梁祝
         </Text>
+        <View style={{ width: pxToDp(40), height: pxToDp(1), backgroundColor: '#000000', marginLeft: pxToDp(10) }}></View>
       </View>
       <Text
         style={{
@@ -18,7 +28,7 @@ class Index extends PureComponent {
           marginBottom: pxToDp(10)
         }}
       >
-        范瑞娟演梁山伯傅全香演祝英台 （合唱）
+        范瑞娟演梁山伯 傅全香演祝英台 （合唱）
       </Text>
       <View>
         <Image
