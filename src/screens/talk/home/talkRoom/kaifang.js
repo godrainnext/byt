@@ -310,7 +310,7 @@ class App extends PureComponent {
       <View style={{ flex: 1 }}>{this._renderVideos(this.props.userInfo)}</View>
     ) : (
       <View style={styles.max}>
-        <Top icon1="arrow-back" title="开房间" />
+        <Top icon1="arrow-back" title="创房间------------------------------------------------------" />
         <View style={[styles.max, { padding: pxToDp(16) }]}>
           <View
             style={{

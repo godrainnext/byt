@@ -177,7 +177,7 @@ class Index extends PureComponent {
                       <View style={styles.textbox}>
                         <Svg svgXmlData={kaifangjian} width="22" height="22" />
                       </View>
-                      <Text style={styles.text}>开房间</Text>
+                      <Text style={styles.text}>创房间</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                       onPress={this.changeVisible}
