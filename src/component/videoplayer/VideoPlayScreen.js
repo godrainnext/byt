@@ -73,7 +73,9 @@ export default class VideoPlayScreen extends PureComponent {
   }
 
   render() {
-    const { videoinfo = { avatar: '', video: '' } } = this.props;
+    const {
+      videoinfo = { avatar: '', video: require('../../res/video.mp4') }
+    } = this.props;
     const { visible } = this.state;
     return (
       <View style={styles.container} onLayout={this._onLayout}>
@@ -86,7 +88,7 @@ export default class VideoPlayScreen extends PureComponent {
         >
           <Video
             ref={(ref) => (this.videoPlayer = ref)}
-            source={{ uri: videoinfo.video }}
+            source={require('../../res/video.mp4')}
             rate={1.0}
             volume={1.0}
             muted={false}

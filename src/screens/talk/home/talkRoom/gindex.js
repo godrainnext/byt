@@ -25,11 +25,13 @@ import AnimatedLoader from 'react-native-animated-loader';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import Mybtn from '../../../../component/common/mybtn';
+
 import { connect } from 'react-redux';
 const dimensions = {
   width: Dimensions.get('window').width,
   height: Dimensions.get('window').height
 };
+const video= require('../../../../res/video.mp4')
 const requestCameraAndAudioPermission = async () => {
   try {
     const granted = await PermissionsAndroid.requestMultiple([
@@ -73,13 +75,11 @@ class App extends PureComponent {
 
   constructor(props) {
     super(props);
-    console.log(this.props.route.params);
 
     this.state = {
       appId: '29792ec3eded410facd609fb7ad76fef',
       // token: '00629792ec3eded410facd609fb7ad76fefIAAbKUcPA8ZKD6c3OvRQ3dLsbHqp9OSHU+zfE7bUrcatNkgDg6MAAAAAEACcjToMxfsZYQEAAQDE+xlh',
       // channelName: 'ABC',
-      video: 'http://120.79.86.32:3000/video/7/file',
 
       channelName: '',
       joinSucceed: false, //默认进入直播
@@ -137,13 +137,13 @@ class App extends PureComponent {
           id: 2,
           img: require('../../../../res/sucai/3.jpg'),
           btn: '去看看',
-          pagename:'musicplay'
+          pagename: 'musicplay'
         },
         {
           id: 3,
           img: require('../../../../res/sucai/4.jpg'),
           btn: '去看看',
-          pagename:'DuoRen'
+          pagename: 'DuoRen'
         }
       ],
       autoPlay: false
@@ -484,7 +484,7 @@ class App extends PureComponent {
                 marginTop: pxToDp(-250)
               }}
             >
-              <VideoPlayScreen videoInfo={{ video: this.state.video }} />
+              <VideoPlayScreen videoInfo={{ video: video}} />
             </View>
           </View>
           <View
