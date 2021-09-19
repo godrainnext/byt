@@ -73,16 +73,6 @@ class Index extends PureComponent {
           ></Image>
         ),
         renderSelectedIcon: () => (
-          // <View
-          //   style={{
-          //     backgroundColor: 'white',
-          //     height: pxToDp(40),
-          //     width: pxToDp(40),
-          //     borderRadius: pxToDp(20),
-          //     alignItems: 'center',
-          //     justifyContent: 'center'
-          //   }}
-          // >
             <Image
               style={{ width: pxToDp(28), height: pxToDp(28) }}
               source={require('./res/戏缘.png')}

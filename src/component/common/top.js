@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
   },
   icon2: {
     width: pxToDp(80),
-    right: pxToDp(6),
+    right: pxToDp(-34),
     position:'absolute'
   },
   textview: {

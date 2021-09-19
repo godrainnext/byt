@@ -204,7 +204,7 @@ export default class hello extends PureComponent {
           >
             <View style={{ marginTop: pxToDp(10), marginLeft: pxToDp(16) }}>
               <Text style={styles.text1}>{item.name}</Text>
-              <Text style={styles.text2}>{item.cannalName}</Text>
+              <Text style={styles.text2}>房间号：{item.cannalName}</Text>
             </View>
             <TouchableOpacity onPress={() => this.chafang(item)}>
               <View
@@ -245,7 +245,7 @@ export default class hello extends PureComponent {
         >
           <View style={{ marginTop: pxToDp(10), marginLeft: pxToDp(16) }}>
             <Text style={styles.text1}>来者都是客~</Text>
-            <Text style={styles.text2}>进来一起交流流派唱法吧！</Text>
+            <Text style={styles.text2}>房间号：by9527</Text>
           </View>
           <View
             style={{

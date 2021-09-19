@@ -93,6 +93,7 @@ class App extends PureComponent {
     console.log(this.props.route.params);
 
     this.state = {
+      autoPlay:false,
       appId: '29792ec3eded410facd609fb7ad76fef',
       token:
         '00629792ec3eded410facd609fb7ad76fefIABpETFY+6FE43RijdulLOEgxp1roHUSSYalrUbZyLMofMu4JTQAAAAAIgAm/Chp5B0eYQQAAQB02hxhAgB02hxhAwB02hxhBAB02hxh',
@@ -498,7 +499,7 @@ class App extends PureComponent {
   };
 
   _renderRemoteVideos = (userInfo) => {
-    const { peerIds } = this.state;
+    const { peerIds,autoPlay} = this.state;
     return (
       <View
         style={styles.remoteContainer}

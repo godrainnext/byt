@@ -219,7 +219,7 @@ class Login extends PureComponent {
               style={{ marginLeft: pxToDp(16), marginRight: pxToDp(8) }}
             />
             <TextInput
-              style={{ width: pxToDp(200) }}
+              style={{ width: pxToDp(200),}}
               secureTextEntry={true}
               placeholder="请输入密码"
               onChangeText={(password) => this.setState({ password })}

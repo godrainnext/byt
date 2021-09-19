@@ -17,9 +17,9 @@ export default memo(() => {
       tabBarTextStyle={{ fontSize: pxToDp(18) }}
       tabBarBackgroundColor='#fff'
       initialPage={1} >
-      <Sing tabLabel='百曲' />
-      <Forum tabLabel="乐道" />
-      <Live tabLabel="如面" />
+      <Sing tabLabel='越唱' />
+      <Forum tabLabel="越坛" />
+      <Live tabLabel="越播" />
     </ScrollableTabView>
 
   );

@@ -177,11 +177,10 @@ class shopdetails extends PureComponent {
           showsVerticalScrollIndicator={false}
           onMomentumScrollBegin={() => {
             this.setState({ btnOpcity: true });
-            console.log(this.state.btnOpcity);
           }}
           onMomentumScrollEnd={() => {
             this.setState({ btnOpcity: false });
-            console.log(this.state.btnOpcity);
+
           }}
           // onScrollBeginDrag={() => {
           //   this.setState({ btnOpcity: true });
@@ -268,7 +267,7 @@ class shopdetails extends PureComponent {
                     marginBottom: pxToDp(16),
                     borderRadius: pxToDp(8)
                   }}
-                  source={{ uri: changeImgSize(item.img, 'small') }}
+                  source={{ uri: changeImgSize(item.img) }}
                 />
               </View>
             ))}
