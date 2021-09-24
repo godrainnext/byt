@@ -13,18 +13,11 @@ let data = [{
     "name": "李云龙",
     "userId": ""
 }, {
-    "content": "姐姐你几点下播啊",
+    "content": "几点下播啊",
     "fdName": "南京啊",
     "id": "392",
     "mrkMonth": "",
     "name": "大大怪将军",
-    "userId": ""
-}, {
-    "content": "这不借机规模最大的看姐姐直播去",
-    "fdName": "南京啊",
-    "id": "391",
-    "mrkMonth": "",
-    "name": "奥特曼打怪兽",
     "userId": ""
 }, {
     "content": "光明正大的！",
@@ -34,14 +27,14 @@ let data = [{
     "name": "野原新之助",
     "userId": ""
 }, {
-    "content": "第一次越剧，真不错",
+    "content": "真不错",
     "fdName": "南京啊",
     "id": "389",
     "mrkMonth": "",
     "name": "是章鱼哥",
     "userId": ""
 }, {
-    "content": "好听？",
+    "content": "好听",
     "fdName": "南京啊",
     "id": "388",
     "mrkMonth": "",

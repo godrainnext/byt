@@ -51,7 +51,7 @@ export default class HeaderHaveBack extends PureComponent {
               <Ionicons name="search" size={23} color="#999999" />
             </View>
             <TextInput
-              placeholder={'输入搜索值'}
+              placeholder={'输入搜索'}
               entryAnimation={'from-right-side'}
               headerHeight={pxToDp(44)}
               style={{ fontSize: pxToDp(16) }}

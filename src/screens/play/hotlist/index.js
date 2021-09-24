@@ -101,7 +101,7 @@ class Index extends PureComponent {
               source={require('../../../../lottie/826/lf20_rukjet2z.json')}
               autoPlay={true}
               loop={false}
-              speed={0.5}
+              speed={0.4}
             />
           </View>
         </ImageBackground>

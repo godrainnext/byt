@@ -217,7 +217,7 @@ class Index extends PureComponent {
                   height: 30,
                   color: 'white',
                   fontSize: pxToDp(14),
-                  marginTop: pxToDp(10)
+                  marginTop: pxToDp(5)
                 }}
                 container
                 buttonStyle={{

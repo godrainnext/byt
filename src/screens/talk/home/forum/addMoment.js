@@ -194,7 +194,9 @@ class index extends PureComponent {
           title: title,
           user: {
             ...this.props.userInfo
-          }
+          },tags:[{
+            name:'第一次看越剧'
+          }]
         });
         addTag(res.id, this.state.checkedArr).then((ress) => {
           this.handleEditingEnd();
